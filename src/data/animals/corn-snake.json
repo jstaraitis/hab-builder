@@ -1,0 +1,69 @@
+{
+  "id": "corn-snake",
+  "commonName": "Corn Snake",
+  "scientificName": "Pantherophis guttatus",
+  "careLevel": "beginner",
+  "minEnclosureSize": {
+    "width": 40,
+    "depth": 20,
+    "height": 20,
+    "units": "in"
+  },
+  "careTargets": {
+    "temperature": {
+      "min": 75,
+      "max": 82,
+      "basking": 88,
+      "unit": "F"
+    },
+    "humidity": {
+      "min": 40,
+      "max": 60,
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": false,
+      "uvbStrength": "optional",
+      "coveragePercent": 0,
+      "photoperiod": "12h day / 12h night"
+    },
+    "gradient": "Warm side 88°F, ambient 75–82°F, cool side 70–75°F"
+  },
+  "layoutRules": {
+    "preferVertical": false,
+    "verticalSpacePercent": 20,
+    "thermalGradient": "horizontal",
+    "requiredZones": ["basking", "hide", "climbing"]
+  },
+  "bioactiveCompatible": true,
+  "lifespan": "15-20 years in captivity",
+  "notes": [
+    "Most beginner-friendly snake; docile and rarely bite",
+    "Excellent feeders; readily eat frozen-thawed mice/rats",
+    "Numerous color morphs available (red, orange, yellow, etc.)",
+    "Very hardy and forgiving of minor care lapses",
+    "Escape artists - ensure secure, escape-proof enclosure"
+  ],
+  "warnings": [
+    {
+      "severity": "critical",
+      "message": "Secure enclosure is essential. Corn snakes are incredible escape artists and will exploit any gap. Check locks and seals regularly.",
+      "category": "safety"
+    },
+    {
+      "severity": "important",
+      "message": "Feed frozen-thawed prey only (never live). Live prey can injure or kill your snake. Thaw in warm water before feeding.",
+      "category": "safety"
+    },
+    {
+      "severity": "important",
+      "message": "Juvenile corn snakes need hides and climbing branches. As they grow (2-3 feet), provide larger hiding spots.",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "tip",
+      "message": "Corn snakes are the #1 recommended snake for beginners. Forgiving, hardy, and manageable size make them ideal first reptiles.",
+      "category": "beginner_note"
+    }
+  ]
+}

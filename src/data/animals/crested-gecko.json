@@ -1,0 +1,73 @@
+{
+  "id": "crested-gecko",
+  "commonName": "Crested Gecko",
+  "scientificName": "Correlophus ciliatus",
+  "careLevel": "beginner",
+  "minEnclosureSize": {
+    "width": 18,
+    "depth": 18,
+    "height": 24,
+    "units": "in"
+  },
+  "careTargets": {
+    "temperature": {
+      "min": 72,
+      "max": 78,
+      "unit": "F"
+    },
+    "humidity": {
+      "min": 60,
+      "max": 80,
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": false,
+      "coveragePercent": 50,
+      "photoperiod": "12h day / 12h night"
+    },
+    "gradient": "Vertical gradient preferred - warmer at top (76-78°F), cooler at bottom (72-74°F). Ambient room temperature often sufficient."
+  },
+  "layoutRules": {
+    "preferVertical": true,
+    "verticalSpacePercent": 70,
+    "thermalGradient": "vertical",
+    "requiredZones": ["hide", "climbing"],
+    "optionalZones": ["feeding", "secondary_hide", "water"]
+  },
+  "bioactiveCompatible": true,
+  "notes": [
+    "One of the easiest reptiles for beginners - very hardy",
+    "Nocturnal and crepuscular, most active at night",
+    "Can drop their tail when stressed (will not regenerate)",
+    "Feed commercial crested gecko diet (CGD) as staple, insects as supplement",
+    "Excellent jumpers - secure lid is essential",
+    "Can live 15-20 years with proper care"
+  ],
+  "warnings": [
+    {
+      "severity": "critical",
+      "message": "Temperature should NEVER exceed 82°F - overheating is fatal. Do not use basking bulbs unless room is very cold.",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "important",
+      "message": "Cork bark or bamboo is safer than rough branches - prevents toe injury from shed skin buildup",
+      "category": "beginner_note"
+    },
+    {
+      "severity": "tip",
+      "message": "Beginners: Paper towel substrate is fine for first 6 months while you learn to maintain humidity - bioactive can be added later",
+      "category": "beginner_note"
+    },
+    {
+      "severity": "important",
+      "message": "Mist in evening (not morning) to simulate natural rainfall pattern and provide drinking water on leaves",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "tip",
+      "message": "While UVB is not required, recent studies show it can improve calcium metabolism and activity levels - consider low-level UVB (2.0 or 5.0)",
+      "category": "beginner_note"
+    }
+  ]
+}

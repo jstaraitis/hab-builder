@@ -1,0 +1,69 @@
+{
+  "id": "leopard-gecko",
+  "commonName": "Leopard Gecko",
+  "scientificName": "Eublepharis macularius",
+  "careLevel": "beginner",
+  "minEnclosureSize": {
+    "width": 20,
+    "depth": 10,
+    "height": 10,
+    "units": "in"
+  },
+  "careTargets": {
+    "temperature": {
+      "min": 70,
+      "max": 80,
+      "basking": 88,
+      "unit": "F"
+    },
+    "humidity": {
+      "min": 30,
+      "max": 40,
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": false,
+      "uvbStrength": "optional 5.0",
+      "coveragePercent": 0,
+      "photoperiod": "12h day / 12h night"
+    },
+    "gradient": "Warm hide 88°F, ambient 75–80°F, cool hide 70–75°F"
+  },
+  "layoutRules": {
+    "preferVertical": false,
+    "verticalSpacePercent": 10,
+    "thermalGradient": "horizontal",
+    "requiredZones": ["basking", "warm hide", "cool hide"]
+  },
+  "bioactiveCompatible": true,
+  "lifespan": "10-20 years in captivity",
+  "notes": [
+    "Nocturnal; most active during evening/night hours",
+    "Docile and handleable; tolerate interaction well",
+    "Small size (8-10 inches) ideal for compact spaces",
+    "Live insects only - no pellets or prepared foods",
+    "Can shed their tails when stressed; tail will regenerate"
+  ],
+  "warnings": [
+    {
+      "severity": "critical",
+      "message": "Live insects ONLY - no frozen, no pellets. Dubia roaches, crickets, and BSFL. Dust with calcium/D3 3-4x per week.",
+      "category": "safety"
+    },
+    {
+      "severity": "important",
+      "message": "Impaction is the #1 killer of leopard geckos. Use tile, paper towels, or excavator clay - NEVER sand or loose substrates.",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "important",
+      "message": "Require both warm AND cool hides. Warm hide should have heat tape (88°F). Cool hide at room temperature.",
+      "category": "safety"
+    },
+    {
+      "severity": "tip",
+      "message": "Leopard geckos can live 15-20 years. This is a long-term commitment, but incredibly rewarding for patient keepers.",
+      "category": "beginner_note"
+    }
+  ]
+}

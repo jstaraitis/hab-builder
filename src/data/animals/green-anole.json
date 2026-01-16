@@ -1,0 +1,69 @@
+{
+  "id": "green-anole",
+  "commonName": "Green Anole",
+  "scientificName": "Anolis carolinensis",
+  "careLevel": "beginner",
+  "minEnclosureSize": {
+    "width": 20,
+    "depth": 10,
+    "height": 20,
+    "units": "in"
+  },
+  "careTargets": {
+    "temperature": {
+      "min": 75,
+      "max": 85,
+      "basking": 90,
+      "unit": "F"
+    },
+    "humidity": {
+      "min": 60,
+      "max": 80,
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": true,
+      "uvbStrength": "5.0",
+      "coveragePercent": 65,
+      "photoperiod": "12h day / 12h night"
+    },
+    "gradient": "Basking perch at 90°F, ambient 78–85°F, cool side 75°F"
+  },
+  "layoutRules": {
+    "preferVertical": true,
+    "verticalSpacePercent": 65,
+    "thermalGradient": "horizontal",
+    "requiredZones": ["basking", "hide", "climbing"]
+  },
+  "bioactiveCompatible": true,
+  "lifespan": "4-8 years in captivity",
+  "notes": [
+    "Arboreal; require vertical space with climbing branches and perches",
+    "Small (5-8 inches); can change color from green to brown based on mood/temperature",
+    "Males are territorial; keep solitary (never house together)",
+    "Fast-moving; exciting to watch but not ideal for frequent handling",
+    "Live insects only; mostly insectivores with minimal vegetable matter"
+  ],
+  "warnings": [
+    {
+      "severity": "critical",
+      "message": "Males are extremely territorial. House singly only. Never house two males together - they will fight to death.",
+      "category": "safety"
+    },
+    {
+      "severity": "important",
+      "message": "Live insects only (crickets, roaches, small flies). Dust with calcium 3-4x per week. No prepared foods.",
+      "category": "safety"
+    },
+    {
+      "severity": "important",
+      "message": "Anoles are fragile. They can drop their tails if grabbed roughly or handled excessively. Handle minimally.",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "tip",
+      "message": "Green anoles are stunning but short-lived (4-8 years). They're beginner-friendly but require high humidity and vertical space.",
+      "category": "beginner_note"
+    }
+  ]
+}

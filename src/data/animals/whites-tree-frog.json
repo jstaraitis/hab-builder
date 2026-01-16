@@ -1,0 +1,71 @@
+{
+  "id": "whites-tree-frog",
+  "commonName": "White's Tree Frog",
+  "scientificName": "Litoria caerulea",
+  "careLevel": "beginner",
+  "minEnclosureSize": {
+    "width": 18,
+    "depth": 18,
+    "height": 24,
+    "units": "in"
+  },
+  "careTargets": {
+    "temperature": {
+      "min": 70,
+      "max": 80,
+      "basking": 85,
+      "unit": "F"
+    },
+    "humidity": {
+      "min": 30,
+      "max": 60,
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": true,
+      "uvbStrength": "5.0",
+      "coveragePercent": 65,
+      "photoperiod": "12h day / 12h night"
+    },
+    "gradient": "Horizontal gradient with basking area at 85°F, ambient 75-80°F, and cool side at 70-72°F"
+  },
+  "layoutRules": {
+    "preferVertical": true,
+    "verticalSpacePercent": 55,
+    "thermalGradient": "horizontal",
+    "requiredZones": ["basking", "hide", "climbing", "water"],
+    "optionalZones": ["feeding", "secondary_hide"]
+  },
+  "bioactiveCompatible": true,
+  "lifespan": "12-16 years in captivity, up to 20+ years with excellent care",
+  "notes": [
+    "Known for their docile temperament and 'smiling' appearance",
+    "Nocturnal and crepuscular - active during dawn/dusk and throughout the night; rest in cool dark spots during day",
+    "Can become obese in captivity - monitor feeding carefully and provide dietary variety",
+    "Prefer horizontal perches over vertical climbing; rest on leaves and branches",
+    "Males vocalize loudly during breeding season (Nov-Feb in wild) - calls intensify after rain",
+    "More tolerant of handling than most tree frogs; gentle squeezing motions when stressed"
+  ],
+  "warnings": [
+    {
+      "severity": "critical",
+      "message": "Obesity is the #1 health issue - do not overfeed. Feed 2-3 appropriately-sized insects every 2-3 days, varying feeder insects (crickets, roaches, moths) for nutritional diversity. Dust with calcium 2-3x weekly",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "important",
+      "message": "Use dechlorinated water only - tap water chlorine/chloramine can cause skin irritation and respiratory issues. Fireflies are poisonous to frogs - never use as feeders",
+      "category": "safety"
+    },
+    {
+      "severity": "tip",
+      "message": "Beginners: This species is more forgiving of humidity fluctuations and handling than other tree frogs, making them ideal first reptile pets",
+      "category": "beginner_note"
+    },
+    {
+      "severity": "important",
+      "message": "Screen enclosures are not recommended - they lose humidity too quickly and frogs can damage their noses rubbing against screen. Use glass or PVC with proper ventilation instead",
+      "category": "common_mistake"
+    }
+  ]
+}
