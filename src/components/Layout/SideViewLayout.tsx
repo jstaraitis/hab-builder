@@ -22,7 +22,7 @@ export function SideViewLayout({ layers }: SideViewLayoutProps) {
     <div className="bg-gray-100 rounded-lg p-6 border-2 border-gray-300">
       <p className="text-gray-600 mb-4 font-semibold">Side-View Layout (Vertical Layers)</p>
       <div className="space-y-3">
-        {layers.map((layer, index) => (
+        {layers.map((layer) => (
           <div key={`layer-${layer.id}`} className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
             <div className="flex justify-between items-start">
               <div>

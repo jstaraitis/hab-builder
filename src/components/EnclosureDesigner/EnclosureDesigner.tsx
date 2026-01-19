@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { DndContext, DragEndEvent, useDraggable, useDroppable } from '@dnd-kit/core';
 import html2canvas from 'html2canvas';
+import { ModelViewer3D } from '../ModelViewer3D/ModelViewer3D';
 import type { ShoppingItem, EnclosureInput } from '../../engine/types';
 
 interface EquipmentItem {
@@ -31,25 +32,6 @@ function DraggableEquipment({ item, onDelete, onVariantChange, isSelected, onTog
     minHeight: `${item.height}px`,
     transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
   };
-
-  // Icon mapping for better visual representation
-  const iconMap = {
-    heat: '🔥',
-    uvb: '☀️',
-    water: '💧',
-    hide: '🏠',
-    decor: '🌿',
-    substrate: '🪨',
-  };
-
-  const bgColor = {
-    heat: 'bg-red-100 border-red-400',
-    uvb: 'bg-yellow-100 border-yellow-400',
-    water: 'bg-blue-100 border-blue-400',
-    hide: 'bg-gray-100 border-gray-400',
-    decor: 'bg-green-100 border-green-400',
-    substrate: 'bg-amber-100 border-amber-400',
-  }[item.type];
 
   const [showDelete, setShowDelete] = useState(false);
 
@@ -380,6 +362,7 @@ export function EnclosureDesigner({ enclosureInput, shoppingList }: EnclosureDes
   const [showGrid, setShowGrid] = useState(true);
   const [showSafeZones, setShowSafeZones] = useState(true);
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<'2d' | '3d'>('2d');
 
   const addCustomItem = () => {
     if (!newItemName.trim()) return;
@@ -565,39 +548,68 @@ export function EnclosureDesigner({ enclosureInput, shoppingList }: EnclosureDes
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Enclosure Canvas */}
           <div className="lg:col-span-2">
+            {/* View Mode Tabs */}
             <div className="mb-4 flex justify-between items-center">
-              <h4 className="font-semibold text-gray-800">
-                Front View ({enclosureInput.width}×{enclosureInput.height}")
-              </h4>
-              <div className="flex gap-2 flex-wrap">
+              <div className="flex gap-2 border-b border-gray-300">
                 <button
-                  onClick={() => setShowGrid(!showGrid)}
-                  className={`px-2 py-1 text-xs rounded transition-colors ${showGrid ? 'bg-gray-400 text-white' : 'bg-gray-200 text-gray-700'}`}
-                  title="Toggle grid"
+                  onClick={() => setViewMode('2d')}
+                  className={`px-4 py-2 font-medium text-sm transition-colors ${
+                    viewMode === '2d'
+                      ? 'border-b-2 border-blue-600 text-blue-600'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
                 >
-                  {showGrid ? '▦' : '▢'} Grid
+                  2D Designer
                 </button>
                 <button
-                  onClick={() => setShowSafeZones(!showSafeZones)}
-                  className={`px-2 py-1 text-xs rounded transition-colors ${showSafeZones ? 'bg-purple-400 text-white' : 'bg-gray-200 text-gray-700'}`}
-                  title="Toggle safe zones"
+                  onClick={() => setViewMode('3d')}
+                  className={`px-4 py-2 font-medium text-sm transition-colors ${
+                    viewMode === '3d'
+                      ? 'border-b-2 border-blue-600 text-blue-600'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
                 >
-                  🎯 Zones
-                </button>
-                <button
-                  onClick={resetLayout}
-                  className="px-2 py-1 text-xs bg-gray-200 hover:bg-gray-300 rounded transition-colors"
-                >
-                  Reset
-                </button>
-                <button
-                  onClick={handleExportImage}
-                  className="px-2 py-1 text-xs bg-green-600 hover:bg-green-700 text-white rounded transition-colors"
-                >
-                  📷 Export
+                  3D Model
                 </button>
               </div>
             </div>
+
+            {/* 2D Designer View */}
+            {viewMode === '2d' && (
+              <>
+                <div className="mb-4 flex justify-between items-center">
+                  <h4 className="font-semibold text-gray-800">
+                    Front View ({enclosureInput.width}×{enclosureInput.height}")
+                  </h4>
+                  <div className="flex gap-2 flex-wrap">
+                    <button
+                      onClick={() => setShowGrid(!showGrid)}
+                      className={`px-2 py-1 text-xs rounded transition-colors ${showGrid ? 'bg-gray-400 text-white' : 'bg-gray-200 text-gray-700'}`}
+                      title="Toggle grid"
+                    >
+                      {showGrid ? '▦' : '▢'} Grid
+                    </button>
+                    <button
+                      onClick={() => setShowSafeZones(!showSafeZones)}
+                      className={`px-2 py-1 text-xs rounded transition-colors ${showSafeZones ? 'bg-purple-400 text-white' : 'bg-gray-200 text-gray-700'}`}
+                      title="Toggle safe zones"
+                    >
+                      🎯 Zones
+                    </button>
+                    <button
+                      onClick={resetLayout}
+                      className="px-2 py-1 text-xs bg-gray-200 hover:bg-gray-300 rounded transition-colors"
+                    >
+                      Reset
+                    </button>
+                    <button
+                      onClick={handleExportImage}
+                      className="px-2 py-1 text-xs bg-green-600 hover:bg-green-700 text-white rounded transition-colors"
+                    >
+                      📷 Export
+                    </button>
+                  </div>
+                </div>
 
             <DroppableEnclosure enclosureRef={enclosureRef}>
               {/* Grid overlay - toggle with showGrid */}
@@ -712,6 +724,13 @@ export function EnclosureDesigner({ enclosureInput, shoppingList }: EnclosureDes
                 />
               ))}
             </DroppableEnclosure>
+            </>
+            )}
+
+            {/* 3D Model View */}
+            {viewMode === '3d' && (
+              <ModelViewer3D />
+            )}
           </div>
 
           {/* Warnings & Legend */}
