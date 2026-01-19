@@ -494,7 +494,7 @@ export function EnclosureDesigner({ enclosureInput, shoppingList }: EnclosureDes
     });
 
     // Substrate items: bottom (not visible in view, but tracked)
-    substrateItems.forEach((item, idx) => {
+    substrateItems.forEach((item) => {
       item.x = snapToGrid(enclosureWidth / 2);
       item.y = snapToGrid(enclosureHeight - 60);
       newItems.push(item);
@@ -1005,7 +1005,7 @@ export function EnclosureDesigner({ enclosureInput, shoppingList }: EnclosureDes
                   placeholder="Item name (e.g., 'Ficus Plant')"
                   value={newItemName}
                   onChange={(e) => setNewItemName(e.target.value)}
-                  onKeyPress={(e) => e.key === 'Enter' && addCustomItem()}
+                  onKeyDown={(e) => e.key === 'Enter' && addCustomItem()}
                   className="w-full px-2 py-1 text-sm border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
                 />
                 <select

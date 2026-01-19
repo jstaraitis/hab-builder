@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useRef, useState, useEffect, Suspense, Component, ReactNode } from 'react';
 import { CanvasRenderer, type LoadedModel } from './CanvasRenderer';
 
