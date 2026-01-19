@@ -1,0 +1,96 @@
+{
+  "common": [
+    {
+      "id": "clean",
+      "title": "Clean and Prepare Enclosure",
+      "description": "Thoroughly clean enclosure with reptile-safe disinfectant. Rinse well and let dry completely.",
+      "important": true
+    }
+  ],
+  "bioactive": [
+    {
+      "id": "drainage-layer",
+      "title": "Install Drainage Layer",
+      "description": "Add LECA or clay balls to create drainage layer. Level carefully.",
+      "important": false
+    },
+    {
+      "id": "drainage-barrier",
+      "title": "Add Drainage Barrier",
+      "description": "Cut mesh screen to size and place over drainage layer. Ensure complete coverage.",
+      "important": true
+    }
+  ],
+  "substrate": {
+    "bioactive": {
+      "id": "substrate",
+      "title": "Add Substrate",
+      "description": "Add bioactive substrate mix. Create slight slope from back to front for drainage. Lightly moisten.",
+      "important": false
+    },
+    "simple": {
+      "id": "substrate",
+      "title": "Add Substrate",
+      "description": "Add substrate layer. Ensure even depth across enclosure floor.",
+      "important": false
+    }
+  },
+  "shared": [
+    {
+      "id": "background",
+      "title": "Install Background (Optional)",
+      "description": "If using foam background or cork bark backing, install before adding branches.",
+      "important": false
+    },
+    {
+      "id": "hardscape",
+      "title": "Add Hardscape and Branches",
+      "description": "Install climbing branches at various angles. Ensure stability - test that branches don't shift.",
+      "important": true
+    },
+    {
+      "id": "plants",
+      "title": "Add Plants and Decor",
+      "description": "Place plants (live or artificial). Create visual barriers and hiding spots. Leave clear paths for animal movement.",
+      "important": false
+    }
+  ],
+  "bioactiveCleanupCrew": {
+    "id": "cleanup-crew",
+    "title": "Add Cleanup Crew",
+    "description": "Introduce springtails and isopods. Let them establish for 2-3 weeks before adding animal.",
+    "important": true
+  },
+  "final": [
+    {
+      "id": "lighting",
+      "title": "Install Lighting and Heating",
+      "description": "Mount UVB fixture and heat lamp on screen top. Position basking lamp over designated zone.",
+      "important": true
+    },
+    {
+      "id": "monitoring",
+      "title": "Add Monitoring Equipment",
+      "description": "Place thermometer probes in basking and cool zones. Position hygrometer at mid-height.",
+      "important": false
+    },
+    {
+      "id": "test",
+      "title": "Test and Adjust Parameters",
+      "description": "Run enclosure for 48-72 hours without animal. Monitor temps and humidity. Adjust lighting height, wattage, and misting schedule as needed.",
+      "important": true
+    },
+    {
+      "id": "final-check",
+      "title": "Final Check",
+      "description": "Verify all parameters are stable. Check for any sharp edges or gaps. Ensure all equipment is secure.",
+      "important": true
+    },
+    {
+      "id": "introduce",
+      "title": "Introduce Animal",
+      "description": "Place animal in enclosure during evening hours. Minimize handling. Do not feed for 24-48 hours to reduce stress.",
+      "important": true
+    }
+  ]
+}

@@ -12,6 +12,10 @@ import type {
 } from './types';
 import { generateHusbandryCareChecklist } from './husbandryCare';
 import { animalProfiles } from '../data/animals';
+import equipmentCatalog from '../data/equipment-catalog.json';
+import careGuidanceData from '../data/care-guidance.json';
+import buildStepsData from '../data/build-steps.json';
+import layoutNotesData from '../data/layout-notes.json';
 
 /**
  * Main rule engine - generates a complete build plan from user inputs
@@ -64,24 +68,14 @@ export function generatePlan(input: EnclosureInput): BuildPlan {
   };
 }
 
-function generateCareGuidance(_profile: any, _input: EnclosureInput) {
-  const feedingNotes = [
-    'Adults: 2–3 appropriately sized insects every 2–3 days; juveniles: smaller meals daily',
-    'Avoid waxworms as staples; use varied feeders (crickets, dubia, BSFL) to prevent obesity',
-    'Gut-load feeders and dust with calcium/D3 2–3× per week',
-  ];
+function generateCareGuidance(_profile: any, input: EnclosureInput) {
+  const guidance = careGuidanceData[input.animal as keyof typeof careGuidanceData] || careGuidanceData._default;
   
-  const waterNotes = [
-    'Use dechlorinated water only; change dish water 2–3× weekly',
-    'Shallow dish with easy exit; clean and disinfect regularly',
-  ];
-
-  const mistingNotes = [
-    'Light misting morning and evening; increase slightly during shed',
-    'Avoid waterlogging substrate; ensure ventilation to prevent stagnant air',
-  ];
-
-  return { feedingNotes, waterNotes, mistingNotes };
+  return {
+    feedingNotes: guidance.feedingNotes,
+    waterNotes: guidance.waterNotes,
+    mistingNotes: guidance.mistingNotes,
+  };
 }
 
 function generateLayout(
@@ -169,18 +163,15 @@ function generateLayout(
     );
   }
 
+  const notes = [
+    ...layoutNotesData.common,
+    ...(profile.layoutRules.preferVertical ? layoutNotesData.arboreal : layoutNotesData.terrestrial),
+  ];
+
   return {
     topDown: zones,
     sideView: layers,
-    notes: [
-      'Zones are approximate - adjust based on decor placement',
-      profile.layoutRules.preferVertical 
-        ? 'Maximize vertical climbing space with branches and plants'
-        : 'Focus on horizontal floor space with varied terrain',
-      'Ensure basking area has unobstructed path to UVB lighting',
-      'Provide multiple horizontal perches at mid/upper levels; White’s Tree Frogs prefer resting on horizontal branches',
-      'Use solid-sided (glass/PVC) enclosures with top ventilation to retain humidity; avoid full-screen walls',
-    ],
+    notes,
   };
 }
 
@@ -195,35 +186,29 @@ function generateShoppingList(
   // UVB Lighting (if required)
   if (profile.careTargets.lighting.uvbRequired) {
     const fixtureLength = Math.round(dims.width * (profile.careTargets.lighting.coveragePercent / 100));
+    const uvbConfig = equipmentCatalog['uvb-fixture'];
     items.push({
       id: 'uvb-fixture',
-      category: 'equipment',
-      name: `UVB ${profile.careTargets.lighting.uvbStrength} Linear Fixture`,
+      category: uvbConfig.category as any,
+      name: `UVB ${profile.careTargets.lighting.uvbStrength} ${uvbConfig.name}`,
       quantity: 1,
       sizing: `${fixtureLength}" fixture (${profile.careTargets.lighting.coveragePercent}% of ${Math.round(dims.width)}" width)`,
-      budgetTierOptions: {
-        low: 'Zoo Med ReptiSun',
-        mid: 'Arcadia D3 Forest',
-        premium: 'Arcadia ProT5',
-      },
+      budgetTierOptions: uvbConfig.budgetTiers as any,
     });
   }
 
   // Heat lamp (if basking temp specified)
   if (profile.careTargets.temperature.basking) {
     const wattage = Math.max(25, Math.min(100, Math.round((volume / 1728) * 40))); // rough estimate
+    const heatConfig = equipmentCatalog['heat-lamp'];
     items.push({
       id: 'heat-lamp',
-      category: 'equipment',
-      name: 'Heat Lamp & Bulb',
+      category: heatConfig.category as any,
+      name: heatConfig.name,
       quantity: `1 (${wattage}W estimate)`,
       sizing: `Based on ${Math.round(volume / 1728)} cubic feet volume. Adjust wattage based on ambient temp.`,
-      budgetTierOptions: {
-        low: 'Ceramic dome + incandescent bulb',
-        mid: 'Zoo Med Mini Deep Dome + halogen',
-        premium: 'Arcadia Halogen Flood + dimming thermostat',
-      },
-      notes: 'Use thermostat to prevent overheating',
+      budgetTierOptions: heatConfig.budgetTiers as any,
+      notes: heatConfig.notes,
     });
   }
 
@@ -231,22 +216,15 @@ function generateShoppingList(
   const substrateDepth = input.bioactive ? 4 : 2; // inches
   const substrateVolume = (dims.width * dims.depth * substrateDepth) / 1728; // cubic feet
   const quarts = Math.ceil(substrateVolume * 25.7); // ~25.7 quarts per cubic foot
+  const substrateConfig = equipmentCatalog[input.bioactive ? 'substrate-bioactive' : 'substrate-simple'];
   
   items.push({
     id: 'substrate',
-    category: 'substrate',
-    name: input.bioactive ? 'Bioactive Substrate Mix' : 'Substrate',
+    category: substrateConfig.category as any,
+    name: substrateConfig.name,
     quantity: `${quarts} quarts (${substrateDepth}" depth)`,
     sizing: `${Math.round(dims.width)}" × ${Math.round(dims.depth)}" floor at ${substrateDepth}" depth`,
-    budgetTierOptions: input.bioactive ? {
-      low: 'DIY coco coir + topsoil mix',
-      mid: 'Josh\'s Frogs ABG mix',
-      premium: 'Biodude Terra Firma',
-    } : {
-      low: 'Paper towel',
-      mid: 'Eco Earth coconut fiber',
-      premium: 'Sphagnum moss',
-    },
+    budgetTierOptions: substrateConfig.budgetTiers as any,
   });
 
   // Drainage layer (bioactive only)
@@ -254,187 +232,158 @@ function generateShoppingList(
     const drainageDepth = dims.height < 24 ? 1.5 : 2.5;
     const drainageVolume = (dims.width * dims.depth * drainageDepth) / 1728;
     const drainageQuarts = Math.ceil(drainageVolume * 25.7);
+    const drainageConfig = equipmentCatalog.drainage;
 
     items.push({
       id: 'drainage',
-      category: 'substrate',
-      name: 'Drainage Layer (LECA or clay balls)',
+      category: drainageConfig.category as any,
+      name: drainageConfig.name,
       quantity: `${drainageQuarts} quarts`,
       sizing: `${drainageDepth}" layer for ${Math.round(dims.height)}" tall enclosure`,
     });
 
+    const barrierConfig = equipmentCatalog['drainage-barrier'];
     items.push({
       id: 'barrier',
-      category: 'substrate',
-      name: 'Drainage Barrier (mesh screen)',
+      category: barrierConfig.category as any,
+      name: barrierConfig.name,
       quantity: '1 sheet',
       sizing: `Cut to ${Math.round(dims.width)}" × ${Math.round(dims.depth)}"`,
-      notes: 'Prevents substrate from mixing with drainage',
+      notes: barrierConfig.notes,
     });
   }
 
   // Cleanup crew (bioactive only)
   if (input.bioactive) {
+    const springtailsConfig = equipmentCatalog.springtails;
     items.push({
       id: 'springtails',
-      category: 'cleanup_crew',
-      name: 'Springtail Culture',
+      category: springtailsConfig.category as any,
+      name: springtailsConfig.name,
       quantity: '1 culture',
-      sizing: 'Standard for enclosures up to 36" × 18"',
+      sizing: springtailsConfig.sizing,
     });
 
+    const isopodsConfig = equipmentCatalog.isopods;
     items.push({
       id: 'isopods',
-      category: 'cleanup_crew',
-      name: 'Isopod Culture (Dwarf White or similar)',
+      category: isopodsConfig.category as any,
+      name: isopodsConfig.name,
       quantity: '1 culture (10-20 individuals)',
-      sizing: 'Tropical species suitable for high humidity',
+      sizing: isopodsConfig.sizing,
     });
   }
 
   // Decor items
+  const branchesConfig = equipmentCatalog.branches;
   items.push({
     id: 'branches',
-    category: 'decor',
-    name: 'Climbing Branches',
+    category: branchesConfig.category as any,
+    name: branchesConfig.name,
     quantity: profile.layoutRules.preferVertical ? '3-5 pieces' : '2-3 pieces',
     sizing: 'Various diameters, reaching from substrate to top third',
-    notes: 'Cork bark, manzanita, or bamboo recommended',
+    notes: branchesConfig.notes,
   });
 
+  const plantsConfig = equipmentCatalog.plants;
   items.push({
     id: 'plants',
-    category: profile.layoutRules.preferVertical ? 'live_plants' : 'decor',
-    name: 'Plants (live or artificial)',
+    category: (profile.layoutRules.preferVertical ? 'live_plants' : 'decor') as any,
+    name: plantsConfig.name,
     quantity: '3-5 plants',
     sizing: 'Mix of ground cover, mid-level, and upper canopy',
     notes: input.beginnerMode 
-      ? 'Beginners: artificial plants are easier to maintain' 
-      : 'Pothos, ferns, bromeliads are good starter species',
+      ? plantsConfig.notesBeginnerMode
+      : plantsConfig.notesAdvanced,
   });
 
   // Thermometer/hygrometer
+  const monitoringConfig = equipmentCatalog.monitoring;
   items.push({
     id: 'monitoring',
-    category: 'equipment',
-    name: 'Digital Thermometer & Hygrometer',
+    category: monitoringConfig.category as any,
+    name: monitoringConfig.name,
     quantity: 1,
-    sizing: 'Monitor both warm and cool zones',
-    budgetTierOptions: {
-      low: 'Basic digital combo unit',
-      mid: 'Zoo Med dual gauge',
-      premium: 'Govee WiFi monitor with app',
-    },
+    sizing: monitoringConfig.sizing,
+    budgetTierOptions: monitoringConfig.budgetTiers as any,
   });
 
   return items;
 }
 
 function generateBuildSteps(input: EnclosureInput): BuildStep[] {
-  const steps: BuildStep[] = [
-    {
-      id: 1,
-      title: 'Clean and Prepare Enclosure',
-      description: 'Thoroughly clean enclosure with reptile-safe disinfectant. Rinse well and let dry completely.',
-      order: 1,
-      important: true,
-    },
-  ];
+  const steps: BuildStep[] = [];
+  let stepCounter = 1;
 
-  if (input.bioactive) {
-    steps.push(
-      {
-        id: 2,
-        title: 'Install Drainage Layer',
-        description: 'Add LECA or clay balls to create drainage layer. Level carefully.',
-        order: 2,
-      },
-      {
-        id: 3,
-        title: 'Add Drainage Barrier',
-        description: 'Cut mesh screen to size and place over drainage layer. Ensure complete coverage.',
-        order: 3,
-        important: true,
-      }
-    );
-  }
-
-  steps.push(
-    {
-      id: input.bioactive ? 4 : 2,
-      title: 'Add Substrate',
-      description: input.bioactive 
-        ? 'Add bioactive substrate mix. Create slight slope from back to front for drainage. Lightly moisten.'
-        : 'Add substrate layer. Ensure even depth across enclosure floor.',
-      order: input.bioactive ? 4 : 2,
-    },
-    {
-      id: input.bioactive ? 5 : 3,
-      title: 'Install Background (Optional)',
-      description: 'If using foam background or cork bark backing, install before adding branches.',
-      order: input.bioactive ? 5 : 3,
-    },
-    {
-      id: input.bioactive ? 6 : 4,
-      title: 'Add Hardscape and Branches',
-      description: 'Install climbing branches at various angles. Ensure stability - test that branches don\'t shift.',
-      order: input.bioactive ? 6 : 4,
-      important: true,
-    },
-    {
-      id: input.bioactive ? 7 : 5,
-      title: 'Add Plants and Decor',
-      description: 'Place plants (live or artificial). Create visual barriers and hiding spots. Leave clear paths for animal movement.',
-      order: input.bioactive ? 7 : 5,
-    }
-  );
-
-  if (input.bioactive) {
+  // Common starting steps
+  buildStepsData.common.forEach((step) => {
     steps.push({
-      id: 8,
-      title: 'Add Cleanup Crew',
-      description: 'Introduce springtails and isopods. Let them establish for 2-3 weeks before adding animal.',
-      order: 8,
-      important: true,
+      id: stepCounter++,
+      title: step.title,
+      description: step.description,
+      order: steps.length + 1,
+      important: step.important,
+    });
+  });
+
+  // Bioactive-specific steps
+  if (input.bioactive) {
+    buildStepsData.bioactive.forEach((step) => {
+      steps.push({
+        id: stepCounter++,
+        title: step.title,
+        description: step.description,
+        order: steps.length + 1,
+        important: step.important,
+      });
     });
   }
 
-  steps.push(
-    {
-      id: input.bioactive ? 9 : 6,
-      title: 'Install Lighting and Heating',
-      description: 'Mount UVB fixture and heat lamp on screen top. Position basking lamp over designated zone.',
-      order: input.bioactive ? 9 : 6,
-      important: true,
-    },
-    {
-      id: input.bioactive ? 10 : 7,
-      title: 'Add Monitoring Equipment',
-      description: 'Place thermometer probes in basking and cool zones. Position hygrometer at mid-height.',
-      order: input.bioactive ? 10 : 7,
-    },
-    {
-      id: input.bioactive ? 11 : 8,
-      title: 'Test and Adjust Parameters',
-      description: 'Run enclosure for 48-72 hours without animal. Monitor temps and humidity. Adjust lighting height, wattage, and misting schedule as needed.',
-      order: input.bioactive ? 11 : 8,
-      important: true,
-    },
-    {
-      id: input.bioactive ? 12 : 9,
-      title: 'Final Check',
-      description: 'Verify all parameters are stable. Check for any sharp edges or gaps. Ensure all equipment is secure.',
-      order: input.bioactive ? 12 : 9,
-      important: true,
-    },
-    {
-      id: input.bioactive ? 13 : 10,
-      title: 'Introduce Animal',
-      description: 'Place animal in enclosure during evening hours. Minimize handling. Do not feed for 24-48 hours to reduce stress.',
-      order: input.bioactive ? 13 : 10,
-      important: true,
-    }
-  );
+  // Substrate step (bioactive or simple)
+  const substrateStep = input.bioactive 
+    ? buildStepsData.substrate.bioactive 
+    : buildStepsData.substrate.simple;
+  steps.push({
+    id: stepCounter++,
+    title: substrateStep.title,
+    description: substrateStep.description,
+    order: steps.length + 1,
+    important: substrateStep.important,
+  });
+
+  // Shared steps (background, hardscape, plants)
+  buildStepsData.shared.forEach((step) => {
+    steps.push({
+      id: stepCounter++,
+      title: step.title,
+      description: step.description,
+      order: steps.length + 1,
+      important: step.important,
+    });
+  });
+
+  // Cleanup crew (bioactive only)
+  if (input.bioactive) {
+    const cleanupStep = buildStepsData.bioactiveCleanupCrew;
+    steps.push({
+      id: stepCounter++,
+      title: cleanupStep.title,
+      description: cleanupStep.description,
+      order: steps.length + 1,
+      important: cleanupStep.important,
+    });
+  }
+
+  // Final steps (lighting, monitoring, testing, intro)
+  buildStepsData.final.forEach((step) => {
+    steps.push({
+      id: stepCounter++,
+      title: step.title,
+      description: step.description,
+      order: steps.length + 1,
+      important: step.important,
+    });
+  });
 
   return steps;
 }

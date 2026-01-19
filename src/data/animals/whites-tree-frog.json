@@ -11,23 +11,32 @@
   },
   "careTargets": {
     "temperature": {
-      "min": 70,
-      "max": 80,
-      "basking": 85,
+      "min": 75,
+      "max": 85,
+      "basking": 88,
+      "nighttime": {
+        "min": 65,
+        "max": 75
+      },
       "unit": "F"
     },
     "humidity": {
       "min": 30,
-      "max": 60,
+      "max": 50,
+      "shedding": {
+        "min": 70,
+        "max": 80
+      },
       "unit": "%"
     },
     "lighting": {
       "uvbRequired": true,
+      "uvbRecommended": true,
       "uvbStrength": "5.0",
       "coveragePercent": 65,
       "photoperiod": "12h day / 12h night"
     },
-    "gradient": "Horizontal gradient with basking area at 85°F, ambient 75-80°F, and cool side at 70-72°F"
+    "gradient": "Horizontal gradient with basking area at 88°F, ambient 75-85°F, and cool side at 75-78°F. Nighttime drop to 65-75°F"
   },
   "layoutRules": {
     "preferVertical": true,
@@ -49,7 +58,7 @@
   "warnings": [
     {
       "severity": "critical",
-      "message": "Obesity is the #1 health issue - do not overfeed. Feed 2-3 appropriately-sized insects every 2-3 days, varying feeder insects (crickets, roaches, moths) for nutritional diversity. Dust with calcium 2-3x weekly",
+      "message": "Obesity is the #1 health issue - do not overfeed. Juveniles: feed daily or every other day with 2-3 appropriately-sized insects. Adults: feed 2-3 insects every 2-3 days (2-3x weekly). Vary feeder insects (crickets, roaches, moths) for nutritional diversity. Dust with calcium+D3 2-3x weekly",
       "category": "common_mistake"
     },
     {

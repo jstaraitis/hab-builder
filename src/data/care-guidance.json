@@ -1,0 +1,32 @@
+{
+  "whites-tree-frog": {
+    "feedingNotes": [
+      "Adults: 2–3 appropriately sized insects every 2–3 days; juveniles: smaller meals daily",
+      "Avoid waxworms as staples; use varied feeders (crickets, dubia, BSFL) to prevent obesity",
+      "Gut-load feeders and dust with calcium/D3 2–3× per week"
+    ],
+    "waterNotes": [
+      "Use dechlorinated water only; change dish water 2–3× weekly",
+      "Shallow dish with easy exit; clean and disinfect regularly"
+    ],
+    "mistingNotes": [
+      "Light misting morning and evening; increase slightly during shed",
+      "Avoid waterlogging substrate; ensure ventilation to prevent stagnant air"
+    ]
+  },
+  "_default": {
+    "feedingNotes": [
+      "Feed appropriate-sized prey items based on species requirements",
+      "Vary feeder insects for nutritional diversity",
+      "Dust with calcium and vitamin supplements as recommended"
+    ],
+    "waterNotes": [
+      "Provide clean, dechlorinated water at all times",
+      "Change water regularly to prevent bacterial growth"
+    ],
+    "mistingNotes": [
+      "Mist as needed to maintain proper humidity levels",
+      "Ensure adequate ventilation to prevent mold growth"
+    ]
+  }
+}

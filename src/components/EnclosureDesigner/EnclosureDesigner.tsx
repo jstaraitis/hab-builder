@@ -1,7 +1,10 @@
 import { useState, useRef } from 'react';
 import { DndContext, DragEndEvent, useDraggable, useDroppable } from '@dnd-kit/core';
 import html2canvas from 'html2canvas';
-import { ModelViewer3D } from '../ModelViewer3D/ModelViewer3D';
+// import * as THREE from 'three';
+import { Flame, Sun, Droplets, Mountain, TreeDeciduous, Sprout, Leaf, Trees, Warehouse } from 'lucide-react';
+// import { ModelViewer3D } from '../ModelViewer3D/ModelViewer3D';
+// import { matchItemToModel } from '../ModelViewer3D/modelRegistry';
 import type { ShoppingItem, EnclosureInput } from '../../engine/types';
 
 interface EquipmentItem {
@@ -41,113 +44,82 @@ function DraggableEquipment({ item, onDelete, onVariantChange, isSelected, onTog
     onDelete(item.id);
   };
 
-  // Render shape based on item type
+  // Render shape based on item type using Lucide icons
   const renderShape = () => {
+    const iconSize = item.type === 'substrate' ? 48 : item.type === 'uvb' ? 36 : 42;
+    const iconColor = (() => {
+      switch (item.type) {
+        case 'heat': return '#ff6b35';
+        case 'uvb': return '#ffd700';
+        case 'water': return '#4fc3f7';
+        case 'hide': return '#8b7355';
+        case 'substrate': return '#a67c52';
+        case 'decor': return '#22c55e';
+        default: return '#666';
+      }
+    })();
+
     switch (item.type) {
       case 'heat':
-        // Bulb shape for heat lamp
         return (
-          <svg viewBox="0 0 40 50" className="w-full h-full">
-            <circle cx="20" cy="15" r="12" fill="#ff6b35" stroke="#ff4500" strokeWidth="2" />
-            <rect x="18" y="25" width="4" height="8" fill="#666" />
-            <rect x="15" y="32" width="10" height="2" fill="#666" />
-          </svg>
+          <div className="relative w-full h-full flex items-center justify-center">
+            {/* Glow effect for heat */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-orange-400/30 blur-xl animate-pulse"></div>
+            </div>
+            <Flame size={iconSize} color={iconColor} fill={iconColor} strokeWidth={2.5} className="relative z-10" />
+          </div>
         );
+      
       case 'uvb':
-        // Linear bar for UVB fixture
         return (
-          <svg viewBox="0 0 100 20" className="w-full h-full">
-            <rect x="2" y="5" width="96" height="10" rx="5" fill="#ffd700" stroke="#ffb300" strokeWidth="1" />
-            <circle cx="20" cy="10" r="3" fill="#fff" opacity="0.6" />
-            <circle cx="50" cy="10" r="3" fill="#fff" opacity="0.6" />
-            <circle cx="80" cy="10" r="3" fill="#fff" opacity="0.6" />
-          </svg>
+          <div className="relative w-full h-full flex items-center justify-center">
+            {/* Light glow */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-20 h-10 rounded-full bg-yellow-300/40 blur-lg"></div>
+            </div>
+            <Sun size={iconSize} color={iconColor} fill={iconColor} strokeWidth={2} className="relative z-10" />
+          </div>
         );
+      
       case 'water':
-        // Bowl/dish shape
         return (
-          <svg viewBox="0 0 60 40" className="w-full h-full">
-            <path d="M 10 20 Q 10 30 30 32 Q 50 30 50 20" fill="#87ceeb" stroke="#4a90e2" strokeWidth="2" />
-            <path d="M 10 20 Q 10 12 30 10 Q 50 12 50 20" fill="#b0e0e6" stroke="#4a90e2" strokeWidth="2" />
-          </svg>
+          <div className="relative w-full h-full flex items-center justify-center">
+            <Droplets size={iconSize} color={iconColor} fill={iconColor} strokeWidth={2.5} className="relative z-10" />
+          </div>
         );
+      
       case 'hide':
-        // Cave/box shape
         return (
-          <svg viewBox="0 0 60 40" className="w-full h-full">
-            <rect x="5" y="8" width="50" height="28" rx="4" fill="#8b7355" stroke="#654321" strokeWidth="2" />
-            <ellipse cx="20" cy="25" rx="8" ry="10" fill="#654321" />
-            <circle cx="15" cy="20" r="2" fill="#333" />
-          </svg>
+          <div className="relative w-full h-full flex items-center justify-center">
+            <Mountain size={iconSize} color={iconColor} fill={iconColor} strokeWidth={2} className="relative z-10" />
+          </div>
         );
+      
+      case 'substrate':
+        return (
+          <div className="relative w-full h-full flex items-center justify-center">
+            <Warehouse size={iconSize} color={iconColor} strokeWidth={2} className="relative z-10" />
+          </div>
+        );
+      
       case 'decor': {
-        // Plant/branch shape - variants based on plant type
         const plantVariant = item.variant || 'bush';
-        if (plantVariant === 'fern') {
-          return (
-            <svg viewBox="0 0 40 60" className="w-full h-full">
-              <line x1="20" y1="55" x2="20" y2="20" stroke="#654321" strokeWidth="1.5" />
-              <path d="M 15 45 Q 18 40 20 35 Q 22 40 25 45" fill="none" stroke="#22c55e" strokeWidth="2" />
-              <path d="M 14 50 Q 18 43 20 38 Q 22 43 26 50" fill="none" stroke="#16a34a" strokeWidth="2" />
-              <path d="M 13 55 Q 18 46 20 40 Q 22 46 27 55" fill="none" stroke="#22c55e" strokeWidth="2" />
-            </svg>
-          );
-        } else if (plantVariant === 'vine') {
-          return (
-            <svg viewBox="0 0 40 60" className="w-full h-full">
-              <path d="M 20 55 Q 15 45 20 35 Q 25 25 20 15" fill="none" stroke="#654321" strokeWidth="2" />
-              <circle cx="15" cy="40" r="3" fill="#22c55e" />
-              <circle cx="25" cy="30" r="3" fill="#22c55e" />
-              <circle cx="18" cy="20" r="3" fill="#16a34a" />
-              <circle cx="22" cy="50" r="3" fill="#22c55e" />
-            </svg>
-          );
-        } else if (plantVariant === 'tree') {
-          return (
-            <svg viewBox="0 0 40 60" className="w-full h-full">
-              <line x1="20" y1="55" x2="20" y2="28" stroke="#8b4513" strokeWidth="2" />
-              <circle cx="20" cy="15" r="10" fill="#16a34a" />
-              <circle cx="12" cy="20" r="7" fill="#22c55e" />
-              <circle cx="28" cy="20" r="7" fill="#22c55e" />
-            </svg>
-          );
-        } else if (plantVariant === 'grass') {
-          return (
-            <svg viewBox="0 0 40 40" className="w-full h-full">
-              <line x1="10" y1="35" x2="8" y2="15" stroke="#22c55e" strokeWidth="1.5" />
-              <line x1="20" y1="35" x2="20" y2="10" stroke="#16a34a" strokeWidth="2" />
-              <line x1="30" y1="35" x2="32" y2="15" stroke="#22c55e" strokeWidth="1.5" />
-              <line x1="15" y1="35" x2="12" y2="18" stroke="#22c55e" strokeWidth="1.5" />
-              <line x1="25" y1="35" x2="28" y2="18" stroke="#22c55e" strokeWidth="1.5" />
-            </svg>
-          );
-        } else {
-          // Default bush
-          return (
-            <svg viewBox="0 0 40 50" className="w-full h-full">
-              <line x1="20" y1="45" x2="20" y2="28" stroke="#654321" strokeWidth="2" />
-              <circle cx="20" cy="20" r="12" fill="#22c55e" />
-              <circle cx="12" cy="25" r="9" fill="#16a34a" />
-              <circle cx="28" cy="25" r="9" fill="#16a34a" />
-            </svg>
-          );
-        }
-      }
-      case 'substrate': {
-        // Wide ground layer
+        let Icon = TreeDeciduous;
+        
+        if (plantVariant === 'fern') Icon = Leaf;
+        else if (plantVariant === 'vine') Icon = Sprout;
+        else if (plantVariant === 'tree') Icon = Trees;
+        else if (plantVariant === 'grass') Icon = Sprout;
+        else Icon = TreeDeciduous; // bush
+        
         return (
-          <svg viewBox="0 0 100 30" className="w-full h-full">
-            <rect x="0" y="0" width="100" height="30" fill="#a67c52" stroke="#6b5344" strokeWidth="1" />
-            <circle cx="15" cy="8" r="2" fill="#8b6f47" opacity="0.5" />
-            <circle cx="35" cy="12" r="2.5" fill="#8b6f47" opacity="0.5" />
-            <circle cx="55" cy="9" r="2" fill="#8b6f47" opacity="0.5" />
-            <circle cx="75" cy="13" r="2.5" fill="#8b6f47" opacity="0.5" />
-            <circle cx="25" cy="20" r="1.5" fill="#7a5f3c" opacity="0.5" />
-            <circle cx="50" cy="22" r="2" fill="#7a5f3c" opacity="0.5" />
-            <circle cx="80" cy="20" r="1.5" fill="#7a5f3c" opacity="0.5" />
-          </svg>
+          <div className="relative w-full h-full flex items-center justify-center">
+            <Icon size={iconSize} color={iconColor} fill={iconColor} strokeWidth={2} className="relative z-10" />
+          </div>
         );
       }
+      
       default:
         return null;
     }
@@ -157,18 +129,23 @@ function DraggableEquipment({ item, onDelete, onVariantChange, isSelected, onTog
     <div
       ref={setNodeRef}
       style={style}
-      className={`absolute p-0 text-xs font-medium text-center flex items-center justify-center group hover:z-50 transition-all ${isSelected && item.type === 'decor' ? 'ring-2 ring-purple-500' : ''}`}
+      className={`absolute p-0 text-xs font-medium text-center flex items-center justify-center group hover:z-50 transition-all ${
+        isSelected 
+          ? 'ring-4 ring-green-500 shadow-xl shadow-green-400/70 scale-105' 
+          : 'ring-2 ring-white/60 shadow-lg'
+      }`}
       data-equipment-id={item.id}
       onMouseEnter={() => setShowDelete(true)}
       onMouseLeave={() => setShowDelete(false)}
-      title={item.type === 'decor' ? 'Click to change plant style' : ''}
+      title={item.type === 'decor' ? 'Click to change plant style' : 'Click to select'}
     >
-      {/* Item shadow for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 rounded pointer-events-none"></div>
+      {/* Enhanced shadow for depth - multiple layers */}
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/30 rounded pointer-events-none"></div>
+      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4/5 h-2 bg-black/20 blur-sm rounded-full pointer-events-none"></div>
       <div
         {...listeners}
         {...attributes}
-        className="cursor-move w-full h-full flex items-center justify-center relative"
+        className="cursor-move w-full h-full flex items-center justify-center relative bg-gradient-to-br from-white/10 to-transparent rounded"
       >
         {renderShape()}
       </div>
@@ -218,8 +195,8 @@ function DraggableEquipment({ item, onDelete, onVariantChange, isSelected, onTog
       {showDelete && (
         <button
           onMouseDown={handleDelete}
-          className="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold transition-colors flex-shrink-0 z-50"
-          title="Delete item"
+          className="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold transition-all flex-shrink-0 z-50 shadow-md hover:shadow-lg hover:scale-110"
+          title="Delete item (Click to remove)"
           type="button"
         >
           ×
@@ -242,15 +219,37 @@ function DroppableEnclosure({ children, enclosureRef }: { readonly children: Rea
           (enclosureRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
         }
       }}
-      className="relative border-8 border-gray-900 bg-gradient-to-br from-amber-50 to-green-50 rounded-lg overflow-hidden shadow-2xl"
+      className="relative border-[12px] border-gray-800 rounded-lg overflow-hidden shadow-2xl"
       style={{ 
         width: '100%', 
         paddingBottom: '75%',
-        boxShadow: 'inset -2px -2px 8px rgba(0,0,0,0.3), inset 2px 2px 8px rgba(255,255,255,0.5), 0 10px 30px rgba(0,0,0,0.3)'
+        background: 'linear-gradient(135deg, #2c1810 0%, #3d2817 50%, #2c1810 100%)',
+        boxShadow: 'inset 0 0 60px rgba(0,0,0,0.5), inset -4px -4px 12px rgba(0,0,0,0.4), inset 4px 4px 12px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.4)'
       }}
     >
-      {/* Glass shine/reflection effect */}
-      <div className="absolute top-0 left-0 right-0 h-1/4 bg-gradient-to-b from-white/40 to-transparent pointer-events-none rounded-t-md"></div>
+      {/* Background wall with texture */}
+      <div 
+        className="absolute inset-0 pointer-events-none" 
+        style={{
+          background: 'linear-gradient(180deg, #3a2f28 0%, #4a3f35 50%, #3a2f28 100%)',
+          backgroundImage: `
+            repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(0,0,0,0.03) 40px, rgba(0,0,0,0.03) 80px),
+            repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(0,0,0,0.03) 40px, rgba(0,0,0,0.03) 80px)
+          `
+        }}
+      ></div>
+
+      {/* Corner shadows for depth */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.3) 100%)'
+      }}></div>
+      
+      {/* Glass reflection effect - multiple layers */}
+      <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-white/30 via-white/10 to-transparent pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-1/4 h-full bg-gradient-to-l from-white/15 to-transparent pointer-events-none"></div>
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.08) 40%, transparent 50%, rgba(255,255,255,0.05) 80%, transparent 100%)'
+      }}></div>
       
       {children}
     </div>
@@ -362,7 +361,148 @@ export function EnclosureDesigner({ enclosureInput, shoppingList }: EnclosureDes
   const [showGrid, setShowGrid] = useState(true);
   const [showSafeZones, setShowSafeZones] = useState(true);
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
-  const [viewMode, setViewMode] = useState<'2d' | '3d'>('2d');
+  const [snapToGridEnabled, setSnapToGridEnabled] = useState(true);
+  // const [viewMode, setViewMode] = useState<'2d' | '3d'>('2d');
+  // const [isViewerReady, setIsViewerReady] = useState(false);
+  // const addModelFnRef = useRef<((url: string, name?: string, proceduralGenerator?: () => THREE.Object3D) => void) | null>(null);
+
+  // const handleAddModelReady = (addModelFn: (url: string, name?: string, proceduralGenerator?: () => THREE.Object3D) => void) => {
+  //   addModelFnRef.current = addModelFn;
+  //   setIsViewerReady(true);
+  // };
+
+  // const loadShoppingListIn3D = () => {
+  //   if (!isViewerReady || !addModelFnRef.current) {
+  //     alert('3D viewer is initializing... Please wait a moment and try again.');
+  //     return;
+  //   }
+
+  //   let loadedCount = 0;
+  //   
+  //   shoppingList.forEach((item) => {
+  //     const modelDef = matchItemToModel(item.name);
+  //     
+  //     if (modelDef) {
+  //       if (modelDef.type === 'glb' && modelDef.url) {
+  //         addModelFnRef.current!(modelDef.url, item.name, undefined);
+  //         loadedCount++;
+  //       } else if (modelDef.type === 'procedural' && modelDef.generator) {
+  //         addModelFnRef.current!('', item.name, modelDef.generator);
+  //         loadedCount++;
+  //       }
+  //     }
+  //   });
+
+  //   if (loadedCount === 0) {
+  //     alert('No 3D models found for shopping list items. We\'re working on adding more models!');
+  //   } else {
+  //     setViewMode('3d');
+  //   }
+  // };
+
+  const loadShoppingListIn2D = () => {
+    const enclosureWidth = 800;
+    const enclosureHeight = 600;
+    const newItems: EquipmentItem[] = [];
+    
+    // Clear existing equipment first
+    setEquipment([]);
+    
+    // Categorize items
+    const heatItems: EquipmentItem[] = [];
+    const uvbItems: EquipmentItem[] = [];
+    const waterItems: EquipmentItem[] = [];
+    const hideItems: EquipmentItem[] = [];
+    const decorItems: EquipmentItem[] = [];
+    const substrateItems: EquipmentItem[] = [];
+
+    shoppingList.forEach((item, idx) => {
+      let type: EquipmentItem['type'] = 'decor';
+      
+      if (item.name.toLowerCase().includes('heat') || item.name.toLowerCase().includes('lamp') || item.name.toLowerCase().includes('basking')) {
+        type = 'heat';
+      } else if (item.name.toLowerCase().includes('uvb') || item.name.toLowerCase().includes('light') || item.name.toLowerCase().includes('fixture')) {
+        type = 'uvb';
+      } else if (item.name.toLowerCase().includes('water') || item.name.toLowerCase().includes('dish') || item.name.toLowerCase().includes('bowl')) {
+        type = 'water';
+      } else if (item.name.toLowerCase().includes('hide') || item.name.toLowerCase().includes('cave') || item.name.toLowerCase().includes('shelter')) {
+        type = 'hide';
+      } else if (item.name.toLowerCase().includes('substrate') || item.name.toLowerCase().includes('soil') || item.name.toLowerCase().includes('bedding')) {
+        type = 'substrate';
+      }
+
+      const equipItem: EquipmentItem = {
+        id: `equipment-${Date.now()}-${idx}`,
+        name: item.name.length > 20 ? item.name.substring(0, 20) + '...' : item.name,
+        type,
+        x: 0,
+        y: 0,
+        width: type === 'uvb' ? 140 : type === 'substrate' ? 180 : type === 'water' ? 85 : 100,
+        height: type === 'substrate' ? 70 : type === 'uvb' ? 35 : 55,
+      };
+
+      // Categorize
+      if (type === 'heat') heatItems.push(equipItem);
+      else if (type === 'uvb') uvbItems.push(equipItem);
+      else if (type === 'water') waterItems.push(equipItem);
+      else if (type === 'hide') hideItems.push(equipItem);
+      else if (type === 'substrate') substrateItems.push(equipItem);
+      else decorItems.push(equipItem);
+    });
+
+    // Smart placement - FRONT VIEW (top to bottom, left to right)
+    // UVB items: top-center (near ceiling for light coverage)
+    uvbItems.forEach((item, idx) => {
+      item.x = snapToGrid(enclosureWidth / 2 - item.width / 2);
+      item.y = snapToGrid(20 + idx * 70);
+      newItems.push(item);
+    });
+
+    // Heat items: top-left (warm side, elevated)
+    heatItems.forEach((item, idx) => {
+      item.x = snapToGrid(40 + (idx % 2) * 100);
+      item.y = snapToGrid(80 + Math.floor(idx / 2) * 80);
+      newItems.push(item);
+    });
+
+    // Hides: mid-level on both sides
+    hideItems.forEach((item, idx) => {
+      if (idx % 2 === 0) {
+        // Left side hide (warm)
+        item.x = snapToGrid(40);
+        item.y = snapToGrid(enclosureHeight / 2 - 50 + Math.floor(idx / 2) * 80);
+      } else {
+        // Right side hide (cool)
+        item.x = snapToGrid(enclosureWidth - 140);
+        item.y = snapToGrid(enclosureHeight / 2 - 50 + Math.floor(idx / 2) * 80);
+      }
+      newItems.push(item);
+    });
+
+    // Decor: scattered throughout middle areas
+    decorItems.forEach((item, idx) => {
+      item.x = snapToGrid(enclosureWidth / 2 - 50 + (idx % 3 - 1) * 120);
+      item.y = snapToGrid(200 + Math.floor(idx / 3) * 100);
+      newItems.push(item);
+    });
+
+    // Water items: bottom-right (cool side, on ground)
+    waterItems.forEach((item, idx) => {
+      item.x = snapToGrid(enclosureWidth - 140 - (idx % 2) * 120);
+      item.y = snapToGrid(enclosureHeight - 140 - Math.floor(idx / 2) * 80);
+      newItems.push(item);
+    });
+
+    // Substrate items: bottom (not visible in view, but tracked)
+    substrateItems.forEach((item, idx) => {
+      item.x = snapToGrid(enclosureWidth / 2);
+      item.y = snapToGrid(enclosureHeight - 60);
+      newItems.push(item);
+    });
+
+    setEquipment(newItems);
+    setTimeout(() => checkWarnings(), 100);
+  };
 
   const addCustomItem = () => {
     if (!newItemName.trim()) return;
@@ -407,9 +547,14 @@ export function EnclosureDesigner({ enclosureInput, shoppingList }: EnclosureDes
     setEquipment((items) =>
       items.map((item) => {
         if (item.id === active.id) {
-          // Apply delta and snap to grid
-          const newX = snapToGrid(Math.max(0, item.x + delta.x));
-          const newY = snapToGrid(Math.max(0, item.y + delta.y));
+          // Apply delta and snap to grid if enabled
+          let newX = Math.max(0, item.x + delta.x);
+          let newY = Math.max(0, item.y + delta.y);
+          
+          if (snapToGridEnabled) {
+            newX = snapToGrid(newX);
+            newY = snapToGrid(newY);
+          }
           
           return {
             ...item,
@@ -545,11 +690,11 @@ export function EnclosureDesigner({ enclosureInput, shoppingList }: EnclosureDes
       </div>
 
       <DndContext onDragEnd={handleDragEnd}>
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-4 gap-6">
           {/* Enclosure Canvas */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-3">
             {/* View Mode Tabs */}
-            <div className="mb-4 flex justify-between items-center">
+            {/* <div className="mb-4 flex justify-between items-center">
               <div className="flex gap-2 border-b border-gray-300">
                 <button
                   onClick={() => setViewMode('2d')}
@@ -571,28 +716,64 @@ export function EnclosureDesigner({ enclosureInput, shoppingList }: EnclosureDes
                 >
                   3D Model
                 </button>
+                <button
+                  onClick={loadShoppingListIn3D}
+                  disabled={viewMode !== '3d' || !isViewerReady}
+                  className={`ml-4 px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all shadow-md ${
+                    viewMode === '3d' && isViewerReady
+                      ? 'bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:from-purple-600 hover:to-indigo-700 hover:shadow-lg cursor-pointer'
+                      : 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                  }`}
+                  title={!isViewerReady ? 'Loading 3D viewer...' : 'Load shopping list items as 3D models'}
+                >
+                  <span>{isViewerReady ? '📦' : '⏳'}</span>
+                  {isViewerReady ? 'Load Shopping List in 3D' : 'Loading 3D Viewer...'}
+                </button>
               </div>
-            </div>
+            </div> */}
 
             {/* 2D Designer View */}
-            {viewMode === '2d' && (
-              <>
+            {/* {viewMode === '2d' && ( */}
+            {/* <> */}
                 <div className="mb-4 flex justify-between items-center">
-                  <h4 className="font-semibold text-gray-800">
-                    Front View ({enclosureInput.width}×{enclosureInput.height}")
-                  </h4>
+                  <div>
+                    <h4 className="font-semibold text-gray-800">
+                      Front Elevation View ({enclosureInput.width}" wide × {enclosureInput.height}" tall)
+                    </h4>
+                    <div className="text-xs text-gray-600 mt-1">
+                      🔥 {equipment.filter(e => e.type === 'heat').length} Heat • 
+                      ☀️ {equipment.filter(e => e.type === 'uvb').length} Light • 
+                      💧 {equipment.filter(e => e.type === 'water').length} Water • 
+                      🏠 {equipment.filter(e => e.type === 'hide').length} Hide • 
+                      🌿 {equipment.filter(e => e.type === 'decor').length} Decor
+                    </div>
+                  </div>
                   <div className="flex gap-2 flex-wrap">
+                    <button
+                      onClick={loadShoppingListIn2D}
+                      className="px-3 py-1 text-xs bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white rounded shadow-md transition-all font-medium"
+                      title="Load all shopping list items into designer"
+                    >
+                      📋 Load Shopping List
+                    </button>
                     <button
                       onClick={() => setShowGrid(!showGrid)}
                       className={`px-2 py-1 text-xs rounded transition-colors ${showGrid ? 'bg-gray-400 text-white' : 'bg-gray-200 text-gray-700'}`}
-                      title="Toggle grid"
+                      title="Toggle grid overlay"
                     >
                       {showGrid ? '▦' : '▢'} Grid
                     </button>
                     <button
+                      onClick={() => setSnapToGridEnabled(!snapToGridEnabled)}
+                      className={`px-2 py-1 text-xs rounded transition-colors ${snapToGridEnabled ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'}`}
+                      title="Toggle snap-to-grid positioning"
+                    >
+                      🧲 Snap
+                    </button>
+                    <button
                       onClick={() => setShowSafeZones(!showSafeZones)}
                       className={`px-2 py-1 text-xs rounded transition-colors ${showSafeZones ? 'bg-purple-400 text-white' : 'bg-gray-200 text-gray-700'}`}
-                      title="Toggle safe zones"
+                      title="Toggle thermal and safety zones"
                     >
                       🎯 Zones
                     </button>
@@ -635,11 +816,12 @@ export function EnclosureDesigner({ enclosureInput, shoppingList }: EnclosureDes
                     style={{
                       left: `${heat.x + heat.width / 2}px`,
                       top: `${heat.y}px`,
-                      width: '200px',
-                      height: '200px',
-                      background: 'radial-gradient(circle, rgba(255,100,50,0.4) 0%, rgba(255,100,50,0.2) 50%, transparent 70%)',
+                      width: '280px',
+                      height: '280px',
+                      background: 'radial-gradient(circle, rgba(255,140,60,0.6) 0%, rgba(255,100,50,0.35) 30%, rgba(255,80,40,0.15) 60%, transparent 80%)',
                       transform: 'translate(-50%, -50%)',
-                      filter: 'blur(30px)',
+                      filter: 'blur(40px)',
+                      mixBlendMode: 'screen',
                     }}
                   ></div>
                 ))}
@@ -654,61 +836,83 @@ export function EnclosureDesigner({ enclosureInput, shoppingList }: EnclosureDes
                     style={{
                       left: `${uvb.x + uvb.width / 2}px`,
                       top: `${uvb.y + uvb.height}px`,
-                      width: `${uvb.width * 1.5}px`,
-                      height: '250px',
-                      background: 'linear-gradient(180deg, rgba(255,250,100,0.3) 0%, rgba(255,250,100,0.1) 60%, transparent 100%)',
+                      width: `${uvb.width * 1.8}px`,
+                      height: '300px',
+                      background: 'linear-gradient(180deg, rgba(255,250,220,0.4) 0%, rgba(255,250,200,0.25) 30%, rgba(255,250,180,0.1) 65%, transparent 100%)',
                       transform: 'translateX(-50%)',
                       pointerEvents: 'none',
+                      filter: 'blur(25px)',
+                      mixBlendMode: 'screen',
                     }}
                   ></div>
                 ))}
               {showSafeZones && (
                 <div className="absolute inset-0 pointer-events-none">
-                  {/* Basking zone - top left (warm side, near UVB) */}
-                  <div className="absolute left-0 top-0 w-1/2 h-1/3 border-2 border-dashed border-red-400 opacity-30"></div>
-                  <div className="absolute left-2 top-2 text-xs font-semibold text-red-600 bg-white/70 px-2 py-1 rounded">
-                    🔆 Basking Zone
+                  {/* Basking zone - top left (warm side, high up for UVB) */}
+                  <div className="absolute left-0 top-0 w-1/2 h-1/3 border-3 border-dashed border-red-500 opacity-40 rounded-tl-lg"></div>
+                  <div className="absolute left-3 top-3 text-xs font-bold text-red-700 bg-red-100/90 px-2 py-1 rounded shadow">
+                    🔆 Basking (Top-Left)
                   </div>
                   
                   {/* Climbing/Activity zone - center */}
-                  <div className="absolute left-1/4 top-1/4 w-1/2 h-1/2 border-2 border-dashed border-green-400 opacity-20"></div>
+                  <div className="absolute left-1/4 top-1/4 w-1/2 h-1/2 border-2 border-dashed border-green-400 opacity-25 rounded-lg"></div>
                   
-                  {/* Cooling zone - bottom right */}
-                  <div className="absolute right-0 bottom-0 w-1/2 h-1/3 border-2 border-dashed border-blue-400 opacity-30"></div>
-                  <div className="absolute right-2 bottom-2 text-xs font-semibold text-blue-600 bg-white/70 px-2 py-1 rounded">
-                    ❄️ Cool Zone
+                  {/* Cooling zone - bottom right (ground level, cool side) */}
+                  <div className="absolute right-0 bottom-0 w-1/2 h-1/3 border-3 border-dashed border-blue-500 opacity-40 rounded-br-lg"></div>
+                  <div className="absolute right-3 bottom-3 text-xs font-bold text-blue-700 bg-blue-100/90 px-2 py-1 rounded shadow">
+                    ❄️ Cool Zone (Bottom-Right)
                   </div>
                 </div>
               )}
 
-              {/* Temperature gradient zones */}
+              {/* Temperature gradient zones with more realistic overlay */}
               <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute left-0 top-0 bottom-0 w-1/2 bg-gradient-to-r from-red-400/20 to-red-400/5"></div>
-                <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-gradient-to-l from-blue-400/20 to-blue-400/5"></div>
+                <div className="absolute left-0 top-0 bottom-0 w-1/2 bg-gradient-to-r from-orange-400/15 to-orange-400/5"></div>
+                <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-gradient-to-l from-cyan-400/15 to-cyan-400/5"></div>
               </div>
               
-              {/* Floor line - represents the ground surface with texture */}
+              {/* Realistic substrate base layer */}
               <div 
-                className="absolute bottom-0 left-0 right-0 h-16 border-t-4 border-b-2 border-amber-900/60 bg-gradient-to-b from-amber-700/40 to-amber-900/50 pointer-events-none"
+                className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
                 style={{
-                  backgroundImage: `
-                    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(120,80,40,0.3) 2px, rgba(120,80,40,0.3) 4px),
-                    repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(120,80,40,0.2) 3px, rgba(120,80,40,0.2) 6px)
-                  `
+                  background: 'linear-gradient(180deg, transparent 0%, rgba(90,60,30,0.3) 20%, rgba(80,55,30,0.6) 50%, #5a3a1e 100%)',
+                  borderTop: '3px solid rgba(70,45,20,0.8)',
+                  boxShadow: 'inset 0 10px 20px rgba(0,0,0,0.4), inset 0 -5px 10px rgba(0,0,0,0.3)'
                 }}
               >
-                <div className="absolute bottom-2 left-2 text-xs font-bold text-amber-900/70">🪨 Substrate</div>
+                {/* Substrate texture overlay */}
+                <div 
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: `
+                      radial-gradient(circle at 20% 30%, rgba(100,70,40,0.4) 1px, transparent 1px),
+                      radial-gradient(circle at 60% 70%, rgba(90,60,35,0.3) 1.5px, transparent 1.5px),
+                      radial-gradient(circle at 85% 15%, rgba(110,75,45,0.35) 1px, transparent 1px),
+                      radial-gradient(circle at 35% 85%, rgba(95,65,40,0.3) 1.2px, transparent 1.2px),
+                      repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(60,40,20,0.15) 2px, rgba(60,40,20,0.15) 3px)
+                    `,
+                    backgroundSize: '40px 40px, 60px 60px, 50px 50px, 45px 45px, 8px 8px',
+                    backgroundPosition: '0 0, 20px 20px, 10px 30px, 35px 5px, 0 0'
+                  }}
+                ></div>
+                
+                {/* Substrate depth shadows */}
+                <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-black/40 to-transparent"></div>
+                
+                <div className="absolute bottom-2 left-2 text-xs font-bold text-amber-100 bg-amber-900/80 px-2 py-1 rounded shadow-lg backdrop-blur-sm">
+                  🪨 Substrate Layer
+                </div>
               </div>
               
               {/* Height indicator - shows vertical scale */}
-              <div className="absolute left-2 top-1/2 -translate-y-1/2 text-xs font-semibold text-gray-700 bg-white/90 px-2 py-1 rounded shadow-sm">
-                Height
+              <div className="absolute left-2 top-2 text-xs font-semibold text-gray-700 bg-white/90 px-2 py-1 rounded shadow-sm">
+                ⬆️ Top of Enclosure
               </div>
               
-              <div className="absolute top-2 left-2 text-xs font-semibold text-red-700 bg-white/90 px-2 py-1 rounded shadow-sm">
+              <div className="absolute top-2 left-2 text-xs font-semibold text-red-700 bg-white/90 px-2 py-1 rounded shadow-sm" style={{ marginTop: '30px' }}>
                 🔥 Warm Side
               </div>
-              <div className="absolute top-2 right-2 text-xs font-semibold text-blue-700 bg-white/90 px-2 py-1 rounded shadow-sm">
+              <div className="absolute top-2 right-2 text-xs font-semibold text-blue-700 bg-white/90 px-2 py-1 rounded shadow-sm" style={{ marginTop: '30px' }}>
                 ❄️ Cool Side
               </div>
 
@@ -724,13 +928,20 @@ export function EnclosureDesigner({ enclosureInput, shoppingList }: EnclosureDes
                 />
               ))}
             </DroppableEnclosure>
-            </>
-            )}
+            {/* </> */}
+            {/* )} */}
 
             {/* 3D Model View */}
-            {viewMode === '3d' && (
-              <ModelViewer3D />
-            )}
+            {/* {viewMode === '3d' && (
+              <ModelViewer3D 
+                onAddModelReady={handleAddModelReady} 
+                enclosureDimensions={{
+                  width: enclosureInput.width,
+                  depth: enclosureInput.depth,
+                  height: enclosureInput.height
+                }}
+              />
+            )} */}
           </div>
 
           {/* Warnings & Legend */}

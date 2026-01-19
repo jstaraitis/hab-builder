@@ -1,0 +1,80 @@
+{
+  "uvb-fixture": {
+    "name": "UVB Linear Fixture",
+    "category": "equipment",
+    "budgetTiers": {
+      "low": "Zoo Med ReptiSun",
+      "mid": "Arcadia D3 Forest",
+      "premium": "Arcadia ProT5"
+    }
+  },
+  "heat-lamp": {
+    "name": "Heat Lamp & Bulb",
+    "category": "equipment",
+    "budgetTiers": {
+      "low": "Ceramic dome + incandescent bulb",
+      "mid": "Zoo Med Mini Deep Dome + halogen",
+      "premium": "Arcadia Halogen Flood + dimming thermostat"
+    },
+    "notes": "Use thermostat to prevent overheating"
+  },
+  "substrate-bioactive": {
+    "name": "Bioactive Substrate Mix",
+    "category": "substrate",
+    "budgetTiers": {
+      "low": "DIY coco coir + topsoil mix",
+      "mid": "Josh's Frogs ABG mix",
+      "premium": "Biodude Terra Firma"
+    }
+  },
+  "substrate-simple": {
+    "name": "Substrate",
+    "category": "substrate",
+    "budgetTiers": {
+      "low": "Paper towel",
+      "mid": "Eco Earth coconut fiber",
+      "premium": "Sphagnum moss"
+    }
+  },
+  "drainage": {
+    "name": "Drainage Layer (LECA or clay balls)",
+    "category": "substrate",
+    "notes": null
+  },
+  "drainage-barrier": {
+    "name": "Drainage Barrier (mesh screen)",
+    "category": "substrate",
+    "notes": "Prevents substrate from mixing with drainage"
+  },
+  "springtails": {
+    "name": "Springtail Culture",
+    "category": "cleanup_crew",
+    "sizing": "Standard for enclosures up to 36\" × 18\""
+  },
+  "isopods": {
+    "name": "Isopod Culture (Dwarf White or similar)",
+    "category": "cleanup_crew",
+    "sizing": "Tropical species suitable for high humidity"
+  },
+  "branches": {
+    "name": "Climbing Branches",
+    "category": "decor",
+    "notes": "Cork bark, manzanita, or bamboo recommended"
+  },
+  "plants": {
+    "name": "Plants (live or artificial)",
+    "category": "decor",
+    "notesBeginnerMode": "Beginners: artificial plants are easier to maintain",
+    "notesAdvanced": "Pothos, ferns, bromeliads are good starter species"
+  },
+  "monitoring": {
+    "name": "Digital Thermometer & Hygrometer",
+    "category": "equipment",
+    "sizing": "Monitor both warm and cool zones",
+    "budgetTiers": {
+      "low": "Basic digital combo unit",
+      "mid": "Zoo Med dual gauge",
+      "premium": "Govee WiFi monitor with app"
+    }
+  }
+}
