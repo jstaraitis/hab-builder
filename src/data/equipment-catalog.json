@@ -1,4 +1,58 @@
 {
+  "enclosure-glass": {
+    "name": "Glass Terrarium",
+    "category": "enclosure",
+    "budgetTiers": {
+      "low": "Exo Terra Glass Terrarium",
+      "mid": "Zoo Med ReptiBreeze or Exo Terra with front opening",
+      "premium": "Custom glass enclosure with sliding doors"
+    },
+    "notes": "Glass enclosures retain heat and humidity well. Ensure mesh top for ventilation.",
+    "infoLinks": {
+      "Enclosure Guide": "https://google.com"
+    },
+    "purchaseLinks": {
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
+    }
+  },
+  "enclosure-pvc": {
+    "name": "PVC Enclosure",
+    "category": "enclosure",
+    "budgetTiers": {
+      "low": "DIY PVC build",
+      "mid": "Zen Habitats PVC enclosure",
+      "premium": "Custom PVC with sliding acrylic doors"
+    },
+    "notes": "PVC is lightweight, easy to clean, and excellent for humidity control. Ideal for larger setups.",
+    "infoLinks": {
+      "PVC Guide": "https://google.com"
+    },
+    "purchaseLinks": {
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
+    }
+  },
+  "enclosure-screen": {
+    "name": "Screen Enclosure",
+    "category": "enclosure",
+    "budgetTiers": {
+      "low": "Zoo Med ReptiBreeze",
+      "mid": "Dragon Strand Breeder Series",
+      "premium": "Tamura Designs Aluminum Screen"
+    },
+    "notes": "Screen enclosures provide excellent ventilation but require more effort to maintain humidity. Best for species that need high airflow.",
+    "infoLinks": {
+      "Screen Setup Guide": "https://google.com"
+    },
+    "purchaseLinks": {
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
+    }
+  },
   "uvb-fixture": {
     "name": "UVB Linear Fixture",
     "category": "equipment",
@@ -6,6 +60,15 @@
       "low": "Zoo Med ReptiSun",
       "mid": "Arcadia D3 Forest",
       "premium": "Arcadia ProT5"
+    },
+    "infoLinks": {
+      "UVB Guide": "https://google.com",
+      "White's Tree Frog Lighting": "https://google.com"
+    },
+    "purchaseLinks": {
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
     }
   },
   "heat-lamp": {
@@ -16,7 +79,16 @@
       "mid": "Zoo Med Mini Deep Dome + halogen",
       "premium": "Arcadia Halogen Flood + dimming thermostat"
     },
-    "notes": "Use thermostat to prevent overheating"
+    "notes": "Use thermostat to prevent overheating. NO heat mats (burn risk). Ceramic Heat Emitter (CHE) or Deep Heat Projector (DHP) recommended with thermostat.",
+    "infoLinks": {
+      "Heating Guide": "https://google.com",
+      "Thermostat Safety": "https://google.com"
+    },
+    "purchaseLinks": {
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
+    }
   },
   "substrate-bioactive": {
     "name": "Bioactive Substrate Mix",
@@ -25,6 +97,15 @@
       "low": "DIY coco coir + topsoil mix",
       "mid": "Josh's Frogs ABG mix",
       "premium": "Biodude Terra Firma"
+    },
+    "infoLinks": {
+      "Bioactive Setup Guide": "https://google.com",
+      "Substrate Layer Guide": "https://google.com"
+    },
+    "purchaseLinks": {
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
     }
   },
   "substrate-simple": {
@@ -33,48 +114,232 @@
     "budgetTiers": {
       "low": "Paper towel",
       "mid": "Eco Earth coconut fiber",
-      "premium": "Sphagnum moss"
+      "premium": "Leaf litter + coconut fiber"
+    },
+    "notes": "Avoid moss (bacteria/impaction risk). Use thick leaf litter layer to protect sensitive skin.",
+    "infoLinks": {
+      "Substrate Options": "https://google.com",
+      "White's Tree Frog Bedding": "https://google.com"
+    },
+    "purchaseLinks": {
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
+    }
+  },
+  "substrate-soil": {
+    "name": "Soil-Based Substrate",
+    "category": "substrate",
+    "budgetTiers": {
+      "low": "Standard topsoil + coconut coir mix",
+      "mid": "Organic potting soil + coco fiber",
+      "premium": "Premium organic soil blend with minerals"
+    },
+    "notes": "Good for plants and naturalistic setups. Ensure soil is fertilizer-free and pesticide-free.",
+    "infoLinks": {
+      "Soil Selection": "https://google.com",
+      "Naturalistic Substrate": "https://google.com"
+    },
+    "purchaseLinks": {
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
+    }
+  },
+  "substrate-paper": {
+    "name": "Paper-Based Substrate",
+    "category": "substrate",
+    "budgetTiers": {
+      "low": "Paper towels",
+      "mid": "Aspen or cypress mulch paper",
+      "premium": "Shredded paper bedding"
+    },
+    "notes": "Easy to replace and clean. Good for minimal setups. May need more frequent changes.",
+    "infoLinks": {
+      "Paper Substrate": "https://google.com",
+      "Minimal Maintenance": "https://google.com"
+    },
+    "purchaseLinks": {
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
+    }
+  },
+  "substrate-foam": {
+    "name": "Foam Substrate",
+    "category": "substrate",
+    "budgetTiers": {
+      "low": "Basic foam chips",
+      "mid": "Premium foam substrate",
+      "premium": "Specialty foam blend"
+    },
+    "notes": "Lightweight, reusable, and easy to clean. Great for enclosures where weight is a concern. Non-biodegradable.",
+    "infoLinks": {
+      "Foam Substrate": "https://google.com",
+      "Reusable Bedding": "https://google.com"
+    },
+    "purchaseLinks": {
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
     }
   },
   "drainage": {
     "name": "Drainage Layer (LECA or clay balls)",
     "category": "substrate",
-    "notes": null
+    "notes": "Essential for bioactive setups. Prevents water logging.",
+    "infoLinks": {
+      "Bioactive Drainage": "https://google.com"
+    },
+    "purchaseLinks": {
+      "standard": "https://google.com"
+    }
   },
   "drainage-barrier": {
     "name": "Drainage Barrier (mesh screen)",
     "category": "substrate",
-    "notes": "Prevents substrate from mixing with drainage"
+    "notes": "Prevents substrate from mixing with drainage layer.",
+    "infoLinks": {
+      "Bioactive Setup": "https://google.com"
+    },
+    "purchaseLinks": {
+      "standard": "https://google.com"
+    }
   },
   "springtails": {
     "name": "Springtail Culture",
     "category": "cleanup_crew",
-    "sizing": "Standard for enclosures up to 36\" × 18\""
+    "sizing": "Standard for enclosures up to 36\" × 18\"",
+    "infoLinks": {
+      "Cleanup Crew Guide": "https://google.com",
+      "Springtails Care": "https://google.com"
+    },
+    "purchaseLinks": {
+      "standard": "https://google.com"
+    }
   },
   "isopods": {
     "name": "Isopod Culture (Dwarf White or similar)",
     "category": "cleanup_crew",
-    "sizing": "Tropical species suitable for high humidity"
+    "sizing": "Tropical species suitable for higher humidity setups",
+    "infoLinks": {
+      "Isopods Care": "https://google.com",
+      "Bioactive Cleanup Crew": "https://google.com"
+    },
+    "purchaseLinks": {
+      "standard": "https://google.com"
+    }
   },
   "branches": {
-    "name": "Climbing Branches",
+    "name": "Climbing Branches & Perches",
     "category": "decor",
-    "notes": "Cork bark, manzanita, or bamboo recommended"
+    "notes": "Cork bark, manzanita, or bamboo recommended. Whites Tree Frogs prefer horizontal perches.",
+    "infoLinks": {
+      "Enrichment Setup": "https://google.com",
+      "Natural Decor": "https://google.com"
+    },
+    "purchaseLinks": {
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
+    }
   },
   "plants": {
     "name": "Plants (live or artificial)",
     "category": "decor",
-    "notesBeginnerMode": "Beginners: artificial plants are easier to maintain",
-    "notesAdvanced": "Pothos, ferns, bromeliads are good starter species"
+    "notes": "Beginners: artificial plants are easier. Advanced: Pothos, ferns, bromeliads are good starter species.",
+    "infoLinks": {
+      "Live Plant Guide": "https://google.com",
+      "Bioactive Plants": "https://google.com"
+    },
+    "purchaseLinks": {
+      "artificial": "https://google.com",
+      "live": "https://google.com"
+    }
+  },
+  "plants-live": {
+    "name": "Live Plants",
+    "category": "decor",
+    "notes": "Excellent for bioactive setups and naturalistic aesthetics. Pothos, ferns, and bromeliads are reliable starter species.",
+    "infoLinks": {
+      "Live Plant Guide": "https://google.com",
+      "Bioactive Plants": "https://google.com"
+    },
+    "purchaseLinks": {
+      "standard": "https://google.com"
+    }
+  },
+  "plants-artificial": {
+    "name": "Artificial Plants",
+    "category": "decor",
+    "notes": "Easy to maintain, won't wilt, and great for minimalist or display-focused setups. Ensure materials are non-toxic.",
+    "infoLinks": {
+      "Artificial Plant Guide": "https://google.com",
+      "Safe Decor Materials": "https://google.com"
+    },
+    "purchaseLinks": {
+      "standard": "https://google.com"
+    }
+  },
+  "misting-system": {
+    "name": "Automated Misting System",
+    "category": "equipment",
+    "notes": "Ideal for high-humidity species. Allows consistent humidity levels without daily manual misting. Recommended timer: 1-3 minutes, 1-3 times daily.",
+    "infoLinks": {
+      "Misting System Setup": "https://google.com",
+      "Humidity Automation": "https://google.com"
+    },
+    "purchaseLinks": {
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
+    }
+  },
+  "humidifier": {
+    "name": "Ultrasonic or Cool Mist Humidifier",
+    "category": "equipment",
+    "notes": "Effective for maintaining consistent ambient humidity. Ensure it's food-safe (no essential oils). Clean regularly to prevent mold.",
+    "infoLinks": {
+      "Humidifier Guide": "https://google.com",
+      "Humidity Maintenance": "https://google.com"
+    },
+    "purchaseLinks": {
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
+    }
+  },
+  "fogger": {
+    "name": "Fogger (Ultrasonic Humidification)",
+    "category": "equipment",
+    "notes": "Creates fine mist for high humidity needs. Great for bioactive setups with plants. Use filtered water to prevent mineral buildup.",
+    "infoLinks": {
+      "Fogger Setup": "https://google.com",
+      "Moisture Control": "https://google.com"
+    },
+    "purchaseLinks": {
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
+    }
   },
   "monitoring": {
     "name": "Digital Thermometer & Hygrometer",
     "category": "equipment",
-    "sizing": "Monitor both warm and cool zones",
+    "sizing": "Monitor both warm and cool zones. Critical for temperature regulation.",
     "budgetTiers": {
       "low": "Basic digital combo unit",
       "mid": "Zoo Med dual gauge",
       "premium": "Govee WiFi monitor with app"
+    },
+    "infoLinks": {
+      "Temperature Monitoring": "https://google.com",
+      "Humidity Management": "https://google.com"
+    },
+    "purchaseLinks": {
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
     }
   }
 }

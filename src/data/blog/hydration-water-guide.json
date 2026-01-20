@@ -1,0 +1,84 @@
+{
+  "id": "hydration-water-guide",
+  "title": "Hydration & Water Quality for White's Tree Frogs",
+  "author": "Habitat Builder Team",
+  "date": "2026-01-20",
+  "category": "Care Guides",
+  "excerpt": "Dechlorination, dish hygiene, and when to add humidity without over-misting hardy White's Tree Frogs.",
+  "tags": ["hydration", "water", "sanitation", "whites-tree-frog"],
+  "content": [
+    {
+      "type": "intro",
+      "text": "White's Tree Frogs rely on skin absorption and a clean water source more than frequent misting. Prioritize water quality, dish hygiene, and ventilation."
+    },
+    {
+      "type": "section",
+      "heading": "🚰 Water Quality",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use tap water treated with a reptile-safe dechlorinator (removes chlorine and chloramines).",
+            "RO/DI water is fine if you remineralize lightly or mix 50/50 with treated tap to avoid electrolyte depletion.",
+            "Never use distilled water long-term—lacks minerals and can disrupt electrolyte balance."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "🫧 Water Dish Setup",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Provide a wide, shallow dish they can soak in but not fully submerge (belly-depth).",
+            "Place the dish on the cool side to avoid rapid evaporation and bacteria growth.",
+            "Change water daily; scrub with hot water and a dedicated brush—no soap residue.",
+            "If bioactive, place a flat stone ramp for easy entry/exit and to reduce substrate in the bowl."
+          ]
+        },
+        {
+          "type": "highlight",
+          "text": "💡 Keep a second identical dish on hand—swap daily while the other is sanitized."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "💧 Humidity Management: Keep It DRY",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Target ambient humidity: 30-40% day, 30-45% night (White's are semi-arid, NOT tropical).",
+            "DO NOT use misters or foggers—White's Tree Frogs need DRY conditions.",
+            "A large water dish for soaking provides all the humidity they need.",
+            "High humidity (>50%) promotes bacterial blooms, respiratory infections, and mold.",
+            "Ensure strong ventilation with screen top—stagnant air causes skin and lung issues."
+          ]
+        },
+        {
+          "type": "warning",
+          "text": "⚠️ CRITICAL: White's Tree Frogs are semi-arid Australian species. Keeping humidity above 50% sustained will cause respiratory infections. If shedding issues occur, offer a 10-minute supervised soak in shallow treated water—do NOT increase ambient humidity."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "❗ Red Flags & Fixes",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Cloudy or smelly water: Clean dish immediately; increase change frequency.",
+            "Persistent skin shedding issues: Offer a supervised shallow-water soak for 10-15 minutes; do NOT increase ambient humidity.",
+            "Red, irritated skin or lethargy: Lower humidity if above 40%, increase ventilation, and consult an exotics vet immediately.",
+            "White biofilm in the bowl: Sanitize more often; check that dechlorinator is fresh and dosed correctly.",
+            "Respiratory distress (gaping mouth, wheezing): Emergency—humidity likely too high; increase ventilation and vet ASAP."
+          ]
+        }
+      ]
+    }
+  ]
+}

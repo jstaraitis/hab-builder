@@ -183,6 +183,25 @@ function generateShoppingList(
   const items: ShoppingItem[] = [];
   const volume = dims.width * dims.depth * dims.height;
 
+  // Enclosure - add as first item
+  const enclosureKey = `enclosure-${input.type}`;
+  const enclosureConfig = (equipmentCatalog as Record<string, any>)[enclosureKey];
+  const dimensionsDisplay = input.units === 'in' 
+    ? `${input.width}" × ${input.depth}" × ${input.height}"`
+    : `${input.width}cm × ${input.depth}cm × ${input.height}cm`;
+  
+  items.push({
+    id: enclosureKey,
+    category: 'enclosure' as any,
+    name: enclosureConfig.name,
+    quantity: input.quantity,
+    sizing: dimensionsDisplay,
+    budgetTierOptions: enclosureConfig.budgetTiers,
+    notes: enclosureConfig.notes,
+    infoLinks: enclosureConfig.infoLinks,
+    purchaseLinks: enclosureConfig.purchaseLinks,
+  });
+
   // UVB Lighting (if required)
   if (profile.careTargets.lighting.uvbRequired) {
     const fixtureLength = Math.round(dims.width * (profile.careTargets.lighting.coveragePercent / 100));
@@ -194,37 +213,65 @@ function generateShoppingList(
       quantity: 1,
       sizing: `${fixtureLength}" fixture (${profile.careTargets.lighting.coveragePercent}% of ${Math.round(dims.width)}" width)`,
       budgetTierOptions: uvbConfig.budgetTiers as any,
+      infoLinks: uvbConfig.infoLinks as any,
+      purchaseLinks: uvbConfig.purchaseLinks as any,
     });
   }
 
   // Heat lamp (if basking temp specified)
   if (profile.careTargets.temperature.basking) {
-    const wattage = Math.max(25, Math.min(100, Math.round((volume / 1728) * 40))); // rough estimate
+    // Calculate wattage based on temperature difference and enclosure volume
+    const tempDifference = profile.careTargets.temperature.basking - input.ambientTemp;
+    const baseWattage = (volume / 1728) * 20; // 20W per cubic foot as baseline
+    const wattage = Math.max(25, Math.min(150, Math.round(baseWattage * (tempDifference / 20)))); // scale by temp diff
+    
     const heatConfig = equipmentCatalog['heat-lamp'];
     items.push({
       id: 'heat-lamp',
       category: heatConfig.category as any,
       name: heatConfig.name,
       quantity: `1 (${wattage}W estimate)`,
-      sizing: `Based on ${Math.round(volume / 1728)} cubic feet volume. Adjust wattage based on ambient temp.`,
+      sizing: `Based on ${Math.round(volume / 1728)} cubic feet and ${tempDifference}°F temperature difference from ambient (${input.ambientTemp}°F)`,
       budgetTierOptions: heatConfig.budgetTiers as any,
       notes: heatConfig.notes,
+      infoLinks: heatConfig.infoLinks as any,
+      purchaseLinks: heatConfig.purchaseLinks as any,
     });
   }
 
-  // Substrate
+  // Substrate - Select based on user preference
+  let substrateKey = 'substrate-simple';
+  if (input.bioactive) {
+    substrateKey = 'substrate-bioactive';
+  } else if (input.substratePreference) {
+    const preferenceMap: Record<string, string> = {
+      'bioactive': 'substrate-bioactive',
+      'soil-based': 'substrate-soil',
+      'paper-based': 'substrate-paper',
+      'foam': 'substrate-foam',
+    };
+    substrateKey = preferenceMap[input.substratePreference] || 'substrate-simple';
+  }
+
   const substrateDepth = input.bioactive ? 4 : 2; // inches
   const substrateVolume = (dims.width * dims.depth * substrateDepth) / 1728; // cubic feet
   const quarts = Math.ceil(substrateVolume * 25.7); // ~25.7 quarts per cubic foot
-  const substrateConfig = equipmentCatalog[input.bioactive ? 'substrate-bioactive' : 'substrate-simple'];
+  const substrateConfig = (equipmentCatalog as Record<string, any>)[substrateKey];
+  
+  // Enclosure type affects equipment recommendations
+  // Screen enclosures are more porous - need better humidity management
+  const isScreenEnclosure = input.type === 'screen';
   
   items.push({
     id: 'substrate',
-    category: substrateConfig.category as any,
-    name: substrateConfig.name,
-    quantity: `${quarts} quarts (${substrateDepth}" depth)`,
-    sizing: `${Math.round(dims.width)}" × ${Math.round(dims.depth)}" floor at ${substrateDepth}" depth`,
-    budgetTierOptions: substrateConfig.budgetTiers as any,
+    category: (substrateConfig as any).category,
+    name: (substrateConfig as any).name,
+    quantity: `${quarts} quarts (${substrateDepth}\" depth)`,
+    sizing: `${Math.round(dims.width)}\" × ${Math.round(dims.depth)}\" floor at ${substrateDepth}\" depth`,
+    budgetTierOptions: (substrateConfig as any).budgetTiers,
+    ...((substrateConfig as any).notes && { notes: (substrateConfig as any).notes }),
+    infoLinks: (substrateConfig as any).infoLinks,
+    purchaseLinks: (substrateConfig as any).purchaseLinks,
   });
 
   // Drainage layer (bioactive only)
@@ -240,6 +287,9 @@ function generateShoppingList(
       name: drainageConfig.name,
       quantity: `${drainageQuarts} quarts`,
       sizing: `${drainageDepth}" layer for ${Math.round(dims.height)}" tall enclosure`,
+      notes: drainageConfig.notes,
+      infoLinks: drainageConfig.infoLinks as any,
+      purchaseLinks: drainageConfig.purchaseLinks as any,
     });
 
     const barrierConfig = equipmentCatalog['drainage-barrier'];
@@ -250,6 +300,8 @@ function generateShoppingList(
       quantity: '1 sheet',
       sizing: `Cut to ${Math.round(dims.width)}" × ${Math.round(dims.depth)}"`,
       notes: barrierConfig.notes,
+      infoLinks: barrierConfig.infoLinks as any,
+      purchaseLinks: barrierConfig.purchaseLinks as any,
     });
   }
 
@@ -262,6 +314,8 @@ function generateShoppingList(
       name: springtailsConfig.name,
       quantity: '1 culture',
       sizing: springtailsConfig.sizing,
+      infoLinks: springtailsConfig.infoLinks as any,
+      purchaseLinks: springtailsConfig.purchaseLinks as any,
     });
 
     const isopodsConfig = equipmentCatalog.isopods;
@@ -271,7 +325,63 @@ function generateShoppingList(
       name: isopodsConfig.name,
       quantity: '1 culture (10-20 individuals)',
       sizing: isopodsConfig.sizing,
+      infoLinks: isopodsConfig.infoLinks as any,
+      purchaseLinks: isopodsConfig.purchaseLinks as any,
     });
+  }
+
+  // Humidity control equipment - only add if ambient humidity is below animal's minimum
+  const catalogDict = equipmentCatalog as Record<string, any>;
+  const needsHumidityControl = input.ambientHumidity < profile.careTargets.humidity.min;
+  const humidityWarning = isScreenEnclosure && needsHumidityControl ? ' (screen loses humidity - may need larger unit)' : '';
+  
+  if (needsHumidityControl && input.humidityControl === 'misting-system') {
+    const mistingConfig = catalogDict['misting-system'];
+    if (mistingConfig) {
+      // Screen enclosures may need more frequent misting
+      const mistingFrequency = isScreenEnclosure ? '4-5 times daily' : '2-3 times daily';
+      items.push({
+        id: 'misting-system',
+        category: mistingConfig.category,
+        name: mistingConfig.name,
+        quantity: '1 system',
+        sizing: `Automatic timer for ${mistingFrequency} misting to maintain ${profile.careTargets.humidity.min}-${profile.careTargets.humidity.max}% humidity${isScreenEnclosure ? ' (high frequency due to screen material)' : ''} (current room: ${input.ambientHumidity}%)`,
+        notes: mistingConfig.notes,
+        infoLinks: mistingConfig.infoLinks,
+        purchaseLinks: mistingConfig.purchaseLinks,
+      });
+    }
+  } else if (needsHumidityControl && input.humidityControl === 'humidifier') {
+    const humidifierConfig = catalogDict.humidifier;
+    if (humidifierConfig) {
+      // Screen enclosures may need larger humidifier
+      const sizeMultiplier = isScreenEnclosure ? 1.5 : 1;
+      const cubicFeet = Math.round(volume / 1728);
+      items.push({
+        id: 'humidifier',
+        category: humidifierConfig.category,
+        name: humidifierConfig.name,
+        quantity: '1 unit',
+        sizing: `Sized for ${Math.round(cubicFeet * sizeMultiplier)}+ cubic feet to reach ${profile.careTargets.humidity.min}-${profile.careTargets.humidity.max}% humidity${humidityWarning} (current room: ${input.ambientHumidity}%)`,
+        notes: humidifierConfig.notes,
+        infoLinks: humidifierConfig.infoLinks,
+        purchaseLinks: humidifierConfig.purchaseLinks,
+      });
+    }
+  } else if (needsHumidityControl && input.humidityControl === 'fogger') {
+    const foggerConfig = catalogDict.fogger;
+    if (foggerConfig) {
+      items.push({
+        id: 'fogger',
+        category: foggerConfig.category,
+        name: foggerConfig.name,
+        quantity: '1 unit',
+        sizing: `Ultrasonic fogger for ${profile.careTargets.humidity.min}-${profile.careTargets.humidity.max}% humidity${humidityWarning} (current room: ${input.ambientHumidity}%)`,
+        notes: foggerConfig.notes,
+        infoLinks: foggerConfig.infoLinks,
+        purchaseLinks: foggerConfig.purchaseLinks,
+      });
+    }
   }
 
   // Decor items
@@ -283,19 +393,43 @@ function generateShoppingList(
     quantity: profile.layoutRules.preferVertical ? '3-5 pieces' : '2-3 pieces',
     sizing: 'Various diameters, reaching from substrate to top third',
     notes: branchesConfig.notes,
+    infoLinks: branchesConfig.infoLinks as any,
+    purchaseLinks: branchesConfig.purchaseLinks as any,
   });
 
-  const plantsConfig = equipmentCatalog.plants;
-  items.push({
-    id: 'plants',
-    category: (profile.layoutRules.preferVertical ? 'live_plants' : 'decor') as any,
-    name: plantsConfig.name,
-    quantity: '3-5 plants',
-    sizing: 'Mix of ground cover, mid-level, and upper canopy',
-    notes: input.beginnerMode 
-      ? plantsConfig.notesBeginnerMode
-      : plantsConfig.notesAdvanced,
-  });
+  // Plants based on user preference
+  if (input.plantPreference !== 'artificial') {
+    const plantsConfig = catalogDict['plants-live'];
+    if (plantsConfig) {
+      items.push({
+        id: 'plants',
+        category: plantsConfig.category,
+        name: plantsConfig.name,
+        quantity: input.plantPreference === 'live' ? '4-6 plants' : '2-3 plants',
+        sizing: 'Mix of ground cover, mid-level, and upper canopy species',
+        notes: plantsConfig.notes,
+        infoLinks: plantsConfig.infoLinks,
+        purchaseLinks: plantsConfig.purchaseLinks,
+      });
+    }
+  }
+
+  // Artificial plants if preferred
+  if (input.plantPreference !== 'live') {
+    const artificialConfig = catalogDict['plants-artificial'];
+    if (artificialConfig) {
+      items.push({
+        id: 'plants-artificial',
+        category: artificialConfig.category,
+        name: artificialConfig.name,
+        quantity: input.plantPreference === 'artificial' ? '4-6 pieces' : '1-2 pieces',
+        sizing: 'Realistic artificial plants for mixed or minimalist aesthetics',
+        notes: artificialConfig.notes,
+        infoLinks: artificialConfig.infoLinks,
+        purchaseLinks: artificialConfig.purchaseLinks,
+      });
+    }
+  }
 
   // Thermometer/hygrometer
   const monitoringConfig = equipmentCatalog.monitoring;
@@ -306,6 +440,8 @@ function generateShoppingList(
     quantity: 1,
     sizing: monitoringConfig.sizing,
     budgetTierOptions: monitoringConfig.budgetTiers as any,
+    infoLinks: monitoringConfig.infoLinks as any,
+    purchaseLinks: monitoringConfig.purchaseLinks as any,
   });
 
   return items;
@@ -395,6 +531,35 @@ function generateWarnings(
 ): Warning[] {
   const warnings: Warning[] = [];
   
+  // Enclosure type warnings
+  if (input.type === 'screen' && profile.careTargets.humidity.min > 60) {
+    warnings.push({
+      id: 'screen-humidity',
+      severity: 'important',
+      category: 'common_mistake',
+      message: `Screen enclosures lose humidity quickly. ${profile.commonName} needs ${profile.careTargets.humidity.min}%+ humidity - you'll need active humidity management (misting system or fogger). Screen material allows excellent airflow but requires careful environmental control.`,
+    });
+  }
+  
+  // Species-specific enclosure type restrictions
+  if (input.type === 'screen' && input.animal === 'whites-tree-frog') {
+    warnings.unshift({
+      id: 'screen-incompatible-wtf',
+      severity: 'critical',
+      category: 'common_mistake',
+      message: `CRITICAL: White's Tree Frogs CANNOT be housed in screen enclosures. They require glass or PVC enclosures to maintain the warm, stable ambient temperature they need. Screen enclosures lose too much heat and cannot maintain proper thermal conditions. Use GLASS or PVC only.`,
+    });
+  }
+  
+  if (input.type === 'glass' && input.bioactive && profile.careTargets.humidity.min < 50) {
+    warnings.push({
+      id: 'glass-ventilation',
+      severity: 'tip',
+      category: 'beginner_note',
+      message: `Glass enclosures retain moisture well. For ${profile.commonName}'s lower humidity needs, ensure adequate ventilation (drill air holes or add mesh panels) to prevent excess moisture buildup with bioactive substrate.`,
+    });
+  }
+  
   // Add profile-specific warnings with IDs
   profile.warnings.forEach((w: any, idx: number) => {
     warnings.push({
@@ -402,6 +567,41 @@ function generateWarnings(
       ...w,
     });
   });
+
+  // Quantity-based validation
+  if (profile.quantityRules && input.quantity > 0) {
+    const requiredGallons = profile.quantityRules.baseGallons + 
+      (input.quantity - 1) * profile.quantityRules.additionalGallons;
+    const volumeInches = dims.width * dims.depth * dims.height;
+    const currentGallons = volumeInches / 231;
+
+    if (currentGallons < requiredGallons) {
+      warnings.unshift({
+        id: 'quantity-size-warning',
+        severity: 'critical',
+        message: `For ${input.quantity} animal${input.quantity > 1 ? 's' : ''}, you need at least ${requiredGallons} gallons (currently ~${Math.round(currentGallons)} gallons). Increase enclosure size or reduce animal count.`,
+        category: 'common_mistake',
+      });
+    }
+
+    if (input.quantity > profile.quantityRules.maxRecommended) {
+      warnings.unshift({
+        id: 'quantity-overcrowding-warning',
+        severity: 'critical',
+        message: `${input.quantity} animals exceeds the recommended maximum of ${profile.quantityRules.maxRecommended}. Overcrowding leads to stress, aggression, and health problems.`,
+        category: 'common_mistake',
+      });
+    }
+
+    if (input.quantity > 1) {
+      warnings.push({
+        id: 'multiple-animals-tip',
+        severity: 'tip',
+        message: `Housing multiple animals requires extra hides, basking spots, and feeding stations to reduce competition. Monitor for signs of stress or aggression.`,
+        category: 'beginner_note',
+      });
+    }
+  }
 
   // Size validation
   const minSize = profile.minEnclosureSize;
@@ -428,16 +628,18 @@ function generateWarnings(
     });
   }
 
-  // Bioactive specific
-  if (input.bioactive && input.beginnerMode) {
+  // Bioactive setup guidance
+  if (input.bioactive) {
     warnings.push({
-      id: 'bioactive-beginner',
+      id: 'bioactive-info',
       severity: 'tip',
-      message: 'Bioactive setups require more maintenance knowledge. Consider starting with simple substrate and adding bioactive later.',
+      message: 'Bioactive setups require more maintenance knowledge. Monitor your cleanup crew population and adjust as needed.',
       category: 'beginner_note',
     });
   }
 
+  // Decoration style guidance
+  
   // Budget warnings
   if (input.budget === 'low') {
     warnings.push({

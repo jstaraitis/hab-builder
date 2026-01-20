@@ -1,0 +1,92 @@
+{
+  "id": "temp-humidity-guide",
+  "title": "Temperature & Humidity Control for White's Tree Frogs",
+  "author": "Habitat Builder Team",
+  "date": "2026-01-20",
+  "category": "Care Guides",
+  "excerpt": "White's Tree Frog–specific temperature targets, humidity management, probe placement, and why you probably don't need misters. Keep these Australian frogs in warm, DRY conditions.",
+  "tags": ["temperature", "humidity", "whites-tree-frog", "environment", "humidity-control"],
+  "content": [
+    {
+      "type": "intro",
+      "text": "White's Tree Frogs are Australian semi-arid species adapted to warm, DRY conditions—not high humidity like many keepers assume. Proper temperature control and LOW humidity (30–40%) are the two pillars of their care. Avoid misters and foggers; a large water dish and ventilation are all you need."
+    },
+    {
+      "type": "section",
+      "heading": "🎯 Target Ranges",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Parameter", "Day", "Night", "Notes"],
+          "rows": [
+            ["Ambient temp", "75-88°F", "70-75°F", "Warm zone at top (85-88°F), cooler below. Critical nighttime drop mimics wild fluctuations."],
+            ["Basking spot", "88°F", "—", "Warm zone at top for basking and digestion. Essential for metabolic health."],
+            ["Humidity", "30-40%", "30-45%", "CRITICAL: Semi-arid species. Stay DRY. Never exceed 50% sustained."],
+            ["Surface moisture", "Mostly dry", "Lightly damp", "Substrate should not be soggy; top layer must dry out by morning"]
+          ]
+        },
+        {
+          "type": "warning",
+          "text": "⚠️ COMMON MISTAKE: Keeping humidity above 50% promotes bacterial blooms, respiratory infections, and mold. White's Tree Frogs thrive in warm, DRY Australian conditions. Do NOT use misters, foggers, manual misting unless required."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "📍 Temperature Probe Placement for White's Tree Frogs",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Place the main thermometer probe at mid-height on the warm side of the enclosure (where the heat lamp is).",
+            "Place a second probe at the top of the enclosure to monitor the warm basking zone (aim for 85-88°F).",
+            "Position the hygrometer probe at mid-height as well, away from direct heat sources and water dishes.",
+            "Monitor for one week after setup; adjust heat lamp height or wattage to hit 75-88°F ambient and 88°F basking.",
+            "The nighttime drop to 70-75°F is CRITICAL for metabolism and digestion—use a thermostat-controlled heat lamp or lower the temperature at night."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "💧 Humidity Management: Keep It DRY",
+      "content": [
+        {
+          "type": "text",
+          "text": "White's Tree Frogs are NOT tropical rainforest frogs—they are Australian semi-arid frogs that need LOW humidity (30–40%). Many keepers make the mistake of over-humidifying. A large water dish and natural room ventilation are all you need."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Primary moisture source: A large, shallow water dish (minimum 4–6 inches diameter). Change water every 2–3 days.",
+            "NO misters or foggers: Absolutely avoid them. They raise humidity too high, promote bacterial growth, and cause respiratory infections.",
+            "Ventilation is key: Use a mesh top or partial screen to allow air exchange. This naturally keeps humidity in the 30–40% range.",
+            "Substrate: Keep the top layer mostly dry; substrate should never be soggy or waterlogged.",
+            "If humidity creeps above 50%: Increase airflow by opening vents, removing obstacles, or upgrading to a fully screened top."
+          ]
+        },
+        {
+          "type": "highlight",
+          "text": "💡 The Golden Rule: If your room has 40–50% humidity and the enclosure has a screen top with a water dish, you're done. No misting needed. Your frogs are happier in a dry setup than a humid one."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "🧰 Troubleshooting: Common Temperature & Humidity Problems",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Humidity above 50% (too wet): Open vents wider, remove any standing water, stop misting, reduce substrate moisture. High humidity = respiratory infections.",
+            "Humidity below 25% (too dry): Add a larger water dish, ensure it's clean and accessible. Slightly increase ventilation-blocking (partial acrylic cover on 25% of mesh top) to trap a bit more moisture from the dish.",
+            "Temperature below 75°F (too cold): The ambient temperature must stay 75-88°F. Upgrade your heat lamp wattage (60-100W depending on enclosure size) or confirm room temperature. Use a thermostat to maintain consistent heat.",
+            "No warm zone above 85°F (basking too cool): Move heat lamp closer to top of enclosure, increase wattage slightly, or ensure lamp is positioned directly over basking area. Aim for 88°F at the top.",
+            "No nighttime drop below 75°F (missing metabolism trigger): Use a thermostat-controlled heat lamp that dims or turns off at night. The 70-75°F nighttime drop is essential for digestion and metabolic health.",
+            "Frogs hiding constantly: Usually a sign of stress from high humidity or temperature instability. Verify daytime ambient is 75-88°F, basking zone is 88°F, and nighttime drops to 70-75°F."
+          ]
+        }
+      ]
+    }
+  ]
+}

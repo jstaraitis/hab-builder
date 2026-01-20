@@ -10,21 +10,21 @@ export function Warnings({ warnings, showHeader = true }: WarningsProps) {
 
   const severityStyles = {
     critical: {
-      bg: 'bg-red-50',
-      border: 'border-red-400',
-      text: 'text-red-800',
+      bg: 'bg-red-50 dark:bg-red-900/20',
+      border: 'border-red-400 dark:border-red-700',
+      text: 'text-red-800 dark:text-red-300',
       icon: '🚨',
     },
     important: {
-      bg: 'bg-orange-50',
-      border: 'border-orange-400',
-      text: 'text-orange-800',
+      bg: 'bg-orange-50 dark:bg-orange-900/20',
+      border: 'border-orange-400 dark:border-orange-700',
+      text: 'text-orange-800 dark:text-orange-300',
       icon: '⚠️',
     },
     tip: {
-      bg: 'bg-blue-50',
-      border: 'border-blue-400',
-      text: 'text-blue-800',
+      bg: 'bg-blue-50 dark:bg-blue-900/20',
+      border: 'border-blue-400 dark:border-blue-700',
+      text: 'text-blue-800 dark:text-blue-300',
       icon: '💡',
     },
   };
@@ -36,9 +36,9 @@ export function Warnings({ warnings, showHeader = true }: WarningsProps) {
   });
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
       {showHeader && (
-        <h3 className="text-2xl font-bold text-gray-800 mb-4">
+        <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
           Safety & Important Notes
         </h3>
       )}
@@ -57,7 +57,7 @@ export function Warnings({ warnings, showHeader = true }: WarningsProps) {
                   <p className={`text-sm ${style.text} font-medium capitalize mb-1`}>
                     {warning.severity} — {warning.category.replace('_', ' ')}
                   </p>
-                  <p className={`text-sm ${style.text}`}>{warning.message}</p>
+                  <p className={`text-sm ${style.text} whitespace-pre-line`}>{warning.message}</p>
                 </div>
               </div>
             </div>

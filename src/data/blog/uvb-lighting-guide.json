@@ -1,0 +1,140 @@
+{
+  "id": "uvb-lighting-guide",
+  "title": "UVB Lighting & Photoperiod for White's Tree Frogs",
+  "author": "Habitat Builder Team",
+  "date": "2026-01-20",
+  "category": "Care Guides",
+  "excerpt": "Complete White's Tree Frog lighting guide: UVB targets (UVI 0.5-1.0), bulb types, replacement schedules, placement, photoperiod timing, and safety guidelines.",
+  "tags": ["uvb", "lighting", "photoperiod", "whites-tree-frog", "vitamin-d3"],
+  "content": [
+    {
+      "type": "intro",
+      "text": "White's Tree Frogs need gentle UVB exposure for vitamin D3 synthesis and bone health, paired with a consistent day-night cycle. Target UVI 0.5-1.0 at the highest perch with ample shade so they can self-regulate exposure."
+    },
+    {
+      "type": "section",
+      "heading": "🔦 Bulb Types & Mounting",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "T5 HO linear 6%: Best for White's Tree Frogs. Pair with reflector for proper output; mount 10-14 inches above mesh screen.",
+            "T8 5.0: Acceptable for smaller/shorter enclosures; lower output requires closer placement (8-12 inches through mesh).",
+            "Compact coils: Avoid—narrow beam causes uneven UVB and localized burn risks.",
+            "Always mount outside the enclosure on top of mesh screen. Never place UVB bulbs inside the tank.",
+            "Mount on the warm side so White's can bask under both heat and UVB together."
+          ]
+        },
+        {
+          "type": "warning",
+          "text": "⚠️ UVB fixtures must ALWAYS be mounted outside the enclosure, above the mesh screen. Never place UVB bulbs inside the tank—burn risk and improper exposure."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "📏 Distance Guide (Typical 6% T5 HO)",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Barrier", "Distance to Back (UVI ~0.5-1.0)", "Notes"],
+          "rows": [
+            ["Through fine mesh", "10-14 inches", "Mesh can reduce output ~30%."],
+            ["Through dense lid or glass", "6-10 inches", "Glass blocks most UVB; avoid if possible."],
+            ["T8 5.0 through mesh", "8-12 inches", "Lower output; keep within closer range."]
+          ]
+        },
+        {
+          "type": "highlight",
+          "text": "💡 Aim for UVI 0.5-1.0 at the highest perch. Check with a Solarmeter 6.5 if available."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "🧭 Fixture Placement & Coverage",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Run the UVB fixture front-to-back on the warm side so perches can gradient under it.",
+            "Pair UVB with the heat source—frogs will bask where warmth and UVB overlap.",
+            "Provide cover: branches and plants should allow frogs to choose partial shade.",
+            "Check UVI at three points: highest perch, mid-height, and cool side to confirm a gradient.",
+            "Keep bulbs dry—shield from mister nozzles and dripping plants.",
+            "If using mesh, position the bulb directly over the basking perch opening (no offset).",
+            "Use reflectors to prevent stray light blasting the room instead of the habitat."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "💡 Bulb Replacement Schedule",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Replace T5 HO bulbs every 12 months—UVB output drops even if they still light up.",
+            "Replace T8 bulbs every 6-9 months due to faster output degradation.",
+            "Mark installation date on the fixture or set a calendar reminder.",
+            "Keep bulbs clean—dust and mineral buildup reduce UVB transmission."
+          ]
+        },
+        {
+          "type": "highlight",
+          "text": "💡 UVB bulbs lose output long before they stop producing visible light. Replace on schedule to maintain proper vitamin D3 synthesis."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "⏱️ Photoperiod & Day-Night Cycle",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Baseline: 12 hours ON / 12 hours OFF year-round for most indoor setups.",
+            "Optional seasonal variation: 13-14 hours in summer, 10-11 hours in winter for breeding cues.",
+            "Sync UVB with visible light and heat—run all three together to maintain natural activity patterns.",
+            "Use timers to maintain consistency—irregular lighting stresses frogs and disrupts feeding behavior.",
+            "Frogs are nocturnal; they will be most active at dusk and during the dark period."
+          ]
+        },
+        {
+          "type": "highlight",
+          "text": "💡 Consistency matters more than the exact hour count. Pick a schedule and stick to it—White's thrive on routine."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "✅ Quick Checklist",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Perch available under UVI 0.5-1.0 with 88°F basking temp.",
+            "Shade and foliage within the UVB zone for self-regulated exposure.",
+            "UVB fixture mounted outside/above enclosure, never inside.",
+            "No glass between bulb and frogs—glass blocks UVB.",
+            "Perches at least 4 inches from bare bulbs to prevent burns.",
+            "No condensation or mineral film on bulb cover or mesh.",
+            "Timer set for consistent 12/12 photoperiod.",
+            "Calendar reminder set for bulb replacement (12 months for T5, 6-9 for T8)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "❗ Safety Guidelines",
+      "content": [
+        {
+          "type": "warning",
+          "text": "⚠️ Critical Safety Rules:\n• Never place UVB bulbs inside the enclosure\n• Keep perches 4+ inches from bare bulbs—burn risk\n• No glass between bulb and frogs—blocks UVB\n• Replace bulbs on schedule even if still producing light"
+        }
+      ]
+    }
+  ]
+}

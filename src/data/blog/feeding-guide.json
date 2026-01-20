@@ -1,0 +1,182 @@
+{
+  "id": "feeding-guide",
+  "title": "Feeding Guide for White's Tree Frogs",
+  "author": "Habitat Builder Team",
+  "date": "2026-01-20",
+  "category": "Care Guides",
+  "excerpt": "White's Tree Frog–specific feeding protocols, portion sizes, and obesity prevention strategies. Detailed feeder types, schedules, and supplements to keep your frog healthy.",
+  "tags": ["feeding", "whites-tree-frog", "nutrition", "obesity-prevention"],
+  "content": [
+    {
+      "type": "intro",
+      "text": "White's Tree Frogs are voracious eaters prone to obesity. This guide covers the right feeder selection, portion control, schedules, supplements, and red flags to keep your frog at a healthy weight."
+    },
+    {
+      "type": "section",
+      "heading": "🦗 Feeder Types",
+      "content": [
+        
+        {
+          "type": "text",
+          "text": "Providing dietary variety is essential for optimal nutrition while avoiding obesity. White's Tree Frogs will overeat if given the chance, so stick to scheduled feeding and appropriate portion sizes. Here's a detailed breakdown of the best feeder insects:"
+        },
+        {
+          "type": "highlight",
+          "text": "💡 Feeder Sizing Guide: The feeder should be no larger than the space between your frog's eyes. Too large = choking/impaction risk."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Staple Feeders</strong>"
+        },
+        {
+          "type": "text",
+          "text": "<strong>Crickets (Acheta domesticus)</strong><br/>The gold standard staple feeder. High in protein (21%), readily available, and affordable. Crickets are active and trigger strong hunting responses. Brown crickets are hardier and longer-lived, making them the most popular choice. Gut-load for 24-48 hours before feeding."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Dubia Roaches (Blaptica dubia)</strong><br/>Premium feeder option with 36% protein and excellent calcium-to-phosphorus ratio (1:3). Don't smell, can't climb glass, live 1-2 years, and are quieter than crickets. Many frogs initially ignore them due to lack of movement, but can be trained to accept them with feeding tongs. Ideal for adult frogs."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Black Soldier Fly Larvae (Hermetia illucens)</strong><br/>Also called Phoenix Worms or Calciworms. Naturally high in calcium (Ca:P ratio 1.5:1), no dusting needed! Low in fat, making them perfect for obesity-prone species. Excellent movement triggers hunting. Use as 25-30% of diet rotation. Great for juveniles due to soft body."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Silkworms (Bombyx mori)</strong><br/>Low-fat, high-protein option with good vitamin B profile. Soft-bodied and easy to digest. Excellent for finicky eaters or sick frogs. Require fresh mulberry leaves or commercial chow. More expensive but very nutritious. Use as 15-20% of diet variety."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Hornworms (Manduca sexta)</strong><br/>Excellent hydration source (85% water content). Low in fat, high in calcium. Fast-growing - buy small or they outgrow your frog quickly! Bright green color and vigorous movement make them irresistible. Great for variety and hydration during warm months. Feed 1-2 per week."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Treats & Special Occasions</strong>"
+        },
+        {
+          "type": "text",
+          "text": "<strong>Mealworms (Tenebrio molitor)</strong><br/>Should be an occasional treat only (once per week max). High in fat, low in calcium, and hard chitin exoskeleton can cause impaction if overfed. Remove heads for smaller frogs to reduce impaction risk. Superworms (Zophobas morio) have even tougher exoskeletons - only for large adult frogs."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Waxworms (Galleria mellonella)</strong><br/>The 'candy' of feeder insects - 22% fat content! Use sparingly as a treat or for underweight frogs needing rapid weight gain. Highly palatable; frogs will preferentially hunt these over healthier options. Limit to 1-2 waxworms per month for adults."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Isopods & Springtails (Cleanup Crew)</strong><br/>In bioactive setups, frogs may occasionally hunt these. They're harmless and actually beneficial - high in calcium, naturally gut-loaded from consuming organic matter. Don't count as primary feeders, but provide enrichment and trace minerals."
+        },
+        {
+          "type": "warning",
+          "text": "⚠️ Avoid: Fireflies (toxic), wild-caught insects (pesticides), mealworms as staple diet (impaction risk), earthworms from unknown sources (parasites)."
+        },
+        {
+          "type": "warning",
+          "text": "⚠️ Obesity Warning: White's Tree Frogs are extremely prone to obesity. Never feed more than recommended amounts. An overweight frog will have fat deposits above the eyes and around the body. If your frog looks 'chubby', reduce portions by 30-40% immediately."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "🍽️ Feeding Schedule",
+      "content": [
+        {
+          "type": "text",
+          "text": "Tree frogs are nocturnal hunters. Always feed at night (after 8 PM) when they're naturally active."
+        },
+        {
+          "type": "highlight",
+          "text": "💡 Pro Tip: Feed in complete darkness for 30-60 minutes, then remove uneaten feeders. Leftover crickets can bite sleeping frogs and cause stress."
+        },
+        {
+          "type": "text",
+          "text": "Feeding Frequency by Age:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Juveniles: Every night (daily)",
+            "Sub-adults: Every other night, monitor weight",
+            "Adults: Every 2-3 nights (avoid overfeeding)"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "💊 Supplements & Gut-Loading",
+      "content": [
+        {
+          "type": "text",
+          "text": "Feeder insects must be properly supplemented to prevent metabolic bone disease and other deficiencies."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Calcium + D3: Dust feeders 2-3 times per week",
+            "Multivitamin: Dust feeders 1-2 times per week",
+            "Gut-loading: Feed crickets nutritious food 24 hours before feeding to frogs"
+          ]
+        },
+        {
+          "type": "highlight",
+          "text": "🥬 Gut-Load Recipe: carrots, sweet potato, commercial gut-load powder"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "❌ Common Feeding Mistakes",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Overfeeding: Most common cause of health issues - frogs will eat until obese",
+            "Feeding during the day: Frogs won't hunt effectively in daylight",
+            "Feeders too large: Can cause impaction or choking - feeder should be smaller than the gap between frog's eyes",
+            "No supplementation: Leads to metabolic bone disease over time",
+            "Wild-caught insects: Risk of pesticide exposure and parasites",
+            "Leaving crickets overnight: Crickets will bite and stress frogs"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "🔍 Monitoring Health",
+      "content": [
+        {
+          "type": "text",
+          "text": "Watch for these signs of proper feeding:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "✅ Active hunting behavior at night",
+            "✅ Regular, firm droppings (not runny)",
+            "✅ Smooth skin without fat deposits",
+            "✅ Alert and responsive",
+            "✅ Normal weight for age"
+          ]
+        },
+        {
+          "type": "warning",
+          "text": "⚠️ Warning Signs: Lethargy, refusing food for 5+ days (adults), visible bones, difficulty moving, abnormal feces - consult an exotic vet immediately."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "📅 Quick Reference Schedule",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Age", "Frequency", "Amount", "Estimated Size"],
+          "rows": [
+            ["0-6 months", "Daily", "10-15 feeders", "1/4\" crickets"],
+            ["6-12 months", "Daily", "5-7 feeders", "1/2\" crickets"],
+            ["12+ months", "Every 2-3 days", "3-5 feeders", "3/4\" crickets"]
+          ]
+        }
+      ]
+    }
+  ]
+}

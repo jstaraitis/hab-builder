@@ -1,0 +1,74 @@
+{
+  "id": "enrichment-welfare-guide",
+  "title": "Enrichment & Welfare for White's Tree Frogs",
+  "author": "Habitat Builder Team",
+  "date": "2026-01-20",
+  "category": "Care Guides",
+  "excerpt": "Safe decor, hunting enrichment, and welfare checks to keep White's Tree Frogs active and stress-free.",
+  "tags": ["enrichment", "welfare", "behavior", "whites-tree-frog"],
+  "content": [
+    {
+      "type": "intro",
+      "text": "White's Tree Frogs are hardy but sedentary. Thoughtful perches, hides, and feeding enrichment prevent boredom and obesity."
+    },
+    {
+      "type": "section",
+      "heading": "🌿 Habitat Enrichment",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Provide 3+ perch heights (roughly 30%, 60%, 85% of enclosure height) with varied diameters for grip.",
+            "Mix textures: natural branches, cork flats, and a few broad leaves for cover.",
+            "Create a shaded retreat on the cool side and semi-open bask/UVB lane on the warm side."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "🎯 Hunting & Feeding Enrichment",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Target feed with tongs along branches to prompt short climbs and controlled strikes.",
+            "Offer slower feeders (BSFL, dubia in cups) and occasional fast chases (crickets) for stimulation.",
+            "Keep treats rare (waxworms, superworms) to avoid reinforcing sedentary behavior."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "🙅 Handling & Stress",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Minimize handling; their skin absorbs oils. If necessary, use gloves.",
+            "Handle near the enclosure to prevent jumps to the floor.",
+            "Provide several hides so frogs can choose seclusion after maintenance.",
+            "Nighttime observation with dim light reduces stress during checks."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "✅ Welfare Checks",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Body condition: Watch for fat pads over eyes (obesity) or visible hip bones (underweight).",
+            "Skin: Smooth, no red lesions or excessive shedding issues.",
+            "Activity: Active at night, responsive to movement and feeding cues.",
+            "Posture: Not consistently hugging glass high near the top (could signal heat/humidity avoidance).",
+            "Droppings: Regular, well-formed; sudden change can indicate diet or hygiene issues."
+          ]
+        }
+      ]
+    }
+  ]
+}

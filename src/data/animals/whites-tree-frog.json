@@ -9,23 +9,29 @@
     "height": 24,
     "units": "in"
   },
+  "quantityRules": {
+    "baseGallons": 30,
+    "additionalGallons": 10,
+    "maxRecommended": 4,
+    "description": "Single frog requires 30 gallons minimum (approximately 18×18×24\"). Each additional frog requires 10 more gallons. Maximum 4 frogs per enclosure recommended to avoid overcrowding and competition."
+  },
   "careTargets": {
     "temperature": {
       "min": 75,
-      "max": 85,
+      "max": 88,
       "basking": 88,
       "nighttime": {
-        "min": 65,
+        "min": 70,
         "max": 75
       },
       "unit": "F"
     },
     "humidity": {
       "min": 30,
-      "max": 50,
+      "max": 40,
       "shedding": {
-        "min": 70,
-        "max": 80
+        "min": 30,
+        "max": 50
       },
       "unit": "%"
     },
@@ -36,7 +42,7 @@
       "coveragePercent": 65,
       "photoperiod": "12h day / 12h night"
     },
-    "gradient": "Horizontal gradient with basking area at 88°F, ambient 75-85°F, and cool side at 75-78°F. Nighttime drop to 65-75°F"
+    "gradient": "Warm zone at top (85-88°F for basking/digestion) with cooler areas below. Critical nighttime drop to 70-75°F mimics wild temperature fluctuations."
   },
   "layoutRules": {
     "preferVertical": true,
@@ -53,28 +59,66 @@
     "Can become obese in captivity - monitor feeding carefully and provide dietary variety",
     "Prefer horizontal perches over vertical climbing; rest on leaves and branches",
     "Males vocalize loudly during breeding season (Nov-Feb in wild) - calls intensify after rain",
-    "More tolerant of handling than most tree frogs; gentle squeezing motions when stressed"
+    "Semi-arid species from dry Australian woodlands - thrive in warm, DRY conditions (NOT high humidity like many assume)",
+    "Feed at night in darkness for natural hunting enrichment and weight management"
   ],
   "warnings": [
     {
       "severity": "critical",
-      "message": "Obesity is the #1 health issue - do not overfeed. Juveniles: feed daily or every other day with 2-3 appropriately-sized insects. Adults: feed 2-3 insects every 2-3 days (2-3x weekly). Vary feeder insects (crickets, roaches, moths) for nutritional diversity. Dust with calcium+D3 2-3x weekly",
+      "message": "Obesity is a common health issue - do not overfeed.",
+      "category": "common_mistake",
+      "link": {
+        "text": "Read Full Feeding Guide",
+        "url": "/blog/feeding-guide"
+      }
+    },
+    {
+      "severity": "critical",
+      "message": "HUMIDITY WARNING - Semi-arid species! Keep at 30-40% (NO HIGHER). DO NOT use misters/foggers - they increase humidity too much, promote bacterial growth, and cause respiratory infections. These frogs thrive in warm, DRY conditions.",
       "category": "common_mistake"
     },
     {
-      "severity": "important",
-      "message": "Use dechlorinated water only - tap water chlorine/chloramine can cause skin irritation and respiratory issues. Fireflies are poisonous to frogs - never use as feeders",
+      "severity": "critical",
+      "message": "HEATING SAFETY: NEVER use heat mats (burn risk + don't heat ambient air). Use ceramic heat emitter (CHE) or deep heat projector (DHP) with thermostat. Halogen bulbs good for daytime (emit IR-A for cellular-level warming). CHE/DHP emit no light so safe for nighttime use.",
       "category": "safety"
     },
     {
-      "severity": "tip",
-      "message": "Beginners: This species is more forgiving of humidity fluctuations and handling than other tree frogs, making them ideal first reptile pets",
-      "category": "beginner_note"
+      "severity": "critical",
+      "message": "ENCLOSURE REQUIREMENT: GLASS or PVC ONLY with mesh/screen TOP (not sides). Screen enclosures are INCOMPATIBLE - cannot maintain stable warmth. Mesh top allows UVB/heat penetration and ventilation for low humidity. Glass/PVC sides retain necessary warmth. Min 24\" height for arboreal climbing.",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "critical",
+      "message": "UVB REQUIRED: Use TUBE style (not compact) for even distribution. Complete darkness at night - NO colored bulbs (damage eyes/circadian rhythm). Day/night cycle critical for metabolic health and circadian rhythm. Temperature 85-88°F crucial for digestion.",
+      "category": "common_mistake"
     },
     {
       "severity": "important",
-      "message": "Screen enclosures are not recommended - they lose humidity too quickly and frogs can damage their noses rubbing against screen. Use glass or PVC with proper ventilation instead",
+      "message": "WATER: Use tap water + reptisafe OR spring water. NEVER use distilled/RO water unless remineralized (reverse osmosis can leach minerals from frog). Fireflies are poisonous - never use as feeders.",
+      "category": "safety"
+    },
+    {
+      "severity": "important",
+      "message": "SUBSTRATE WARNING: Avoid moss (retains moisture/bacteria, impaction risk if ingested). Use thick leaf litter layer over substrate to protect sensitive skin. Non-bioactive substrate must be changed monthly.",
       "category": "common_mistake"
+    },
+    {
+      "severity": "important",
+      "message": "IMPORTANT: Provide multiple hides and climbing structures in UPPER areas of tank where they feel safest. They prefer horizontal perches over vertical branches.",
+      "category": "beginner_note"
+    },
+    {
+      "severity": "tip",
+      "message": "BEGINNER NOTE: Despite common misinformation online (often from shops selling products), these are semi-arid frogs that need LOW humidity and warm/dry conditions. They are NOT high-humidity tropical frogs.",
+      "category": "beginner_note"
     }
+  ],
+  "relatedBlogs": [
+    "feeding-guide",
+    "temp-humidity-guide",
+    "uvb-lighting-guide",
+    "enclosure-sizing-guide",
+    "hydration-water-guide",
+    "enrichment-welfare-guide"
   ]
 }

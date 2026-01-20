@@ -5,17 +5,25 @@ import type { HusbandryCareChecklist } from './husbandryCare';
 export type Units = 'in' | 'cm';
 export type EnclosureType = 'glass' | 'pvc' | 'screen';
 export type BudgetTier = 'low' | 'mid' | 'premium';
+export type HumidityControl = 'none' | 'manual' | 'misting-system' | 'humidifier' | 'fogger';
+export type SubstrateType = 'bioactive' | 'soil-based' | 'paper-based' | 'foam';
 
 export interface EnclosureInput {
   width: number;
   depth: number;
   height: number;
   units: Units;
-  type?: EnclosureType;
+  type: EnclosureType; // glass, pvc, or screen
   animal: string; // animal ID
+  quantity: number; // number of animals
   bioactive: boolean;
   budget: BudgetTier;
-  beginnerMode: boolean;
+  // New fields
+  ambientTemp: number; // °F
+  ambientHumidity: number; // % (0-100)
+  humidityControl: HumidityControl;
+  substratePreference: SubstrateType;
+  plantPreference: 'live' | 'artificial' | 'mix';
 }
 
 export interface TemperatureRange {
@@ -81,6 +89,8 @@ export interface ShoppingItem {
     premium?: string;
   };
   notes?: string;
+  infoLinks?: Record<string, string>; // e.g., { "Setup Guide": "url" }
+  purchaseLinks?: Record<string, string>; // e.g., { "low": "url", "mid": "url" }
 }
 
 export interface BuildStep {
@@ -96,6 +106,10 @@ export interface Warning {
   severity: 'critical' | 'important' | 'tip';
   message: string;
   category: 'safety' | 'common_mistake' | 'beginner_note';
+  link?: {
+    text: string;
+    url: string;
+  };
 }
 
 export interface BuildPlan {
@@ -145,6 +159,13 @@ export interface EquipmentRule {
   calculate: (input: EnclosureInput) => number | string;
 }
 
+export interface QuantityRules {
+  baseGallons: number; // gallons for single animal
+  additionalGallons: number; // gallons per additional animal
+  maxRecommended: number; // max animals per enclosure
+  description: string; // human-readable description
+}
+
 export interface AnimalProfile {
   id: string;
   commonName: string;
@@ -156,6 +177,7 @@ export interface AnimalProfile {
     height: number;
     units: Units;
   };
+  quantityRules?: QuantityRules; // Optional: for species with specific quantity-based sizing
   careTargets: CareTargets;
   layoutRules: LayoutRule;
   equipmentRules?: EquipmentRule[]; // Optional: not required in JSON
@@ -163,4 +185,5 @@ export interface AnimalProfile {
   bioactiveCompatible: boolean;
   notes: string[];
   lifespan?: string; // Optional: e.g., "12-16 years"
+  relatedBlogs?: string[]; // Optional: array of blog post IDs
 }

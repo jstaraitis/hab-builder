@@ -1,10 +1,7 @@
 import { useState, useRef } from 'react';
 import { DndContext, DragEndEvent, useDraggable, useDroppable } from '@dnd-kit/core';
 import html2canvas from 'html2canvas';
-// import * as THREE from 'three';
 import { Flame, Sun, Droplets, Mountain, TreeDeciduous, Sprout, Leaf, Trees, Warehouse } from 'lucide-react';
-// import { ModelViewer3D } from '../ModelViewer3D/ModelViewer3D';
-// import { matchItemToModel } from '../ModelViewer3D/modelRegistry';
 import type { ShoppingItem, EnclosureInput } from '../../engine/types';
 
 interface EquipmentItem {
@@ -16,6 +13,8 @@ interface EquipmentItem {
   width: number;
   height: number;
   variant?: string; // 'fern', 'vine', 'bush', 'tree', 'grass' for decor
+  rotation?: number; // rotation in degrees
+  scale?: number; // scale factor (1 = 100%)
 }
 
 interface EnclosureDesignerProps {
@@ -23,20 +22,28 @@ interface EnclosureDesignerProps {
   readonly shoppingList: ShoppingItem[];
 }
 
-function DraggableEquipment({ item, onDelete, onVariantChange, isSelected, onToggleSelection }: { readonly item: EquipmentItem; readonly onDelete: (id: string) => void; readonly onVariantChange: (id: string, variant: string) => void; readonly isSelected: boolean; readonly onToggleSelection: (id: string) => void }) {
+function DraggableEquipment({ item, onDelete, onVariantChange, isSelected, onToggleSelection, onResize, onRotate }: { readonly item: EquipmentItem; readonly onDelete: (id: string) => void; readonly onVariantChange: (id: string, variant: string) => void; readonly isSelected: boolean; readonly onToggleSelection: (id: string) => void; readonly onResize: (id: string, scale: number) => void; readonly onRotate: (id: string, rotation: number) => void }) {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: item.id,
   });
+
+  const rotation = item.rotation || 0;
+  const scale = item.scale || 1;
 
   const style = {
     left: `${item.x}px`,
     top: `${item.y}px`,
     width: `${item.width}px`,
     minHeight: `${item.height}px`,
-    transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
+    transform: transform 
+      ? `translate3d(${transform.x}px, ${transform.y}px, 0) rotate(${rotation}deg) scale(${scale})`
+      : `rotate(${rotation}deg) scale(${scale})`,
+    transformOrigin: 'center center',
   };
 
   const [showDelete, setShowDelete] = useState(false);
+  const [isResizing, setIsResizing] = useState(false);
+  const [isRotating, setIsRotating] = useState(false);
 
   const handleDelete = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -44,7 +51,82 @@ function DraggableEquipment({ item, onDelete, onVariantChange, isSelected, onTog
     onDelete(item.id);
   };
 
-  // Render shape based on item type using Lucide icons
+  const handleResizeStart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsResizing(true);
+    
+    const startScale = scale;
+    const startX = e.clientX;
+    const startY = e.clientY;
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      const deltaX = e.clientX - startX;
+      const deltaY = e.clientY - startY;
+      const delta = (deltaX + deltaY) / 200; // Average of x and y movement
+      const newScale = Math.max(0.5, Math.min(3, startScale + delta));
+      onResize(item.id, newScale);
+    };
+    
+    const handleMouseUp = () => {
+      setIsResizing(false);
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+    
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+  };
+
+  const handleRotateStart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsRotating(true);
+    
+    const rect = e.currentTarget.parentElement?.getBoundingClientRect();
+    if (!rect) return;
+    
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const startRotation = rotation;
+    
+    // Calculate initial angle from center to mouse
+    const startAngle = Math.atan2(e.clientY - centerY, e.clientX - centerX) * (180 / Math.PI);
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      // Calculate current angle from center to mouse
+      const currentAngle = Math.atan2(e.clientY - centerY, e.clientX - centerX) * (180 / Math.PI);
+      let angleDelta = currentAngle - startAngle;
+      let newRotation = (startRotation + angleDelta) % 360;
+      
+      // Normalize to 0-360 range
+      if (newRotation < 0) newRotation += 360;
+      
+      // Snap to common angles (0, 45, 90, 135, 180, 225, 270, 315) if within 5 degrees
+      const snapAngles = [0, 45, 90, 135, 180, 225, 270, 315];
+      for (const snapAngle of snapAngles) {
+        if (Math.abs(newRotation - snapAngle) < 5) {
+          newRotation = snapAngle;
+          break;
+        }
+      }
+      
+      onRotate(item.id, newRotation);
+    };
+    
+    const handleMouseUp = () => {
+      setIsRotating(false);
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+    
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+  };
+
+  // Render shape based on item type - use image if available, fallback to icons
+  const [imageError, setImageError] = useState(false);
+
   const renderShape = () => {
     const iconSize = item.type === 'substrate' ? 48 : item.type === 'uvb' ? 36 : 42;
     const iconColor = (() => {
@@ -59,11 +141,33 @@ function DraggableEquipment({ item, onDelete, onVariantChange, isSelected, onTog
       }
     })();
 
+    // Only use images for decor items with tree variant (and if image hasn't failed)
+    const useImage = item.type === 'decor' && item.variant === 'tree' && !imageError;
+    
+    if (useImage) {
+      const imagePath = '/equipment/plants/tree.png';
+      
+      return (
+        <div className="relative w-full h-full flex items-center justify-center">
+          <img 
+            src={imagePath} 
+            alt={item.name}
+            className="relative z-10 object-contain max-w-full max-h-full p-1"
+            style={{ filter: 'drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3))' }}
+            onError={() => {
+              console.error(`Failed to load image: ${imagePath}`);
+              setImageError(true);
+            }}
+          />
+        </div>
+      );
+    }
+
+    // Use Lucide icons for everything else
     switch (item.type) {
       case 'heat':
         return (
           <div className="relative w-full h-full flex items-center justify-center">
-            {/* Glow effect for heat */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-16 h-16 rounded-full bg-orange-400/30 blur-xl animate-pulse"></div>
             </div>
@@ -74,7 +178,6 @@ function DraggableEquipment({ item, onDelete, onVariantChange, isSelected, onTog
       case 'uvb':
         return (
           <div className="relative w-full h-full flex items-center justify-center">
-            {/* Light glow */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-20 h-10 rounded-full bg-yellow-300/40 blur-lg"></div>
             </div>
@@ -150,6 +253,35 @@ function DraggableEquipment({ item, onDelete, onVariantChange, isSelected, onTog
         {renderShape()}
       </div>
 
+      {/* Resize handle (bottom-right corner) */}
+      {isSelected && (
+        <button
+          onMouseDown={handleResizeStart}
+          className="absolute -bottom-2 -right-2 bg-blue-500 hover:bg-blue-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold transition-colors flex-shrink-0 z-50 cursor-nwse-resize"
+          title="Resize (drag to scale)"
+        >
+          ⇲
+        </button>
+      )}
+
+      {/* Rotation handle (top-right corner) */}
+      {isSelected && (
+        <>
+          <button
+            onMouseDown={handleRotateStart}
+            className="absolute -top-2 -right-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold transition-colors flex-shrink-0 z-50 cursor-grab active:cursor-grabbing"
+            title="Rotate (drag around item)"
+          >
+            ↻
+          </button>
+          {isRotating && (
+            <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-indigo-600 text-white px-2 py-1 rounded text-xs font-bold whitespace-nowrap z-50 shadow-lg">
+              {Math.round(rotation)}°
+            </div>
+          )}
+        </>
+      )}
+
       {/* Edit button for decor items */}
       {item.type === 'decor' && (
         <button
@@ -195,7 +327,7 @@ function DraggableEquipment({ item, onDelete, onVariantChange, isSelected, onTog
       {showDelete && (
         <button
           onMouseDown={handleDelete}
-          className="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold transition-all flex-shrink-0 z-50 shadow-md hover:shadow-lg hover:scale-110"
+          className="absolute -top-2 -left-2 bg-red-500 hover:bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold transition-all flex-shrink-0 z-50 shadow-md hover:shadow-lg hover:scale-110"
           title="Delete item (Click to remove)"
           type="button"
         >
@@ -539,6 +671,22 @@ export function EnclosureDesigner({ enclosureInput, shoppingList }: EnclosureDes
       )
     );
     setSelectedItemId(null);
+  };
+
+  const handleResize = (id: string, scale: number) => {
+    setEquipment((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, scale } : item
+      )
+    );
+  };
+
+  const handleRotate = (id: string, rotation: number) => {
+    setEquipment((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, rotation } : item
+      )
+    );
   };
 
   const handleDragEnd = (event: DragEndEvent) => {
@@ -925,6 +1073,8 @@ export function EnclosureDesigner({ enclosureInput, shoppingList }: EnclosureDes
                   onVariantChange={updateItemVariant}
                   onToggleSelection={toggleItemSelection}
                   isSelected={selectedItemId === item.id}
+                  onResize={handleResize}
+                  onRotate={handleRotate}
                 />
               ))}
             </DroppableEnclosure>

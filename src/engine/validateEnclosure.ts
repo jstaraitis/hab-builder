@@ -50,6 +50,29 @@ export function validateEnclosureSize(
 
   let tooSmall = false;
 
+  // Calculate required gallons based on quantity if quantityRules exist
+  if (profile.quantityRules && input.quantity > 0) {
+    const requiredGallons = profile.quantityRules.baseGallons + 
+      (input.quantity - 1) * profile.quantityRules.additionalGallons;
+    
+    // Calculate current enclosure volume in gallons (1 gallon ≈ 231 cubic inches)
+    const volumeInches = userWidth * userDepth * userHeight;
+    const currentGallons = volumeInches / 231;
+
+    if (currentGallons < requiredGallons) {
+      warnings.push(
+        `For ${input.quantity} animal${input.quantity > 1 ? 's' : ''}, you need at least ${requiredGallons} gallons (currently ~${Math.round(currentGallons)} gallons). ${profile.quantityRules.description}`
+      );
+      tooSmall = true;
+    }
+
+    if (input.quantity > profile.quantityRules.maxRecommended) {
+      warnings.push(
+        `Warning: ${input.quantity} animals exceeds the recommended maximum of ${profile.quantityRules.maxRecommended} for this species. Overcrowding can lead to stress, competition, and health issues.`
+      );
+    }
+  }
+
   if (userWidth < minWidth) {
     warnings.push(
       `Width is too small (${input.width}" vs required ${profile.minEnclosureSize.width}"). This limits horizontal movement.`
@@ -78,10 +101,10 @@ export function validateEnclosureSize(
     );
   }
 
-  // Tall enclosure humidity warning
-  if (userHeight > 36) {
+  // Tall enclosure humidity warning (only for species that need high humidity)
+  if (userHeight > 36 && profile.careTargets.humidity.min > 60) {
     warnings.push(
-      `Tall enclosure (${input.height}") will lose humidity quickly. Plan extra misting or use a humidifier.`
+      `Tall enclosure (${input.height}") may lose humidity quickly. Plan extra misting or use a humidifier to maintain ${profile.careTargets.humidity.min}%+ humidity.`
     );
   }
 
@@ -109,6 +132,14 @@ export function validateEnclosureType(
   input: EnclosureInput,
   profile: AnimalProfile
 ): { compatible: boolean; warning?: string } {
+  // White's Tree Frogs specifically cannot use screen enclosures
+  if (input.type === 'screen' && input.animal === 'whites-tree-frog') {
+    return {
+      compatible: false,
+      warning: `Screen enclosures are INCOMPATIBLE with White's Tree Frogs. They cannot maintain the warm, stable temperature required. Use glass or PVC only.`,
+    };
+  }
+  
   // Most tree frogs don't do well in screen enclosures
   if (input.type === 'screen' && profile.layoutRules.preferVertical) {
     return {

@@ -1,0 +1,91 @@
+{
+  "id": "enclosure-sizing-guide",
+  "title": "Enclosure Sizing & Layouts for White's Tree Frogs",
+  "author": "Habitat Builder Team",
+  "date": "2026-01-20",
+  "category": "Care Guides",
+  "excerpt": "White's Tree Frog–specific enclosure sizing, branch placement for weight support, and zone planning to prevent obesity and stress.",
+  "tags": ["enclosure", "layout", "whites-tree-frog", "planning"],
+  "content": [
+    {
+      "type": "intro",
+      "text": "White's Tree Frogs are heavy-bodied and sedentary. The enclosure needs sturdy perches at multiple heights, a water bowl, shade, and basking zones—but avoid over-cluttering. Always size the enclosure for the adult frog from the start; upgrading enclosures causes stress and is unnecessary."
+    },
+    {
+      "type": "section",
+      "heading": "📐 Minimum Sizes (Arboreal)",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Life Stage", "Recommended Size", "Notes"],
+          "rows": [
+            ["Juvenile (0-1 yr)", "18×18×24 in minimum (same as adult)", "Start with adult-sized enclosure from the beginning. This size is for ONE frog only. Upgrading causes unnecessary stress."],
+            ["Adult (1+ yrs)", "18×18×24 in (minimum for 1 frog) to 24×18×24-36 in (preferred)", "Heavy bodies need sturdy branches. Minimum 18×18×24 for a single frog. Add 20-25% more volume per additional frog."],
+            ["Breeding pairs", "24×18×30+ in to 30×24×36 in minimum", "Pairs need at least 24×18×30 to minimize stress. Extra height and width for courtship behavior and improved ventilation."]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "🧭 Zone Planning",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Basking perch: Top-third, under UVB and heat, 82-86°F; easily accessible without climbing over obstacles.",
+            "Cool retreat: Mid-height shaded branch or hollow log on the opposite side for thermoregulation.",
+            "Water dish: Low and on the cool side, away from heat sources; easy access without navigating dense plants.",
+            "Partial open lanes: Allow movement between zones; too much clutter stresses White's and traps stale air."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "🌿 Branches, Vines, & Plants",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use thick branches (3/4–1.5 inch diameter) rated for White's weight (60-150g depending on size).",
+            "Anchor 2-3 main perches at different heights (30%, 60%, 85%) diagonally for varied viewing and thermal control.",
+            "Add one broad-leaf plant (pothos, ficus) for shade and humidity; avoid dense carpets that trap moisture.",
+            "Secure branches with aquarium-safe silicone, super glue, magnets, or suction cups rated for weight. Test all perches before introduction—White's are heavy and will stress weak anchors."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "🚫 Common Layout Pitfalls",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Perches only at the back: White's hide out of sight instead of basking; bring main branches forward.",
+            "Thin perches: Will sag under weight or snap; use sturdy branches rated for heavy-bodied amphibians.",
+            "Water bowl under heat: Creates humidity swings and mold; place on cool side.",
+            "Over-planting: Traps stagnant air; White's tolerate simple setups better than lush rainforest scenes."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "✅ Quick Layout Checklist",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Front-opening door for low-stress access and handling.",
+            "Basking perch under UVI 0.5-1.0 and 82-86°F heat; no obstacles between frog and heat/light.",
+            "Minimal but adequate shade (one plant or hide, not jungle-dense).",
+            "Sturdy anchors rated for weight; test all perches before introduction.",
+            "Clear path for daily water dish swap and weekly spot-cleaning."
+          ]
+        }
+      ]
+    }
+  ]
+}
