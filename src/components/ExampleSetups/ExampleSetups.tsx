@@ -3,6 +3,7 @@ interface ExampleSetupsProps {
 }
 
 export default function ExampleSetups({ animalType = 'tree-frog' }: ExampleSetupsProps) {
+  void animalType; // Can be used for future animal-specific example filtering
   const examples = [
     {
       id: 'minimalist',

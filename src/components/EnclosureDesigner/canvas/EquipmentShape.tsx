@@ -57,15 +57,16 @@ export function EquipmentShape({ item, isSelected, onSelect, onDragEnd }: Equipm
             {/* Bulb base */}
             <Circle
               radius={item.width / 2}
+              {...baseProps}
               fill="rgba(255, 140, 60, 0.9)"
               shadowColor="rgba(255, 80, 0, 0.8)"
               shadowBlur={15}
               shadowOpacity={0.8}
-              {...baseProps}
             />
             {/* Inner glow */}
             <Circle
               radius={item.width / 3}
+              {...baseProps}
               fill="rgba(255, 200, 100, 0.9)"
               shadowColor="yellow"
               shadowBlur={10}
@@ -92,12 +93,12 @@ export function EquipmentShape({ item, isSelected, onSelect, onDragEnd }: Equipm
               offsetX={item.width / 2}
               offsetY={item.height / 2}
               cornerRadius={item.height / 2}
+              {...baseProps}
               fill="rgba(255, 230, 150, 0.9)"
               strokeWidth={2}
               stroke="rgba(200, 200, 200, 0.8)"
               shadowColor="rgba(255, 220, 100, 0.6)"
               shadowBlur={12}
-              {...baseProps}
             />
             {/* Light highlights */}
             <Rect
@@ -129,10 +130,10 @@ export function EquipmentShape({ item, isSelected, onSelect, onDragEnd }: Equipm
             {/* Dish rim */}
             <Circle
               radius={item.width / 2}
+              {...baseProps}
               fill="rgba(100, 100, 100, 0.8)"
               strokeWidth={2}
               stroke="rgba(70, 70, 70, 0.9)"
-              {...baseProps}
             />
             {/* Water surface */}
             <Circle
@@ -159,10 +160,10 @@ export function EquipmentShape({ item, isSelected, onSelect, onDragEnd }: Equipm
             <RegularPolygon
               sides={5}
               radius={item.width / 2}
+              {...baseProps}
               fill="rgba(139, 115, 85, 0.9)"
               strokeWidth={2}
               stroke="rgba(100, 80, 60, 0.9)"
-              {...baseProps}
             />
             {/* Cork texture lines */}
             <RegularPolygon
@@ -189,10 +190,10 @@ export function EquipmentShape({ item, isSelected, onSelect, onDragEnd }: Equipm
               offsetX={item.width / 2}
               offsetY={item.height / 2}
               cornerRadius={5}
+              {...baseProps}
               fill="rgba(139, 100, 65, 0.85)"
               strokeWidth={1}
               stroke="rgba(100, 70, 45, 0.9)"
-              {...baseProps}
             />
             {/* Soil texture overlay */}
             <Rect
@@ -215,8 +216,8 @@ export function EquipmentShape({ item, isSelected, onSelect, onDragEnd }: Equipm
             <>
               <Circle
                 radius={item.width / 2}
-                fill="rgba(40, 150, 80, 0.85)"
                 {...baseProps}
+                fill="rgba(40, 150, 80, 0.85)"
               />
               <Star
                 numPoints={12}
@@ -238,8 +239,8 @@ export function EquipmentShape({ item, isSelected, onSelect, onDragEnd }: Equipm
               <RegularPolygon
                 sides={6}
                 radius={item.width / 2}
-                fill="rgba(50, 140, 70, 0.85)"
                 {...baseProps}
+                fill="rgba(50, 140, 70, 0.85)"
               />
               <RegularPolygon
                 sides={6}
@@ -257,8 +258,8 @@ export function EquipmentShape({ item, isSelected, onSelect, onDragEnd }: Equipm
                 height={item.height}
                 offsetX={item.width / 2}
                 offsetY={item.height / 2}
-                fill="rgba(100, 180, 50, 0.85)"
                 {...baseProps}
+                fill="rgba(100, 180, 50, 0.85)"
               />
               {/* Grass texture */}
               <Rect
@@ -276,8 +277,8 @@ export function EquipmentShape({ item, isSelected, onSelect, onDragEnd }: Equipm
             <>
               <Circle
                 radius={item.width / 2}
-                fill="rgba(50, 160, 80, 0.85)"
                 {...baseProps}
+                fill="rgba(50, 160, 80, 0.85)"
               />
               {/* Foliage clusters */}
               <Circle

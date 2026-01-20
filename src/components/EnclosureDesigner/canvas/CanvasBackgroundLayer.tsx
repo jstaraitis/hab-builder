@@ -1,7 +1,4 @@
-import { Stage, Layer, Rect, Circle, Line, Text, Group, Image as KonvaImage, Transformer } from 'react-konva';
-import { useRef, useState, useEffect, useCallback } from 'react';
-import Konva from 'konva';
-import type { ShoppingItem, EnclosureInput } from '../../../engine/types';
+import { Layer, Rect, Line, Text } from 'react-konva';
 
 export interface EquipmentItem {
   id: string;

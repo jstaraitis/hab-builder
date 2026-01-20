@@ -7,7 +7,7 @@ interface RelatedBlogsProps {
 
 export function RelatedBlogs({ blogIds }: RelatedBlogsProps) {
   const blogs = blogIds
-    .map(id => ({ id, ...blogPosts[id] }))
+    .map(id => ({ ...blogPosts[id], id }))
     .filter(blog => blog.title); // Filter out any invalid IDs
 
   if (blogs.length === 0) {

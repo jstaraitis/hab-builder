@@ -42,7 +42,6 @@ function DraggableEquipment({ item, onDelete, onVariantChange, isSelected, onTog
   };
 
   const [showDelete, setShowDelete] = useState(false);
-  const [isResizing, setIsResizing] = useState(false);
   const [isRotating, setIsRotating] = useState(false);
 
   const handleDelete = (e: React.MouseEvent) => {
@@ -54,7 +53,6 @@ function DraggableEquipment({ item, onDelete, onVariantChange, isSelected, onTog
   const handleResizeStart = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setIsResizing(true);
     
     const startScale = scale;
     const startX = e.clientX;
@@ -69,7 +67,6 @@ function DraggableEquipment({ item, onDelete, onVariantChange, isSelected, onTog
     };
     
     const handleMouseUp = () => {
-      setIsResizing(false);
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     };

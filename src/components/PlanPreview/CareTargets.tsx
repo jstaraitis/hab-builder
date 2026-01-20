@@ -7,6 +7,7 @@ interface CareTargetsProps {
 }
 
 export function CareTargets({ targets, showHeader = true, infoWarnings = [] }: CareTargetsProps) {
+  void infoWarnings; // Available for future expansion
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
       {showHeader && (

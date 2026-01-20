@@ -8,9 +8,7 @@ import { RelatedBlogs } from './components/AnimalPicker/RelatedBlogs';
 import { CareTargets } from './components/PlanPreview/CareTargets';
 import { ShoppingList } from './components/ShoppingList/ShoppingList';
 import { BuildSteps } from './components/BuildSteps/BuildSteps';
-import { Warnings } from './components/Warnings/Warnings';
 import { HusbandryChecklist } from './components/HusbandryChecklist/HusbandryChecklist';
-import { EnclosureDesigner } from './components/EnclosureDesigner/EnclosureDesigner';
 import CanvasDesigner from './components/EnclosureDesigner/CanvasDesigner';
 import ExampleSetups from './components/ExampleSetups/ExampleSetups';
 import { FeedbackModal } from './components/FeedbackModal/FeedbackModal';
@@ -29,15 +27,10 @@ interface AnimalSelectViewProps {
 }
 
 function AnimalSelectView({ input, selectedProfile, profileCareTargets, plan, onSelect, onContinue }: AnimalSelectViewProps) {
-  // Only show CRITICAL severity warnings in the separate section
-  const criticalWarnings = selectedProfile?.warnings?.filter(
-    (w) => w.severity === 'critical'
-  ) || [];
-  
   // Important and tip warnings will be shown in Care Parameters
-  const infoWarnings = selectedProfile?.warnings?.filter(
+  const infoWarnings = (selectedProfile?.warnings?.filter(
     (w) => w.severity === 'important' || w.severity === 'tip'
-  ) || [];
+  ) || []).map((w, idx) => ({ ...w, id: `info-${idx}` }));
 
   return (
     <div className="space-y-6">
@@ -351,6 +344,7 @@ function App() {
           <div>
             <p className="font-semibold text-yellow-900 dark:text-yellow-200">Beta Testing - Data May Be Incorrect</p>
             <p className="text-sm text-yellow-800 dark:text-yellow-300">This application is still in testing. Always verify care information with multiple reputable sources before making enclosure changes.</p>
+            <p className="text-sm text-yellow-800 dark:text-yellow-300">Best viewed on PC/Tablet, Mobile works but is in progress.</p>
           </div>
         </div>
       </div>

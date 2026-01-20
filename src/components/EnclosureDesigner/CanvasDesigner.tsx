@@ -27,7 +27,7 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
 
   // Initialize equipment from shopping list
   useEffect(() => {
-    const items = generateEquipmentFromShoppingList(shoppingList, canvasWidth, canvasHeight);
+    const items = generateEquipmentFromShoppingList(shoppingList, canvasWidth);
     setEquipment(items);
     setHistory([items]);
     setHistoryStep(0);
@@ -303,8 +303,7 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
 // Helper function to generate equipment from shopping list
 function generateEquipmentFromShoppingList(
   shoppingList: ShoppingItem[],
-  canvasWidth: number,
-  canvasHeight: number
+  canvasWidth: number
 ): EquipmentItem[] {
   const items: EquipmentItem[] = [];
   let yOffset = 100;
