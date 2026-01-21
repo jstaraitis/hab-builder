@@ -34,12 +34,12 @@ export function RelatedBlogs({ blogIds }: RelatedBlogsProps) {
             <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-primary-700 dark:group-hover:text-primary-300 mb-1">
               {blog.title}
             </h4>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 line-clamp-2">
+            <p className="text-sm text-gray-700 dark:text-gray-300 mb-2 line-clamp-2">
               {blog.excerpt}
             </p>
-            <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-500">
+            <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400">
               {blog.tags?.slice(0, 3).map((tag: string) => (
-                <span key={tag} className="px-2 py-0.5 bg-gray-200 dark:bg-gray-600 rounded">
+                <span key={tag} className="px-2 py-0.5 bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded">
                   {tag}
                 </span>
               ))}

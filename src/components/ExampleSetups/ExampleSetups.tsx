@@ -3,27 +3,26 @@ interface ExampleSetupsProps {
 }
 
 export default function ExampleSetups({ animalType = 'tree-frog' }: ExampleSetupsProps) {
-  void animalType; // Can be used for future animal-specific example filtering
   const examples = [
     {
       id: 'minimalist',
       name: 'Minimalist Setup',
       description: 'Clean, functional design with essential equipment only',
-      image: '/examples/minimalist-setup.jpg',
+      image: `/examples/${animalType}/minimalist-setup.jpg`,
       features: ['Basic lighting', 'Simple water dish', 'Single hide', 'Minimal decor']
     },
     {
       id: 'naturalistic',
       name: 'Naturalistic Bioactive',
       description: 'Lush planted setup with live plants and cleanup crew',
-      image: '/examples/naturalistic-setup.jpg',
+      image: `/examples/${animalType}/naturalistic-setup.jpg`,
       features: ['Live plants', 'Drainage layer', 'Springtails & isopods', 'Natural branches']
     },
     {
       id: 'display',
       name: 'Display/Show Tank',
       description: 'Visually stunning setup optimized for viewing',
-      image: '/examples/display-setup.jpg',
+      image: `/examples/${animalType}/display-setup.jpg`,
       features: ['Premium lighting', 'Artistic hardscape', 'Featured plants', 'Viewing angles']
     }
   ];

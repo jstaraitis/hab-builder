@@ -1,19 +1,71 @@
-# Example Setup Images
+# Example Enclosure Images
 
-This folder contains images of example enclosure setups.
+This directory contains example enclosure setup images for each animal species.
 
-## Required Images
+## Directory Structure
 
-Add the following images to this folder:
+Each animal should have its own folder with three example images:
 
-1. **minimalist-setup.jpg** - A clean, functional setup with basic equipment
-2. **naturalistic-setup.jpg** - A lush bioactive setup with live plants
-3. **display-setup.jpg** - A visually stunning display tank
+```
+examples/
+├── whites-tree-frog/
+│   ├── minimalist-setup.jpg
+│   ├── naturalistic-setup.jpg
+│   └── display-setup.jpg
+├── eastern-gray-tree-frog/
+│   ├── minimalist-setup.jpg
+│   ├── naturalistic-setup.jpg
+│   └── display-setup.jpg
+└── crested-gecko/
+    ├── minimalist-setup.jpg
+    ├── naturalistic-setup.jpg
+    └── display-setup.jpg
+```
 
-## Image Guidelines
+## Animal IDs (folder names)
 
-- Format: JPG or PNG
-- Recommended size: 1920x1080 or 16:9 aspect ratio
-- Show clear view of equipment placement
-- Good lighting to showcase the setup
-- White's Tree Frog specific setups preferred
+Use these exact folder names to match the animal profiles:
+- `whites-tree-frog`
+- `eastern-gray-tree-frog`
+- `crested-gecko`
+- (Add more as animals are added to the app)
+
+## Image Requirements
+
+### Minimalist Setup
+- Clean, simple enclosure with essential equipment only
+- Shows basic lighting, water dish, one hide, minimal decor
+- Good for beginners or those on a budget
+
+### Naturalistic Bioactive
+- Lush planted setup with live plants
+- Shows drainage layer, substrate, cleanup crew habitat
+- Natural branches and foliage
+- Looks like a natural habitat
+
+### Display/Show Tank
+- Visually stunning, artistic setup
+- Premium lighting showing off the enclosure
+- Artistic hardscape arrangement
+- Featured plants and viewing angles
+- "Instagram-worthy" aesthetic
+
+## Image Specifications
+
+- **Format:** JPG or PNG
+- **Aspect Ratio:** 16:9 (landscape)
+- **Recommended Size:** 1920x1080px or 1280x720px
+- **Max File Size:** Keep under 500KB for web performance
+- **Quality:** High quality, well-lit photos
+- **Content:** Show the entire enclosure, not just closeups
+- **Animal:** Can include the animal but not required
+
+## Fallback Behavior
+
+If an image doesn't exist, the component will show a placeholder with:
+- 🦎 emoji icon
+- Setup name
+- Gray gradient background
+
+This ensures the app still works even if images haven't been added yet.
+
