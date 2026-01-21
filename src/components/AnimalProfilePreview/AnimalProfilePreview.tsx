@@ -72,8 +72,7 @@ export function AnimalProfilePreview() {
           <div>
             <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2">Layout Preference</h3>
             <p className="text-gray-900 dark:text-white">
-              {profile.layoutRules.preferVertical ? '📏 Vertical' : '📐 Horizontal'} 
-              {' '}(H:{profile.layoutRules.horizontalSpacePercent}% / V:{profile.layoutRules.verticalSpacePercent}%)
+              {profile.layoutRules.preferVertical ? '📏 Vertical' : '📐 Horizontal'}
             </p>
           </div>
         </div>
@@ -102,9 +101,6 @@ export function AnimalProfilePreview() {
               <p>Range: {profile.careTargets.temperature.min}-{profile.careTargets.temperature.max}°{profile.careTargets.temperature.unit}</p>
               {profile.careTargets.temperature.basking && (
                 <p>Basking: {profile.careTargets.temperature.basking}°{profile.careTargets.temperature.unit}</p>
-              )}
-              {profile.careTargets.temperature.nighttime && (
-                <p>Nighttime: {profile.careTargets.temperature.nighttime.min}-{profile.careTargets.temperature.nighttime.max}°{profile.careTargets.temperature.unit}</p>
               )}
             </div>
           </div>
