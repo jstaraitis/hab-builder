@@ -1,0 +1,105 @@
+{
+  "_comment": "TEMPLATE FILE - Copy this to create new animal profiles. Remove this _comment field when using.",
+  "id": "species-name",
+  "commonName": "Common Name",
+  "scientificName": "Scientific Name",
+  "careLevel": "beginner",
+  "emoji": "🦎",
+  "completionStatus": "draft",
+  "minEnclosureSize": {
+    "width": 18,
+    "depth": 18,
+    "height": 24,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 30,
+    "additionalGallons": 10,
+    "maxRecommended": 4,
+    "description": "Single animal requires X gallons minimum. Each additional animal requires Y more gallons."
+  },
+  "careTargets": {
+    "temperature": {
+      "min": 70,
+      "max": 85,
+      "basking": 90,
+      "nighttime": {
+        "min": 65,
+        "max": 70
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "min": 40,
+      "max": 60,
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": true,
+      "uvbRecommended": true,
+      "uvbStrength": "5.0",
+      "coveragePercent": 65,
+      "photoperiod": "12h day / 12h night"
+    },
+    "gradient": "Describe thermal gradient setup (e.g., 'Warm zone at top with cooler areas below')"
+  },
+  "layoutRules": {
+    "preferVertical": true,
+    "verticalSpacePercent": 60,
+    "thermalGradient": "horizontal",
+    "requiredZones": ["basking", "hide", "climbing", "water"],
+    "optionalZones": ["feeding", "secondary_hide"]
+  },
+  "bioactiveCompatible": true,
+  "lifespan": "10-15 years in captivity",
+  "notes": [
+    "General behavior notes",
+    "Activity patterns (diurnal/nocturnal/crepuscular)",
+    "Temperament information",
+    "Unique care considerations"
+  ],
+  "warnings": [
+    {
+      "severity": "critical",
+      "message": "Critical safety or health warning",
+      "category": "safety",
+      "link": {
+        "text": "Read Full Guide",
+        "url": "/blog/guide-name"
+      }
+    },
+    {
+      "severity": "important",
+      "message": "Common mistake to avoid",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "tip",
+      "message": "Helpful beginner tip",
+      "category": "beginner_note"
+    }
+  ],
+  "relatedBlogs": [
+    "feeding-guide",
+    "temp-humidity-guide",
+    "uvb-lighting-guide",
+    "enclosure-sizing-guide"
+  ],
+  "careGuidance": {
+    "feedingNotes": [
+      "Feeding schedule (frequency and timing)",
+      "Recommended feeder insects",
+      "Supplementation schedule"
+    ],
+    "waterNotes": [
+      "Water quality requirements",
+      "Dish size and placement",
+      "Cleaning schedule"
+    ],
+    "mistingNotes": [
+      "Misting frequency and technique",
+      "Humidity management approach",
+      "Ventilation considerations"
+    ]
+  }
+}

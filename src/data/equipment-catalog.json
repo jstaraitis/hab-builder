@@ -63,7 +63,7 @@
     },
     "infoLinks": {
       "UVB Guide": "https://google.com",
-      "White's Tree Frog Lighting": "https://google.com"
+      "Zoo Med ReptiSun 5.0 Mini Compact Fluorescent Lamp 13 Watts": "https://google.com"
     },
     "purchaseLinks": {
       "low": "https://google.com",
@@ -151,8 +151,8 @@
     "category": "substrate",
     "budgetTiers": {
       "low": "Paper towels",
-      "mid": "Aspen or cypress mulch paper",
-      "premium": "Shredded paper bedding"
+      "mid": "Paper towels",
+      "premium": "Paper towels"
     },
     "notes": "Easy to replace and clean. Good for minimal setups. May need more frequent changes.",
     "infoLinks": {
@@ -169,9 +169,9 @@
     "name": "Foam Substrate",
     "category": "substrate",
     "budgetTiers": {
-      "low": "Basic foam chips",
+      "low": "Foam substrate",
       "mid": "Premium foam substrate",
-      "premium": "Specialty foam blend"
+      "premium": "Premium foam substrate"
     },
     "notes": "Lightweight, reusable, and easy to clean. Great for enclosures where weight is a concern. Non-biodegradable.",
     "infoLinks": {
@@ -192,7 +192,9 @@
       "Bioactive Drainage": "https://google.com"
     },
     "purchaseLinks": {
-      "standard": "https://google.com"
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
     }
   },
   "drainage-barrier": {
@@ -203,7 +205,9 @@
       "Bioactive Setup": "https://google.com"
     },
     "purchaseLinks": {
-      "standard": "https://google.com"
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
     }
   },
   "springtails": {
@@ -215,7 +219,9 @@
       "Springtails Care": "https://google.com"
     },
     "purchaseLinks": {
-      "standard": "https://google.com"
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
     }
   },
   "isopods": {
@@ -227,7 +233,9 @@
       "Bioactive Cleanup Crew": "https://google.com"
     },
     "purchaseLinks": {
-      "standard": "https://google.com"
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
     }
   },
   "branches": {
@@ -253,8 +261,9 @@
       "Bioactive Plants": "https://google.com"
     },
     "purchaseLinks": {
-      "artificial": "https://google.com",
-      "live": "https://google.com"
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
     }
   },
   "plants-live": {
@@ -266,7 +275,9 @@
       "Bioactive Plants": "https://google.com"
     },
     "purchaseLinks": {
-      "standard": "https://google.com"
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
     }
   },
   "plants-artificial": {
@@ -278,7 +289,9 @@
       "Safe Decor Materials": "https://google.com"
     },
     "purchaseLinks": {
-      "standard": "https://google.com"
+      "low": "https://google.com",
+      "mid": "https://google.com",
+      "premium": "https://google.com"
     }
   },
   "misting-system": {
@@ -326,12 +339,12 @@
   "monitoring": {
     "name": "Digital Thermometer & Hygrometer",
     "category": "equipment",
-    "sizing": "Monitor both warm and cool zones. Critical for temperature regulation.",
     "budgetTiers": {
       "low": "Basic digital combo unit",
       "mid": "Zoo Med dual gauge",
       "premium": "Govee WiFi monitor with app"
     },
+    "sizing": "Monitor both warm and cool zones. Critical for temperature regulation.",
     "infoLinks": {
       "Temperature Monitoring": "https://google.com",
       "Humidity Management": "https://google.com"

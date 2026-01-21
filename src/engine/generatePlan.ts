@@ -68,13 +68,18 @@ export function generatePlan(input: EnclosureInput): BuildPlan {
   };
 }
 
-function generateCareGuidance(_profile: any, input: EnclosureInput) {
-  const guidance = careGuidanceData[input.animal as keyof typeof careGuidanceData] || careGuidanceData._default;
+function generateCareGuidance(profile: AnimalProfile, _input: EnclosureInput) {
+  // Use profile's careGuidance if available, otherwise fall back to defaults
+  if (profile.careGuidance) {
+    return profile.careGuidance;
+  }
   
+  // Fallback to default guidance if not specified in profile
+  const defaultGuidance = careGuidanceData._default;
   return {
-    feedingNotes: guidance.feedingNotes,
-    waterNotes: guidance.waterNotes,
-    mistingNotes: guidance.mistingNotes,
+    feedingNotes: defaultGuidance.feedingNotes,
+    waterNotes: defaultGuidance.waterNotes,
+    mistingNotes: defaultGuidance.mistingNotes,
   };
 }
 

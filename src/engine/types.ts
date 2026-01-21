@@ -166,11 +166,19 @@ export interface QuantityRules {
   description: string; // human-readable description
 }
 
+export interface CareGuidance {
+  feedingNotes: string[];
+  waterNotes: string[];
+  mistingNotes: string[];
+}
+
 export interface AnimalProfile {
   id: string;
   commonName: string;
   scientificName: string;
   careLevel: 'beginner' | 'intermediate' | 'advanced';
+  emoji?: string; // Optional: emoji icon for animal picker (e.g., "🐸")
+  completionStatus?: 'complete' | 'in-progress' | 'draft'; // Optional: profile completion status
   minEnclosureSize: {
     width: number;
     depth: number;
@@ -186,4 +194,5 @@ export interface AnimalProfile {
   notes: string[];
   lifespan?: string; // Optional: e.g., "12-16 years"
   relatedBlogs?: string[]; // Optional: array of blog post IDs
+  careGuidance?: CareGuidance; // Optional: species-specific care guidance
 }

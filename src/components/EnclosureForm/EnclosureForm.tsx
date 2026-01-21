@@ -15,7 +15,13 @@ const commonSizes = [
   { name: '18×18×24"', width: 18, depth: 18, height: 24, units: 'in' as Units },
   { name: '18×18×36"', width: 18, depth: 18, height: 36, units: 'in' as Units },
   { name: '24×18×36"', width: 24, depth: 18, height: 36, units: 'in' as Units },
+  { name: '36×18×18"', width: 36, depth: 18, height: 18, units: 'in' as Units },
   { name: '40×20×20"', width: 40, depth: 20, height: 20, units: 'in' as Units },
+  { name: '48×24×24" (4×2×2)', width: 48, depth: 24, height: 24, units: 'in' as Units },
+  { name: '48×24×48" (4×2×4)', width: 48, depth: 24, height: 48, units: 'in' as Units },
+  { name: '72×24×24" (6×2×2)', width: 72, depth: 24, height: 24, units: 'in' as Units },
+  { name: '72×36×36" (6×3×3)', width: 72, depth: 36, height: 36, units: 'in' as Units },
+  { name: '84×24×24" (7×2×2)', width: 84, depth: 24, height: 24, units: 'in' as Units },
   { name: 'Custom', width: 0, depth: 0, height: 0, units: 'in' as Units },
 ];
 

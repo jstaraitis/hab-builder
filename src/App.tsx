@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { Routes, Route, Navigate, Link, useNavigate, useLocation } from 'react-router-dom';
 import type { EnclosureInput, BuildPlan, AnimalProfile } from './engine/types';
 import { generatePlan } from './engine/generatePlan';
@@ -14,6 +14,8 @@ import ExampleSetups from './components/ExampleSetups/ExampleSetups';
 import { FeedbackModal } from './components/FeedbackModal/FeedbackModal';
 import { BlogList } from './components/Blog/BlogList';
 import { BlogPost } from './components/Blog/BlogPost';
+import { AnimalProfilePreview } from './components/AnimalProfilePreview/AnimalProfilePreview';
+import { SEO } from './components/SEO/SEO';
 import { animalProfiles } from './data/animals';
 import { useTheme } from './hooks/useTheme';
 
@@ -32,9 +34,33 @@ function AnimalSelectView({ input, selectedProfile, profileCareTargets, plan, on
     (w) => w.severity === 'important' || w.severity === 'tip'
   ) || []).map((w, idx) => ({ ...w, id: `info-${idx}` }));
 
+  // SEO metadata for animal-specific pages
+  const animalSEO = selectedProfile ? {
+    title: `${selectedProfile.commonName} Enclosure Setup Guide`,
+    description: `Complete ${selectedProfile.commonName} (${selectedProfile.scientificName}) care guide. Learn proper enclosure size, temperature (${profileCareTargets?.temperature.min}-${profileCareTargets?.temperature.max}°F), humidity (${profileCareTargets?.humidity.min}-${profileCareTargets?.humidity.max}%), and lighting requirements.`,
+    keywords: [
+      `${selectedProfile.commonName.toLowerCase()} enclosure`,
+      `${selectedProfile.commonName.toLowerCase()} habitat`,
+      `${selectedProfile.commonName.toLowerCase()} setup`,
+      `${selectedProfile.scientificName.toLowerCase()} care`,
+      `${selectedProfile.careLevel} reptile`,
+      'bioactive vivarium'
+    ]
+  } : {
+    title: 'Choose Your Reptile or Amphibian',
+    description: 'Select from our database of reptiles and amphibians to generate a custom enclosure plan with care parameters, shopping lists, and build instructions.'
+  };
+
   return (
     <div className="space-y-6">
+      <SEO {...animalSEO} />
       <AnimalPicker selected={input.animal} onSelect={onSelect} />
+      
+      {!input.animal && (
+        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-4 text-center">
+          <p className="text-blue-800 dark:text-blue-300 font-medium">👆 Please select an animal to begin</p>
+        </div>
+      )}
 
       {selectedProfile && (
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 text-sm text-gray-700 dark:text-gray-300">
@@ -65,6 +91,51 @@ function AnimalSelectView({ input, selectedProfile, profileCareTargets, plan, on
             <span className="text-xs text-gray-500 dark:text-gray-400">Species defaults</span>
           </div>
           <CareTargets targets={profileCareTargets} showHeader={false} infoWarnings={infoWarnings} />
+          
+          {selectedProfile?.careGuidance && (
+            <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700 space-y-4">
+              <h4 className="text-md font-semibold text-gray-900 dark:text-white">Daily Care Guidelines</h4>
+              
+              {/* Feeding Section */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl">🍽️</span>
+                  <h5 className="font-semibold text-gray-900 dark:text-white">Feeding Schedule</h5>
+                </div>
+                <div className="pl-9 space-y-1.5 text-sm text-gray-700 dark:text-gray-300">
+                  {selectedProfile.careGuidance.feedingNotes.map((note, idx) => (
+                    <p key={`feeding-${idx}`} className="leading-relaxed">• {note}</p>
+                  ))}
+                </div>
+              </div>
+
+              {/* Water Section */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl">💧</span>
+                  <h5 className="font-semibold text-gray-900 dark:text-white">Water Requirements</h5>
+                </div>
+                <div className="pl-9 space-y-1.5 text-sm text-gray-700 dark:text-gray-300">
+                  {selectedProfile.careGuidance.waterNotes.map((note, idx) => (
+                    <p key={`water-${idx}`} className="leading-relaxed">• {note}</p>
+                  ))}
+                </div>
+              </div>
+
+              {/* Misting Section */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl">💦</span>
+                  <h5 className="font-semibold text-gray-900 dark:text-white">Humidity & Misting</h5>
+                </div>
+                <div className="pl-9 space-y-1.5 text-sm text-gray-700 dark:text-gray-300">
+                  {selectedProfile.careGuidance.mistingNotes.map((note, idx) => (
+                    <p key={`misting-${idx}`} className="leading-relaxed">• {note}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
 
@@ -110,14 +181,16 @@ function AnimalSelectView({ input, selectedProfile, profileCareTargets, plan, on
         </div>
       )}
 
-      <div className="flex justify-end">
-        <button
-          onClick={onContinue}
-          className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition-all"
-        >
-          Continue to Designer
-        </button>
-      </div>
+      {input.animal && (
+        <div className="flex justify-end">
+          <button
+            onClick={onContinue}
+            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition-all"
+          >
+            Continue to Designer
+          </button>
+        </div>
+      )}
     </div>
   );
 }
@@ -134,6 +207,11 @@ interface DesignViewProps {
 function DesignView({ selectedProfile, input, setInput, plan, error, onGenerate }: DesignViewProps) {
   return (
     <div className="space-y-6">
+      <SEO
+        title={`Design ${selectedProfile?.commonName || 'Reptile'} Enclosure`}
+        description={`Design a custom ${selectedProfile?.commonName || 'reptile'} enclosure. Set dimensions, choose materials, and preview your habitat layout in real-time.`}
+        keywords={['enclosure designer', 'vivarium planner', 'habitat design tool', 'reptile enclosure calculator', `${selectedProfile?.commonName.toLowerCase()} enclosure`]}
+      />
       {error && (
         <div className="bg-red-100 dark:bg-red-900/20 border border-red-400 dark:border-red-800 text-red-700 dark:text-red-300 px-4 py-3 rounded">
           {error}
@@ -186,18 +264,27 @@ interface PlanViewProps {
 }
 
 function PlanView({ plan, input }: PlanViewProps) {
+  const animalName = plan?.careTargets ? animalProfiles[input.animal]?.commonName || 'Reptile' : 'Reptile';
+  
   if (!plan) {
     return (
       <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 text-yellow-900 dark:text-yellow-200 rounded-lg p-4 space-y-2">
+        <SEO title="Build Plan" description="Generate your custom reptile enclosure build plan with step-by-step instructions." />
         <p className="font-semibold">No plan yet.</p>
         <p className="text-sm">Generate a plan in Design first.</p>
         <Link to="/design" className="text-blue-700 dark:text-blue-400 font-medium underline">Back to Design</Link>
       </div>
     );
   }
-
+  
   return (
-    <div className="space-y-4">
+    <>
+      <SEO
+        title={`${animalName} Build Plan & Instructions`}
+        description={`Complete ${animalName} enclosure build plan with step-by-step instructions, equipment list, and care parameters. ${input.width}x${input.depth}x${input.height}" ${input.bioactive ? 'bioactive' : 'standard'} setup.`}
+        keywords={[`${animalName.toLowerCase()} build guide`, 'enclosure instructions', 'vivarium setup', 'habitat build steps', 'reptile shopping list']}
+      />
+      <div className="space-y-4">
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Plan</h2>
@@ -227,6 +314,7 @@ function PlanView({ plan, input }: PlanViewProps) {
         </div>
       )}
     </div>
+    </>
   );
 }
 
@@ -238,6 +326,7 @@ function SuppliesView({ plan }: SuppliesViewProps) {
   if (!plan) {
     return (
       <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 text-yellow-900 dark:text-yellow-200 rounded-lg p-4 space-y-2">
+        <SEO title="Shopping List" description="Get your custom reptile enclosure shopping list with equipment, substrate, and decor." />
         <p className="font-semibold">No plan yet.</p>
         <p className="text-sm">Generate a plan in Design first.</p>
         <Link to="/design" className="text-blue-700 dark:text-blue-400 font-medium underline">Back to Design</Link>
@@ -246,7 +335,13 @@ function SuppliesView({ plan }: SuppliesViewProps) {
   }
 
   return (
-    <div className="space-y-6">
+    <>
+      <SEO
+        title="Shopping List & Supplies"
+        description={`Complete equipment shopping list for your ${input.width}x${input.depth}x${input.height}" enclosure. Includes heating, lighting, substrate, and decor with build instructions.`}
+        keywords={['reptile supplies', 'vivarium shopping list', 'enclosure equipment', 'bioactive supplies', 'reptile decor']}
+      />
+      <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Supplies & Steps</h2>
@@ -279,6 +374,7 @@ function SuppliesView({ plan }: SuppliesViewProps) {
         </Link>
       </div>
     </div>
+    </>
   );
 }
 
@@ -287,13 +383,19 @@ function App() {
   const location = useLocation();
   const { theme, toggleTheme } = useTheme();
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
+
+  // Scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const [input, setInput] = useState<EnclosureInput>({
     width: 18,
     depth: 18,
     height: 24,
     units: 'in',
     type: 'glass',
-    animal: 'whites-tree-frog',
+    animal: '',
     quantity: 1,
     bioactive: false,
     budget: 'mid',
@@ -338,79 +440,81 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800">
       {/* Testing Banner */}
-      <div className="bg-yellow-50 dark:bg-yellow-900/30 border-b-2 border-yellow-400 dark:border-yellow-700 px-4 py-3">
-        <div className="max-w-7xl mx-auto flex items-center gap-3">
-          <span className="text-2xl">⚠️</span>
-          <div>
+      <div className="bg-yellow-50 dark:bg-yellow-900/30 border-b-2 border-yellow-400 dark:border-yellow-700 px-3 sm:px-4 py-2 sm:py-3">
+        <div className="max-w-7xl mx-auto flex items-start sm:items-center gap-2 sm:gap-3">
+          <span className="text-xl sm:text-2xl flex-shrink-0">⚠️</span>
+          <div className="text-xs sm:text-sm">
             <p className="font-semibold text-yellow-900 dark:text-yellow-200">Beta Testing - Data May Be Incorrect</p>
-            <p className="text-sm text-yellow-800 dark:text-yellow-300">This application is still in testing. Always verify care information with multiple reputable sources before making enclosure changes.</p>
-            <p className="text-sm text-yellow-800 dark:text-yellow-300">Best viewed on PC/Tablet, Mobile works but is in progress.</p>
+            <p className="text-yellow-800 dark:text-yellow-300 mt-0.5">This app is in testing. Always verify care info with multiple sources before making changes.</p>
           </div>
         </div>
       </div>
 
       <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
-        <div className="max-w-7xl mx-auto px-4 py-6 flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <h1 className="text-4xl font-bold text-green-700 dark:text-green-400">🦎 Habitat Builder</h1>
-            <p className="text-gray-600 dark:text-gray-300 mt-1">Generate custom enclosure plans for your reptiles & amphibians</p>
-          </div>
-          <nav className="flex gap-2 text-sm font-medium">
+        <div className="max-w-7xl mx-auto px-4 py-4 sm:py-6">
+          <div className="flex flex-col gap-4">
+            <div className="text-center sm:text-left">
+              <h1 className="text-2xl sm:text-4xl font-bold text-green-700 dark:text-green-400">🦎 Habitat Builder</h1>
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">Generate custom enclosure plans for your reptiles & amphibians</p>
+            </div>
+            <nav className="flex flex-wrap justify-center sm:justify-start gap-2 text-xs sm:text-sm font-medium">
             <Link
               to="/animal"
-              className={`px-4 py-2 rounded-lg border ${isActive('/animal') ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-emerald-400'}`}
+              className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/animal') ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-emerald-400'}`}
             >
              🐸 Animal
             </Link>
             <Link
               to="/design"
-              className={`px-4 py-2 rounded-lg border ${isActive('/design') ? 'bg-green-600 text-white border-green-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-green-400'}`}
+              className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/design') ? 'bg-green-600 text-white border-green-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-green-400'} ${input.animal ? '' : 'opacity-60 pointer-events-none'}`}
+              title={input.animal ? 'Design your enclosure' : 'Select an animal first'}
             >
              🎨 Design
             </Link>
             <Link
               to="/supplies"
-              className={`px-4 py-2 rounded-lg border ${isActive('/supplies') ? 'bg-purple-600 text-white border-purple-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-purple-400'} ${plan ? '' : 'opacity-60 pointer-events-none'}`}
+              className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/supplies') ? 'bg-purple-600 text-white border-purple-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-purple-400'} ${plan ? '' : 'opacity-60 pointer-events-none'}`}
               title={plan ? 'View supplies and steps' : 'Generate a plan first'}
             >
              🛒Supplies
             </Link>
             <Link
               to="/plan"
-              className={`px-4 py-2 rounded-lg border ${isActive('/plan') ? 'bg-blue-600 text-white border-blue-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-blue-400'} ${plan ? '' : 'opacity-60 pointer-events-none'}`}
+              className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/plan') ? 'bg-blue-600 text-white border-blue-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-blue-400'} ${plan ? '' : 'opacity-60 pointer-events-none'}`}
               title={plan ? 'View your generated plan' : 'Generate a plan first'}
             >
              📋 Plan
             </Link>
             <Link
               to="/designer"
-              className={`px-4 py-2 rounded-lg border ${isActive('/designer') ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-indigo-400'} ${plan ? '' : 'opacity-60 pointer-events-none'}`}
+              className={`hidden sm:inline-block px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/designer') ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-indigo-400'} ${plan ? '' : 'opacity-60 pointer-events-none'}`}
               title={plan ? 'Interactive Designer (Premium)' : 'Generate a plan first'}
             >
               💎 Designer
             </Link>
             <Link
               to="/blog"
-              className={`px-4 py-2 rounded-lg border ${location.pathname.startsWith('/blog') ? 'bg-amber-600 text-white border-amber-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-amber-400'}`}
+              className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${location.pathname.startsWith('/blog') ? 'bg-amber-600 text-white border-amber-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-amber-400'}`}
             >
               📚 Guides
             </Link>
             <button
               onClick={() => setIsFeedbackOpen(true)}
-              className="px-4 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-orange-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
+              className="px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-orange-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors whitespace-nowrap"
               title="Send feedback or report issues"
             >
               📝 Feedback
             </button>
             <button
               onClick={toggleTheme}
-              className="px-4 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-yellow-400 transition-colors"
+              className="px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-yellow-400 transition-colors"
               title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
               aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
             >
               {theme === 'light' ? '🌙' : '☀️'}
             </button>
           </nav>
+          </div>
         </div>
       </header>
 
@@ -433,14 +537,22 @@ function App() {
           <Route
             path="/design"
             element={
-              <DesignView
-                selectedProfile={selectedProfile}
-                input={input}
-                setInput={setInput}
-                plan={plan}
-                error={error}
-                onGenerate={handleGenerate}
-              />
+              input.animal ? (
+                <DesignView
+                  selectedProfile={selectedProfile}
+                  input={input}
+                  setInput={setInput}
+                  plan={plan}
+                  error={error}
+                  onGenerate={handleGenerate}
+                />
+              ) : (
+                <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 text-yellow-900 dark:text-yellow-200 rounded-lg p-4 space-y-2">
+                  <p className="font-semibold">No animal selected.</p>
+                  <p className="text-sm">Please select an animal first to access the design page.</p>
+                  <Link to="/animal" className="text-blue-700 dark:text-blue-400 font-medium underline">Select Animal</Link>
+                </div>
+              )
             }
           />
           <Route path="/plan" element={<PlanView plan={plan} input={input} />} />
@@ -472,6 +584,7 @@ function App() {
           <Route path="/supplies" element={<SuppliesView plan={plan} />} />
           <Route path="/blog" element={<BlogList />} />
           <Route path="/blog/:postId" element={<BlogPost />} />
+          <Route path="/dev/animals" element={<AnimalProfilePreview />} />
         </Routes>
       </main>
 
