@@ -1,6 +1,7 @@
 import type { EnclosureInput, BuildPlan, AnimalProfile } from '../../engine/types';
 import { AnimalPicker } from '../AnimalPicker/AnimalPicker';
 import { RelatedBlogs } from '../AnimalPicker/RelatedBlogs';
+import { ImageGallery } from '../ImageGallery/ImageGallery';
 import { CareTargets } from '../PlanPreview/CareTargets';
 import { SEO } from '../SEO/SEO';
 
@@ -67,6 +68,10 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, p
             </ul>
           )}
         </div>
+      )}
+
+      {selectedProfile?.gallery && selectedProfile.gallery.length > 0 && (
+        <ImageGallery images={selectedProfile.gallery} title={`${selectedProfile.commonName} Gallery`} />
       )}
 
       {profileCareTargets && (

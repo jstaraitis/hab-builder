@@ -4,7 +4,34 @@
   "scientificName": "Litoria caerulea",
   "careLevel": "beginner",
   "emoji": "🐸",
-  "completionStatus": "in progress",
+  "imageUrl": "/animals/whites-tree-frog-1.jpg",
+  "completionStatus": "in-progress",
+  "gallery": [
+    {
+      "url": "/animals/whites-tree-frog-1.jpg",
+      "caption": ""
+    },
+    {
+      "url": "/animals/whites-tree-frog-2.jpg",
+      "caption": ""
+    },
+    {
+      "url": "/animals/whites-tree-frog-3.jpg",
+      "caption": ""
+    },
+    {
+      "url": "/animals/whites-tree-frog-4.jpg",
+      "caption": ""
+    },
+    {
+      "url": "/animals/whites-tree-frog-5.jpg",
+      "caption": ""
+    },
+    {
+      "url": "/animals/whites-tree-frog-6.jpg",
+      "caption": ""
+    }
+  ],
   "minEnclosureSize": {
     "width": 18,
     "depth": 18,
@@ -50,8 +77,16 @@
     "preferVertical": true,
     "verticalSpacePercent": 55,
     "thermalGradient": "horizontal",
-    "requiredZones": ["basking", "hide", "climbing", "water"],
-    "optionalZones": ["feeding", "secondary_hide"]
+    "requiredZones": [
+      "basking",
+      "hide",
+      "climbing",
+      "water"
+    ],
+    "optionalZones": [
+      "feeding",
+      "secondary_hide"
+    ]
   },
   "bioactiveCompatible": true,
   "lifespan": "12-16 years in captivity, up to 20+ years with excellent care",

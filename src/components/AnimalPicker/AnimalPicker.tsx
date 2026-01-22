@@ -46,11 +46,22 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
             }`}
           >
             {/* Status Badge - Top Right Corner */}
-            <div className="absolute top-3 right-3">
+            <div className="absolute top-3 right-3 z-10">
               {getStatusBadge(animal.completionStatus)}
             </div>
             
-            <div className="text-5xl mb-3">{animal.image}</div>
+            {/* Image or Emoji */}
+            <div className="relative w-full h-40 bg-gradient-to-br from-gray-100 to-gray-50 dark:from-gray-700 dark:to-gray-600 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
+              {animal.imageUrl ? (
+                <img 
+                  src={animal.imageUrl} 
+                  alt={animal.name}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div className="text-6xl">{animal.image}</div>
+              )}
+            </div>
             <h3 className="font-semibold text-gray-800 dark:text-white text-lg mb-1">
               {animal.name}
             </h3>

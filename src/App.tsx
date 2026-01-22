@@ -206,7 +206,7 @@ function App() {
                 <div className="space-y-6">
                   <div className="flex justify-between items-center">
                     <div>
-                      <h2 className="text-2xl font-bold text-gray-800 dark:text-white">💎 Interactive Designer</h2>
+                      <h2 className="text-2xl font-bold text-gray-800 dark:text-white">💎 Interactive Designer - IN PROGRESS</h2>
                       <p className="text-sm text-gray-600 dark:text-gray-400">Drag, rotate, and resize equipment to design your perfect enclosure</p>
                     </div>
                     <Link to="/plan" className="text-blue-700 dark:text-blue-400 font-medium underline">Back to Plan</Link>

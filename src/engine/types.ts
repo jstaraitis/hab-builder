@@ -196,4 +196,6 @@ export interface AnimalProfile {
   lifespan?: string; // Optional: e.g., "12-16 years"
   relatedBlogs?: string[]; // Optional: array of blog post IDs
   careGuidance?: CareGuidance; // Optional: species-specific care guidance
+  imageUrl?: string; // Optional: main profile image URL
+  gallery?: Array<{ url: string; caption?: string }>; // Optional: image gallery with captions
 }

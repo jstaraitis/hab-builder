@@ -87,6 +87,12 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
               priority="high"
             />
             <RoadmapItem
+              title="Better Example Setups"
+              description="Expanding our library of example enclosure setups with more species and styles."
+              status="in-progress"
+              priority="medium"
+            />
+            <RoadmapItem
               title="FAQ Page"
               description="Answers to common questions about enclosure sizing, equipment choices, and bioactive setups."
               status="in-progress"

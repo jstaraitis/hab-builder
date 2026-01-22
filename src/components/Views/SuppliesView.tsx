@@ -30,7 +30,7 @@ export function SuppliesView({ plan }: SuppliesViewProps) {
       <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Supplies & Steps</h2>
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Supplies & Steps - IN PROGRESS</h2>
           <p className="text-sm text-gray-600 dark:text-gray-400">Shopping list and build steps for your enclosure</p>
         </div>
         <Link to="/plan" className="text-blue-700 dark:text-blue-400 font-medium underline">View Plan</Link>

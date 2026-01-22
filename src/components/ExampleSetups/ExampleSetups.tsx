@@ -35,7 +35,7 @@ export default function ExampleSetups({ animalType = 'tree-frog' }: ExampleSetup
           <div className="flex-1">
             <h3 className="text-xl font-bold text-purple-900 dark:text-purple-200 mb-2">Example Enclosure Setups</h3>
             <p className="text-purple-800 dark:text-purple-300 mb-3">
-              Browse professionally designed enclosure layouts for inspiration. Each setup is tailored for White's Tree Frogs with proper care requirements.
+              Browse personal designed enclosure layouts for inspiration. Each setup is tailored for White's Tree Frogs with proper care requirements.
             </p>
             <div className="bg-white/50 dark:bg-gray-800/50 rounded-lg p-3 border border-purple-200 dark:border-purple-700">
               <p className="text-sm font-medium text-purple-900 dark:text-purple-200">
@@ -96,7 +96,7 @@ export default function ExampleSetups({ animalType = 'tree-frog' }: ExampleSetup
         <h4 className="font-semibold text-blue-900 dark:text-blue-200 mb-2">💡 Setup Tips</h4>
         <ul className="text-sm text-blue-800 dark:text-blue-300 space-y-2">
           <li><strong>Start Simple:</strong> Begin with a minimalist setup and add complexity as you gain experience</li>
-          <li><strong>Monitor Conditions:</strong> All setups should maintain 50-65% humidity and 75-85°F temperature</li>
+          <li><strong>Monitor Conditions:</strong> All setups should maintain proper humidity and proper temperature</li>
           <li><strong>Safety First:</strong> Ensure all equipment is secured and there are no sharp edges or pinch points</li>
           <li><strong>Customization:</strong> These are starting points - adjust based on your specific frog's behavior and preferences</li>
         </ul>
