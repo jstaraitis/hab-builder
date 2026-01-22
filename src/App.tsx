@@ -36,7 +36,6 @@ function App() {
     animal: '',
     quantity: 1,
     bioactive: false,
-    budget: 'mid',
     ambientTemp: 72,
     ambientHumidity: 50,
     humidityControl: 'manual',

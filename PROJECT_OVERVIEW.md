@@ -15,7 +15,7 @@ Setting up a reptile or amphibian enclosure is **overwhelming** for beginners:
 
 - **Conflicting information**: Forums, YouTube, and pet stores give contradictory advice
 - **Equipment confusion**: UVB bulbs, heat sources, substrates—what do you actually need?
-- **Size misconceptions**: "20 gallon tanks are fine for bearded dragons" (they're not)
+- **Size misconceptions**: "20 gallon tanks are fine for larger species" (they're not)
 - **Budget surprises**: People don't realize proper setups cost $300-800 until items are in their cart
 - **Information overload**: Spending 10+ hours researching care guides across dozens of sources
 
@@ -27,7 +27,7 @@ Setting up a reptile or amphibian enclosure is **overwhelming** for beginners:
 
 Habitat Builder provides **instant, customized enclosure plans** in 3 steps:
 
-1. **Select your animal** (White's Tree Frog, Bearded Dragon, etc.)
+1. **Select your animal** (White's Tree Frog, Crested Gecko, etc.)
 2. **Enter enclosure dimensions** (or choose from common preset sizes)
 3. **Get a complete plan** with:
    - Equipment recommendations (UVB, heating, substrate, decor)
@@ -54,7 +54,7 @@ As someone who's researched reptile keeping extensively, I saw the same question
 - "Is this enclosure big enough?"
 - "What UVB bulb do I need?"
 - "How much substrate should I buy?"
-- "Can I use sand for my bearded dragon?" (No.)
+- "What substrate should I use for my animal?" 
 
 **I wanted to create the resource I wish existed when I was researching setups.** A single tool that aggregates expert guidance and does the tedious calculations automatically.
 
@@ -65,7 +65,7 @@ This isn't just about convenience—it's about **animal welfare**. When people h
 ## Current Status
 
 ### What's Live Now
-✅ 2 animal profiles (White's Tree Frog, Bearded Dragon)  
+✅ 2 animal profiles (White's Tree Frog, Crested Gecko)  
 ✅ Complete equipment recommendation engine  
 ✅ Shopping list generator with budget tiers  
 ✅ Build instructions and care guidance  

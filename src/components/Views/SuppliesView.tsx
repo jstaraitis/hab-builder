@@ -38,7 +38,7 @@ export function SuppliesView({ plan }: SuppliesViewProps) {
 
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Shopping List</h3>
-        <ShoppingList items={plan.shoppingList} budget={plan.enclosure.budget} showHeader={false} />
+        <ShoppingList items={plan.shoppingList} showHeader={false} />
       </div>
 
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">

@@ -12,6 +12,7 @@ export interface BlogPost {
   date: string;
   category: string;
   excerpt: string;
+  description: string;
   tags: string[];
   content: ContentBlock[];
 }

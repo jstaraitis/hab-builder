@@ -17,7 +17,7 @@ export interface EnclosureInput {
   animal: string; // animal ID
   quantity: number; // number of animals
   bioactive: boolean;
-  budget: BudgetTier;
+  budget?: BudgetTier; // Optional - no longer selected in form
   // New fields
   ambientTemp: number; // °F
   ambientHumidity: number; // % (0-100)
@@ -83,6 +83,7 @@ export interface ShoppingItem {
   name: string;
   quantity: number | string; // can be "2" or "1 bag (8 quarts)"
   sizing: string; // explanation of how quantity was calculated
+  compatibleAnimals?: string[]; // animal IDs this is applicable to (empty = all animals)
   budgetTierOptions?: {
     low?: string;
     mid?: string;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { EnclosureInput, Units, BudgetTier, AnimalProfile, HumidityControl, SubstrateType, EnclosureType } from '../../engine/types';
+import type { EnclosureInput, Units, AnimalProfile, HumidityControl, SubstrateType, EnclosureType } from '../../engine/types';
 import { validateEnclosureSize, validateEnclosureType } from '../../engine/validateEnclosure';
 import { SizeFeedback } from '../Validation/SizeFeedback';
 
@@ -251,28 +251,6 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
             </p>
           </div>
         </label>
-      </div>
-
-      {/* Budget Tier */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
-          Budget Level
-        </label>
-        <div className="grid grid-cols-3 gap-2">
-          {(['low', 'mid', 'premium'] as BudgetTier[]).map((tier) => (
-            <button
-              key={tier}
-              onClick={() => onChange({ ...value, budget: tier })}
-              className={`px-4 py-2 rounded-md text-sm font-medium capitalize transition-colors ${
-                value.budget === tier
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
-              }`}
-            >
-              {tier}
-            </button>
-          ))}
-        </div>
       </div>
 
       {/* Ambient Room Temperature */}
