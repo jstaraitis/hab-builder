@@ -1,5 +1,7 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
+import { SEO } from '../SEO/SEO';
 import { blogPosts, ContentBlock } from '../../data/blog';
+import { generateArticleStructuredData } from '../../utils/structuredData';
 
 function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
   switch (block.type) {
@@ -111,8 +113,30 @@ export function BlogPost() {
 
   const post = blogPosts[postId];
 
+  const structuredData = generateArticleStructuredData(
+    post.title,
+    post.description,
+    post.date,
+    post.date,
+    post.author
+  );
+
   return (
     <div className="max-w-4xl mx-auto">
+      <SEO
+        title={post.title}
+        description={post.description}
+        keywords={[...post.tags, 'care guide', 'reptile care', 'enclosure setup']}
+        ogType="article"
+        article={{
+          publishedTime: post.date,
+          modifiedTime: post.date,
+          author: post.author,
+          tags: post.tags
+        }}
+        structuredData={structuredData}
+      />
+      
       <Link
         to="/blog"
         className="inline-flex items-center text-primary-600 dark:text-primary-400 hover:underline mb-6"

@@ -24,7 +24,7 @@ const DEFAULT_SEO = {
   description: 'Design the perfect enclosure for your reptile or amphibian. Get custom shopping lists, care parameters, and step-by-step build instructions. Free habitat planner for bearded dragons, tree frogs, and more.',
   keywords: ['reptile enclosure', 'vivarium builder', 'habitat planner', 'bearded dragon setup', 'bioactive enclosure', 'reptile care'],
   ogImage: '/og-image.jpg',
-  canonical: 'https://habitatbuilder.com'
+  canonical: 'https://habitat-builder.com'
 };
 
 export function SEO({

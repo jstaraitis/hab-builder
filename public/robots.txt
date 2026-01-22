@@ -5,7 +5,7 @@ Allow: /
 Disallow: /dev/
 
 # Sitemap location
-Sitemap: https://habitatbuilder.com/sitemap.xml
+Sitemap: https://habitat-builder.com/sitemap.xml
 
 # Crawl delay (optional - be nice to servers)
 Crawl-delay: 0.5
