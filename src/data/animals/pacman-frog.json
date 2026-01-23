@@ -1,0 +1,112 @@
+{
+  "id": "pacman-frog",
+  "commonName": "Pacman Frog",
+  "scientificName": "Ceratophrys ornata",
+  "careLevel": "beginner",
+  "emoji": "🐸",
+  "imageUrl": "/animals/pacman-frog/pacman-frog-1.jpg",
+  "completionStatus": "draft",
+  "gallery": [
+    {
+      "url": "/animals/pacman-frog/pacman-frog-1.jpg",
+      "caption": ""
+    }
+  ],
+  "minEnclosureSize": {
+    "width": 10,
+    "depth": 10,
+    "height": 12,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 10,
+    "additionalGallons": 0,
+    "maxRecommended": 1,
+    "description": "Pacman frogs are solitary and cannibalistic. House individually only - minimum 10 gallons (10×10×12 inches)."
+  },
+  "careTargets": {
+    "temperature": {
+      "min": 75,
+      "max": 85,
+      "nighttime": {
+        "min": 70,
+        "max": 75
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "min": 60,
+      "max": 80,
+      "shedding": {
+        "min": 70,
+        "max": 85
+      },
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": false,
+      "uvbRecommended": false,
+      "coveragePercent": 0,
+      "photoperiod": "12h day / 12h night"
+    },
+    "gradient": "Horizontal thermal gradient"
+  },
+  "layoutRules": {
+    "preferVertical": false,
+    "verticalSpacePercent": 20,
+    "thermalGradient": "horizontal",
+    "requiredZones": ["hide", "water"],
+    "optionalZones": []
+  },
+  "bioactiveCompatible": true,
+  "lifespan": "6-10 years in captivity",
+  "setupTips": [
+    "Provide deep substrate (3-4 inches) for burrowing",
+    "Keep substrate moist but not waterlogged",
+    "Use coconut fiber or sphagnum moss substrate"
+  ],
+  "notes": [
+    "Terrestrial and sedentary - spends most time buried in substrate",
+    "Voracious appetite - will eat anything that fits in mouth",
+    "Limited handling recommended - sensitive skin and defensive bite",
+    "Profile in development"
+  ],
+  "warnings": [
+    {
+      "severity": "critical",
+      "message": "Can deliver painful bite - handle with caution and avoid hand-feeding",
+      "category": "safety"
+    },
+    {
+      "severity": "important",
+      "message": "Prone to obesity - do not overfeed. Adults only need feeding every 4-7 days.",
+      "category": "common_mistake"
+    }
+  ],
+  "relatedBlogs": [
+    ""
+  ],
+
+  "careGuidance": {
+    "feedingRequirements": [
+      "Carnivorous - crickets, roaches, nightcrawlers, occasional pinky mice",
+      "Use feeding tongs to avoid bite",
+      "Dust insects with calcium and vitamin supplement"
+    ],
+    "feedingSchedule": [
+      "Juveniles (0-6 months): Every 2-3 days, appropriately-sized insects",
+      "Sub-adults (7-12 months): Every 3-4 days",
+      "Adults (1 year+): Every 4-7 days, avoid overfeeding"
+    ],
+    "waterNotes": [
+      "Provide shallow water dish for soaking",
+      "Use dechlorinated or spring water",
+      "Change water daily - frogs often defecate in water"
+    ],
+    "mistingNotes": [
+      "Mist substrate daily to maintain 60-80% humidity",
+      "Keep substrate damp but not soggy",
+      "Increase misting during shedding period"
+    ]
+  }
+}

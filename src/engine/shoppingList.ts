@@ -38,10 +38,9 @@ function addEnclosure(
     name: enclosureConfig.name,
     quantity: input.quantity,
     sizing: dimensionsDisplay,
-    budgetTierOptions: enclosureConfig.budgetTiers,
+    importance: enclosureConfig.importance,
+    setupTierOptions: enclosureConfig.tiers,
     notes: enclosureConfig.notes,
-    infoLinks: enclosureConfig.infoLinks,
-    purchaseLinks: enclosureConfig.purchaseLinks,
     compatibleAnimals: enclosureConfig.compatibleAnimals,
   });
 }
@@ -66,9 +65,8 @@ function addUVBLighting(
         name: `UVB ${profile.careTargets.lighting.uvbStrength} ${uvbConfig.name}`,
         quantity: 1,
         sizing: `${fixtureLength}" fixture (${profile.careTargets.lighting.coveragePercent}% of ${Math.round(dims.width)}" width)`,
-        budgetTierOptions: uvbConfig.budgetTiers as any,
-        infoLinks: uvbConfig.infoLinks as any,
-        purchaseLinks: uvbConfig.purchaseLinks as any,
+        importance: (uvbConfig as any).importance,
+        setupTierOptions: uvbConfig.tiers as any,
         compatibleAnimals: uvbConfig.compatibleAnimals,
       });
     }
@@ -100,10 +98,9 @@ function addHeatLamp(
         name: heatConfig.name,
         quantity: `1 (${wattage}W estimate)`,
         sizing: `Based on ${Math.round(volume / 1728)} cubic feet and ${tempDifference}°F temperature difference from ambient (${input.ambientTemp}°F)`,
-        budgetTierOptions: heatConfig.budgetTiers as any,
+        importance: (heatConfig as any).importance,
+        setupTierOptions: heatConfig.tiers as any,
         notes: heatConfig.notes,
-        infoLinks: heatConfig.infoLinks as any,
-        purchaseLinks: heatConfig.purchaseLinks as any,
         compatibleAnimals: heatConfig.compatibleAnimals,
       });
     }
@@ -141,11 +138,8 @@ function addSubstrate(
     category: (substrateConfig as any).category,
     name: (substrateConfig as any).name,
     quantity: `${quarts} quarts (${substrateDepth}\" depth)`,
-    sizing: `${Math.round(dims.width)}\" × ${Math.round(dims.depth)}\" floor at ${substrateDepth}\" depth`,
-    budgetTierOptions: (substrateConfig as any).budgetTiers,
+    sizing: `${Math.round(dims.width)}\" × ${Math.round(dims.depth)}\" floor at ${substrateDepth}\" depth`,    importance: (substrateConfig as any).importance,    setupTierOptions: (substrateConfig as any).tiers,
     ...((substrateConfig as any).notes && { notes: (substrateConfig as any).notes }),
-    infoLinks: (substrateConfig as any).infoLinks,
-    purchaseLinks: (substrateConfig as any).purchaseLinks,
     compatibleAnimals: (substrateConfig as any).compatibleAnimals,
   });
 }
@@ -170,9 +164,8 @@ function addBioactiveItems(
     name: drainageConfig.name,
     quantity: `${drainageQuarts} quarts`,
     sizing: `${drainageDepth}" layer for ${Math.round(dims.height)}" tall enclosure`,
+    importance: 'required', // Required for bioactive setup
     notes: drainageConfig.notes,
-    infoLinks: drainageConfig.infoLinks as any,
-    purchaseLinks: drainageConfig.purchaseLinks as any,
     compatibleAnimals: (drainageConfig as any).compatibleAnimals,
   });
 
@@ -183,10 +176,8 @@ function addBioactiveItems(
     category: barrierConfig.category as any,
     name: barrierConfig.name,
     quantity: '1 sheet',
-    sizing: `Cut to ${Math.round(dims.width)}\" × ${Math.round(dims.depth)}\"`,
+    sizing: `Cut to ${Math.round(dims.width)}" × ${Math.round(dims.depth)}"`,    importance: 'required', // Required for bioactive setup
     notes: barrierConfig.notes,
-    infoLinks: barrierConfig.infoLinks as any,
-    purchaseLinks: barrierConfig.purchaseLinks as any,
     compatibleAnimals: (barrierConfig as any).compatibleAnimals,
   });
 
@@ -198,8 +189,7 @@ function addBioactiveItems(
     name: springtailsConfig.name,
     quantity: '1 culture',
     sizing: `Springtails for bioactive enclosure`,
-    infoLinks: springtailsConfig.infoLinks as any,
-    purchaseLinks: springtailsConfig.purchaseLinks as any,
+    importance: 'required', // Required for bioactive cleanup crew
     compatibleAnimals: (springtailsConfig as any).compatibleAnimals,
   });
 
@@ -211,8 +201,7 @@ function addBioactiveItems(
     name: isopodsConfig.name,
     quantity: '1 culture (10-20 individuals)',
     sizing: `Dwarf isopods for bioactive cleanup crew`,
-    infoLinks: isopodsConfig.infoLinks as any,
-    purchaseLinks: isopodsConfig.purchaseLinks as any,
+    importance: 'required', // Required for bioactive cleanup crew
     compatibleAnimals: (isopodsConfig as any).compatibleAnimals,
   });
 }
@@ -243,9 +232,8 @@ function addHumidityControl(
         name: mistingConfig.name,
         quantity: '1 system',
         sizing: `Automatic timer for ${mistingFrequency} misting to maintain ${profile.careTargets.humidity.min}-${profile.careTargets.humidity.max}% humidity${isScreenEnclosure ? ' (high frequency due to screen material)' : ''} (current room: ${input.ambientHumidity}%)`,
+        importance: 'required', // Required when humidity control is needed
         notes: mistingConfig.notes,
-        infoLinks: mistingConfig.infoLinks,
-        purchaseLinks: mistingConfig.purchaseLinks,
       });
     }
   } else if (needsHumidityControl && input.humidityControl === 'humidifier') {
@@ -260,9 +248,8 @@ function addHumidityControl(
         name: humidifierConfig.name,
         quantity: '1 unit',
         sizing: `Sized for ${Math.round(cubicFeet * sizeMultiplier)}+ cubic feet to reach ${profile.careTargets.humidity.min}-${profile.careTargets.humidity.max}% humidity${humidityWarning} (current room: ${input.ambientHumidity}%)`,
+        importance: 'required', // Required when humidity control is needed
         notes: humidifierConfig.notes,
-        infoLinks: humidifierConfig.infoLinks,
-        purchaseLinks: humidifierConfig.purchaseLinks,
       });
     }
   } else if (needsHumidityControl && input.humidityControl === 'fogger') {
@@ -274,9 +261,8 @@ function addHumidityControl(
         name: foggerConfig.name,
         quantity: '1 unit',
         sizing: `Ultrasonic fogger for ${profile.careTargets.humidity.min}-${profile.careTargets.humidity.max}% humidity${humidityWarning} (current room: ${input.ambientHumidity}%)`,
+        importance: 'required', // Required when humidity control is needed
         notes: foggerConfig.notes,
-        infoLinks: foggerConfig.infoLinks,
-        purchaseLinks: foggerConfig.purchaseLinks,
       });
     }
   }
@@ -300,6 +286,8 @@ function addDecor(
     name: branchesConfig.name,
     quantity: profile.layoutRules.preferVertical ? '3-5 pieces' : '2-3 pieces',
     sizing: 'Various diameters, reaching from substrate to top third',
+    importance: branchesConfig.importance,
+    setupTierOptions: branchesConfig.tiers,
     notes: branchesConfig.notes,
     compatibleAnimals: branchesConfig.compatibleAnimals,
   });
@@ -314,9 +302,9 @@ function addDecor(
         name: plantsConfig.name,
         quantity: input.plantPreference === 'live' ? '4-6 plants' : '2-3 plants',
         sizing: 'Mix of ground cover, mid-level, and upper canopy species',
+        importance: plantsConfig.importance,
+        setupTierOptions: plantsConfig.tiers,
         notes: plantsConfig.notes,
-        infoLinks: plantsConfig.infoLinks,
-        purchaseLinks: plantsConfig.purchaseLinks,
         compatibleAnimals: plantsConfig.compatibleAnimals,
       });
     }
@@ -332,9 +320,9 @@ function addDecor(
         name: artificialConfig.name,
         quantity: input.plantPreference === 'artificial' ? '4-6 pieces' : '1-2 pieces',
         sizing: 'Realistic artificial plants for mixed or minimalist aesthetics',
+        importance: 'required', // Required when artificial or mixed plants selected
+        setupTierOptions: artificialConfig.tiers,
         notes: artificialConfig.notes,
-        infoLinks: artificialConfig.infoLinks,
-        purchaseLinks: artificialConfig.purchaseLinks,
         compatibleAnimals: artificialConfig.compatibleAnimals,
       });
     }
@@ -352,10 +340,224 @@ function addMonitoring(items: ShoppingItem[]): void {
     name: monitoringConfig.name,
     quantity: 1,
     sizing: 'Monitor warm and cool zones',
-    budgetTierOptions: monitoringConfig.budgetTiers as any,
+    importance: (monitoringConfig as any).importance,
+    setupTierOptions: monitoringConfig.tiers as any,
     notes: monitoringConfig.notes,
     compatibleAnimals: monitoringConfig.compatibleAnimals,
   });
+}
+
+/**
+ * Adds water and maintenance supplies
+ */
+function addWaterSupplies(items: ShoppingItem[], input: EnclosureInput, profile: any): void {
+  const catalogDict = equipmentCatalog as Record<string, any>;
+  
+  // Water bowl
+  const waterBowlConfig = catalogDict['water-bowl'];
+  if (waterBowlConfig) {
+    items.push({
+      id: 'water-bowl',
+      category: waterBowlConfig.category,
+      name: waterBowlConfig.name,
+      quantity: 1,
+      sizing: 'Large enough for soaking',
+      importance: waterBowlConfig.importance,
+      setupTierOptions: waterBowlConfig.tiers,
+      notes: waterBowlConfig.notes,
+      compatibleAnimals: waterBowlConfig.compatibleAnimals,
+    });
+  }
+
+  // Spray bottle - only add when manual humidity control is selected
+  const needsHumidityControl = input.ambientHumidity < profile.careTargets.humidity.min;
+  if (input.humidityControl === 'manual') {
+    const sprayBottleConfig = catalogDict['spray-bottle'];
+    if (sprayBottleConfig) {
+      items.push({
+        id: 'spray-bottle',
+        category: sprayBottleConfig.category,
+        name: sprayBottleConfig.name,
+        quantity: 1,
+        sizing: 'For manual misting',
+        importance: needsHumidityControl ? 'required' : sprayBottleConfig.importance,
+        setupTierOptions: sprayBottleConfig.tiers,
+        notes: sprayBottleConfig.notes,
+        compatibleAnimals: sprayBottleConfig.compatibleAnimals,
+      });
+    }
+  }
+
+  // Dechlorinator
+  const dechlorinatorConfig = catalogDict['dechlorinator'];
+  if (dechlorinatorConfig) {
+    items.push({
+      id: 'dechlorinator',
+      category: dechlorinatorConfig.category,
+      name: dechlorinatorConfig.name,
+      quantity: '1 bottle',
+      sizing: 'For water bowl and misting',
+      importance: dechlorinatorConfig.importance,
+      setupTierOptions: dechlorinatorConfig.tiers,
+      notes: dechlorinatorConfig.notes,
+      compatibleAnimals: dechlorinatorConfig.compatibleAnimals,
+    });
+  }
+}
+
+/**
+ * Adds feeding supplies and supplements
+ */
+function addFeedingSupplies(items: ShoppingItem[]): void {
+  const catalogDict = equipmentCatalog as Record<string, any>;
+  
+  // Feeder insects
+  const insectsConfig = catalogDict['feeder-insects'];
+  if (insectsConfig) {
+    items.push({
+      id: 'feeder-insects',
+      category: insectsConfig.category,
+      name: insectsConfig.name,
+      quantity: 'Ongoing supply',
+      sizing: 'Size appropriate to frog',
+      importance: insectsConfig.importance,
+      setupTierOptions: insectsConfig.tiers,
+      notes: insectsConfig.notes,
+      compatibleAnimals: insectsConfig.compatibleAnimals,
+    });
+  }
+
+  // Calcium supplement
+  const calciumConfig = catalogDict['calcium'];
+  if (calciumConfig) {
+    items.push({
+      id: 'calcium',
+      category: calciumConfig.category,
+      name: calciumConfig.name,
+      quantity: '1 container',
+      sizing: 'Dust at every feeding',
+      importance: calciumConfig.importance,
+      setupTierOptions: calciumConfig.tiers,
+      notes: calciumConfig.notes,
+      compatibleAnimals: calciumConfig.compatibleAnimals,
+    });
+  }
+
+  // Multivitamin
+  const multivitaminConfig = catalogDict['multivitamin'];
+  if (multivitaminConfig) {
+    items.push({
+      id: 'multivitamin',
+      category: multivitaminConfig.category,
+      name: multivitaminConfig.name,
+      quantity: '1 container',
+      sizing: 'Dust once per week',
+      importance: multivitaminConfig.importance,
+      setupTierOptions: multivitaminConfig.tiers,
+      notes: multivitaminConfig.notes,
+      compatibleAnimals: multivitaminConfig.compatibleAnimals,
+    });
+  }
+
+  // Feeding tongs
+  const tongsConfig = catalogDict['feeding-tongs'];
+  if (tongsConfig) {
+    items.push({
+      id: 'feeding-tongs',
+      category: tongsConfig.category,
+      name: tongsConfig.name,
+      quantity: '1 pair',
+      sizing: 'For safe feeding',
+      importance: tongsConfig.importance,
+      setupTierOptions: tongsConfig.tiers,
+      notes: tongsConfig.notes,
+      compatibleAnimals: tongsConfig.compatibleAnimals,
+    });
+  }
+}
+
+/**
+ * Adds optional lighting for live plants
+ */
+function addPlantLighting(items: ShoppingItem[], input: EnclosureInput): void {
+  // Only add if user wants live plants
+  if (input.plantPreference === 'live' || input.plantPreference === 'mix') {
+    const catalogDict = equipmentCatalog as Record<string, any>;
+    const plantLightConfig = catalogDict['plant-light'];
+    if (plantLightConfig) {
+      items.push({
+        id: 'plant-light',
+        category: plantLightConfig.category,
+        name: plantLightConfig.name,
+        quantity: 1,
+        sizing: 'For live plant growth',
+        importance: 'required', // Required when live plants are selected
+        setupTierOptions: plantLightConfig.tiers,
+        notes: plantLightConfig.notes,
+        compatibleAnimals: plantLightConfig.compatibleAnimals,
+      });
+    }
+  }
+}
+
+/**
+ * Adds structural decor (backgrounds, ledges, hides)
+ */
+function addStructuralDecor(items: ShoppingItem[], input: EnclosureInput): void {
+  const catalogDict = equipmentCatalog as Record<string, any>;
+  
+  // Hides (required) - use user's specified quantity
+  const hidesConfig = catalogDict['hides'];
+  if (hidesConfig) {
+    items.push({
+      id: 'hides',
+      category: hidesConfig.category,
+      name: hidesConfig.name,
+      quantity: input.numberOfHides,
+      sizing: 'Ground and elevated placement',
+      importance: hidesConfig.importance,
+      setupTierOptions: hidesConfig.tiers,
+      notes: hidesConfig.notes,
+      compatibleAnimals: hidesConfig.compatibleAnimals,
+    });
+  }
+
+  // Wall ledges - use user's specified quantity
+  if (input.numberOfLedges > 0) {
+    const ledgesConfig = catalogDict['ledges'];
+    if (ledgesConfig) {
+      items.push({
+        id: 'ledges',
+        category: ledgesConfig.category,
+        name: ledgesConfig.name,
+        quantity: input.numberOfLedges,
+        sizing: 'Various heights for climbing',
+        importance: ledgesConfig.importance,
+        setupTierOptions: ledgesConfig.tiers,
+        notes: ledgesConfig.notes,
+        compatibleAnimals: ledgesConfig.compatibleAnimals,
+      });
+    }
+  }
+
+  // Background - only if user selected one
+  if (input.backgroundType !== 'none') {
+    const backgroundConfig = catalogDict['background'];
+    if (backgroundConfig) {
+      const bgType = input.backgroundType === 'cork-bark' ? 'Cork bark panels' : 'Custom foam background';
+      items.push({
+        id: 'background',
+        category: backgroundConfig.category,
+        name: backgroundConfig.name,
+        quantity: '1 panel',
+        sizing: `${bgType} for back wall`,
+        importance: backgroundConfig.importance,
+        setupTierOptions: backgroundConfig.tiers,
+        notes: backgroundConfig.notes,
+        compatibleAnimals: backgroundConfig.compatibleAnimals,
+      });
+    }
+  }
 }
 
 /**
@@ -380,7 +582,11 @@ export function generateShoppingList(
   
   addHumidityControl(items, dims, profile, input);
   addDecor(items, profile, input);
+  addPlantLighting(items, input);
+  addStructuralDecor(items, input);
   addMonitoring(items);
+  addWaterSupplies(items, input, profile);
+  addFeedingSupplies(items);
 
   return items;
 }

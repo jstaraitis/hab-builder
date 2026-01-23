@@ -1,0 +1,113 @@
+{
+  "id": "ball-python",
+  "commonName": "Ball Python",
+  "scientificName": "Python regius",
+  "careLevel": "beginner",
+  "emoji": "🐍",
+  "imageUrl": "/animals/ball-python/normal_ball_python-1.jpg",
+  "completionStatus": "draft",
+  "gallery": [
+    {
+      "url": "/animals/ball-python/normal_ball_python-1.jpg",
+      "caption": ""
+    }
+  ],
+  "minEnclosureSize": {
+    "width": 36,
+    "depth": 18,
+    "height": 12,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 40,
+    "additionalGallons": 0,
+    "maxRecommended": 1,
+    "description": "Ball pythons are solitary. House individually only - minimum 40 gallons for adults (36×18×12 inches)."
+  },
+  "careTargets": {
+    "temperature": {
+      "min": 78,
+      "max": 82,
+      "basking": 88,
+      "nighttime": {
+        "min": 75,
+        "max": 78
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "min": 50,
+      "max": 60,
+      "shedding": {
+        "min": 65,
+        "max": 75
+      },
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": false,
+      "uvbRecommended": false,
+      "coveragePercent": 0,
+      "photoperiod": "12h day / 12h night"
+    },
+    "gradient": "Horizontal thermal gradient required"
+  },
+  "layoutRules": {
+    "preferVertical": false,
+    "verticalSpacePercent": 20,
+    "thermalGradient": "horizontal",
+    "requiredZones": ["basking", "hide", "water"],
+    "optionalZones": []
+  },
+  "bioactiveCompatible": true,
+  "lifespan": "20-30 years in captivity",
+  "setupTips": [
+    "Provide multiple tight-fitting hides - ball pythons feel secure in snug spaces",
+    "Use under-tank heating or heat tape with thermostat",
+    "Maintain higher humidity than most snakes - crucial for proper shedding"
+  ],
+  "notes": [
+    "Very docile and handleable - rarely bite",
+    "Nocturnal - most active at night",
+    "Known for defensive curling into a ball when stressed",
+    "Can be picky eaters and may fast seasonally",
+    "Profile in development"
+  ],
+  "warnings": [
+    {
+      "severity": "critical",
+      "message": "Humidity is critical - maintain 50-60% normally, 65-75% during shed. Low humidity causes stuck sheds and respiratory issues.",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "important",
+      "message": "Ball pythons are notorious for going off feed - don't panic if they refuse food seasonally. Monitor weight.",
+      "category": "beginner_note"
+    }
+  ],
+  "relatedBlogs": [
+    ""
+  ],
+  "careGuidance": {
+    "feedingRequirements": [
+      "Carnivorous - feed appropriately sized frozen-thawed rats",
+      "Prey should be no wider than the widest part of snake's body",
+      "Prefer rats over mice as they grow - better nutrition"
+    ],
+    "feedingSchedule": [
+      "Hatchlings (0-12 months): Every 5-7 days, hopper mice or rat pups",
+      "Juveniles (1-3 years): Every 7-10 days, small to medium rats",
+      "Adults (3+ years): Every 10-14 days, medium to large rats"
+    ],
+    "waterNotes": [
+      "Provide large water bowl for drinking and soaking",
+      "Change water every 2-3 days",
+      "Bowl must be large enough for snake to soak - important for shedding"
+    ],
+    "mistingNotes": [
+      "Regular misting needed to maintain 50-60% humidity",
+      "Increase to 65-75% during shedding period",
+      "Mist daily or use automatic misting system"
+    ]
+  }
+}

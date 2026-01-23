@@ -372,12 +372,12 @@ function generateWarnings(
 
   // Decoration style guidance
   
-  // Budget warnings
-  if (input.budget === 'low') {
+  // Setup tier warnings
+  if (input.setupTier === 'minimum') {
     warnings.push({
-      id: 'budget-warning',
+      id: 'minimum-setup-warning',
       severity: 'important',
-      message: 'Budget equipment can work well, but avoid skimping on UVB bulbs and thermostats - these directly impact animal health.',
+      message: 'Minimum setups work well for most keepers, but prioritize quality UVB bulbs and thermostats - these directly impact animal health.',
       category: 'beginner_note',
     });
   }

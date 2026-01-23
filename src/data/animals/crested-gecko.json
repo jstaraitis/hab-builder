@@ -1,0 +1,112 @@
+{
+  "id": "crested-gecko",
+  "commonName": "Crested Gecko",
+  "scientificName": "Correlophus ciliatus",
+  "careLevel": "beginner",
+  "emoji": "🦎",
+  "imageUrl": "/animals/crested-gecko/crested-gecko-1.jpg",
+  "completionStatus": "draft",
+  "gallery": [
+    {
+      "url": "/animals/crested-gecko/crested-gecko-1.jpg",
+      "caption": ""
+    }
+  ],
+  "minEnclosureSize": {
+    "width": 18,
+    "depth": 18,
+    "height": 24,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 20,
+    "additionalGallons": 10,
+    "maxRecommended": 3,
+    "description": "Single gecko requires 20 gallons vertical (18×18×24 inches). Each additional female requires 10 more gallons. Never house males together."
+  },
+  "careTargets": {
+    "temperature": {
+      "min": 72,
+      "max": 78,
+      "nighttime": {
+        "min": 68,
+        "max": 72
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "min": 50,
+      "max": 70,
+      "shedding": {
+        "min": 70,
+        "max": 80
+      },
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": false,
+      "uvbRecommended": true,
+      "coveragePercent": 0,
+      "photoperiod": "12h day / 12h night"
+    },
+    "gradient": "Vertical temperature gradient"
+  },
+  "layoutRules": {
+    "preferVertical": true,
+    "verticalSpacePercent": 60,
+    "thermalGradient": "vertical",
+    "requiredZones": ["hide", "climbing", "water"],
+    "optionalZones": ["feeding"]
+  },
+  "bioactiveCompatible": true,
+  "lifespan": "15-20 years in captivity",
+  "setupTips": [
+    "Prioritize vertical space - height more important than floor space",
+    "Provide lots of branches and cork bark for climbing",
+    "Use vertical plants (real or fake) for cover and humidity"
+  ],
+  "notes": [
+    "Nocturnal and arboreal - active at night, lives in trees",
+    "Very docile and easy to handle",
+    "Can drop tail when stressed - will NOT regrow",
+    "Unique diet - can thrive on commercial crested gecko diet (CGD)",
+    "Profile in development"
+  ],
+  "warnings": [
+    {
+      "severity": "critical",
+      "message": "Never grab by tail - they will drop it and it will NOT grow back",
+      "category": "safety"
+    },
+    {
+      "severity": "important",
+      "message": "Room temperature (72-78°F) is ideal - do NOT use heat lamps. Temperatures above 80°F can be fatal.",
+      "category": "common_mistake"
+    }
+  ],
+  "relatedBlogs": [
+    ""
+  ],
+  "careGuidance": {
+    "feedingRequirements": [
+      "Omnivorous - primary diet is commercial crested gecko diet (CGD)",
+      "Supplement with insects 2-3x weekly (crickets, dubia roaches)",
+      "Dust insects with calcium supplement"
+    ],
+    "feedingSchedule": [
+      "Juveniles (0-12 months): CGD nightly, insects 3x weekly",
+      "Sub-adults (1-2 years): CGD every other night, insects 2x weekly",
+      "Adults (2+ years): CGD 3x weekly, insects 1-2x weekly"
+    ],
+    "waterNotes": [
+      "Provide water dish but they prefer licking droplets from leaves",
+      "Mist enclosure in evening to provide drinking water",
+      "Change water dish daily"
+    ],
+    "mistingNotes": [
+      "Mist heavily every evening - crested geckos drink from droplets",
+      "Maintain 50-70% humidity, increase to 70-80% during shedding",
+      "Allow enclosure to dry out during the day before evening misting"
+    ]
+  }
+}

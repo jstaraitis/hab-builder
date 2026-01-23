@@ -1,8 +1,10 @@
 interface ExampleSetupsProps {
   readonly animalType?: string;
+  readonly layoutNotes?: string[];
+  readonly speciesSetupTips?: string[];
 }
 
-export default function ExampleSetups({ animalType = 'tree-frog' }: ExampleSetupsProps) {
+export default function ExampleSetups({ animalType = 'tree-frog', layoutNotes = [], speciesSetupTips = [] }: ExampleSetupsProps) {
   const examples = [
     {
       id: 'minimalist',
@@ -92,15 +94,28 @@ export default function ExampleSetups({ animalType = 'tree-frog' }: ExampleSetup
         ))}
       </div>
 
+      {/* General Setup Tips */}
       <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
-        <h4 className="font-semibold text-blue-900 dark:text-blue-200 mb-2">💡 Setup Tips</h4>
+        <h4 className="font-semibold text-blue-900 dark:text-blue-200 mb-2">💡 General Setup Tips</h4>
         <ul className="text-sm text-blue-800 dark:text-blue-300 space-y-2">
           <li><strong>Start Simple:</strong> Begin with a minimalist setup and add complexity as you gain experience</li>
-          <li><strong>Monitor Conditions:</strong> All setups should maintain proper humidity and proper temperature</li>
+          <li><strong>Monitor Conditions:</strong> All setups should maintain proper humidity and temperature gradients</li>
           <li><strong>Safety First:</strong> Ensure all equipment is secured and there are no sharp edges or pinch points</li>
-          <li><strong>Customization:</strong> These are starting points - adjust based on your specific frog's behavior and preferences</li>
+          <li><strong>Customization:</strong> These are starting points - adjust based on your specific animal's behavior and preferences</li>
         </ul>
       </div>
+
+      {/* Species-Specific Setup Tips */}
+      {speciesSetupTips.length > 0 && (
+        <div className="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-4">
+          <h4 className="font-semibold text-purple-900 dark:text-purple-200 mb-2">🦎 Species-Specific Tips</h4>
+          <ul className="text-sm text-purple-800 dark:text-purple-300 space-y-2">
+            {speciesSetupTips.map((tip, index) => (
+              <li key={index}>{tip}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

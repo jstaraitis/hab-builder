@@ -74,9 +74,10 @@ export function generatePreBuildChecklist(
   }
 
   // Heat lamp requirements
+  const setupQuality = input.setupTier || 'recommended';
   checklist.push({
     id: 'heating-lamp',
-    task: `Get heat lamp and thermostat-controlled plug (for ${input.budget} budget level)`,
+    task: `Get heat lamp and thermostat-controlled plug (${setupQuality} setup quality)`,
     category: 'setup',
     notes: `Target basking temperature: ${profile.careTargets.temperature.basking}°F`,
   });

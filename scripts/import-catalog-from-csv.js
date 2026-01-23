@@ -30,9 +30,9 @@ lines.forEach(row => {
     id,
     name,
     category,
-    budget_low,
-    budget_mid,
-    budget_premium,
+    setup_minimum,
+    setup_recommended,
+    setup_ideal,
     notes,
     sizing,
     infoLink1_label,
@@ -41,9 +41,9 @@ lines.forEach(row => {
     infoLink2_url,
     infoLink3_label,
     infoLink3_url,
-    purchaseLink_low,
-    purchaseLink_mid,
-    purchaseLink_premium
+    purchaseLink_minimum,
+    purchaseLink_recommended,
+    purchaseLink_ideal
   ] = row;
 
   if (!id || !name) return; // Skip invalid rows
@@ -53,12 +53,12 @@ lines.forEach(row => {
     category,
   };
 
-  // Add budgetTiers if any exist
-  if (budget_low || budget_mid || budget_premium) {
-    item.budgetTiers = {};
-    if (budget_low) item.budgetTiers.low = budget_low;
-    if (budget_mid) item.budgetTiers.mid = budget_mid;
-    if (budget_premium) item.budgetTiers.premium = budget_premium;
+  // Add setupTiers if any exist
+  if (setup_minimum || setup_recommended || setup_ideal) {
+    item.setupTiers = {};
+    if (setup_minimum) item.setupTiers.minimum = setup_minimum;
+    if (setup_recommended) item.setupTiers.recommended = setup_recommended;
+    if (setup_ideal) item.setupTiers.ideal = setup_ideal;
   }
 
   // Add notes if exists
@@ -75,11 +75,11 @@ lines.forEach(row => {
   if (Object.keys(infoLinks).length > 0) item.infoLinks = infoLinks;
 
   // Add purchaseLinks if any exist
-  if (purchaseLink_low || purchaseLink_mid || purchaseLink_premium) {
+  if (purchaseLink_minimum || purchaseLink_recommended || purchaseLink_ideal) {
     item.purchaseLinks = {};
-    if (purchaseLink_low) item.purchaseLinks.low = purchaseLink_low;
-    if (purchaseLink_mid) item.purchaseLinks.mid = purchaseLink_mid;
-    if (purchaseLink_premium) item.purchaseLinks.premium = purchaseLink_premium;
+    if (purchaseLink_minimum) item.purchaseLinks.minimum = purchaseLink_minimum;
+    if (purchaseLink_recommended) item.purchaseLinks.recommended = purchaseLink_recommended;
+    if (purchaseLink_ideal) item.purchaseLinks.ideal = purchaseLink_ideal;
   }
 
   catalog[id] = item;

@@ -1,0 +1,112 @@
+{
+  "id": "leopard-gecko",
+  "commonName": "Leopard Gecko",
+  "scientificName": "Eublepharis macularius",
+  "careLevel": "beginner",
+  "emoji": "🦎",
+  "imageUrl": "/animals/leopard-gecko/leopard-gecko-1.jpg",
+  "completionStatus": "draft",
+  "gallery": [
+    {
+      "url": "/animals/leopard-gecko/leopard-gecko-1.jpg",
+      "caption": ""
+    }
+  ],
+  "minEnclosureSize": {
+    "width": 20,
+    "depth": 10,
+    "height": 12,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 10,
+    "additionalGallons": 5,
+    "maxRecommended": 3,
+    "description": "Single gecko requires 10 gallons minimum (20×10×12 inches). Each additional female requires 5 more gallons. Never house males together."
+  },
+  "careTargets": {
+    "temperature": {
+      "min": 75,
+      "max": 85,
+      "basking": 90,
+      "nighttime": {
+        "min": 68,
+        "max": 75
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "min": 30,
+      "max": 40,
+      "shedding": {
+        "min": 50,
+        "max": 60
+      },
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": false,
+      "uvbRecommended": false,
+      "coveragePercent": 0,
+      "photoperiod": "12h day / 12h night"
+    },
+    "gradient": "Horizontal thermal gradient required"
+  },
+  "layoutRules": {
+    "preferVertical": false,
+    "verticalSpacePercent": 20,
+    "thermalGradient": "horizontal",
+    "requiredZones": ["basking", "hide", "water"],
+    "optionalZones": ["feeding"]
+  },
+  "bioactiveCompatible": true,
+  "lifespan": "10-20 years in captivity",
+  "setupTips": [
+    "Provide three hides: warm side, cool side, and moist hide for shedding",
+    "Use under-tank heating pad with thermostat on warm side",
+    "Avoid loose substrates - use tile, paper towels, or reptile carpet"
+  ],
+  "notes": [
+    "Nocturnal and crepuscular - most active at dawn and dusk",
+    "Docile temperament makes them excellent for beginners",
+    "Can drop their tail when stressed (will regrow but won't look the same)",
+    "Profile in development"
+  ],
+  "warnings": [
+    {
+      "severity": "critical",
+      "message": "Never use heat rocks - they cause severe burns. Use under-tank heating pad with thermostat only.",
+      "category": "safety"
+    },
+    {
+      "severity": "important",
+      "message": "Avoid sand and other loose substrates which can cause impaction if ingested during feeding",
+      "category": "common_mistake"
+    }
+  ],
+  "relatedBlogs": [
+    ""
+  ],
+  "careGuidance": {
+    "feedingRequirements": [
+      "Insectivorous diet - crickets, mealworms, dubia roaches",
+      "Gut-load feeders 24 hours before feeding",
+      "Dust with calcium and D3 supplement"
+    ],
+    "feedingSchedule": [
+      "Juveniles (0-6 months): Daily feeding, 5-8 appropriately-sized insects",
+      "Sub-adults (7-12 months): Every other day, 6-10 insects",
+      "Adults (1 year+): Every 2-3 days, 5-8 insects"
+    ],
+    "waterNotes": [
+      "Provide shallow water dish at all times",
+      "Change water daily",
+      "Keep water dish on cool side to prevent evaporation"
+    ],
+    "mistingNotes": [
+      "Minimal misting needed - keep humidity low (30-40%)",
+      "Provide moist hide with damp sphagnum moss for shedding",
+      "Light misting of moist hide only during shedding"
+    ]
+  }
+}

@@ -70,105 +70,100 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, p
         </div>
       )}
 
+      {profileCareTargets && (
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Care Guide</h3>
+            <span className="text-xs text-gray-500 dark:text-gray-400">Species requirements</span>
+          </div>
+          
+          <div className="grid md:grid-cols-3 md:grid-rows-2 gap-4">
+            <CareTargets 
+              targets={profileCareTargets} 
+              showHeader={false} 
+              infoWarnings={infoWarnings}
+              mistingNotes={selectedProfile?.careGuidance?.mistingNotes}
+            />
+            
+            {selectedProfile?.careGuidance && (
+              <>
+                {/* Feeding Requirements Card */}
+                {selectedProfile.careGuidance.feedingRequirements && selectedProfile.careGuidance.feedingRequirements.length > 0 && (
+                  <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 border-2 border-emerald-200 dark:border-emerald-800 p-5 hover:shadow-lg transition-shadow h-full flex flex-col">
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="bg-emerald-100 dark:bg-emerald-900/40 rounded-full p-3">
+                        <svg className="w-7 h-7 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h5 className="font-bold text-gray-900 dark:text-white text-lg mb-3">Feeding Requirements</h5>
+                    <div className="space-y-2">
+                      {selectedProfile.careGuidance.feedingRequirements.map((note, idx) => (
+                        <p key={`feeding-req-${idx}`} className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed flex items-start gap-2">
+                          <span className="text-emerald-500 mt-0.5">•</span>
+                          <span>{note}</span>
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Feeding Schedule Card */}
+                {selectedProfile.careGuidance.feedingSchedule && selectedProfile.careGuidance.feedingSchedule.length > 0 && (
+                  <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 border-2 border-orange-200 dark:border-orange-800 p-5 hover:shadow-lg transition-shadow h-full flex flex-col">
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="bg-orange-100 dark:bg-orange-900/40 rounded-full p-3">
+                        <svg className="w-7 h-7 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h5 className="font-bold text-gray-900 dark:text-white text-lg mb-3">Feeding Schedule</h5>
+                    <div className="space-y-2">
+                      {selectedProfile.careGuidance.feedingSchedule.map((note, idx) => (
+                        <p key={`feeding-sched-${idx}`} className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed flex items-start gap-2">
+                          <span className="text-orange-500 mt-0.5">•</span>
+                          <span>{note}</span>
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Water Card */}
+                {selectedProfile.careGuidance.waterNotes && selectedProfile.careGuidance.waterNotes.length > 0 && (
+                  <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border-2 border-blue-200 dark:border-blue-800 p-5 hover:shadow-lg transition-shadow h-full flex flex-col">
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="bg-blue-100 dark:bg-blue-900/40 rounded-full p-3">
+                        <svg className="w-7 h-7 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h5 className="font-bold text-gray-900 dark:text-white text-lg mb-3">Water Requirements</h5>
+                    <div className="space-y-2">
+                      {selectedProfile.careGuidance.waterNotes.map((note, idx) => (
+                        <p key={`water-${idx}`} className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed flex items-start gap-2">
+                          <span className="text-blue-500 mt-0.5">•</span>
+                          <span>{note}</span>
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
       {selectedProfile?.gallery && selectedProfile.gallery.length > 0 && (
         <ImageGallery images={selectedProfile.gallery} title={`${selectedProfile.commonName} Gallery`} />
       )}
 
-      {profileCareTargets && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
-          <div className="flex items-center justify-between mb-3">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Care Parameters</h3>
-            <span className="text-xs text-gray-500 dark:text-gray-400">Species defaults</span>
-          </div>
-          <CareTargets targets={profileCareTargets} showHeader={false} infoWarnings={infoWarnings} />
-          
-          {selectedProfile?.careGuidance && (
-            <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700 space-y-4">
-              <h4 className="text-md font-semibold text-gray-900 dark:text-white">Daily Care Guidelines</h4>
-              
-              {/* Feeding Section */}
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl">🍽️</span>
-                  <h5 className="font-semibold text-gray-900 dark:text-white">Feeding Schedule</h5>
-                </div>
-                <div className="pl-9 space-y-1.5 text-sm text-gray-700 dark:text-gray-300">
-                  {selectedProfile.careGuidance.feedingNotes.map((note, idx) => (
-                    <p key={`feeding-${idx}`} className="leading-relaxed">• {note}</p>
-                  ))}
-                </div>
-              </div>
-
-              {/* Water Section */}
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl">💧</span>
-                  <h5 className="font-semibold text-gray-900 dark:text-white">Water Requirements</h5>
-                </div>
-                <div className="pl-9 space-y-1.5 text-sm text-gray-700 dark:text-gray-300">
-                  {selectedProfile.careGuidance.waterNotes.map((note, idx) => (
-                    <p key={`water-${idx}`} className="leading-relaxed">• {note}</p>
-                  ))}
-                </div>
-              </div>
-
-              {/* Misting Section */}
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl">💦</span>
-                  <h5 className="font-semibold text-gray-900 dark:text-white">Humidity & Misting</h5>
-                </div>
-                <div className="pl-9 space-y-1.5 text-sm text-gray-700 dark:text-gray-300">
-                  {selectedProfile.careGuidance.mistingNotes.map((note, idx) => (
-                    <p key={`misting-${idx}`} className="leading-relaxed">• {note}</p>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-
       {input.animal && selectedProfile?.relatedBlogs && selectedProfile.relatedBlogs.length > 0 && (
         <RelatedBlogs blogIds={selectedProfile.relatedBlogs} />
-      )}
-
-      {plan?.careGuidance && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Feeding & Water</h3>
-          <div className="grid md:grid-cols-3 gap-4 text-sm text-gray-700 dark:text-gray-300">
-            <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800 rounded p-3">
-              <p className="font-semibold text-emerald-800 dark:text-emerald-300 mb-2">Feeding</p>
-              <ul className="list-disc list-inside space-y-1">
-                {plan.careGuidance.feedingNotes.map((note) => (
-                  <li key={`feeding-${note.substring(0, 30)}`}>{note}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded p-3">
-              <p className="font-semibold text-blue-800 dark:text-blue-300 mb-2">Water</p>
-              <ul className="list-disc list-inside space-y-1">
-                {plan.careGuidance.waterNotes.map((note) => (
-                  <li key={`water-${note.substring(0, 30)}`}>{note}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-cyan-50 dark:bg-cyan-900/20 border border-cyan-100 dark:border-cyan-800 rounded p-3">
-              <p className="font-semibold text-cyan-800 dark:text-cyan-300 mb-2">Misting</p>
-              <ul className="list-disc list-inside space-y-1">
-                {plan.careGuidance.mistingNotes.map((note) => (
-                  <li key={`misting-${note.substring(0, 30)}`}>{note}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {!plan && (
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 text-blue-900 dark:text-blue-200 rounded-lg p-4 text-sm">
-          Generate a plan to view additional.
-        </div>
       )}
 
       {input.animal && (

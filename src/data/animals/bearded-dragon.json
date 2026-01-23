@@ -1,0 +1,113 @@
+{
+  "id": "bearded-dragon",
+  "commonName": "Bearded Dragon",
+  "scientificName": "Pogona vitticeps",
+  "careLevel": "beginner",
+  "emoji": "🦎",
+  "imageUrl": "/animals/bearded-dragon/bearded-dragon-1.jpg",
+  "completionStatus": "draft",
+  "gallery": [
+    {
+      "url": "/animals/bearded-dragon/bearded-dragon-1.jpg",
+      "caption": ""
+    }
+  ],
+  "minEnclosureSize": {
+    "width": 48,
+    "depth": 24,
+    "height": 24,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 75,
+    "additionalGallons": 0,
+    "maxRecommended": 1,
+    "description": "Bearded dragons are solitary and territorial. House individually only - minimum 75 gallons (48×24×24 inches)."
+  },
+  "careTargets": {
+    "temperature": {
+      "min": 75,
+      "max": 85,
+      "basking": 95,
+      "nighttime": {
+        "min": 65,
+        "max": 75
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "min": 30,
+      "max": 40,
+      "shedding": {
+        "min": 40,
+        "max": 50
+      },
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": true,
+      "uvbRecommended": true,
+      "uvbStrength": "10.0",
+      "coveragePercent": 50,
+      "photoperiod": "12h day / 12h night"
+    },
+    "gradient": "Horizontal thermal gradient required"
+  },
+  "layoutRules": {
+    "preferVertical": false,
+    "verticalSpacePercent": 30,
+    "thermalGradient": "horizontal",
+    "requiredZones": ["basking", "hide", "water"],
+    "optionalZones": ["feeding"]
+  },
+  "bioactiveCompatible": true,
+  "lifespan": "8-12 years in captivity",
+  "setupTips": [
+    "Provide basking platform under heat lamp for thermoregulation",
+    "Use tile or non-particle substrate to prevent impaction",
+    "Include branches and rocks for climbing enrichment"
+  ],
+  "notes": [
+    "Diurnal and highly active during the day",
+    "Omnivorous - requires both insects and vegetables",
+    "Social and can be handleable with proper taming",
+    "Profile in development"
+  ],
+  "warnings": [
+    {
+      "severity": "critical",
+      "message": "UVB lighting is essential - use tube-style UVB 10.0 bulbs, not compact coils",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "important",
+      "message": "Avoid loose substrates (sand, walnut shells) which can cause impaction if ingested",
+      "category": "safety"
+    }
+  ],
+  "relatedBlogs": [
+    ""
+  ],
+  "careGuidance": {
+    "feedingRequirements": [
+      "Juveniles: 80% insects, 20% vegetables",
+      "Adults: 20% insects, 80% vegetables",
+      "Dust insects with calcium and D3 supplement"
+    ],
+    "feedingSchedule": [
+      "Juveniles (0-6 months): Daily insects, daily greens",
+      "Sub-adults (7-12 months): Daily insects, daily greens",
+      "Adults (1 year+): Insects 3-4x weekly, daily greens"
+    ],
+    "waterNotes": [
+      "Provide shallow water dish for drinking and soaking",
+      "Change water daily",
+      "Some beardies prefer to drink from droplets - mist occasionally"
+    ],
+    "mistingNotes": [
+      "Light misting 2-3x weekly",
+      "Increase during shedding period",
+      "Ensure proper ventilation to prevent humidity buildup"
+    ]
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "id": "red-eared-slider",
+  "commonName": "Red-Eared Slider",
+  "scientificName": "Trachemys scripta elegans",
+  "careLevel": "intermediate",
+  "emoji": "🐢",
+  "imageUrl": "/animals/red-eared-slider/red-eared-slider-1.jpg",
+  "completionStatus": "draft",
+  "gallery": [
+    {
+      "url": "/animals/red-eared-slider/red-eared-slider-1.jpg",
+      "caption": ""
+    }
+  ],
+  "minEnclosureSize": {
+    "width": 48,
+    "depth": 24,
+    "height": 18,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 75,
+    "additionalGallons": 25,
+    "maxRecommended": 2,
+    "description": "Single turtle requires 75 gallons minimum (48×24×18 inches). Each additional turtle requires 25 more gallons. Adults need 120+ gallons."
+  },
+  "careTargets": {
+    "temperature": {
+      "min": 75,
+      "max": 80,
+      "basking": 90,
+      "nighttime": {
+        "min": 70,
+        "max": 75
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "min": 100,
+      "max": 100,
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": true,
+      "uvbRecommended": true,
+      "uvbStrength": "5.0",
+      "coveragePercent": 50,
+      "photoperiod": "12h day / 12h night"
+    },
+    "gradient": "Aquatic with heated basking area"
+  },
+  "layoutRules": {
+    "preferVertical": false,
+    "verticalSpacePercent": 40,
+    "thermalGradient": "horizontal",
+    "requiredZones": ["water", "basking"],
+    "optionalZones": []
+  },
+  "bioactiveCompatible": false,
+  "lifespan": "20-40 years in captivity, can live 50+ years",
+  "setupTips": [
+    "Provide powerful canister filter - turtles are messy eaters",
+    "Basking platform must be completely dry and easily accessible",
+    "Use submersible heater to maintain water temperature 75-80°F"
+  ],
+  "notes": [
+    "Semi-aquatic - spends most time in water but needs dry basking area",
+    "Diurnal - active during the day",
+    "Can grow 8-12 inches as adults - requires large tank",
+    "Long lifespan commitment - can live 30-40 years",
+    "Aquatic species - requires specialized turtle tank setup",
+    "Profile in development"
+  ],
+  "warnings": [
+    {
+      "severity": "critical",
+      "message": "UVB lighting is essential for shell health and calcium metabolism. Use UVB 5.0 tube over basking area.",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "critical",
+      "message": "Grows large (8-12 inches) and lives 30-40 years. Small tanks cause shell deformities. Plan for 120+ gallon tank as adult.",
+      "category": "beginner_note"
+    },
+    {
+      "severity": "important",
+      "message": "Can carry Salmonella - always wash hands after handling or cleaning tank. Not recommended for young children.",
+      "category": "safety"
+    }
+  ],
+  "relatedBlogs": [
+    ""
+  ],
+  "careGuidance": {
+    "feedingRequirements": [
+      "Omnivorous - commercial turtle pellets as staple",
+      "Supplement with leafy greens, insects, small fish",
+      "Juveniles more carnivorous, adults more herbivorous"
+    ],
+    "feedingSchedule": [
+      "Juveniles (0-2 years): Daily, protein-rich diet with some vegetables",
+      "Sub-adults (2-5 years): Every other day, balanced diet",
+      "Adults (5+ years): 2-3 times weekly, primarily vegetables with occasional protein"
+    ],
+    "waterNotes": [
+      "Water depth should be 1.5-2x turtle's shell length",
+      "Use dechlorinated tap water",
+      "Perform 25-50% water changes weekly",
+      "Powerful filtration required - turtles are messy",
+      "Maintain water temperature 75-80°F with submersible heater"
+    ],
+    "mistingNotes": [
+      "Not applicable - aquatic species",
+      "Focus on maintaining water quality and basking area",
+      "Basking area must be completely dry with heat lamp and UVB"
+    ]
+  }
+}

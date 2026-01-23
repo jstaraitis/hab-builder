@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import type { EnclosureInput, BuildPlan } from '../../engine/types';
 import ExampleSetups from '../ExampleSetups/ExampleSetups';
+import { BuildSteps } from '../BuildSteps/BuildSteps';
+// import { SubmitSetup } from '../SubmitSetup/SubmitSetup';
 import { SEO } from '../SEO/SEO';
 import { animalProfiles } from '../../data/animals';
 
@@ -11,6 +13,7 @@ interface PlanViewProps {
 
 export function PlanView({ plan, input }: PlanViewProps) {
   const animalName = plan?.careTargets ? animalProfiles[input.animal]?.commonName || 'Reptile' : 'Reptile';
+  const animalProfile = animalProfiles[input.animal];
   
   if (!plan) {
     return (
@@ -44,21 +47,15 @@ export function PlanView({ plan, input }: PlanViewProps) {
 
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Example Enclosure Setups</h3>
-        <ExampleSetups animalType={input.animal} />
+        <ExampleSetups animalType={input.animal} layoutNotes={plan.layout.notes} speciesSetupTips={animalProfile?.setupTips} />
       </div>
 
-      {plan.layout.notes.length > 0 && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Layout Notes</h3>
-          <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-md">
-            <ul className="list-disc list-inside space-y-1 text-sm text-blue-800 dark:text-blue-300">
-              {plan.layout.notes.map((note) => (
-                <li key={`layout-${note.substring(0, 30)}`}>{note}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
+      {/* <SubmitSetup /> */}
+
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Build Steps</h3>
+        <BuildSteps steps={plan.steps} showHeader={false} />
+      </div>
     </div>
     </>
   );

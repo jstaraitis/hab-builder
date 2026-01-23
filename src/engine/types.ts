@@ -4,9 +4,10 @@ import type { HusbandryCareChecklist } from './husbandryCare';
 
 export type Units = 'in' | 'cm';
 export type EnclosureType = 'glass' | 'pvc' | 'screen';
-export type BudgetTier = 'low' | 'mid' | 'premium';
+export type SetupTier = 'minimum' | 'recommended' | 'ideal';
 export type HumidityControl = 'none' | 'manual' | 'misting-system' | 'humidifier' | 'fogger';
 export type SubstrateType = 'bioactive' | 'soil-based' | 'paper-based' | 'foam';
+export type BackgroundType = 'none' | 'cork-bark' | 'foam';
 
 export interface EnclosureInput {
   width: number;
@@ -17,19 +18,26 @@ export interface EnclosureInput {
   animal: string; // animal ID
   quantity: number; // number of animals
   bioactive: boolean;
-  budget?: BudgetTier; // Optional - no longer selected in form
+  setupTier?: SetupTier; // Optional - system determines setup quality level
   // New fields
   ambientTemp: number; // °F
   ambientHumidity: number; // % (0-100)
   humidityControl: HumidityControl;
   substratePreference: SubstrateType;
   plantPreference: 'live' | 'artificial' | 'mix';
+  backgroundType: BackgroundType;
+  numberOfHides: number; // 2-4 typical
+  numberOfLedges: number; // 0-6 typical
 }
 
 export interface TemperatureRange {
   min: number;
   max: number;
   basking?: number;
+  nighttime?: {
+    min: number;
+    max: number;
+  };
   unit: 'F' | 'C';
 }
 
@@ -84,10 +92,11 @@ export interface ShoppingItem {
   quantity: number | string; // can be "2" or "1 bag (8 quarts)"
   sizing: string; // explanation of how quantity was calculated
   compatibleAnimals?: string[]; // animal IDs this is applicable to (empty = all animals)
-  budgetTierOptions?: {
-    low?: string;
-    mid?: string;
-    premium?: string;
+  importance?: 'required' | 'conditional' | 'optional'; // equipment importance level
+  setupTierOptions?: {
+    minimum?: { description: string; searchQuery?: string };
+    recommended?: { description: string; searchQuery?: string };
+    ideal?: { description: string; searchQuery?: string };
   };
   notes?: string;
   infoLinks?: Record<string, string>; // e.g., { "Setup Guide": "url" }
@@ -168,7 +177,8 @@ export interface QuantityRules {
 }
 
 export interface CareGuidance {
-  feedingNotes: string[];
+  feedingRequirements?: string[];
+  feedingSchedule?: string[];
   waterNotes: string[];
   mistingNotes: string[];
 }
@@ -179,7 +189,7 @@ export interface AnimalProfile {
   scientificName: string;
   careLevel: 'beginner' | 'intermediate' | 'advanced';
   emoji?: string; // Optional: emoji icon for animal picker (e.g., "🐸")
-  completionStatus?: 'complete' | 'in-progress' | 'draft'; // Optional: profile completion status
+  completionStatus?: 'complete' | 'in-progress' | 'draft' | 'validated' // Optional: profile completion status
   minEnclosureSize: {
     width: number;
     depth: number;
@@ -193,6 +203,7 @@ export interface AnimalProfile {
   warnings: Omit<Warning, 'id'>[];
   bioactiveCompatible: boolean;
   notes: string[];
+  setupTips?: string[]; // Optional: species-specific setup tips for enclosure building
   lifespan?: string; // Optional: e.g., "12-16 years"
   relatedBlogs?: string[]; // Optional: array of blog post IDs
   careGuidance?: CareGuidance; // Optional: species-specific care guidance

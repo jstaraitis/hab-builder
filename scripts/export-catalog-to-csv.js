@@ -21,9 +21,9 @@ const headers = [
   'id',
   'name',
   'category',
-  'budget_low',
-  'budget_mid',
-  'budget_premium',
+  'setup_minimum',
+  'setup_recommended',
+  'setup_ideal',
   'notes',
   'sizing',
   'infoLink1_label',
@@ -32,9 +32,9 @@ const headers = [
   'infoLink2_url',
   'infoLink3_label',
   'infoLink3_url',
-  'purchaseLink_low',
-  'purchaseLink_mid',
-  'purchaseLink_premium'
+  'purchaseLink_minimum',
+  'purchaseLink_recommended',
+  'purchaseLink_ideal'
 ];
 
 // Convert to CSV rows
@@ -46,9 +46,9 @@ Object.entries(catalog).forEach(([id, item]) => {
     id,
     escapeCSV(item.name || ''),
     item.category || '',
-    escapeCSV(item.budgetTiers?.low || ''),
-    escapeCSV(item.budgetTiers?.mid || ''),
-    escapeCSV(item.budgetTiers?.premium || ''),
+    escapeCSV(item.setupTiers?.minimum || ''),
+    escapeCSV(item.setupTiers?.recommended || ''),
+    escapeCSV(item.setupTiers?.ideal || ''),
     escapeCSV(item.notes || ''),
     escapeCSV(item.sizing || ''),
   ];
@@ -66,9 +66,9 @@ Object.entries(catalog).forEach(([id, item]) => {
 
   // Handle purchaseLinks
   row.push(
-    escapeCSV(item.purchaseLinks?.low || ''),
-    escapeCSV(item.purchaseLinks?.mid || ''),
-    escapeCSV(item.purchaseLinks?.premium || '')
+    escapeCSV(item.purchaseLinks?.minimum || ''),
+    escapeCSV(item.purchaseLinks?.recommended || ''),
+    escapeCSV(item.purchaseLinks?.ideal || '')
   );
 
   rows.push(row.join(','));

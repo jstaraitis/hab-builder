@@ -41,6 +41,10 @@ function App() {
     humidityControl: 'manual',
     substratePreference: 'soil-based',
     plantPreference: 'mix',
+    backgroundType: 'none',
+    numberOfHides: 3,
+    numberOfLedges: 3,
+    setupTier: 'recommended',
   });
 
   const [plan, setPlan] = useState<BuildPlan | null>(null);
@@ -206,7 +210,7 @@ function App() {
                 <div className="space-y-6">
                   <div className="flex justify-between items-center">
                     <div>
-                      <h2 className="text-2xl font-bold text-gray-800 dark:text-white">💎 Interactive Designer - IN PROGRESS</h2>
+                      <h2 className="text-2xl font-bold text-gray-800 dark:text-white">💎 Interactive Designer - IN PROGRESS - Works best on PC or Tablet</h2>
                       <p className="text-sm text-gray-600 dark:text-gray-400">Drag, rotate, and resize equipment to design your perfect enclosure</p>
                     </div>
                     <Link to="/plan" className="text-blue-700 dark:text-blue-400 font-medium underline">Back to Plan</Link>
@@ -224,7 +228,7 @@ function App() {
               )
             }
           />
-          <Route path="/supplies" element={<SuppliesView plan={plan} />} />
+          <Route path="/supplies" element={<SuppliesView plan={plan} input={input} />} />
           <Route path="/about" element={<About onOpenFeedback={() => setIsFeedbackOpen(true)} />} />
           <Route path="/roadmap" element={<Roadmap onOpenFeedback={() => setIsFeedbackOpen(true)} />} />
           <Route path="/blog" element={<BlogList />} />
@@ -237,7 +241,7 @@ function App() {
 
       <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16">
         <div className="max-w-7xl mx-auto px-4 py-6 text-center text-sm text-gray-600 dark:text-gray-400">
-          <p>Habitat Builder MVP • Always research multiple sources for animal care</p>
+          <p>Habitat Builder• 🐸 • Always research multiple sources for animal care</p>
           <p className="mt-1">Plans are guidelines - adjust based on your specific animal's needs</p>
         </div>
       </footer>

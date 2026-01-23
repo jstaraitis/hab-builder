@@ -4,7 +4,7 @@
       "id": "clean",
       "title": "Clean and Prepare Enclosure",
       "description": "Thoroughly clean enclosure with reptile-safe disinfectant. Rinse well and let dry completely.",
-      "important": true
+      "important": false
     }
   ],
   "bioactive": [
@@ -46,12 +46,30 @@
       "id": "hardscape",
       "title": "Add Hardscape and Branches",
       "description": "Install climbing branches at various angles. Ensure stability - test that branches don't shift.",
+      "important": false
+    },
+    {
+      "id": "water-feature",
+      "title": "Install Water Feature",
+      "description": "Place water dish or bowl in easily accessible location. Ensure it's stable and won't tip. For arboreal species, consider elevated water stations.",
       "important": true
+    },
+    {
+      "id": "hides",
+      "title": "Position Hides",
+      "description": "Place hides in both warm and cool zones. Ensure entrances are appropriately sized. Add leaf litter or plants for additional security.",
+      "important": false
     },
     {
       "id": "plants",
       "title": "Add Plants and Decor",
       "description": "Place plants (live or artificial). Create visual barriers and hiding spots. Leave clear paths for animal movement.",
+      "important": false
+    },
+    {
+      "id": "feeding-station",
+      "title": "Set Up Feeding Station",
+      "description": "Designate feeding area - elevated ledge for arboreal species, open ground area for terrestrial. Ensure easy access for both animal and keeper.",
       "important": false
     }
   ],
@@ -69,9 +87,33 @@
       "important": true
     },
     {
+      "id": "timers",
+      "title": "Set Up Timers",
+      "description": "Connect lights to programmable timers. Set appropriate photoperiod (typically 12h on/12h off). Verify timers are functioning correctly.",
+      "important": false
+    },
+    {
+      "id": "cable-management",
+      "title": "Organize Cables and Power",
+      "description": "Route cables safely away from moisture. Use power strip with surge protection. Keep cables organized and away from animal access. Label all cords.",
+      "important": false
+    },
+    {
+      "id": "secure-equipment",
+      "title": "Secure All Equipment",
+      "description": "Double-check that heat lamps are clamped securely. Verify screen fits tightly with no gaps. Ensure no equipment can fall into enclosure.",
+      "important": true
+    },
+    {
       "id": "monitoring",
       "title": "Add Monitoring Equipment",
       "description": "Place thermometer probes in basking and cool zones. Position hygrometer at mid-height.",
+      "important": false
+    },
+    {
+      "id": "misting-setup",
+      "title": "Test Misting/Humidity System",
+      "description": "If using misting system, test spray coverage and drainage. Set appropriate misting schedule on timer. Verify substrate isn't getting waterlogged.",
       "important": false
     },
     {
@@ -81,10 +123,16 @@
       "important": true
     },
     {
+      "id": "escape-proofing",
+      "title": "Escape-Proof Enclosure",
+      "description": "Check all gaps, seams, and door closures. Verify screen is secure with no tears. Test door latches multiple times. Seal any gaps larger than 1/4 inch.",
+      "important": true
+    },
+    {
       "id": "final-check",
       "title": "Final Check",
-      "description": "Verify all parameters are stable. Check for any sharp edges or gaps. Ensure all equipment is secure.",
-      "important": true
+      "description": "Verify all parameters are stable. Check for any sharp edges or hazards. Ensure all equipment is secure and functioning.",
+      "important": false
     },
     {
       "id": "introduce",

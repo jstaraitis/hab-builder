@@ -5,7 +5,22 @@
   "scientificName": "Scientific Name",
   "careLevel": "beginner",
   "emoji": "🦎",
+  "imageUrl": "/animals/species-name-1.jpg",
   "completionStatus": "draft",
+  "gallery": [
+    {
+      "url": "/animals/species-name-1.jpg",
+      "caption": ""
+    },
+    {
+      "url": "/animals/species-name-2.jpg",
+      "caption": ""
+    },
+    {
+      "url": "/animals/species-name-3.jpg",
+      "caption": ""
+    }
+  ],
   "minEnclosureSize": {
     "width": 18,
     "depth": 18,
@@ -32,6 +47,10 @@
     "humidity": {
       "min": 40,
       "max": 60,
+      "shedding": {
+        "min": 50,
+        "max": 70
+      },
       "unit": "%"
     },
     "lighting": {
@@ -52,6 +71,11 @@
   },
   "bioactiveCompatible": true,
   "lifespan": "10-15 years in captivity",
+  "setupTips": [
+    "Species-specific setup tip 1",
+    "Species-specific setup tip 2",
+    "Species-specific setup tip 3"
+  ],
   "notes": [
     "General behavior notes",
     "Activity patterns (diurnal/nocturnal/crepuscular)",
@@ -83,16 +107,24 @@
     "feeding-guide",
     "temp-humidity-guide",
     "uvb-lighting-guide",
-    "enclosure-sizing-guide"
+    "enclosure-sizing-guide",
+    "hydration-water-guide",
+    "enrichment-welfare-guide"
   ],
   "careGuidance": {
-    "feedingNotes": [
-      "Feeding schedule (frequency and timing)",
-      "Recommended feeder insects",
-      "Supplementation schedule"
+    "feedingRequirements": [
+      "Primary feeder insects and diet staples",
+      "Gut-loading requirements",
+      "Supplementation schedule (calcium, D3, multivitamin)",
+      "Special dietary notes or restrictions"
+    ],
+    "feedingSchedule": [
+      "Juveniles (0-6 months): Feeding frequency and portion size",
+      "Sub-adults (7-11 months): Feeding frequency and portion size",
+      "Adults (1 year+): Feeding frequency and portion size"
     ],
     "waterNotes": [
-      "Water quality requirements",
+      "Water quality requirements (tap treated vs. spring vs. distilled)",
       "Dish size and placement",
       "Cleaning schedule"
     ],
