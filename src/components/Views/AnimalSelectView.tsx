@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react';
 import type { EnclosureInput, BuildPlan, AnimalProfile } from '../../engine/types';
 import { AnimalPicker } from '../AnimalPicker/AnimalPicker';
 import { RelatedBlogs } from '../AnimalPicker/RelatedBlogs';
@@ -15,6 +16,14 @@ interface AnimalSelectViewProps {
 }
 
 export function AnimalSelectView({ input, selectedProfile, profileCareTargets, onSelect, onContinue }: AnimalSelectViewProps) {
+  const animalDataRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to animal data when an animal is selected
+  useEffect(() => {
+    if (input.animal && animalDataRef.current) {
+      animalDataRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [input.animal]);
   // Important and tip warnings will be shown in Care Parameters
   const infoWarnings = (selectedProfile?.warnings?.filter(
     (w) => w.severity === 'important' || w.severity === 'tip'
@@ -49,7 +58,7 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
       )}
 
       {selectedProfile && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 text-sm text-gray-700 dark:text-gray-300">
+        <div ref={animalDataRef} className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 text-sm text-gray-700 dark:text-gray-300">
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <p className="font-semibold text-gray-900 dark:text-white">{selectedProfile.commonName}</p>
             <p className="text-gray-600 dark:text-gray-400 italic">{selectedProfile.scientificName}</p>

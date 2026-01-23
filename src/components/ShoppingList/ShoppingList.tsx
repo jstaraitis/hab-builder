@@ -102,11 +102,11 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
                         key={item.id}
                         className="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-4 hover:bg-gray-100 dark:hover:bg-gray-900/70 transition-colors"
                       >
-                        <div className="flex justify-between items-start mb-3">
-                          <div className="flex items-center gap-2 flex-1">
-                            <h5 className="font-medium text-gray-900 dark:text-white">{item.name}</h5>
+                        <div className="mb-3">
+                          <div className="flex items-center gap-2 flex-wrap mb-2">
+                            <h5 className="font-medium text-gray-900 dark:text-white break-words">{item.name}</h5>
                             {item.importance && (
-                              <span className={`text-xs px-2 py-0.5 rounded-full font-medium whitespace-nowrap ${
+                              <span className={`text-xs px-2 py-0.5 rounded-full font-medium whitespace-nowrap flex-shrink-0 ${
                                 item.importance === 'required' ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300' :
                                 item.importance === 'conditional' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300' :
                                 'bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-300'
@@ -117,7 +117,7 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
                               </span>
                             )}
                           </div>
-                          <span className="text-sm font-medium text-primary-600 dark:text-primary-400 ml-3 whitespace-nowrap">
+                          <span className="text-sm font-medium text-primary-600 dark:text-primary-400 block">
                             Qty: {item.quantity}
                           </span>
                         </div>

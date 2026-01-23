@@ -83,10 +83,10 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
         </div>
         
         {/* Care Level Filter Buttons */}
-        <div className="flex gap-2 mt-4">
+        <div className="flex flex-wrap gap-2 mt-4">
           <button
             onClick={() => setCareLevelFilter('all')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
               careLevelFilter === 'all'
                 ? 'bg-primary-600 text-white shadow-md'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
@@ -96,7 +96,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
           </button>
           <button
             onClick={() => setCareLevelFilter('beginner')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
               careLevelFilter === 'beginner'
                 ? 'bg-green-600 text-white shadow-md'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
@@ -106,7 +106,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
           </button>
           <button
             onClick={() => setCareLevelFilter('intermediate')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
               careLevelFilter === 'intermediate'
                 ? 'bg-yellow-600 text-white shadow-md'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
@@ -116,7 +116,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
           </button>
           <button
             onClick={() => setCareLevelFilter('advanced')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
               careLevelFilter === 'advanced'
                 ? 'bg-red-600 text-white shadow-md'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'

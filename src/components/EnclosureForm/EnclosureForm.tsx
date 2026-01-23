@@ -60,7 +60,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
           Setup Quality & Budget
         </label>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <button
             onClick={() => onChange({ ...value, setupTier: 'minimum' })}
             className={`relative overflow-hidden rounded-xl px-4 py-4 text-sm font-medium transition-all hover:shadow-lg ${
@@ -70,8 +70,8 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
             }`}
           >
             <div className="text-2xl mb-2">✓</div>
-            <div className="font-bold text-gray-900 dark:text-white">Minimum</div>
-            <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">Bare essentials</div>
+            <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">Minimum</div>
+            <div className="text-xs text-gray-600 dark:text-gray-400 mt-1 whitespace-nowrap">Bare essentials</div>
           </button>
           <button
             onClick={() => onChange({ ...value, setupTier: 'recommended' })}
@@ -82,8 +82,8 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
             }`}
           >
             <div className="text-2xl mb-2">⭐</div>
-            <div className="font-bold text-gray-900 dark:text-white">Recommended</div>
-            <div className="text-xs text-amber-700 dark:text-amber-400 mt-1">Best value</div>
+            <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">Recommended</div>
+            <div className="text-xs text-amber-700 dark:text-amber-400 mt-1 whitespace-nowrap">Best value</div>
           </button>
           <button
             onClick={() => onChange({ ...value, setupTier: 'ideal' })}
@@ -94,8 +94,8 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
             }`}
           >
             <div className="text-2xl mb-2">💎</div>
-            <div className="font-bold text-gray-900 dark:text-white">Ideal</div>
-            <div className="text-xs text-emerald-700 dark:text-emerald-400 mt-1">Premium quality</div>
+            <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">Ideal</div>
+            <div className="text-xs text-emerald-700 dark:text-emerald-400 mt-1 whitespace-nowrap">Premium quality</div>
           </button>
         </div>
         <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">
