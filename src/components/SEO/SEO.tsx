@@ -21,8 +21,24 @@ interface SEOProps {
 
 const DEFAULT_SEO = {
   title: 'Habitat Builder - Free Reptile & Amphibian Enclosure Planning Tool',
-  description: 'Design the perfect enclosure for your reptile or amphibian. Get custom shopping lists, care parameters, and step-by-step build instructions. Free habitat planner for bearded dragons, tree frogs, and more.',
-  keywords: ['reptile enclosure', 'vivarium builder', 'habitat planner', 'bearded dragon setup', 'bioactive enclosure', 'reptile care'],
+  description: 'Design the perfect enclosure for your reptile or amphibian with our free interactive planner. Get custom shopping lists, care parameters, visual designer with 70+ equipment items, and step-by-step build instructions. Free habitat planner for tree frogs, geckos, bearded dragons, and more.',
+  keywords: [
+    'reptile enclosure', 
+    'vivarium builder', 
+    'habitat planner', 
+    'terrarium designer',
+    'bearded dragon setup', 
+    'bioactive enclosure', 
+    'reptile care',
+    'amphibian enclosure',
+    'tree frog habitat',
+    'gecko terrarium',
+    'enclosure shopping list',
+    'reptile equipment',
+    'UVB lighting calculator',
+    'substrate calculator',
+    'interactive habitat designer'
+  ],
   ogImage: '/og-image.jpg',
   canonical: 'https://habitat-builder.com'
 };
@@ -156,11 +172,18 @@ export function SEO({
           priceCurrency: 'USD'
         },
         featureList: [
-          'Custom enclosure design',
-          'Species-specific care parameters',
-          'Automated shopping lists',
+          'Custom enclosure design with interactive visual designer',
+          'Species-specific care parameters and warnings',
+          'Automated shopping lists with Amazon affiliate links',
           'Step-by-step build instructions',
-          'Bioactive setup planning'
+          'Bioactive setup planning and calculations',
+          '70+ equipment items across 13 categories',
+          'Drag-and-drop layout designer with rotation and resizing',
+          'Budget-friendly equipment tier options (minimum/recommended/ideal)',
+          'UVB coverage and substrate depth calculators',
+          'Color-coded care difficulty levels',
+          'Dark mode support',
+          'Mobile-responsive design'
         ]
       };
 
