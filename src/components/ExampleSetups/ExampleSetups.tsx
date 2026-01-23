@@ -4,7 +4,7 @@ interface ExampleSetupsProps {
   readonly speciesSetupTips?: string[];
 }
 
-export default function ExampleSetups({ animalType = 'tree-frog', layoutNotes = [], speciesSetupTips = [] }: ExampleSetupsProps) {
+export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTips = [] }: ExampleSetupsProps) {
   const examples = [
     {
       id: 'minimalist',

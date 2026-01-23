@@ -14,7 +14,7 @@ interface AnimalSelectViewProps {
   readonly onContinue: () => void;
 }
 
-export function AnimalSelectView({ input, selectedProfile, profileCareTargets, plan, onSelect, onContinue }: AnimalSelectViewProps) {
+export function AnimalSelectView({ input, selectedProfile, profileCareTargets, onSelect, onContinue }: AnimalSelectViewProps) {
   // Important and tip warnings will be shown in Care Parameters
   const infoWarnings = (selectedProfile?.warnings?.filter(
     (w) => w.severity === 'important' || w.severity === 'tip'

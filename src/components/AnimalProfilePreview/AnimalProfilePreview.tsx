@@ -184,7 +184,10 @@ export function AnimalProfilePreview() {
             <div>
               <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2">Feeding</h3>
               <ul className="list-disc list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300">
-                {profile.careGuidance.feedingNotes.map((note, idx) => (
+                {profile.careGuidance.feedingRequirements?.map((note: string, idx: number) => (
+                  <li key={idx}>{note}</li>
+                ))}
+                {profile.careGuidance.feedingSchedule?.map((note: string, idx: number) => (
                   <li key={idx}>{note}</li>
                 ))}
               </ul>
@@ -192,7 +195,7 @@ export function AnimalProfilePreview() {
             <div>
               <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2">Water</h3>
               <ul className="list-disc list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300">
-                {profile.careGuidance.waterNotes.map((note, idx) => (
+                {profile.careGuidance.waterNotes.map((note: string, idx: number) => (
                   <li key={idx}>{note}</li>
                 ))}
               </ul>

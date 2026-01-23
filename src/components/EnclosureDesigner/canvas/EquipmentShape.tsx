@@ -10,102 +10,9 @@ interface EquipmentShapeProps {
   showLabel?: boolean;
 }
 
-// Create canvas patterns for textures
-const createPattern = (type: 'wood' | 'rock' | 'cork' | 'soil' | 'stone'): CanvasPattern | null => {
-  if (typeof window === 'undefined') return null;
-  
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
-  if (!ctx) return null;
-
-  canvas.width = 50;
-  canvas.height = 50;
-
-  switch (type) {
-    case 'wood':
-      // Wood grain pattern
-      ctx.fillStyle = '#8B6F47';
-      ctx.fillRect(0, 0, 50, 50);
-      ctx.strokeStyle = '#6B4423';
-      ctx.lineWidth = 1;
-      for (let i = 0; i < 10; i++) {
-        ctx.beginPath();
-        ctx.moveTo(0, i * 5 + Math.random() * 2);
-        ctx.lineTo(50, i * 5 + Math.random() * 2);
-        ctx.stroke();
-      }
-      break;
-
-    case 'rock':
-      // Rock speckled texture
-      ctx.fillStyle = '#787878';
-      ctx.fillRect(0, 0, 50, 50);
-      for (let i = 0; i < 100; i++) {
-        ctx.fillStyle = i % 3 === 0 ? '#5a5a5a' : i % 3 === 1 ? '#8a8a8a' : '#656565';
-        ctx.fillRect(Math.random() * 50, Math.random() * 50, 2, 2);
-      }
-      break;
-
-    case 'cork':
-      // Cork porous texture
-      ctx.fillStyle = '#A0826D';
-      ctx.fillRect(0, 0, 50, 50);
-      for (let i = 0; i < 40; i++) {
-        ctx.fillStyle = 'rgba(80, 60, 40, 0.3)';
-        ctx.beginPath();
-        ctx.arc(Math.random() * 50, Math.random() * 50, Math.random() * 3 + 1, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      break;
-
-    case 'soil':
-      // Soil granular texture
-      ctx.fillStyle = '#6B4423';
-      ctx.fillRect(0, 0, 50, 50);
-      for (let i = 0; i < 150; i++) {
-        ctx.fillStyle = i % 4 === 0 ? '#5a3821' : i % 4 === 1 ? '#7b5433' : i % 4 === 2 ? '#8b6443' : '#4a2811';
-        ctx.fillRect(Math.random() * 50, Math.random() * 50, 1, 1);
-      }
-      break;
-
-    case 'stone':
-      // Stone mosaic pattern
-      ctx.fillStyle = '#9CA3AF';
-      ctx.fillRect(0, 0, 50, 50);
-      for (let i = 0; i < 6; i++) {
-        for (let j = 0; j < 6; j++) {
-          ctx.strokeStyle = '#4B5563';
-          ctx.lineWidth = 1;
-          ctx.strokeRect(i * 8 + Math.random() * 2, j * 8 + Math.random() * 2, 8, 8);
-        }
-      }
-      break;
-  }
-
-  return ctx.createPattern(canvas, 'repeat');
-};
-
 export function EquipmentShape({ item, isSelected, onSelect, onDragEnd, showLabel = true }: EquipmentShapeProps) {
   const shapeRef = useRef<any>(null);
   const [image, setImage] = useState<HTMLImageElement | null>(null);
-  const [patterns, setPatterns] = useState<{
-    wood: CanvasPattern | null;
-    rock: CanvasPattern | null;
-    cork: CanvasPattern | null;
-    soil: CanvasPattern | null;
-    stone: CanvasPattern | null;
-  }>({ wood: null, rock: null, cork: null, soil: null, stone: null });
-
-  // Initialize patterns
-  useEffect(() => {
-    setPatterns({
-      wood: createPattern('wood'),
-      rock: createPattern('rock'),
-      cork: createPattern('cork'),
-      soil: createPattern('soil'),
-      stone: createPattern('stone'),
-    });
-  }, []);
 
   // Load image if it's a tree
   useEffect(() => {
@@ -128,10 +35,6 @@ export function EquipmentShape({ item, isSelected, onSelect, onDragEnd, showLabe
       shadowOffsetX: 2,
       shadowOffsetY: 2,
     };
-
-    // Extract emoji from name (first character if it's an emoji)
-    const emojiMatch = item.name.match(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/u);
-    const emoji = emojiMatch ? emojiMatch[0] : null;
 
     // If tree with loaded image, render it
     if (item.type === 'decor' && item.variant === 'tree' && image) {
