@@ -81,7 +81,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800">
       {/* Testing Banner */}
-      <div className="bg-yellow-50 dark:bg-yellow-900/30 border-b-2 border-yellow-400 dark:border-yellow-700 px-3 sm:px-4 py-2 sm:py-3">
+      {/* <div className="bg-yellow-50 dark:bg-yellow-900/30 border-b-2 border-yellow-400 dark:border-yellow-700 px-3 sm:px-4 py-2 sm:py-3">
         <div className="max-w-7xl mx-auto flex items-start sm:items-center gap-2 sm:gap-3">
           <span className="text-xl sm:text-2xl flex-shrink-0">⚠️</span>
           <div className="text-xs sm:text-sm">
@@ -89,7 +89,7 @@ function App() {
             <p className="text-yellow-800 dark:text-yellow-300 mt-0.5">This app is in testing. Always verify care info with multiple sources before making changes.</p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 py-4 sm:py-6">
