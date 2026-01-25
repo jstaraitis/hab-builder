@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Info, ArrowRight } from 'lucide-react';
 import type { BuildPlan, EnclosureInput } from '../../engine/types';
 import { ShoppingList } from '../ShoppingList/ShoppingList';
 import { SEO } from '../SEO/SEO';
@@ -38,12 +39,10 @@ export function SuppliesView({ plan, input }: SuppliesViewProps) {
 
       <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border-2 border-blue-200 dark:border-blue-800 rounded-xl p-4">
         <div className="flex items-start gap-3">
-          <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+          <Info className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
           <div className="text-sm text-gray-700 dark:text-gray-300">
             <p className="font-semibold text-gray-900 dark:text-white mb-1">Supporting Habitat Builder</p>
-            <p>Our Amazon purchase links include an affiliate tag that helps cover server and maintenance costs. You pay the same price, and we earn a small commission to keep this tool free for the reptile community. Thank you for your support! 🦎</p>
+            <p>Our Amazon purchase links include an affiliate tag that helps cover server and maintenance costs. You pay the same price, and we earn a small commission to keep this tool free for the reptile community. Thank you for your support!</p>
           </div>
         </div>
       </div>
@@ -58,7 +57,8 @@ export function SuppliesView({ plan, input }: SuppliesViewProps) {
           to="/plan"
           className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
         >
-          Continue to Plan →
+          Continue to Plan
+          <ArrowRight className="inline-block w-4 h-4 ml-2" />
         </Link>
       </div>
     </div>

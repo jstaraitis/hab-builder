@@ -2,6 +2,7 @@
   "id": "axolotl",
   "commonName": "Axolotl",
   "scientificName": "Ambystoma mexicanum",
+  "searchQuery": ["axolotl", "ambystoma mexicanum", "salamander", "mexican walking fish"],
   "careLevel": "advanced",
   "emoji": "🦎",
   "imageUrl": "/animals/axolotl/axolotl-1.jpg",

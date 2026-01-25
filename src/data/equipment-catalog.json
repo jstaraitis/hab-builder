@@ -4,7 +4,8 @@
     "category": "enclosure",
     "importance": "required",
     "compatibleAnimals": [
-      "whites-tree-frog"
+      "whites-tree-frog",
+      "crested-gecko"
     ],
     "tiers": {
       "minimum": {
@@ -27,7 +28,8 @@
     "category": "enclosure",
     "importance": "required",
     "compatibleAnimals": [
-      "whites-tree-frog"
+      "whites-tree-frog",
+      "crested-gecko"
     ],
     "tiers": {
       "minimum": {
@@ -70,7 +72,8 @@
     "name": "UVB Linear Fixture",
     "category": "equipment",
     "compatibleAnimals": [
-      "whites-tree-frog"
+      "whites-tree-frog",
+      "crested-gecko"
     ],
     "importance": "required",
     "spec": {
@@ -98,7 +101,7 @@
     "name": "Ceramic Heat Emitter (CHE)",
     "category": "equipment",
     "compatibleAnimals": [
-      "whites-tree-frog"
+      "whites-tree-frog", "crested-gecko"
     ],
     "importance": "required",
     "spec": {
@@ -125,7 +128,7 @@
   "substrate-bioactive": {
     "name": "Bioactive Substrate Mix",
     "category": "substrate",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "conditional",
     "spec": {
       "depth": "3-4 inches",
@@ -150,7 +153,7 @@
   "substrate-soil": {
     "name": "Soil-Based Substrate",
     "category": "substrate",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "required",
     "tiers": {
       "minimum": {
@@ -171,7 +174,7 @@
   "substrate-paper": {
     "name": "Paper-Based Substrate",
     "category": "substrate",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "required",
     "tiers": {
       "minimum": {
@@ -192,7 +195,7 @@
   "substrate-foam": {
     "name": "Foam Substrate",
     "category": "substrate",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "required",
     "tiers": {
       "minimum": {
@@ -213,7 +216,7 @@
   "drainage": {
     "name": "Drainage Layer (LECA or clay balls)",
     "category": "substrate",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "conditional",
     "spec": {
       "depth": "1-3 inches",
@@ -238,7 +241,7 @@
   "drainage-barrier": {
     "name": "Drainage Barrier (mesh screen)",
     "category": "substrate",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "conditional",
     "tiers": {
       "minimum": {
@@ -259,7 +262,7 @@
   "springtails": {
     "name": "Springtail Culture",
     "category": "cleanup_crew",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "conditional",
     "tiers": {
       "minimum": {
@@ -280,7 +283,7 @@
   "isopods": {
     "name": "Isopod Culture (Dwarf White)",
     "category": "cleanup_crew",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "conditional",
     "tiers": {
       "minimum": {
@@ -301,7 +304,7 @@
   "branches": {
     "name": "Climbing Branches & Perches",
     "category": "decor",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "required",
     "tiers": {
       "minimum": {
@@ -322,7 +325,7 @@
   "plants": {
     "name": "Plants (live or artificial)",
     "category": "decor",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "recommended",
     "tiers": {
       "minimum": {
@@ -343,7 +346,7 @@
   "plants-live": {
     "name": "Live Plants",
     "category": "decor",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "recommended",
     "tiers": {
       "minimum": {
@@ -364,7 +367,7 @@
   "plants-artificial": {
     "name": "Artificial Plants",
     "category": "decor",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "optional",
     "tiers": {
       "minimum": {
@@ -385,7 +388,7 @@
   "misting-system": {
     "name": "Automated Misting System",
     "category": "equipment",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "optional",
     "spec": {
       "type": "automated",
@@ -410,7 +413,7 @@
   "humidifier": {
     "name": "Ultrasonic or Cool Mist Humidifier",
     "category": "equipment",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "conditional",
     "tiers": {
       "minimum": {
@@ -431,7 +434,7 @@
   "fogger": {
     "name": "Fogger (Ultrasonic Humidification)",
     "category": "equipment",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "conditional",
     "tiers": {
       "minimum": {
@@ -452,7 +455,7 @@
   "monitoring": {
     "name": "Digital Thermometer & Hygrometer",
     "category": "equipment",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "required",
     "spec": {
       "measures": "temperature and humidity",
@@ -477,7 +480,7 @@
   "water-bowl": {
     "name": "Water Bowl",
     "category": "equipment",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "required",
     "spec": {
       "type": "shallow dish",
@@ -502,7 +505,7 @@
   "plant-light": {
     "name": "Plant Growth Light",
     "category": "equipment",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "conditional",
     "spec": {
       "type": "LED or fluorescent",
@@ -527,7 +530,7 @@
   "spray-bottle": {
     "name": "Spray Bottle for Misting",
     "category": "equipment",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "conditional",
     "tiers": {
       "minimum": {
@@ -548,7 +551,7 @@
   "dechlorinator": {
     "name": "Water Dechlorinator",
     "category": "equipment",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "required",
     "spec": {
       "type": "amphibian-safe",
@@ -573,7 +576,7 @@
   "calcium": {
     "name": "Calcium Supplement",
     "category": "equipment",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["whites-tree-frog"],
     "importance": "required",
     "spec": {
       "type": "powder",
@@ -598,7 +601,7 @@
   "multivitamin": {
     "name": "Multivitamin Supplement",
     "category": "equipment",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["whites-tree-frog"],
     "importance": "required",
     "spec": {
       "type": "powder",
@@ -623,7 +626,7 @@
   "feeding-tongs": {
     "name": "Feeding Tongs",
     "category": "equipment",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "optional",
     "tiers": {
       "minimum": {
@@ -644,7 +647,7 @@
   "feeder-insects": {
     "name": "Feeder Insects",
     "category": "equipment",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "required",
     "spec": {
       "types": "crickets, dubia roaches",
@@ -669,7 +672,7 @@
   "background": {
     "name": "Background (cork bark or foam)",
     "category": "decor",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "optional",
     "spec": {
       "type": "cork bark or carved foam",
@@ -694,7 +697,7 @@
   "ledges": {
     "name": "Wall Ledges & Platforms",
     "category": "decor",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "required",
     "spec": {
       "placement": "various heights",
@@ -714,12 +717,12 @@
         "searchQuery": "terrarium wall ledges & platforms"
       }
     },
-    "notes": "Tree frogs need multiple perching spots at different heights."
+    "notes": "Arboreal and semi-arboreal species need multiple perching spots at different heights."
   },
   "hides": {
     "name": "Hides & Shelters",
     "category": "decor",
-    "compatibleAnimals": [],
+    "compatibleAnimals": ["crested-gecko", "whites-tree-frog"],
     "importance": "required",
     "spec": {
       "quantity": "2-3 per enclosure",

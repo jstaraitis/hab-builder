@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { EnclosureInput, Units, AnimalProfile, HumidityControl, SubstrateType, EnclosureType, BackgroundType } from '../../engine/types';
+import { CheckCircle, Star, Award, AlertTriangle, Thermometer, Droplet } from 'lucide-react';
 import { validateEnclosureSize, validateEnclosureType } from '../../engine/validateEnclosure';
 import { SizeFeedback } from '../Validation/SizeFeedback';
 
@@ -69,7 +70,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
                 : 'bg-gradient-to-br from-gray-50 to-slate-50 dark:from-gray-800 dark:to-slate-800 border-2 border-gray-300 dark:border-gray-600'
             }`}
           >
-            <div className="text-2xl mb-2">✓</div>
+              <CheckCircle className="w-6 h-6 mb-2 text-gray-900 dark:text-white" />
             <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">Minimum</div>
             <div className="text-xs text-gray-600 dark:text-gray-400 mt-1 whitespace-nowrap">Bare essentials</div>
           </button>
@@ -81,7 +82,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
                 : 'bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-2 border-amber-200 dark:border-amber-800'
             }`}
           >
-            <div className="text-2xl mb-2">⭐</div>
+            <Star className="w-6 h-6 mb-2 text-amber-600 dark:text-amber-400" />
             <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">Recommended</div>
             <div className="text-xs text-amber-700 dark:text-amber-400 mt-1 whitespace-nowrap">Best value</div>
           </button>
@@ -93,7 +94,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
                 : 'bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 border-2 border-emerald-200 dark:border-emerald-800'
             }`}
           >
-            <div className="text-2xl mb-2">💎</div>
+            <Award className="w-6 h-6 mb-2 text-emerald-600 dark:text-emerald-400" />
             <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">Ideal</div>
             <div className="text-xs text-emerald-700 dark:text-emerald-400 mt-1 whitespace-nowrap">Premium quality</div>
           </button>
@@ -261,16 +262,22 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
           ))}
         </div>
         <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
-          {value.type === 'glass' && '✓ Best for visibility'}
-          {value.type === 'pvc' && '✓ Versatile option'}
-          {value.type === 'screen' && '✓ Maximum airflow, needs active humidity control'}
+          {value.type === 'glass' && (
+            <span className="inline-flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" />Best for visibility</span>
+          )}
+          {value.type === 'pvc' && (
+            <span className="inline-flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" />Versatile option</span>
+          )}
+          {value.type === 'screen' && (
+            <span className="inline-flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" />Maximum airflow, needs active humidity control</span>
+          )}
         </p>
         
         {/* Enclosure Type Validation Feedback */}
         {typeValidation && !typeValidation.compatible && (
           <div className="mt-3 bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 dark:border-red-700 p-3 rounded-r">
             <div className="flex items-start gap-2">
-              <span className="text-red-500 dark:text-red-400 text-lg">⚠️</span>
+              <span className="text-red-500 dark:text-red-400"><AlertTriangle className="w-6 h-6" /></span>
               <p className="text-sm text-red-800 dark:text-red-200 font-medium">
                 {typeValidation.warning}
               </p>
@@ -323,11 +330,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
         <div className="flex items-center justify-between mb-3">
           <label className="text-sm font-semibold text-gray-700 dark:text-gray-200 flex items-center gap-2">
             <div className="bg-red-100 dark:bg-red-900/40 rounded-full p-2">
-              <svg className="w-5 h-5 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                <circle cx="12" cy="12" r="3" fill="currentColor" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2v4m0 12v4" />
-              </svg>
+              <Thermometer className="w-5 h-5 text-red-600 dark:text-red-400" />
             </div>
             Ambient Room Temperature
           </label>
@@ -359,9 +362,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
         <div className="flex items-center justify-between mb-3">
           <label className="text-sm font-semibold text-gray-700 dark:text-gray-200 flex items-center gap-2">
             <div className="bg-blue-100 dark:bg-blue-900/40 rounded-full p-2">
-              <svg className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-              </svg>
+              <Droplet className="w-5 h-5 text-blue-600 dark:text-blue-400" />
             </div>
             Ambient Room Humidity
           </label>

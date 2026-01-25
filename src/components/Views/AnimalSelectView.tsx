@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import { ArrowUp } from 'lucide-react';
 import type { EnclosureInput, BuildPlan, AnimalProfile } from '../../engine/types';
 import { AnimalPicker } from '../AnimalPicker/AnimalPicker';
 import { RelatedBlogs } from '../AnimalPicker/RelatedBlogs';
@@ -53,7 +54,7 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
       
       {!input.animal && (
         <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-4 text-center">
-          <p className="text-blue-800 dark:text-blue-300 font-medium">👆 Please select an animal to begin</p>
+          <p className="text-blue-800 dark:text-blue-300 font-medium"><ArrowUp className="inline-block w-5 h-5 mr-2"/> Please select an animal to begin</p>
         </div>
       )}
 

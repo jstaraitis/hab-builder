@@ -2,10 +2,11 @@
   "id": "crested-gecko",
   "commonName": "Crested Gecko",
   "scientificName": "Correlophus ciliatus",
+  "searchQuery": ["crested gecko", "crested-gecko", "correlophus ciliatus", "gecko", "climbing gecko"],
   "careLevel": "beginner",
   "emoji": "🦎",
   "imageUrl": "/animals/crested-gecko/crested-gecko-1.jpg",
-  "completionStatus": "draft",
+  "completionStatus": "in-progress",
   "gallery": [
     {
       "url": "/animals/crested-gecko/crested-gecko-1.jpg",
@@ -15,21 +16,21 @@
   "minEnclosureSize": {
     "width": 18,
     "depth": 18,
-    "height": 24,
+    "height": 36,
     "units": "in"
   },
   "quantityRules": {
-    "baseGallons": 20,
-    "additionalGallons": 10,
-    "maxRecommended": 3,
-    "description": "Single gecko requires 20 gallons vertical (18×18×24 inches). Each additional female requires 10 more gallons. Never house males together."
+    "baseGallons": 40,
+    "additionalGallons": 0,
+    "maxRecommended": 1,
+    "description": "Single gecko requires 40 gallons vertical (18×18×36 inches)."
   },
   "careTargets": {
     "temperature": {
-      "min": 72,
-      "max": 78,
+      "min": 70,
+      "max": 80,
       "nighttime": {
-        "min": 68,
+        "min": 64,
         "max": 72
       },
       "unit": "F"
@@ -44,9 +45,9 @@
       "unit": "%"
     },
     "lighting": {
-      "uvbRequired": false,
+      "uvbRequired": true,
       "uvbRecommended": true,
-      "coveragePercent": 0,
+      "coveragePercent": 65,
       "photoperiod": "12h day / 12h night"
     },
     "gradient": "Vertical temperature gradient"
@@ -70,7 +71,8 @@
     "Very docile and easy to handle",
     "Can drop tail when stressed - will NOT regrow",
     "Unique diet - can thrive on commercial crested gecko diet (CGD)",
-    "Profile in development"
+    "Crested geckos come in a variety of colors and patterns due to selective breeding",
+    "Do not have eyelids, instead lick their eyes to keep them clean and moist"
   ],
   "warnings": [
     {
@@ -90,12 +92,14 @@
   "careGuidance": {
     "feedingRequirements": [
       "Omnivorous - primary diet is commercial crested gecko diet (CGD)",
-      "Supplement with insects 2-3x weekly (crickets, dubia roaches)",
-      "Dust insects with calcium supplement"
+      "Discourage jelly pots and baby food - too high in sugars",
+      "Opportunistic feeders - feeding live insects is reccommended for enrichment",
+      "Insects should be gut-loaded and dusted with calcium powder",
+      "Mashed fruit treats can be offered occasionally but not as a staple"
     ],
     "feedingSchedule": [
-      "Juveniles (0-12 months): CGD nightly, insects 3x weekly",
-      "Sub-adults (1-2 years): CGD every other night, insects 2x weekly",
+      "Juveniles (0-12 months): CGD nightly, insects 2-3x weekly",
+      "Sub-adults (1-2 years): CGD every other night, insects 1-2x weekly",
       "Adults (2+ years): CGD 3x weekly, insects 1-2x weekly"
     ],
     "waterNotes": [
@@ -104,7 +108,7 @@
       "Change water dish daily"
     ],
     "mistingNotes": [
-      "Mist heavily every evening - crested geckos drink from droplets",
+      "Mist in evening - crested geckos drink from droplets",
       "Maintain 50-70% humidity, increase to 70-80% during shedding",
       "Allow enclosure to dry out during the day before evening misting"
     ]

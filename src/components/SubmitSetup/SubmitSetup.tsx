@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Camera, Mail, FileText } from 'lucide-react';
 
 export function SubmitSetup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,7 +8,7 @@ export function SubmitSetup() {
     return (
       <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 border-2 border-emerald-200 dark:border-emerald-800 rounded-xl p-6">
         <div className="flex items-start gap-4">
-          <div className="text-4xl">📸</div>
+          <div className="text-4xl"><Camera className="w-10 h-10" /></div>
           <div className="flex-1">
             <h3 className="text-xl font-bold text-emerald-900 dark:text-emerald-200 mb-2">Share Your Setup!</h3>
             <p className="text-emerald-800 dark:text-emerald-300 mb-4">
@@ -39,7 +40,7 @@ export function SubmitSetup() {
 
       <div className="space-y-4">
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-6">
-          <p className="text-sm text-blue-900 dark:text-blue-200 font-medium mb-2">📧 Email Your Submission</p>
+          <p className="text-sm text-blue-900 dark:text-blue-200 font-medium mb-2"><Mail className="inline-block w-5 h-5 mr-2"/> Email Your Submission</p>
           <p className="text-sm text-blue-800 dark:text-blue-300 mb-3">
             Send us your setup photos and details at <strong>submissions@habitatbuilder.com</strong>
           </p>
@@ -143,7 +144,7 @@ export function SubmitSetup() {
 
           <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4">
             <p className="text-sm text-yellow-900 dark:text-yellow-200 font-medium mb-2">
-              📝 Submission Guidelines
+              <FileText className="inline-block w-5 h-5 mr-2"/> Submission Guidelines
             </p>
             <ul className="text-xs text-yellow-800 dark:text-yellow-300 space-y-1">
               <li>• Photos should be high quality (good lighting, clear focus)</li>
@@ -159,7 +160,7 @@ export function SubmitSetup() {
             href="mailto:submissions@habitatbuilder.com?subject=Enclosure Setup Submission"
             className="flex-1 px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all text-center"
           >
-            📧 Send via Email
+            <Mail className="inline-block w-4 h-4 mr-2"/> Send via Email
           </a>
           <button
             onClick={() => setIsOpen(false)}

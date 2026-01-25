@@ -14,7 +14,7 @@
     },
     {
       "type": "section",
-      "heading": "🚰 Water Quality",
+      "heading": "Water Quality",
       "content": [
         {
           "type": "list",
@@ -28,7 +28,7 @@
     },
     {
       "type": "section",
-      "heading": "🫧 Water Dish Setup",
+      "heading": "Water Dish Setup",
       "content": [
         {
           "type": "list",
@@ -41,13 +41,13 @@
         },
         {
           "type": "highlight",
-          "text": "💡 Keep a second identical dish on hand—swap daily while the other is sanitized."
+          "text": "Note: Keep a second identical dish on hand—swap daily while the other is sanitized."
         }
       ]
     },
     {
       "type": "section",
-      "heading": "💧 Humidity Management: Keep It DRY",
+      "heading": "Humidity Management: Keep It DRY",
       "content": [
         {
           "type": "list",
@@ -61,7 +61,7 @@
         },
         {
           "type": "warning",
-          "text": "⚠️ CRITICAL: White's Tree Frogs are semi-arid Australian species. Keeping humidity above 50% sustained will cause respiratory infections. If shedding issues occur, offer a 10-minute supervised soak in shallow treated water—do NOT increase ambient humidity."
+          "text": "CRITICAL: White's Tree Frogs are semi-arid Australian species. Keeping humidity above 50% sustained will cause respiratory infections. If shedding issues occur, offer a 10-minute supervised soak in shallow treated water—do NOT increase ambient humidity."
         }
       ]
     },

@@ -68,7 +68,7 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
       <div className="max-w-5xl mx-auto space-y-8">
         {/* Hero */}
         <div className="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg p-8 text-white">
-          <h1 className="text-4xl font-bold mb-4">🚀 Roadmap</h1>
+          <h1 className="text-4xl font-bold mb-4">Roadmap</h1>
           <p className="text-xl text-purple-50">
             See what we're working on and what's coming next
           </p>
@@ -76,9 +76,7 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
 
         {/* In Progress */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
-            <span className="text-3xl">🔄</span> Currently Working On
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Currently Working On</h2>
           <div className="space-y-3">
             <RoadmapItem
               title="More Animals"
@@ -109,9 +107,7 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
 
         {/* Coming Soon */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
-            <span className="text-3xl">📅</span> Coming Soon
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Coming Soon</h2>
           <div className="space-y-3">
             <RoadmapItem
               title="Animal Directory"
@@ -154,9 +150,7 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
 
         {/* Community Ideas */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
-            <span className="text-3xl">💡</span> Considering for Future
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Considering for Future</h2>
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
             <ul className="space-y-3 text-gray-700 dark:text-gray-300">
               <li className="flex items-start gap-3">
@@ -195,7 +189,7 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
 
         {/* Contribute */}
         <section className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg p-8 text-white">
-          <h2 className="text-2xl font-bold mb-4">🤝 Have Ideas?</h2>
+          <h2 className="text-2xl font-bold mb-4">Have Ideas?</h2>
           <p className="mb-4 text-emerald-50">
             This tool is built for the community. Help us make it better:
           </p>

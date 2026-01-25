@@ -14,7 +14,7 @@
     },
     {
       "type": "section",
-      "heading": "🎯 Target Ranges",
+      "heading": "Target Ranges",
       "content": [
         {
           "type": "table",
@@ -34,7 +34,7 @@
     },
     {
       "type": "section",
-      "heading": "📍 Temperature Probe Placement for White's Tree Frogs",
+      "heading": "Temperature Probe Placement for White's Tree Frogs",
       "content": [
         {
           "type": "list",
@@ -50,7 +50,7 @@
     },
     {
       "type": "section",
-      "heading": "💧 Humidity Management: Keep It DRY",
+      "heading": "Humidity Management: Keep It DRY",
       "content": [
         {
           "type": "text",
@@ -68,13 +68,13 @@
         },
         {
           "type": "highlight",
-          "text": "💡 The Golden Rule: If your room has 40–50% humidity and the enclosure has a screen top with a water dish, you're done. No misting needed. Your frogs are happier in a dry setup than a humid one."
+          "text": "The Golden Rule: If your room has 40–50% humidity and the enclosure has a screen top with a water dish, you're done. No misting needed. Your frogs are happier in a dry setup than a humid one."
         }
       ]
     },
     {
       "type": "section",
-      "heading": "🧰 Troubleshooting: Common Temperature & Humidity Problems",
+      "heading": "Troubleshooting: Common Temperature & Humidity Problems",
       "content": [
         {
           "type": "list",

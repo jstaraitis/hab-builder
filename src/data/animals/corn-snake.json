@@ -2,6 +2,7 @@
   "id": "corn-snake",
   "commonName": "Corn Snake",
   "scientificName": "Pantherophis guttatus",
+  "searchQuery": ["corn snake", "pantherophis guttatus", "snake", "colubrid"],
   "careLevel": "beginner",
   "emoji": "🐍",
   "imageUrl": "/animals/corn-snake/corn-snake-1.jpg",

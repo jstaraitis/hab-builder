@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { animalProfiles } from '../../data/animals';
 import type { AnimalProfile } from '../../engine/types';
+import { Search, Thermometer, Droplet, Sun, AlertTriangle, FileText, Ruler, Book, CheckCircle, XCircle } from 'lucide-react';
 
 export function AnimalProfilePreview() {
   const [selectedId, setSelectedId] = useState<string>(Object.keys(animalProfiles)[0] || '');
@@ -20,7 +21,7 @@ export function AnimalProfilePreview() {
     <div className="max-w-7xl mx-auto p-6 space-y-6">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg p-6 text-white">
-        <h1 className="text-3xl font-bold mb-2">🔬 Animal Profile Inspector</h1>
+        <h1 className="text-3xl font-bold mb-2"><Search className="inline-block w-6 h-6 mr-2"/> Animal Profile Inspector</h1>
         <p className="text-purple-100">Development tool for reviewing animal data</p>
       </div>
 
@@ -36,8 +37,8 @@ export function AnimalProfilePreview() {
         >
           {Object.entries(animalProfiles).map(([id, p]) => (
             <option key={id} value={id}>
-              {p.emoji} {p.commonName} ({p.scientificName})
-            </option>
+                {p.emoji} {p.commonName} ({p.scientificName})
+              </option>
           ))}
         </select>
       </div>
@@ -49,12 +50,12 @@ export function AnimalProfilePreview() {
           <InfoRow label="ID" value={profile.id} />
           <InfoRow label="Common Name" value={profile.commonName} />
           <InfoRow label="Scientific Name" value={profile.scientificName} />
-          <InfoRow label="Emoji" value={profile.emoji || '❌ Missing'} />
+          <InfoRow label="Emoji" value={profile.emoji || (<span className="text-red-500"><XCircle className="inline-block w-4 h-4 mr-1"/>Missing</span>)} />
           <InfoRow label="Care Level" value={profile.careLevel} badge />
-          <InfoRow label="Lifespan" value={profile.lifespan || '❌ Not specified'} />
+          <InfoRow label="Lifespan" value={profile.lifespan || (<span className="text-red-500"><XCircle className="inline-block w-4 h-4 mr-1"/>Not specified</span>)} />
           <InfoRow 
             label="Bioactive Compatible" 
-            value={profile.bioactiveCompatible ? '✅ Yes' : '❌ No'} 
+            value={profile.bioactiveCompatible ? (<><CheckCircle className="inline-block w-4 h-4 mr-1 text-green-600"/>Yes</>) : (<><XCircle className="inline-block w-4 h-4 mr-1 text-red-600"/>No</>)} 
           />
         </div>
       </div>
@@ -72,7 +73,7 @@ export function AnimalProfilePreview() {
           <div>
             <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2">Layout Preference</h3>
             <p className="text-gray-900 dark:text-white">
-              {profile.layoutRules.preferVertical ? '📏 Vertical' : '📐 Horizontal'}
+              {profile.layoutRules.preferVertical ? <><Ruler className="inline-block w-4 h-4 mr-2"/>Vertical</> : <>Horizontal</>}
             </p>
           </div>
         </div>
@@ -96,7 +97,7 @@ export function AnimalProfilePreview() {
         <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Care Parameters</h2>
         <div className="space-y-4">
           <div>
-            <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2">🌡️ Temperature</h3>
+            <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2"><Thermometer className="inline-block w-5 h-5 mr-2"/> Temperature</h3>
             <div className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
               <p>Range: {profile.careTargets.temperature.min}-{profile.careTargets.temperature.max}°{profile.careTargets.temperature.unit}</p>
               {profile.careTargets.temperature.basking && (
@@ -106,16 +107,16 @@ export function AnimalProfilePreview() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2">💧 Humidity</h3>
+            <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2"><Droplet className="inline-block w-5 h-5 mr-2"/> Humidity</h3>
             <p className="text-sm text-gray-700 dark:text-gray-300">
               {profile.careTargets.humidity.min}-{profile.careTargets.humidity.max}{profile.careTargets.humidity.unit}
             </p>
           </div>
 
           <div>
-            <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2">💡 Lighting</h3>
+            <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2"><Sun className="inline-block w-5 h-5 mr-2"/> Lighting</h3>
             <div className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
-              <p>UVB Required: {profile.careTargets.lighting.uvbRequired ? '✅ Yes' : '❌ No'}</p>
+              <p>UVB Required: {profile.careTargets.lighting.uvbRequired ? (<><CheckCircle className="inline-block w-4 h-4 mr-1 text-green-600"/>Yes</>) : (<><XCircle className="inline-block w-4 h-4 mr-1 text-red-600"/>No</>)}</p>
               <p>UVB Strength: {profile.careTargets.lighting.uvbStrength}</p>
               <p>Coverage: {profile.careTargets.lighting.coveragePercent}%</p>
               <p>Photoperiod: {profile.careTargets.lighting.photoperiod}</p>
@@ -124,7 +125,7 @@ export function AnimalProfilePreview() {
 
           {profile.careTargets.gradient && (
             <div>
-              <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2">🌡️ Thermal Gradient</h3>
+              <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2"><Thermometer className="inline-block w-5 h-5 mr-2"/> Thermal Gradient</h3>
               <p className="text-sm text-gray-700 dark:text-gray-300">{profile.careTargets.gradient}</p>
             </div>
           )}
@@ -134,7 +135,7 @@ export function AnimalProfilePreview() {
       {/* Warnings */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
         <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
-          ⚠️ Warnings ({profile.warnings.length})
+          <AlertTriangle className="inline-block w-5 h-5 mr-2"/> Warnings ({profile.warnings.length})
         </h2>
         <div className="space-y-3">
           {profile.warnings.map((warning, idx) => (
@@ -166,7 +167,7 @@ export function AnimalProfilePreview() {
       {profile.notes && profile.notes.length > 0 && (
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
           <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
-            📝 Notes ({profile.notes.length})
+            <FileText className="inline-block w-5 h-5 mr-2"/> Notes ({profile.notes.length})
           </h2>
           <ul className="list-disc list-inside space-y-2 text-sm text-gray-700 dark:text-gray-300">
             {profile.notes.map((note, idx) => (
@@ -179,7 +180,7 @@ export function AnimalProfilePreview() {
       {/* Care Guidance */}
       {profile.careGuidance && (
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">🍽️ Care Guidance</h2>
+          <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4"><Book className="inline-block w-5 h-5 mr-2"/> Care Guidance</h2>
           <div className="space-y-4">
             <div>
               <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2">Feeding</h3>
@@ -216,7 +217,7 @@ export function AnimalProfilePreview() {
       {profile.relatedBlogs && profile.relatedBlogs.length > 0 && (
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
           <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
-            📚 Related Blogs ({profile.relatedBlogs.length})
+            <Book className="inline-block w-5 h-5 mr-2"/> Related Blogs ({profile.relatedBlogs.length})
           </h2>
           <div className="flex flex-wrap gap-2">
             {profile.relatedBlogs.map((blogId) => (
@@ -231,7 +232,7 @@ export function AnimalProfilePreview() {
       {/* Validation Status */}
       <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
         <p className="text-green-800 dark:text-green-300 font-semibold">
-          ✅ Profile loaded successfully - all required fields present
+          <CheckCircle className="inline-block w-5 h-5 mr-2 text-green-700"/> Profile loaded successfully - all required fields present
         </p>
       </div>
     </div>
@@ -240,7 +241,7 @@ export function AnimalProfilePreview() {
 
 interface InfoRowProps {
   label: string;
-  value: string;
+  value: string | React.ReactNode;
   badge?: boolean;
 }
 

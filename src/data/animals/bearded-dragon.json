@@ -2,6 +2,7 @@
   "id": "bearded-dragon",
   "commonName": "Bearded Dragon",
   "scientificName": "Pogona vitticeps",
+  "searchQuery": ["bearded dragon", "pogona vitticeps", "beardie", "agama", "lizard"],
   "careLevel": "beginner",
   "emoji": "🦎",
   "imageUrl": "/animals/bearded-dragon/bearded-dragon-1.jpg",

@@ -121,20 +121,6 @@ export function About({ onOpenFeedback }: AboutProps) {
           <ul className="space-y-3 mb-6">
             <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
               <span className="text-emerald-500 text-xl">✓</span>
-              <div>
-                <strong className="text-gray-900 dark:text-white">ReptiFiles</strong> - Comprehensive, research-backed care guides by Jessica Archibald
-                <a 
-                  href="https://reptifiles.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="ml-2 text-blue-600 dark:text-blue-400 hover:underline text-sm"
-                >
-                  reptifiles.com ↗
-                </a>
-              </div>
-            </li>
-            <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
-              <span className="text-emerald-500 text-xl">✓</span>
               <span><strong className="text-gray-900 dark:text-white">Equipment manufacturers</strong> - Official specifications for UVB output, wattage, coverage</span>
             </li>
             <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">

@@ -2,6 +2,7 @@
   "id": "ball-python",
   "commonName": "Ball Python",
   "scientificName": "Python regius",
+  "searchQuery": ["ball python", "python regius", "python", "snake"],
   "careLevel": "beginner",
   "emoji": "🐍",
   "imageUrl": "/animals/ball-python/normal_ball_python-1.jpg",

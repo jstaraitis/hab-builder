@@ -2,6 +2,7 @@
   "id": "red-eared-slider",
   "commonName": "Red-Eared Slider",
   "scientificName": "Trachemys scripta elegans",
+  "searchQuery": ["red-eared slider", "trachemys scripta elegans", "turtle", "aquatic turtle", "slider"],
   "careLevel": "intermediate",
   "emoji": "🐢",
   "imageUrl": "/animals/red-eared-slider/red-eared-slider-1.jpg",

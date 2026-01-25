@@ -14,7 +14,7 @@
     },
     {
       "type": "section",
-      "heading": "🦗 Feeder Types",
+      "heading": "Feeder Types",
       "content": [
         
         {
@@ -23,7 +23,7 @@
         },
         {
           "type": "highlight",
-          "text": "💡 Feeder Sizing Guide: The feeder should be no larger than the space between your frog's eyes. Too large = choking/impaction risk."
+          "text": "Feeder Sizing Guide: The feeder should be no larger than the space between your frog's eyes. Too large = choking/impaction risk."
         },
         {
           "type": "text",
@@ -63,17 +63,17 @@
         },
         {
           "type": "warning",
-          "text": "⚠️ Avoid: Fireflies (toxic), wild-caught insects (pesticides), mealworms as staple diet (impaction risk), earthworms from unknown sources (parasites)."
+          "text": "Avoid: Fireflies (toxic), wild-caught insects (pesticides), mealworms as staple diet (impaction risk), earthworms from unknown sources (parasites)."
         },
         {
           "type": "warning",
-          "text": "⚠️ Obesity Warning: White's Tree Frogs are extremely prone to obesity. Never feed more than recommended amounts. An overweight frog will have fat deposits above the eyes and around the body. If your frog looks 'chubby', reduce portions by 30-40% immediately."
+          "text": "Obesity Warning: White's Tree Frogs are extremely prone to obesity. Never feed more than recommended amounts. An overweight frog will have fat deposits above the eyes and around the body. If your frog looks 'chubby', reduce portions by 30-40% immediately."
         }
       ]
     },
     {
       "type": "section",
-      "heading": "🍽️ Feeding Schedule",
+      "heading": "Feeding Schedule",
       "content": [
         {
           "type": "text",
@@ -81,7 +81,7 @@
         },
         {
           "type": "highlight",
-          "text": "💡 Pro Tip: Feed in complete darkness for 30-60 minutes, then remove uneaten feeders. Leftover crickets can bite sleeping frogs and cause stress."
+          "text": "Pro Tip: Feed in complete darkness for 30-60 minutes, then remove uneaten feeders. Leftover crickets can bite sleeping frogs and cause stress."
         },
         {
           "type": "text",
@@ -99,7 +99,7 @@
     },
     {
       "type": "section",
-      "heading": "💊 Supplements & Gut-Loading",
+      "heading": "Supplements & Gut-Loading",
       "content": [
         {
           "type": "text",
@@ -115,13 +115,13 @@
         },
         {
           "type": "highlight",
-          "text": "🥬 Gut-Load Recipe: carrots, sweet potato, commercial gut-load powder"
+          "text": "Gut-Load Recipe: carrots, sweet potato, commercial gut-load powder"
         }
       ]
     },
     {
       "type": "section",
-      "heading": "❌ Common Feeding Mistakes",
+      "heading": "Common Feeding Mistakes",
       "content": [
         {
           "type": "list",
@@ -138,7 +138,7 @@
     },
     {
       "type": "section",
-      "heading": "🔍 Monitoring Health",
+      "heading": "Monitoring Health",
       "content": [
         {
           "type": "text",
@@ -147,22 +147,22 @@
         {
           "type": "list",
           "items": [
-            "✅ Active hunting behavior at night",
-            "✅ Regular, firm droppings (not runny)",
-            "✅ Smooth skin without fat deposits",
-            "✅ Alert and responsive",
-            "✅ Normal weight for age"
+            "Active hunting behavior at night",
+            "Regular, firm droppings (not runny)",
+            "Smooth skin without fat deposits",
+            "Alert and responsive",
+            "Normal weight for age"
           ]
         },
         {
           "type": "warning",
-          "text": "⚠️ Warning Signs: Lethargy, refusing food for 5+ days (adults), visible bones, difficulty moving, abnormal feces - consult an exotic vet immediately."
+          "text": "Warning Signs: Lethargy, refusing food for 5+ days (adults), visible bones, difficulty moving, abnormal feces - consult an exotic vet immediately."
         }
       ]
     },
     {
       "type": "section",
-      "heading": "📅 Quick Reference Schedule",
+      "heading": "Quick Reference Schedule",
       "content": [
         {
           "type": "table",

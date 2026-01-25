@@ -92,11 +92,13 @@ function App() {
       </div> */}
 
       <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
-        <div className="max-w-7xl mx-auto px-4 py-4 sm:py-6">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 py-3 sm:py-6">
           <div className="flex flex-col gap-4">
             <div className="text-center sm:text-left">
               <h1 className="text-2xl sm:text-4xl font-bold text-green-700 dark:text-green-400">🦎 Habitat Builder</h1>
               <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">Generate custom enclosure plans for your reptiles & amphibians</p>
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">Built with love - for better care and fewer setup mistakes</p>
+
             </div>
             <nav className="flex flex-wrap justify-center sm:justify-start gap-2 text-xs sm:text-sm font-medium">
             <Link
@@ -105,34 +107,41 @@ function App() {
             >
              🐸 Animal
             </Link>
-            <Link
-              to="/design"
-              className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/design') ? 'bg-green-600 text-white border-green-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-green-400'} ${input.animal ? '' : 'opacity-60 pointer-events-none'}`}
-              title={input.animal ? 'Design your enclosure' : 'Select an animal first'}
-            >
-             🎨 Design
-            </Link>
-            <Link
-              to="/supplies"
-              className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/supplies') ? 'bg-purple-600 text-white border-purple-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-purple-400'} ${plan ? '' : 'opacity-60 pointer-events-none'}`}
-              title={plan ? 'View supplies and steps' : 'Generate a plan first'}
-            >
-             🛒Supplies
-            </Link>
-            <Link
-              to="/plan"
-              className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/plan') ? 'bg-blue-600 text-white border-blue-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-blue-400'} ${plan ? '' : 'opacity-60 pointer-events-none'}`}
-              title={plan ? 'View your generated plan' : 'Generate a plan first'}
-            >
-             📋 Plan
-            </Link>
-            <Link
-              to="/designer"
-              className={`hidden sm:inline-block px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/designer') ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-indigo-400'} ${plan ? '' : 'opacity-60 pointer-events-none'}`}
-              title={plan ? 'Interactive Designer (Premium)' : 'Generate a plan first'}
-            >
-              💎 Designer
-            </Link>
+            {input.animal && (
+              <Link
+                to="/design"
+                className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/design') ? 'bg-green-600 text-white border-green-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-green-400'}`}
+                title="Design your enclosure"
+              >
+               🎨 Design
+              </Link>
+            )}
+
+            {plan && (
+              <>
+                <Link
+                  to="/supplies"
+                  className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/supplies') ? 'bg-purple-600 text-white border-purple-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-purple-400'}`}
+                  title="View supplies and steps"
+                >
+                 🛒 Supplies
+                </Link>
+                <Link
+                  to="/plan"
+                  className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/plan') ? 'bg-blue-600 text-white border-blue-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-blue-400'}`}
+                  title="View your generated plan"
+                >
+                 📋 Plan
+                </Link>
+                <Link
+                  to="/designer"
+                  className={`hidden sm:inline-block px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/designer') ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-indigo-400'}`}
+                  title="Interactive Designer (Premium)"
+                >
+                  💎 Designer
+                </Link>
+              </>
+            )}
             <Link
               to="/blog"
               className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${location.pathname.startsWith('/blog') ? 'bg-amber-600 text-white border-amber-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-amber-400'}`}
@@ -165,7 +174,7 @@ function App() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 py-8">
+      <main className="max-w-7xl mx-auto px-2 sm:px-4 py-6 sm:py-8">
         <Routes>
           <Route path="/" element={<Navigate to="/animal" replace />} />
           <Route
@@ -240,7 +249,7 @@ function App() {
       <FeedbackModal isOpen={isFeedbackOpen} onClose={() => setIsFeedbackOpen(false)} />
 
       <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16">
-        <div className="max-w-7xl mx-auto px-4 py-6 text-center text-sm text-gray-600 dark:text-gray-400">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 py-4 sm:py-6 text-center text-sm text-gray-600 dark:text-gray-400">
           <p>Habitat Builder• 🐸 • Always research multiple sources for animal care</p>
           <p className="mt-1">Plans are guidelines - adjust based on your specific animal's needs</p>
         </div>

@@ -408,7 +408,7 @@ function addWaterSupplies(items: ShoppingItem[], input: EnclosureInput, profile:
 /**
  * Adds feeding supplies and supplements
  */
-function addFeedingSupplies(items: ShoppingItem[]): void {
+function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput): void {
   const catalogDict = equipmentCatalog as Record<string, any>;
   
   // Feeder insects
@@ -427,9 +427,9 @@ function addFeedingSupplies(items: ShoppingItem[]): void {
     });
   }
 
-  // Calcium supplement
+  // Calcium supplement (only add if compatible with selected animal)
   const calciumConfig = catalogDict['calcium'];
-  if (calciumConfig) {
+  if (calciumConfig && isCompatibleWithAnimal(calciumConfig, input.animal)) {
     items.push({
       id: 'calcium',
       category: calciumConfig.category,
@@ -443,9 +443,9 @@ function addFeedingSupplies(items: ShoppingItem[]): void {
     });
   }
 
-  // Multivitamin
+  // Multivitamin (only add if compatible with selected animal)
   const multivitaminConfig = catalogDict['multivitamin'];
-  if (multivitaminConfig) {
+  if (multivitaminConfig && isCompatibleWithAnimal(multivitaminConfig, input.animal)) {
     items.push({
       id: 'multivitamin',
       category: multivitaminConfig.category,
@@ -586,7 +586,7 @@ export function generateShoppingList(
   addStructuralDecor(items, input);
   addMonitoring(items);
   addWaterSupplies(items, input, profile);
-  addFeedingSupplies(items);
+  addFeedingSupplies(items, input);
 
   return items;
 }

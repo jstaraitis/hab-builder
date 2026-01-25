@@ -14,7 +14,7 @@
     },
     {
       "type": "section",
-      "heading": "🔦 Bulb Types & Mounting",
+      "heading": "Bulb Types & Mounting",
       "content": [
         {
           "type": "list",
@@ -34,7 +34,7 @@
     },
     {
       "type": "section",
-      "heading": "📏 Distance Guide (Typical 6% T5 HO)",
+      "heading": "Distance Guide (Typical 6% T5 HO)",
       "content": [
         {
           "type": "table",
@@ -47,13 +47,13 @@
         },
         {
           "type": "highlight",
-          "text": "💡 Aim for UVI 0.5-1.0 at the highest perch. Check with a Solarmeter 6.5 if available."
+          "text": "Aim for UVI 0.5-1.0 at the highest perch. Check with a Solarmeter 6.5 if available."
         }
       ]
     },
     {
       "type": "section",
-      "heading": "🧭 Fixture Placement & Coverage",
+      "heading": "Fixture Placement & Coverage",
       "content": [
         {
           "type": "list",
@@ -71,7 +71,7 @@
     },
     {
       "type": "section",
-      "heading": "💡 Bulb Replacement Schedule",
+      "heading": "Bulb Replacement Schedule",
       "content": [
         {
           "type": "list",
@@ -90,7 +90,7 @@
     },
     {
       "type": "section",
-      "heading": "⏱️ Photoperiod & Day-Night Cycle",
+      "heading": "Photoperiod & Day-Night Cycle",
       "content": [
         {
           "type": "list",
@@ -104,13 +104,13 @@
         },
         {
           "type": "highlight",
-          "text": "💡 Consistency matters more than the exact hour count. Pick a schedule and stick to it—White's thrive on routine."
+          "text": "Consistency matters more than the exact hour count. Pick a schedule and stick to it—White's thrive on routine."
         }
       ]
     },
     {
       "type": "section",
-      "heading": "✅ Quick Checklist",
+      "heading": "Quick Checklist",
       "content": [
         {
           "type": "list",
@@ -129,11 +129,11 @@
     },
     {
       "type": "section",
-      "heading": "❗ Safety Guidelines",
+      "heading": "Safety Guidelines",
       "content": [
         {
           "type": "warning",
-          "text": "⚠️ Critical Safety Rules:\n• Never place UVB bulbs inside the enclosure\n• Keep perches 4+ inches from bare bulbs—burn risk\n• No glass between bulb and frogs—blocks UVB\n• Replace bulbs on schedule even if still producing light"
+          "text": "Critical Safety Rules:\n• Never place UVB bulbs inside the enclosure\n• Keep perches 4+ inches from bare bulbs—burn risk\n• No glass between bulb and frogs—blocks UVB\n• Replace bulbs on schedule even if still producing light"
         }
       ]
     }

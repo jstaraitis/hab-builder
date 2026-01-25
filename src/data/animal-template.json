@@ -3,6 +3,7 @@
   "id": "species-name",
   "commonName": "Common Name",
   "scientificName": "Scientific Name",
+  "searchQuery": ["common name", "group term", "other common names"],
   "careLevel": "beginner",
   "emoji": "🦎",
   "imageUrl": "/animals/species-name-1.jpg",

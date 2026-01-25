@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Lightbulb } from 'lucide-react';
 import type { HusbandryCareChecklist, ChecklistItem } from '../../engine/husbandryCare';
 import { CollapsibleSection } from '../PlanPreview/CollapsibleSection';
 
@@ -24,7 +25,7 @@ function ChecklistItemComponent({ item, onChange }: {
         </p>
         {item.notes && (
           <p className="text-xs text-gray-600 mt-1">
-            💡 {item.notes}
+            <Lightbulb className="inline-block w-4 h-4 mr-1 text-yellow-500" /> {item.notes}
           </p>
         )}
       </div>

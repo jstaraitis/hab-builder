@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Home, Wrench, Layers, Image, Leaf, Bug, Check, Star, Award } from 'lucide-react';
 import type { ShoppingItem, SetupTier, EnclosureInput } from '../../engine/types';
 import { generateAmazonLink } from '../../utils/amazonLinks';
 
@@ -12,18 +13,18 @@ interface ShoppingListProps {
 
 export function ShoppingList({ items, selectedTier, input, showHeader = true, affiliateTag }: ShoppingListProps) {
   const categories = {
-    enclosure: '🏠 Enclosure',
-    equipment: '🔧 Equipment',
-    substrate: '🌱 Substrate & Drainage',
-    decor: '🪨 Decor & Hardscape',
-    live_plants: '🌿 Live Plants',
-    cleanup_crew: '🐛 Cleanup Crew',
+    enclosure: 'Enclosure',
+    equipment: 'Equipment',
+    substrate: 'Substrate & Drainage',
+    decor: 'Decor & Hardscape',
+    live_plants: 'Live Plants',
+    cleanup_crew: 'Cleanup Crew',
   };
 
   const tierLabels = {
-    minimum: { icon: '✓', label: 'Minimum', description: 'Bare essentials' },
-    recommended: { icon: '⭐', label: 'Recommended', description: 'Best value' },
-    ideal: { icon: '💎', label: 'Ideal', description: 'Premium quality' },
+    minimum: { icon: <Check className="w-5 h-5" />, label: 'Minimum', description: 'Bare essentials' },
+    recommended: { icon: <Star className="w-5 h-5" />, label: 'Recommended', description: 'Best value' },
+    ideal: { icon: <Award className="w-5 h-5" />, label: 'Ideal', description: 'Premium quality' },
   };
 
   const groupedItems = items.reduce((acc, item) => {
@@ -75,10 +76,20 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
                 onClick={() => toggleCategory(category)}
                 className="w-full flex items-center justify-between py-4 px-1 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-xl"
               >
-                <div className="flex items-center gap-3">
-                  <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
-                    {categories[category as keyof typeof categories]}
-                  </h4>
+                        <div className="flex items-center gap-3">
+                          <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100 flex items-center gap-2">
+                            {(() => {
+                              const imap: Record<string, React.ReactNode> = {
+                                enclosure: <Home className="w-5 h-5 text-green-600" />,
+                                equipment: <Wrench className="w-5 h-5 text-green-600" />,
+                                substrate: <Layers className="w-5 h-5 text-green-600" />,
+                                decor: <Image className="w-5 h-5 text-green-600" />,
+                                live_plants: <Leaf className="w-5 h-5 text-green-600" />,
+                                cleanup_crew: <Bug className="w-5 h-5 text-green-600" />,
+                              };
+                              return <>{imap[category] ?? null}<span>{categories[category as keyof typeof categories]}</span></>;
+                            })()}
+                          </h4>
                   <span className="text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full">
                     {categoryItems.length}
                   </span>
@@ -111,9 +122,9 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
                                 item.importance === 'conditional' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300' :
                                 'bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-300'
                               }`}>
-                                {item.importance === 'required' ? '🔴 Required' :
-                                 item.importance === 'conditional' ? '🟡 Conditional' :
-                                 '⚪ Optional'}
+                                  {item.importance === 'required' ? 'Required' :
+                                  item.importance === 'conditional' ? 'Conditional' :
+                                  'Optional'}
                               </span>
                             )}
                           </div>

@@ -17,7 +17,11 @@ export const animalList = Object.values(animalProfiles).map(profile => ({
   id: profile.id,
   name: profile.commonName,
   image: profile.emoji || '🦎', // Use emoji from profile, fallback to generic lizard
-  imageUrl: profile.imageUrl, // New: URL to real photo
+  imageUrl: profile.imageUrl, // URL to real photo
   careLevel: profile.careLevel,
-  completionStatus: profile.completionStatus || 'complete' // Default to complete if not specified
+  completionStatus: profile.completionStatus || 'complete', // Default to complete if not specified
+  // Expose search-related fields so the UI can perform broader matching (e.g., "snake" → pythons)
+  searchQuery: profile.searchQuery || [],
+  commonNames: profile.commonNames || [],
+  scientificName: profile.scientificName || ''
 }));

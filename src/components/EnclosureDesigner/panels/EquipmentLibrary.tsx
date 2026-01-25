@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Zap, Sun, Cpu, Droplet, Home, Layers, Image, Leaf, Mountain, Plus, Thermometer, Clock, Settings, Lightbulb, ChevronRight } from 'lucide-react';
 
 interface EquipmentLibraryProps {
   onAddItem: (type: string, variant?: string) => void;
@@ -18,150 +19,150 @@ interface EquipmentCategory {
 const equipmentCategories: EquipmentCategory[] = [
   {
     name: 'Heating',
-    icon: '🔥',
+    icon: '',
     items: [
-      { type: 'heat', name: '💡 Heat Lamp', description: 'Basking heat source' },
-      { type: 'heat', name: '🔴 Ceramic Heater', description: 'Non-light heat' },
-      { type: 'heat', name: '🟫 Heat Mat', description: 'Under-tank heating' },
-      { type: 'heat', name: '🔆 Deep Heat Projector', description: 'DHP radiant heat' },
-      { type: 'heat', name: '📛 Radiant Heat Panel', description: 'RHP overhead heat' },
+      { type: 'heat', name: 'Heat Lamp', description: 'Basking heat source' },
+      { type: 'heat', name: 'Ceramic Heater', description: 'Non-light heat' },
+      { type: 'heat', name: 'Heat Mat', description: 'Under-tank heating' },
+      { type: 'heat', name: 'Deep Heat Projector', description: 'DHP radiant heat' },
+      { type: 'heat', name: 'Radiant Heat Panel', description: 'RHP overhead heat' },
     ]
   },
   {
     name: 'Lighting',
-    icon: '☀️',
+    icon: '',
     items: [
-      { type: 'uvb', name: '💡 UVB Fixture', description: 'T5 HO UVB lighting' },
-      { type: 'uvb', name: '💡 LED Light', description: 'Plant growth light' },
-      { type: 'uvb', name: '💡 Halogen Bulb', description: 'Basking with IR-A' },
-      { type: 'uvb', name: '💡 Compact UVB', description: 'Small UVB bulb' },
+      { type: 'uvb', name: 'UVB Fixture', description: 'T5 HO UVB lighting' },
+      { type: 'uvb', name: 'LED Light', description: 'Plant growth light' },
+      { type: 'uvb', name: 'Halogen Bulb', description: 'Basking with IR-A' },
+      { type: 'uvb', name: 'Compact UVB', description: 'Small UVB bulb' },
     ]
   },
   {
     name: 'Monitoring',
-    icon: '📊',
+    icon: '',
     items: [
-      { type: 'decor', name: '🌡️ Thermometer/Hygrometer', variant: 'monitor', description: 'Temp & humidity gauge' },
-      { type: 'decor', name: '📏 Digital Probe', variant: 'probe', description: 'Temperature probe' },
-      { type: 'decor', name: '⏰ Timer Switch', variant: 'timer', description: 'Lighting timer' },
-      { type: 'decor', name: '🎛️ Thermostat', variant: 'thermostat', description: 'Heat controller' },
+      { type: 'decor', name: 'Thermometer/Hygrometer', variant: 'monitor', description: 'Temp & humidity gauge' },
+      { type: 'decor', name: 'Digital Probe', variant: 'probe', description: 'Temperature probe' },
+      { type: 'decor', name: 'Timer Switch', variant: 'timer', description: 'Lighting timer' },
+      { type: 'decor', name: 'Thermostat', variant: 'thermostat', description: 'Heat controller' },
     ]
   },
   {
     name: 'Water & Humidity',
-    icon: '💧',
+    icon: '',
     items: [
-      { type: 'water', name: '🥣 Water Dish', description: 'Drinking water' },
-      { type: 'water', name: '⛲ Water Feature', description: 'Waterfall/fountain' },
-      { type: 'water', name: '💦 Misting System', description: 'Humidity control' },
-      { type: 'water', name: '🌫️ Fogger Unit', description: 'Fog generator' },
-      { type: 'water', name: '🚿 Automatic Mister', description: 'Timed misting' },
-      { type: 'water', name: '📦 Humidity Box', description: 'Shedding chamber' },
+      { type: 'water', name: 'Water Dish', description: 'Drinking water' },
+      { type: 'water', name: 'Water Feature', description: 'Waterfall/fountain' },
+      { type: 'water', name: 'Misting System', description: 'Humidity control' },
+      { type: 'water', name: 'Fogger Unit', description: 'Fog generator' },
+      { type: 'water', name: 'Automatic Mister', description: 'Timed misting' },
+      { type: 'water', name: 'Humidity Box', description: 'Shedding chamber' },
     ]
   },
   {
     name: 'Hides & Shelter',
-    icon: '🏠',
+    icon: '',
     items: [
-      { type: 'hide', name: '🪵 Cork Hide', description: 'Natural hide' },
-      { type: 'hide', name: '🕳️ Cave', description: 'Rock/resin cave' },
-      { type: 'hide', name: '💧 Humid Hide', description: 'Shedding box' },
-      { type: 'hide', name: '🪵 Half Log', description: 'Log hide' },
-      { type: 'hide', name: '🍂 Leaf Litter Pile', description: 'Natural cover' },
-      { type: 'hide', name: '⛰️ Burrow Entrance', description: 'Underground entrance' },
-      { type: 'hide', name: '🏰 Multi-Level Hide', description: 'Stacked hide' },
+      { type: 'hide', name: 'Cork Hide', description: 'Natural hide' },
+      { type: 'hide', name: 'Cave', description: 'Rock/resin cave' },
+      { type: 'hide', name: 'Humid Hide', description: 'Shedding box' },
+      { type: 'hide', name: 'Half Log', description: 'Log hide' },
+      { type: 'hide', name: 'Leaf Litter Pile', description: 'Natural cover' },
+      { type: 'hide', name: 'Burrow Entrance', description: 'Underground entrance' },
+      { type: 'hide', name: 'Multi-Level Hide', description: 'Stacked hide' },
     ]
   },
   {
     name: 'Climbing Structures',
-    icon: '🪜',
+    icon: '',
     items: [
-      { type: 'decor', name: '🪵 Cork Bark Tube', variant: 'cork-tube', description: 'Hollow cork log' },
-      { type: 'decor', name: '🪵 Cork Bark Flat', variant: 'cork-flat', description: 'Flat cork panel' },
-      { type: 'decor', name: '🌳 Driftwood', variant: 'driftwood', description: 'Natural wood' },
-      { type: 'decor', name: '🎋 Bamboo Poles', variant: 'bamboo', description: 'Bamboo branches' },
-      { type: 'decor', name: '🕸️ Climbing Net', variant: 'net', description: 'Mesh climbing surface' },
-      { type: 'decor', name: '🪢 Hammock', variant: 'hammock', description: 'Hanging platform' },
+      { type: 'decor', name: 'Cork Bark Tube', variant: 'cork-tube', description: 'Hollow cork log' },
+      { type: 'decor', name: 'Cork Bark Flat', variant: 'cork-flat', description: 'Flat cork panel' },
+      { type: 'decor', name: 'Driftwood', variant: 'driftwood', description: 'Natural wood' },
+      { type: 'decor', name: 'Bamboo Poles', variant: 'bamboo', description: 'Bamboo branches' },
+      { type: 'decor', name: 'Climbing Net', variant: 'net', description: 'Mesh climbing surface' },
+      { type: 'decor', name: 'Hammock', variant: 'hammock', description: 'Hanging platform' },
     ]
   },
   {
     name: 'Basking & Platforms',
-    icon: '🪨',
+    icon: '',
     items: [
-      { type: 'decor', name: '🪨 Basking Stone', variant: 'basking-stone', description: 'Flat basking rock' },
-      { type: 'decor', name: '📐 Basking Platform', variant: 'platform', description: 'Elevated platform' },
-      { type: 'decor', name: '🧲 Magnetic Ledge', variant: 'ledge', description: 'Magnetic shelf' },
-      { type: 'decor', name: '📐 Corner Shelf', variant: 'corner-shelf', description: 'Corner platform' },
+      { type: 'decor', name: 'Basking Stone', variant: 'basking-stone', description: 'Flat basking rock' },
+      { type: 'decor', name: 'Basking Platform', variant: 'platform', description: 'Elevated platform' },
+      { type: 'decor', name: 'Magnetic Ledge', variant: 'ledge', description: 'Magnetic shelf' },
+      { type: 'decor', name: 'Corner Shelf', variant: 'corner-shelf', description: 'Corner platform' },
     ]
   },
   {
     name: 'Feeding',
-    icon: '🍽️',
+    icon: '',
     items: [
-      { type: 'decor', name: '🥣 Food Dish', variant: 'food-dish', description: 'Feeding bowl' },
-      { type: 'decor', name: '🍽️ Feeding Ledge', variant: 'feeding-ledge', description: 'Elevated feeding platform' },
-      { type: 'decor', name: '🪱 Worm Dish', variant: 'worm-dish', description: 'Escape-proof dish' },
-      { type: 'decor', name: '🧂 Supplement Dish', variant: 'supplement-dish', description: 'Calcium dish' },
+      { type: 'decor', name: 'Food Dish', variant: 'food-dish', description: 'Feeding bowl' },
+      { type: 'decor', name: 'Feeding Ledge', variant: 'feeding-ledge', description: 'Elevated feeding platform' },
+      { type: 'decor', name: 'Worm Dish', variant: 'worm-dish', description: 'Escape-proof dish' },
+      { type: 'decor', name: 'Supplement Dish', variant: 'supplement-dish', description: 'Calcium dish' },
     ]
   },
   {
     name: 'Substrate',
-    icon: '🪨',
+    icon: '',
     items: [
-      { type: 'substrate', name: '🟫 Substrate Layer', description: 'Soil/bedding' },
-      { type: 'substrate', name: '⚪ Drainage Layer', description: 'LECA/hydroballs' },
-      { type: 'substrate', name: '🍂 Leaf Litter', description: 'Natural leaf cover' },
-      { type: 'substrate', name: '🌿 Sphagnum Moss', description: 'Moisture retention' },
+      { type: 'substrate', name: 'Substrate Layer', description: 'Soil/bedding' },
+      { type: 'substrate', name: 'Drainage Layer', description: 'LECA/hydroballs' },
+      { type: 'substrate', name: 'Leaf Litter', description: 'Natural leaf cover' },
+      { type: 'substrate', name: 'Sphagnum Moss', description: 'Moisture retention' },
     ]
   },
   {
     name: 'Backgrounds',
-    icon: '🖼️',
+    icon: '',
     items: [
-      { type: 'decor', name: '🪵 Cork Background', variant: 'cork-bg', description: 'Cork panel background' },
-      { type: 'decor', name: '🪨 Foam Background', variant: 'foam-bg', description: 'Carved foam background' },
-      { type: 'decor', name: '🧱 Rock Wall Panel', variant: 'rock-wall', description: 'Stone background' },
-      { type: 'decor', name: '🕸️ Mesh Surface', variant: 'mesh', description: 'Climbing mesh' },
+      { type: 'decor', name: 'Cork Background', variant: 'cork-bg', description: 'Cork panel background' },
+      { type: 'decor', name: 'Foam Background', variant: 'foam-bg', description: 'Carved foam background' },
+      { type: 'decor', name: 'Rock Wall Panel', variant: 'rock-wall', description: 'Stone background' },
+      { type: 'decor', name: 'Mesh Surface', variant: 'mesh', description: 'Climbing mesh' },
     ]
   },
   {
     name: 'Plants - Foliage',
-    icon: '🌿',
+    icon: '',
     items: [
-      { type: 'decor', name: '🌿 Pothos', variant: 'pothos', description: 'Climbing vine plant' },
-      { type: 'decor', name: '🌱 Snake Plant', variant: 'snake-plant', description: 'Tall succulent' },
-      { type: 'decor', name: '🌿 Fern', variant: 'fern', description: 'Fern plant' },
-      { type: 'decor', name: '🌺 Bromeliad', variant: 'bromeliad', description: 'Tropical plant' },
-      { type: 'decor', name: '🌱 Air Plant', variant: 'air-plant', description: 'Epiphyte plant' },
-      { type: 'decor', name: '🌵 Succulent', variant: 'succulent', description: 'Desert plant' },
-      { type: 'decor', name: '🟢 Moss Patch', variant: 'moss', description: 'Sheet moss' },
+      { type: 'decor', name: 'Pothos', variant: 'pothos', description: 'Climbing vine plant' },
+      { type: 'decor', name: 'Snake Plant', variant: 'snake-plant', description: 'Tall succulent' },
+      { type: 'decor', name: 'Fern', variant: 'fern', description: 'Fern plant' },
+      { type: 'decor', name: 'Bromeliad', variant: 'bromeliad', description: 'Tropical plant' },
+      { type: 'decor', name: 'Air Plant', variant: 'air-plant', description: 'Epiphyte plant' },
+      { type: 'decor', name: 'Succulent', variant: 'succulent', description: 'Desert plant' },
+      { type: 'decor', name: 'Moss Patch', variant: 'moss', description: 'Sheet moss' },
     ]
   },
   {
     name: 'Plants - Trees & Shrubs',
-    icon: '🌳',
+    icon: '',
     items: [
-      { type: 'decor', name: '🌳 Tree', variant: 'tree', description: 'Large tree' },
-      { type: 'decor', name: '🌳 Bush', variant: 'bush', description: 'Bushy plant' },
-      { type: 'decor', name: '🌿 Vine', variant: 'vine', description: 'Climbing vine' },
-      { type: 'decor', name: '🌾 Grass', variant: 'grass', description: 'Ground cover' },
+      { type: 'decor', name: 'Tree', variant: 'tree', description: 'Large tree' },
+      { type: 'decor', name: 'Bush', variant: 'bush', description: 'Bushy plant' },
+      { type: 'decor', name: 'Vine', variant: 'vine', description: 'Climbing vine' },
+      { type: 'decor', name: 'Grass', variant: 'grass', description: 'Ground cover' },
     ]
   },
   {
     name: 'Landscaping',
-    icon: '⛰️',
+    icon: '',
     items: [
-      { type: 'decor', name: '🪨 Large Rock', variant: 'large-rock', description: 'Rock formation' },
-      { type: 'decor', name: '🪵 Log/Stump', variant: 'log', description: 'Natural wood stump' },
-      { type: 'decor', name: '🗿 Stone Pile', variant: 'stone-pile', description: 'Stacked stones' },
-      { type: 'decor', name: '🌳 Centerpiece Wood', variant: 'centerpiece', description: 'Feature driftwood' },
-      { type: 'decor', name: '🌿 Branch', description: 'Climbing branch' },
-      { type: 'decor', name: '🪨 Rock', description: 'Decorative rock' },
+      { type: 'decor', name: 'Large Rock', variant: 'large-rock', description: 'Rock formation' },
+      { type: 'decor', name: 'Log/Stump', variant: 'log', description: 'Natural wood stump' },
+      { type: 'decor', name: 'Stone Pile', variant: 'stone-pile', description: 'Stacked stones' },
+      { type: 'decor', name: 'Centerpiece Wood', variant: 'centerpiece', description: 'Feature driftwood' },
+      { type: 'decor', name: 'Branch', description: 'Climbing branch' },
+      { type: 'decor', name: 'Rock', description: 'Decorative rock' },
     ]
   },
 ];
 
-export default function EquipmentLibrary({ onAddItem }: EquipmentLibraryProps) {
+export function EquipmentLibrary({ onAddItem }: EquipmentLibraryProps) {
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
 
   const toggleCategory = (categoryName: string) => {
@@ -195,10 +196,29 @@ export default function EquipmentLibrary({ onAddItem }: EquipmentLibraryProps) {
               onClick={() => toggleCategory(category.name)}
               className="w-full text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2 hover:text-green-600 dark:hover:text-green-400 transition-colors"
             >
-              <span className="text-lg">{category.icon}</span>
-              <span className="flex-1 text-left">{category.name}</span>
+              <span className="text-lg flex items-center gap-2">
+                {(() => {
+                  const map: Record<string, React.ReactNode> = {
+                    'Heating': <Zap size={20} />,
+                    'Lighting': <Sun size={20} />,
+                    'Monitoring': <Cpu size={20} />,
+                    'Water & Humidity': <Droplet size={20} />,
+                    'Hides & Shelter': <Home size={20} />,
+                    'Climbing Structures': <Image size={20} />,
+                    'Basking & Platforms': <Layers size={20} />,
+                    'Feeding': <Plus size={20} />,
+                    'Substrate': <Layers size={20} />,
+                    'Backgrounds': <Image size={20} />,
+                    'Plants - Foliage': <Leaf size={20} />,
+                    'Plants - Trees & Shrubs': <Leaf size={20} />,
+                    'Landscaping': <Mountain size={20} />,
+                  };
+                  return map[category.name] ? <span className="text-green-600 dark:text-green-400">{map[category.name]}</span> : <span>{category.icon}</span>;
+                })()}
+                <span className="flex-1 text-left">{category.name}</span>
+              </span>
               <span className="text-xs transition-transform" style={{ transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)' }}>
-                ▶
+                <ChevronRight size={14} />
               </span>
             </button>
             {isExpanded && (
@@ -211,15 +231,32 @@ export default function EquipmentLibrary({ onAddItem }: EquipmentLibraryProps) {
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex-1">
-                      <p className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-green-700 dark:group-hover:text-green-400">
-                        {item.name}
+                      <p className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-green-700 dark:group-hover:text-green-400 flex items-center gap-2">
+                        {(() => {
+                          const name = item.name || '';
+                          const vmap: Record<string, React.ReactNode> = {
+                            'monitor': <Cpu size={16} />,
+                            'probe': <Thermometer size={16} />,
+                            'timer': <Clock size={16} />,
+                            'thermostat': <Settings size={16} />,
+                          };
+                          if (item.variant && vmap[item.variant]) {
+                            return (
+                              <>
+                                <span className="inline-flex items-center justify-center w-6 h-6 bg-gray-100 dark:bg-gray-700 rounded-full">{vmap[item.variant]}</span>
+                                <span>{name}</span>
+                              </>
+                            );
+                          }
+                          return <span>{name}</span>;
+                        })()}
                       </p>
                       <p className="text-xs text-gray-500 dark:text-gray-400">
                         {item.description}
                       </p>
                     </div>
                     <span className="text-green-600 dark:text-green-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                      +
+                      <Plus size={16} />
                     </span>
                   </div>
                 </button>
@@ -231,8 +268,10 @@ export default function EquipmentLibrary({ onAddItem }: EquipmentLibraryProps) {
           })}
           
           <div className="mt-4 p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
-            <p className="text-xs text-purple-900 dark:text-purple-200">
-              <strong>💡 Pro Tip:</strong> Add items, then drag, rotate, and resize them on the canvas to create your perfect layout!
+            <p className="text-xs text-purple-900 dark:text-purple-200 flex items-center gap-2">
+              <Lightbulb size={16} className="text-purple-700 dark:text-purple-200" />
+              <strong>Pro Tip:</strong>
+              <span>Add items, then drag, rotate, and resize them on the canvas to create your perfect layout!</span>
             </p>
           </div>
         </div>
@@ -240,3 +279,5 @@ export default function EquipmentLibrary({ onAddItem }: EquipmentLibraryProps) {
     </div>
   );
 }
+
+export default EquipmentLibrary;

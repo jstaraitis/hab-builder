@@ -2,6 +2,7 @@
   "id": "leopard-gecko",
   "commonName": "Leopard Gecko",
   "scientificName": "Eublepharis macularius",
+  "searchQuery": ["leopard gecko", "eublepharis macularius", "gecko", "ground gecko"],
   "careLevel": "beginner",
   "emoji": "🦎",
   "imageUrl": "/animals/leopard-gecko/leopard-gecko-1.jpg",

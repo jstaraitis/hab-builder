@@ -1,3 +1,5 @@
+import { Star, Award, Image, CheckCircle, Lightbulb, Bug } from 'lucide-react';
+
 interface ExampleSetupsProps {
   readonly animalType?: string;
   readonly layoutNotes?: string[];
@@ -33,15 +35,15 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
     <div className="space-y-6">
       <div className="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-6">
         <div className="flex items-start gap-4">
-          <div className="text-4xl">✨</div>
+          <Star className="w-8 h-8 text-purple-700 mt-1" />
           <div className="flex-1">
             <h3 className="text-xl font-bold text-purple-900 dark:text-purple-200 mb-2">Example Enclosure Setups</h3>
             <p className="text-purple-800 dark:text-purple-300 mb-3">
               Browse personal designed enclosure layouts for inspiration. Each setup is tailored for White's Tree Frogs with proper care requirements.
             </p>
             <div className="bg-white/50 dark:bg-gray-800/50 rounded-lg p-3 border border-purple-200 dark:border-purple-700">
-              <p className="text-sm font-medium text-purple-900 dark:text-purple-200">
-                💎 <strong>Want to create custom layouts?</strong>
+              <p className="text-sm font-medium text-purple-900 dark:text-purple-200 flex items-center gap-2">
+                <Award className="w-4 h-4 text-amber-500" /> <strong>Want to create custom layouts?</strong>
               </p>
               <p className="text-sm text-purple-800 dark:text-purple-300 mt-1">
                Interactive Enclosure Designer with drag-and-drop equipment, rotation, resizing, and more is in progress!
@@ -60,7 +62,7 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
             {/* Image placeholder */}
             <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center relative">
               <div className="text-center">
-                <div className="text-6xl mb-2">🦎</div>
+                <Image className="w-12 h-12 mb-2 text-gray-600 dark:text-gray-400 mx-auto" />
                 <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">{example.name}</p>
               </div>
               {/* Overlay for actual image when provided */}
@@ -83,7 +85,7 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
                 <ul className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
                   {example.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center gap-2">
-                      <span className="text-green-500">✓</span>
+                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
                       {feature}
                     </li>
                   ))}
@@ -96,7 +98,7 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
 
       {/* General Setup Tips */}
       <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
-        <h4 className="font-semibold text-blue-900 dark:text-blue-200 mb-2">💡 General Setup Tips</h4>
+        <h4 className="font-semibold text-blue-900 dark:text-blue-200 mb-2 flex items-center gap-2"><Lightbulb className="w-5 h-5" />General Setup Tips</h4>
         <ul className="text-sm text-blue-800 dark:text-blue-300 space-y-2">
           <li><strong>Start Simple:</strong> Begin with a minimalist setup and add complexity as you gain experience</li>
           <li><strong>Monitor Conditions:</strong> All setups should maintain proper humidity and temperature gradients</li>
@@ -108,7 +110,7 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
       {/* Species-Specific Setup Tips */}
       {speciesSetupTips.length > 0 && (
         <div className="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-4">
-          <h4 className="font-semibold text-purple-900 dark:text-purple-200 mb-2">🦎 Species-Specific Tips</h4>
+          <h4 className="font-semibold text-purple-900 dark:text-purple-200 mb-2 flex items-center gap-2"><Bug className="w-5 h-5" />Species-Specific Tips</h4>
           <ul className="text-sm text-purple-800 dark:text-purple-300 space-y-2">
             {speciesSetupTips.map((tip, index) => (
               <li key={index}>{tip}</li>
