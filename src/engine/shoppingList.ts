@@ -165,6 +165,7 @@ function addBioactiveItems(
     quantity: `${drainageQuarts} quarts`,
     sizing: `${drainageDepth}" layer for ${Math.round(dims.height)}" tall enclosure`,
     importance: 'required', // Required for bioactive setup
+    setupTierOptions: drainageConfig.tiers as any,
     notes: drainageConfig.notes,
     compatibleAnimals: (drainageConfig as any).compatibleAnimals,
   });
@@ -177,6 +178,7 @@ function addBioactiveItems(
     name: barrierConfig.name,
     quantity: '1 sheet',
     sizing: `Cut to ${Math.round(dims.width)}" × ${Math.round(dims.depth)}"`,    importance: 'required', // Required for bioactive setup
+    setupTierOptions: barrierConfig.tiers as any,
     notes: barrierConfig.notes,
     compatibleAnimals: (barrierConfig as any).compatibleAnimals,
   });
@@ -188,8 +190,9 @@ function addBioactiveItems(
     category: springtailsConfig.category as any,
     name: springtailsConfig.name,
     quantity: '1 culture',
-    sizing: `Springtails for bioactive enclosure`,
+    sizing: ``,
     importance: 'required', // Required for bioactive cleanup crew
+    setupTierOptions: springtailsConfig.tiers as any,
     compatibleAnimals: (springtailsConfig as any).compatibleAnimals,
   });
 
@@ -200,8 +203,9 @@ function addBioactiveItems(
     category: isopodsConfig.category as any,
     name: isopodsConfig.name,
     quantity: '1 culture (10-20 individuals)',
-    sizing: `Dwarf isopods for bioactive cleanup crew`,
+    sizing: ``,
     importance: 'required', // Required for bioactive cleanup crew
+    setupTierOptions: isopodsConfig.tiers as any,
     compatibleAnimals: (isopodsConfig as any).compatibleAnimals,
   });
 }
@@ -419,7 +423,7 @@ function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput): void 
       category: insectsConfig.category,
       name: insectsConfig.name,
       quantity: 'Ongoing supply',
-      sizing: 'Size appropriate to frog',
+      sizing: 'Size appropriate for animal',
       importance: insectsConfig.importance,
       setupTierOptions: insectsConfig.tiers,
       notes: insectsConfig.notes,
@@ -435,7 +439,7 @@ function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput): void 
       category: calciumConfig.category,
       name: calciumConfig.name,
       quantity: '1 container',
-      sizing: 'Dust at every feeding',
+      sizing: 'Dust at appropriate frequency',
       importance: calciumConfig.importance,
       setupTierOptions: calciumConfig.tiers,
       notes: calciumConfig.notes,
@@ -451,7 +455,7 @@ function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput): void 
       category: multivitaminConfig.category,
       name: multivitaminConfig.name,
       quantity: '1 container',
-      sizing: 'Dust once per week',
+      sizing: 'Dust at appropriate frequency',
       importance: multivitaminConfig.importance,
       setupTierOptions: multivitaminConfig.tiers,
       notes: multivitaminConfig.notes,

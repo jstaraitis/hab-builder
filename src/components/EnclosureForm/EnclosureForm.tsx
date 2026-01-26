@@ -53,66 +53,66 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 space-y-6">
-      <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Enclosure Setup</h2>
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 lg:p-6 space-y-6">
+      <h2 className="text-xl lg:text-2xl font-bold text-gray-800 dark:text-white">Enclosure Setup</h2>
 
       {/* Setup Quality Tier */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-3">
           Setup Quality & Budget
         </label>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4">
           <button
             onClick={() => onChange({ ...value, setupTier: 'minimum' })}
-            className={`relative overflow-hidden rounded-xl px-4 py-4 text-sm font-medium transition-all hover:shadow-lg ${
+            className={`relative overflow-hidden rounded-xl px-4 py-5 lg:py-4 text-sm font-medium transition-all active:scale-95 ${
               value.setupTier === 'minimum'
                 ? 'bg-gradient-to-br from-gray-100 to-slate-100 dark:from-gray-700 dark:to-slate-700 border-2 border-gray-400 dark:border-gray-500 shadow-md'
                 : 'bg-gradient-to-br from-gray-50 to-slate-50 dark:from-gray-800 dark:to-slate-800 border-2 border-gray-300 dark:border-gray-600'
             }`}
           >
-              <CheckCircle className="w-6 h-6 mb-2 text-gray-900 dark:text-white" />
+              <CheckCircle className="w-7 h-7 lg:w-6 lg:h-6 mb-2 mx-auto lg:mx-0 text-gray-900 dark:text-white" />
             <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">Minimum</div>
             <div className="text-xs text-gray-600 dark:text-gray-400 mt-1 whitespace-nowrap">Bare essentials</div>
           </button>
           <button
             onClick={() => onChange({ ...value, setupTier: 'recommended' })}
-            className={`relative overflow-hidden rounded-xl px-4 py-4 text-sm font-medium transition-all hover:shadow-lg ${
+            className={`relative overflow-hidden rounded-xl px-4 py-5 lg:py-4 text-sm font-medium transition-all active:scale-95 ${
               value.setupTier === 'recommended'
                 ? 'bg-gradient-to-br from-amber-100 to-yellow-100 dark:from-amber-900/40 dark:to-yellow-900/40 border-2 border-amber-400 dark:border-amber-600 shadow-md'
                 : 'bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-2 border-amber-200 dark:border-amber-800'
             }`}
           >
-            <Star className="w-6 h-6 mb-2 text-amber-600 dark:text-amber-400" />
+            <Star className="w-7 h-7 lg:w-6 lg:h-6 mb-2 mx-auto lg:mx-0 text-amber-600 dark:text-amber-400" />
             <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">Recommended</div>
             <div className="text-xs text-amber-700 dark:text-amber-400 mt-1 whitespace-nowrap">Best value</div>
           </button>
           <button
             onClick={() => onChange({ ...value, setupTier: 'ideal' })}
-            className={`relative overflow-hidden rounded-xl px-4 py-4 text-sm font-medium transition-all hover:shadow-lg ${
+            className={`relative overflow-hidden rounded-xl px-4 py-5 lg:py-4 text-sm font-medium transition-all active:scale-95 ${
               value.setupTier === 'ideal'
                 ? 'bg-gradient-to-br from-emerald-100 to-green-100 dark:from-emerald-900/40 dark:to-green-900/40 border-2 border-emerald-400 dark:border-emerald-600 shadow-md'
                 : 'bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 border-2 border-emerald-200 dark:border-emerald-800'
             }`}
           >
-            <Award className="w-6 h-6 mb-2 text-emerald-600 dark:text-emerald-400" />
+            <Award className="w-7 h-7 lg:w-6 lg:h-6 mb-2 mx-auto lg:mx-0 text-emerald-600 dark:text-emerald-400" />
             <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">Ideal</div>
-            <div className="text-xs text-emerald-700 dark:text-emerald-400 mt-1 whitespace-nowrap">Premium quality</div>
+            <div className="text-sm text-emerald-700 dark:text-emerald-400 mt-1 whitespace-nowrap">Premium quality</div>
           </button>
         </div>
-        <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">
+        <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
           This determines which equipment options appear in your shopping list
         </p>
       </div>
 
       {/* Animal Quantity */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-3">
           Number of Animals
         </label>
         <div className="flex items-center gap-3">
           <button
             onClick={() => onChange({ ...value, quantity: Math.max(1, value.quantity - 1) })}
-            className="w-10 h-10 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold transition-colors flex items-center justify-center"
+            className="w-12 h-12 lg:w-10 lg:h-10 rounded-lg bg-gray-100 dark:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold text-xl transition-colors flex items-center justify-center"
             aria-label="Decrease quantity"
           >
             −
@@ -126,11 +126,11 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
             }}
             min="1"
             max="20"
-            className="w-20 px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md text-center font-medium focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="w-20 px-3 py-3 lg:py-2 border-2 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg text-center font-medium text-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           />
           <button
             onClick={() => onChange({ ...value, quantity: Math.min(20, value.quantity + 1) })}
-            className="w-10 h-10 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold transition-colors flex items-center justify-center"
+            className="w-12 h-12 lg:w-10 lg:h-10 rounded-lg bg-gray-100 dark:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold text-xl transition-colors flex items-center justify-center"
             aria-label="Increase quantity"
           >
             +
@@ -143,7 +143,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
 
       {/* Preset Sizes */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-3">
           Enclosure Size
         </label>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
@@ -151,12 +151,12 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
             <button
               key={preset.name}
               onClick={() => handlePresetChange(preset)}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+              className={`px-4 py-3 lg:py-2 rounded-lg text-sm font-medium transition-all active:scale-95 ${
                 usePreset && 
                 value.width === preset.width && 
                 value.height === preset.height
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
+                  ? 'bg-primary-600 text-white shadow-md'
+                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 active:bg-gray-200 dark:active:bg-gray-600'
               }`}
             >
               {preset.name}

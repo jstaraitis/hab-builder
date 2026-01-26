@@ -1,9 +1,9 @@
-import feedingGuide from './feeding-guide.json';
-import tempHumidityGuide from './temp-humidity-guide.json';
-import uvbLightingGuide from './uvb-lighting-guide.json';
-import enclosureSizingGuide from './enclosure-sizing-guide.json';
-import hydrationWaterGuide from './hydration-water-guide.json';
-import enrichmentWelfareGuide from './enrichment-welfare-guide.json';
+import feedingGuide from './whites-tree-frog-feeding-guide.json';
+import tempHumidityGuide from './whites-tree-frog-temp-humidity-guide.json';
+import uvbLightingGuide from './whites-tree-frog-uvb-lighting-guide.json';
+import enclosureSizingGuide from './whites-tree-frog-enclosure-sizing-guide.json';
+import hydrationWaterGuide from './whites-tree-frog-hydration-water-guide.json';
+import enrichmentWelfareGuide from './whites-tree-frog-enrichment-welfare-guide.json';
 
 export interface BlogPost {
   id: string;
@@ -28,12 +28,12 @@ export interface ContentBlock {
 }
 
 export const blogPosts: Record<string, BlogPost> = {
-  'feeding-guide': feedingGuide as BlogPost,
-  'temp-humidity-guide': tempHumidityGuide as BlogPost,
-  'uvb-lighting-guide': uvbLightingGuide as BlogPost,
-  'enclosure-sizing-guide': enclosureSizingGuide as BlogPost,
-  'hydration-water-guide': hydrationWaterGuide as BlogPost,
-  'enrichment-welfare-guide': enrichmentWelfareGuide as BlogPost,
+  'whites-tree-frog-feeding-guide': feedingGuide as BlogPost,
+  'whites-tree-frog-temp-humidity-guide': tempHumidityGuide as BlogPost,
+  'whites-tree-frog-uvb-lighting-guide': uvbLightingGuide as BlogPost,
+  'whites-tree-frog-enclosure-sizing-guide': enclosureSizingGuide as BlogPost,
+  'whites-tree-frog-hydration-water-guide': hydrationWaterGuide as BlogPost,
+  'whites-tree-frog-enrichment-welfare-guide': enrichmentWelfareGuide as BlogPost,
 };
 
 export const blogPostsList = Object.values(blogPosts).sort(

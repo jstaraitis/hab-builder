@@ -12,7 +12,6 @@ import type {
 import { generateHusbandryCareChecklist } from './husbandryCare';
 import { generateShoppingList } from './shoppingList';
 import { animalProfiles } from '../data/animals';
-import careGuidanceData from '../data/care-guidance.json';
 import buildStepsData from '../data/build-steps.json';
 import layoutNotesData from '../data/layout-notes.json';
 
@@ -72,21 +71,26 @@ function generateCareGuidance(profile: AnimalProfile, _input: EnclosureInput): {
   waterNotes: string[];
   mistingNotes: string[];
 } {
-  // Use profile's careGuidance if available, otherwise fall back to defaults
+  // Use profile's careGuidance - all animal profiles should have this defined
   if (profile.careGuidance) {
+    // Combine feedingRequirements and feedingSchedule into feedingNotes
+    const feedingNotes = [
+      ...(profile.careGuidance.feedingRequirements || []),
+      ...(profile.careGuidance.feedingSchedule || [])
+    ];
+    
     return {
-      feedingNotes: profile.careGuidance.feedingRequirements || profile.careGuidance.waterNotes || [],
-      waterNotes: profile.careGuidance.waterNotes,
-      mistingNotes: profile.careGuidance.mistingNotes,
+      feedingNotes,
+      waterNotes: profile.careGuidance.waterNotes || [],
+      mistingNotes: profile.careGuidance.mistingNotes || [],
     };
   }
   
-  // Fallback to default guidance if not specified in profile
-  const defaultGuidance = careGuidanceData._default;
+  // Fallback if no careGuidance (should not happen in production)
   return {
-    feedingNotes: defaultGuidance.feedingNotes,
-    waterNotes: defaultGuidance.waterNotes,
-    mistingNotes: defaultGuidance.mistingNotes,
+    feedingNotes: ['Feed appropriate-sized prey items based on species requirements'],
+    waterNotes: ['Provide clean, dechlorinated water at all times'],
+    mistingNotes: ['Mist as needed to maintain proper humidity levels'],
   };
 }
 

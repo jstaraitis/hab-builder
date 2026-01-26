@@ -1,5 +1,6 @@
 import { useMemo, useState, useEffect } from 'react';
 import { Routes, Route, Navigate, Link, useNavigate, useLocation } from 'react-router-dom';
+import { Bug, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Moon, Sun } from 'lucide-react';
 import type { EnclosureInput, BuildPlan, AnimalProfile } from './engine/types';
 import { generatePlan } from './engine/generatePlan';
 import { AnimalSelectView } from './components/Views/AnimalSelectView';
@@ -15,6 +16,8 @@ import { About } from './components/About/About';
 import { Roadmap } from './components/Roadmap/Roadmap';
 import { animalProfiles } from './data/animals';
 import { useTheme } from './hooks/useTheme';
+import { MobileNav } from './components/Navigation/MobileNav';
+import { ProgressIndicator } from './components/Navigation/ProgressIndicator';
 
 function App() {
   const navigate = useNavigate();
@@ -77,43 +80,73 @@ function App() {
 
   const isActive = (path: string) => location.pathname === path;
 
+  // Determine current step for progress indicator
+  const getCurrentStep = () => {
+    if (location.pathname === '/animal') return 1;
+    if (location.pathname === '/design') return 2;
+    if (location.pathname === '/supplies') return 3;
+    if (location.pathname === '/plan') return 4;
+    return 1;
+  };
+
+  const progressSteps = [
+    { label: 'Choose Animal', icon: Bug },
+    { label: 'Design Enclosure', icon: Pencil },
+    { label: 'Get Supplies', icon: ShoppingCart },
+    { label: 'Build Plan', icon: ClipboardList },
+  ];
+
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800">
-      {/* Testing Banner */}
-      {/* <div className="bg-yellow-50 dark:bg-yellow-900/30 border-b-2 border-yellow-400 dark:border-yellow-700 px-3 sm:px-4 py-2 sm:py-3">
-        <div className="max-w-7xl mx-auto flex items-start sm:items-center gap-2 sm:gap-3">
-          <span className="text-xl sm:text-2xl flex-shrink-0">⚠️</span>
-          <div className="text-xs sm:text-sm">
-            <p className="font-semibold text-yellow-900 dark:text-yellow-200">Beta Testing - Data May Be Incorrect</p>
-            <p className="text-yellow-800 dark:text-yellow-300 mt-0.5">This app is in testing. Always verify care info with multiple sources before making changes.</p>
-          </div>
-        </div>
-      </div> */}
-
-      <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
-        <div className="max-w-7xl mx-auto px-2 sm:px-4 py-3 sm:py-6">
-          <div className="flex flex-col gap-4">
-            <div className="text-center sm:text-left">
-              <h1 className="text-2xl sm:text-4xl font-bold text-green-700 dark:text-green-400">🦎 Habitat Builder</h1>
-              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">Generate custom enclosure plans for your reptiles & amphibians</p>
-              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">Built with love - for better care and fewer setup mistakes</p>
-
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800 pb-20 lg:pb-0">
+      {/* Mobile-optimized header */}
+      <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 py-4 lg:py-6">
+          {/* Mobile: Simple header with logo and theme toggle */}
+          <div className="lg:hidden flex items-center justify-between">
+            <div>
+              <h1 className="text-3xl font-bold text-green-700 dark:text-green-400">🦎 Habitat Builder</h1>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Generate custom enclosure plans for your reptiles & amphibians</p>
             </div>
-            <nav className="flex flex-wrap justify-center sm:justify-start gap-2 text-xs sm:text-sm font-medium">
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setIsFeedbackOpen(true)}
+                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 active:bg-gray-200 dark:active:bg-gray-600"
+                title="Feedback"
+              >
+                📝
+              </button>
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 active:bg-gray-200 dark:active:bg-gray-600"
+                title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+              >
+                {theme === 'light' ? '🌙' : '☀️'}
+              </button>
+            </div>
+          </div>
+
+          {/* Desktop: Full header with navigation */}
+          <div className="hidden lg:block">
+            <div className="text-center sm:text-left mb-4">
+              <h1 className="text-4xl font-bold text-green-700 dark:text-green-400">🦎 Habitat Builder</h1>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Generate custom enclosure plans for your reptiles & amphibians</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Built with love - for better care and fewer setup mistakes</p>
+            </div>
+            <nav className="flex flex-wrap justify-center sm:justify-start gap-2 text-sm font-medium">
             <Link
               to="/animal"
-              className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/animal') ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-emerald-400'}`}
+              className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/animal') ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-emerald-400'}`}
             >
-             🐸 Animal
+             <Bug className="w-4 h-4 inline mr-1.5" /> Animal
             </Link>
             {input.animal && (
               <Link
                 to="/design"
-                className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/design') ? 'bg-green-600 text-white border-green-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-green-400'}`}
+                className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/design') ? 'bg-green-600 text-white border-green-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-green-400'}`}
                 title="Design your enclosure"
               >
-               🎨 Design
+               <Pencil className="w-4 h-4 inline mr-1.5" /> Design
               </Link>
             )}
 
@@ -121,60 +154,69 @@ function App() {
               <>
                 <Link
                   to="/supplies"
-                  className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/supplies') ? 'bg-purple-600 text-white border-purple-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-purple-400'}`}
+                  className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/supplies') ? 'bg-purple-600 text-white border-purple-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-purple-400'}`}
                   title="View supplies and steps"
                 >
-                 🛒 Supplies
+                 <ShoppingCart className="w-4 h-4 inline mr-1.5" /> Supplies
                 </Link>
                 <Link
                   to="/plan"
-                  className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/plan') ? 'bg-blue-600 text-white border-blue-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-blue-400'}`}
+                  className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/plan') ? 'bg-blue-600 text-white border-blue-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-blue-400'}`}
                   title="View your generated plan"
                 >
-                 📋 Plan
+                 <ClipboardList className="w-4 h-4 inline mr-1.5" /> Plan
                 </Link>
                 <Link
                   to="/designer"
-                  className={`hidden sm:inline-block px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/designer') ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-indigo-400'}`}
+                  className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/designer') ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-indigo-400'}`}
                   title="Interactive Designer (Premium)"
                 >
-                  💎 Designer
+                  <Gem className="w-4 h-4 inline mr-1.5" /> Designer
                 </Link>
               </>
             )}
             <Link
               to="/blog"
-              className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${location.pathname.startsWith('/blog') ? 'bg-amber-600 text-white border-amber-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-amber-400'}`}
+              className={`px-4 py-2 rounded-lg border whitespace-nowrap ${location.pathname.startsWith('/blog') ? 'bg-amber-600 text-white border-amber-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-amber-400'}`}
             >
-              📚 Guides
+              <BookOpen className="w-4 h-4 inline mr-1.5" /> Guides
             </Link>
             <Link
               to="/about"
-              className={`px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border whitespace-nowrap ${isActive('/about') ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-teal-400'}`}
+              className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/about') ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-teal-400'}`}
             >
-              ℹ️ About
+              <Info className="w-4 h-4 inline mr-1.5" /> About
             </Link>
             <button
               onClick={() => setIsFeedbackOpen(true)}
-              className="px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-orange-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors whitespace-nowrap"
+              className="px-4 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-orange-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors whitespace-nowrap"
               title="Send feedback or report issues"
             >
-              📝 Feedback
+              <MessageSquare className="w-4 h-4 inline mr-1.5" /> Feedback
             </button>
             <button
               onClick={toggleTheme}
-              className="px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-yellow-400 transition-colors"
+              className="px-4 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-yellow-400 transition-colors"
               title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
               aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
             >
-              {theme === 'light' ? '🌙' : '☀️'}
+              {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
             </button>
           </nav>
           </div>
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-2 sm:px-4 py-6 sm:py-8">
+      {/* Mobile progress indicator - shown only on main flow pages */}
+      {['/animal', '/design', '/supplies', '/plan'].includes(location.pathname) && (
+        <ProgressIndicator 
+          currentStep={getCurrentStep()} 
+          totalSteps={4}
+          steps={progressSteps}
+        />
+      )}
+
+      <main className="max-w-7xl mx-auto px-4 py-4 lg:py-8">
         <Routes>
           <Route path="/" element={<Navigate to="/animal" replace />} />
           <Route
@@ -219,10 +261,10 @@ function App() {
                 <div className="space-y-6">
                   <div className="flex justify-between items-center">
                     <div>
-                      <h2 className="text-2xl font-bold text-gray-800 dark:text-white">💎 Interactive Designer - IN PROGRESS - Works best on PC or Tablet</h2>
+                      <h2 className="text-2xl font-bold text-gray-800 dark:text-white">💎 Interactive Designer</h2>
                       <p className="text-sm text-gray-600 dark:text-gray-400">Drag, rotate, and resize equipment to design your perfect enclosure</p>
                     </div>
-                    <Link to="/plan" className="text-blue-700 dark:text-blue-400 font-medium underline">Back to Plan</Link>
+                    <Link to="/plan" className="hidden lg:inline text-blue-700 dark:text-blue-400 font-medium underline">Back to Plan</Link>
                   </div>
                   <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
                     <CanvasDesigner enclosureInput={input} shoppingList={plan.shoppingList} />
@@ -246,11 +288,14 @@ function App() {
         </Routes>
       </main>
 
+      {/* Mobile bottom navigation */}
+      <MobileNav hasAnimal={!!input.animal} hasPlan={!!plan} />
+
       <FeedbackModal isOpen={isFeedbackOpen} onClose={() => setIsFeedbackOpen(false)} />
 
-      <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16">
-        <div className="max-w-7xl mx-auto px-2 sm:px-4 py-4 sm:py-6 text-center text-sm text-gray-600 dark:text-gray-400">
-          <p>Habitat Builder• 🐸 • Always research multiple sources for animal care</p>
+      <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-12 lg:mt-16">
+        <div className="max-w-7xl mx-auto px-4 py-6 text-center text-sm text-gray-600 dark:text-gray-400">
+          <p>Habitat Builder • 🐸 • Always research multiple sources for animal care</p>
           <p className="mt-1">Plans are guidelines - adjust based on your specific animal's needs</p>
         </div>
       </footer>

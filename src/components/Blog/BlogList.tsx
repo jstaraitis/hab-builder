@@ -1,5 +1,6 @@
 import { SEO } from '../SEO/SEO';
 import { AnimalGuides } from './AnimalGuides';
+import { BookOpen } from 'lucide-react';
 
 export function BlogList() {
   return (
@@ -11,8 +12,9 @@ export function BlogList() {
       />
       
       <div>
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">
-          📚 Care Guides & Resources
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2 flex items-center gap-3">
+          <BookOpen className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
+          Care Guides & Resources
         </h1>
         <p className="text-gray-600 dark:text-gray-400">
           Expert guides for keeping healthy reptiles and amphibians

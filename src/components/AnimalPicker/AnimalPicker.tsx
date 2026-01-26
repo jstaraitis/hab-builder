@@ -175,7 +175,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
         )}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
         {filteredAnimals.map((animal) => {
           // Determine border and background colors based on care level
           const getSelectedColors = () => {
@@ -198,44 +198,40 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
               aria-disabled={isDraft}
               title={isDraft ? `${animal.name} (Draft - not selectable)` : `Select ${animal.name}`}
               tabIndex={isDraft ? -1 : 0}
-              className={`p-6 rounded-lg border-2 transition-all relative ${
+              className={`p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl border-2 transition-all relative active:scale-95 ${
                 selected === animal.id
-                  ? `${getSelectedColors()} shadow-lg`
-                  : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 hover:shadow-md bg-white dark:bg-gray-700'
-              } ${isDraft ? 'cursor-not-allowed' : ''}`}
+                  ? `${getSelectedColors()} shadow-lg ring-2 ring-offset-2 ${animal.careLevel === 'beginner' ? 'ring-green-400' : animal.careLevel === 'intermediate' ? 'ring-orange-400' : 'ring-red-400'}`
+                  : 'border-gray-200 dark:border-gray-600 active:border-gray-300 dark:active:border-gray-500 active:shadow-md bg-white dark:bg-gray-700'
+              } ${isDraft ? 'cursor-not-allowed opacity-60' : ''}`}
             >
-            {/* Status Badge - Top Right Corner */}
-            <div className="absolute top-3 right-3 z-30">
-              {getStatusBadge(animal.completionStatus)}
-            </div>
-            
             {/* Image or Emoji */}
-            <div className="relative w-full h-48 bg-gradient-to-br from-gray-100 to-gray-50 dark:from-gray-700 dark:to-gray-600 rounded-lg mb-3 flex items-center justify-center overflow-hidden group">
+            <div className="relative w-full h-28 sm:h-36 lg:h-48 bg-gradient-to-br from-gray-100 to-gray-50 dark:from-gray-700 dark:to-gray-600 rounded-md sm:rounded-lg mb-2 sm:mb-3 flex items-center justify-center overflow-hidden group">
               {animal.imageUrl ? (
                 <>
                   <img 
                     src={animal.imageUrl} 
                     alt={animal.name}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-150"
+                    className="w-full h-full object-cover transition-transform duration-300 group-active:scale-110 lg:group-hover:scale-150"
                   />
                   {/* Dark gradient overlay for better text readability */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
                 </>
               ) : (
-                <div className="text-6xl">{animal.image}</div>
+                <div className="text-4xl sm:text-5xl lg:text-6xl">{animal.image}</div>
+              )}
+              
+              {/* Status Badge - Inside Image with Backdrop Blur */}
+              {animal.completionStatus && (
+                <div className="absolute top-2 left-2 backdrop-blur-md bg-white/20 dark:bg-black/20 rounded-lg p-1.5 scale-75 sm:scale-90 origin-top-left">
+                  {getStatusBadge(animal.completionStatus)}
+                </div>
               )}
             </div>
-            {/* Draft overlay - visible but non-interactive */}
-            {isDraft && (
-              <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
-                <div className="px-4 py-2 bg-black/65 text-white rounded-full text-sm font-semibold backdrop-blur-sm">Coming soon</div>
-              </div>
-            )}
 
-            <h3 className="font-semibold text-gray-800 dark:text-white text-lg mb-1">
+            <h3 className="font-semibold text-gray-800 dark:text-white text-xs sm:text-sm lg:text-lg mb-1 sm:mb-2 leading-tight">
               {animal.name}
             </h3>
-            <span className={`inline-block px-2 py-1 text-xs font-medium rounded ${
+            <span className={`inline-block px-1.5 py-0.5 sm:px-2.5 sm:py-1.5 text-[10px] sm:text-xs font-medium rounded sm:rounded-lg ${
               animal.careLevel === 'beginner' 
                 ? 'text-green-700 dark:text-green-300 bg-green-100 dark:bg-green-900/50' 
                 : animal.careLevel === 'intermediate'
