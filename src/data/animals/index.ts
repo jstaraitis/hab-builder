@@ -22,6 +22,5 @@ export const animalList = Object.values(animalProfiles).map(profile => ({
   completionStatus: profile.completionStatus || 'complete', // Default to complete if not specified
   // Expose search-related fields so the UI can perform broader matching (e.g., "snake" → pythons)
   searchQuery: profile.searchQuery || [],
-  commonNames: profile.commonNames || [],
   scientificName: profile.scientificName || ''
 }));

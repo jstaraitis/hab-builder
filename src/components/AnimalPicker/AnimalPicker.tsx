@@ -23,8 +23,8 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
       if (animal.searchQuery) {
         searchParts.push(Array.isArray(animal.searchQuery) ? animal.searchQuery.join(' ') : String(animal.searchQuery));
       }
-      if (animal.commonNames) {
-        searchParts.push(Array.isArray(animal.commonNames) ? animal.commonNames.join(' ') : String(animal.commonNames));
+      if (animal.scientificName) {
+        searchParts.push(animal.scientificName);
       }
 
       const searchable = searchParts.join(' ').toLowerCase();

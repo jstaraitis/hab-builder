@@ -190,6 +190,7 @@ export interface AnimalProfile {
   careLevel: 'beginner' | 'intermediate' | 'advanced';
   emoji?: string; // Optional: emoji icon for animal picker (e.g., "🐸")
   completionStatus?: 'complete' | 'in-progress' | 'draft' | 'validated' // Optional: profile completion status
+  searchQuery?: string[]; // Optional: keywords for search functionality
   minEnclosureSize: {
     width: number;
     depth: number;
