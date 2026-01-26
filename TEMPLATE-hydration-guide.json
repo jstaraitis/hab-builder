@@ -1,0 +1,337 @@
+﻿{
+  "id": "[SPECIES-ID]-hydration-guide",
+  "title": "[Species Name] Hydration Guide: Water Sources & Dehydration Prevention",
+  "description": "Complete hydration guide for [species name] covering natural water behaviors, setup methods, recognition of dehydration, and species-specific hydration strategies.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-26",
+  "category": "Care Guides",
+  "tags": ["[species-common-name]", "hydration", "water", "dehydration", "humidity"],
+  "image": "/animals/[species-folder]/[species-image].jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Essential Hydration for [Species Name]",
+      "content": "[Introduction to hydration importance: physiological needs, natural water sources in habitat, species-specific drinking behaviors. Overview of captive hydration approaches.]"
+    },
+    {
+      "type": "section",
+      "title": "Natural Hydration Behaviors"
+    },
+    {
+      "type": "text",
+      "content": "[How this species drinks in the wild: rain, dew, surface water, substrate moisture, dietary sources. Behavioral cues for water-seeking.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Natural Water Sources in [Habitat Type]:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Water Source", "Availability Pattern", "Drinking Method"],
+      "rows": [
+        ["[Source 1 - e.g., rain]", "[seasonal/daily pattern]", "[licking, drinking from surfaces]"],
+        ["[Source 2 - e.g., dew]", "[seasonal/daily pattern]", "[method]"],
+        ["[Source 3 - e.g., streams]", "[seasonal/daily pattern]", "[method]"],
+        ["[Source 4 - e.g., plant moisture]", "[seasonal/daily pattern]", "[method]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Key insight: Understanding natural hydration helps replicate appropriate water access in captivity for this species]"
+    },
+    {
+      "type": "section",
+      "title": "Primary Hydration Methods"
+    },
+    {
+      "type": "text",
+      "content": "[Best practices for providing water based on species drinking behavior: still water vs moving water, height placement, surface type preferences]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Hydration Method Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Method", "Effectiveness for Species", "Maintenance Level", "Best Use Case"],
+      "rows": [
+        ["[Method 1 - e.g., Water Dish]", "[high/medium/low]", "[maintenance frequency]", "[when appropriate]"],
+        ["[Method 2 - e.g., Misting]", "[high/medium/low]", "[maintenance frequency]", "[when appropriate]"],
+        ["[Method 3 - e.g., Drip System]", "[high/medium/low]", "[maintenance frequency]", "[when appropriate]"],
+        ["[Method 4 - e.g., Soaking]", "[high/medium/low]", "[maintenance frequency]", "[when appropriate]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Critical warning: [species-specific hydration necessity - e.g., arboreal species may not recognize standing water, desert species may drown in deep dishes, etc.]]"
+    },
+    {
+      "type": "section",
+      "title": "Water Dish Setup"
+    },
+    {
+      "type": "text",
+      "content": "[If applicable: Proper water dish configuration. If not applicable: note why this method isn't suitable for species]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Water Dish Specifications:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Life Stage/Size", "Dish Diameter", "Water Depth", "Placement"],
+      "rows": [
+        ["[Stage 1 - e.g., Juvenile]", "[size]", "[depth]", "[location in enclosure]"],
+        ["[Stage 2 - e.g., Adult]", "[size]", "[depth]", "[location in enclosure]"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Water Quality Maintenance:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Task", "Frequency", "Procedure"],
+      "rows": [
+        ["Complete water change", "[daily/weekly]", "[cleaning instructions]"],
+        ["Dish sanitization", "[frequency]", "[cleaning method]"],
+        ["Water quality check", "[frequency]", "[what to inspect]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Water source recommendation: dechlorinated tap water, spring water considerations, avoiding distilled water for species]"
+    },
+    {
+      "type": "section",
+      "title": "Misting Protocol"
+    },
+    {
+      "type": "text",
+      "content": "[If applicable: Misting for droplet drinkers or humidity-dependent species. If not applicable: note limitations]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Misting Schedule:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Time of Day", "Duration", "Droplet Coverage", "Purpose"],
+      "rows": [
+        ["[Morning session]", "[seconds/minutes]", "[target area]", "[drinking opportunity, humidity]"],
+        ["[Afternoon session]", "[seconds/minutes]", "[target area]", "[humidity maintenance]"],
+        ["[Evening session]", "[seconds/minutes]", "[target area]", "[nighttime moisture]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "[Misting best practices: allow dry-out periods, avoid over-saturation, monitor for respiratory issues, species-specific frequency]"
+    },
+    {
+      "type": "section",
+      "title": "Drip or Fountain Systems"
+    },
+    {
+      "type": "text",
+      "content": "[If applicable: Moving water systems for species that respond to motion. If not applicable: alternative method focus]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Drip System Setup:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Component", "Specification", "Maintenance"],
+      "rows": [
+        ["[Component 1 - e.g., dripper]", "[specs]", "[cleaning schedule]"],
+        ["[Component 2 - e.g., tubing]", "[specs]", "[cleaning schedule]"],
+        ["[Component 3 - e.g., catch basin]", "[specs]", "[cleaning schedule]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Drip rate adjustment: [rate recommendation for species], positioning over foliage or basking area, avoiding substrate saturation]"
+    },
+    {
+      "type": "section",
+      "title": "Soaking or Bathing Protocol"
+    },
+    {
+      "type": "text",
+      "content": "[If applicable: When and how to soak this species. If not applicable: note contraindications]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Soaking Guidelines:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Scenario", "Water Temperature", "Duration", "Depth"],
+      "rows": [
+        ["[Routine soaking]", "[temperature]", "[minutes]", "[depth relative to animal]"],
+        ["[Dehydration intervention]", "[temperature]", "[minutes]", "[depth relative to animal]"],
+        ["[Pre-shed assistance]", "[temperature]", "[minutes]", "[depth relative to animal]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Soaking safety: never leave unattended, temperature verification, stress signs, species-specific contraindications]"
+    },
+    {
+      "type": "section",
+      "title": "Hydrating Foods"
+    },
+    {
+      "type": "text",
+      "content": "[Dietary water contribution: high-moisture food items as supplemental hydration for species]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>High-Moisture Food Items:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Food Item", "Water Content", "Frequency", "Hydration Contribution"],
+      "rows": [
+        ["[Item 1]", "[percentage]", "[frequency]", "[role in hydration]"],
+        ["[Item 2]", "[percentage]", "[frequency]", "[role in hydration]"],
+        ["[Item 3]", "[percentage]", "[frequency]", "[role in hydration]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Balance reminder: dietary water supports but doesn't replace direct hydration methods for this species]"
+    },
+    {
+      "type": "section",
+      "title": "Dehydration Recognition"
+    },
+    {
+      "type": "text",
+      "content": "[How to identify dehydration in this species before it becomes critical: visual signs, behavioral changes, physical assessments]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Dehydration Severity Stages:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Severity", "Physical Signs", "Behavioral Signs", "Action Required"],
+      "rows": [
+        ["Mild", "[early signs for species]", "[behavior changes]", "[increase access, monitor]"],
+        ["Moderate", "[progressing signs]", "[behavior changes]", "[intervention protocol]"],
+        ["Severe", "[critical signs]", "[behavior changes]", "[veterinary emergency]"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Species-Specific Assessment Methods:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Assessment Method", "Procedure", "Normal vs Dehydrated"],
+      "rows": [
+        ["[Method 1 - e.g., skin tent test]", "[how to perform]", "[normal result vs concerning]"],
+        ["[Method 2 - e.g., eye appearance]", "[how to assess]", "[normal result vs concerning]"],
+        ["[Method 3 - e.g., urate quality]", "[how to assess]", "[normal result vs concerning]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Emergency protocol: signs requiring immediate veterinary care, subcutaneous fluid administration indications, species-specific complications]"
+    },
+    {
+      "type": "section",
+      "title": "Life Stage Considerations"
+    },
+    {
+      "type": "text",
+      "content": "[How hydration needs change with age and physiological state: hatchlings/juveniles vs adults, breeding condition, health status]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Age-Based Hydration Adjustments:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Life Stage", "Hydration Needs", "Method Adjustments", "Monitoring Frequency"],
+      "rows": [
+        ["[Stage 1 - e.g., Hatchling]", "[increased/decreased needs]", "[method modifications]", "[how often to check]"],
+        ["[Stage 2 - e.g., Juvenile]", "[increased/decreased needs]", "[method modifications]", "[how often to check]"],
+        ["[Stage 3 - e.g., Adult]", "[increased/decreased needs]", "[method modifications]", "[how often to check]"],
+        ["[Stage 4 - e.g., Senior]", "[increased/decreased needs]", "[method modifications]", "[how often to check]"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Common Hydration Mistakes"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Mistakes to Avoid:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Mistake", "Why It's Problematic", "Correct Approach"],
+      "rows": [
+        ["[Common error 1]", "[health impact for species]", "[solution]"],
+        ["[Common error 2]", "[health impact for species]", "[solution]"],
+        ["[Common error 3]", "[health impact for species]", "[solution]"],
+        ["[Common error 4]", "[health impact for species]", "[solution]"],
+        ["[Common error 5]", "[health impact for species]", "[solution]"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Water Quality Standards"
+    },
+    {
+      "type": "text",
+      "content": "[Water source selection and treatment importance for this species]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Water Source Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Water Source", "Suitability", "Treatment Needed", "Notes"],
+      "rows": [
+        ["Tap water (chlorinated)", "[suitability]", "[dechlorination required]", "[considerations]"],
+        ["Spring water (bottled)", "[suitability]", "[ready to use]", "[considerations]"],
+        ["Distilled water", "[suitability]", "[mineral addition may be needed]", "[considerations]"],
+        ["RO (reverse osmosis)", "[suitability]", "[remineralization if needed]", "[considerations]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Recommendation: [preferred water source for species], avoidance of contaminants, safety for sensitive species]"
+    },
+    {
+      "type": "section",
+      "title": "Complete Equipment Checklist"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Essential Hydration Equipment:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Equipment", "Specification", "Quantity"],
+      "rows": [
+        ["[Primary water source - e.g., dish]", "[size/material specs]", "[quantity]"],
+        ["[Secondary method - e.g., mister]", "[specs]", "[quantity]"],
+        ["[Water treatment]", "[dechlorinator type]", "[quantity]"],
+        ["[Monitoring tools]", "[hygrometer, thermometer]", "[quantity]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Integration with humidity management: hydration methods affect enclosure humidity, coordinate with humidity targets for species]"
+    }
+  ]
+}

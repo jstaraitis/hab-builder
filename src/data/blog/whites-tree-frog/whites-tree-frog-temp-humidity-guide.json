@@ -1,5 +1,5 @@
 {
-  "id": "temp-humidity-guide",
+  "id": "whites-tree-frog-temp-humidity-guide",
   "title": "Temperature & Humidity Control for White's Tree Frogs",
   "author": "Habitat Builder Team",
   "date": "2026-01-20",
@@ -28,7 +28,8 @@
         },
         {
           "type": "warning",
-          "text": "⚠️ COMMON MISTAKE: Keeping humidity above 50% promotes bacterial blooms, respiratory infections, and mold. White's Tree Frogs thrive in warm, DRY Australian conditions. Do NOT use misters, foggers, manual misting unless required."
+          "severity": "important",
+          "content": "⚠️ COMMON MISTAKE: Keeping humidity above 50% promotes bacterial blooms, respiratory infections, and mold. White's Tree Frogs thrive in warm, DRY Australian conditions. Do NOT use misters, foggers, manual misting unless required."
         }
       ]
     },
@@ -68,7 +69,7 @@
         },
         {
           "type": "highlight",
-          "text": "The Golden Rule: If your room has 40–50% humidity and the enclosure has a screen top with a water dish, you're done. No misting needed. Your frogs are happier in a dry setup than a humid one."
+          "content": "The Golden Rule: If your room has 40–50% humidity and the enclosure has a screen top with a water dish, you're done. No misting needed. Your frogs are happier in a dry setup than a humid one."
         }
       ]
     },

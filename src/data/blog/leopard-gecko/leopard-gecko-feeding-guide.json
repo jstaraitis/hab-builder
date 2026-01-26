@@ -1,0 +1,322 @@
+﻿{
+  "id": "leopard-gecko-feeding-guide",
+  "title": "Leopard Gecko Feeding Guide: Complete Insectivore Diet & Supplementation",
+  "description": "Evidence-based feeding guide for leopard geckos covering live insect diet, age-based feeding schedules, portion sizing, calcium/multivitamin supplementation, gut-loading, and body condition assessment.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-26",
+  "category": "Care Guides",
+  "tags": ["leopard-gecko", "feeding", "diet", "insects", "supplementation"],
+  "image": "/animals/leopard-gecko/leopard-gecko-feeding.jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Complete Insectivore Diet for Leopard Geckos",
+      "content": "Leopard geckos are obligate insectivores, requiring a diet of live, moving insects to trigger hunting behaviors and provide complete nutrition. Unlike crested geckos, they cannot survive on prepared powdered diets—they must eat whole insects. Proper feeding encompasses more than just offering bugs: it requires age-appropriate schedules, calcium supplementation to prevent metabolic bone disease, gut-loading feeder insects for optimal nutrition, and portion control to maintain healthy body condition. This guide provides evidence-based feeding protocols for all life stages."
+    },
+    {
+      "type": "section",
+      "title": "Dietary Requirements"
+    },
+    {
+      "type": "text",
+      "content": "Leopard geckos hunt live insects in the wild, consuming beetles, crickets, and other invertebrates. Captive diet must replicate this nutritional profile."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Primary Feeder Insects (Ranked by Nutritional Value):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Insect", "Calcium:Phosphorus", "Protein", "Fat", "Best Use"],
+      "rows": [
+        ["Dubia Roaches", "1:3", "High (36%)", "Moderate (7%)", "Staple feeder—best Ca:P ratio, low chitin, nutrient-dense"],
+        ["Crickets (Acheta domesticus)", "1:9", "Moderate (21%)", "Low (6%)", "Staple feeder—readily available, good activity level"],
+        ["Black Soldier Fly Larvae (BSFL)", "1.5:1", "High (40%)", "Moderate (29%)", "Supplemental—excellent calcium source, soft-bodied"],
+        ["Mealworms (Tenebrio molitor)", "1:18", "Moderate (20%)", "High (13%)", "Supplemental—poor Ca:P, high chitin, use sparingly"],
+        ["Superworms (Zophobas morio)", "1:18", "High (20%)", "Very High (17%)", "Treats only—high fat, aggressive (can bite gecko)"],
+        ["Hornworms (Manduca sexta)", "1:3", "Low (9%)", "Low (3%)", "Treats/hydration—85% moisture, rapid growth requires frequent feeding"],
+        ["Silkworms (Bombyx mori)", "1:2", "High (64%)", "Low (10%)", "Supplemental—excellent nutrition, expensive, limited availability"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Do NOT feed: Wild-caught insects (pesticide risk), fireflies/lightning bugs (FATAL—contain lucibufagin toxin), king mealworms (aggressive), waxworms as staple (extremely high fat 22%), or freeze-dried insects as sole diet (leopard geckos rarely recognize non-moving food)."
+    },
+    {
+      "type": "section",
+      "title": "Age-Based Feeding Schedules"
+    },
+    {
+      "type": "text",
+      "content": "Feeding frequency and insect size change dramatically throughout a leopard gecko's life. Overfeeding juveniles stunts growth; overfeeding adults causes obesity."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Life Stage Feeding Guidelines:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Age/Life Stage", "Frequency", "Insect Size", "Quantity", "Supplementation"],
+      "rows": [
+        ["Hatchling (0-2 months)", "Daily", "1/4\" or smaller (1-week crickets, small dubia nymphs)", "2 insects per 1\" of gecko length", "Calcium + D3 at every feeding OR Repashy Calcium Plus daily"],
+        ["Juvenile (2-8 months)", "Daily or every other day", "3/8\" insects (2-week crickets, medium dubia)", "2 insects per 1\" length OR 15 minutes feeding", "Calcium + D3 every other feeding, multivitamin 1x/week"],
+        ["Sub-adult (8-12 months)", "Every 2-3 days", "1/2\" insects (3-week crickets, large dubia)", "2 insects per 1\" OR until satiated (10-15 min)", "Plain calcium 2-3x/week, calcium + D3 1x/week, multivitamin 1x/week"],
+        ["Adult (12+ months, 55g+)", "Every 3-4 days", "1/2-3/4\" insects (adult crickets, adult dubia)", "2 insects per 1\" OR 6-10 insects per feeding", "Plain calcium 1-2x/week, calcium + D3 1x/week, multivitamin 1x/week"],
+        ["Breeding Female (gravid)", "Every other day", "1/2-3/4\" insects", "Unlimited (calcium demand increases)", "Calcium + D3 at EVERY feeding, multivitamin 2x/week"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "The '2 insects per inch of length' rule is a reliable guideline: a 7\" adult receives 14 insects per feeding (every 3-4 days). Alternatively, offer insects for 15 minutes, removing leftovers. Adjust based on body condition—ribs visible = underfed, fat bulges at tail base/armpits = overfed."
+    },
+    {
+      "type": "section",
+      "title": "Portion Sizing & Insect Dimensions"
+    },
+    {
+      "type": "text",
+      "content": "Insect size relative to gecko size affects safety and digestion. The 'space between eyes' rule prevents choking/impaction."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Insect Size Limits by Gecko Size:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Gecko Length", "Max Insect Length", "Appropriate Feeders"],
+      "rows": [
+        ["2-3\" (hatchling)", "1/4\" (3-4mm)", "1-week crickets, small dubia nymphs, fruit fly pupae"],
+        ["3-5\" (juvenile)", "3/8\" (9mm)", "2-3 week crickets, medium dubia nymphs, small BSFL"],
+        ["5-7\" (sub-adult)", "1/2\" (12mm)", "3-4 week crickets, large dubia nymphs, mealworms"],
+        ["7-10\" (adult)", "3/4\" (18mm)", "Adult crickets, adult dubia, superworms (head removed), hornworms"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Insects wider than the space between the gecko's eyes can cause choking or impaction. When in doubt, size down. Smaller insects = safer, even if you need to offer more. Superworms can bite—remove head or use only for large adults."
+    },
+    {
+      "type": "section",
+      "title": "Calcium & Vitamin Supplementation"
+    },
+    {
+      "type": "text",
+      "content": "Feeder insects are calcium-deficient and require supplementation to prevent metabolic bone disease (MBD). With UVB lighting, reduce D3 supplementation; without UVB, increase D3 frequency."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Supplementation Schedule WITH UVB Lighting:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Supplement Type", "Product Examples", "Frequency", "Purpose"],
+      "rows": [
+        ["Calcium WITHOUT D3", "Rep-Cal Calcium (no D3), Zoo Med ReptiCalcium", "2-3x per week (adults), every other feeding (juveniles)", "Primary calcium source, UVB synthesizes D3 naturally"],
+        ["Calcium WITH D3", "Rep-Cal with D3, Zoo Med ReptiCalcium with D3", "1x per week", "Backup D3 source for low UVB days"],
+        ["Multivitamin", "Zoo Med Reptivite (without D3), Arcadia EarthPro-A", "1x per week", "Vitamin A, E, B-complex for immune function, eye health"],
+        ["All-in-One (alternative)", "Repashy Calcium Plus LoD (low D3)", "Every other feeding", "Contains calcium + D3 + vitamins (simplifies schedule)"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Supplementation Schedule WITHOUT UVB Lighting:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Supplement Type", "Frequency", "Purpose"],
+      "rows": [
+        ["Calcium WITH D3", "Every feeding (juveniles), 2-3x per week (adults)", "Primary calcium + dietary D3 source"],
+        ["Multivitamin", "1x per week", "Vitamin A, E, B-complex"],
+        ["All-in-One (alternative)", "Repashy Calcium Plus (regular strength)", "Every other feeding", "Simplifies schedule—contains higher D3 for non-UVB setups"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "All-in-one supplements (Repashy Calcium Plus LoD with UVB, Calcium Plus without UVB) simplify schedules dramatically. Use 'LoD' (low D3) version if providing UVB lighting, regular strength if no UVB. Apply via 'shake and bake' method: place insects in bag/cup with powder, shake gently."
+    },
+    {
+      "type": "section",
+      "title": "Gut-Loading Feeder Insects"
+    },
+    {
+      "type": "text",
+      "content": "Insects are nutritionally poor unless fed high-quality diet before feeding to geckos. Gut-loading transfers nutrients from insect gut to gecko."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Gut-Loading Protocol:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Gut-Load Component", "Examples", "Purpose", "Feeding Method"],
+      "rows": [
+        ["Commercial gut-load powder", "Repashy Superload, Cricket Crack, Fluker's High Calcium", "Balanced calcium, protein, vitamins", "Mix with water to form paste, offer 24-48 hrs before feeding"],
+        ["Leafy greens (calcium-rich)", "Collard greens, mustard greens, turnip greens", "Calcium, vitamin A, fiber", "Fresh daily in insect bin"],
+        ["Vegetables", "Squash, carrots, sweet potato", "Beta-carotene (vitamin A precursor), moisture", "Chopped small, offer 24 hrs before feeding"],
+        ["Grains", "Oats, wheat bran", "Carbohydrates for insect health", "Always available in insect bin"],
+        ["Water source", "Water gel crystals, wet sponge, moisture-rich veggies", "Hydration for insects", "Always available (prevents drowning)"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "Do NOT gut-load with: iceberg lettuce (no nutrition), spinach (oxalates bind calcium), cabbage (goitrogens), or dog/cat food (too high protein, causes uric acid buildup in geckos). Focus on calcium-rich greens and commercial gut-load products."
+    },
+    {
+      "type": "section",
+      "title": "Feeding Methods"
+    },
+    {
+      "type": "text",
+      "content": "Feeding techniques affect stress levels, hunting behavior, and insect escapees. Different methods suit different keeper preferences."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Feeding Method Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Method", "Pros", "Cons", "Best For"],
+      "rows": [
+        ["Dish/Bowl Feeding", "Contains insects, reduces escapees, easy portion control", "Limits hunting behavior, some insects (mealworms) may escape", "Dubia roaches, mealworms, BSFL (less active insects)"],
+        ["Free-Roaming (release in enclosure)", "Natural hunting, enrichment, exercise", "Escapees hide in enclosure, crickets may bite gecko at night", "Well-established adults in bioactive setups only"],
+        ["Tong-Feeding", "Ensures gecko eats, good for picky eaters, training opportunity", "Time-consuming, gecko may develop dependence", "Juveniles, new geckos adjusting to captivity, sick geckos"],
+        ["Feeding Container (separate tub)", "No substrate ingestion risk, controls portions, easy cleanup", "Extra handling (stress for some geckos)", "Geckos on sand/loose substrate, very young juveniles"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Recommended for most keepers: Shallow dish (2-3\" diameter, 1\" high) for less active insects (dubia, mealworms), free-roaming for crickets in well-sealed enclosures. Remove uneaten crickets after 15 minutes to prevent nighttime biting of gecko."
+    },
+    {
+      "type": "section",
+      "title": "Body Condition Assessment"
+    },
+    {
+      "type": "text",
+      "content": "Leopard geckos store fat in tails, but obesity affects joints and organs. Use visual and tactile cues to assess health."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Body Condition Scoring (1-5 Scale):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Score", "Visual Indicators", "Palpation", "Action"],
+      "rows": [
+        ["1 - Severely Underweight", "Ribs, spine, hips clearly visible, tail thin and 'stick-like', sunken eyes", "Bones easily felt with no muscle/fat covering", "EMERGENCY: Vet visit required, increase feeding to daily, rule out parasites"],
+        ["2 - Underweight", "Ribs and spine faintly visible, tail narrow but not stick-like", "Bones felt with minimal tissue covering", "Increase feeding frequency (daily for adults, 2x daily for juveniles)"],
+        ["3 - Ideal", "Body smooth, no bones visible except slight hip bones, tail plump (carrot-shaped)", "Bones felt with gentle pressure, good muscle tone", "Maintain current feeding schedule"],
+        ["4 - Overweight", "Rounded body, fat deposits in 'armpits', tail very thick (wider than head)", "No bones felt without firm pressure, thick fat layer", "Reduce feeding frequency (every 5-6 days), smaller portions"],
+        ["5 - Obese", "Bulging fat rolls, difficulty walking, tail massive (2x head width), fat 'bubbles' at base of tail", "No bones felt, excessive fat deposits", "VET VISIT: Risk of fatty liver disease, reduce to weekly feeding, offer low-fat insects only (crickets, dubia)"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Tail loss resets body condition—regrown tails store less fat and look different (bulbous, shorter). Assess body condition using torso thickness, not just tail. Breeding females lose weight rapidly during egg production—score 2-3 is normal after laying."
+    },
+    {
+      "type": "section",
+      "title": "Special Dietary Considerations"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Life Stage/Condition Adjustments:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Situation", "Dietary Adjustment", "Duration"],
+      "rows": [
+        ["Breeding Female (pre-lay)", "Unlimited food, calcium + D3 at every feeding", "2 weeks before laying through egg-laying"],
+        ["Post-Lay Recovery", "High-fat insects (hornworms, waxworms), extra calcium", "1-2 weeks after laying"],
+        ["Shedding", "Normal diet, ensure hydration (humid hide access)", "No change—appetite may decrease 1-2 days before shed"],
+        ["Brumation (winter cooling)", "Gradually reduce feeding to weekly, then stop", "2-3 months (December-February)"],
+        ["Post-Brumation", "Resume feeding slowly—every 3-4 days for 1 week, then normal", "2 weeks transition period"],
+        ["Sick/Recovering from MBD", "Liquid calcium (oral), slurry diet via syringe if not eating, vet guidance", "Until recovery (weeks to months)"],
+        ["Picky Eater (refusing food)", "Offer variety (try dubia instead of crickets), tong-feed, ensure temps 94-97°F", "Adjust as needed—rule out illness first"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Common Feeding Problems"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Troubleshooting Feeding Issues:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Possible Causes", "Solutions"],
+      "rows": [
+        ["Refuses to eat (>1 week)", "Temps too low (<85°F), stress, impaction, parasites, brumation", "Check basking 94-97°F, reduce handling, palpate for impaction, fecal test, allow brumation if winter"],
+        ["Regurgitation after feeding", "Insects too large, temps too low, handling after feeding", "Size down insects, ensure basking 94-97°F, wait 24 hrs after feeding to handle"],
+        ["Dropping tail during feeding", "Stress, overly aggressive prey (superworm biting gecko)", "Use feeding tongs, avoid superworms, reduce handling, ensure gecko feels secure"],
+        ["MBD symptoms (tremors, jaw deformity)", "Insufficient calcium supplementation, no UVB, all-mealworm diet", "Vet visit immediately, increase calcium + D3 to every feeding, add UVB, switch to dubia/crickets"],
+        ["Obesity (score 4-5)", "Overfeeding frequency, too many high-fat insects (superworms, waxworms)", "Reduce to weekly feeding, crickets/dubia only, increase enclosure size for exercise"],
+        ["Impaction", "Substrate ingestion (loose substrate + low temps), insect too large", "Vet visit, warm soaks, switch to tile substrate temporarily, ensure 94-97°F basking"],
+        ["Insects escaping dish", "Dish too shallow, crickets jumping", "Use 2-3\" high dish, smooth interior (glass/ceramic), remove escapees to prevent night biting"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Loss of appetite >2 weeks is NEVER normal (except during brumation). Rule out: low temperatures (<85°F basking), impaction (palpate abdomen), parasites (fecal test), husbandry stress (insufficient hides, no humid hide). If temps and husbandry are correct, vet visit required."
+    },
+    {
+      "type": "section",
+      "title": "Complete Feeding Supply Checklist"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Essential Equipment & Supplies:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Item", "Specification", "Purpose"],
+      "rows": [
+        ["Feeder Insects", "Dubia roaches (primary) + crickets (variety)", "Live prey, staple diet"],
+        ["Calcium WITHOUT D3", "Rep-Cal or Zoo Med (phosphorus-free)", "Primary calcium source with UVB (2-3x/week adults)"],
+        ["Calcium WITH D3", "Rep-Cal with D3 or Zoo Med with D3", "Backup D3 source with UVB (1x/week) OR primary without UVB (2-3x/week)"],
+        ["Multivitamin", "Zoo Med Reptivite without D3 OR Arcadia EarthPro-A", "Vitamin A/E/B-complex (1x/week)"],
+        ["All-in-One (alternative)", "Repashy Calcium Plus LoD (with UVB) OR Calcium Plus (no UVB)", "Simplifies schedule—contains calcium + D3 + vitamins"],
+        ["Gut-Load Powder", "Repashy Superload or Cricket Crack", "Nutrient boost for insects 24-48 hrs before feeding"],
+        ["Feeding Dish", "2-3\" diameter shallow ceramic dish", "Contains less active insects (dubia, mealworms)"],
+        ["Feeding Tongs", "8-10\" stainless steel", "Hand-feeding, training, prevents finger bites"],
+        ["Insect Storage Bin", "10-20 gallon tub with ventilation", "Houses feeder insect colony"],
+        ["Water Crystals (for insects)", "Fluker's Cricket Quencher or similar", "Hydrates insects without drowning risk"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Monthly feeding cost estimate: $15-25 for adult gecko (dubia roaches or crickets), $5-10 for supplements (lasts 6-12 months). Buying feeder insects in bulk (500-1000 count) significantly reduces cost. Consider breeding dubia roaches if keeping multiple geckos."
+    },
+    {
+      "type": "section",
+      "title": "Feeding Schedule Quick Reference"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Adult Leopard Gecko Weekly Feeding Schedule (WITH UVB):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Day", "Action", "Supplements"],
+      "rows": [
+        ["Monday", "Feed 6-10 adult dubia OR crickets", "Calcium WITHOUT D3"],
+        ["Tuesday", "No feeding (digestion day)", "—"],
+        ["Wednesday", "No feeding", "—"],
+        ["Thursday", "Feed 6-10 insects", "Plain calcium WITHOUT D3"],
+        ["Friday", "No feeding", "—"],
+        ["Saturday", "No feeding", "—"],
+        ["Sunday", "Feed 6-10 insects", "Multivitamin (Zoo Med Reptivite) OR Calcium WITH D3 (alternate weekly)"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "Feeding happens every 3-4 days (Monday, Thursday, Sunday pattern). Rotate supplement types. With UVB, use plain calcium most often; without UVB, use calcium + D3 instead of plain calcium."
+    }
+  ]
+}

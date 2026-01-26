@@ -1,5 +1,5 @@
 {
-  "id": "uvb-lighting-guide",
+  "id": "whites-tree-frog-uvb-lighting-guide",
   "title": "UVB Lighting & Photoperiod for White's Tree Frogs",
   "author": "Habitat Builder Team",
   "date": "2026-01-20",
@@ -28,7 +28,8 @@
         },
         {
           "type": "warning",
-          "text": "⚠️ UVB fixtures must ALWAYS be mounted outside the enclosure, above the mesh screen. Never place UVB bulbs inside the tank—burn risk and improper exposure."
+          "severity": "important",
+          "content": "⚠️ UVB fixtures must ALWAYS be mounted outside the enclosure, above the mesh screen. Never place UVB bulbs inside the tank—burn risk and improper exposure."
         }
       ]
     },
@@ -47,7 +48,7 @@
         },
         {
           "type": "highlight",
-          "text": "Aim for UVI 0.5-1.0 at the highest perch. Check with a Solarmeter 6.5 if available."
+          "content": "Aim for UVI 0.5-1.0 at the highest perch. Check with a Solarmeter 6.5 if available."
         }
       ]
     },
@@ -84,7 +85,7 @@
         },
         {
           "type": "highlight",
-          "text": "💡 UVB bulbs lose output long before they stop producing visible light. Replace on schedule to maintain proper vitamin D3 synthesis."
+          "content": "💡 UVB bulbs lose output long before they stop producing visible light. Replace on schedule to maintain proper vitamin D3 synthesis."
         }
       ]
     },
@@ -104,7 +105,7 @@
         },
         {
           "type": "highlight",
-          "text": "Consistency matters more than the exact hour count. Pick a schedule and stick to it—White's thrive on routine."
+          "content": "Consistency matters more than the exact hour count. Pick a schedule and stick to it—White's thrive on routine."
         }
       ]
     },
@@ -133,7 +134,8 @@
       "content": [
         {
           "type": "warning",
-          "text": "Critical Safety Rules:\n• Never place UVB bulbs inside the enclosure\n• Keep perches 4+ inches from bare bulbs—burn risk\n• No glass between bulb and frogs—blocks UVB\n• Replace bulbs on schedule even if still producing light"
+          "severity": "important",
+          "content": "Critical Safety Rules:\n• Never place UVB bulbs inside the enclosure\n• Keep perches 4+ inches from bare bulbs—burn risk\n• No glass between bulb and frogs—blocks UVB\n• Replace bulbs on schedule even if still producing light"
         }
       ]
     }

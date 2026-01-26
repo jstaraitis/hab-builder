@@ -1,0 +1,219 @@
+﻿{
+  "id": "[SPECIES-ID]-enclosure-setup-guide",
+  "title": "[Species Name] Enclosure Setup: Size, Layout & Equipment Guide",
+  "description": "Complete guide to setting up a [species name] enclosure including minimum size requirements, enclosure types, layout design, and essential equipment checklist.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-26",
+  "category": "Care Guides",
+  "tags": ["[species-common-name]", "enclosure", "setup", "habitat", "[scientific-name]"],
+  "image": "/animals/[species-folder]/[species-image].jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Essential Enclosure Requirements for [Species Name]",
+      "content": "[Brief overview of species habitat needs, emphasizing importance of proper enclosure setup. Mention natural habitat context (arboreal/terrestrial/fossorial, climate conditions).]"
+    },
+    {
+      "type": "section",
+      "title": "Minimum Enclosure Dimensions"
+    },
+    {
+      "type": "text",
+      "content": "[Describe species space requirements: arboreal = vertical emphasis, terrestrial = horizontal emphasis, fossorial = substrate depth. Explain why size matters for this species.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Size Requirements by Life Stage:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Life Stage", "Minimum Dimensions (L×W×H)", "Floor Space", "Notes"],
+      "rows": [
+        ["Hatchling/Baby", "[dimensions]", "[sq ft]", "[special considerations]"],
+        ["Juvenile", "[dimensions]", "[sq ft]", "[growth milestones]"],
+        ["Adult", "[dimensions]", "[sq ft]", "[final size requirements]"],
+        ["Large Adult (if applicable)", "[dimensions]", "[sq ft]", "[oversized specimens]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Species-specific size warning: minimum acceptable, why undersizing is harmful, common mistakes to avoid]"
+    },
+    {
+      "type": "section",
+      "title": "Enclosure Type Selection"
+    },
+    {
+      "type": "text",
+      "content": "[Explain material considerations for this species: humidity needs, temperature retention, ventilation requirements, viewing access.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Material Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Material", "Temperature Control", "Humidity Management", "Best Application"],
+      "rows": [
+        ["Glass (front-opening)", "[temp rating]", "[humidity rating]", "[when to use]"],
+        ["PVC (custom)", "[temp rating]", "[humidity rating]", "[when to use]"],
+        ["Screen/mesh", "[temp rating]", "[humidity rating]", "[when to use]"],
+        ["Wood (sealed)", "[temp rating]", "[humidity rating]", "[when to use]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Recommended setup for this species: specific enclosure type, ventilation percentage, special features needed]"
+    },
+    {
+      "type": "section",
+      "title": "Internal Layout Design"
+    },
+    {
+      "type": "text",
+      "content": "[Describe species-specific layout needs: thermal gradient requirements, climbing structures for arboreal, hides for terrestrial, substrate depth for fossorial, etc.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Zone Layout Template ([dimensions] enclosure):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Zone", "Location", "Temperature", "Features"],
+      "rows": [
+        ["Basking/warm zone", "[placement]", "[temp]", "[equipment, surfaces]"],
+        ["Mid-range zone", "[placement]", "[temp]", "[transition features]"],
+        ["Cool zone", "[placement]", "[temp]", "[retreats, water]"],
+        ["[Species-specific zone]", "[placement]", "[temp]", "[unique needs]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "[Layout tips specific to species behavior: thermoregulation patterns, activity zones, common placement errors]"
+    },
+    {
+      "type": "section",
+      "title": "Essential Equipment Checklist"
+    },
+    {
+      "type": "text",
+      "content": "[Brief intro to equipment needs, emphasizing species-specific requirements]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Required Equipment:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Equipment Category", "Specific Items", "Purpose"],
+      "rows": [
+        ["Heating", "[heat source, wattage, controller]", "[target temperatures]"],
+        ["UVB Lighting", "[bulb type, strength, fixture]", "[UVI target, Ferguson Zone]"],
+        ["Full-Spectrum Lighting", "[visible light source]", "[behavioral health, plants]"],
+        ["Substrate", "[material, depth]", "[safety, behaviors]"],
+        ["Climbing/Hides", "[species-appropriate structures]", "[enrichment, security]"],
+        ["Water Features", "[dish, mister, fogger as needed]", "[hydration method]"],
+        ["Monitoring", "[thermometers, hygrometer]", "[parameter verification]"],
+        ["Automation", "[timers, thermostats]", "[consistency, safety]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Safety note about equipment: thermostats, proper wattage, placement distances, species-specific hazards]"
+    },
+    {
+      "type": "section",
+      "title": "Substrate Selection"
+    },
+    {
+      "type": "text",
+      "content": "[Overview of substrate importance for this species: humidity retention for tropical, drainage for arid, depth for burrowers, etc.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Substrate Options:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Substrate Type", "Maintenance Level", "Enrichment Value", "Best For"],
+      "rows": [
+        ["[Option 1]", "[maintenance]", "[enrichment rating]", "[use case]"],
+        ["[Option 2]", "[maintenance]", "[enrichment rating]", "[use case]"],
+        ["[Option 3]", "[maintenance]", "[enrichment rating]", "[use case]"],
+        ["[Bioactive option]", "[maintenance]", "[enrichment rating]", "[advanced setups]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Substrates to avoid for this species and why: impaction risks, humidity issues, ingestion hazards]"
+    },
+    {
+      "type": "section",
+      "title": "Decor & Enrichment Placement"
+    },
+    {
+      "type": "text",
+      "content": "[Species-specific decor needs: arboreal species need branches, terrestrial need ground-level structures, etc.]"
+    },
+    {
+      "type": "table",
+      "headers": ["Decor Type", "Quantity", "Placement Guidelines"],
+      "rows": [
+        ["[Primary structure]", "[quantity]", "[positioning details]"],
+        ["[Hide caves]", "[quantity]", "[thermal zone distribution]"],
+        ["[Climbing features]", "[quantity]", "[orientation, stability]"],
+        ["[Plants/foliage]", "[quantity]", "[placement, species selection]"],
+        ["[Water features]", "[quantity]", "[location, depth, safety]"],
+        ["[Food dishes]", "[quantity]", "[height, stability, placement]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Stability and safety notes: weight limits, anchoring methods, species-specific hazards]"
+    },
+    {
+      "type": "section",
+      "title": "Common Setup Errors"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Frequent Mistakes and Solutions:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Error", "Consequence", "Correction"],
+      "rows": [
+        ["[Common mistake 1]", "[health impact]", "[how to fix]"],
+        ["[Common mistake 2]", "[health impact]", "[how to fix]"],
+        ["[Common mistake 3]", "[health impact]", "[how to fix]"],
+        ["[Common mistake 4]", "[health impact]", "[how to fix]"],
+        ["[Common mistake 5]", "[health impact]", "[how to fix]"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Setup Timeline & Testing"
+    },
+    {
+      "type": "text",
+      "content": "[Recommend testing period before introducing animals, species-specific concerns during acclimation]"
+    },
+    {
+      "type": "table",
+      "headers": ["Day", "Task", "Success Criteria"],
+      "rows": [
+        ["1-2", "Install equipment, test systems", "[verification checklist]"],
+        ["3-4", "Monitor parameters across zones", "[target ranges]"],
+        ["5-6", "Verify UVB, humidity, substrate temps", "[measurement protocols]"],
+        ["7", "Final checks, stability verification", "[readiness criteria]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Testing protocol notes: documentation, troubleshooting, when to introduce animals]"
+    }
+  ]
+}

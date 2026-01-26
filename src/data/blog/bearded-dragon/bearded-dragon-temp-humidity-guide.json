@@ -1,0 +1,219 @@
+﻿{
+  "id": "bearded-dragon-temp-humidity-guide",
+  "title": "Bearded Dragon Temperature & Humidity Control Guide",
+  "description": "Complete guide to maintaining proper temperature gradients and humidity levels for bearded dragons, including equipment selection, measurement protocols, and troubleshooting common issues.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-26",
+  "category": "Care Guides",
+  "tags": ["bearded dragon", "temperature", "humidity", "heating", "thermoregulation"],
+  "image": "/animals/bearded-dragon/bearded-dragon-2.jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Temperature & Humidity Requirements for Bearded Dragons",
+      "content": "Bearded dragons are ectothermic desert reptiles that require precise temperature gradients and low humidity for metabolic health. This guide provides evidence-based recommendations for thermal management based on Australian arid habitat conditions."
+    },
+    {
+      "type": "section",
+      "title": "Target Temperature Ranges"
+    },
+    {
+      "type": "text",
+      "content": "Proper thermal gradients enable behavioral thermoregulation—the ability to move between zones to maintain optimal body temperature. Multiple temperature zones are required, not a single ambient temperature."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Temperature Requirements by Zone:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Zone", "Temperature Range", "Measurement Point", "Purpose"],
+      "rows": [
+        ["Basking surface", "100-110°F", "Surface temp (infrared gun)", "Digestion, metabolic activity"],
+        ["Basking ambient", "95-100°F", "Air temp 6\\\" above surface", "Warm zone activity"],
+        ["Warm side ambient", "85-90°F", "Mid-enclosure, warm end", "General activity zone"],
+        ["Cool side ambient", "75-80°F", "Opposite end from heat", "Thermoregulation, retreat"],
+        ["Nighttime drop", "65-75°F", "All zones", "Natural circadian cycle"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Critical Requirement: Basking surface temperature of 100-110°F is NON-NEGOTIABLE for proper digestion. Temperatures below 95°F cause food to rot in the digestive tract, leading to impaction and bacterial overgrowth."
+    },
+    {
+      "type": "section",
+      "title": "Heating Equipment Selection"
+    },
+    {
+      "type": "text",
+      "content": "Heat source selection affects light spectrum quality, thermal penetration depth, and safety. Halogen bulbs provide the most naturalistic solar-quality heat with visible light output."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Heat Source Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Heat Source", "Wattage Range", "Light Output", "Best Application"],
+      "rows": [
+        ["Halogen flood (PAR38)", "50-100W", "Bright white (solar-spectrum)", "Primary daytime basking (recommended)"],
+        ["Deep heat projector", "50-80W", "None (infrared-A)", "Secondary heat, nighttime if needed"],
+        ["Ceramic heat emitter", "75-150W", "None (no light)", "Nighttime heating only if required"],
+        ["Heat mat/tape", "Various", "None", "NOT recommended (no basking spot)"],
+        ["Mercury vapor bulb", "100-160W", "Bright + UVB", "Avoided (difficult to control, short lifespan)"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Recommended Setup: 75-100W halogen flood for primary basking + optional deep heat projector for ambient warmth. Thermostat-controlled for safety and temperature regulation."
+    },
+    {
+      "type": "section",
+      "title": "Thermostat Configuration"
+    },
+    {
+      "type": "text",
+      "content": "Thermostatic control prevents thermal burns and lethal overheating. Unregulated heat sources are a leading cause of reptile mortality."
+    },
+    {
+      "type": "table",
+      "headers": ["Thermostat Type", "Control Method", "Best For"],
+      "rows": [
+        ["Dimming thermostat", "Reduces power gradually", "Halogen bulbs, deep heat projectors"],
+        ["On/off thermostat", "Binary switching", "Ceramic heat emitters only"],
+        ["Pulse-proportional", "Rapid on/off cycling", "Ceramic heat emitters, heat mats"],
+        ["Rheostat/dimmer", "Manual power reduction", "NOT recommended (no automatic control)"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Probe Placement:</strong> Position thermostat probe at basking surface level, 2-3 inches from center of basking spot. Set target temperature 5-10°F below desired surface temp to account for radiant heat. Verify with infrared thermometer."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Safety Critical: NEVER operate heat sources without thermostatic control. A failed bulb or malpositioned fixture can create lethal hot spots exceeding 150°F within minutes."
+    },
+    {
+      "type": "section",
+      "title": "Temperature Measurement Protocol"
+    },
+    {
+      "type": "text",
+      "content": "Accurate temperature measurement requires multiple tools and measurement points. Single thermometers provide insufficient data for proper thermal gradient verification."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Measurement Equipment:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Tool", "Purpose", "Usage"],
+      "rows": [
+        ["Infrared temperature gun", "Surface temperature verification", "Measure basking rock, substrate, decor surfaces"],
+        ["Digital probe thermometer", "Ambient air temperature", "Place at basking height on warm side"],
+        ["Second digital probe", "Cool side monitoring", "Place at mid-height on cool end"],
+        ["Analog stick-on thermometers", "General reference only", "Notoriously inaccurate—do not rely on these"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Best Practice: Check temperatures at 3 points daily: basking surface (infrared gun), warm side ambient (probe), cool side ambient (probe). Record in log for 1-2 weeks after setup to identify fluctuations."
+    },
+    {
+      "type": "section",
+      "title": "Humidity Requirements"
+    },
+    {
+      "type": "text",
+      "content": "Bearded dragons are desert species requiring LOW humidity. Excessive humidity causes respiratory infections, skin infections, and bacterial overgrowth."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Humidity Targets:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Time Period", "Target Range", "Notes"],
+      "rows": [
+        ["Daytime", "20-40%", "Normal room humidity usually sufficient"],
+        ["Nighttime", "30-40%", "Slight increase acceptable"],
+        ["During shedding", "35-45%", "Brief increase only during active shed"],
+        ["AVOID", ">50% sustained", "Respiratory infection risk increases dramatically"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Common Mistake: Many keepers over-humidify bearded dragon enclosures. These are DESERT animals. No misting required. A water dish is optional and often not needed. High humidity is harmful, not beneficial."
+    },
+    {
+      "type": "section",
+      "title": "Seasonal & Life Stage Adjustments"
+    },
+    {
+      "type": "text",
+      "content": "Temperature requirements vary slightly by age and brumation status. Adult dragons may brumate (winter dormancy) with temperature reductions."
+    },
+    {
+      "type": "table",
+      "headers": ["Life Stage/Season", "Basking Temp", "Ambient Adjustment", "Notes"],
+      "rows": [
+        ["Hatchling (0-6 months)", "105-110°F", "Warmer basking preferred", "Higher metabolism, more heat needed"],
+        ["Juvenile (6-12 months)", "100-110°F", "Standard gradient", "Peak growth period"],
+        ["Adult (12+ months)", "100-110°F", "Standard gradient", "Maintain consistent temps"],
+        ["Brumation (optional)", "50-65°F", "Gradual reduction over 2 weeks", "Natural winter dormancy, 8-12 weeks"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Brumation Note: Not required for pet dragons. Only attempt with healthy adults after veterinary consultation. Juveniles and sick animals should NEVER brumate."
+    },
+    {
+      "type": "section",
+      "title": "Troubleshooting Common Issues"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Temperature Problems & Solutions:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Cause", "Solution"],
+      "rows": [
+        ["Basking spot <100°F", "Bulb too far, insufficient wattage", "Lower bulb 2-3\\\" or increase wattage"],
+        ["Basking spot >115°F", "Bulb too close, excessive wattage", "Raise bulb or decrease wattage, add thermostat"],
+        ["No thermal gradient", "Heat source centered", "Move heat to one end only, ensure cool retreat"],
+        ["Cool side >85°F", "Insufficient ventilation, oversized heat", "Add ventilation, reduce heat source wattage"],
+        ["Nighttime too warm (>80°F)", "Room temperature high, heat not turning off", "Ensure heat sources turn off at night, increase ventilation"],
+        ["Temperature fluctuates wildly", "No thermostat, drafts", "Install dimming thermostat, seal drafts"],
+        ["Heat source failing prematurely", "No thermostat causing overheating", "Replace bulb, install thermostat immediately"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Emergency Temperature Management"
+    },
+    {
+      "type": "text",
+      "content": "Equipment failures and power outages require contingency plans. Bearded dragons can tolerate temporary temperature drops better than overheating."
+    },
+    {
+      "type": "table",
+      "headers": ["Emergency Scenario", "Immediate Action", "Safe Duration"],
+      "rows": [
+        ["Power outage (cold)", "Wrap enclosure with blankets, use heat packs (external)", "24-48 hours if room temp >65°F"],
+        ["Power outage (hot)", "Open enclosure, increase ventilation, cool room", "Monitor closely, risk of overheating >95°F"],
+        ["Thermostat failure", "Disconnect heat immediately, replace equipment", "Zero tolerance—immediate action required"],
+        ["Bulb burnout", "Replace with spare (keep backup bulbs)", "4-6 hours max without basking heat"],
+        ["Overheating >115°F", "Turn off heat, open enclosure, mist lightly", "Immediate—can be lethal within 30 minutes"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Emergency Preparation: Always keep spare bulbs, backup thermostat, and hand warmers on hand. Test backup equipment monthly to ensure functionality."
+    }
+  ]
+}

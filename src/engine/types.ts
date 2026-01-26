@@ -27,7 +27,8 @@ export interface EnclosureInput {
   plantPreference: 'live' | 'artificial' | 'mix';
   backgroundType: BackgroundType;
   numberOfHides: number; // 2-4 typical
-  numberOfLedges: number; // 0-6 typical
+  numberOfLedges: number; // 0-6 typical (for arboreal/vertical species)
+  numberOfClimbingAreas: number; // 0-4 typical (for terrestrial/horizontal species)
 }
 
 export interface TemperatureRange {
@@ -91,7 +92,7 @@ export interface ShoppingItem {
   name: string;
   quantity: number | string; // can be "2" or "1 bag (8 quarts)"
   sizing: string; // explanation of how quantity was calculated
-  compatibleAnimals?: string[]; // animal IDs this is applicable to (empty = all animals)
+  incompatibleAnimals?: string[]; // animal IDs this equipment cannot be used with (empty/omitted = all animals)
   importance?: 'required' | 'conditional' | 'optional'; // equipment importance level
   setupTierOptions?: {
     minimum?: { description: string; searchQuery?: string };
@@ -206,6 +207,11 @@ export interface AnimalProfile {
   notes: string[];
   setupTips?: string[]; // Optional: species-specific setup tips for enclosure building
   lifespan?: string; // Optional: e.g., "12-16 years"
+  dietType?: 'Insectivore' | 'Carnivore' | 'Omnivore' | 'Herbivore'; // Optional: primary diet type
+  adultSize?: string; // Optional: e.g., "7-10 inches", "4-6 feet"
+  temperament?: string; // Optional: e.g., "Docile and handleable", "Shy, prefers not to be handled"
+  activityPattern?: 'Diurnal' | 'Nocturnal' | 'Crepuscular' | 'Varied'; // Optional: activity time
+  originRegion?: string; // Optional: e.g., "Australia", "Southeast Asia", "Eastern United States"
   relatedBlogs?: string[]; // Optional: array of blog post IDs
   careGuidance?: CareGuidance; // Optional: species-specific care guidance
   imageUrl?: string; // Optional: main profile image URL

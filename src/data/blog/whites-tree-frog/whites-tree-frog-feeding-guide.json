@@ -1,5 +1,5 @@
 {
-  "id": "feeding-guide",
+  "id": "whites-tree-frog-feeding-guide",
   "title": "Feeding Guide for White's Tree Frogs",
   "author": "Habitat Builder Team",
   "date": "2026-01-20",
@@ -23,7 +23,7 @@
         },
         {
           "type": "highlight",
-          "text": "Feeder Sizing Guide: The feeder should be no larger than the space between your frog's eyes. Too large = choking/impaction risk."
+          "content": "Feeder Sizing Guide: The feeder should be no larger than the space between your frog's eyes. Too large = choking/impaction risk."
         },
         {
           "type": "text",
@@ -63,11 +63,13 @@
         },
         {
           "type": "warning",
-          "text": "Avoid: Fireflies (toxic), wild-caught insects (pesticides), mealworms as staple diet (impaction risk), earthworms from unknown sources (parasites)."
+          "severity": "important",
+          "content": "Avoid: Fireflies (toxic), wild-caught insects (pesticides), mealworms as staple diet (impaction risk), earthworms from unknown sources (parasites)."
         },
         {
           "type": "warning",
-          "text": "Obesity Warning: White's Tree Frogs are extremely prone to obesity. Never feed more than recommended amounts. An overweight frog will have fat deposits above the eyes and around the body. If your frog looks 'chubby', reduce portions by 30-40% immediately."
+          "severity": "important",
+          "content": "Obesity Warning: White's Tree Frogs are extremely prone to obesity. Never feed more than recommended amounts. An overweight frog will have fat deposits above the eyes and around the body. If your frog looks 'chubby', reduce portions by 30-40% immediately."
         }
       ]
     },
@@ -81,7 +83,7 @@
         },
         {
           "type": "highlight",
-          "text": "Pro Tip: Feed in complete darkness for 30-60 minutes, then remove uneaten feeders. Leftover crickets can bite sleeping frogs and cause stress."
+          "content": "Pro Tip: Feed in complete darkness for 30-60 minutes, then remove uneaten feeders. Leftover crickets can bite sleeping frogs and cause stress."
         },
         {
           "type": "text",
@@ -115,7 +117,7 @@
         },
         {
           "type": "highlight",
-          "text": "Gut-Load Recipe: carrots, sweet potato, commercial gut-load powder"
+          "content": "Gut-Load Recipe: carrots, sweet potato, commercial gut-load powder"
         }
       ]
     },
@@ -156,7 +158,8 @@
         },
         {
           "type": "warning",
-          "text": "Warning Signs: Lethargy, refusing food for 5+ days (adults), visible bones, difficulty moving, abnormal feces - consult an exotic vet immediately."
+          "severity": "important",
+          "content": "Warning Signs: Lethargy, refusing food for 5+ days (adults), visible bones, difficulty moving, abnormal feces - consult an exotic vet immediately."
         }
       ]
     },

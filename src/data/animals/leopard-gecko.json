@@ -6,7 +6,7 @@
   "careLevel": "beginner",
   "emoji": "🦎",
   "imageUrl": "/animals/leopard-gecko/leopard-gecko-1.jpg",
-  "completionStatus": "draft",
+  "completionStatus": "in-progress",
   "gallery": [
     {
       "url": "/animals/leopard-gecko/leopard-gecko-1.jpg",
@@ -14,42 +14,48 @@
     }
   ],
   "minEnclosureSize": {
-    "width": 20,
-    "depth": 10,
-    "height": 12,
+    "width": 36,
+    "depth": 18,
+    "height": 18,
     "units": "in"
   },
   "quantityRules": {
-    "baseGallons": 10,
-    "additionalGallons": 5,
-    "maxRecommended": 3,
-    "description": "Single gecko requires 10 gallons minimum (20×10×12 inches). Each additional female requires 5 more gallons. Never house males together."
+    "baseGallons": 40,
+    "additionalGallons": 10,
+    "maxRecommended": 1,
+    "description": "Single gecko requires 40 gallons minimum (36×18×18 inches). Cohabitation NOT recommended - causes stress, injuries, and breeding complications. Males are extremely aggressive and will fight to the death if housed together."
   },
   "careTargets": {
     "temperature": {
-      "min": 75,
-      "max": 85,
-      "basking": 90,
+      "min": 70,
+      "max": 77,
+      "basking": 95,
       "nighttime": {
-        "min": 68,
-        "max": 75
+        "min": 60,
+        "max": 70
       },
-      "unit": "F"
+      "unit": "F",
+      "zones": {
+        "baskingSurface": "94-97°F",
+        "warmHide": "90-92°F",
+        "coolZone": "70-77°F"
+      }
     },
     "humidity": {
       "min": 30,
       "max": 40,
-      "shedding": {
-        "min": 50,
-        "max": 60
+      "humidHide": {
+        "min": 70,
+        "max": 80
       },
       "unit": "%"
     },
     "lighting": {
-      "uvbRequired": false,
-      "uvbRecommended": false,
-      "coveragePercent": 0,
-      "photoperiod": "12h day / 12h night"
+      "uvbRequired": true,
+      "uvbRecommended": true,
+      "coveragePercent": 50,
+      "photoperiod": "12-14h light (summer), 8-10h light (winter)",
+      "uvbStrength": "5.0"
     },
     "gradient": "Horizontal thermal gradient required"
   },
@@ -57,57 +63,98 @@
     "preferVertical": false,
     "verticalSpacePercent": 20,
     "thermalGradient": "horizontal",
-    "requiredZones": ["basking", "hide", "water"],
-    "optionalZones": ["feeding"]
+    "requiredZones": ["basking", "warmHide", "coolHide", "humidHide", "water"],
+    "optionalZones": ["feeding", "climbing"]
   },
   "bioactiveCompatible": true,
   "lifespan": "10-20 years in captivity",
+  "dietType": "Insectivore",
+  "adultSize": "7-10 inches (females smaller than males)",
+  "temperament": "Calm and docile, tolerates handling well once acclimated",
+  "activityPattern": "Crepuscular",
+  "originRegion": "Afghanistan, Pakistan, India, Iran (arid grasslands)",
   "setupTips": [
-    "Provide three hides: warm side, cool side, and moist hide for shedding",
-    "Use under-tank heating pad with thermostat on warm side",
-    "Avoid loose substrates - use tile, paper towels, or reptile carpet"
+    "Three hides MANDATORY: warm hide (90-92°F), cool hide (70-77°F), humid hide (70-80% humidity)",
+    "Primary heating: 75w halogen bulb on dimming thermostat for basking (94-97°F surface temp)",
+    "Substrate: DIY arid mix (40% topsoil, 40% sand, 20% excavator clay) allows natural digging",
+    "Humid hide placement: Warm side or center, filled with damp sphagnum moss",
+    "UVB lighting recommended: Zoo Med ReptiSun 5.0 or Arcadia ShadeDweller for normal morphs"
   ],
   "notes": [
-    "Nocturnal and crepuscular - most active at dawn and dusk",
-    "Docile temperament makes them excellent for beginners",
-    "Can drop their tail when stressed (will regrow but won't look the same)",
-    "Profile in development"
+    "Crepuscular (most active at dawn/dusk) semi-desert species from Afghanistan, Pakistan, India",
+    "Docile temperament makes them excellent for beginners with proper husbandry",
+    "Can drop tail when stressed - regrows but appears bulbous and shorter than original",
+    "Eyelids allow them to blink (unlike most geckos) and sleep with eyes closed",
+    "70+ designer morphs available: albino varieties require reduced UVB (0.5-0.7 UVI)",
+    "Modern research shows UVB benefits: improved bone density, appetite, and natural behaviors",
+    "Impaction myth debunked: proper temps (94-97°F basking) + hydration prevents issues, not substrate avoidance"
   ],
   "warnings": [
     {
       "severity": "critical",
-      "message": "Never use heat rocks - they cause severe burns. Use under-tank heating pad with thermostat only.",
+      "message": "Never use heat rocks - cause severe burns. Never house two males together - will fight to the death.",
+      "category": "safety"
+    },
+    {
+      "severity": "critical",
+      "message": "Humid hide is MANDATORY, not optional. Prevents stuck sheds which cause toe loss within 48 hours if untreated.",
       "category": "safety"
     },
     {
       "severity": "important",
-      "message": "Avoid sand and other loose substrates which can cause impaction if ingested during feeding",
+      "message": "Albino and patternless morphs CAN be burned by excessive UVB. Use 0.5-0.7 UVI (not standard 1.0-2.0).",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "important",
+      "message": "Basking surface temperature MUST be 94-97°F (not ambient). Use halogen bulbs, not heat mats as primary heat source.",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "important",
+      "message": "Sand substrate myth: Impaction is caused by low temps + dehydration, NOT substrate choice. Naturalistic substrates are safe with proper husbandry.",
       "category": "common_mistake"
     }
   ],
   "relatedBlogs": [
-    ""
+    "leopard-gecko-enclosure-setup-guide",
+    "leopard-gecko-substrate-guide",
+    "leopard-gecko-temp-humidity-guide",
+    "leopard-gecko-lighting-guide",
+    "leopard-gecko-feeding-guide",
+    "leopard-gecko-hydration-guide"
   ],
   "careGuidance": {
     "feedingRequirements": [
-      "Insectivorous diet - crickets, mealworms, dubia roaches",
-      "Gut-load feeders 24 hours before feeding",
-      "Dust with calcium and D3 supplement"
+      "Obligate insectivore - MUST eat live insects (crickets, dubia roaches, mealworms, BSFL)",
+      "Best staples: Dubia roaches (1:3 Ca:P ratio) or crickets (1:9 Ca:P ratio)",
+      "Insect size rule: No wider than space between gecko's eyes",
+      "Gut-loading: Feed insects Repashy Superload + calcium-rich greens 24-48 hours before offering",
+      "Supplementation WITH UVB: Plain calcium 2-3x/week, calcium + D3 1x/week, multivitamin 1x/week",
+      "Supplementation WITHOUT UVB: Calcium + D3 every feeding (juveniles) or 2-3x/week (adults), multivitamin 1x/week",
+      "Alternative: Repashy Calcium Plus LoD (with UVB) or regular Calcium Plus (no UVB) at every other feeding"
     ],
     "feedingSchedule": [
-      "Juveniles (0-6 months): Daily feeding, 5-8 appropriately-sized insects",
-      "Sub-adults (7-12 months): Every other day, 6-10 insects",
-      "Adults (1 year+): Every 2-3 days, 5-8 insects"
+      "Hatchlings (0-2 months): Daily, 2 insects per 1 inch of gecko length",
+      "Juveniles (2-8 months): Daily or every other day, 2 insects per inch OR 15 minutes feeding",
+      "Sub-adults (8-12 months): Every 2-3 days, 2 insects per inch or until satiated",
+      "Adults (12+ months): Every 3-4 days, 2 insects per inch OR 6-10 insects per feeding",
+      "Breeding females (gravid): Every other day, unlimited food, calcium + D3 at EVERY feeding"
     ],
     "waterNotes": [
-      "Provide shallow water dish at all times",
-      "Change water daily",
-      "Keep water dish on cool side to prevent evaporation"
+      "Provide shallow water dish (3-5 inches diameter) at all times in cool zone",
+      "Change water daily to prevent bacterial growth",
+      "Leopard geckos lap water directly with tongue (like dogs/cats)",
+      "Drinking frequency: Every 2-3 days average (may not be observed due to crepuscular activity)",
+      "Dehydration signs: Sunken eyes, wrinkled skin, stuck sheds - requires immediate warm soaks + vet visit"
     ],
     "mistingNotes": [
-      "Minimal misting needed - keep humidity low (30-40%)",
-      "Provide moist hide with damp sphagnum moss for shedding",
-      "Light misting of moist hide only during shedding"
+      "Do NOT mist enclosure - leopard geckos are semi-arid species (30-40% ambient humidity ideal)",
+      "Humid hide substrate misting: Spray bottle into humid hide only (not enclosure air), daily maintenance",
+      "Humid hide setup: Plastic container with 1.5-2 inch entry hole, filled with damp (not wet) sphagnum moss",
+      "Target humid hide humidity: 70-80% inside hide (measured with small hygrometer)",
+      "Placement: Warm side (85-90°F) or center of enclosure for easy access",
+      "Maintenance: Re-moisten moss daily with spray bottle, full substrate replacement weekly to prevent mold"
     ]
   }
 }

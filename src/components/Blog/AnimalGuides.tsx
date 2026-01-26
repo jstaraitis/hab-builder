@@ -3,8 +3,12 @@ import { animalProfiles } from '../../data/animals';
 import { blogPosts } from '../../data/blog';
 import { Link } from 'react-router-dom';
 
-export function AnimalGuides() {
-  const [selectedAnimal, setSelectedAnimal] = useState<string | null>(null);
+interface AnimalGuidesProps {
+  initialAnimal?: string;
+}
+
+export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
+  const [selectedAnimal, setSelectedAnimal] = useState<string | null>(initialAnimal || null);
   const animals = Object.values(animalProfiles);
 
   return (
@@ -21,7 +25,7 @@ export function AnimalGuides() {
                 : 'border-gray-200 dark:border-gray-600 hover:border-primary-400 dark:hover:border-primary-500 bg-white dark:bg-gray-700 text-gray-800 dark:text-white'
             }`}
           >
-            {animal.id === "whites-tree-frog" && <span className="text-2xl">🐸</span>}
+            {animal.id === "whites-tree-frog" && <span className="text-2xl"></span>}
             {animal.commonName}
           </button>
         ))}

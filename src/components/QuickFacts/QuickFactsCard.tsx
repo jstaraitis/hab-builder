@@ -1,0 +1,200 @@
+﻿import React from 'react';
+import { Ruler, Clock, Moon, Droplets, Thermometer, Sun, Bug, Beef, Leaf } from 'lucide-react';
+import { AnimalProfile } from '../../engine/types';
+
+interface QuickFactsCardProps {
+  profile: AnimalProfile;
+}
+
+interface QuickFact {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  description?: string;
+}
+
+export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
+  // Calculate gallons from dimensions
+  const gallons = Math.round(
+    (profile.minEnclosureSize.width * profile.minEnclosureSize.depth * profile.minEnclosureSize.height) / 231
+  );
+
+  // Determine activity pattern from notes/context (fallback logic)
+  const getActivityPattern = (): string => {
+    const notesText = profile.notes?.join(' ').toLowerCase() || '';
+    if (notesText.includes('nocturnal')) return 'Nocturnal';
+    if (notesText.includes('diurnal')) return 'Diurnal';
+    if (notesText.includes('crepuscular')) return 'Crepuscular';
+    return 'Varied';
+  };
+
+  // Get diet type from profile or fallback to detection
+  const getDietType = (): string => {
+    // Use explicit dietType if provided
+    if (profile.dietType) {
+      return profile.dietType;
+    }
+    
+    // Fallback: detect from text (for animals without dietType set)
+    const notesText = profile.notes?.join(' ').toLowerCase() || '';
+    const feedingText = profile.careGuidance?.feedingRequirements?.join(' ').toLowerCase() || '';
+    const allText = `${notesText} ${feedingText}`;
+    
+    if (allText.includes('insectivore')) return 'Insectivore';
+    if (allText.includes('omnivore')) return 'Omnivore';
+    if (allText.includes('herbivore')) return 'Herbivore';
+    if (allText.includes('carnivore')) return 'Carnivore';
+    
+    const hasPlantFood = allText.includes('fruit') || allText.includes('vegetable') || 
+                         allText.includes('greens') || allText.includes('lettuce');
+    const hasInsects = allText.includes('cricket') || allText.includes('dubia') || 
+                      allText.includes('roach') || allText.includes('mealworm') ||
+                      allText.includes('insect') || allText.includes('feeder');
+    
+    if (hasPlantFood && hasInsects) return 'Omnivore';
+    if (hasInsects) return 'Insectivore';
+    if (hasPlantFood) return 'Herbivore';
+    
+    return 'Carnivore';
+  };
+
+  // Get basking temperature display string
+  const getBaskingTemp = (): string => {
+    const basking = profile.careTargets.temperature.basking;
+    if (!basking) {
+      return `${profile.careTargets.temperature.min}-${profile.careTargets.temperature.max}°F`;
+    }
+    if (typeof basking === 'number') {
+      return `${basking}°F`;
+    }
+    // It's an object with min/max
+    const baskingRange = basking as { min: number; max: number };
+    return `${baskingRange.min}-${baskingRange.max}°F`;
+  };
+
+  // Get diet icon based on type
+  const getDietIcon = (): React.ReactNode => {
+    const dietType = getDietType();
+    switch (dietType) {
+      case 'Carnivore':
+        return <Beef className="w-6 h-6" />;
+      case 'Insectivore':
+        return <Bug className="w-6 h-6" />;
+      case 'Omnivore':
+        return (
+          <div className="flex items-center gap-0.5">
+            <Beef className="w-5 h-5" />
+            <Leaf className="w-5 h-5" />
+          </div>
+        );
+      case 'Herbivore':
+        return <Leaf className="w-6 h-6" />;
+      default:
+        return <Beef className="w-6 h-6" />;
+    }
+  };
+
+  // Extract quick facts from profile
+  const facts: QuickFact[] = [
+    {
+      icon: <Ruler className="w-6 h-6" />,
+      label: 'Minimum Size',
+      value: `${profile.minEnclosureSize.width}×${profile.minEnclosureSize.depth}×${profile.minEnclosureSize.height}"`,
+      description: `${gallons} gallons`
+    },
+    {
+      icon: <Clock className="w-6 h-6" />,
+      label: 'Lifespan',
+      value: profile.lifespan || '10-20 years',
+      description: undefined
+    },
+    {
+      icon: <Moon className="w-6 h-6" />,
+      label: 'Activity',
+      value: getActivityPattern(),
+      description: ''
+    },
+    {
+      icon: <Droplets className="w-6 h-6" />,
+      label: 'Humidity',
+      value: `${profile.careTargets.humidity.min}-${profile.careTargets.humidity.max}%`,
+      description: undefined
+    },
+    {
+      icon: <Thermometer className="w-6 h-6" />,
+      label: 'Basking',
+      value: getBaskingTemp(),
+      description: 'Surface temp'
+    },
+    {
+      icon: <Sun className="w-6 h-6" />,
+      label: 'UVB',
+      value: profile.careTargets.lighting.uvbRequired 
+        ? 'Required' 
+        : profile.careTargets.lighting.uvbStrength 
+          ? 'Recommended' 
+          : 'Optional',
+      description: profile.careTargets.lighting.uvbStrength 
+        ? `${profile.careTargets.lighting.uvbStrength} bulb` 
+        : undefined
+    },
+    {
+      icon: getDietIcon(),
+      label: 'Diet',
+      value: getDietType(),
+      description: undefined
+    },
+    {
+      icon: <Leaf className="w-6 h-6" />,
+      label: 'Bioactive',
+      value: profile.bioactiveCompatible ? 'Compatible' : 'Challenging',
+      description: undefined
+    }
+  ];
+
+  return (
+    <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-lg p-6 mb-6 border border-gray-200 dark:border-gray-700">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="p-2 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg">
+          <Ruler className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+        </div>
+        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+          Quick Facts
+        </h3>
+      </div>
+      
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {facts.map((fact, index) => (
+          <div
+            key={index}
+            className="group relative flex flex-col items-center text-center p-4 rounded-xl bg-white dark:bg-gray-800 border-2 border-gray-100 dark:border-gray-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-lg transition-all duration-200 hover:-translate-y-1"
+          >
+            <div className="mb-3 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-200">
+              {fact.icon}
+            </div>
+            <div className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
+              {fact.label}
+            </div>
+            <div className="text-base font-bold text-gray-900 dark:text-white leading-tight">
+              {fact.value}
+            </div>
+            {fact.description && (
+              <div className="text-xs text-gray-600 dark:text-gray-400 mt-2 font-medium">
+                {fact.description}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+      
+      <div className="mt-6 pt-5 border-t-2 border-gray-200 dark:border-gray-700">
+        <div className="flex items-start gap-3 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-200 dark:border-yellow-800">
+          <Sun className="w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-gray-700 dark:text-gray-300">
+            <strong className="text-yellow-700 dark:text-yellow-400">Pro Tip:</strong> These are baseline requirements. Larger enclosures are always better for your animal's health and happiness!
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};

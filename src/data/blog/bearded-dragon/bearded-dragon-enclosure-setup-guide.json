@@ -1,0 +1,223 @@
+﻿{
+  "id": "bearded-dragon-enclosure-setup-guide",
+  "title": "Bearded Dragon Enclosure Setup: Size, Layout & Equipment Guide",
+  "description": "Complete guide to setting up a bearded dragon enclosure including minimum size requirements, enclosure types, layout design, and essential equipment checklist.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-26",
+  "category": "Care Guides",
+  "tags": ["bearded dragon", "enclosure", "setup", "habitat", "pogona vitticeps"],
+  "image": "/animals/bearded-dragon/bearded-dragon-1.jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Essential Enclosure Requirements for Bearded Dragons",
+      "content": "Proper enclosure setup is the foundation of bearded dragon health. This guide covers evidence-based recommendations for enclosure dimensions, materials, layout design, and essential equipment based on their Australian desert habitat."
+    },
+    {
+      "type": "section",
+      "title": "Minimum Enclosure Dimensions"
+    },
+    {
+      "type": "text",
+      "content": "Bearded dragons are terrestrial lizards that require substantial horizontal space for basking, thermoregulation, and activity. Enclosure size directly impacts stress levels, growth rates, and long-term health."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Size Requirements by Life Stage:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Life Stage", "Minimum Dimensions (L×W×H)", "Floor Space", "Notes"],
+      "rows": [
+        ["Hatchling (0-6 months)", "36×18×18 inches", "4.5 sq ft", "Can start in 40-gallon breeder"],
+        ["Juvenile (6-12 months)", "48×24×24 inches", "8 sq ft", "Upgrade before reaching 12 inches"],
+        ["Adult (12+ months)", "72×24×24 inches", "12 sq ft", "Minimum 120-gallon equivalent"],
+        ["Large Adult (18+ inches)", "96×24×24 inches", "16 sq ft", "Recommended for males 20+ inches"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Critical Requirement: Adult bearded dragons require a MINIMUM 4×2×2 foot enclosure (120 gallons). Smaller enclosures cause chronic stress, obesity from reduced activity, and aggressive behaviors. Bigger is always better."
+    },
+    {
+      "type": "section",
+      "title": "Enclosure Type Selection"
+    },
+    {
+      "type": "text",
+      "content": "Enclosure material affects temperature retention, humidity control, and viewing experience. Each type has specific advantages for bearded dragon husbandry."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Material Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Material", "Temperature Control", "Humidity Management", "Best Application"],
+      "rows": [
+        ["Glass (front-opening)", "Good retention", "Low humidity (ideal)", "Standard choice, widely available"],
+        ["PVC (custom enclosures)", "Excellent retention", "Very low humidity", "Premium option, best insulation"],
+        ["Wood (custom builds)", "Good retention", "Moderate humidity", "DIY builds, requires sealing"],
+        ["Screen cages", "Poor retention", "Extremely low humidity", "NOT recommended for adults"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Recommended Setup: Front-opening glass terrarium or PVC enclosure with mesh top (30-40% screen for ventilation). Side ventilation optional for air circulation."
+    },
+    {
+      "type": "section",
+      "title": "Internal Layout Design"
+    },
+    {
+      "type": "text",
+      "content": "Effective layout creates a thermal gradient (hot → cool zones) while providing basking platforms, hides, and activity space. Design emphasizes horizontal movement over vertical climbing."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Zone Layout Template (4×2×2 ft enclosure):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Zone", "Location", "Temperature", "Features"],
+      "rows": [
+        ["Basking zone", "One end (12-18 inches)", "100-110°F surface", "Flat rock, basking platform, UVB coverage"],
+        ["Warm side", "Basking end (24 inches)", "85-95°F ambient", "Activity space, food bowl area"],
+        ["Transition zone", "Middle third (24 inches)", "80-85°F ambient", "Open floor space, enrichment items"],
+        ["Cool side", "Opposite end (24 inches)", "75-80°F ambient", "Hide cave, water dish (if provided)"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "Layout Principle: Bearded dragons thermoregulate by moving between zones. Avoid placing hides, food, and water all in one area—distribute across gradient to encourage natural movement patterns."
+    },
+    {
+      "type": "section",
+      "title": "Essential Equipment Checklist"
+    },
+    {
+      "type": "text",
+      "content": "Complete equipment list for adult bearded dragon enclosure setup. All items should be installed before introducing animals."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Required Equipment:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Equipment Category", "Specific Items", "Purpose"],
+      "rows": [
+        ["Heating", "100W halogen flood, ceramic socket, thermostat", "Basking zone (100-110°F surface)"],
+        ["UVB Lighting", "34\\\" T5 HO 10-12% bulb, reflector fixture", "Vitamin D3 synthesis, bone health"],
+        ["Full-Spectrum Lighting", "48\\\" 6500K LED grow light", "Behavioral health, circadian rhythm"],
+        ["Substrate", "Tile, stone, or bioactive mix (4-6 inches)", "Safe footing, digging enrichment"],
+        ["Basking Platform", "Flat stone or slate, 10-12 inches wide", "Primary basking surface"],
+        ["Hide Structure", "Cave or half-log, 1-2 per zone", "Security, thermoregulation"],
+        ["Climbing Decor", "Branches, rocks, ledges (horizontal)", "Enrichment, vantage points"],
+        ["Thermometers", "Digital probes (2-3), infrared temp gun", "Temperature verification"],
+        ["Timer", "Digital with surge protection (2)", "Consistent photoperiod"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Safety Note: All heating elements must be thermostat-controlled. Unregulated heat sources cause thermal burns and lethal overheating. Use ceramic sockets rated for bulb wattage."
+    },
+    {
+      "type": "section",
+      "title": "Substrate Selection"
+    },
+    {
+      "type": "text",
+      "content": "Substrate choice affects hygiene, natural behaviors, and health outcomes. Multiple safe options exist depending on setup goals (see dedicated substrate guide for detailed analysis)."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Substrate Options:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Substrate Type", "Maintenance Level", "Enrichment Value", "Best For"],
+      "rows": [
+        ["Ceramic tile", "Low (spot clean)", "Minimal (no digging)", "Sterile setups, quarantine"],
+        ["Natural stone (slate)", "Low (spot clean)", "Minimal (no digging)", "Heat retention, easy cleaning"],
+        ["Topsoil/sand mix (4-6\\\")", "Moderate (spot clean)", "High (digging, burrowing)", "Natural behavior, bioactive"],
+        ["Bioactive substrate", "Low (self-cleaning)", "High (natural ecosystem)", "Advanced keepers, enrichment"],
+        ["Reptile carpet", "High (launder weekly)", "None (suppresses behaviors)", "NOT recommended long-term"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Avoid: Calcium sand (forms cement when wet), wood shavings (splinters, impaction), loose walnut shells (sharp edges). See substrate guide for detailed safety information."
+    },
+    {
+      "type": "section",
+      "title": "Decor & Enrichment Placement"
+    },
+    {
+      "type": "text",
+      "content": "Appropriate decor provides enrichment while maintaining clear sightlines and accessible floor space. Bearded dragons are ground-dwellers—prioritize horizontal structures."
+    },
+    {
+      "type": "table",
+      "headers": ["Decor Type", "Quantity", "Placement Guidelines"],
+      "rows": [
+        ["Basking rock/platform", "1 primary", "Directly under heat + UVB, 8-10\\\" from bulb"],
+        ["Hide caves", "2-3", "Distribute across thermal gradient"],
+        ["Climbing branches", "2-4", "Horizontal orientation, stable anchoring"],
+        ["Background ledges", "Optional", "Attached to back wall, wide platforms"],
+        ["Live/artificial plants", "3-5", "Cool side, partial shade creation"],
+        ["Food dish", "1", "Warm side, stable base, 2-3\\\" tall sides"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Stability Critical: All decor must be securely positioned. Bearded dragons are surprisingly strong and will topple unstable items. Stack rocks carefully or use aquarium-safe silicone to secure structures."
+    },
+    {
+      "type": "section",
+      "title": "Common Setup Errors"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Frequent Mistakes and Solutions:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Error", "Consequence", "Correction"],
+      "rows": [
+        ["Undersized enclosure (<4×2×2)", "Chronic stress, obesity, aggression", "Upgrade to minimum adult size"],
+        ["No thermal gradient", "Inability to thermoregulate", "Position heat source at one end only"],
+        ["Basking platform too low", "Insufficient heat exposure", "Raise platform 8-10\\\" from heat bulb"],
+        ["Overcrowded decor", "Restricted movement, stress", "Maintain 50%+ open floor space"],
+        ["All hides on cool side", "Insufficient retreat options", "Place hides in each thermal zone"],
+        ["Heat source centered", "No cool retreat available", "Position heat at one end exclusively"],
+        ["Reflective backgrounds", "Stress from perceived rivals", "Use matte backgrounds or cover sides"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Setup Timeline & Testing"
+    },
+    {
+      "type": "text",
+      "content": "New enclosures require a 3-7 day testing period before introducing animals. This allows equipment calibration and environmental stabilization."
+    },
+    {
+      "type": "table",
+      "headers": ["Day", "Task", "Success Criteria"],
+      "rows": [
+        ["1-2", "Install equipment, test heating/lighting", "All fixtures operational, bulbs at correct distance"],
+        ["3-4", "Monitor temperatures across gradient", "Basking 100-110°F, cool side 75-80°F, stable nighttime drop"],
+        ["5-6", "Verify UVB levels (if Solarmeter available)", "UVI 4.0-6.0 at basking surface"],
+        ["7", "Final checks: timer schedules, stability tests", "12-14hr photoperiod, all decor secure, no hot spots >115°F"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Testing Protocol: Monitor temperatures every 4 hours across all zones for 2-3 days. Address any fluctuations before introducing animals. Take photos of thermostat settings for future reference."
+    }
+  ]
+}

@@ -2,7 +2,11 @@ import { SEO } from '../SEO/SEO';
 import { AnimalGuides } from './AnimalGuides';
 import { BookOpen } from 'lucide-react';
 
-export function BlogList() {
+interface BlogListProps {
+  selectedAnimal?: string;
+}
+
+export function BlogList({ selectedAnimal }: BlogListProps) {
   return (
     <div className="space-y-6">
       <SEO
@@ -21,7 +25,7 @@ export function BlogList() {
         </p>
       </div>
 
-      <AnimalGuides />
+      <AnimalGuides initialAnimal={selectedAnimal} />
     </div>
   );
 }

@@ -1,0 +1,439 @@
+﻿{
+  "id": "ball-python-feeding-guide",
+  "title": "Ball Python Feeding Guide: Complete Carnivore Diet & Prey Variety",
+  "description": "Evidence-based feeding guide for ball pythons covering whole prey diet (rats, mice, ASF rats, quail, chicks), age-based feeding schedules, prey sizing (10% body weight rule), and dietary variety for optimal health.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-26",
+  "category": "Care Guides",
+  "tags": ["ball-python", "feeding", "diet", "prey", "carnivore"],
+  "image": "/animals/ball-python/ball-python-feeding.jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Complete Carnivore Diet for Ball Pythons",
+      "content": "Ball pythons are obligate carnivores, requiring a diet of whole animal prey to obtain complete nutrition. Unlike some reptiles that can survive on single prey types, ball pythons thrive on dietary variety—rats, mice, African soft-furred rats, quail, and chicks all contribute unique nutritional profiles. Modern ball python nutrition emphasizes the '10% body weight rule' for portion sizing, age-based feeding frequencies (ranging from every 5 days for hatchlings to every 4-8 weeks for large adults), and frozen-thawed prey for safety and humaneness. This ReptiFiles®-based guide covers feeding schedules, prey selection, troubleshooting picky eaters, and avoiding common feeding mistakes that lead to obesity or nutritional deficiencies."
+    },
+    {
+      "type": "section",
+      "title": "Dietary Requirements"
+    },
+    {
+      "type": "text",
+      "content": "Ball pythons need whole prey items—entire animals with bones, organs, and tissue. They cannot survive on meat alone (no bones = calcium deficiency)."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Whole Prey Nutrition:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Prey Component", "Nutritional Contribution", "Importance"],
+      "rows": [
+        ["Muscle tissue", "Protein, amino acids, fats", "Primary macronutrient source"],
+        ["Bones", "Calcium, phosphorus, minerals", "Skeletal health, prevents metabolic bone disease"],
+        ["Organs (liver, kidneys, heart)", "Vitamins A, D, E, B-complex, iron", "Immune function, vision, metabolism"],
+        ["Digestive tract contents", "Fiber, plant nutrients (if prey was herbivore)", "Gut health, trace nutrients"],
+        ["Skin/fur/feathers", "Keratin, roughage", "Aids digestion, gut motility"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "Never feed: Raw chicken breasts or other meat cuts (no bones = calcium deficiency), hot dogs/processed meats (toxic), fish (inappropriate nutrition profile), eggs alone (not complete nutrition). Ball pythons MUST eat whole prey animals."
+    },
+    {
+      "type": "section",
+      "title": "Prey Type Selection"
+    },
+    {
+      "type": "text",
+      "content": "Variety is key to balanced nutrition. Different prey species offer unique nutritional profiles. Rats and mice alone are nutritionally adequate but not optimal."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Prey Species Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Prey Type", "Size Range", "Nutritional Profile", "Best Use"],
+      "rows": [
+        ["Domestic rats (Rattus norvegicus)", "Pups to jumbo (5g-400g+)", "Higher fat than mice, good calcium:phosphorus", "Staple feeder for adults, readily available"],
+        ["Mice (Mus musculus)", "Pinkies to adult (2g-30g)", "Leaner than rats, good for juveniles", "Staple for juveniles, supplemental for adults"],
+        ["African soft-furred rats (ASF)", "Adult (50-80g)", "Lower fat than domestic rats, excellent nutrition", "Ideal variety feeder, picky eaters often prefer"],
+        ["Quail (Coturnix)", "Chicks to adult (20g-150g)", "High protein, lower fat, different micronutrient profile", "Excellent variety, different from rodents"],
+        ["Chicks (domestic chicken)", "Day-old to feeder (30g-60g)", "Very lean, high protein, good calcium from bones", "Variety feeder, some ball pythons love them"],
+        ["Hamsters (not recommended)", "—", "Too fatty, sharp teeth risk", "Avoid—domestic rats preferable"],
+        ["Gerbils (not recommended)", "—", "Nutritionally similar to mice but less available", "Not necessary—use mice or ASF rats instead"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "ReptiFiles® recommendation: Rotate between rats (primary), mice (variety), ASF rats (variety), quail (variety), and chicks (variety). Feed rats 60-70% of the time, vary other prey types 30-40% of feedings. This prevents picky eating and provides balanced nutrition."
+    },
+    {
+      "type": "section",
+      "title": "Age-Based Feeding Schedule"
+    },
+    {
+      "type": "text",
+      "content": "Feeding frequency and prey size change dramatically throughout a ball python's life. Overfeeding causes obesity; underfeeding stunts growth."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Feeding Schedule by Weight:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Age/Weight", "Frequency", "Prey Size (10% body weight)", "Example"],
+      "rows": [
+        ["Hatchlings (<5 weeks old)", "Every 5 days", "10% of snake weight", "60g hatchling = 6g prey (hopper mouse)"],
+        ["Juveniles <200g (5 weeks-6 months)", "Every 7 days", "10% of snake weight", "150g juvenile = 15g prey (small adult mouse)"],
+        ["Juveniles 200-350g (6-12 months)", "Every 7-10 days", "10% of snake weight", "300g juvenile = 30g prey (weaned rat)"],
+        ["Juveniles 350-500g (12-18 months)", "Every 10-14 days", "10% of snake weight", "450g juvenile = 45g prey (small rat)"],
+        ["Sub-adults/adults 500-1500g", "Every 14-21 days", "10% of snake weight", "1000g adult = 100g prey (medium rat)"],
+        ["Adults >1500g (large females)", "Every 28-56 days (4-8 weeks)", "10% of snake weight", "2000g large female = 200g prey (large rat)"],
+        ["Breeding females (gravid)", "Every 10-14 days", "Slightly increased portions", "Increased calcium demand—feed more frequently"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "The '10% body weight rule' is a guideline, not absolute. Some ball pythons do well on 8-12%. Adjust based on body condition: ribs visible = underfed, fat rolls/bulging = overfed. Weigh snake monthly to track growth and adjust portions."
+    },
+    {
+      "type": "section",
+      "title": "Prey Sizing Guidelines"
+    },
+    {
+      "type": "text",
+      "content": "Prey size affects safety, digestion time, and feeding response. Too large = regurgitation risk; too small = inadequate nutrition."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Prey Sizing Rules:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Sizing Method", "Target", "Rationale"],
+      "rows": [
+        ["10% body weight rule (primary method)", "Prey item(s) total 10% of snake's weight", "Science-based recommendation for optimal growth without obesity"],
+        ["Girth rule (visual check)", "Prey no larger than 1.5x snake's width at widest point", "Prevents regurgitation, ensures safe swallowing"],
+        ["Multiple small items vs one large", "Offer 2-3 smaller prey = same total weight", "Safer than one huge item, easier digestion"],
+        ["Prey weight estimation", "Use digital kitchen scale to weigh prey", "More accurate than visual guessing"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Prey Size Categories (Rats):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Rat Size", "Weight Range", "Best For Snake Weight"],
+      "rows": [
+        ["Rat pup", "5-15g", "Hatchlings 50-150g"],
+        ["Rat weaned", "25-35g", "Juveniles 250-350g"],
+        ["Small rat", "40-70g", "Juveniles/sub-adults 400-700g"],
+        ["Medium rat", "80-120g", "Adults 800-1200g"],
+        ["Large rat", "150-200g", "Large adults 1500-2000g"],
+        ["Jumbo rat", "250-400g", "Very large adults >2500g (rarely needed)"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Pro tip: Invest in a digital kitchen scale ($15-25) to weigh both snake and prey. This eliminates guesswork and prevents obesity (extremely common in captive ball pythons due to overfeeding)."
+    },
+    {
+      "type": "section",
+      "title": "Frozen-Thawed vs Live Prey"
+    },
+    {
+      "type": "text",
+      "content": "Frozen-thawed prey is safer for the snake and more humane. Live prey can injure or kill ball pythons."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Prey Presentation Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Method", "Pros", "Cons", "Recommended?"],
+      "rows": [
+        ["Frozen-thawed (recommended)", "Safe for snake, humane for prey, convenient storage, cheaper in bulk", "Some picky eaters refuse", "YES—always attempt F/T first"],
+        ["Fresh-killed (pre-killed)", "Warmer than F/T, more natural scent", "Less humane (must kill prey yourself), not readily available", "Acceptable if F/T refused"],
+        ["Live prey", "Natural hunting experience, picky eaters usually accept", "Prey can bite/scratch snake (severe injuries/death documented), stressful for prey", "Last resort ONLY, supervised closely"],
+        ["Assist feeding (forcing prey into mouth)", "—", "Extremely stressful, can cause regurgitation, damages snake psychologically", "NEVER—causes more harm than missing 1-2 meals"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "Live prey dangers: Rats and mice have powerful teeth and can inflict severe injuries on ball pythons, including eye damage, scale trauma, and fatal wounds. NEVER leave live prey unattended with snake. If snake doesn't strike within 10 minutes, remove prey immediately."
+    },
+    {
+      "type": "section",
+      "title": "Frozen-Thawed Preparation"
+    },
+    {
+      "type": "text",
+      "content": "Proper thawing technique affects feeding response. Cold prey is often refused; overheated prey can burn snake's mouth."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Thawing Protocol:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Remove prey from freezer, place in sealed ziplock bag (prevents waterlogging)",
+        "Submerge bag in warm water (100-110°F, NOT boiling) for 20-60 minutes depending on prey size",
+        "Check prey temperature: Should feel lukewarm to warm (100-105°F), not cold or hot",
+        "Dry prey with paper towel (ball pythons prefer dry prey over wet/slimy)",
+        "Use feeding tongs (12\" minimum) to present prey with wiggling motion",
+        "Dangle prey near snake's head, move slowly to simulate live prey",
+        "If refused, leave prey in enclosure overnight (remove if not eaten within 12 hours)"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Never use microwave to thaw prey—this cooks prey unevenly (exploding internal organs, scalding hot exterior). Always use warm water bath method. Verify prey temp with infrared thermometer if available (target 100-105°F)."
+    },
+    {
+      "type": "section",
+      "title": "Feeding Method Options"
+    },
+    {
+      "type": "text",
+      "content": "Where and how you feed affects safety, cleanliness, and feeding response."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Feeding Location Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Method", "Pros", "Cons", "Best For"],
+      "rows": [
+        ["Feed in enclosure (recommended)", "Less stressful (no handling), natural behavior, no transport", "May associate handler's hand with food", "Most ball pythons—best practice"],
+        ["Separate feeding container", "Prevents substrate ingestion (minimal risk), easier cleanup", "Stressful handling before/after feeding, risk of regurgitation from movement", "Snakes with consistent substrate ingestion issues"],
+        ["Tong-feeding in enclosure", "Keeps hands safe, controls prey placement", "Requires 12\"+ tongs to prevent strikes", "All snakes—use tongs regardless of method"],
+        ["Drop prey and leave", "Allows snake to hunt naturally overnight", "Harder to monitor feeding response", "Shy snakes that won't eat with observer present"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Myth: 'Feeding in enclosure causes aggression.' Reality: Most aggression stems from food scent on hands (always wash after handling prey) or feeding too small/infrequent meals. Feeding in enclosure is less stressful and recommended by modern herpetologists."
+    },
+    {
+      "type": "section",
+      "title": "Post-Feeding Care"
+    },
+    {
+      "type": "text",
+      "content": "Ball pythons need warmth and no disturbance for 48-72 hours post-feeding to digest properly."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Post-Feeding Guidelines:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Action", "Timeline", "Rationale"],
+      "rows": [
+        ["No handling", "48-72 hours post-feeding (minimum)", "Movement can cause regurgitation—snake needs stillness to digest"],
+        ["Verify basking temps", "Ensure 95-104°F basking available", "Digestion requires heat—low temps (<85°F) cause food to rot in stomach"],
+        ["Provide water", "Water bowl accessible at all times", "Hydration aids digestion"],
+        ["Expect hiding", "Snake will likely stay in warm hide 24-48 hours", "Normal behavior—basking for digestion"],
+        ["Visible food lump", "Food lump visible for 2-4 days (normal)", "Large prey takes longer—juveniles digest faster than adults"],
+        ["Bowel movement", "Usually 5-7 days post-feeding", "Large urates (white) + feces (brown)—indicates complete digestion"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "Regurgitation causes: Handling within 48 hours of feeding, temps too low (<85°F), prey too large (>1.5x girth), stress, illness. If regurgitation occurs, wait 10-14 days before offering food again and offer prey 50% smaller than usual to allow stomach to recover."
+    },
+    {
+      "type": "section",
+      "title": "Dietary Variety Benefits"
+    },
+    {
+      "type": "text",
+      "content": "Feeding only rats for life is nutritionally adequate but not optimal. Variety provides micronutrient diversity and prevents picky eating."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Prey Rotation Schedule Example (Adult Ball Python):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Week", "Prey Type", "Rationale"],
+      "rows": [
+        ["Week 1", "Medium rat (100g)", "Staple feeder"],
+        ["Week 3", "Medium rat (100g)", "Staple feeder"],
+        ["Week 5", "ASF rat (70g) + large mouse (30g) = 100g total", "Variety—different micronutrients"],
+        ["Week 7", "Medium rat (100g)", "Back to staple"],
+        ["Week 9", "Adult quail (100g)", "Avian variety—different protein profile"],
+        ["Week 11", "Medium rat (100g)", "Staple feeder"],
+        ["Week 13", "Day-old chicks x2 (50g each) = 100g total", "Avian variety"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Variety reduces pickiness: Ball pythons fed rats exclusively often develop 'rat addiction' and refuse all other prey (problematic if rat supply interrupted). Introducing variety early (within first year) prevents this."
+    },
+    {
+      "type": "section",
+      "title": "Troubleshooting Feeding Refusal"
+    },
+    {
+      "type": "text",
+      "content": "Ball pythons are notorious for feeding strikes (refusing food for weeks to months). Most refusals are husbandry-related, not medical."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Common Refusal Causes and Solutions:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Cause", "How to Identify", "Solution"],
+      "rows": [
+        ["Temps too low", "Basking <92°F OR warm hide <86°F", "Fix temps immediately—low temps prevent hunger response"],
+        ["Shedding", "Eyes cloudy (blue), dull skin color", "Wait until shed completes (usually 7-10 days), then offer food"],
+        ["Stress (new enclosure, frequent handling)", "Recent setup change or excessive handling", "Leave snake alone for 7-14 days minimum, no handling"],
+        ["Wrong prey size (too large)", "Prey >1.5x snake's girth", "Offer smaller prey (50-75% current size)"],
+        ["Seasonal fasting (fall/winter)", "Temps correct, snake healthy, just won't eat for 1-3 months", "Normal behavior—monitor weight, offer food every 2 weeks, don't worry unless losing >10% weight"],
+        ["Prey presentation issue", "Prey too cold, too wet, or wrong species", "Ensure prey 100-105°F, dry, try different species (ASF rats for picky eaters)"],
+        ["Breeding season (males)", "Breeding age male (18+ months), refuses food in spring", "Normal—males fast during breeding season (Feb-May), offer food monthly"],
+        ["Medical issue", "Weight loss >10%, lethargic, regurgitation, mucus in mouth", "VET VISIT required—parasites, respiratory infection, or other illness"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "When to worry: Ball pythons can safely fast for 3-6 months if body condition good. Seek vet care if: weight loss >10%, visible ribs, lethargy, regurgitation, mucus around mouth/nose, or refusal >6 months with declining body condition."
+    },
+    {
+      "type": "section",
+      "title": "Picky Eater Strategies"
+    },
+    {
+      "type": "text",
+      "content": "Some ball pythons develop feeding preferences (specific prey color, size, presentation). Breaking these requires patience."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Picky Eater Troubleshooting Steps:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Verify husbandry: 95-104°F basking, 86-90°F warm hide, 60-75% humidity, no handling (rule out environmental causes first)",
+        "Try African soft-furred rats (ASF): Many picky eaters prefer ASF over domestic rats",
+        "Try live prey (supervised, remove if not eaten in 10 min): Some snakes only recognize live movement",
+        "Scent transfer: Rub prey with ASF rat bedding OR chick feathers to add scent",
+        "Braining (advanced): Make small incision in prey skull to expose brain (strong scent triggers feeding)",
+        "Smaller prey size: Offer prey 50% smaller than usual—some snakes prefer small meals",
+        "Leave prey overnight: Cover enclosure, leave prey in cool zone, check in morning",
+        "Wait 2-3 weeks between attempts: Offering food too frequently causes stress and further refusal"
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Patience is key: Ball pythons are marathon fasters. If temps are correct and snake is healthy weight, continue offering food every 2-3 weeks. Most 'picky eaters' eventually resume feeding once husbandry is optimized."
+    },
+    {
+      "type": "section",
+      "title": "Supplements"
+    },
+    {
+      "type": "text",
+      "content": "Ball pythons eating whole prey rarely need supplements, but occasional dusting prevents deficiencies in captive-bred prey."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Supplement Guidelines:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Situation", "Supplement Type", "Frequency"],
+      "rows": [
+        ["With UVB lighting (2.0-3.0 UVI)", "50/50 calcium + multivitamin powder", "Every 4-6 feedings (optional)"],
+        ["Without UVB lighting", "Calcium with D3 + multivitamin powder", "Every 3-4 feedings"],
+        ["Breeding females", "Calcium with D3", "Every feeding during gravid period"],
+        ["Growing juveniles (<18 months)", "Calcium + multivitamin", "Every 2-3 feedings"],
+        ["Adults on varied diet (rats + quail + ASF)", "No supplements needed", "Dietary variety provides complete nutrition"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>How to Apply Supplements:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Thaw prey completely, dry with paper towel",
+        "Lightly dust prey with supplement powder (don't overdo—thin coating only)",
+        "Let powder dry for 1-2 minutes before offering to snake",
+        "Recommended products: Arcadia EarthPro-A (multivitamin) + Repashy Calcium Plus LoD (calcium with low D3)"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "Over-supplementation risks: Excessive vitamin D3 causes hypervitaminosis D (calcium deposits in organs). With UVB lighting, use plain calcium or low-D3 formulas. Without UVB, moderate D3 supplementation is safe (every 3-4 feedings)."
+    },
+    {
+      "type": "section",
+      "title": "Obesity Prevention"
+    },
+    {
+      "type": "text",
+      "content": "Obesity is the #1 nutritional problem in captive ball pythons. Overfeeding shortens lifespan and causes organ issues."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Body Condition Scoring:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Score", "Description", "Action"],
+      "rows": [
+        ["Underweight (1-2)", "Ribs visible, spine prominent, thin tail, sunken eyes", "Increase feeding frequency, verify temps, vet check for parasites"],
+        ["Ideal (3)", "Smooth body, no ribs visible, triangular cross-section, muscular", "Maintain current feeding schedule"],
+        ["Overweight (4)", "Rounded body, fat rolls at neck, tail base thick", "Reduce feeding frequency (every 3-4 weeks instead of 2 weeks)"],
+        ["Obese (5)", "Extreme fat rolls, difficulty moving, very round cross-section", "VET VISIT—risk of fatty liver disease, reduce to monthly feeding"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Adult ball pythons (>18 months) do NOT need weekly feeding. Every 14-21 days is appropriate for adults (500-1500g). Large adults (>1500g) should eat every 28-56 days (monthly to bi-monthly). Overfeeding leads to obesity, which causes fatty liver disease and shortened lifespan."
+    },
+    {
+      "type": "section",
+      "title": "Complete Feeding Supply Checklist"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Essential Equipment:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Item", "Purpose", "Cost"],
+      "rows": [
+        ["Frozen prey (rats, mice, ASF, quail)", "Primary diet", "$30-60/month depending on snake size"],
+        ["Feeding tongs (12\"+ length)", "Safe prey presentation", "$10-15 one-time"],
+        ["Digital kitchen scale", "Weigh snake and prey for accurate portions", "$15-25 one-time"],
+        ["Large ziplock bags", "Thaw prey in water without waterlogging", "$5 for 50-pack"],
+        ["Thermometer (infrared)", "Verify prey temp (100-105°F)", "$15-20 (already owned for basking temps)"],
+        ["Freezer space", "Store 6-12 months prey supply", "Bulk buying saves 30-50%"],
+        ["Optional: Supplements", "Calcium + multivitamin powder", "$10-15 per bottle (lasts 1-2 years)"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Cost savings: Buy frozen prey in bulk (50-100 count) from online suppliers (rodentpro.com, laynelabs.com, bigcheesrodents.com). Bulk pricing saves 30-50% vs pet store prices. Prey stores frozen for 6-12 months safely."
+    }
+  ]
+}

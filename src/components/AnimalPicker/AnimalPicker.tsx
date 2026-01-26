@@ -51,33 +51,33 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
   const getStatusBadge = (status?: string) => {
     if (status === 'complete') {
       return (
-        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-gradient-to-br from-green-500 to-emerald-600 dark:from-green-600 dark:to-emerald-700 backdrop-blur-sm rounded-lg shadow-lg border-2 border-green-400/30 dark:border-green-500/30">
-          <CheckCircle className="w-4 h-4" />
+        <span className="inline-flex items-center gap-1 px-2 py-1 text-[10px] font-bold text-white bg-emerald-600 dark:bg-emerald-500 rounded-md">
+          <CheckCircle className="w-3 h-3" />
           Complete
         </span>
       );
     }
     if (status === 'validated') {
       return (
-        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-gradient-to-br from-blue-500 to-indigo-600 dark:from-blue-600 dark:to-indigo-700 backdrop-blur-sm rounded-lg shadow-lg border-2 border-blue-400/30 dark:border-blue-500/30">
-          <Star className="w-4 h-4" />
+        <span className="inline-flex items-center gap-1 px-2 py-1 text-[10px] font-bold text-white bg-blue-600 dark:bg-blue-500 rounded-md">
+          <Star className="w-3 h-3" />
           Validated
         </span>
       );
     }
     if (status === 'in-progress') {
       return (
-        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-gradient-to-br from-yellow-500 to-orange-600 dark:from-yellow-600 dark:to-orange-700 backdrop-blur-sm rounded-lg shadow-lg border-2 border-yellow-400/30 dark:border-yellow-500/30">
-          <Clock className="w-4 h-4" />
+        <span className="inline-flex items-center gap-1 px-2 py-1 text-[10px] font-bold text-gray-900 dark:text-gray-900 bg-yellow-400 dark:bg-yellow-400 rounded-md">
+          <Clock className="w-3 h-3" />
           In Progress
         </span>
       );
     }
     if (status === 'draft') {
       return (
-        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-yellow-600 dark:bg-yellow-500 backdrop-blur-sm rounded-full shadow-md">
-          <FileText className="w-4 h-4" />
-          Draft
+        <span className="inline-flex items-center gap-1 px-2 py-1 text-[10px] font-bold text-gray-900 dark:text-gray-900 bg-gray-400 dark:bg-gray-400 rounded-md">
+          <FileText className="w-3 h-3" />
+          Coming Soon
         </span>
       );
     }
@@ -198,48 +198,50 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
               aria-disabled={isDraft}
               title={isDraft ? `${animal.name} (Draft - not selectable)` : `Select ${animal.name}`}
               tabIndex={isDraft ? -1 : 0}
-              className={`p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl border-2 transition-all relative active:scale-95 ${
+              className={`group p-3 sm:p-4 lg:p-5 rounded-xl border-2 transition-all duration-200 relative ${
                 selected === animal.id
-                  ? `${getSelectedColors()} shadow-lg ring-2 ring-offset-2 ${animal.careLevel === 'beginner' ? 'ring-green-400' : animal.careLevel === 'intermediate' ? 'ring-orange-400' : 'ring-red-400'}`
-                  : 'border-gray-200 dark:border-gray-600 active:border-gray-300 dark:active:border-gray-500 active:shadow-md bg-white dark:bg-gray-700'
-              } ${isDraft ? 'cursor-not-allowed opacity-60' : ''}`}
+                  ? `${getSelectedColors()} shadow-lg scale-105 -translate-y-1 ring-2 ring-offset-2 ${animal.careLevel === 'beginner' ? 'ring-green-400' : animal.careLevel === 'intermediate' ? 'ring-orange-400' : 'ring-red-400'}`
+                  : 'border-gray-100 dark:border-gray-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-lg bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 hover:-translate-y-1 active:scale-95'
+              } ${isDraft ? 'cursor-not-allowed opacity-40' : ''}`}
             >
             {/* Image or Emoji */}
-            <div className="relative w-full h-28 sm:h-36 lg:h-48 bg-gradient-to-br from-gray-100 to-gray-50 dark:from-gray-700 dark:to-gray-600 rounded-md sm:rounded-lg mb-2 sm:mb-3 flex items-center justify-center overflow-hidden group">
+            <div className="relative w-full h-28 sm:h-36 lg:h-44 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-xl mb-3 flex items-center justify-center overflow-hidden shadow-inner">
               {animal.imageUrl ? (
                 <>
                   <img 
                     src={animal.imageUrl} 
                     alt={animal.name}
-                    className="w-full h-full object-cover transition-transform duration-300 group-active:scale-110 lg:group-hover:scale-150"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                   {/* Dark gradient overlay for better text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none" />
                 </>
               ) : (
-                <div className="text-4xl sm:text-5xl lg:text-6xl">{animal.image}</div>
+                <div className="text-4xl sm:text-5xl lg:text-6xl group-hover:scale-110 transition-transform duration-200">{animal.image}</div>
               )}
               
-              {/* Status Badge - Inside Image with Backdrop Blur */}
+              {/* Status Badge */}
               {animal.completionStatus && (
-                <div className="absolute top-2 left-2 backdrop-blur-md bg-white/20 dark:bg-black/20 rounded-lg p-1.5 scale-75 sm:scale-90 origin-top-left">
+                <div className="absolute bottom-2 right-2">
                   {getStatusBadge(animal.completionStatus)}
                 </div>
               )}
             </div>
 
-            <h3 className="font-semibold text-gray-800 dark:text-white text-xs sm:text-sm lg:text-lg mb-1 sm:mb-2 leading-tight">
-              {animal.name}
-            </h3>
-            <span className={`inline-block px-1.5 py-0.5 sm:px-2.5 sm:py-1.5 text-[10px] sm:text-xs font-medium rounded sm:rounded-lg ${
-              animal.careLevel === 'beginner' 
-                ? 'text-green-700 dark:text-green-300 bg-green-100 dark:bg-green-900/50' 
-                : animal.careLevel === 'intermediate'
-                ? 'text-orange-700 dark:text-orange-300 bg-orange-100 dark:bg-orange-900/50'
-                : 'text-red-700 dark:text-red-300 bg-red-100 dark:bg-red-900/50'
-            }`}>
-              {animal.careLevel.charAt(0).toUpperCase() + animal.careLevel.slice(1)}
-            </span>
+            <div className="space-y-2">
+              <h3 className="font-bold text-gray-900 dark:text-white text-xs sm:text-sm lg:text-base leading-tight">
+                {animal.name}
+              </h3>
+              <span className={`inline-block px-2 py-1 text-[10px] sm:text-xs font-bold rounded-lg ${
+                animal.careLevel === 'beginner' 
+                  ? 'text-green-700 dark:text-green-300 bg-green-100 dark:bg-green-900/50' 
+                  : animal.careLevel === 'intermediate'
+                  ? 'text-orange-700 dark:text-orange-300 bg-orange-100 dark:bg-orange-900/50'
+                  : 'text-red-700 dark:text-red-300 bg-red-100 dark:bg-red-900/50'
+              }`}>
+                {animal.careLevel.charAt(0).toUpperCase() + animal.careLevel.slice(1)}
+              </span>
+            </div>
           </button>
           );
         })}

@@ -1,0 +1,321 @@
+﻿{
+  "id": "crested-gecko-temp-humidity-guide",
+  "title": "Crested Gecko Temperature & Humidity Guide: Complete Climate Control",
+  "description": "Complete temperature and humidity management guide for crested geckos covering thermal gradients, heating equipment, humidity maintenance, and troubleshooting climate issues.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-26",
+  "category": "Care Guides",
+  "tags": ["crested-gecko", "temperature", "humidity", "heating", "climate"],
+  "image": "/animals/crested-gecko/crested-gecko-temperature.jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Climate Requirements for Crested Geckos",
+      "content": "Crested geckos are cool-temperature species from the cloud forests of New Caledonia, where temperatures are moderate year-round and humidity is consistently high. Unlike many reptiles, crested geckos do NOT require extreme heat and can actually suffer from overheating. This guide covers how to create appropriate thermal gradients and maintain the high humidity these arboreal geckos require."
+    },
+    {
+      "type": "section",
+      "title": "Temperature Zones"
+    },
+    {
+      "type": "text",
+      "content": "Crested geckos need a subtle temperature gradient from warm (top) to cool (bottom). This gradient is naturally created in tall enclosures because heat rises."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Target Temperature Ranges:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Zone", "Daytime Temp", "Nighttime Temp", "Location"],
+      "rows": [
+        ["Basking Area", "82-85°F (28-29°C)", "Drop to ambient", "Top 6\" of enclosure, directly under heat lamp"],
+        ["Mid-Level (activity zone)", "75-80°F (24-27°C)", "70-75°F (21-24°C)", "Middle third of enclosure"],
+        ["Cool Zone", "70-75°F (21-24°C)", "65-72°F (18-22°C)", "Bottom third of enclosure"],
+        ["Substrate Surface", "68-72°F (20-22°C)", "65-68°F (18-20°C)", "Floor level"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Temperatures above 85°F (29°C) are dangerous for crested geckos and can cause heat stress, regurgitation, or death. Avoid heat mats/tape—these create bottom heat that conflicts with natural thermoregulation (heat should come from above)."
+    },
+    {
+      "type": "section",
+      "title": "Heating Equipment Selection"
+    },
+    {
+      "type": "text",
+      "content": "Crested geckos need minimal supplemental heating. Many temperate homes (70-75°F ambient) may not need heating at all except at the basking spot."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Heat Source Options:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Heat Source", "Wattage", "Coverage", "Best For"],
+      "rows": [
+        ["White incandescent bulb", "40-60w", "Top 6-8\" basking zone", "Standard setup, visible light + heat"],
+        ["Halogen flood bulb", "35-50w", "Top 6-8\" basking zone", "Intense focused heat, deeper light penetration"],
+        ["Ceramic heat emitter (CHE)", "40-60w", "Top 8-10\" area", "Nighttime heating ONLY (produces no light)"],
+        ["Deep heat projector", "40-80w", "Top 10-12\" area", "Gentle infrared heat, low fire risk"],
+        ["Heat cable (background)", "Variable", "Rear wall warmth", "Supplemental only, never sole source"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Never use heat mats, heat tape on the floor, or heated rocks. Crested geckos thermoregulate by moving vertically (up = warmer, down = cooler). Bottom heat creates confusion and doesn't mimic natural conditions."
+    },
+    {
+      "type": "section",
+      "title": "Heating Setup & Placement"
+    },
+    {
+      "type": "text",
+      "content": "Proper heat lamp placement creates a safe gradient while allowing the gecko to self-regulate body temperature."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Heat Lamp Configuration:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Component", "Specification", "Purpose"],
+      "rows": [
+        ["Heat Bulb", "40w white incandescent (start here)", "Creates 82-85°F basking spot"],
+        ["Dome Fixture", "5.5\" ceramic socket dome", "Houses bulb, directs heat downward"],
+        ["Lamp Dimmer", "Plug-in dimmer switch or rheostat", "Fine-tune temperature without changing bulbs"],
+        ["Placement Height", "Resting on screen top or suspended", "Heat penetrates 6-8\" into enclosure"],
+        ["Basking Surface", "Branch/vine 6-8\" below screen", "Gecko can sleep here to absorb warmth"],
+        ["Timer", "Digital timer for 12-hour cycle", "Turns heat lamp off at night (natural temp drop)"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Adjusting Heat Output:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Scenario", "Current Basking Temp", "Solution"],
+      "rows": [
+        ["Too hot", "Above 86°F", "Use dimmer to reduce power, OR switch to 25-30w bulb"],
+        ["Perfect", "82-85°F", "No changes needed—monitor seasonally"],
+        ["Too cool", "Below 80°F", "Remove dimmer, OR switch to 50-60w bulb"],
+        ["Ambient room too cold (<65°F)", "Can't reach 82°F even with 60w", "Add secondary CHE for nighttime, insulate enclosure sides"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Start with 40w and test for 48 hours before adjusting. A 40w bulb is sufficient for most 18×18×24 enclosures in rooms with 68-74°F ambient temperature. Only increase wattage if testing confirms basking zone stays below 80°F."
+    },
+    {
+      "type": "section",
+      "title": "Temperature Monitoring"
+    },
+    {
+      "type": "text",
+      "content": "Accurate temperature measurement requires the right tools and understanding where to measure."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Thermometer Types & Uses:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Tool", "Measurement Type", "Best Use Case"],
+      "rows": [
+        ["Infrared temperature gun (Etekcity 774)", "Surface temperature (instant)", "Spot-check basking area, branches, walls throughout enclosure"],
+        ["Digital probe thermometer", "Continuous ambient temp", "Track basking zone—place probe on basking branch"],
+        ["Stick-on analog gauge", "General ambient (±3°F error)", "NOT RECOMMENDED—inaccurate, can't measure surface temps"],
+        ["Thermostat (proportional)", "Automated temp control", "Advanced: maintains exact temperature, cuts power when reached"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Where to Measure Temperature:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Location", "Target Temp", "When to Measure"],
+      "rows": [
+        ["Basking branch (under heat lamp)", "82-85°F", "2 hours after lights turn on (stabilized)"],
+        ["Mid-level branch", "75-80°F", "Daytime checks to verify gradient"],
+        ["Floor/substrate surface", "68-72°F", "Verify cool zone is accessible"],
+        ["Ambient air (mid-enclosure)", "72-78°F", "General climate check"],
+        ["Nighttime basking area", "Should drop to 70-75°F", "1-2 hours after lights off to confirm drop"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "Measure temperature at the basking surface (where the gecko will rest), not in the open air. Air temperature is 5-10°F cooler than surface temperature under a heat lamp."
+    },
+    {
+      "type": "section",
+      "title": "Humidity Requirements"
+    },
+    {
+      "type": "text",
+      "content": "Crested geckos require high humidity for proper shedding, hydration, and respiratory health. Humidity should fluctuate naturally throughout the day."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Target Humidity Levels:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Time of Day", "Target Range", "Natural Pattern"],
+      "rows": [
+        ["Morning (after misting)", "80-90%", "Simulates morning dew/fog in rainforest"],
+        ["Midday (dried out)", "50-60%", "Allows enclosure to breathe, prevents mold"],
+        ["Evening (after misting)", "70-80%", "Provides drinking water, increases comfort"],
+        ["Nighttime (peak)", "70-85%", "Natural increase as temperatures drop"],
+        ["Overall Average", "60-80%", "Daily average balances hydration and drying"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Constant 90%+ humidity without dry-out periods promotes bacterial/fungal growth and respiratory infections. Enclosures MUST dry to 50-60% between mistings to stay healthy."
+    },
+    {
+      "type": "section",
+      "title": "Humidity Management Techniques"
+    },
+    {
+      "type": "text",
+      "content": "Maintaining proper humidity requires the right substrate, misting schedule, and enclosure design."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Humidity Maintenance Methods:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Method", "Frequency", "Effect on Humidity"],
+      "rows": [
+        ["Manual misting (pressure sprayer)", "2x daily (morning & evening)", "Raises humidity 20-30% for 2-4 hours"],
+        ["Live plants", "Constant presence", "Transpiration adds 5-10% continuous humidity"],
+        ["Deep substrate (3-4\")", "Set and maintain", "Moisture reservoir adds 10-15% baseline humidity"],
+        ["Water bowl/feature", "Keep filled", "Evaporation adds 5-8% continuous humidity"],
+        ["Automated misting system", "2-3x daily (timed)", "Consistent, hands-off humidity spikes"],
+        ["Fogger (ultrasonic)", "1-2 hours at dawn", "Simulates morning fog, +30-40% humidity surge"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Misting Protocol (Manual):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Session", "Timing", "Duration", "Target Coverage"],
+      "rows": [
+        ["Morning misting", "7-9 AM (before heat lamp warms enclosure)", "30-45 seconds", "All walls, plants, and décor (visible droplets)"],
+        ["Evening misting", "7-9 PM (after heat lamp off 1-2 hours)", "45-60 seconds", "Heavy misting—substrate should feel damp 1\" down"],
+        ["Optional midday (if needed)", "12-2 PM (only if humidity <50%)", "15-20 seconds", "Light mist on plants only, not substrate"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Use tap water for misting, NOT distilled or reverse-osmosis water. Tap water contains minerals (calcium, magnesium) that benefit crested geckos. If your tap water is heavily chlorinated, let it sit 24 hours before misting."
+    },
+    {
+      "type": "section",
+      "title": "Seasonal Adjustments"
+    },
+    {
+      "type": "text",
+      "content": "Ambient room temperature and humidity change with seasons, requiring adjustments to heating and misting."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Seasonal Climate Management:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Season", "Typical Challenge", "Adjustment Strategy"],
+      "rows": [
+        ["Summer (hot/humid)", "Overheating risk (>85°F), excessive humidity", "Reduce heat lamp wattage or remove entirely if room >78°F; reduce misting to 1x daily"],
+        ["Winter (cold/dry)", "Difficulty maintaining warmth/humidity", "Increase heat lamp wattage; add CHE for nighttime; increase misting to 3x daily"],
+        ["Spring/Fall (moderate)", "Variable conditions day-to-day", "Monitor daily, adjust dimmer as needed; standard 2x misting usually sufficient"],
+        ["Monsoon/rainy climate", "Excess ambient humidity year-round", "Increase ventilation, reduce misting frequency, ensure substrate dries between sessions"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Troubleshooting Climate Issues"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Common Problems and Solutions:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Symptoms", "Solution"],
+      "rows": [
+        ["Enclosure too hot", "Gecko always on floor, gaping mouth, lethargy", "Lower wattage, use dimmer, increase ventilation, relocate away from windows"],
+        ["Enclosure too cold", "Gecko inactive, not eating, dark coloration", "Increase wattage to 50-60w, add CHE for nighttime, check room temperature"],
+        ["Humidity too low (<50%)", "Stuck shed, sunken eyes, dry substrate", "Increase misting to 3x daily, add live plants, increase substrate depth to 4\""],
+        ["Humidity too high (>90% constantly)", "Mold growth, respiratory wheezing, lethargy", "Reduce misting to 1x daily, improve ventilation, decrease substrate moisture"],
+        ["No temperature gradient", "Gecko seems uncomfortable, stays in one spot", "Ensure heat lamp is on top only, verify cool zone is 10-15°F cooler than basking"],
+        ["Extreme night drops (<60°F)", "Gecko very pale at night, not active at dusk", "Add low-wattage CHE on timer (night only), insulate enclosure sides"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Emergency Temperature Protocols"
+    },
+    {
+      "type": "text",
+      "content": "Power outages, equipment failures, or extreme weather require emergency intervention to protect your gecko."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Emergency Interventions:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Emergency", "Immediate Action", "Duration Safe"],
+      "rows": [
+        ["Power outage (cold)", "Hand warmers wrapped in towel near (not in) enclosure, blanket over 3 sides", "24-48 hours (crested geckos tolerate cold better than heat)"],
+        ["Power outage (summer heat)", "Move enclosure to coolest room, frozen water bottles outside enclosure, increase air flow", "12-24 hours (heat is more dangerous than cold)"],
+        ["Heater failure (winter)", "Temporary space heater in room (not enclosure), emergency bulb replacement", "Replace within 24 hours"],
+        ["Heat wave (>90°F room)", "Remove all heat sources, relocate to air-conditioned room, ice packs outside enclosure", "Critical—relocate immediately"],
+        ["Humidity system failure", "Manual misting 4x daily, damp towel over portion of screen top", "Several days (not ideal but survivable)"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "If room temperature exceeds 85°F for more than 2-3 hours, move your crested gecko to the coolest room in your house or a basement. Prolonged exposure to temperatures above 88°F can be fatal."
+    },
+    {
+      "type": "section",
+      "title": "Complete Climate Equipment List"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Essential Climate Control Equipment:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Equipment", "Specification", "Purpose"],
+      "rows": [
+        ["Heat bulb", "40w white incandescent", "Daytime basking zone heat"],
+        ["Dome fixture", "5.5\" ceramic socket", "Houses heat bulb safely"],
+        ["Lamp dimmer", "Plug-in dimmer switch", "Temperature fine-tuning"],
+        ["Infrared thermometer", "Etekcity 774 or similar", "Spot-check temps throughout enclosure"],
+        ["Digital probe thermometer", "Reptile-brand or aquarium", "Continuous basking zone monitoring"],
+        ["Digital hygrometer with probe", "Accurate ±3% models", "Track humidity levels"],
+        ["Pressure sprayer", "1-2 liter pump sprayer", "Manual misting 2x daily"],
+        ["Light/heat timer", "Digital timer (2 needed)", "Automate 12-hour photoperiod"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Invest in quality thermometers and hygrometers—cheap analog stick-on gauges are inaccurate by 5-10°F and give false confidence. Etekcity 774 infrared gun ($15-20) and any digital probe thermometer ($10-15) are reliable budget options."
+    }
+  ]
+}

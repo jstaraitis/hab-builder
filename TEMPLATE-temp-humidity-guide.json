@@ -1,0 +1,238 @@
+﻿{
+  "id": "[SPECIES-ID]-temp-humidity-guide",
+  "title": "[Species Name] Temperature & Humidity Control Guide",
+  "description": "Complete guide to temperature gradients and humidity levels for [species name], including equipment, measurement protocols, and troubleshooting.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-26",
+  "category": "Care Guides",
+  "tags": ["[species-common-name]", "temperature", "humidity", "heating", "thermoregulation"],
+  "image": "/animals/[species-folder]/[species-image].jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Temperature & Humidity Requirements for [Species Name]",
+      "content": "[Introduction to species' native climate, importance of thermal gradient and humidity control, physiological needs]"
+    },
+    {
+      "type": "section",
+      "title": "Target Temperature Ranges"
+    },
+    {
+      "type": "text",
+      "content": "[Explain thermal gradient importance for this species: basking behavior, thermoregulation patterns, metabolism requirements]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Temperature Requirements by Zone:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Zone", "Temperature Range", "Measurement Point", "Purpose"],
+      "rows": [
+        ["Basking spot (if needed)", "[temp range]", "[where to measure]", "[physiological function]"],
+        ["Warm side ambient", "[temp range]", "[where to measure]", "[activity zone]"],
+        ["Cool side ambient", "[temp range]", "[where to measure]", "[retreat zone]"],
+        ["Nighttime", "[temp range]", "[all zones]", "[circadian/metabolic function]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Critical temperature requirement: what happens if too hot/cold, species-specific sensitivity, non-negotiable parameters]"
+    },
+    {
+      "type": "section",
+      "title": "Heating Equipment Selection"
+    },
+    {
+      "type": "text",
+      "content": "[Equipment selection based on species needs: diurnal vs nocturnal, basking species vs ambient heat, etc.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Heat Source Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Heat Source", "Wattage Range", "Light Output", "Best Application"],
+      "rows": [
+        ["[Heat source 1]", "[wattage]", "[light yes/no]", "[when to use for this species]"],
+        ["[Heat source 2]", "[wattage]", "[light yes/no]", "[when to use for this species]"],
+        ["[Heat source 3]", "[wattage]", "[light yes/no]", "[when to use for this species]"],
+        ["[Heat source 4]", "[wattage]", "[light yes/no]", "[when to use for this species]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Recommended setup: primary heat source + optional secondary, thermostat requirements, typical wattages for enclosure size]"
+    },
+    {
+      "type": "section",
+      "title": "Thermostat Configuration"
+    },
+    {
+      "type": "text",
+      "content": "[Thermostat necessity for this species, safety concerns, appropriate thermostat types]"
+    },
+    {
+      "type": "table",
+      "headers": ["Thermostat Type", "Control Method", "Best For"],
+      "rows": [
+        ["Dimming thermostat", "[how it works]", "[compatible heat sources]"],
+        ["On/off thermostat", "[how it works]", "[compatible heat sources]"],
+        ["Pulse-proportional", "[how it works]", "[compatible heat sources]"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Probe Placement:</strong> [Species-specific instructions: where to place probe, how to secure, calibration tips]"
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Safety warning about unregulated heat: burn risk, lethal overheating, equipment failure scenarios for this species]"
+    },
+    {
+      "type": "section",
+      "title": "Temperature Measurement Protocol"
+    },
+    {
+      "type": "text",
+      "content": "[Measurement equipment needs, multiple probe requirement, verification frequency]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Measurement Equipment:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Tool", "Purpose", "Usage for This Species"],
+      "rows": [
+        ["Infrared temperature gun", "[what it measures]", "[how to use]"],
+        ["Digital probe thermometer", "[what it measures]", "[placement instructions]"],
+        ["Hygrometer with probe", "[what it measures]", "[placement instructions]"],
+        ["Data logger (optional)", "[what it measures]", "[advanced monitoring]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Best practice: daily verification routine, recording protocol, troubleshooting temperature fluctuations]"
+    },
+    {
+      "type": "section",
+      "title": "Humidity Requirements"
+    },
+    {
+      "type": "text",
+      "content": "[Species humidity needs: tropical/temperate/arid classification, respiratory health connection, shedding support]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Humidity Targets:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Time Period", "Target Range", "Notes"],
+      "rows": [
+        ["Daytime", "[percentage range]", "[normal conditions]"],
+        ["Nighttime", "[percentage range]", "[increase/decrease from day]"],
+        ["During shedding", "[percentage range]", "[temporary adjustment]"],
+        ["AVOID", "[too high/low range]", "[health risks]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Common humidity mistake for this species: over/under humidifying, consequences, how to correct]"
+    },
+    {
+      "type": "section",
+      "title": "Humidity Management Techniques"
+    },
+    {
+      "type": "text",
+      "content": "[Methods to control humidity based on species needs: misting, water features, substrate moisture, ventilation]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Humidity Control Methods:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Method", "Effectiveness", "Application"],
+      "rows": [
+        ["[Method 1: e.g., misting]", "[effect on humidity]", "[how often, when to use]"],
+        ["[Method 2: e.g., water dish]", "[effect on humidity]", "[size, placement]"],
+        ["[Method 3: e.g., substrate moisture]", "[effect on humidity]", "[hydration schedule]"],
+        ["[Method 4: e.g., ventilation]", "[effect on humidity]", "[airflow management]"],
+        ["[Method 5: e.g., fogger]", "[effect on humidity]", "[when appropriate]"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Seasonal & Life Stage Adjustments"
+    },
+    {
+      "type": "text",
+      "content": "[Temperature/humidity changes by season or life stage, breeding triggers, brumation/hibernation if applicable]"
+    },
+    {
+      "type": "table",
+      "headers": ["Life Stage/Season", "Temperature Adjustment", "Humidity Adjustment", "Notes"],
+      "rows": [
+        ["[Hatchling/baby]", "[temp range]", "[humidity range]", "[special considerations]"],
+        ["[Juvenile]", "[temp range]", "[humidity range]", "[growth period needs]"],
+        ["[Adult - active]", "[temp range]", "[humidity range]", "[standard parameters]"],
+        ["[Breeding season]", "[temp range]", "[humidity range]", "[reproductive triggers]"],
+        ["[Dormancy period]", "[temp range]", "[humidity range]", "[rest period management]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Special note about seasonal changes: whether required, optional, or avoided for captive specimens of this species]"
+    },
+    {
+      "type": "section",
+      "title": "Troubleshooting Common Issues"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Temperature & Humidity Problems:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Cause", "Solution"],
+      "rows": [
+        ["[Common issue 1]", "[typical cause]", "[how to fix]"],
+        ["[Common issue 2]", "[typical cause]", "[how to fix]"],
+        ["[Common issue 3]", "[typical cause]", "[how to fix]"],
+        ["[Common issue 4]", "[typical cause]", "[how to fix]"],
+        ["[Common issue 5]", "[typical cause]", "[how to fix]"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Emergency Temperature Management"
+    },
+    {
+      "type": "text",
+      "content": "[Emergency protocols for power outages, equipment failures, extreme weather affecting this species]"
+    },
+    {
+      "type": "table",
+      "headers": ["Emergency Scenario", "Immediate Action", "Safe Duration"],
+      "rows": [
+        ["Power outage (cold)", "[emergency heating methods]", "[how long tolerable]"],
+        ["Power outage (hot)", "[emergency cooling methods]", "[critical timeframe]"],
+        ["Thermostat failure", "[safety protocol]", "[response urgency]"],
+        ["Heat source failure", "[backup heat options]", "[tolerance period]"],
+        ["Overheating crisis", "[emergency cooling protocol]", "[critical timeframe]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Emergency preparation recommendations: backup equipment, monitoring during crises, when to seek veterinary help for this species]"
+    }
+  ]
+}

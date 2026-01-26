@@ -1,0 +1,237 @@
+﻿{
+  "id": "[SPECIES-ID]-feeding-guide",
+  "title": "[Species Name] Feeding Guide: Complete Nutrition by Life Stage",
+  "description": "Comprehensive feeding guide for [species name] covering age-based diets, feeder insects, vegetables, supplementation schedules, and nutritional management.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-26",
+  "category": "Care Guides",
+  "tags": ["[species-common-name]", "feeding", "nutrition", "diet", "supplements"],
+  "image": "/animals/[species-folder]/[species-image].jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Complete Nutritional Guide for [Species Name]",
+      "content": "[Introduction to species diet in wild: primary food sources, hunting/foraging behavior, nutritional balance. Overview of captive feeding approach.]"
+    },
+    {
+      "type": "section",
+      "title": "Age-Based Feeding Protocol"
+    },
+    {
+      "type": "text",
+      "content": "[Explain how nutritional needs change with growth: protein requirements, calcium demands, caloric needs at different life stages]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Feeding Schedule by Age:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Life Stage", "Age Range", "Feeding Frequency", "Meal Composition"],
+      "rows": [
+        ["[Stage 1 - e.g., Hatchling]", "[age range]", "[frequency]", "[ratio/types]"],
+        ["[Stage 2 - e.g., Juvenile]", "[age range]", "[frequency]", "[ratio/types]"],
+        ["[Stage 3 - e.g., Sub-Adult]", "[age range]", "[frequency]", "[ratio/types]"],
+        ["[Stage 4 - e.g., Adult]", "[age range]", "[frequency]", "[ratio/types]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Warning about age-specific mistakes: overfeeding juveniles, underfeeding growing stage, protein-calorie balance for species]"
+    },
+    {
+      "type": "section",
+      "title": "Primary Food Sources"
+    },
+    {
+      "type": "text",
+      "content": "[Species-specific primary diet: insectivore/herbivore/omnivore classification, preferred items, variety importance]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>[Primary Food Type - e.g., Feeder Insects]:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Food Item", "Nutritional Value", "Size Guideline", "Frequency"],
+      "rows": [
+        ["[Item 1]", "[protein/fat/calcium]", "[sizing rule]", "[frequency]"],
+        ["[Item 2]", "[protein/fat/calcium]", "[sizing rule]", "[frequency]"],
+        ["[Item 3]", "[protein/fat/calcium]", "[sizing rule]", "[frequency]"],
+        ["[Item 4]", "[protein/fat/calcium]", "[sizing rule]", "[frequency]"],
+        ["[Item 5]", "[protein/fat/calcium]", "[sizing rule]", "[frequency]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Sizing rule explanation: width between eyes method, digestive safety, species-specific considerations]"
+    },
+    {
+      "type": "section",
+      "title": "Secondary Food Sources"
+    },
+    {
+      "type": "text",
+      "content": "[If applicable: vegetables, fruits, prepared diets, other items. If not applicable: note limitations]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>[Secondary Food Type - e.g., Vegetables/Greens]:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Food Item", "Ca:P Ratio", "Frequency", "Preparation"],
+      "rows": [
+        ["[Item 1]", "[ratio]", "[frequency]", "[prep notes]"],
+        ["[Item 2]", "[ratio]", "[frequency]", "[prep notes]"],
+        ["[Item 3]", "[ratio]", "[frequency]", "[prep notes]"],
+        ["[Item 4]", "[ratio]", "[frequency]", "[prep notes]"],
+        ["[Item 5]", "[ratio]", "[frequency]", "[prep notes]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Foods to avoid: toxic items, poor Ca:P ratio foods, choking hazards specific to species]"
+    },
+    {
+      "type": "section",
+      "title": "Supplementation Schedule"
+    },
+    {
+      "type": "text",
+      "content": "[Supplement necessity: calcium deficiency risks, vitamin needs, species-specific metabolic requirements]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Supplement Protocol:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Supplement Type", "Active Ingredients", "Frequency", "Life Stage Variation"],
+      "rows": [
+        ["Calcium + D3", "[brand/formula]", "[frequency]", "[age adjustments]"],
+        ["Calcium (no D3)", "[brand/formula]", "[frequency]", "[age adjustments]"],
+        ["Multivitamin", "[brand/formula]", "[frequency]", "[age adjustments]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[D3 balance: UVB-supplemented vs non-UVB setups, hypervitaminosis risk, species-specific sensitivities]"
+    },
+    {
+      "type": "section",
+      "title": "Gut-Loading & Feeder Quality"
+    },
+    {
+      "type": "text",
+      "content": "[If applicable: Gut-loading importance for nutritional pass-through. If not applicable: prepared diet quality markers]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Gut-Loading Protocol:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Feeder Type", "Gut-Loading Foods", "Duration", "Nutritional Boost"],
+      "rows": [
+        ["[Feeder 1]", "[gut-load items]", "[hours before feeding]", "[nutrients gained]"],
+        ["[Feeder 2]", "[gut-load items]", "[hours before feeding]", "[nutrients gained]"],
+        ["[Feeder 3]", "[gut-load items]", "[hours before feeding]", "[nutrients gained]"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Hydration Through Diet"
+    },
+    {
+      "type": "text",
+      "content": "[Dietary water content importance, food moisture levels, coordination with direct hydration methods]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Hydrating Foods:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Food Item", "Water Content", "Frequency", "Hydration Benefit"],
+      "rows": [
+        ["[Item 1]", "[percentage]", "[frequency]", "[benefit notes]"],
+        ["[Item 2]", "[percentage]", "[frequency]", "[benefit notes]"],
+        ["[Item 3]", "[percentage]", "[frequency]", "[benefit notes]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "[Balance reminder: dietary water supports but doesn't replace direct hydration methods for species]"
+    },
+    {
+      "type": "section",
+      "title": "Body Condition Assessment"
+    },
+    {
+      "type": "text",
+      "content": "[How to assess if feeding regimen is appropriate: visual cues, weight monitoring, activity levels]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Body Condition Scoring:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Body Condition", "Visual/Palpable Signs", "Feeding Adjustment"],
+      "rows": [
+        ["Underweight", "[signs for species]", "[increase strategy]"],
+        ["Ideal", "[healthy indicators]", "[maintain current protocol]"],
+        ["Overweight", "[obesity signs]", "[reduction strategy]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Species-specific body condition markers: tail base, rib visibility, limb fat deposits, gender differences]"
+    },
+    {
+      "type": "section",
+      "title": "Common Feeding Mistakes"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Mistakes to Avoid:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Mistake", "Health Consequence", "Correct Approach"],
+      "rows": [
+        ["[Common error 1]", "[impact on species]", "[solution]"],
+        ["[Common error 2]", "[impact on species]", "[solution]"],
+        ["[Common error 3]", "[impact on species]", "[solution]"],
+        ["[Common error 4]", "[impact on species]", "[solution]"],
+        ["[Common error 5]", "[impact on species]", "[solution]"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Complete Shopping List"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Essential Feeding Supplies:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Supply Category", "Specific Items", "Notes"],
+      "rows": [
+        ["Feeders/Base Diet", "[specific items]", "[sourcing recommendations]"],
+        ["Supplements", "[calcium, D3, multivitamin brands]", "[storage instructions]"],
+        ["Feeding Tools", "[tongs, bowls, dusting container]", "[material/size specs]"],
+        ["Gut-Loading Supplies", "[commercial or DIY ingredients]", "[storage requirements]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Veterinary consultation reminder: persistent appetite loss, weight changes, signs of metabolic bone disease require professional assessment]"
+    }
+  ]
+}

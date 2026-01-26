@@ -1,0 +1,213 @@
+﻿{
+  "id": "[SPECIES-ID]-lighting-guide",
+  "title": "[Species Name] Lighting Guide: UVB & Photoperiod Requirements",
+  "description": "Complete lighting guide for [species name] covering UVB requirements, bulb selection, photoperiod schedules, and equipment maintenance.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-26",
+  "category": "Care Guides",
+  "tags": ["[species-common-name]", "UVB", "lighting", "photoperiod", "vitamin-d3"],
+  "image": "/animals/[species-folder]/[species-image].jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Essential Lighting Requirements for [Species Name]",
+      "content": "[Introduction to lighting importance: vitamin D3 synthesis, behavioral health, circadian regulation. Species-specific light exposure in natural habitat.]"
+    },
+    {
+      "type": "section",
+      "title": "UVB Requirements"
+    },
+    {
+      "type": "text",
+      "content": "[Explain UVB necessity for this species: D3 synthesis pathway, Ferguson Zone classification, metabolic bone disease prevention]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>UVB Requirements:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Parameter", "Target Value", "Measurement Location"],
+      "rows": [
+        ["UVI (UV Index)", "[target range]", "[where to measure]"],
+        ["Ferguson Zone", "[zone classification]", "[habitat category]"],
+        ["Coverage Area", "[percentage]", "[allows self-regulation]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Critical UVB warning: necessity for bone health, dietary D3 cannot substitute, MBD consequences for this species]"
+    },
+    {
+      "type": "section",
+      "title": "UVB Equipment Selection"
+    },
+    {
+      "type": "text",
+      "content": "[UVB bulb selection based on species needs: percentage strength, fixture type, enclosure compatibility]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Recommended UVB Bulbs:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Product", "UVB Output", "Length", "Replacement Interval"],
+      "rows": [
+        ["[Brand/model 1]", "[UVB percentage]", "[bulb length]", "[months]"],
+        ["[Brand/model 2]", "[UVB percentage]", "[bulb length]", "[months]"],
+        ["[Brand/model 3]", "[UVB percentage]", "[bulb length]", "[months]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Warning about inappropriate UVB: compact bulbs, wrong strength, non-reptile bulbs, specific hazards for this species]"
+    },
+    {
+      "type": "section",
+      "title": "UVB Placement Guidelines"
+    },
+    {
+      "type": "text",
+      "content": "[Inverse square law explanation, importance of proper distance, species-specific positioning needs]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Mounting Distance Guidelines:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Mounting Configuration", "Distance to Basking/Perch", "UVI Range"],
+      "rows": [
+        ["External (over mesh)", "[distance]", "[UVI with mesh loss]"],
+        ["Internal (inside enclosure)", "[distance]", "[UVI no obstruction]"],
+        ["Through glass (avoid)", "[distance]", "[glass blocks UVB - not recommended]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Verification recommendation: Solarmeter 6.5 usage, distance adjustment based on age/condition, species-specific positioning]"
+    },
+    {
+      "type": "section",
+      "title": "Full-Spectrum Illumination"
+    },
+    {
+      "type": "text",
+      "content": "[Visible light requirements beyond UVB: behavioral health, circadian regulation, plant support if applicable to species]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Full-Spectrum Lighting Options:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Product Type", "Color Temperature", "Coverage Recommendation"],
+      "rows": [
+        ["[LED type]", "[Kelvin]", "[coverage area]"],
+        ["[Fluorescent type]", "[Kelvin]", "[coverage area]"],
+        ["[Alternative option]", "[Kelvin]", "[coverage area]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Distinction between UVB and visible light: both required, different functions, synergistic benefits for this species]"
+    },
+    {
+      "type": "section",
+      "title": "Photoperiod Management"
+    },
+    {
+      "type": "text",
+      "content": "[Day/night cycle importance: circadian rhythm, activity patterns, seasonal variations if applicable]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Lighting Schedule by Season:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Season", "Light Duration", "Biological Purpose"],
+      "rows": [
+        ["[Spring/Summer or active]", "[hours]", "[peak activity, breeding, growth]"],
+        ["[Fall/Winter or dormancy]", "[hours]", "[rest period, optional variation]"],
+        ["[Nighttime year-round]", "Complete darkness", "[melatonin, sleep quality]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "[Timer usage recommendation: consistency importance, battery backup, avoiding disruptions for this species]"
+    },
+    {
+      "type": "section",
+      "title": "Maintenance & Replacement Schedule"
+    },
+    {
+      "type": "text",
+      "content": "[UVB degradation over time, replacement necessity despite visible light continuing]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Bulb Replacement Schedule:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Equipment Type", "Replacement Interval", "Degradation Pattern"],
+      "rows": [
+        ["T5 HO UVB", "[months]", "[output decline rate]"],
+        ["T8 UVB", "[months]", "[faster degradation]"],
+        ["LED Full-Spectrum", "[years]", "[gradual dimming]"],
+        ["Fluorescent Full-Spectrum", "[months]", "[lumen reduction]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Best practice: labeling bulbs with install date, calendar reminders, advance ordering, species-specific considerations]"
+    },
+    {
+      "type": "section",
+      "title": "Common Setup Errors"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Common Mistakes and Solutions:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Mistake", "Consequence", "Solution"],
+      "rows": [
+        ["[Common error 1]", "[health impact]", "[correct approach]"],
+        ["[Common error 2]", "[health impact]", "[correct approach]"],
+        ["[Common error 3]", "[health impact]", "[correct approach]"],
+        ["[Common error 4]", "[health impact]", "[correct approach]"],
+        ["[Common error 5]", "[health impact]", "[correct approach]"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Complete Equipment Checklist"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Essential Lighting Equipment:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Equipment", "Specification", "Quantity"],
+      "rows": [
+        ["UVB Bulb", "[specific recommendation]", "[quantity]"],
+        ["UVB Fixture", "[fixture specs]", "[quantity]"],
+        ["Full-Spectrum Light", "[visible light specs]", "[quantity]"],
+        ["Timer(s)", "[digital with surge protection]", "[quantity]"],
+        ["Solarmeter 6.5 (optional)", "[UVI measurement]", "1"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Investment perspective: upfront cost vs health outcomes, preventive medicine, long-term savings for this species]"
+    }
+  ]
+}

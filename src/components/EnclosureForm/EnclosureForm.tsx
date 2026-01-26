@@ -493,42 +493,80 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
         </div>
       </div>
 
-      {/* Number of Ledges */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
-          Number of Wall Ledges
-        </label>
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => onChange({ ...value, numberOfLedges: Math.max(0, value.numberOfLedges - 1) })}
-            className="w-10 h-10 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold transition-colors flex items-center justify-center"
-            aria-label="Decrease ledges"
-          >
-            −
-          </button>
-          <input
-            type="number"
-            value={value.numberOfLedges}
-            onChange={(e) => {
-              const num = parseInt(e.target.value) || 0;
-              onChange({ ...value, numberOfLedges: Math.max(0, Math.min(6, num)) });
-            }}
-            min="0"
-            max="6"
-            className="w-20 px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md text-center font-medium focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-          />
-          <button
-            onClick={() => onChange({ ...value, numberOfLedges: Math.min(6, value.numberOfLedges + 1) })}
-            className="w-10 h-10 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold transition-colors flex items-center justify-center"
-            aria-label="Increase ledges"
-          >
-            +
-          </button>
-          <span className="text-sm text-gray-600 dark:text-gray-400">
-            Platforms for arboreal species (0-6)
-          </span>
+      {/* Number of Ledges (for vertical/arboreal species) OR Climbing Areas (for horizontal/terrestrial species) */}
+      {animalProfile?.layoutRules.preferVertical ? (
+        <div>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            Number of Wall Ledges
+          </label>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => onChange({ ...value, numberOfLedges: Math.max(0, value.numberOfLedges - 1) })}
+              className="w-10 h-10 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold transition-colors flex items-center justify-center"
+              aria-label="Decrease ledges"
+            >
+              −
+            </button>
+            <input
+              type="number"
+              value={value.numberOfLedges}
+              onChange={(e) => {
+                const num = parseInt(e.target.value) || 0;
+                onChange({ ...value, numberOfLedges: Math.max(0, Math.min(6, num)) });
+              }}
+              min="0"
+              max="6"
+              className="w-20 px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md text-center font-medium focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            />
+            <button
+              onClick={() => onChange({ ...value, numberOfLedges: Math.min(6, value.numberOfLedges + 1) })}
+              className="w-10 h-10 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold transition-colors flex items-center justify-center"
+              aria-label="Increase ledges"
+            >
+              +
+            </button>
+            <span className="text-sm text-gray-600 dark:text-gray-400">
+              Platforms for arboreal species (0-6)
+            </span>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            Number of Climbing Areas
+          </label>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => onChange({ ...value, numberOfClimbingAreas: Math.max(0, value.numberOfClimbingAreas - 1) })}
+              className="w-10 h-10 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold transition-colors flex items-center justify-center"
+              aria-label="Decrease climbing areas"
+            >
+              −
+            </button>
+            <input
+              type="number"
+              value={value.numberOfClimbingAreas}
+              onChange={(e) => {
+                const num = parseInt(e.target.value) || 0;
+                onChange({ ...value, numberOfClimbingAreas: Math.max(0, Math.min(4, num)) });
+              }}
+              min="0"
+              max="4"
+              className="w-20 px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md text-center font-medium focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            />
+            <button
+              onClick={() => onChange({ ...value, numberOfClimbingAreas: Math.min(4, value.numberOfClimbingAreas + 1) })}
+              className="w-10 h-10 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold transition-colors flex items-center justify-center"
+              aria-label="Increase climbing areas"
+            >
+              +
+            </button>
+            <span className="text-sm text-gray-600 dark:text-gray-400">
+              Rocks, branches, or basking platforms (0-4)
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

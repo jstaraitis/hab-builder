@@ -16,28 +16,29 @@
   "minEnclosureSize": {
     "width": 18,
     "depth": 18,
-    "height": 36,
+    "height": 24,
     "units": "in"
   },
   "quantityRules": {
-    "baseGallons": 40,
-    "additionalGallons": 0,
+    "baseGallons": 20,
+    "additionalGallons": 10,
     "maxRecommended": 1,
-    "description": "Single gecko requires 40 gallons vertical (18×18×36 inches)."
+    "description": "Single gecko requires 20 gallons vertical minimum (18×18×24 inches). Cohabitation NOT recommended due to stress and aggression. Each additional gecko requires +10 gallons and significant risk assessment."
   },
   "careTargets": {
     "temperature": {
-      "min": 70,
-      "max": 80,
+      "min": 72,
+      "max": 78,
+      "basking": 82,
       "nighttime": {
-        "min": 64,
+        "min": 65,
         "max": 72
       },
       "unit": "F"
     },
     "humidity": {
-      "min": 50,
-      "max": 70,
+      "min": 60,
+      "max": 80,
       "shedding": {
         "min": 70,
         "max": 80
@@ -47,8 +48,9 @@
     "lighting": {
       "uvbRequired": true,
       "uvbRecommended": true,
-      "coveragePercent": 65,
-      "photoperiod": "12h day / 12h night"
+      "coveragePercent": 50,
+      "photoperiod": "12h day / 12h night",
+      "uvbStrength": "5.0"
     },
     "gradient": "Vertical temperature gradient"
   },
@@ -61,6 +63,11 @@
   },
   "bioactiveCompatible": true,
   "lifespan": "15-20 years in captivity",
+  "dietType": "Omnivore",
+  "adultSize": "7-9 inches (including tail)",
+  "temperament": "Docile and handleable, tolerates handling well",
+  "activityPattern": "Nocturnal",
+  "originRegion": "New Caledonia (South Pacific islands)",
   "setupTips": [
     "Prioritize vertical space - height more important than floor space",
     "Provide lots of branches and cork bark for climbing",
@@ -77,40 +84,61 @@
   "warnings": [
     {
       "severity": "critical",
-      "message": "Never grab by tail - they will drop it and it will NOT grow back",
+      "message": "Never grab by tail - they will drop it and it will NOT grow back (permanent loss unlike leopard geckos)",
+      "category": "safety"
+    },
+    {
+      "severity": "critical",
+      "message": "Temperatures above 82°F can cause heat stress and death. No basking lamps needed - room temperature (72-78°F) is ideal.",
       "category": "safety"
     },
     {
       "severity": "important",
-      "message": "Room temperature (72-78°F) is ideal - do NOT use heat lamps. Temperatures above 80°F can be fatal.",
+      "message": "Cohabitation often results in stress, aggression, tail loss, and injuries. Single housing strongly recommended.",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "important",
+      "message": "Males are extremely aggressive toward each other - NEVER house two males together under any circumstances.",
       "category": "common_mistake"
     }
   ],
   "relatedBlogs": [
-    ""
+    "crested-gecko-enclosure-setup-guide",
+    "crested-gecko-substrate-guide",
+    "crested-gecko-temp-humidity-guide",
+    "crested-gecko-lighting-guide",
+    "crested-gecko-feeding-guide",
+    "crested-gecko-hydration-guide"
   ],
   "careGuidance": {
     "feedingRequirements": [
-      "Omnivorous - primary diet is commercial crested gecko diet (CGD)",
-      "Discourage jelly pots and baby food - too high in sugars",
-      "Opportunistic feeders - feeding live insects is reccommended for enrichment",
-      "Insects should be gut-loaded and dusted with calcium powder",
-      "Mashed fruit treats can be offered occasionally but not as a staple"
+      "Omnivorous - primary diet is commercial crested gecko diet (CGD powder mixed with water)",
+      "Best CGD brands: Repashy, Pangea, Arcadia EarthPro Custodian",
+      "Live insects (crickets, dubia roaches) offered 1-2x weekly for enrichment and protein",
+      "Insects must be appropriately sized (no wider than space between gecko's eyes)",
+      "Dust insects with calcium supplement (Repashy Calcium Plus or similar)",
+      "Avoid: Baby food (nutritionally inadequate), jelly pots (high sugar), mealworms as staple (high fat)"
     ],
     "feedingSchedule": [
-      "Juveniles (0-12 months): CGD nightly, insects 2-3x weekly",
-      "Sub-adults (1-2 years): CGD every other night, insects 1-2x weekly",
-      "Adults (2+ years): CGD 3x weekly, insects 1-2x weekly"
+      "Hatchlings (0-3 months): CGD nightly, fruit flies or pinhead crickets 3x weekly",
+      "Juveniles (3-12 months): CGD nightly, insects 2-3x weekly",
+      "Sub-adults (12-18 months): CGD every other night, insects 1-2x weekly",
+      "Adults (18+ months): CGD 3x weekly, insects 1-2x weekly",
+      "Breeding females: CGD nightly, insects 2x weekly (increased calcium demand)"
     ],
     "waterNotes": [
-      "Provide water dish but they prefer licking droplets from leaves",
-      "Mist enclosure in evening to provide drinking water",
-      "Change water dish daily"
+      "Provide shallow water dish (2-3 inches diameter) at all times in cool zone",
+      "Crested geckos are 'droplet drinkers' - they prefer licking water droplets from leaves after misting",
+      "Mist enclosure 1-2x daily (evening preferred) to provide drinking droplets",
+      "Change water dish daily to prevent bacterial growth"
     ],
     "mistingNotes": [
-      "Mist in evening - crested geckos drink from droplets",
-      "Maintain 50-70% humidity, increase to 70-80% during shedding",
-      "Allow enclosure to dry out during the day before evening misting"
+      "Mist once in evening (after lights out) or twice daily (morning + evening)",
+      "Target humidity: 60-80% ambient, allow to dry to 60% before next misting",
+      "Misting schedule: Light misting for 10-15 seconds until droplets form on leaves",
+      "Bioactive setups may require less frequent misting due to substrate moisture retention",
+      "During shedding: Increase misting frequency to maintain 70-80% humidity"
     ]
   }
 }

@@ -6,7 +6,7 @@
   "careLevel": "beginner",
   "emoji": "🦎",
   "imageUrl": "/animals/bearded-dragon/bearded-dragon-1.jpg",
-  "completionStatus": "draft",
+  "completionStatus": "in-progress",
   "gallery": [
     {
       "url": "/animals/bearded-dragon/bearded-dragon-1.jpg",
@@ -27,21 +27,21 @@
   },
   "careTargets": {
     "temperature": {
-      "min": 75,
+      "min": 70,
       "max": 85,
-      "basking": 95,
+      "basking": 110,
       "nighttime": {
-        "min": 65,
+        "min": 70,
         "max": 75
       },
       "unit": "F"
     },
     "humidity": {
       "min": 30,
-      "max": 40,
+      "max": 60,
       "shedding": {
-        "min": 40,
-        "max": 50
+        "min": 30,
+        "max": 60
       },
       "unit": "%"
     },
@@ -49,7 +49,7 @@
       "uvbRequired": true,
       "uvbRecommended": true,
       "uvbStrength": "10.0",
-      "coveragePercent": 50,
+      "coveragePercent": 65,
       "photoperiod": "12h day / 12h night"
     },
     "gradient": "Horizontal thermal gradient required"
@@ -62,52 +62,62 @@
     "optionalZones": ["feeding"]
   },
   "bioactiveCompatible": true,
-  "lifespan": "8-12 years in captivity",
+  "lifespan": "10-15 years in captivity, 20-25 possible with excellent care",
+  "dietType": "Omnivore",
+  "adultSize": "16-24 inches (including tail)",
+  "temperament": "Very friendly and interactive, enjoys handling and attention",
+  "activityPattern": "Diurnal",
+  "originRegion": "Australia (arid woodlands and deserts)",
   "setupTips": [
     "Provide basking platform under heat lamp for thermoregulation",
-    "Use tile or non-particle substrate to prevent impaction",
-    "Include branches and rocks for climbing enrichment"
-  ],
+    "Include branches and rocks for climbing enrichment",
+    "Full-spectrum lighting is essential for health, such as ~6500k daylight bulbs"
+    ],
   "notes": [
+    "Native to arid regions of Australia",
+    "Popular pet lizard known for docile temperament",
     "Diurnal and highly active during the day",
     "Omnivorous - requires both insects and vegetables",
-    "Social and can be handleable with proper taming",
-    "Profile in development"
+    "Social and can be handleable with proper taming"
   ],
   "warnings": [
     {
       "severity": "critical",
-      "message": "UVB lighting is essential - use tube-style UVB 10.0 bulbs, not compact coils",
+      "message": "UVB lighting is essential - use tube-style UVB 12.0/10.0 bulbs, not compact coils",
       "category": "common_mistake"
     },
+
     {
-      "severity": "important",
-      "message": "Avoid loose substrates (sand, walnut shells) which can cause impaction if ingested",
+      "severity": "critical",
+      "message": "Avoid housing multiple bearded dragons together - they are territorial and may fight",
       "category": "safety"
     }
   ],
   "relatedBlogs": [
-    ""
+    "bearded-dragon-substrate-guide",
+    "bearded-dragon-feeding-guide",
+    "bearded-dragon-lighting-guide"
   ],
   "careGuidance": {
     "feedingRequirements": [
-      "Juveniles: 80% insects, 20% vegetables",
-      "Adults: 20% insects, 80% vegetables",
-      "Dust insects with calcium and D3 supplement"
+      "Insects: crickets, dubia roaches, discus roaches, black soldier fly larvae, mealworms, hornworms, silkworms are all good options",
+      "Vegetables: collard greens, cactus pads, spring mix, arugula, kale, bok choy, carrot greens, spinach, dandelion greens, squash, bell peppers, sweet potato, zucchini",
+      "Fruits (treats only): blueberries, strawberries, mango, papaya",
+      "Supplements: calcium powder and multivitamin powder. Follow label directions"
     ],
     "feedingSchedule": [
-      "Juveniles (0-6 months): Daily insects, daily greens",
-      "Sub-adults (7-12 months): Daily insects, daily greens",
-      "Adults (1 year+): Insects 3-4x weekly, daily greens"
+      "Hatchlings (0-6 months): Insects 2x daily, daily vegetables",
+      "Juveniles (6-12 months): Insects 1x daily, daily vegetables",
+      "Adults (1 year+): Insects 2-3x weekly, daily vegetables"
     ],
     "waterNotes": [
       "Provide shallow water dish for drinking and soaking",
       "Change water daily",
-      "Some beardies prefer to drink from droplets - mist occasionally"
+      "Some beardies prefer to drink from droplets - mist occasionally",
+      "Bathing / Soaking is generally not required but can aid hydration"
     ],
     "mistingNotes": [
-      "Light misting 2-3x weekly",
-      "Increase during shedding period",
+      "Light misting cool side 1-2x weekly can aid hydration",
       "Ensure proper ventilation to prevent humidity buildup"
     ]
   }

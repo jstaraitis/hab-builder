@@ -1,5 +1,5 @@
 {
-  "id": "hydration-water-guide",
+  "id": "whites-tree-frog-hydration-water-guide",
   "title": "Hydration & Water Quality for White's Tree Frogs",
   "author": "Habitat Builder Team",
   "date": "2026-01-20",
@@ -41,7 +41,7 @@
         },
         {
           "type": "highlight",
-          "text": "Note: Keep a second identical dish on hand—swap daily while the other is sanitized."
+          "content": "Note: Keep a second identical dish on hand—swap daily while the other is sanitized."
         }
       ]
     },
@@ -61,7 +61,8 @@
         },
         {
           "type": "warning",
-          "text": "CRITICAL: White's Tree Frogs are semi-arid Australian species. Keeping humidity above 50% sustained will cause respiratory infections. If shedding issues occur, offer a 10-minute supervised soak in shallow treated water—do NOT increase ambient humidity."
+          "severity": "important",
+          "content": "CRITICAL: White's Tree Frogs are semi-arid Australian species. Keeping humidity above 50% sustained will cause respiratory infections. If shedding issues occur, offer a 10-minute supervised soak in shallow treated water—do NOT increase ambient humidity."
         }
       ]
     },

@@ -1,4 +1,4 @@
-ï»¿import type {
+import type {
   EnclosureInput,
   ShoppingItem,
 } from './types';
@@ -6,17 +6,18 @@ import equipmentCatalog from '../data/equipment-catalog.json';
 
 /**
  * Pure function that checks if equipment is compatible with the current animal
+ * Uses incompatibleAnimals logic: equipment is compatible unless the animal is explicitly excluded
  */
 function isCompatibleWithAnimal(
   equipmentConfig: any,
   animal: string
 ): boolean {
-  // If no compatibleAnimals specified or it's empty, it's compatible with all
-  if (!equipmentConfig.compatibleAnimals || equipmentConfig.compatibleAnimals.length === 0) {
+  // If no incompatibleAnimals specified or it's empty, it's compatible with all animals
+  if (!equipmentConfig.incompatibleAnimals || equipmentConfig.incompatibleAnimals.length === 0) {
     return true;
   }
-  // Check if current animal is in the compatible list
-  return equipmentConfig.compatibleAnimals.includes(animal);
+  // Equipment is compatible if the current animal is NOT in the incompatible list
+  return !equipmentConfig.incompatibleAnimals.includes(animal);
 }
 
 /**
@@ -29,8 +30,8 @@ function addEnclosure(
   const enclosureKey = `enclosure-${input.type}`;
   const enclosureConfig = (equipmentCatalog as Record<string, any>)[enclosureKey];
   const dimensionsDisplay = input.units === 'in' 
-    ? `${input.width}" Ã— ${input.depth}" Ã— ${input.height}"`
-    : `${input.width}cm Ã— ${input.depth}cm Ã— ${input.height}cm`;
+    ? `${input.width}" × ${input.depth}" × ${input.height}"`
+    : `${input.width}cm × ${input.depth}cm × ${input.height}cm`;
   
   items.push({
     id: enclosureKey,
@@ -41,7 +42,7 @@ function addEnclosure(
     importance: enclosureConfig.importance,
     setupTierOptions: enclosureConfig.tiers,
     notes: enclosureConfig.notes,
-    compatibleAnimals: enclosureConfig.compatibleAnimals,
+    incompatibleAnimals: enclosureConfig.incompatibleAnimals,
   });
 }
 
@@ -55,19 +56,23 @@ function addUVBLighting(
   input: EnclosureInput
 ): void {
   if (profile.careTargets.lighting.uvbRequired) {
-    const uvbConfig = equipmentCatalog['uvb-fixture'];
+    // Determine which UVB fixture to use based on UVB strength requirement
+    const uvbStrength = profile.careTargets.lighting.uvbStrength;
+    const isDesertUVB = uvbStrength === '10.0' || uvbStrength === '12%';
+    const uvbFixtureId = isDesertUVB ? 'uvb-fixture-desert' : 'uvb-fixture-forest';
+    const uvbConfig = (equipmentCatalog as Record<string, any>)[uvbFixtureId];
     
-    if (isCompatibleWithAnimal(uvbConfig, input.animal)) {
+    if (uvbConfig && isCompatibleWithAnimal(uvbConfig, input.animal)) {
       const fixtureLength = Math.round(dims.width * (profile.careTargets.lighting.coveragePercent / 100));
       items.push({
-        id: 'uvb-fixture',
+        id: uvbFixtureId,
         category: uvbConfig.category as any,
-        name: `UVB ${profile.careTargets.lighting.uvbStrength} ${uvbConfig.name}`,
+        name: uvbConfig.name, // Already includes strength in name (e.g., "UVB Linear Fixture (10.0 Desert)")
         quantity: 1,
         sizing: `${fixtureLength}" fixture (${profile.careTargets.lighting.coveragePercent}% of ${Math.round(dims.width)}" width)`,
         importance: (uvbConfig as any).importance,
         setupTierOptions: uvbConfig.tiers as any,
-        compatibleAnimals: uvbConfig.compatibleAnimals,
+        incompatibleAnimals: uvbConfig.incompatibleAnimals,
       });
     }
   }
@@ -97,11 +102,11 @@ function addHeatLamp(
         category: heatConfig.category as any,
         name: heatConfig.name,
         quantity: `1 (${wattage}W estimate)`,
-        sizing: `Based on ${Math.round(volume / 1728)} cubic feet and ${tempDifference}Â°F temperature difference from ambient (${input.ambientTemp}Â°F)`,
+        sizing: `Based on ${Math.round(volume / 1728)} cubic feet and ${tempDifference}°F temperature difference from ambient (${input.ambientTemp}°F)`,
         importance: (heatConfig as any).importance,
         setupTierOptions: heatConfig.tiers as any,
         notes: heatConfig.notes,
-        compatibleAnimals: heatConfig.compatibleAnimals,
+        incompatibleAnimals: heatConfig.incompatibleAnimals,
       });
     }
   }
@@ -138,9 +143,9 @@ function addSubstrate(
     category: (substrateConfig as any).category,
     name: (substrateConfig as any).name,
     quantity: `${quarts} quarts (${substrateDepth}\" depth)`,
-    sizing: `${Math.round(dims.width)}\" Ã— ${Math.round(dims.depth)}\" floor at ${substrateDepth}\" depth`,    importance: (substrateConfig as any).importance,    setupTierOptions: (substrateConfig as any).tiers,
+    sizing: `${Math.round(dims.width)}\" × ${Math.round(dims.depth)}\" floor at ${substrateDepth}\" depth`,    importance: (substrateConfig as any).importance,    setupTierOptions: (substrateConfig as any).tiers,
     ...((substrateConfig as any).notes && { notes: (substrateConfig as any).notes }),
-    compatibleAnimals: (substrateConfig as any).compatibleAnimals,
+    incompatibleAnimals: (substrateConfig as any).incompatibleAnimals,
   });
 }
 
@@ -167,7 +172,7 @@ function addBioactiveItems(
     importance: 'required', // Required for bioactive setup
     setupTierOptions: drainageConfig.tiers as any,
     notes: drainageConfig.notes,
-    compatibleAnimals: (drainageConfig as any).compatibleAnimals,
+    incompatibleAnimals: (drainageConfig as any).incompatibleAnimals,
   });
 
   // Drainage barrier
@@ -177,10 +182,10 @@ function addBioactiveItems(
     category: barrierConfig.category as any,
     name: barrierConfig.name,
     quantity: '1 sheet',
-    sizing: `Cut to ${Math.round(dims.width)}" Ã— ${Math.round(dims.depth)}"`,    importance: 'required', // Required for bioactive setup
+    sizing: `Cut to ${Math.round(dims.width)}" × ${Math.round(dims.depth)}"`,    importance: 'required', // Required for bioactive setup
     setupTierOptions: barrierConfig.tiers as any,
     notes: barrierConfig.notes,
-    compatibleAnimals: (barrierConfig as any).compatibleAnimals,
+    incompatibleAnimals: (barrierConfig as any).incompatibleAnimals,
   });
 
   // Springtails
@@ -193,7 +198,7 @@ function addBioactiveItems(
     sizing: ``,
     importance: 'required', // Required for bioactive cleanup crew
     setupTierOptions: springtailsConfig.tiers as any,
-    compatibleAnimals: (springtailsConfig as any).compatibleAnimals,
+    incompatibleAnimals: (springtailsConfig as any).incompatibleAnimals,
   });
 
   // Isopods
@@ -206,7 +211,7 @@ function addBioactiveItems(
     sizing: ``,
     importance: 'required', // Required for bioactive cleanup crew
     setupTierOptions: isopodsConfig.tiers as any,
-    compatibleAnimals: (isopodsConfig as any).compatibleAnimals,
+    incompatibleAnimals: (isopodsConfig as any).incompatibleAnimals,
   });
 }
 
@@ -293,7 +298,7 @@ function addDecor(
     importance: branchesConfig.importance,
     setupTierOptions: branchesConfig.tiers,
     notes: branchesConfig.notes,
-    compatibleAnimals: branchesConfig.compatibleAnimals,
+    incompatibleAnimals: branchesConfig.incompatibleAnimals,
   });
 
   // Live plants if preferred
@@ -305,11 +310,11 @@ function addDecor(
         category: plantsConfig.category,
         name: plantsConfig.name,
         quantity: input.plantPreference === 'live' ? '4-6 plants' : '2-3 plants',
-        sizing: 'Mix of ground cover, mid-level, and upper canopy species',
+        sizing: 'Mix of ground cover, mid-level, and upper-level for arboreal species',
         importance: plantsConfig.importance,
         setupTierOptions: plantsConfig.tiers,
         notes: plantsConfig.notes,
-        compatibleAnimals: plantsConfig.compatibleAnimals,
+        incompatibleAnimals: plantsConfig.incompatibleAnimals,
       });
     }
   }
@@ -327,7 +332,7 @@ function addDecor(
         importance: 'required', // Required when artificial or mixed plants selected
         setupTierOptions: artificialConfig.tiers,
         notes: artificialConfig.notes,
-        compatibleAnimals: artificialConfig.compatibleAnimals,
+        incompatibleAnimals: artificialConfig.incompatibleAnimals,
       });
     }
   }
@@ -347,7 +352,7 @@ function addMonitoring(items: ShoppingItem[]): void {
     importance: (monitoringConfig as any).importance,
     setupTierOptions: monitoringConfig.tiers as any,
     notes: monitoringConfig.notes,
-    compatibleAnimals: monitoringConfig.compatibleAnimals,
+    incompatibleAnimals: monitoringConfig.incompatibleAnimals,
   });
 }
 
@@ -369,7 +374,7 @@ function addWaterSupplies(items: ShoppingItem[], input: EnclosureInput, profile:
       importance: waterBowlConfig.importance,
       setupTierOptions: waterBowlConfig.tiers,
       notes: waterBowlConfig.notes,
-      compatibleAnimals: waterBowlConfig.compatibleAnimals,
+      incompatibleAnimals: waterBowlConfig.incompatibleAnimals,
     });
   }
 
@@ -387,7 +392,7 @@ function addWaterSupplies(items: ShoppingItem[], input: EnclosureInput, profile:
         importance: needsHumidityControl ? 'required' : sprayBottleConfig.importance,
         setupTierOptions: sprayBottleConfig.tiers,
         notes: sprayBottleConfig.notes,
-        compatibleAnimals: sprayBottleConfig.compatibleAnimals,
+        incompatibleAnimals: sprayBottleConfig.incompatibleAnimals,
       });
     }
   }
@@ -404,7 +409,7 @@ function addWaterSupplies(items: ShoppingItem[], input: EnclosureInput, profile:
       importance: dechlorinatorConfig.importance,
       setupTierOptions: dechlorinatorConfig.tiers,
       notes: dechlorinatorConfig.notes,
-      compatibleAnimals: dechlorinatorConfig.compatibleAnimals,
+      incompatibleAnimals: dechlorinatorConfig.incompatibleAnimals,
     });
   }
 }
@@ -427,7 +432,7 @@ function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput): void 
       importance: insectsConfig.importance,
       setupTierOptions: insectsConfig.tiers,
       notes: insectsConfig.notes,
-      compatibleAnimals: insectsConfig.compatibleAnimals,
+      incompatibleAnimals: insectsConfig.incompatibleAnimals,
     });
   }
 
@@ -439,11 +444,11 @@ function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput): void 
       category: calciumConfig.category,
       name: calciumConfig.name,
       quantity: '1 container',
-      sizing: 'Dust at appropriate frequency',
+      sizing: 'Dust following product instructions',
       importance: calciumConfig.importance,
       setupTierOptions: calciumConfig.tiers,
       notes: calciumConfig.notes,
-      compatibleAnimals: calciumConfig.compatibleAnimals,
+      incompatibleAnimals: calciumConfig.incompatibleAnimals,
     });
   }
 
@@ -455,11 +460,11 @@ function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput): void 
       category: multivitaminConfig.category,
       name: multivitaminConfig.name,
       quantity: '1 container',
-      sizing: 'Dust at appropriate frequency',
+      sizing: 'Dust following product instructions',
       importance: multivitaminConfig.importance,
       setupTierOptions: multivitaminConfig.tiers,
       notes: multivitaminConfig.notes,
-      compatibleAnimals: multivitaminConfig.compatibleAnimals,
+      incompatibleAnimals: multivitaminConfig.incompatibleAnimals,
     });
   }
 
@@ -475,7 +480,7 @@ function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput): void 
       importance: tongsConfig.importance,
       setupTierOptions: tongsConfig.tiers,
       notes: tongsConfig.notes,
-      compatibleAnimals: tongsConfig.compatibleAnimals,
+      incompatibleAnimals: tongsConfig.incompatibleAnimals,
     });
   }
 }
@@ -498,7 +503,7 @@ function addPlantLighting(items: ShoppingItem[], input: EnclosureInput): void {
         importance: 'required', // Required when live plants are selected
         setupTierOptions: plantLightConfig.tiers,
         notes: plantLightConfig.notes,
-        compatibleAnimals: plantLightConfig.compatibleAnimals,
+        incompatibleAnimals: plantLightConfig.incompatibleAnimals,
       });
     }
   }
@@ -518,18 +523,18 @@ function addStructuralDecor(items: ShoppingItem[], input: EnclosureInput): void 
       category: hidesConfig.category,
       name: hidesConfig.name,
       quantity: input.numberOfHides,
-      sizing: 'Ground and elevated placement',
+      sizing: 'Ground and elevated placements as appropriate',
       importance: hidesConfig.importance,
       setupTierOptions: hidesConfig.tiers,
       notes: hidesConfig.notes,
-      compatibleAnimals: hidesConfig.compatibleAnimals,
+      incompatibleAnimals: hidesConfig.incompatibleAnimals,
     });
   }
 
-  // Wall ledges - use user's specified quantity
+  // Wall ledges - use user's specified quantity (for arboreal/vertical species)
   if (input.numberOfLedges > 0) {
     const ledgesConfig = catalogDict['ledges'];
-    if (ledgesConfig) {
+    if (ledgesConfig && isCompatibleWithAnimal(ledgesConfig, input.animal)) {
       items.push({
         id: 'ledges',
         category: ledgesConfig.category,
@@ -539,7 +544,25 @@ function addStructuralDecor(items: ShoppingItem[], input: EnclosureInput): void 
         importance: ledgesConfig.importance,
         setupTierOptions: ledgesConfig.tiers,
         notes: ledgesConfig.notes,
-        compatibleAnimals: ledgesConfig.compatibleAnimals,
+        incompatibleAnimals: ledgesConfig.incompatibleAnimals,
+      });
+    }
+  }
+
+  // Climbing areas - branches/rocks for terrestrial/horizontal species
+  if (input.numberOfClimbingAreas > 0) {
+    const climbingConfig = catalogDict['climbing-areas'];
+    if (climbingConfig && isCompatibleWithAnimal(climbingConfig, input.animal)) {
+      items.push({
+        id: 'climbing-areas',
+        category: climbingConfig.category,
+        name: climbingConfig.name,
+        quantity: input.numberOfClimbingAreas,
+        sizing: 'Various sizes for basking and enrichment',
+        importance: climbingConfig.importance,
+        setupTierOptions: climbingConfig.tiers,
+        notes: climbingConfig.notes,
+        incompatibleAnimals: climbingConfig.incompatibleAnimals,
       });
     }
   }
@@ -558,7 +581,7 @@ function addStructuralDecor(items: ShoppingItem[], input: EnclosureInput): void 
         importance: backgroundConfig.importance,
         setupTierOptions: backgroundConfig.tiers,
         notes: backgroundConfig.notes,
-        compatibleAnimals: backgroundConfig.compatibleAnimals,
+        incompatibleAnimals: backgroundConfig.incompatibleAnimals,
       });
     }
   }

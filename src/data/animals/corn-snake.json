@@ -6,7 +6,7 @@
   "careLevel": "beginner",
   "emoji": "🐍",
   "imageUrl": "/animals/corn-snake/corn-snake-1.jpg",
-  "completionStatus": "draft",
+  "completionStatus": "in-progress",
   "gallery": [
     {
       "url": "/animals/corn-snake/corn-snake-1.jpg",
@@ -14,102 +14,154 @@
     }
   ],
   "minEnclosureSize": {
-    "width": 36,
-    "depth": 18,
-    "height": 18,
+    "width": 48,
+    "depth": 24,
+    "height": 24,
     "units": "in"
   },
   "quantityRules": {
-    "baseGallons": 40,
+    "baseGallons": 120,
     "additionalGallons": 0,
     "maxRecommended": 1,
-    "description": "Corn snakes are solitary. House individually only - minimum 40 gallons for adults (36×18×18 inches)."
+    "description": "Corn snakes are solitary and do NOT tolerate cohabitation. House individually only - minimum 120 gallons (48×24×24 inches). Cohabitation causes chronic stress, competition for resources, disease transmission, and feeding aggression."
   },
   "careTargets": {
     "temperature": {
       "min": 75,
       "max": 85,
-      "basking": 88,
+      "basking": 90,
       "nighttime": {
-        "min": 70,
+        "min": 68,
         "max": 75
       },
       "unit": "F"
     },
     "humidity": {
-      "min": 40,
-      "max": 60,
+      "min": 65,
+      "max": 75,
       "shedding": {
-        "min": 60,
-        "max": 70
+        "min": 70,
+        "max": 75
       },
       "unit": "%"
     },
     "lighting": {
-      "uvbRequired": false,
-      "uvbRecommended": false,
-      "coveragePercent": 0,
-      "photoperiod": "12h day / 12h night"
+      "uvbRequired": true,
+      "uvbRecommended": true,
+      "coveragePercent": 50,
+      "photoperiod": "12-14h light (spring/summer), 10-12h (fall/winter)",
+      "uvbStrength": "5.0"
     },
-    "gradient": "Horizontal thermal gradient required"
+    "gradient": "Horizontal thermal gradient required (90°F basking surface → 75°F cool zone)"
   },
   "layoutRules": {
     "preferVertical": false,
-    "verticalSpacePercent": 30,
+    "verticalSpacePercent": 40,
     "thermalGradient": "horizontal",
-    "requiredZones": ["basking", "hide", "water"],
-    "optionalZones": ["climbing"]
+    "requiredZones": ["basking", "warm-hide", "cool-hide", "water"],
+    "optionalZones": ["climbing-branches", "humid-hide"]
   },
   "bioactiveCompatible": true,
-  "lifespan": "15-20 years in captivity",
+  "lifespan": "20-25 years in captivity with proper care",
+  "dietType": "Carnivore",
+  "adultSize": "4-6 feet (females slightly longer)",
+  "temperament": "Gentle and curious, rarely defensive, great for beginners",
+  "activityPattern": "Crepuscular",
+  "originRegion": "Southeastern United States and Mexico",
   "setupTips": [
-    "Provide multiple hides on both warm and cool sides",
-    "Include branches for climbing - corn snakes are semi-arboreal",
-    "Ensure secure lid with clips - corn snakes are escape artists"
+    "PVC front-opening enclosures ideal - hold humidity better than glass, easier access",
+    "Use halogen flood bulbs (90w PAR38 x2) as PRIMARY heat source - heat mats supplemental only",
+    "Soil-based substrate (ReptiSoil, DIY 40/40/20 mix) 3-4 inches deep for humidity retention",
+    "BOTH warm hide (under basking) AND cool hide (opposite end) are mandatory",
+    "Provide 3-4 sturdy climbing branches at different heights - corn snakes are semi-arboreal",
+    "Large water bowl (8-10 inch diameter) on cool side for soaking",
+    "Basking surface temp (90°F) measured with infrared thermometer, NOT ambient air temp"
   ],
   "notes": [
-    "Docile and easy to handle, excellent for beginners",
-    "Crepuscular and nocturnal - most active at dawn/dusk",
-    "Excellent climbers despite being ground-dwelling",
-    "Profile in development"
+    "Crepuscular (most active at sunset/dawn) - NOT fully nocturnal as commonly believed",
+    "Semi-arboreal - spend significant time climbing branches and exploring elevated areas",
+    "Very docile and handleable - rarely bite unless extremely stressed",
+    "Expert escape artists - secure locking lids essential (can push through weak screen tops)",
+    "Adult size: 3-5 feet (males smaller 3-4 feet, females larger 4-5 feet)",
+    "Over 800 morphs available due to extensive captive breeding",
+    "Native to southeastern United States, parts of Mexico, and Cayman Islands"
   ],
   "warnings": [
     {
       "severity": "critical",
-      "message": "Secure enclosure with locking lid required - corn snakes are expert escape artists",
+      "message": "Secure enclosure with locking lid REQUIRED - corn snakes are expert escape artists and can push through clips, lift screen tops, or squeeze through tiny gaps. Use cage locks or weighted lids.",
       "category": "safety"
     },
     {
-      "severity": "important",
-      "message": "Wait 48 hours after feeding before handling to prevent regurgitation",
+      "severity": "critical",
+      "message": "BASKING SURFACE temp must be 90°F measured with infrared thermometer on branch/rock surface. Ambient air temps are 10-15°F cooler than surfaces. Low basking temps (<85°F) prevent proper digestion.",
       "category": "common_mistake"
+    },
+    {
+      "severity": "critical",
+      "message": "Cohabitation is NOT safe despite being commonly attempted. Causes chronic stress, feeding aggression (documented cannibalism cases), disease transmission, and competition. Always house individually.",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "important",
+      "message": "No handling for 48-72 hours after feeding - movement causes regurgitation. Snake needs stillness to digest. Regurgitation damages esophagus and requires 10-14 day fasting period to recover.",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "important",
+      "message": "Humidity measured at substrate level (65-75%) - NOT top of enclosure. Use digital hygrometer probe placed on substrate. Low humidity (<60%) causes stuck sheds and dehydration.",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "tip",
+      "message": "40-gallon enclosures are OUTDATED advice from 1990s-2000s. Modern standard is 120 gallons (48×24×24) minimum based on snake length × 0.5 × 0.5 formula. Larger enclosures do NOT stress snakes if proper hides provided.",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "tip",
+      "message": "Heat mats are supplemental ONLY - never use as primary heat source. Can't achieve 90°F basking surface temp or warm air properly. Use halogen flood bulbs overhead as primary heat (mimics natural sunlight).",
+      "category": "equipment_danger"
     }
   ],
   "relatedBlogs": [
-    "feeding-guide",
-    "temp-humidity-guide",
-    "enclosure-sizing-guide"
+    "corn-snake-enclosure-setup-guide",
+    "corn-snake-substrate-guide",
+    "corn-snake-temp-humidity-guide",
+    "corn-snake-lighting-guide",
+    "corn-snake-feeding-guide",
+    "corn-snake-hydration-guide"
   ],
   "careGuidance": {
     "feedingRequirements": [
-      "Carnivorous - feed appropriately sized frozen-thawed mice",
-      "Prey should be no wider than the widest part of snake's body",
-      "Never feed live prey - risk of injury to snake"
+      "Obligate carnivore - whole prey animals ONLY (mice, young rats, young quail, quail eggs, chicks, green anoles)",
+      "VARIETY ESSENTIAL - rotate prey types to prevent picky eating and provide balanced nutrition",
+      "Frozen-thawed strongly preferred over live (safer for snake, more humane for prey)",
+      "10% body weight rule: Prey item(s) should total 10% of snake's weight",
+      "Prey size: No larger than 1.5x snake's width at widest point",
+      "Thaw prey in warm water (100°F) for 20-60 minutes, never microwave",
+      "Use 12\"+ feeding tongs for safety"
     ],
     "feedingSchedule": [
-      "Hatchlings (0-12 months): Every 5-7 days, pinky to fuzzy mice",
-      "Juveniles (1-2 years): Every 7-10 days, hopper to adult mice",
-      "Adults (2+ years): Every 10-14 days, adult mice"
+      "Hatchlings (0-12 months): Every 7-10 days, 10% body weight (pinky to fuzzy mice)",
+      "Juveniles (12-24 months): Every 7-14 days, 10% body weight (hopper mice to small adult mice)",
+      "Adults (2+ years): Every 14-21 days, 10% body weight (adult mice or young rats)",
+      "Weigh snake monthly to adjust portions - visible ribs = underfed, rounded body = healthy, fat rolls = overfed"
     ],
     "waterNotes": [
-      "Provide large water bowl for drinking and soaking",
-      "Change water every 2-3 days or when soiled",
-      "Bowl should be large enough for snake to soak entire body"
+      "Large water bowl essential - must be large enough for snake to curl up inside completely",
+      "Water bowl placement: Cool side (prevents excessive evaporation)",
+      "Change water DAILY (corn snakes often defecate in water bowls)",
+      "Scrub bowl with reptile-safe disinfectant 2-3x weekly",
+      "Bowl depth: 2-3 inches minimum for soaking",
+      "Corn snakes soak 1-3 hours before shedding (normal behavior)"
     ],
     "mistingNotes": [
-      "Minimal misting needed - maintain 40-60% humidity",
-      "Increase humidity to 60-70% during shedding",
-      "Mist enclosure lightly 2-3x weekly or provide humid hide"
+      "Mist 1-2x daily in moderate climates, 2-3x daily in dry climates",
+      "Target: 65-75% humidity at substrate level (measured with hygrometer probe)",
+      "During shed cycle: Increase misting to achieve 70-75% humidity",
+      "Soil-based substrate (3-4 inches deep) is PRIMARY humidity management tool",
+      "Optional humid hide: Plastic hide box with damp sphagnum moss maintains 70-80% microclimate",
+      "Leaf litter layer on top of substrate helps retain moisture"
     ]
   }
 }

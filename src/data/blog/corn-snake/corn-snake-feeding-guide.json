@@ -1,0 +1,368 @@
+﻿{
+  "id": "corn-snake-feeding-guide",
+  "title": "Corn Snake Feeding Guide: Complete Carnivore Diet & Prey Variety",
+  "description": "Evidence-based feeding guide for corn snakes covering whole prey diet (mice, rats, quail, chicks, anoles), age-based feeding schedules, prey sizing (10% body weight rule), and dietary variety for optimal health.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-26",
+  "category": "Care Guides",
+  "tags": ["corn-snake", "feeding", "diet", "prey", "carnivore"],
+  "image": "/animals/corn-snake/corn-snake-feeding.jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Complete Carnivore Diet for Corn Snakes",
+      "content": "Corn snakes (Pantherophis guttatus) are obligate carnivores, requiring a diet of whole animal prey to obtain complete nutrition. Unlike some snake species that thrive on single prey types, corn snakes benefit significantly from dietary variety—mice, young rats, quail, quail eggs, chicks, and green anoles all contribute unique nutritional profiles. Modern corn snake nutrition emphasizes the '10% body weight rule' for portion sizing (prey items totaling 10% of snake's weight), age-based feeding frequencies (ranging from every 7-10 days for hatchlings to every 14-21 days for adults), and frozen-thawed prey for safety and humaneness. This ReptiFiles®-based guide covers feeding schedules, prey selection, troubleshooting picky eaters, and avoiding common feeding mistakes that lead to obesity or nutritional deficiencies."
+    },
+    {
+      "type": "section",
+      "title": "Dietary Requirements"
+    },
+    {
+      "type": "text",
+      "content": "Corn snakes need whole prey items—entire animals with bones, organs, and tissue. They cannot survive on meat alone (no bones = calcium deficiency)."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Whole Prey Nutrition:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Prey Component", "Nutritional Contribution", "Importance"],
+      "rows": [
+        ["Muscle tissue", "Protein, amino acids, fats", "Primary macronutrient source, energy for activity and growth"],
+        ["Bones", "Calcium, phosphorus, minerals", "Skeletal health, prevents metabolic bone disease (MBD)"],
+        ["Organs (liver, kidneys, heart)", "Vitamins A, D, E, B-complex, iron, trace minerals", "Immune function, vision, metabolism, blood health"],
+        ["Digestive tract contents", "Fiber, plant nutrients (if prey was herbivore)", "Gut health, trace nutrients, aids digestion"],
+        ["Skin/fur/feathers", "Keratin, roughage", "Aids digestion, gut motility, prevents constipation"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "Never feed: Raw chicken breasts or other meat cuts (no bones = calcium deficiency), hot dogs/processed meats (toxic preservatives), fish (inappropriate nutrition profile, thiaminase destroys vitamin B1), eggs alone (not complete nutrition). Corn snakes MUST eat whole prey animals."
+    },
+    {
+      "type": "section",
+      "title": "Prey Type Selection"
+    },
+    {
+      "type": "text",
+      "content": "Variety is ESSENTIAL for balanced nutrition. Different prey species offer unique nutritional profiles. Mice alone are adequate but not optimal—corn snakes thrive on diversity."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Prey Species Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Prey Type", "Size Range", "Nutritional Profile", "Best Use"],
+      "rows": [
+        ["Mice (Mus musculus)", "Pinkies to adult (2g-30g)", "Lean protein, good calcium:phosphorus ratio, complete nutrition", "Primary staple feeder, widely available, affordable"],
+        ["Young rats (Rattus norvegicus)", "Rat pups to weaned (10g-60g)", "Higher fat than mice, good for adult corn snakes", "Secondary staple for adults, prevents picky eating"],
+        ["Quail (Coturnix)", "Chicks to adult (20g-150g)", "High protein, lower fat, different micronutrient profile", "EXCELLENT variety—very different from rodents"],
+        ["Quail eggs", "1 egg = ~10g", "High protein, moderate fat, calcium from shell", "Occasional treat, dietary variety, enrichment"],
+        ["Day-old chicks (domestic chicken)", "30-60g", "Very lean, high protein, good calcium from bones", "Variety feeder—corn snakes often love them"],
+        ["Green anoles (Anolis carolinensis)", "4-8g", "Lean protein, unique nutrient profile", "Wild prey analog, excellent variety (captive-bred only)"],
+        ["Hamsters (not recommended)", "—", "Too fatty, sharp teeth risk to corn snake", "Avoid—mice and young rats preferable"],
+        ["Gerbils (not recommended)", "—", "Nutritionally similar to mice but less available", "Not necessary—use mice instead"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "ReptiFiles® recommendation: Rotate between mice (primary 60-70%), young rats (variety 15-20%), quail (variety 10-15%), chicks (variety 5-10%), and anoles (occasional variety <5%). This prevents picky eating, provides balanced nutrition, and mimics natural dietary diversity."
+    },
+    {
+      "type": "section",
+      "title": "Age-Based Feeding Schedule"
+    },
+    {
+      "type": "text",
+      "content": "Feeding frequency and prey size change dramatically throughout a corn snake's life. Overfeeding causes obesity; underfeeding stunts growth."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Feeding Schedule by Age:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Age/Size", "Prey Size", "Feeding Frequency", "Quantity per Feeding"],
+      "rows": [
+        ["Hatchlings (0-6 months, 6-12 inches)", "Pinky mice or small fuzzy mice (2-4g)", "Every 7-10 days", "1 prey item"],
+        ["Juveniles (6-18 months, 12-36 inches)", "Fuzzy to hopper mice (5-12g)", "Every 7-14 days", "1-2 prey items totaling 10% body weight"],
+        ["Sub-adults (18-30 months, 36-48 inches)", "Adult mice or small rat pups (15-25g)", "Every 10-14 days", "1-2 prey items totaling 10% body weight"],
+        ["Adults (2.5+ years, 48-60 inches)", "Adult mice, weaned rats, or variety prey (20-40g)", "Every 14-21 days", "1-2 prey items totaling 10% body weight"],
+        ["Large adults (4+ years, 60+ inches)", "Multiple adult mice or small adult rats (40-60g total)", "Every 14-21 days", "2-3 prey items totaling 10% body weight"],
+        ["Breeding females (gravid)", "Adult mice or rats", "Every 7-10 days (increased frequency)", "Increase portion size 20-30% for egg development"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "10% body weight rule: Weigh your corn snake monthly. Total prey weight per feeding should equal ~10% of snake's body weight. Example: 300g corn snake should eat 30g of prey (e.g., two 15g adult mice OR one 30g rat pup)."
+    },
+    {
+      "type": "section",
+      "title": "Prey Size Guidelines"
+    },
+    {
+      "type": "text",
+      "content": "Prey sizing is critical—too small provides inadequate nutrition, too large causes regurgitation or choking."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Prey Sizing Rules:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Guideline", "Measurement", "Rationale"],
+      "rows": [
+        ["Maximum prey width", "No larger than 1.5x snake's width at thickest point", "Prevents regurgitation and choking—corn snakes can safely eat prey up to 1.5x girth"],
+        ["Minimum prey width", "No smaller than 0.5x snake's width", "Too-small prey provides inadequate nutrition—snake expends more energy hunting than it gains"],
+        ["Optimal prey width", "1.0-1.2x snake's width", "Ideal balance—visible bulge after eating but not excessive stretching"],
+        ["Total prey weight", "~10% of snake's body weight per feeding", "Research-backed guideline for healthy growth without obesity"],
+        ["Hatchling exception", "Prey can be up to 2x hatchling width", "Hatchlings can handle proportionally larger prey than adults"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Visual check: After feeding, you should see a visible bulge (prey outline) in the snake's body. If no bulge = prey too small. If massive stretching = prey too large. Slight bulge that fades within 24-48 hours = perfect size."
+    },
+    {
+      "type": "section",
+      "title": "Frozen-Thawed vs Live Prey"
+    },
+    {
+      "type": "text",
+      "content": "Frozen-thawed (F/T) prey is safer, more humane, and easier to store than live prey. Most corn snakes readily accept F/T."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Live vs Frozen-Thawed Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Factor", "Frozen-Thawed", "Live Prey"],
+      "rows": [
+        ["Safety for snake", "No bite risk—prey can't fight back", "Rodents can bite, scratch, and severely injure or kill snakes"],
+        ["Humaneness", "Prey pre-killed (CO2 or cervical dislocation)", "Prey experiences fear and pain during hunting/killing"],
+        ["Convenience", "Store in freezer for months, thaw as needed", "Must source live prey each feeding or maintain breeding colony"],
+        ["Cost", "Cheaper in bulk (buy 50-100 at once)", "More expensive—must buy fresh each time"],
+        ["Disease risk", "Frozen kills parasites and pathogens", "Live prey can transmit parasites, mites, and diseases"],
+        ["Feeding response", "Most corn snakes accept F/T readily", "Some picky eaters prefer live initially"],
+        ["Storage", "Requires freezer space", "No storage (unless breeding own feeders)"],
+        ["Legal/ethical", "No issues", "Some regions restrict live feeding as inhumane"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "NEVER leave live prey unattended with a corn snake. Rodents (especially rats) can kill snakes by biting eyes, nose, or vital areas. If feeding live, supervise entire feeding and remove prey immediately if snake doesn't eat within 15 minutes."
+    },
+    {
+      "type": "section",
+      "title": "Thawing Frozen Prey Safely"
+    },
+    {
+      "type": "text",
+      "content": "Proper thawing technique prevents bacterial growth and ensures prey is warm enough to trigger feeding response."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Thawing Methods:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Method", "Time Required", "Safety", "Notes"],
+      "rows": [
+        ["Warm water bath (100-110°F)", "20-40 minutes", "BEST—safe and effective", "Place prey in sealed bag, submerge in warm water, change water halfway through"],
+        ["Room temperature overnight", "6-8 hours", "Safe but slow", "Leave prey in sealed container overnight, then warm in water before feeding"],
+        ["Hair dryer (low heat)", "10-15 minutes", "Acceptable—uneven heating", "Warm external surface after thawing in water"],
+        ["Hot water (>120°F)", "15-30 minutes", "RISKY—can partially cook prey", "Avoid—too hot can denature proteins and create bacterial growth"],
+        ["Microwave", "2-5 minutes", "NEVER USE—cooks prey, explodes organs", "FORBIDDEN—destroys nutritional value and is inhumane"],
+        ["Counter at room temp (no bag)", "3-5 hours", "UNSAFE—bacterial growth", "Never thaw unwrapped—bacteria multiplies rapidly"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Best practice: Place frozen prey in sealed ziplock bag, submerge in bowl of 100-110°F water for 30-40 minutes. Prey should be fully thawed, flexible, and body-temperature warm (100°F) when offered. Test by squeezing gently—no frozen core."
+    },
+    {
+      "type": "section",
+      "title": "Feeding Techniques"
+    },
+    {
+      "type": "text",
+      "content": "How you offer prey affects feeding response and safety. Use tongs, never fingers, and establish consistent feeding routine."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Feeding Methods:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Method", "Pros", "Cons", "Best For"],
+      "rows": [
+        ["Tong feeding (wiggle prey)", "Triggers natural strike response, safe for keeper", "Requires practice, snake may strike tongs", "All corn snakes—BEST METHOD"],
+        ["Place prey on substrate", "No handling needed, snake finds prey naturally", "May ignore prey, substrate can stick to prey", "Shy snakes, reluctant feeders"],
+        ["Separate feeding container", "Prevents substrate ingestion, easier cleanup", "Stress from moving, disrupts routine", "Snakes that ingest substrate frequently"],
+        ["Hand feeding (hold by tail)", "Close interaction", "HIGH BITE RISK—snake can't distinguish food from fingers", "NOT RECOMMENDED—use tongs instead"],
+        ["Leave overnight", "No pressure, snake eats on own schedule", "Prey sits out too long, bacterial growth after 2 hours", "Extremely shy or stressed snakes (rare)"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Always use feeding tongs (12+ inches long) to offer prey. NEVER feed by hand or dangle prey with fingers—corn snakes have strong feeding responses and will bite anything that smells like prey, including your fingers. Bites are painful and can cause infection."
+    },
+    {
+      "type": "section",
+      "title": "Supplementation"
+    },
+    {
+      "type": "text",
+      "content": "Whole prey provides complete nutrition, but occasional supplementation can benefit corn snakes, especially those without UVB lighting."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Supplement Guidelines:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Supplement Type", "Frequency", "Purpose", "Application Method"],
+      "rows": [
+        ["Calcium + D3 powder", "Every 4-6 feedings (if no UVB)", "Prevents metabolic bone disease, supports skeletal health", "Dust prey lightly with powder before offering"],
+        ["Calcium (no D3)", "Every 4-6 feedings (if using UVB)", "Calcium support without D3 overdose risk", "Dust prey lightly"],
+        ["Reptile multivitamin", "Every 8-12 feedings", "Fills micronutrient gaps, supports immune function", "Dust prey lightly or alternate with calcium"],
+        ["50/50 calcium + multivitamin mix", "Every 6-8 feedings", "Balanced supplement approach", "Dust prey lightly"],
+        ["No supplements", "—", "If feeding varied diet with UVB lighting", "Whole prey + UVB = complete nutrition for most corn snakes"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "ReptiFiles® recommendation: If providing UVB lighting and varied prey diet (mice, rats, quail, chicks), supplements are OPTIONAL. If no UVB, dust prey with calcium + D3 every 4-6 feedings. Over-supplementation is harmful—less is more."
+    },
+    {
+      "type": "section",
+      "title": "Feeding Schedule Adjustments"
+    },
+    {
+      "type": "text",
+      "content": "Corn snakes' metabolic needs change with temperature, season, health status, and activity level."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>When to Adjust Feeding:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Situation", "Adjustment", "Rationale"],
+      "rows": [
+        ["Shedding cycle (blue eyes)", "Delay feeding until after shed completes", "Reduced appetite during shed, risk of regurgitation"],
+        ["Recent handling/transport", "Wait 48 hours before feeding", "Stress reduces digestive efficiency"],
+        ["After feeding (handling)", "Wait 48-72 hours before handling", "Prevents regurgitation from stress"],
+        ["Winter brumation", "Stop feeding entirely OR reduce to 1x per month", "Metabolism slows dramatically, food can rot in stomach"],
+        ["Obesity (snake visibly round)", "Reduce frequency to every 21-28 days", "Overfeeding is common in captive corn snakes"],
+        ["Weight loss (ribs visible)", "Increase frequency to weekly, check for parasites", "May indicate illness or inadequate feeding"],
+        ["Refusal to eat for 3+ months", "Reduce handling, check temps, try live prey, vet check", "Extended fasting can indicate illness or environmental issues"],
+        ["Breeding season (spring)", "Maintain or increase feeding for energy", "Breeding activity increases metabolic demands"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Never feed immediately before or after handling. Wait 48 hours after moving/handling before feeding, and wait 48-72 hours after feeding before handling. Stress-induced regurgitation can cause esophageal damage and infection."
+    },
+    {
+      "type": "section",
+      "title": "Troubleshooting Picky Eaters"
+    },
+    {
+      "type": "text",
+      "content": "Corn snakes occasionally refuse food. Most refusals are temporary and environmental, not medical."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Refusal Causes & Solutions:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Cause", "Signs", "Solution"],
+      "rows": [
+        ["Shedding cycle", "Blue eyes, dull skin", "Wait until shed completes, then offer food"],
+        ["Incorrect temperatures", "Basking <85°F or ambient >85°F", "Verify with infrared thermometer, adjust heat lamps"],
+        ["Stress from excessive handling", "Defensive posture, hiding constantly", "Reduce handling to 2-3x per week maximum"],
+        ["Prey too large", "Snake investigates but doesn't strike", "Offer smaller prey (1.0x girth instead of 1.5x)"],
+        ["Prey type preference", "Refuses mice but accepts other prey", "Try rats, quail, chicks, or anoles—variety often works"],
+        ["Frozen-thawed not warm enough", "Snake ignores prey", "Ensure prey is 100-110°F (use warm water bath)"],
+        ["Winter season (natural fasting)", "Healthy weight, no other issues", "Corn snakes naturally eat less in fall/winter—monitor weight"],
+        ["Illness or parasites", "Weight loss, lethargy, abnormal feces", "Vet visit for fecal exam and health check"],
+        ["Breeding season (males)", "Refuses food spring-summer", "Normal—males often fast during breeding season, monitor weight"],
+        ["New environment stress", "Recently acquired snake", "Wait 1-2 weeks before attempting feeding, minimize disturbance"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Most corn snakes can safely fast for 3-6 months without health issues (if starting at healthy weight). Don't panic if snake refuses 2-3 meals—monitor weight, check temperatures, and try different prey types. If fasting >3 months with weight loss, consult a reptile vet."
+    },
+    {
+      "type": "section",
+      "title": "Obesity Prevention"
+    },
+    {
+      "type": "text",
+      "content": "Captive corn snakes are prone to obesity from overfeeding and limited exercise. Obesity shortens lifespan and causes health issues."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Body Condition Assessment:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Body Condition", "Visual Signs", "Health Status", "Feeding Adjustment"],
+      "rows": [
+        ["Underweight", "Ribs easily visible, spine prominent, thin tail", "Unhealthy—increase feeding", "Feed weekly until healthy weight achieved"],
+        ["Lean (ideal lower range)", "Ribs barely visible with flexing, smooth body contours", "Healthy—maintain", "Continue current schedule"],
+        ["Optimal", "No visible ribs, smooth triangular cross-section, muscular feel", "IDEAL—perfect weight", "No adjustment needed"],
+        ["Overweight", "Round cross-section, fat rolls between scales, thick neck", "Early obesity—reduce feeding", "Reduce frequency to every 21 days"],
+        ["Obese", "Circular cross-section, fat deposits visible, difficulty moving", "Unhealthy—urgent reduction", "Reduce frequency to every 28 days + smaller prey"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Power feeding (feeding large meals or too frequently to maximize growth) is HARMFUL. Causes obesity, organ damage (especially liver), and shortened lifespan. Slow, steady growth is healthiest—corn snakes naturally reach adult size over 2-3 years."
+    },
+    {
+      "type": "section",
+      "title": "Complete Feeding Equipment Checklist"
+    },
+    {
+      "type": "text",
+      "content": "Essential equipment for safe and effective corn snake feeding."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Feeding Equipment:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Item", "Purpose", "Estimated Cost"],
+      "rows": [
+        ["Feeding tongs (12-16 inches)", "Safe prey delivery, prevents bites", "$8-15"],
+        ["Digital kitchen scale (accuracy to 1g)", "Weigh snake monthly + weigh prey", "$15-25"],
+        ["Freezer (or freezer space)", "Store bulk frozen prey (50-100 feeders)", "—"],
+        ["Ziplock bags (gallon size)", "Thaw prey in sealed bags to prevent bacterial growth", "$5-10"],
+        ["Bowl for warm water bath", "Thaw frozen prey safely to 100-110°F", "—"],
+        ["Infrared thermometer", "Verify prey temperature before offering", "$15-30 (also used for basking temp)"],
+        ["Feeding record log", "Track feeding dates, prey type/size, refusals, weight", "Free (spreadsheet or notebook)"],
+        ["Calcium + D3 powder", "Supplementation if no UVB lighting", "$10-15"],
+        ["Reptile multivitamin", "Occasional supplementation for micronutrients", "$12-18"],
+        ["Separate feeding container (optional)", "Prevents substrate ingestion (if needed)", "$10-20"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Total feeding equipment cost: ~$75-150 one-time + ongoing prey costs ($20-40/month depending on snake size and bulk purchasing). Buying frozen prey in bulk (50-100 feeders) saves 30-50% vs buying 1-5 at a time."
+    }
+  ]
+}

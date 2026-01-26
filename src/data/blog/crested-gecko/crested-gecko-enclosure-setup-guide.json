@@ -1,0 +1,248 @@
+﻿{
+  "id": "crested-gecko-enclosure-setup-guide",
+  "title": "Crested Gecko Enclosure Setup Guide: Complete Housing Requirements",
+  "description": "Complete enclosure setup guide for crested geckos covering dimensions, materials, vertical layout design, equipment checklist, and arboreal habitat creation.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-26",
+  "category": "Care Guides",
+  "tags": ["crested-gecko", "enclosure", "housing", "arboreal", "terrarium"],
+  "image": "/animals/crested-gecko/crested-gecko-enclosure.jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Essential Housing for Crested Geckos",
+      "content": "Crested geckos are arboreal (tree-dwelling) lizards from the tropical rainforests of New Caledonia. Creating an appropriate vertical habitat with climbing opportunities, proper temperature gradients, and humidity management is essential for their health and wellbeing. This guide covers everything you need to know about setting up the perfect crested gecko enclosure."
+    },
+    {
+      "type": "section",
+      "title": "Enclosure Dimensions by Life Stage"
+    },
+    {
+      "type": "text",
+      "content": "Crested geckos are arboreal and need enclosures that are taller than they are wide. Height allows for natural climbing behaviors and creates a temperature gradient from warm (top) to cool (bottom)."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Minimum Enclosure Sizes:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Life Stage", "Weight/Age", "Minimum Dimensions", "Rationale"],
+      "rows": [
+        ["Hatchling/Juvenile", "Under 12g or 0-6 months", "12\"L × 12\"W × 12\"H (5 gal)", "Temporary grow-out enclosure for easy feeding/monitoring"],
+        ["Large Juvenile", "12-25g or 6-12 months", "12\"L × 12\"W × 18\"H", "Transition size before adult housing"],
+        ["Adult", "Over 25g or 12+ months", "18\"L × 18\"W × 24\"H", "Minimum for proper thermoregulation and exercise"],
+        ["Adult (Preferred)", "12+ months", "18\"L × 18\"W × 36\"H or larger", "More climbing space improves enrichment and activity"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Young crested geckos under 12g benefit from smaller grow-out enclosures where they can easily locate food and navigate safely. Move to adult-sized housing once they reach 12-15g and demonstrate confident climbing."
+    },
+    {
+      "type": "section",
+      "title": "Enclosure Material Comparison"
+    },
+    {
+      "type": "text",
+      "content": "Different enclosure materials offer unique advantages for crested gecko keeping. Consider humidity retention, ventilation, viewing access, and durability."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Material Options:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Material", "Humidity Retention", "Ventilation", "Best For"],
+      "rows": [
+        ["Glass Terrarium (front-opening)", "Excellent (80-90%)", "Moderate with screen top", "Beginners, stable humidity, easy viewing"],
+        ["Screen/Mesh Enclosure", "Poor (40-50%)", "Excessive", "Not recommended - humidity too difficult to maintain"],
+        ["PVC/Plastic Hybrid", "Excellent (85-95%)", "Adjustable vents", "Advanced keepers, bioactive setups, maximum humidity control"],
+        ["Custom Wood/Glass", "Good (75-85%)", "Variable", "Naturalistic builds, custom dimensions"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Front-opening glass terrariums are ideal for crested geckos. Top-opening enclosures can stress arboreal species that perceive threats from above (like birds in the wild)."
+    },
+    {
+      "type": "section",
+      "title": "Vertical Zone Layout"
+    },
+    {
+      "type": "text",
+      "content": "Crested geckos use vertical space extensively. Divide the enclosure into thermal and functional zones from top to bottom."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Vertical Zonation (Top to Bottom):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Zone", "Height Placement", "Temperature", "Purpose"],
+      "rows": [
+        ["Basking/Warm Zone", "Top 6-8\" (under heat lamp)", "82-85°F", "Daytime sleep spot, thermoregulation, digestion"],
+        ["Mid-Level Transition", "Middle third of enclosure", "75-80°F", "Travel corridors, feeding ledges, activity zone"],
+        ["Cool/Humid Zone", "Bottom third", "70-75°F", "Nighttime activity, high humidity retreat, ground foraging"],
+        ["Substrate Level", "Floor (2-4\" depth)", "68-72°F", "Humidity stability, cushion for falls, plant roots"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "Place vines, branches, and foliage at all vertical levels to create continuous pathways. Crested geckos should be able to move from top to bottom without jumping or falling."
+    },
+    {
+      "type": "section",
+      "title": "Essential Equipment Checklist"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Required Equipment:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Equipment", "Specification", "Purpose"],
+      "rows": [
+        ["Heat Lamp", "40w white incandescent + 5.5\" dome", "Creates basking zone (82-85°F)"],
+        ["Lamp Dimmer", "Plug-in dimmer switch", "Fine-tune basking temperature"],
+        ["UVB Fixture", "14\" T8 hood with reflector", "Houses UVB bulb for vitamin D3 synthesis"],
+        ["UVB Bulb", "12\" Arcadia 6% or Zoo Med ReptiSun 5.0 T8", "Low-level UVB (1.0-2.0 UVI at basking)"],
+        ["Light Timer(s)", "Digital plug-in timer (2x)", "Automate 12-hour photoperiod"],
+        ["Thermometer", "Infrared temperature gun", "Measure surface temps throughout enclosure"],
+        ["Probe Thermometer", "Digital with probe", "Track basking area temperature"],
+        ["Hygrometer", "Digital probe hygrometer", "Monitor humidity (target 60-80%)"],
+        ["Misting System", "Pump-style pressure sprayer", "Manual misting 2x daily for humidity"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Substrate Selection"
+    },
+    {
+      "type": "text",
+      "content": "While crested geckos are arboreal, substrate serves critical functions: humidity retention, cushioning falls, and supporting live plants in bioactive setups."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Substrate Options (2-4\" depth):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Substrate Type", "Humidity Retention", "Best For"],
+      "rows": [
+        ["DIY Tropical Mix (60% topsoil + 40% coco fiber)", "Excellent", "Budget-friendly, mimics natural forest floor"],
+        ["Lugarti Natural Reptile Bedding", "Excellent", "Ready-to-use tropical blend"],
+        ["Zoo Med Reptisoil", "Good", "Commercial option with added nutrients"],
+        ["The Bio Dude Terra Fauna", "Excellent", "Premium bioactive substrate with microfauna"],
+        ["Leaf Litter (top layer)", "Good", "Natural appearance, foraging enrichment, CUC habitat"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Avoid paper towels, reptile carpet, or sand. These don't retain humidity adequately and paper products can stick to gecko feet. Add generous leaf litter on top of substrate for naturalistic appearance."
+    },
+    {
+      "type": "section",
+      "title": "Climbing Structures & Décor"
+    },
+    {
+      "type": "text",
+      "content": "Décor is not optional—it's essential for crested gecko mental and physical health. Create a dense, jungle-like environment with multiple pathways."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Climbing Enrichment Items:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Item Type", "Quantity for 18×18×24", "Placement Strategy"],
+      "rows": [
+        ["Cork bark branches", "2-3 pieces", "Diagonal from bottom to top, intersecting for pathways"],
+        ["Bamboo poles", "2-4 pieces", "Vertical and horizontal, create highway system"],
+        ["Bendable vines", "3-5 vines", "Weave through branches, connect all vertical zones"],
+        ["Live/Artificial Plants", "4-6 plants", "Dense foliage at top (cover) and mid-levels (security)"],
+        ["Magnetic feeding ledge", "1-2 ledges", "Mid to upper level, easily accessible from vines"],
+        ["Arboreal hide", "1-2 hides", "Upper level near basking zone for daytime sleep"],
+        ["Spanish moss", "Handful", "Draped over branches, increases humidity and cover"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Aim for 70-80% coverage with plants and vines. Crested geckos feel most secure in densely planted environments. If you can see the back wall easily, add more foliage."
+    },
+    {
+      "type": "section",
+      "title": "Setup Timeline"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Day-by-Day Setup Process:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Day", "Task", "Details"],
+      "rows": [
+        ["Day 1", "Equipment assembly", "Install lights, heat lamp, thermometers. Test all equipment without gecko."],
+        ["Day 2", "Hardscape & substrate", "Add substrate (2-4\"), position branches/cork bark, secure with substrate."],
+        ["Day 3", "Plants & vines", "Install live plants (if using), arrange artificial plants, weave vines through hardscape."],
+        ["Day 4-5", "Temperature/humidity testing", "Run setup for 48 hours. Verify basking temp 82-85°F, humidity 60-80%."],
+        ["Day 6", "Feeding station setup", "Install magnetic ledges, place feeding cups, add water features if applicable."],
+        ["Day 7", "Introduce gecko", "Place gecko in enclosure during evening hours (their active time). Monitor for 24-48 hours."]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Common Setup Mistakes"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Mistakes to Avoid:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Mistake", "Problem", "Solution"],
+      "rows": [
+        ["Using screen/mesh enclosure", "Cannot maintain 60-80% humidity", "Use glass terrarium with screen top only"],
+        ["Sparse décor (empty tank)", "Stress, refusal to eat, hiding constantly", "Add dense foliage—aim for 70%+ coverage"],
+        ["No temperature gradient", "Cannot thermoregulate properly", "Heat lamp at top only, cool zone at bottom"],
+        ["Top-opening enclosure only", "Hand-from-above triggers predator response", "Choose front-opening or add front access"],
+        ["Oversized enclosure for juveniles", "Can't find food, stress from exposure", "Use 5-10 gallon grow-out tank until 12g+"],
+        ["Glass walls only (no background)", "Gecko tries to escape through glass", "Add foam background or dense plants on back wall"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Cohabitation Considerations"
+    },
+    {
+      "type": "text",
+      "content": "Cohabitation is controversial and generally not recommended for novice keepers. Crested geckos can be housed together but require specific conditions."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Cohabitation Guidelines:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Scenario", "Enclosure Size", "Success Rate", "Risk Factors"],
+      "rows": [
+        ["Single gecko (recommended)", "18×18×24\" minimum", "100%", "None—ideal for beginners"],
+        ["Two females", "24×18×36\" minimum", "70% success", "Size difference, competition for basking, food aggression"],
+        ["One male + multiple females", "36×18×36\" minimum", "50% success", "Breeding stress, male aggression, dominance issues"],
+        ["Two males (NEVER)", "Any size", "0% success", "Severe fighting, injuries, tail loss, death"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Males should NEVER be housed together—they will fight and cause severe injuries. If attempting cohabitation with females, provide multiple feeding stations, hides, and basking areas to reduce competition. Monitor daily for signs of stress or aggression (tail loss, bite marks, weight loss, one gecko always hiding)."
+    },
+    {
+      "type": "highlight",
+      "content": "For first-time crested gecko keepers, house your gecko individually. Cohabitation adds complexity, risk, and requires larger enclosures with redundant equipment—factors that increase difficulty significantly."
+    }
+  ]
+}

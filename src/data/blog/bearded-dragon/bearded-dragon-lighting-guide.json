@@ -1,0 +1,215 @@
+﻿{
+  "id": "bearded-dragon-lighting-guide",
+  "title": "Complete Bearded Dragon Lighting Guide: UVB & Full-Spectrum Setup",
+  "description": "Learn how to set up proper UVB and full-spectrum lighting for your bearded dragon, including bulb recommendations, placement distances, and the importance of bright daylight.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-26",
+  "category": "Care Guides",
+  "tags": ["bearded dragon", "lighting", "UVB", "full spectrum", "pogona vitticeps"],
+  "image": "/animals/bearded-dragon/bearded-dragon-1.jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Essential Lighting Requirements for Bearded Dragons",
+      "content": "Proper lighting is critical for bearded dragon health and longevity. This guide provides evidence-based recommendations for UVB exposure, full-spectrum illumination, and thermal regulation based on their natural Australian habitat."
+    },
+    {
+      "type": "section",
+      "title": "UVB Lighting Requirements"
+    },
+    {
+      "type": "text",
+      "content": "Ultraviolet B (UVB) radiation enables bearded dragons to photosynthesize vitamin D3, which regulates calcium metabolism. Inadequate UVB exposure leads to metabolic bone disease (MBD) regardless of dietary calcium supplementation."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>UVB Requirements:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Parameter", "Target Value", "Measurement Location"],
+      "rows": [
+        ["UVI (UV Index)", "4.0-6.0", "Basking zone surface"],
+        ["Ferguson Zone", "Zone 3-4", "Desert species classification"],
+        ["Coverage Area", "50-75% of length", "Allows thermal self-regulation"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "UVB lighting is non-negotiable for bearded dragon health. Dietary vitamin D3 supplementation cannot substitute for natural photosynthesis and will not prevent metabolic bone disease."
+    },
+    {
+      "type": "section",
+      "title": "UVB Equipment Selection"
+    },
+    {
+      "type": "text",
+      "content": "Linear T5 high-output fluorescent bulbs provide optimal UVB output and coverage for adult bearded dragon enclosures (minimum 4×2×2 feet):"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Recommended UVB Bulbs:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Product", "UVB Output", "Length", "Replacement Interval"],
+      "rows": [
+        ["Arcadia Desert 12% T5 HO", "12%", "34\" (for 48\" enclosures)", "12 months"],
+        ["Zoo Med ReptiSun 10.0 T5 HO", "10%", "34\" (for 48\" enclosures)", "12 months"],
+        ["Arcadia Pro T5 Kit", "12%", "34-46\" options", "Bulb: 12 months"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Compact/coil UVB bulbs are not recommended. They provide inadequate coverage and have shorter lifespans (6 months vs 12 months for T5 HO linear bulbs)."
+    },
+    {
+      "type": "section",
+      "title": "UVB Placement Guidelines"
+    },
+    {
+      "type": "text",
+      "content": "UVB intensity follows inverse square law—output decreases exponentially with distance. Proper positioning is critical for achieving therapeutic UVI levels while avoiding photodamage."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Mounting Distance Guidelines:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Mounting Configuration", "Distance to Basking Surface", "UVI Range (Arcadia 12%)"],
+      "rows": [
+        ["External (over mesh screen)", "11-13 inches", "4.0-6.0 (30% loss through mesh)"],
+        ["Internal (inside enclosure)", "16-19 inches", "4.0-6.0 (no mesh interference)"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Verification Recommended: Use a Solarmeter 6.5 UVI meter to confirm target UVI at basking level. Distance requirements vary by fixture design and bulb age."
+    },
+    {
+      "type": "section",
+      "title": "Full-Spectrum Illumination Requirements"
+    },
+    {
+      "type": "text",
+      "content": "High-intensity visible light (6500K color temperature) is essential for behavioral health and circadian regulation. UVB alone does not provide sufficient illumination for optimal diurnal activity patterns."
+    },
+    {
+      "type": "highlight",
+      "content": "Critical Distinction: Full-spectrum lighting provides bright white illumination for activity and behavior. UVB provides metabolically active radiation. Both are required."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Full-Spectrum Lighting Options:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Product Type", "Color Temperature", "Coverage Recommendation"],
+      "rows": [
+        ["Arcadia Jungle Dawn LED Bar", "6500K", "75-100% of enclosure length"],
+        ["Bio Dude Glow & Grow LED", "6500K", "Supports live plants + lighting"],
+        ["6500K LED Grow Light", "6500K", "Budget option, similar output"],
+        ["T5 HO 6500K Fluorescent", "6500K", "Traditional option, less efficient"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Photoperiod Management"
+    },
+    {
+      "type": "text",
+      "content": "Consistent light cycles regulate circadian rhythms, appetite, and seasonal breeding behaviors. Use programmable timers to maintain accurate schedules:"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Lighting Schedule by Season:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Season", "Light Duration", "Biological Purpose"],
+      "rows": [
+        ["Spring/Summer (Active)", "12-14 hours", "Peak activity, feeding, growth"],
+        ["Fall/Winter (Brumation)", "10-12 hours", "Natural dormancy period (optional)"],
+        ["Nighttime (Year-round)", "Complete darkness", "Melatonin production, sleep quality"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "Use digital timers with battery backup to maintain schedules during power outages. Inconsistent lighting can disrupt appetite and behavior patterns."
+    },
+    {
+      "type": "section",
+      "title": "Maintenance & Replacement Schedule"
+    },
+    {
+      "type": "text",
+      "content": "UVB output degrades over time independent of visible brightness. Timely replacement prevents subclinical UV deficiency and metabolic complications:"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Bulb Replacement Schedule:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Equipment Type", "Replacement Interval", "Degradation Pattern"],
+      "rows": [
+        ["T5 HO UVB (12%/10.0)", "Every 12 months", "UVB output drops 30% by month 12"],
+        ["T8 UVB (if used)", "Every 6 months", "Faster degradation than T5"],
+        ["LED Full-Spectrum", "3-5 years", "Replace when visibly dimmed"],
+        ["Fluorescent Full-Spectrum", "12-18 months", "Gradual lumen reduction"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Best Practice: Label bulbs with installation date using permanent marker. Set calendar reminders 2 weeks before replacement due date to order new bulbs in advance."
+    },
+    {
+      "type": "section",
+      "title": "Common Setup Errors to Avoid"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Common Mistakes and Solutions:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Mistake", "Consequence", "Solution"],
+      "rows": [
+        ["Using compact/coil UVB", "Poor coverage, short lifespan", "Use T5 HO linear bulbs"],
+        ["Excessive UVB distance", "Low UVI, MBD risk", "Verify with Solarmeter 6.5"],
+        ["Screen mesh blocking UVB", "30-50% UVB loss", "Mount fixtures internally"],
+        ["No full-spectrum lighting", "Behavioral suppression", "Add 6500K LED/fluorescent"],
+        ["Delayed bulb replacement", "Gradual UV deficiency", "Replace on 12-month schedule"],
+        ["24/7 light exposure", "Circadian disruption", "Use timers, ensure darkness"],
+        ["Non-reptile UVB products", "No measurable UVB output", "Use reptile-specific brands"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Complete Equipment Checklist"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Essential Lighting Equipment:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Equipment", "Specification", "Quantity"],
+      "rows": [
+        ["UVB Bulb", "34\" Arcadia Desert 12% or Zoo Med 10.0 T5 HO", "1"],
+        ["UVB Fixture", "34\" T5 HO with reflector", "1"],
+        ["Full-Spectrum Light", "48-72\" LED grow light (6500K) or T5 fluorescent", "1-2"],
+        ["Digital Timer", "Programmable with surge protection", "2"],
+        ["Solarmeter 6.5", "UVI measurement device (optional but recommended)", "1"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Investment Perspective: Quality lighting equipment ($200-400) prevents metabolic bone disease treatment costs ($500-2000+ in veterinary care). Proper lighting is preventive medicine."
+    }
+  ]
+}

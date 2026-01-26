@@ -1,0 +1,369 @@
+﻿{
+  "id": "crested-gecko-feeding-guide",
+  "title": "Crested Gecko Feeding Guide: Complete Nutrition by Life Stage",
+  "description": "Comprehensive feeding guide for crested geckos covering age-based diets, crested gecko diet powder, feeder insects, supplementation schedules, and body condition assessment.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-26",
+  "category": "Care Guides",
+  "tags": ["crested-gecko", "feeding", "nutrition", "diet", "CGD"],
+  "image": "/animals/crested-gecko/crested-gecko-feeding.jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Complete Nutritional Guide for Crested Geckos",
+      "content": "Crested geckos are omnivores that consume both fruit and insects in the wild. In captivity, they thrive on specially-formulated crested gecko diet (CGD) powder supplemented with live feeder insects. CGD is a nutritionally-complete meal replacement that becomes a smoothie when mixed with water, eliminating the need for complex fruit preparation. This guide covers evidence-based feeding protocols for optimal crested gecko health."
+    },
+    {
+      "type": "section",
+      "title": "Age-Based Feeding Protocol"
+    },
+    {
+      "type": "text",
+      "content": "Nutritional needs change dramatically as crested geckos grow. Hatchlings need frequent, calorie-dense meals for rapid growth, while adults require less frequent feeding to prevent obesity."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Feeding Schedule by Age:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Life Stage", "Age/Weight Range", "CGD Frequency", "Insect Frequency"],
+      "rows": [
+        ["Hatchling", "0-3 months or <5g", "Daily (every evening)", "2-3x per week"],
+        ["Juvenile", "3-12 months or 5-25g", "Daily (every evening)", "2x per week"],
+        ["Sub-Adult", "12-18 months or 25-35g", "Every other day", "1-2x per week"],
+        ["Adult", "18+ months or 35g+", "Every 2-3 days", "1x per week"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Overfeeding adults is a common mistake that leads to obesity, fatty liver disease, and shortened lifespan. Adults should have visible hip bones and a tail that is no wider than their neck. If your adult gecko's tail is wider than their head, reduce feeding frequency."
+    },
+    {
+      "type": "section",
+      "title": "Crested Gecko Diet (CGD) Powder"
+    },
+    {
+      "type": "text",
+      "content": "CGD powder is a revolutionary product that transformed crested gecko keeping. It's nutritionally complete—no fruits, vegetables, or vitamin dusting required when CGD is the primary diet."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Recommended CGD Brands:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Brand", "Protein Source", "Formula Variety", "Notes"],
+      "rows": [
+        ["Pangea", "Insect meal", "5+ flavors (Watermelon, Growth, Breeding, Fig)", "Most popular, excellent palatability, complete nutrition"],
+        ["Repashy", "Insect meal", "3 flavors (Classic, Grubs N Fruit, Mango)", "Original CGD brand, time-tested, comprehensive formulation"],
+        ["Black Panther Zoological", "Insect meal + whole insects", "Multiple blends", "Higher protein, excellent for growth/breeding"],
+        ["Gecko Pro", "Insect meal", "2 flavors", "Budget-friendly, good nutritional profile"],
+        ["Leapin' Leachie", "Insect meal", "Multiple formulas", "Designed for New Caledonian geckos, premium ingredients"],
+        ["Zoo Med", "Insect meal", "1 formula", "Widely available, beginner-friendly"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Variety is key—rotate 2-3 different CGD brands/flavors to provide nutritional diversity and prevent boredom. Many keepers mix brands in the same feeding to combine nutritional benefits."
+    },
+    {
+      "type": "section",
+      "title": "CGD Preparation & Serving"
+    },
+    {
+      "type": "text",
+      "content": "Proper CGD mixing is essential for palatability and nutrition. Too thick and geckos can't lick it efficiently; too thin and nutritional density drops."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>CGD Mixing Guidelines:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Gecko Size", "Powder Amount", "Water Amount", "Final Consistency"],
+      "rows": [
+        ["Hatchling (<5g)", "1/4 tsp", "1/2 tsp", "Thin applesauce (easier to lick for small tongues)"],
+        ["Juvenile (5-15g)", "1/2 tsp", "3/4 tsp", "Ketchup/mustard consistency"],
+        ["Sub-Adult (15-30g)", "3/4 tsp", "1 tsp", "Ketchup/mustard consistency"],
+        ["Adult (30g+)", "1-1.5 tsp", "1.5-2 tsp", "Ketchup consistency (should hold shape but flow slowly)"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>CGD Feeding Protocol:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Step", "Action", "Timing/Notes"],
+      "rows": [
+        ["1. Prepare fresh CGD", "Mix powder + water in small cup or ledge", "Mix immediately before feeding (evening, around 7-9 PM)"],
+        ["2. Place in enclosure", "Magnetic ledge, gecko feeding cup, or cork bark", "Mid to upper level, easily accessible from vines"],
+        ["3. Remove previous CGD", "Discard any uneaten CGD from prior feeding", "CGD spoils in 24 hours—never leave more than one night"],
+        ["4. Offer for 24 hours", "Leave fresh CGD overnight", "Crested geckos are most active 8 PM-4 AM"],
+        ["5. Monitor consumption", "Check if gecko licked cup clean or left residue", "Adjust portion size based on consumption patterns"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "Mix CGD fresh for each feeding—don't pre-mix and refrigerate. Refrigeration changes texture and reduces palatability. Unused dry powder lasts 6-12 months sealed in a cool, dry place."
+    },
+    {
+      "type": "section",
+      "title": "Feeder Insects"
+    },
+    {
+      "type": "text",
+      "content": "While CGD is nutritionally complete, live insects provide enrichment, stimulate hunting behaviors, and add protein variety. Size insects appropriately to prevent choking."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Best Feeder Insects:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Insect", "Protein/Fat", "Size Guideline", "Frequency"],
+      "rows": [
+        ["Crickets (Acheta domesticus)", "High protein, low fat", "Width between gecko's eyes", "1-2x per week"],
+        ["Dubia roaches", "High protein, moderate fat", "1/2 width between eyes (bulkier)", "1-2x per week"],
+        ["Black soldier fly larvae", "Moderate protein, high calcium", "1/2 width between eyes", "1x per week (high fat)"],
+        ["Discoid roaches", "High protein, low fat", "1/2 width between eyes", "1-2x per week"],
+        ["Small locusts", "High protein, low fat", "Width between eyes", "Occasional (larger species)"],
+        ["Silkworms", "Moderate protein, low fat", "Width between eyes", "Occasional treat"],
+        ["Waxworms/hornworms", "Low protein, very high fat", "1/3 width between eyes", "Rare treat only (2x per month max)"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "NEVER feed insects wider than the space between your gecko's eyes. Oversized insects cause impaction, choking, or regurgitation. For dubias/roaches, use 1/2 width rule—they're bulkier than crickets of similar length."
+    },
+    {
+      "type": "section",
+      "title": "Insect Portion Sizes"
+    },
+    {
+      "type": "text",
+      "content": "Overfeeding insects (especially to adults) leads to obesity and CGD refusal. Use conservative portions to maintain diet balance."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Insect Quantities per Feeding:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Life Stage", "Crickets", "Dubia Roaches", "Feeding Frequency"],
+      "rows": [
+        ["Hatchling (0-3 months)", "2-3 small crickets", "1-2 small nymphs", "2-3x per week"],
+        ["Juvenile (3-12 months)", "3-5 medium crickets", "2-3 medium nymphs", "2x per week"],
+        ["Sub-Adult (12-18 months)", "4-6 medium crickets", "3-4 medium roaches", "1-2x per week"],
+        ["Adult (18+ months)", "5-7 large crickets", "4-5 medium roaches", "1x per week (some keepers do every 10-14 days)"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Insects are enrichment, not the primary diet. CGD should provide 70-80% of calories for adults. If your gecko refuses CGD and only wants insects, reduce insect frequency to every 10-14 days until they resume eating CGD."
+    },
+    {
+      "type": "section",
+      "title": "Supplementation Schedule"
+    },
+    {
+      "type": "text",
+      "content": "CGD is already vitamin/mineral fortified. Insect supplementation depends on whether you provide UVB lighting."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Supplement Protocol by Setup:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Setup Type", "Calcium Supplement", "Dusting Frequency"],
+      "rows": [
+        ["With UVB lighting", "Calcium WITHOUT D3 (Arcadia CalciumPro Mg, MinerAll Outdoor)", "Dust insects lightly every feeding"],
+        ["No UVB lighting", "Calcium WITH D3 (Zoo Med Repti Calcium + D3, Repashy Calcium Plus)", "Dust insects lightly every feeding OR every other feeding"],
+        ["CGD only (no insects)", "No supplementation needed", "CGD contains all necessary vitamins/minerals"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Do NOT dust CGD with calcium powder—it's already fortified and over-supplementation can cause organ damage. Only dust insects. Use light dusting (\"shake and bake\" method in cup)—insects should look lightly frosted, not caked white."
+    },
+    {
+      "type": "section",
+      "title": "Gut-Loading Insects"
+    },
+    {
+      "type": "text",
+      "content": "Gut-loading (feeding insects nutritious foods before offering to your gecko) passes nutrition through the insect to your pet."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Gut-Loading Protocol:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Insect Type", "Gut-Loading Foods", "Duration Before Feeding"],
+      "rows": [
+        ["Crickets", "Leafy greens, squash, commercial cricket diet", "24-48 hours"],
+        ["Dubia roaches", "Carrots, sweet potato, Repashy Bug Burger, greens", "24-48 hours"],
+        ["Black soldier fly larvae", "Self-sustaining (don't need gut-load)", "N/A"],
+        ["All insects", "Avoid: spinach, lettuce (poor nutrition), citrus (too acidic)", "N/A"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Commercial gut-load diets (Repashy Bug Burger, Cricket Crack, Fluker's High Calcium Cricket Diet) are convenient and nutritionally optimized. DIY gut-loading with fresh vegetables works but requires variety and avoidance of low-nutrient items like iceberg lettuce."
+    },
+    {
+      "type": "section",
+      "title": "Hydration Through Diet"
+    },
+    {
+      "type": "text",
+      "content": "CGD contains significant moisture (60-70% water when mixed) and contributes to hydration. However, it doesn't replace proper misting and humidity management."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Dietary Water Sources:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Food Source", "Water Content", "Hydration Contribution"],
+      "rows": [
+        ["CGD (properly mixed)", "60-70%", "Primary dietary water source, provides moisture + nutrients"],
+        ["Feeder insects (live)", "60-75%", "Moderate—insects contain body fluids"],
+        ["Additional fruit (not recommended)", "80-90%", "Not needed—CGD already contains fruit, fresh fruit upsets gut flora"],
+        ["Water dish (direct drinking)", "100%", "Some geckos drink standing water, but most rely on droplets/CGD"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "Do NOT offer fresh fruit (mango, banana, etc.) to crested geckos. CGD already contains fruit in optimal ratios. Fresh fruit ferments quickly, disrupts gut bacteria, and can cause diarrhea. Stick to CGD for fruit nutrition."
+    },
+    {
+      "type": "section",
+      "title": "Body Condition Assessment"
+    },
+    {
+      "type": "text",
+      "content": "Regular body condition scoring helps adjust feeding frequency to prevent obesity or underfeeding."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Body Condition Scoring:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Body Condition", "Visual/Palpable Signs", "Feeding Adjustment"],
+      "rows": [
+        ["Underweight", "Hip bones very prominent, tail narrow, ribs visible, sunken eyes", "Increase CGD to daily + insects 2-3x/week until weight improves"],
+        ["Ideal (Hatchling-Juvenile)", "Tail plump but not wider than neck, hip bones barely visible, active", "Maintain current schedule—daily CGD, insects 2x/week"],
+        ["Ideal (Adult)", "Hip bones slightly visible, tail rounded but not bulbous, active", "Maintain current schedule—CGD every 2-3 days, insects 1x/week"],
+        ["Overweight", "No hip bones visible, tail wider than head, fat deposits in armpits/neck", "Reduce CGD to every 3-4 days, insects every 10-14 days"],
+        ["Obese", "Severe fat deposits, tail 2x width of head, lethargic, labored breathing", "Vet consultation—possible fatty liver disease, reduce feeding drastically"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Weigh your crested gecko monthly using a digital gram scale (accurate to 0.1g). Adults should maintain stable weight (35-50g depending on genetics). Weight loss of 10%+ in one month requires vet evaluation."
+    },
+    {
+      "type": "section",
+      "title": "Common Feeding Mistakes"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Mistakes to Avoid:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Mistake", "Health Consequence", "Correct Approach"],
+      "rows": [
+        ["Offering only insects (no CGD)", "Nutritional deficiencies, calcium deficiency, metabolic bone disease", "CGD must be primary diet (70-80% of intake), insects are supplemental"],
+        ["Overfeeding adults", "Obesity, fatty liver disease, shortened lifespan (10 years vs 20)", "Feed adults every 2-3 days, NOT daily—they don't need constant food"],
+        ["Leaving CGD for multiple days", "Bacterial growth, mold, food poisoning", "Remove uneaten CGD after 24 hours, mix fresh each feeding"],
+        ["Offering fresh fruit regularly", "Diarrhea, gut flora disruption, CGD refusal", "No fresh fruit—CGD contains optimal fruit nutrition already"],
+        ["Over-dusting insects", "Hypercalcemia, organ damage, supplement toxicity", "Light dusting only—insects should be lightly frosted, not caked"],
+        ["Using baby food instead of CGD", "Incomplete nutrition, lacks insects/protein, vitamin deficiencies", "Only use CGD formulated for crested geckos—baby food is not nutritionally adequate"],
+        ["Feeding insects too large", "Choking, impaction, regurgitation, stress", "Insect width ≤ space between gecko's eyes (or 1/2 for bulky roaches)"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Feeding Station Setup"
+    },
+    {
+      "type": "text",
+      "content": "Where and how you present food affects feeding success and enclosure hygiene."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Food Presentation Options:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Method", "Best For", "Pros", "Cons"],
+      "rows": [
+        ["Magnetic feeding ledge", "CGD", "Easy access, stable, easy to remove for cleaning", "Requires magnetic side walls (glass)"],
+        ["Small gecko feeding cups", "CGD + insects", "Secure attachment, contains mess, dishwasher safe", "Need to climb into cup (ensure accessibility)"],
+        ["Cork bark flat piece", "CGD", "Natural appearance, can be removed", "CGD can spill into substrate if not level"],
+        ["Free-ranging insects", "Enrichment", "Natural hunting behavior, exercise", "Hard to control portions, insects may hide"],
+        ["Feeding tongs", "Insects (hand-feeding)", "Bonding opportunity, control portions precisely", "Time-intensive, not for busy keepers"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Position feeding ledges mid to upper level of enclosure—crested geckos feel safer eating off the ground. Have 2-3 ledges/cups so you can rotate (one in use, one being cleaned)."
+    },
+    {
+      "type": "section",
+      "title": "Appetite Troubleshooting"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Common Problems and Solutions:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Possible Cause", "Solution"],
+      "rows": [
+        ["Refuses CGD, only eats insects", "Insect preference, overfeeding insects", "Reduce insect frequency to every 10-14 days, try different CGD flavors"],
+        ["Won't eat after moving to new home", "Stress, acclimation period", "Normal for 1-2 weeks, ensure temps/humidity correct, minimize handling"],
+        ["Sudden appetite loss (adult)", "Breeding season behavior (males), seasonal variation", "Monitor weight—if stable, this is normal behavior (reduce feeding frequency)"],
+        ["Sudden appetite loss (any age) + weight loss", "Illness, parasites, improper temps, stress", "Vet visit required—check fecal for parasites, verify temperatures"],
+        ["Regurgitates food", "Food too large, temps too low, illness", "Reduce insect size, verify basking area 82-85°F, vet check if continues"],
+        ["Only licks CGD, doesn't consume much", "CGD mixed too thick", "Add more water to thin consistency—should flow slowly, not be paste-like"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Complete Shopping List"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Essential Feeding Supplies:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Supply Category", "Specific Items", "Quantity"],
+      "rows": [
+        ["CGD Powder", "2-3 brands for variety (Pangea, Repashy, etc.)", "8-16 oz jars last 2-4 months per gecko"],
+        ["Feeder Insects", "Crickets and/or dubia roaches", "50-100 count per month"],
+        ["Calcium Supplement", "With or without D3 (based on UVB setup)", "1 bottle (lasts 6-12 months)"],
+        ["Feeding Ledges/Cups", "Magnetic ledges or suction cup feeding cups", "2-3 for rotation"],
+        ["Mixing Tools", "Small cups, spoon, water bottle", "For daily CGD preparation"],
+        ["Feeding Tongs (optional)", "10-12\" bamboo or metal tongs", "For hand-feeding insects"],
+        ["Digital Scale", "Gram scale accurate to 0.1g", "Monthly weight monitoring"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Monthly feeding cost: $15-25 (CGD powder $8-15, insects $5-10, supplements $1-2 amortized). Crested geckos are one of the most affordable reptiles to feed due to CGD's convenience and nutritional completeness."
+    }
+  ]
+}

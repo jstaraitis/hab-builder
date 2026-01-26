@@ -47,6 +47,7 @@ function App() {
     backgroundType: 'none',
     numberOfHides: 3,
     numberOfLedges: 3,
+    numberOfClimbingAreas: 2,
     setupTier: 'recommended',
   });
 
@@ -282,7 +283,7 @@ function App() {
           <Route path="/supplies" element={<SuppliesView plan={plan} input={input} />} />
           <Route path="/about" element={<About onOpenFeedback={() => setIsFeedbackOpen(true)} />} />
           <Route path="/roadmap" element={<Roadmap onOpenFeedback={() => setIsFeedbackOpen(true)} />} />
-          <Route path="/blog" element={<BlogList />} />
+          <Route path="/blog" element={<BlogList selectedAnimal={input.animal} />} />
           <Route path="/blog/:postId" element={<BlogPost />} />
           <Route path="/dev/animals" element={<AnimalProfilePreview />} />
         </Routes>

@@ -1,0 +1,224 @@
+﻿{
+  "id": "[SPECIES-ID]-substrate-guide",
+  "title": "[Species Name] Substrate Guide: Safe Options & Setup",
+  "description": "Complete substrate guide for [species name] covering safe substrate options, depth requirements, bioactive setups, and impaction prevention.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-26",
+  "category": "Care Guides",
+  "tags": ["[species-common-name]", "substrate", "bioactive", "safety"],
+  "image": "/animals/[species-folder]/[species-image].jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Substrate Selection for [Species Name]",
+      "content": "[Introduction to substrate importance for this species, natural habitat substrate conditions, role in thermoregulation/humidity/behaviors]"
+    },
+    {
+      "type": "section",
+      "title": "Natural Habitat Considerations"
+    },
+    {
+      "type": "text",
+      "content": "[Describe native substrate in wild: soil composition, moisture levels, particle size, seasonal variations. Connect to captive needs.]"
+    },
+    {
+      "type": "highlight",
+      "content": "[Key requirement summary: minimum depth, moisture level, compaction needs, species-specific behaviors enabled]"
+    },
+    {
+      "type": "section",
+      "title": "Recommended Commercial Substrates"
+    },
+    {
+      "type": "text",
+      "content": "[Overview of tested commercial options appropriate for this species]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Commercial Substrate Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Product", "Type", "Best For", "Depth Requirement"],
+      "rows": [
+        ["[Product 1]", "[material type]", "[use case]", "[min depth]"],
+        ["[Product 2]", "[material type]", "[use case]", "[min depth]"],
+        ["[Product 3]", "[material type]", "[use case]", "[min depth]"],
+        ["[Bioactive product]", "[mix type]", "[advanced setups]", "[min depth]"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "DIY Substrate Formula"
+    },
+    {
+      "type": "text",
+      "content": "[Introduction to creating custom substrate blend, advantages for this species, cost savings]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>DIY Substrate Recipe:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Ingredient", "Ratio", "Purpose"],
+      "rows": [
+        ["[Ingredient 1]", "[percentage]", "[function in mix]"],
+        ["[Ingredient 2]", "[percentage]", "[function in mix]"],
+        ["[Ingredient 3]", "[percentage]", "[function in mix]"],
+        ["[Optional additive]", "[percentage]", "[supplemental benefit]"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Mixing Instructions:</strong> [Step-by-step preparation, moisture adjustment, curing time, installation process]"
+    },
+    {
+      "type": "section",
+      "title": "Impaction Risk Management"
+    },
+    {
+      "type": "text",
+      "content": "[Explain impaction for this species: how it occurs, risk factors, relationship to substrate choice vs husbandry]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Impaction Risk Factors:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Contributing Factor", "Impact on Digestion", "Prevention"],
+      "rows": [
+        ["[Factor 1: e.g., low temperature]", "[digestive impact]", "[how to prevent]"],
+        ["[Factor 2: e.g., dehydration]", "[digestive impact]", "[how to prevent]"],
+        ["[Factor 3: e.g., particle size]", "[digestive impact]", "[how to prevent]"],
+        ["[Factor 4: e.g., inadequate UVB]", "[digestive impact]", "[how to prevent]"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "[Key finding: substrate rarely sole cause of impaction when husbandry correct. Emphasize proper temperatures/UVB/hydration]"
+    },
+    {
+      "type": "section",
+      "title": "Contraindications for Loose Substrate"
+    },
+    {
+      "type": "text",
+      "content": "[Situations where substrate should be temporarily replaced]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Temporary Substrate Alternatives:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Situation", "Duration", "Alternative Substrate"],
+      "rows": [
+        ["[Illness/injury]", "[timeframe]", "[safe option]"],
+        ["[Post-surgical recovery]", "[timeframe]", "[safe option]"],
+        ["[Suspected impaction]", "[timeframe]", "[safe option]"],
+        ["[Very young animals]", "[age range]", "[safe option]"],
+        ["[Quarantine period]", "[timeframe]", "[safe option]"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Recovery Protocol:</strong> [Instructions for reintroducing normal substrate after health issue resolved]"
+    },
+    {
+      "type": "section",
+      "title": "Bioactive Substrate Setup"
+    },
+    {
+      "type": "text",
+      "content": "[Introduction to bioactive systems for this species, benefits, maintenance differences]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Bioactive Layer Structure:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Layer", "Material", "Depth", "Purpose"],
+      "rows": [
+        ["Drainage layer", "[material]", "[depth]", "[water management]"],
+        ["Mesh barrier", "[material]", "—", "[separation]"],
+        ["Substrate layer", "[mix composition]", "[depth]", "[plant roots, cleanup crew]"],
+        ["Leaf litter top", "[material]", "[depth]", "[microfauna habitat]"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Cleanup Crew Selection:</strong> [Appropriate isopods and springtails for this species' humidity/temperature range]"
+    },
+    {
+      "type": "highlight",
+      "content": "[Species-specific bioactive note: humidity requirements, plant compatibility, cleanup crew survivability at species' parameters]"
+    },
+    {
+      "type": "section",
+      "title": "Depth Requirements"
+    },
+    {
+      "type": "text",
+      "content": "[Explain substrate depth needs based on species behaviors: burrowing depth, humidity retention, temperature buffering]"
+    },
+    {
+      "type": "table",
+      "headers": ["Setup Type", "Minimum Depth", "Recommended Depth", "Behavior Enabled"],
+      "rows": [
+        ["Non-bioactive", "[depth]", "[depth]", "[behaviors]"],
+        ["Bioactive", "[depth]", "[depth]", "[behaviors + ecosystem]"],
+        ["Fossorial species", "[depth]", "[depth]", "[extensive burrowing]"],
+        ["Surface-dwelling", "[depth]", "[depth]", "[minimal digging]"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Maintenance & Cleaning"
+    },
+    {
+      "type": "text",
+      "content": "[Substrate maintenance requirements for this species' setup type]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Maintenance Schedule:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Task", "Frequency", "Method"],
+      "rows": [
+        ["Spot cleaning (waste removal)", "[frequency]", "[technique]"],
+        ["Moisture adjustment", "[frequency]", "[how to hydrate/dry]"],
+        ["Partial substrate change", "[frequency]", "[percentage to replace]"],
+        ["Complete substrate change", "[frequency]", "[when necessary]"],
+        ["Bioactive maintenance", "[frequency]", "[cleanup crew management]"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Substrates to Avoid"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Unsafe Substrate Options:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Substrate", "Risk Category", "Reason to Avoid"],
+      "rows": [
+        ["[Unsafe option 1]", "[risk level]", "[specific hazards for this species]"],
+        ["[Unsafe option 2]", "[risk level]", "[specific hazards for this species]"],
+        ["[Unsafe option 3]", "[risk level]", "[specific hazards for this species]"],
+        ["[Unsafe option 4]", "[risk level]", "[specific hazards for this species]"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Critical warning about most dangerous substrate for this species: why it's harmful, common marketing claims to ignore]"
+    }
+  ]
+}

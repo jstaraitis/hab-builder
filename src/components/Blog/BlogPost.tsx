@@ -48,7 +48,7 @@ function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
           key={index}
           className="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 dark:border-red-700 p-4 rounded-r-md mb-4"
         >
-          <p className="text-red-800 dark:text-red-300 font-medium" dangerouslySetInnerHTML={{ __html: block.text || '' }} />
+          <p className="text-red-800 dark:text-red-300 font-medium" dangerouslySetInnerHTML={{ __html: block.content || '' }} />
         </div>
       );
 
@@ -58,7 +58,7 @@ function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
           key={index}
           className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 dark:border-blue-700 p-4 rounded-r-md mb-4"
         >
-          <p className="text-blue-800 dark:text-blue-300 font-medium" dangerouslySetInnerHTML={{ __html: block.text || '' }} />
+          <p className="text-blue-800 dark:text-blue-300 font-medium" dangerouslySetInnerHTML={{ __html: block.content || '' }} />
         </div>
       );
 
