@@ -33,7 +33,8 @@
         {
           "type": "list",
           "items": [
-            "Provide a wide, shallow dish they can soak in but not fully submerge (belly-depth).",
+            "Provide a wide, shallow dish they can soak in but not fully submerge (belly-depth = 1-2 inches deep).",
+            "Dish dimensions: Minimum 4-6 inches diameter for juveniles, 6-8 inches for adults. Frog should be able to sit comfortably with all four feet touching the bottom.",
             "Place the dish on the cool side to avoid rapid evaporation and bacteria growth.",
             "Change water daily; scrub with hot water and a dedicated brush—no soap residue.",
             "If bioactive, place a flat stone ramp for easy entry/exit and to reduce substrate in the bowl."
@@ -42,6 +43,34 @@
         {
           "type": "highlight",
           "content": "Note: Keep a second identical dish on hand—swap daily while the other is sanitized."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Recognizing Dehydration",
+      "content": [
+        {
+          "type": "text",
+          "text": "White's Tree Frogs absorb water through their skin. Watch for these dehydration signs:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Wrinkled or 'baggy' skin (especially around legs and abdomen)",
+            "Sunken eyes or visible hip bones",
+            "Lethargy or reluctance to move",
+            "Spending excessive time in water dish (more than 1-2 hours continuously)",
+            "Dark coloration that doesn't lighten after several hours"
+          ]
+        },
+        {
+          "type": "text",
+          "text": "<strong>Emergency Rehydration</strong>: If you suspect dehydration, offer a supervised shallow soak (belly-deep, 70-75°F treated water) for 15-20 minutes. Repeat daily until skin condition improves. If no improvement in 2-3 days, consult an exotic vet immediately."
+        },
+        {
+          "type": "highlight",
+          "content": "Shedding Issues: If frog has difficulty shedding (stuck shed on toes or skin), offer a 10-15 minute supervised soak 2-3 times per week until resolved. DO NOT increase ambient humidity—this causes more problems than it solves."
         }
       ]
     },

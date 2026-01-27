@@ -14,10 +14,12 @@ export interface ContentBlock {
   type: 'intro' | 'section' | 'text' | 'list' | 'warning' | 'highlight' | 'table';
   text?: string;
   heading?: string;
-  content?: ContentBlock[];
+  content?: ContentBlock[] | string;
   items?: string[];
   headers?: string[];
   rows?: string[][];
+  severity?: 'important' | 'tip';
+  icon?: string;
 }
 
 // Automatically import all blog post JSON files from subdirectories

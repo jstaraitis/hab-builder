@@ -23,7 +23,7 @@
         },
         {
           "type": "highlight",
-          "content": "Feeder Sizing Guide: The feeder should be no larger than the space between your frog's eyes. Too large = choking/impaction risk."
+          "content": "Feeder Sizing Guide: The feeder should be no larger than the space between your frog's eyes. Too large = potential choking/impaction risk."
         },
         {
           "type": "text",
@@ -69,7 +69,7 @@
         {
           "type": "warning",
           "severity": "important",
-          "content": "Obesity Warning: White's Tree Frogs are extremely prone to obesity. Never feed more than recommended amounts. An overweight frog will have fat deposits above the eyes and around the body. If your frog looks 'chubby', reduce portions by 30-40% immediately."
+          "content": "Obesity Warning: White's Tree Frogs are extremely prone to obesity. Never feed more than recommended amounts. An overweight frog will have fat deposits above the eyes and around the body. If your frog looks 'chubby', reduce portions and monitor weight."
         }
       ]
     },
@@ -79,7 +79,7 @@
       "content": [
         {
           "type": "text",
-          "text": "Tree frogs are nocturnal hunters. Always feed at night (after 8 PM) when they're naturally active."
+          "text": "Tree frogs are nocturnal hunters. Always feed at night (after lights go off) when they're naturally active."
         },
         {
           "type": "highlight",
@@ -93,8 +93,34 @@
           "type": "list",
           "items": [
             "Juveniles: Every night (daily)",
-            "Sub-adults: Every other night, monitor weight",
+            "Sub-adults: Every other night (4-5x week)",
             "Adults: Every 2-3 nights (avoid overfeeding)"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Sourcing & Storing Feeders",
+      "content": [
+        {
+          "type": "warning",
+          "severity": "tip",
+          "icon": "ExternalLink",
+          "content": "<strong>Need feeder sourcing help?</strong> Check out our comprehensive <a href=\"/blog/feeder-insect-sourcing-storage-guide\" style=\"color: #3b82f6; text-decoration: underline; font-weight: 600;\">Feeder Insect Sourcing & Storage Guide →</a><br/><br/>Covers where to buy (local vs online), proper storage temperatures for each feeder type, container setups, colony management, and troubleshooting common issues."
+        },
+        {
+          "type": "text",
+          "text": "Quick tips specific to White's Tree Frogs:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Buy smaller quantities (50-100 crickets) more frequently rather than bulk to ensure freshness",
+            "Gut-load crickets for 24-48 hours before feeding with commercial gut-load or vegetables",
+            "Store dubia roaches at 75-80°F for long-term colony; they can last months with minimal care",
+            "Refrigerate BSFL at 50-55°F to slow growth; these are naturally calcium-rich",
+            "Keep waxworms refrigerated and use sparingly—they're high in fat"
           ]
         }
       ]
@@ -169,12 +195,16 @@
       "content": [
         {
           "type": "table",
-          "headers": ["Age", "Frequency", "Amount", "Estimated Size"],
+          "headers": ["Age", "Frequency", "Amount per Feeding", "Feeder Size", "Weekly Total"],
           "rows": [
-            ["0-6 months", "Daily", "10-15 feeders", "1/4\" crickets"],
-            ["6-12 months", "Daily", "5-7 feeders", "1/2\" crickets"],
-            ["12+ months", "Every 2-3 days", "3-5 feeders", "3/4\" crickets"]
+            ["0-6 months", "Daily", "10-15 feeders", "1/4\" crickets", "70-105 feeders/week"],
+            ["6-12 months", "Every other day", "5-7 feeders", "1/2\" crickets", "35-49 feeders/week"],
+            ["12+ months", "Every 2-3 days", "3-5 feeders", "3/4\" crickets", "10-18 feeders/week"]
           ]
+        },
+        {
+          "type": "highlight",
+          "content": "Weight Check: Weigh your frog monthly. Adult White's should be 40-80g. If gaining rapidly or showing fat deposits, reduce portions. If not gaining weight, try increasing feeding frequency."
         }
       ]
     }

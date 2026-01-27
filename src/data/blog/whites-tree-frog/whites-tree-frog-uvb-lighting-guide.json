@@ -38,17 +38,26 @@
       "heading": "Distance Guide (Typical 6% T5 HO)",
       "content": [
         {
+          "type": "text",
+          "text": "Measure distance from the bulb surface to the highest perch where your frog will bask. This ensures proper UVI exposure at the basking site."
+        },
+        {
           "type": "table",
-          "headers": ["Barrier", "Distance to Back (UVI ~0.5-1.0)", "Notes"],
+          "headers": ["Barrier", "Distance (Bulb to Perch)", "Target UVI", "Notes"],
           "rows": [
-            ["Through fine mesh", "10-14 inches", "Mesh can reduce output ~30%."],
-            ["Through dense lid or glass", "6-10 inches", "Glass blocks most UVB; avoid if possible."],
-            ["T8 5.0 through mesh", "8-12 inches", "Lower output; keep within closer range."]
+            ["Through fine mesh", "10-14 inches", "0.5-1.0", "Fine mesh (<1/4\" holes) reduces output ~30%. Standard screen tops."],
+            ["Through coarse mesh", "12-16 inches", "0.5-1.0", "Coarse mesh (>1/4\" holes) reduces output ~15-20%. Better UVB transmission."],
+            ["Through glass/acrylic", "6-10 inches", "<0.3 (insufficient)", "Glass blocks 90%+ UVB. Avoid glass barriers or switch to mesh top."],
+            ["T8 5.0 through mesh", "8-12 inches", "0.5-1.0", "Lower output bulb; requires closer placement to reach target UVI."]
           ]
         },
         {
           "type": "highlight",
-          "content": "Aim for UVI 0.5-1.0 at the highest perch. Check with a Solarmeter 6.5 if available."
+          "content": "Measurement Tip: Use a ruler or tape measure from the center of the bulb straight down to the basking perch. If using a Solarmeter 6.5, verify UVI at the perch surface (not mid-air)."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Mesh Density Matters</strong>: Fine aluminum screen (typical screen tops) blocks more UVB than coarse reptile mesh. If UVI is too low, consider switching to a coarse mesh lid or moving the bulb 2-3 inches closer."
         }
       ]
     },

@@ -1,0 +1,198 @@
+{
+  "id": "whites-tree-frog-substrate-guide",
+  "title": "Substrate Guide for White's Tree Frogs",
+  "author": "Habitat Builder Team",
+  "date": "2026-01-27",
+  "category": "Care Guides",
+  "excerpt": "Species-specific substrate recommendations for White's Tree Frogs: safe substrate types, depth requirements, moisture management, and maintenance schedules.",
+  "description": "Substrate selection guide for White's Tree Frogs covering safe options, proper depth, moisture levels, and cleaning schedules for both simple and bioactive setups.",
+  "tags": ["substrate", "whites-tree-frog", "enclosure-setup"],
+  "content": [
+    {
+      "type": "intro",
+      "text": "Substrate choice significantly impacts your White's Tree Frog's health. While these frogs are primarily arboreal (tree-dwelling), proper substrate prevents injury from falls and aids humidity management. This guide covers safe substrate options and species-specific depth requirements for White's Tree Frogs."
+    },
+    {
+      "type": "highlight",
+      "icon": "BookOpen",
+      "content": "Planning a bioactive setup? See our <a href='/blog/bioactive-setup-guide' style='text-decoration: underline; font-weight: 600;'>Complete Bioactive Enclosure Guide</a> for detailed layering, cleanup crew selection, and troubleshooting."
+    },
+    {
+      "type": "section",
+      "heading": "Setup Types: Which to Choose?",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Setup Type", "Pros", "Cons", "Best For"],
+          "rows": [
+            ["Simple (Coco Fiber)", "Lower cost ($15-25), easier setup, faster cleaning, safe if ingested", "Requires full substrate replacement every 4-6 weeks", "Beginners, budget setups, quarantine enclosures"],
+            ["Bioactive (Natural)", "Self-sustaining cleanup crew, minimal maintenance, naturalistic", "Higher initial cost ($80-150), 2-3 month establishment period", "Experienced keepers, long-term displays"],
+            ["Paper Towels (Bare Minimum)", "Cheapest ($5-10), zero impaction risk, excellent for health monitoring", "Must be changed daily, no humidity retention, requires frequent misting", "Emergency setups, quarantine, medical recovery"],
+            ["Frog Foam", "Reusable (rinse weekly), cushioned surface, no impaction risk", "Zero humidity retention (mist 2-3x daily), unnatural appearance, foam degrades over 1-2 years", "Easy maintenance priority, frogs with impaction history"]
+          ]
+        },
+        {
+          "type": "highlight",
+          "icon": "Info",
+          "content": "White's Tree Frogs thrive in ALL setups. Choose based on your experience level, budget, and maintenance preferences."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Safe Substrate Options for White's Tree Frogs",
+      "content": [
+        {
+          "type": "text",
+          "text": "<strong>Coconut Fiber (Coco Coir / Eco Earth)</strong><br/>The gold standard for White's Tree Frogs. Retains moisture without becoming waterlogged, safe if ingested, affordable, and works for both bioactive and simple setups. Comes in compressed bricks (soak before use) or loose bags."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Organic Topsoil (Bioactive Only)</strong><br/>Mix with coco fiber (60% soil, 40% coco) for bioactive substrates. Provides nutrients for live plants and cleanup crew. MUST be organic, pesticide-free, fertilizer-free. Avoid brands with perlite (white chunks = choking hazard)."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Paper Towels (Bare Minimum Setup)</strong><br/>Easy to clean, monitor for parasites/illness, zero impaction risk. Ideal for new frogs during 30-day quarantine, sick frogs, or emergency budget setups. Can be used long-term if changed daily and enclosure is misted 2-3x daily. Use white, unscented towels—avoid colored/patterned varieties."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Frog Foam (Low-Maintenance Alternative)</strong><br/>Reusable foam pad designed for amphibians. Cushioned surface prevents injury from falls, easy to rinse and reuse weekly. Does NOT retain humidity—requires frequent misting (2-3x daily). Lasts 1-2 years before needing replacement. Popular brands: Frog Foam, Exo Terra Forest Foam."
+        },
+        {
+          "type": "warning",
+          "severity": "important",
+          "icon": "AlertTriangle",
+          "content": "AVOID: Sand (impaction risk), gravel (ingestion hazard), reptile carpet (bacteria trap, toes get caught), sphagnum moss (bacteria harboring, impaction risk when ingested), cedar/pine (toxic), soil with fertilizer/perlite."
+        },
+        {
+          "type": "highlight",
+          "icon": "Info",
+          "content": "CRITICAL: When using ANY loose substrate (coco fiber, topsoil mix), you MUST add a leaf litter layer on top. Leaf litter prevents direct substrate contact, provides hiding spots for cleanup crew in bioactive setups, and reduces impaction risk. Use magnolia, oak, or Indian almond leaves."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Substrate Depth for White's Tree Frogs",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Setup Type", "Substrate Depth", "Notes"],
+          "rows": [
+            ["Paper Towels", "3-4 layers", "No benefit beyond 5 layers"],
+            ["Frog Foam", "½-inch thick pad", "Single solid pad, no layering needed"],
+            ["Simple (Coco Fiber)", "1-2 inches", "Shallow for easy cleaning, prevents stagnant pockets"],
+            ["Bioactive", "3-4 inches substrate + 1-2 inches leaf litter", "Deeper substrate needed for cleanup crew and plant roots"]
+          ]
+        },
+        {
+          "type": "highlight",
+          "icon": "Info",
+          "content": "Why depth matters: Simple setups stay shallow (1-2\") for easy cleaning. Bioactive needs 3-4\" for cleanup crew (isopods, springtails) to thrive and plant roots to establish."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Moisture Management for White's Tree Frogs",
+      "content": [
+        {
+          "type": "text",
+          "text": "White's Tree Frogs need DRY substrate, not wet. These are semi-arid frogs—excessive moisture causes bacterial infections and respiratory issues."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Target Moisture Level:</strong> Lightly damp to touch, NOT soggy or waterlogged. Substrate should dry out on top layer within 4-6 hours of misting."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mist lightly every 2-3 days (simple setup) or weekly (bioactive)",
+            "NEVER have standing water pooling on substrate surface",
+            "If substrate stays wet 24/7, increase ventilation or reduce misting frequency",
+            "Water dish provides primary humidity—substrate should be mostly dry",
+            "Paper towels and frog foam require more frequent misting (2-3x daily) since they don't retain moisture"
+          ]
+        },
+        {
+          "type": "warning",
+          "severity": "important",
+          "icon": "AlertTriangle",
+          "content": "Overly Wet Substrate = Bacterial Blooms + Respiratory Infections. If you can squeeze water out of the substrate, it's TOO WET."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Maintenance Schedules",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Setup Type", "Daily", "Weekly", "Full Replacement"],
+          "rows": [
+            ["Paper Towels", "Replace all layers", "N/A", "N/A (daily replacement)"],
+            ["Frog Foam", "Remove feces", "Rinse pad, allow to dry 24hrs, reinstall", "Every 1-2 years"],
+            ["Simple (Coco Fiber)", "Remove feces, uneaten feeders", "Spot-clean soiled areas, mist lightly", "Every 4-6 weeks"],
+            ["Bioactive", "Remove uneaten feeders", "Check for mold, add leaf litter if needed", "Never (self-sustaining)"]
+          ]
+        },
+        {
+          "type": "text",
+          "text": "<strong>Simple Setup Deep Clean (Every 4-6 Weeks)</strong>"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Remove frog to temporary container",
+            "Discard all substrate",
+            "Wipe enclosure walls/floor with reptile-safe disinfectant (1:10 bleach solution or F10SC)",
+            "Rinse thoroughly, air dry completely",
+            "Add fresh substrate",
+            "Return frog"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Troubleshooting Common Issues",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Problem", "Cause", "Solution"],
+          "rows": [
+            ["Foul smell (ammonia/sour)", "Waterlogged substrate, inadequate drainage", "Remove wet substrate immediately, increase ventilation, reduce misting"],
+            ["Mold (white fuzzy patches)", "Normal in bioactive (first 2-3 months); excess moisture in simple setups", "Bioactive: Wait for cleanup crew to consume. Simple: Remove moldy sections, reduce misting"],
+            ["Substrate too dry (dusty)", "Insufficient misting, low humidity", "Mist lightly until slightly damp, add larger water dish, partially cover mesh top (25%)"],
+            ["Frog ingesting substrate", "Feeding on substrate, lunging at prey near ground", "Switch to tong-feeding, use feeding dish, or temporarily use paper towels during feeding"]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Quick Setup Guide",
+      "content": [
+        {
+          "type": "text",
+          "text": "<strong>Simple Setup (Beginner-Friendly)</strong>"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Add 1-2 inches coconut fiber (soak brick, squeeze out excess water)",
+            "Spread evenly across enclosure floor",
+            "Add 1-inch leaf litter layer on top for natural appearance and impaction prevention",
+            "Mist lightly every 2-3 days—substrate should be damp, not wet",
+            "Replace completely every 4-6 weeks"
+          ]
+        },
+        {
+          "type": "highlight",
+          "icon": "BookOpen",
+          "content": "For bioactive setup instructions, see our <a href='/blog/bioactive-setup-guide' style='text-decoration: underline; font-weight: 600;'>Complete Bioactive Enclosure Guide</a> which covers layering, cleanup crew selection (Dwarf White Isopods + springtails work great for White's), plant choices, and the 2-3 month establishment period."
+        }
+      ]
+    }
+  ]
+}

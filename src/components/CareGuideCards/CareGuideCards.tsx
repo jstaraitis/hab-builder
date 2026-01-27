@@ -1,5 +1,5 @@
 ﻿import { Link } from 'react-router-dom';
-import { ExternalLink, Home, Layers, Thermometer, Sun, Utensils, Droplets } from 'lucide-react';
+import { ExternalLink, Home, Thermometer, Sun, Utensils, Droplets, Heart } from 'lucide-react';
 import type { AnimalProfile } from '../../engine/types';
 
 interface CareGuideCardsProps {
@@ -14,8 +14,9 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
 
   const guides = [
     {
-      id: getBlogId('enclosure-setup') || getBlogId('sizing'),
-      title: 'Enclosure Setup',
+      id: getBlogId('enclosure') || getBlogId('sizing'),
+      secondaryId: getBlogId('substrate'),
+      title: 'Housing Guide',
       icon: <Home className="w-7 h-7" />,
       gradient: 'from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20',
       border: 'border-purple-200 dark:border-purple-800',
@@ -25,22 +26,7 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
       info: [
         `Minimum: ${profile.minEnclosureSize.width}×${profile.minEnclosureSize.depth}×${profile.minEnclosureSize.height}"`,
         profile.layoutRules.preferVertical ? 'Vertical/Arboreal' : 'Horizontal/Terrestrial',
-        profile.bioactiveCompatible ? 'Bioactive Compatible' : 'Non-bioactive recommended'
-      ]
-    },
-    {
-      id: getBlogId('substrate'),
-      title: 'Substrate',
-      icon: <Layers className="w-7 h-7" />,
-      gradient: 'from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20',
-      border: 'border-amber-200 dark:border-amber-800',
-      iconBg: 'bg-amber-100 dark:bg-amber-900/40',
-      iconColor: 'text-amber-600 dark:text-amber-400',
-      linkColor: 'text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300',
-      info: [
-        profile.bioactiveCompatible ? 'Soil-based bioactive' : 'Traditional substrate',
-        'Proper depth essential',
-        'Drainage layer needed'
+        profile.bioactiveCompatible ? 'Bioactive compatible' : 'Traditional substrate'
       ]
     },
     {
@@ -102,6 +88,21 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
         'Bowl cleaning essential',
         'Misting schedule'
       ]
+    },
+    {
+      id: getBlogId('enrichment') || getBlogId('welfare'),
+      title: 'Enrichment & Welfare',
+      icon: <Heart className="w-7 h-7" />,
+      gradient: 'from-rose-50 to-pink-50 dark:from-rose-900/20 dark:to-pink-900/20',
+      border: 'border-rose-200 dark:border-rose-800',
+      iconBg: 'bg-rose-100 dark:bg-rose-900/40',
+      iconColor: 'text-rose-600 dark:text-rose-400',
+      linkColor: 'text-rose-600 dark:text-rose-400 hover:text-rose-700 dark:hover:text-rose-300',
+      info: [
+        'Behavioral health',
+        'Mental stimulation',
+        'Quality of life'
+      ]
     }
   ];
 
@@ -109,22 +110,20 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
       <div className="flex items-center justify-between mb-5">
         <h3 className="text-3xl font-semibold text-gray-900 dark:text-white">Complete Care Guides</h3>
-        <span className="text-lg text-gray-500 dark:text-gray-400">6 essential guides</span>
+        <span className="text-lg text-gray-500 dark:text-gray-400">essential guides</span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {guides.map((guide, index) => (
           guide.id ? (
-            <Link
+            <div
               key={index}
-              to={`/blog/${guide.id}`}
-              className={`relative overflow-hidden rounded-xl bg-gradient-to-br ${guide.gradient} border-2 ${guide.border} p-5 hover:shadow-lg transition-all hover:scale-[1.02] h-full flex flex-col group`}
+              className={`relative overflow-hidden rounded-xl bg-gradient-to-br ${guide.gradient} border-2 ${guide.border} p-5 h-full flex flex-col`}
             >
               <div className="flex items-start justify-between mb-3">
                 <div className={`${guide.iconBg} rounded-full p-3`}>
                   <div className={guide.iconColor}>{guide.icon}</div>
                 </div>
-                <ExternalLink className={`w-5 h-5 ${guide.linkColor} opacity-0 group-hover:opacity-100 transition-opacity`} />
               </div>
               
               <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-3">{guide.title}</h4>
@@ -138,10 +137,30 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
                 ))}
               </div>
               
-              <div className={`mt-4 pt-3 border-t ${guide.border} flex items-center gap-2 text-sm font-semibold ${guide.linkColor}`}>
-                Read Full Guide <ExternalLink className="w-4 h-4" />
-              </div>
-            </Link>
+              {guide.secondaryId ? (
+                <div className={`mt-4 pt-3 border-t ${guide.border} space-y-2`}>
+                  <Link
+                    to={`/blog/${guide.id}`}
+                    className={`flex items-center gap-2 text-sm font-semibold ${guide.linkColor} hover:underline group`}
+                  >
+                    Enclosure Sizing <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                  <Link
+                    to={`/blog/${guide.secondaryId}`}
+                    className={`flex items-center gap-2 text-sm font-semibold ${guide.linkColor} hover:underline group`}
+                  >
+                    Substrate Guide <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                </div>
+              ) : (
+                <Link
+                  to={`/blog/${guide.id}`}
+                  className={`mt-4 pt-3 border-t ${guide.border} flex items-center gap-2 text-sm font-semibold ${guide.linkColor} hover:underline group`}
+                >
+                  Read Full Guide <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              )}
+            </div>
           ) : (
             <div
               key={index}

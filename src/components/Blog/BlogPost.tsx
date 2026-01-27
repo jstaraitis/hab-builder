@@ -2,6 +2,16 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { SEO } from '../SEO/SEO';
 import { blogPosts, ContentBlock } from '../../data/blog';
 import { generateArticleStructuredData } from '../../utils/structuredData';
+import * as LucideIcons from 'lucide-react';
+
+type LucideIconName = keyof typeof LucideIcons;
+
+function renderIcon(iconName?: string) {
+  if (!iconName) return null;
+  const Icon = (LucideIcons as any)[iconName];
+  if (!Icon || typeof Icon !== 'function') return null;
+  return <Icon className="w-5 h-5 inline-block mr-2" />;
+}
 
 function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
   switch (block.type) {
@@ -43,12 +53,20 @@ function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
       );
 
     case 'warning':
+      const isImportant = block.severity === 'important';
+      const isTip = block.severity === 'tip';
+      const warningBg = isImportant ? 'bg-red-50 dark:bg-red-900/20' : isTip ? 'bg-blue-50 dark:bg-blue-900/20' : 'bg-yellow-50 dark:bg-yellow-900/20';
+      const warningBorder = isImportant ? 'border-red-500 dark:border-red-700' : isTip ? 'border-blue-500 dark:border-blue-700' : 'border-yellow-500 dark:border-yellow-700';
+      const warningText = isImportant ? 'text-red-800 dark:text-red-300' : isTip ? 'text-blue-800 dark:text-blue-300' : 'text-yellow-800 dark:text-yellow-300';
       return (
         <div
           key={index}
-          className="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 dark:border-red-700 p-4 rounded-r-md mb-4"
+          className={`${warningBg} border-l-4 ${warningBorder} p-4 rounded-r-md mb-4`}
         >
-          <p className="text-red-800 dark:text-red-300 font-medium" dangerouslySetInnerHTML={{ __html: block.content || '' }} />
+          <p className={`${warningText} font-medium`}>
+            {renderIcon(block.icon)}
+            <span dangerouslySetInnerHTML={{ __html: typeof block.content === 'string' ? block.content : '' }} />
+          </p>
         </div>
       );
 
@@ -58,7 +76,10 @@ function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
           key={index}
           className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 dark:border-blue-700 p-4 rounded-r-md mb-4"
         >
-          <p className="text-blue-800 dark:text-blue-300 font-medium" dangerouslySetInnerHTML={{ __html: block.content || '' }} />
+          <p className="text-blue-800 dark:text-blue-300 font-medium">
+            {renderIcon(block.icon)}
+            <span dangerouslySetInnerHTML={{ __html: typeof block.content === 'string' ? block.content : '' }} />
+          </p>
         </div>
       );
 

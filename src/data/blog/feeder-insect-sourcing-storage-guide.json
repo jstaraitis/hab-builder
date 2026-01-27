@@ -1,0 +1,278 @@
+{
+  "id": "feeder-insect-sourcing-storage-guide",
+  "title": "Feeder Insect Sourcing & Storage Guide",
+  "author": "Habitat Builder Team",
+  "date": "2026-01-27",
+  "category": "Care Guides",
+  "excerpt": "Complete guide to buying, storing, and maintaining feeder insects for reptiles and amphibians. Learn where to source crickets, dubia roaches, BSFL, and more, plus proper storage techniques to keep feeders healthy and nutritious.",
+  "description": "Complete guide to buying, storing, and maintaining feeder insects for reptiles and amphibians. Learn where to source crickets, dubia roaches, BSFL, and more, plus proper storage techniques to keep feeders healthy and nutritious.",
+  "tags": ["feeding", "feeder-insects", "nutrition", "care-guides"],
+  "content": [
+    {
+      "type": "intro",
+      "text": "Proper feeder insect sourcing and storage is essential for maintaining nutritious, healthy feeders for your reptiles and amphibians. This guide covers where to buy feeders, how to store them for maximum longevity, and tips for maintaining feeder colonies."
+    },
+    {
+      "type": "section",
+      "heading": "Where to Buy Feeder Insects",
+      "content": [
+        {
+          "type": "text",
+          "text": "<strong>Local Pet Stores</strong>"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pros: Immediate availability, no shipping stress, inspect before buying",
+            "Cons: Limited selection (usually only crickets, mealworms, waxworms), higher per-unit cost, variable quality",
+            "Best for: Emergency feeders, small quantities, beginners testing feeder types"
+          ]
+        },
+        {
+          "type": "text",
+          "text": "<strong>Online Retailers</strong>"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pros: Bulk pricing (30-50% cheaper), wider variety (dubia, BSFL, silkworms, hornworms), guaranteed counts",
+            "Cons: Shipping costs, weather delays, 1-2 day lead time, potential die-off during transit",
+            "Best for: Regular keepers, bulk orders, specialty feeders not available locally"
+          ]
+        },
+        {
+          "type": "text",
+          "text": "<strong>Recommended Online Suppliers</strong>"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Rainbow Mealworms: Wide variety, reliable shipping, excellent customer service",
+            "Dubia.com: Specialized in roaches, multiple sizes, starter colonies available",
+            "Josh's Frogs: Premium feeders, amphibian specialists, includes care instructions",
+            "Symton BSF: Black soldier fly larvae specialists, bulk pricing",
+            "ABDragons: Dubias and variety packs, competitive pricing"
+          ]
+        },
+        {
+          "type": "highlight",
+          "content": "Shipping Tip: Order Monday-Tuesday for Wednesday-Thursday delivery to avoid weekend delays. Most suppliers include heat/cold packs for extreme weather but check their policies before ordering."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Starting Your Own Colony</strong>"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Dubia roaches: Easiest to breed, mature in 4-5 months, low maintenance once established",
+            "Crickets: Fast reproduction but noisy, smelly, higher die-off rate",
+            "Isopods/Springtails: Self-sustaining in bioactive setups, supplemental feeders only",
+            "Initial investment: $30-60 for starter colony (20-30 adults), pays off in 6-8 months"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Storage by Feeder Type",
+      "content": [
+        {
+          "type": "text",
+          "text": "<strong>Crickets (Acheta domesticus)</strong>"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Container: Ventilated cricket keeper or plastic bin with screen top (minimum 5 gallons for 100 crickets)",
+            "Temperature: 70-75°F (room temperature ideal; warmer = faster die-off)",
+            "Humidity: Low (~30-40%); high humidity causes bacterial blooms and mass die-offs",
+            "Food/Water: Provide gut-load diet (commercial cricket food, carrots, sweet potato) and water crystals or gel",
+            "Hiding spots: Add egg crate vertically to maximize surface area and reduce cannibalism",
+            "Maintenance: Remove dead crickets DAILY (corpses spread bacteria rapidly), replace food every 2-3 days",
+            "Lifespan in storage: 2-3 weeks with proper care"
+          ]
+        },
+        {
+          "type": "warning",
+          "severity": "important",
+          "content": "Cricket Die-Off Warning: Crickets are fragile and prone to mass die-offs. Buy smaller quantities (50-100) more frequently rather than bulk orders (500+). Signs of stress: strong ammonia smell, dead crickets, lethargy."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Dubia Roaches (Blaptica dubia)</strong>"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Container: Opaque plastic tote (roaches prefer darkness) with ventilation holes, 10+ gallon for 100+ roaches",
+            "Temperature: 75-80°F optimal for health; 85-90°F for breeding. Below 70°F = sluggish, won't breed",
+            "Humidity: 40-60% (light misting once weekly or damp sponge in corner)",
+            "Food: Fresh vegetables (carrots, squash, sweet potato), dry dog food, commercial roach chow. Remove uneaten food after 48 hours.",
+            "Hiding spots: Stack egg crates vertically; roaches need tight spaces to feel secure",
+            "Maintenance: Spot-clean frass (droppings) monthly, full substrate change every 3-4 months",
+            "Lifespan: 1-2 years; colony can be self-sustaining with proper care"
+          ]
+        },
+        {
+          "type": "highlight",
+          "content": "Dubia Colony Tip: Start with 20-30 adult females + 5-10 males. Keep at 85°F with 50-60% humidity. Expect first nymphs in 4-6 weeks, mature feeders in 4-5 months. One colony can support 2-3 adult reptiles indefinitely."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Black Soldier Fly Larvae (BSFL / Phoenix Worms / Calciworms)</strong>"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Container: Keep in original shipping container or shallow dish (they don't climb or burrow)",
+            "Temperature: Refrigerate at 50-55°F to pause development and extend lifespan",
+            "Room temp: Will pupate into flies within 1-2 weeks; only store at room temp if using quickly",
+            "Food/Water: NONE required; they're self-sustaining and naturally gut-loaded",
+            "Maintenance: Check weekly for pupae (black, hard casings); remove and discard or let pupate for enrichment",
+            "Lifespan: 2-3 weeks refrigerated, 1 week at room temperature"
+          ]
+        },
+        {
+          "type": "text",
+          "text": "<strong>Hornworms (Manduca sexta)</strong>"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Container: Keep in original cup with food; do NOT transfer (they're delicate)",
+            "Temperature: Room temperature (70-75°F); they grow RAPIDLY (can double in size in 48 hours)",
+            "Refrigeration: 50-55°F slows growth slightly but doesn't stop it",
+            "Food: Comes with hornworm chow; DO NOT feed tomato leaves (toxic)",
+            "Maintenance: Remove frass (black droppings) every 2-3 days; condensation is normal",
+            "Lifespan: 1 week at room temp (they outgrow most animals quickly); order small sizes"
+          ]
+        },
+        {
+          "type": "warning",
+          "severity": "tip",
+          "content": "Hornworm Growth: Buy the smallest size available (1-1.5 inches) unless feeding large animals. They can reach 3-4 inches in 5-7 days, becoming too large for most frogs, geckos, and small snakes."
+        },
+        {
+          "type": "text",
+          "text": "<strong>Waxworms (Galleria mellonella)</strong>"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Container: Original cup or shallow dish with bedding (sawdust/bran mix)",
+            "Temperature: Refrigerate at 55-60°F to slow development; room temp = rapid pupation",
+            "Food: NONE required (they live off stored body fat)",
+            "Maintenance: Remove condensation weekly (shake off lid); discard any pupae (cocoons) or moths",
+            "Lifespan: 2-3 weeks refrigerated, 1 week at room temperature"
+          ]
+        },
+        {
+          "type": "text",
+          "text": "<strong>Silkworms (Bombyx mori)</strong>"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Container: Ventilated plastic container, cleaned daily (very sensitive to waste buildup)",
+            "Temperature: 75-80°F; below 70°F = slow growth, above 85°F = stress",
+            "Food: ONLY fresh mulberry leaves or commercial silkworm chow (Silkworm Chow brand)",
+            "Maintenance: Remove frass and uneaten food DAILY; silkworms are extremely sensitive to bacteria",
+            "Lifespan: 4-6 weeks from hatching to pupation; must be used before cocooning"
+          ]
+        },
+        {
+          "type": "text",
+          "text": "<strong>Mealworms & Superworms (Tenebrio & Zophobas)</strong>"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Container: Shallow plastic container (they can't climb smooth surfaces)",
+            "Temperature: 70-75°F for mealworms, 75-80°F for superworms; refrigerate mealworms at 45-50°F to extend lifespan",
+            "Substrate: Wheat bran, oats, or commercial bedding (2-3 inches deep)",
+            "Food: Carrots, potatoes, or commercial gut-load placed on top of substrate",
+            "Maintenance: Sift out frass monthly, replace substrate every 2-3 months",
+            "Lifespan: Mealworms 8-10 weeks refrigerated, superworms 3-6 months at room temp"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "General Storage Best Practices",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Buy smaller quantities more frequently: Fresher feeders = better nutrition, less waste from die-offs",
+            "Gut-load for 24-48 hours: Feed nutritious diet (commercial gut-load, vegetables) before feeding to your animals",
+            "Quarantine new shipments: Keep new feeders separate for 24 hours to monitor for disease/parasites",
+            "Label containers: Include date received and quantity to track freshness",
+            "Temperature monitoring: Use stick-on thermometer strips on storage containers",
+            "Separate species: NEVER mix feeder types (cross-contamination, disease, predation)",
+            "Emergency backup: Keep multiple feeder types on hand in case of die-offs or shipping delays"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Cost Comparison: Local vs Bulk Online",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Feeder Type", "Local Pet Store (100 count)", "Bulk Online (100-500 count)", "Savings"],
+          "rows": [
+            ["Crickets (1/2\")", "$15-20", "$10-15 (+ $5-10 shipping)", "20-30%"],
+            ["Dubia Roaches", "$25-35", "$15-20 (+ $5-10 shipping)", "30-40%"],
+            ["BSFL", "$18-25", "$12-18 (+ $5-10 shipping)", "25-35%"],
+            ["Hornworms (12 count)", "$12-15", "$8-12 (+ $5-10 shipping)", "20-30%"],
+            ["Waxworms (50 count)", "$8-12", "$6-9 (+ $5-10 shipping)", "15-25%"]
+          ]
+        },
+        {
+          "type": "highlight",
+          "content": "Break-Even Point: For most keepers, bulk online orders save money at 200+ feeders per month. Below that, local stores may be more cost-effective when factoring in shipping."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Troubleshooting Common Issues",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Mass die-offs: Usually caused by high humidity, ammonia buildup, or temperature extremes. Increase ventilation, clean more frequently, check temperature.",
+            "Foul odor: Sign of bacterial bloom or dead feeders. Remove all dead insects immediately, sanitize container, reduce moisture.",
+            "Feeders escaping: Ensure smooth container walls, tight-fitting lids, no condensation (creates grip). Apply petroleum jelly band at top of container.",
+            "Slow feeder growth/breeding: Temperature too low, inadequate food/water, overcrowding. Increase temp 5-10°F, provide fresh food daily, thin out population.",
+            "Pupation before use: Feeders stored too warm. Refrigerate waxworms, mealworms, BSFL to slow development. Order smaller hornworms.",
+            "Mold in containers: Excess moisture or uneaten food. Increase ventilation, remove food after 48 hours, reduce misting."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Quick Reference Chart",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Feeder", "Storage Temp", "Container", "Lifespan", "Maintenance Level"],
+          "rows": [
+            ["Crickets", "70-75°F", "Cricket keeper", "2-3 weeks", "High (daily cleaning)"],
+            ["Dubia Roaches", "75-80°F", "Opaque tote", "1-2 years", "Low (monthly cleaning)"],
+            ["BSFL", "50-55°F (fridge)", "Original cup", "2-3 weeks", "None"],
+            ["Hornworms", "70-75°F", "Original cup", "1 week", "Low (frass removal)"],
+            ["Waxworms", "55-60°F (fridge)", "Shallow dish", "2-3 weeks", "Very low"],
+            ["Silkworms", "75-80°F", "Ventilated box", "4-6 weeks", "Very high (daily cleaning)"],
+            ["Mealworms", "45-50°F (fridge)", "Shallow container", "8-10 weeks", "Low (monthly sifting)"],
+            ["Superworms", "75-80°F", "Shallow container", "3-6 months", "Low (monthly sifting)"]
+          ]
+        }
+      ]
+    }
+  ]
+}

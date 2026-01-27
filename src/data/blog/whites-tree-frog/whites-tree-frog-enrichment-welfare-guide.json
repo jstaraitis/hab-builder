@@ -70,6 +70,79 @@
           ]
         }
       ]
+    },
+    {
+      "type": "section",
+      "heading": "Normal vs Abnormal Behaviors",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Behavior", "Status", "Meaning / Action Required"],
+          "rows": [
+            ["Sleeping on exposed perches during day", "Normal", "White's often sleep in the open rather than hiding. This is typical behavior."],
+            ["Active hunting at night (1-3 hours after lights out)", "Normal", "Peak activity period. Healthy frogs explore and hunt during this time."],
+            ["Soaking in water dish 10-30 minutes occasionally", "Normal", "Hydration and thermoregulation. Brief soaks are healthy."],
+            ["Vocalizing at night (males barking)", "Normal", "Breeding behavior. Males make loud 'barking' calls during breeding season."],
+            ["Color changes (darker when cold/stressed, green when comfortable)", "Normal", "Natural thermoregulation and mood indicator."],
+            ["Slow, deliberate movements", "Normal", "White's are ambush predators, not active climbers. Sedentary is typical."],
+            ["Glass surfing (constantly climbing walls/scratching)", "Abnormal", "Stress, inadequate temp (check 75-88°F), hunger, or humidity issues (check 30-40%). Adjust parameters."],
+            ["Excessive hiding (24/7, won't come out at night)", "Abnormal", "Stress or illness. Verify all husbandry parameters. If correct, consult exotic vet."],
+            ["Gaping mouth while resting", "Abnormal - Emergency", "Respiratory distress or overheating. Lower temps, increase ventilation, vet check IMMEDIATELY."],
+            ["Lethargy during feeding time (ignoring food)", "Abnormal", "Possible illness or parasites. Healthy frogs are alert at night. Vet consultation needed."],
+            ["Aggression (biting, chasing other frogs)", "Abnormal", "Competition for space/resources. Add more perches or separate into individual enclosures."],
+            ["Sitting in water dish constantly (2+ hours daily)", "Abnormal", "Overheating, high humidity discomfort, or dehydration. Check temps and humidity immediately."]
+          ]
+        },
+        {
+          "type": "warning",
+          "severity": "important",
+          "icon": "AlertTriangle",
+          "content": "Red Flag Behaviors: Gaping mouth, wheezing sounds, red/irritated skin, refusal to eat for 7+ days (adults) require immediate exotic vet consultation. Don't wait—amphibians decline rapidly once symptoms appear."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Breeding Behavior Signs",
+      "content": [
+        {
+          "type": "text",
+          "text": "If keeping multiple frogs, watch for these breeding indicators (typically after cooler dry season simulation):"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Male vocalizations: Loud, rhythmic 'barking' calls at night (can be heard across the house)",
+            "Amplexus: Male gripping female from behind—normal breeding behavior, not aggression",
+            "Increased water dish activity: Both sexes spend more time near/in water",
+            "Female weight gain: Gravid females develop rounded abdomen filled with eggs",
+            "Males develop dark nuptial pads on thumbs for gripping during amplexus"
+          ]
+        },
+        {
+          "type": "highlight",
+          "content": "Note: Breeding requires specific environmental triggers (temperature drop, increased humidity for a brief period, then warm-up). Accidental breeding is very rare in standard setups."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Enrichment Frequency & Rotation",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Decor rearrangement: Every 2-3 months to provide novelty WITHOUT causing excessive stress. Move 1-2 items, not the entire setup.",
+            "New perches/plants: Introduce one new item every 6-8 weeks to maintain interest.",
+            "Feeding enrichment: Vary feeder types weekly (crickets Monday, dubia Wednesday, BSFL Friday) to prevent boredom.",
+            "Avoid: Daily rearrangement or constant changes—this stresses frogs and disrupts established territories."
+          ]
+        },
+        {
+          "type": "highlight",
+          "content": "Balance is Key: White's Tree Frogs thrive on routine but benefit from occasional novelty. Think 'stable with subtle variety' rather than 'constantly changing environment.'"
+        }
+      ]
     }
   ]
 }

@@ -75,17 +75,56 @@
     },
     {
       "type": "section",
-      "heading": "Troubleshooting: Common Temperature & Humidity Problems",
+      "heading": "Seasonal Climate Adaptations",
       "content": [
+        {
+          "type": "text",
+          "text": "<strong>Hot Summers (Room Temp >85°F)</strong>"
+        },
         {
           "type": "list",
           "items": [
-            "Humidity above 50% (too wet): Open vents wider, remove any standing water, stop misting, reduce substrate moisture. High humidity = respiratory infections.",
-            "Humidity below 25% (too dry): Add a larger water dish, ensure it's clean and accessible. Slightly increase ventilation-blocking (partial acrylic cover on 25% of mesh top) to trap a bit more moisture from the dish.",
-            "Temperature below 75°F (too cold): The ambient temperature must stay 75-88°F. Upgrade your heat lamp wattage (60-100W depending on enclosure size) or confirm room temperature. Use a thermostat to maintain consistent heat.",
-            "No warm zone above 85°F (basking too cool): Move heat lamp closer to top of enclosure, increase wattage slightly, or ensure lamp is positioned directly over basking area. Aim for 88°F at the top.",
-            "No nighttime drop below 75°F (missing metabolism trigger): Use a thermostat-controlled heat lamp that dims or turns off at night. The 70-75°F nighttime drop is essential for digestion and metabolic health.",
-            "Frogs hiding constantly: Usually a sign of stress from high humidity or temperature instability. Verify daytime ambient is 75-88°F, basking zone is 88°F, and nighttime drops to 70-75°F."
+            "Move enclosure to coolest room in the house (basement ideal).",
+            "Use portable AC unit or fan to cool the room—NEVER blow air directly on the enclosure.",
+            "Emergency cooling: Place frozen water bottles wrapped in towels OUTSIDE the enclosure to radiate cool air. Replace every 4-6 hours.",
+            "Reduce heat lamp wattage or raise fixture higher to lower basking temp.",
+            "Monitor closely: If ambient exceeds 90°F for extended periods, frogs can overheat. Signs include gaping mouth, lethargy, seeking water constantly."
+          ]
+        },
+        {
+          "type": "text",
+          "text": "<strong>Cold Winters (Room Temp <65°F)</strong>"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Increase heat lamp wattage (75-100W) to maintain 75-88°F ambient.",
+            "Use ceramic heat emitter (CHE) at night to maintain nighttime temps at 70-75°F minimum.",
+            "Add insulation: Place foam board or reflective insulation on back/sides of enclosure (NOT front or top—blocks ventilation).",
+            "Use thermostat to prevent overheating—critical when boosting heat sources.",
+            "Check water dish more frequently—heat sources will increase evaporation."
+          ]
+        },
+        {
+          "type": "highlight",
+          "content": "Thermostat Recommendations: Use a proportional thermostat (not on/off). Recommended models: Herpstat, Vivarium Electronics VE-200, or Inkbird ITC-308. Set to target 82-85°F daytime, 70-72°F nighttime."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Troubleshooting: Common Temperature & Humidity Problems",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Problem", "Cause", "Solution"],
+          "rows": [
+            ["Humidity above 50% (too wet)", "Poor ventilation, excess misting, standing water, overly moist substrate", "Open vents wider, remove standing water, stop all misting, reduce substrate moisture. High humidity = respiratory infections."],
+            ["Humidity below 25% (too dry)", "Small water dish, room too dry, excessive ventilation", "Add larger water dish (6-8\" diameter), ensure it's clean and accessible. Partially cover 25% of mesh top with acrylic to trap moisture from dish."],
+            ["Temperature below 75°F (too cold)", "Insufficient heat source, low room temp, heat lamp too far from enclosure", "Upgrade heat lamp wattage (60-100W depending on size), lower fixture closer to basking spot, use thermostat for consistency. Ambient must stay 75-88°F."],
+            ["No warm zone above 85°F (basking too cool)", "Heat lamp too far away, insufficient wattage, blocked by decor", "Move heat lamp closer to top of enclosure, increase wattage slightly (75-100W), position directly over basking perch. Aim for 88°F at top."],
+            ["No nighttime drop below 75°F", "Heat lamp running 24/7, no thermostat control", "Use thermostat-controlled heat lamp that dims/turns off at night. The 70-75°F nighttime drop is essential for digestion and metabolic health."],
+            ["Frogs hiding constantly, not basking", "High humidity causing stress, temperature instability, inadequate temp gradient", "Verify daytime ambient 75-88°F, basking zone 88°F, nighttime drop to 70-75°F. Lower humidity to 30-40%. Increase ventilation."]
           ]
         }
       ]
