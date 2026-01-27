@@ -1,0 +1,186 @@
+{
+  "branches": {
+    "name": "Vertical Climbing Branches (Arboreal)",
+    "category": "decor",
+    "needsTags": ["climbing:vertical", "decor:branches"],
+    "importance": "required",
+    "tiers": {
+      "minimum": {
+        "description": "Natural branches",
+        "searchQuery": "branches terrarium"
+      },
+      "recommended": {
+        "description": "Natural branches",
+        "searchQuery": "cork bark branches terrarium"
+      },
+      "ideal": {
+        "description": "Premium Natural branches",
+        "searchQuery": "branches terrarium"
+      }
+    },
+    "notes": "Cork bark and manzanita recommended."
+  },
+  "plants": {
+    "name": "Plants (live or artificial)",
+    "category": "decor",
+    "needsTags": ["decor:plants", "plants:mixed"],
+    "importance": "required",
+    "tiers": {
+      "minimum": {
+        "description": "Artificial plants",
+        "searchQuery": "terrarium plants (live or artificial)"
+      },
+      "recommended": {
+        "description": "Mixed live and artificial",
+        "searchQuery": "terrarium plants (live or artificial)"
+      },
+      "ideal": {
+        "description": "Premium live plants",
+        "searchQuery": "terrarium plants (live or artificial)"
+      }
+    },
+    "notes": "Artificial easier for beginners. Live plants for naturalistic setups."
+  },
+  "plants-live": {
+    "name": "Live Plants",
+    "category": "decor",
+    "needsTags": ["decor:plants", "plants:live"],
+    "importance": "required",
+    "tiers": {
+      "minimum": {
+        "description": "Beginner plants",
+        "searchQuery": "terrarium live plants"
+      },
+      "recommended": {
+        "description": "Variety pack",
+        "searchQuery": "terrarium live plants"
+      },
+      "ideal": {
+        "description": "Premium rare species",
+        "searchQuery": "terrarium live plants"
+      }
+    },
+    "notes": "Pothos and ficus are reliable starters."
+  },
+  "plants-artificial": {
+    "name": "Artificial Plants",
+    "category": "decor",
+    "needsTags": ["decor:plants", "plants:artificial"],
+    "importance": "required",
+    "tiers": {
+      "minimum": {
+        "description": "Basic artificial",
+        "searchQuery": "terrarium artificial plants"
+      },
+      "recommended": {
+        "description": "Realistic artificial",
+        "searchQuery": "terrarium artificial plants"
+      },
+      "ideal": {
+        "description": "Premium realistic",
+        "searchQuery": "terrarium artificial plants"
+      }
+    },
+    "notes": "Easy to maintain and won't wilt."
+  },
+  "background": {
+    "name": "Background (cork bark or foam)",
+    "category": "decor",
+    "needsTags": ["decor:background"],
+    "importance": "recommended",
+    "spec": {
+      "type": "cork bark or carved foam",
+      "coverage": "back wall"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Cork bark panels",
+        "searchQuery": "terrarium background (cork bark or foam)"
+      },
+      "recommended": {
+        "description": "Cork bark background",
+        "searchQuery": "terrarium background (cork bark or foam)"
+      },
+      "ideal": {
+        "description": "Custom foam background",
+        "searchQuery": "terrarium background (cork bark or foam)"
+      }
+    },
+    "notes": "Adds depth and climbing surfaces. Cork bark is natural and safe."
+  },
+  "ledges": {
+    "name": "Wall Ledges & Platforms",
+    "category": "decor",
+    "needsTags": ["climbing:vertical", "decor:ledges"],
+    "importance": "required",
+    "spec": {
+      "placement": "various heights",
+      "material": "cork, wood, or suction cup"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Suction cup ledges",
+        "searchQuery": "terrarium wall ledges & platforms"
+      },
+      "recommended": {
+        "description": "Cork bark ledges",
+        "searchQuery": "terrarium wall ledges & platforms"
+      },
+      "ideal": {
+        "description": "Custom wood platforms",
+        "searchQuery": "terrarium wall ledges & platforms"
+      }
+    },
+    "notes": "Arboreal and semi-arboreal species need multiple perching spots at different heights."
+  },
+  "climbing-areas": {
+    "name": "Basking Platforms & Ground Enrichment (Terrestrial)",
+    "category": "decor",
+    "needsTags": ["climbing:ground"],
+    "importance": "required",
+    "spec": {
+      "placement": "ground level",
+      "material": "rocks, branches, or basking platforms"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Natural rocks or branches",
+        "searchQuery": "terrarium basking rock platform"
+      },
+      "recommended": {
+        "description": "Basking platforms and natural decor",
+        "searchQuery": "terrarium basking platform climbing rock"
+      },
+      "ideal": {
+        "description": "Premium basking platforms with ledges",
+        "searchQuery": "terrarium basking platform hammock"
+      }
+    },
+    "notes": "For terrestrial species - provides enrichment, basking surfaces, and exercise. Includes rocks, flat basking platforms, and low branches."
+  },
+  "hides": {
+    "name": "Hides & Shelters",
+    "category": "decor",
+    "needsTags": ["decor:hides"],
+    "importance": "required",
+    "spec": {
+      "quantity": "2-3 per enclosure",
+      "placement": "ground and elevated"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "terrarium hides and shelters",
+        "searchQuery": "terrarium hides & shelters"
+      },
+      "recommended": {
+        "description": "terrarium hides and shelters",
+        "searchQuery": "terrarium hides & shelters"
+      },
+      "ideal": {
+        "description": "terrarium hides and shelters",
+        "searchQuery": "terrarium hides & shelters"
+      }
+    },
+    "notes": "Provide security. Very placement for enrichment."
+  }
+}

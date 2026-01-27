@@ -1,0 +1,240 @@
+{
+  "heat-lamp": {
+    "name": "Ceramic Heat Emitter (CHE)",
+    "category": "equipment",
+    "needsTags": ["heatSource:basking", "heatSource:ambient"],
+    "requiredWith": ["dome-fixture", "thermostat", "surge-protector"],
+    "importance": "required",
+    "spec": {
+      "type": "Ceramic Heat Emitter (CHE)",
+      "wattage": "75-150W",
+      "control": "thermostat required"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Ceramic Heat Emitter",
+        "searchQuery": "ceramic heat emitter reptile"
+      },
+      "recommended": {
+        "description": "Ceramic Heat Emitter",
+        "searchQuery": "ceramic heat emitter reptile"
+      },
+      "ideal": {
+        "description": "Ceramic Heat Emitter",
+        "searchQuery": "ceramic heat emitter reptile"
+      }
+    },
+    "notes": "Use thermostat to prevent overheating. NO heat mats (burn risk)."
+  },
+  "dome-fixture": {
+    "name": "Dome Fixture (for CHE/DHP)",
+    "category": "equipment",
+    "needsTags": ["heatSource:basking", "heatSource:ambient"],
+    "importance": "required",
+    "spec": {
+      "type": "Ceramic socket dome",
+      "material": "Porcelain socket required for CHE",
+      "rating": "Rated for wattage used"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "5.5\" basic dome with ceramic socket",
+        "searchQuery": "ceramic dome fixture reptile 5.5 inch"
+      },
+      "recommended": {
+        "description": "8.5\" dome with ceramic socket + clamp",
+        "searchQuery": "ceramic dome fixture reptile 8.5 inch clamp"
+      },
+      "ideal": {
+        "description": "10\" deep dome with ceramic socket + guard",
+        "searchQuery": "deep dome fixture ceramic socket 10 inch"
+      }
+    },
+    "notes": "MUST have ceramic socket for CHE (plastic melts). Deep domes provide better heat spread. Ensure wattage rating matches or exceeds bulb wattage."
+  },
+  "thermostat": {
+    "name": "Thermostat (Heat Control)",
+    "category": "equipment",
+    "needsTags": ["heatSource:basking", "heatSource:ambient"],
+    "importance": "required",
+    "spec": {
+      "type": "Thermostat controller",
+      "control": "On/off or dimming"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic on/off thermostat",
+        "searchQuery": "reptile thermostat basic on off"
+      },
+      "recommended": {
+        "description": "Digital thermostat with probe",
+        "searchQuery": "digital reptile thermostat probe"
+      },
+      "ideal": {
+        "description": "Dimming/proportional thermostat",
+        "searchQuery": "dimming thermostat reptile proportional"
+      }
+    },
+    "notes": "REQUIRED for all heat sources to prevent burns and overheating. Place probe at basking spot height. Dimming thermostats provide more stable temps than on/off."
+  },
+  "deep-heat-projector": {
+    "name": "Deep Heat Projector (DHP)",
+    "category": "equipment",
+    "needsTags": [],
+    "requiredWith": ["surge-protector"],
+    "importance": "recommended",
+    "spec": {
+      "type": "Infrared-A/B emitter",
+      "wattage": "50-80W",
+      "control": "dimming thermostat recommended"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "50W DHP + basic dome",
+        "searchQuery": "deep heat projector 50w reptile"
+      },
+      "recommended": {
+        "description": "80W DHP + dimming thermostat",
+        "searchQuery": "deep heat projector 80w dimming thermostat"
+      },
+      "ideal": {
+        "description": "80W Arcadia DHP + premium dimmer",
+        "searchQuery": "arcadia deep heat projector 80w dimmer"
+      }
+    },
+    "notes": "Emits infrared-A/B for deep tissue warming. Safe for 24/7 use. No visible light. Mimics sun better than CHE."
+  },
+  "halogen-flood-bulb": {
+    "name": "Halogen Flood Bulb",
+    "category": "equipment",
+    "needsTags": [],
+    "requiredWith": ["surge-protector"],
+    "importance": "recommended",
+    "spec": {
+      "type": "Halogen PAR38",
+      "wattage": "50-100W",
+      "control": "dimmer switch recommended"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "50W halogen flood",
+        "searchQuery": "halogen flood bulb 50w par38"
+      },
+      "recommended": {
+        "description": "75W halogen PAR38 + dimmer",
+        "searchQuery": "halogen flood bulb 75w par38 dimmer"
+      },
+      "ideal": {
+        "description": "90W halogen PAR38 x2 + dimmer",
+        "searchQuery": "halogen flood bulb 90w par38"
+      }
+    },
+    "notes": "Best daytime heat source - provides visible light + intense basking heat. DAYTIME ONLY (turn off at night). Emits infrared-A for deep penetrating warmth."
+  },
+  "heat-mat": {
+    "name": "Heat Mat (Under Tank Heater)",
+    "category": "equipment",
+    "needsTags": [],
+    "requiredWith": ["surge-protector"],
+    "importance": "optional",
+    "spec": {
+      "type": "Under-tank heating pad",
+      "size": "covers 1/3 of floor",
+      "control": "thermostat REQUIRED"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Small heat mat + thermostat",
+        "searchQuery": "reptile heat mat thermostat"
+      },
+      "recommended": {
+        "description": "Medium heat mat + digital thermostat",
+        "searchQuery": "reptile heat mat digital thermostat"
+      },
+      "ideal": {
+        "description": "Heat mat + proportional thermostat",
+        "searchQuery": "reptile heat mat proportional thermostat"
+      }
+    },
+    "notes": "SUPPLEMENTAL ONLY - NOT primary heat source. Use under warm hide. MUST use thermostat (burns risk without). Does NOT heat ambient air. Good for belly heat for digestion."
+  },
+  "radiant-heat-panel": {
+    "name": "Radiant Heat Panel (RHP)",
+    "category": "equipment",
+    "needsTags": [],
+    "requiredWith": ["surge-protector"],
+    "importance": "recommended",
+    "spec": {
+      "type": "Ceiling-mounted panel",
+      "wattage": "40-80W",
+      "control": "thermostat recommended"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "40W RHP + basic thermostat",
+        "searchQuery": "radiant heat panel 40w reptile"
+      },
+      "recommended": {
+        "description": "60W RHP + thermostat",
+        "searchQuery": "radiant heat panel 60w thermostat"
+      },
+      "ideal": {
+        "description": "80W Pro Heat RHP + dimmer",
+        "searchQuery": "pro heat radiant heat panel 80w"
+      }
+    },
+    "notes": "Mounts to enclosure ceiling. Even heat distribution across enclosure. Safe for 24/7 use. No light emission. Very efficient - low energy use."
+  },
+  "heat-cable": {
+    "name": "Heat Cable",
+    "category": "equipment",
+    "needsTags": [],
+    "requiredWith": ["surge-protector"],
+    "importance": "recommended",
+    "spec": {
+      "type": "Buried heating cable",
+      "length": "varies by enclosure size",
+      "control": "thermostat REQUIRED"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "15W heat cable + thermostat",
+        "searchQuery": "reptile heat cable 15w thermostat"
+      },
+      "recommended": {
+        "description": "25W heat cable + thermostat",
+        "searchQuery": "reptile heat cable 25w thermostat"
+      },
+      "ideal": {
+        "description": "Flexible heat cable + pulse thermostat",
+        "searchQuery": "flexible heat cable pulse thermostat reptile"
+      }
+    },
+    "notes": "For bioactive setups - buried in substrate to create underground thermal gradient. Snake through substrate in zigzag pattern. Helps with plant root growth."
+  },
+  "surge-protector": {
+    "name": "Surge Protector Power Strip",
+    "category": "equipment",
+    "needsTags": [],
+    "importance": "recommended",
+    "spec": {
+      "type": "6-8 outlet surge protector",
+      "rating": "1000+ joules protection"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic 6-outlet surge protector",
+        "searchQuery": "surge protector 6 outlet"
+      },
+      "recommended": {
+        "description": "8-outlet surge protector with joule rating",
+        "searchQuery": "surge protector 8 outlet 1000 joules"
+      },
+      "ideal": {
+        "description": "Premium surge protector with individual switches",
+        "searchQuery": "surge protector 8 outlet individual switches"
+      }
+    },
+    "notes": "Protects expensive equipment (thermostats, lights, timers) from power surges. Get one with enough outlets for all devices (lights, heat, timers, misters, etc.)."
+  }
+}

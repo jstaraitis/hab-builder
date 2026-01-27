@@ -93,7 +93,7 @@ export interface ShoppingItem {
   quantity: number | string; // can be "2" or "1 bag (8 quarts)"
   sizing: string; // explanation of how quantity was calculated
   incompatibleAnimals?: string[]; // animal IDs this equipment cannot be used with (empty/omitted = all animals)
-  importance?: 'required' | 'conditional' | 'optional'; // equipment importance level
+  importance?: 'required' | 'recommended' | 'conditional'; // equipment importance level
   setupTierOptions?: {
     minimum?: { description: string; searchQuery?: string };
     recommended?: { description: string; searchQuery?: string };
@@ -184,6 +184,15 @@ export interface CareGuidance {
   mistingNotes: string[];
 }
 
+export interface EquipmentNeeds {
+  climbing?: 'vertical' | 'ground' | 'both' | 'none'; // Type of climbing structures needed
+  substrate?: Array<'bioactive' | 'soil' | 'paper' | 'foam'>; // Compatible substrate types
+  humidity?: 'high' | 'moderate' | 'low'; // Determines if misting/humidifier needed
+  heatSource?: 'basking' | 'ambient' | 'none'; // Type of heat needed
+  waterFeature?: 'large-bowl' | 'shallow-dish' | 'pool' | 'none'; // Water needs
+  decor?: Array<'branches' | 'ledges' | 'hides' | 'plants' | 'background'>; // Specific decor needed
+}
+
 export interface AnimalProfile {
   id: string;
   commonName: string;
@@ -204,6 +213,7 @@ export interface AnimalProfile {
   equipmentRules?: EquipmentRule[]; // Optional: not required in JSON
   warnings: Omit<Warning, 'id'>[];
   bioactiveCompatible: boolean;
+  equipmentNeeds?: EquipmentNeeds; // Optional: explicit equipment needs for this species
   notes: string[];
   setupTips?: string[]; // Optional: species-specific setup tips for enclosure building
   lifespan?: string; // Optional: e.g., "12-16 years"

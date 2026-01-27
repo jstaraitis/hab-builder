@@ -67,6 +67,18 @@
     "optionalZones": ["feeding", "climbing"]
   },
   "bioactiveCompatible": true,
+  "equipmentNeeds": {
+    "climbing": "ground",
+    "substrate": ["bioactive", "soil"],
+    "bioactiveSubstrate": "arid",
+    "humidity": "low",
+    "heatSource": "basking",
+    "waterFeature": "shallow-dish",
+    "lighting": "uvb-forest",
+    "diet": ["insectivore"],
+    "animalType": "reptile",
+    "decor": ["climbing-areas", "hides"]
+  },
   "lifespan": "10-20 years in captivity",
   "dietType": "Insectivore",
   "adultSize": "7-10 inches (females smaller than males)",

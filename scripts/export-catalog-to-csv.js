@@ -10,11 +10,29 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const catalogPath = path.join(__dirname, '../src/data/equipment-catalog.json');
-const outputPath = path.join(__dirname, '../equipment-catalog.csv');
+// Import all category files and merge them
+const equipmentDir = path.join(__dirname, '../src/data/equipment');
+const categories = [
+  'enclosures.json',
+  'substrate.json',
+  'cleanup-crew.json',
+  'lighting.json',
+  'heating.json',
+  'humidity.json',
+  'monitoring.json',
+  'nutrition.json',
+  'decor.json'
+];
 
-// Read the JSON file
-const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf-8'));
+// Merge all categories into single catalog (like index.ts does)
+const catalog = {};
+categories.forEach(filename => {
+  const categoryPath = path.join(equipmentDir, filename);
+  const categoryData = JSON.parse(fs.readFileSync(categoryPath, 'utf-8'));
+  Object.assign(catalog, categoryData);
+});
+
+const outputPath = path.join(__dirname, '../equipment-catalog.csv');
 
 // CSV Header
 const headers = [

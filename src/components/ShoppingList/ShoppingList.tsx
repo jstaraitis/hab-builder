@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Home, Wrench, Layers, Image, Leaf, Bug, ChevronRight, ShoppingBag } from 'lucide-react';
+import { Home, Wrench, Layers, Image, Leaf, Bug, ChevronRight, ShoppingBag, Utensils } from 'lucide-react';
 import type { ShoppingItem, SetupTier, EnclosureInput } from '../../engine/types';
 import { generateAmazonLink } from '../../utils/amazonLinks';
 
@@ -19,6 +19,7 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
     decor: 'Decor & Hardscape',
     live_plants: 'Live Plants',
     cleanup_crew: 'Cleanup Crew',
+    nutrition: 'Nutrition & Feeding',
   };
 
   const tierLabels = {
@@ -86,6 +87,7 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
                       decor: <Image className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
                       live_plants: <Leaf className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
                       cleanup_crew: <Bug className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
+                      nutrition: <Utensils className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
                     };
                     return imap[category] ?? null;
                   })()}
@@ -129,6 +131,9 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
                                 {item.importance === 'required' && (
                                   <span className="w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
                                 )}
+                                {item.importance === 'recommended' && (
+                                  <span className="w-2 h-2 rounded-full bg-cyan-500 flex-shrink-0"></span>
+                                )}
                                 {item.importance === 'conditional' && (
                                   <span className="w-2 h-2 rounded-full bg-yellow-500 flex-shrink-0"></span>
                                 )}
@@ -167,8 +172,13 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
                                   {tierOption.description}
                                 </p>
                                 {item.sizing && (
-                                  <p className="text-xs text-gray-600 dark:text-gray-400">
+                                  <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400">
                                     {item.sizing}
+                                  </p>
+                                )}
+                                {item.notes && (
+                                  <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400">
+                                    {item.notes}
                                   </p>
                                 )}
                               </div>
@@ -177,10 +187,12 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
                               <p className="text-xs font-medium">
                                 <span className={`${
                                   item.importance === 'required' ? 'text-red-600 dark:text-red-400' :
+                                  item.importance === 'recommended' ? 'text-cyan-500 dark:text-cyan-400' :
                                   item.importance === 'conditional' ? 'text-yellow-600 dark:text-yellow-400' :
                                   'text-gray-600 dark:text-gray-400'
                                 }`}>
                                   {item.importance === 'required' ? '● Required' :
+                                  item.importance === 'recommended' ? '● Recommended' :
                                   item.importance === 'conditional' ? '● Conditional' :
                                   'Optional'}
                                 </span>

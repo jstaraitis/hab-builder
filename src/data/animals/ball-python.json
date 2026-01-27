@@ -62,6 +62,18 @@
     "optionalZones": ["climbing-branches", "humid-hide"]
   },
   "bioactiveCompatible": true,
+  "equipmentNeeds": {
+    "climbing": "both",
+    "substrate": ["bioactive", "soil"],
+    "bioactiveSubstrate": "tropical",
+    "humidity": "moderate",
+    "heatSource": "basking",
+    "waterFeature": "shallow-dish",
+    "lighting": "uvb-forest",
+    "diet": ["carnivore"],
+    "animalType": "reptile",
+    "decor": ["branches", "hides", "plants"]
+  },
   "lifespan": "30+ years in captivity (commonly reach 40+ years with proper care)",
   "dietType": "Carnivore",
   "adultSize": "3-5 feet (females larger than males)",

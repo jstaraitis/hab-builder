@@ -1,0 +1,102 @@
+{
+  "monitoring": {
+    "name": "Digital Thermometer & Hygrometer",
+    "category": "equipment",
+    "needsTags": [],
+    "importance": "required",
+    "spec": {
+      "measures": "temperature and humidity",
+      "placement": "warm and cool zones"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic digital combo",
+        "searchQuery": "terrarium digital thermometer & hygrometer"
+      },
+      "recommended": {
+        "description": "Dual gauge combo unit",
+        "searchQuery": "terrarium digital thermometer & hygrometer"
+      },
+      "ideal": {
+        "description": "WiFi monitor with app",
+        "searchQuery": "terrarium digital thermometer & hygrometer"
+      }
+    },
+    "notes": "Monitor both warm and cool zones."
+  },
+  "infrared-thermometer": {
+    "name": "Infrared Thermometer Gun",
+    "category": "equipment",
+    "needsTags": [],
+    "importance": "recommended",
+    "spec": {
+      "measures": "surface temperature",
+      "accuracy": "±2°F"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic IR temp gun",
+        "searchQuery": "infrared thermometer gun reptile"
+      },
+      "recommended": {
+        "description": "Digital IR thermometer with laser",
+        "searchQuery": "infrared thermometer gun reptile accurate"
+      },
+      "ideal": {
+        "description": "Professional IR thermometer",
+        "searchQuery": "infrared thermometer gun reptile professional"
+      }
+    },
+    "notes": "Measure basking spot surface temps accurately. Essential for verifying heat lamp temps. Point at basking surface, NOT at animal."
+  },
+  "uv-meter": {
+    "name": "UVB Meter",
+    "category": "equipment",
+    "needsTags": ["lighting:uvb-forest", "lighting:uvb-desert"],
+    "importance": "recommended",
+    "spec": {
+      "measures": "UVB output (μW/cm²)",
+      "type": "Solarmeter 6.5 or equivalent"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "UV test cards",
+        "searchQuery": "uvb test card reptile"
+      },
+      "recommended": {
+        "description": "Digital UVB meter or UV test cards",
+        "searchQuery": "uvb test card reptile digital"
+      },
+      "ideal": {
+        "description": "Solarmeter 6.5 UVB meter",
+        "searchQuery": "solarmeter 6.5 uvb meter reptile"
+      }
+    },
+    "notes": "Verify UVB bulb output and placement. Bulbs lose UVB before visible light dims - replace every 6-12 months even if still lit."
+  },
+  "timer": {
+    "name": "Light Timer (Digital)",
+    "category": "equipment",
+    "needsTags": [],
+    "importance": "recommended",
+    "spec": {
+      "type": "programmable digital timer",
+      "schedule": "12hr day/night cycle"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic mechanical timer",
+        "searchQuery": "outlet timer plug"
+      },
+      "recommended": {
+        "description": "Digital programmable timer",
+        "searchQuery": "digital outlet timer programmable"
+      },
+      "ideal": {
+        "description": "Smart plug with app control",
+        "searchQuery": "smart plug wifi outlet timer"
+      }
+    },
+    "notes": "Automate lighting schedule. Most species need 12hrs on/12hrs off. Prevents forgetting to turn lights on/off."
+  }
+}

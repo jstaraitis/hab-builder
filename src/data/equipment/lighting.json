@@ -1,0 +1,82 @@
+{
+  "uvb-fixture-forest": {
+    "name": "UVB Linear Fixture (5.0 Forest)",
+    "category": "equipment",
+    "needsTags": ["lighting:uvb-forest"],
+    "requiredWith": ["surge-protector"],
+    "importance": "required",
+    "spec": {
+      "coverage": "60-80% of enclosure width",
+      "type": "T5 HO",
+      "strength": "5.0"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "T5 HO 5.0 basic fixture",
+        "searchQuery": "T5 HO reptisun 5.0 uvb linear fixture"
+      },
+      "recommended": {
+        "description": "Arcadia Forest 6% T5 HO fixture",
+        "searchQuery": "Arcadia Forest 6% T5 HO uvb fixture"
+      },
+      "ideal": {
+        "description": "Arcadia ProT5 Forest Kit",
+        "searchQuery": "Arcadia ProT5 Forest uvb kit"
+      }
+    },
+    "notes": "Essential for vitamin D3 synthesis. 5.0/6% for tropical forest species."
+  },
+  "uvb-fixture-desert": {
+    "name": "UVB Linear Fixture (10.0 Desert)",
+    "category": "equipment",
+    "needsTags": ["lighting:uvb-desert"],
+    "requiredWith": ["surge-protector"],
+    "importance": "required",
+    "spec": {
+      "coverage": "50-75% of enclosure width",
+      "type": "T5 HO",
+      "strength": "10.0"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "T5 HO 10.0 basic fixture",
+        "searchQuery": "T5 HO reptisun 10.0 uvb linear fixture"
+      },
+      "recommended": {
+        "description": "Arcadia Desert 12% T5 HO fixture",
+        "searchQuery": "Arcadia Desert 12% T5 HO uvb fixture"
+      },
+      "ideal": {
+        "description": "Arcadia ProT5 Desert Kit with reflector",
+        "searchQuery": "Arcadia ProT5 Desert uvb kit reflector"
+      }
+    },
+    "notes": "Essential for calcium metabolism. 10.0/12% for desert species. Requires proper distance - use Solarmeter to verify UVI 4.0-6.0 at basking spot."
+  },
+  "plant-light": {
+    "name": "Plant Growth Light",
+    "category": "equipment",
+    "needsTags": ["substrate:bioactive", "plants:live"],
+    "requiredWith": ["surge-protector"],
+    "importance": "conditional",
+    "spec": {
+      "type": "LED or fluorescent",
+      "spectrum": "full spectrum for plants"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic LED grow light",
+        "searchQuery": "terrarium plant growth light"
+      },
+      "recommended": {
+        "description": "6500K LED strip",
+        "searchQuery": "terrarium plant growth light"
+      },
+      "ideal": {
+        "description": "Full spectrum LED bar",
+        "searchQuery": "terrarium plant growth light"
+      }
+    },
+    "notes": "Nice to have for visibility but only required for live plant setups. Use separate from UVB. "
+  }
+}

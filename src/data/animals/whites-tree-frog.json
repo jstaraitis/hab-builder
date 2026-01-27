@@ -90,6 +90,18 @@
     ]
   },
   "bioactiveCompatible": true,
+  "equipmentNeeds": {
+    "climbing": "vertical",
+    "substrate": ["bioactive", "soil", "paper", "foam"],
+    "bioactiveSubstrate": "tropical",
+    "humidity": "low",
+    "heatSource": "basking",
+    "waterFeature": "shallow-dish",
+    "lighting": "uvb-forest",
+    "diet": ["insectivore"],
+    "animalType": "amphibian",
+    "decor": ["branches", "ledges", "hides", "plants"]
+  },
   "lifespan": "12-16 years in captivity, up to 20+ years with excellent care",
   "dietType": "Insectivore",
   "adultSize": "3-4.5 inches (males smaller than females)",

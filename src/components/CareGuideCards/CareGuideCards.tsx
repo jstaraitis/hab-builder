@@ -110,7 +110,6 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
       <div className="flex items-center justify-between mb-5">
         <h3 className="text-3xl font-semibold text-gray-900 dark:text-white">Complete Care Guides</h3>
-        <span className="text-lg text-gray-500 dark:text-gray-400">essential guides</span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

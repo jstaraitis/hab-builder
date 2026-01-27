@@ -1,0 +1,161 @@
+{
+  "substrate-bioactive-tropical": {
+    "name": "Bioactive Substrate Mix (Tropical)",
+    "category": "substrate",
+    "needsTags": ["substrate:bioactive"],
+    "importance": "required",
+    "spec": {
+      "depth": "3-4 inches",
+      "type": "ABG mix or equivalent"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "DIY ABG Mix (coco fiber, sphagnum moss, charcoal, tree fern)",
+        "searchQuery": "ABG mix bioactive substrate"
+      },
+      "recommended": {
+        "description": "Pre-mixed tropical ABG substrate",
+        "searchQuery": "ABG mix bioactive substrate"
+      },
+      "ideal": {
+        "description": "Premium tropical bioactive mix",
+        "searchQuery": "premium ABG mix bioactive"
+      }
+    },
+    "notes": "Standard ABG (Atlanta Botanical Garden) mix for tropical/forest species. Retains moisture while providing drainage. Mix ratio: 2 parts coco fiber, 2 parts sphagnum moss, 1 part charcoal, 1 part tree fern."
+  },
+  "substrate-bioactive-arid": {
+    "name": "Bioactive Substrate Mix (Arid/Desert)",
+    "category": "substrate",
+    "needsTags": ["substrate:bioactive"],
+    "importance": "required",
+    "spec": {
+      "depth": "3-4 inches",
+      "type": "Sand/soil mix with drainage"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "DIY arid mix (play sand, organic topsoil, excavator clay)",
+        "searchQuery": "bioactive substrate desert arid"
+      },
+      "recommended": {
+        "description": "Pre-mixed arid bioactive substrate",
+        "searchQuery": "bioactive substrate desert reptile"
+      },
+      "ideal": {
+        "description": "Premium arid bioactive mix",
+        "searchQuery": "premium bioactive substrate desert"
+      }
+    },
+    "notes": "For arid/desert species (bearded dragons, leopard geckos). Drains quickly, doesn't retain excess moisture. Mix ratio: 60% play sand, 30% organic topsoil, 10% excavator clay."
+  },
+  "substrate-soil": {
+    "name": "Soil-Based Substrate",
+    "category": "substrate",
+    "needsTags": ["substrate:soil"],
+    "importance": "required",
+    "tiers": {
+      "minimum": {
+        "description": "DIY ABG Mix",
+        "searchQuery": "terrarium soil-based substrate"
+      },
+      "recommended": {
+        "description": "Pre-mixed soil substrate",
+        "searchQuery": "terrarium soil-based substrate"
+      },
+      "ideal": {
+        "description": "Premium soil mix",
+        "searchQuery": "terrarium soil-based substrate"
+      }
+    },
+    "notes": "Good for plants and naturalistic setups."
+  },
+  "substrate-paper": {
+    "name": "Paper-Based Substrate",
+    "category": "substrate",
+    "needsTags": ["substrate:paper"],
+    "importance": "required",
+    "tiers": {
+      "minimum": {
+        "description": "Paper towels",
+        "searchQuery": "terrarium paper-based substrate"
+      },
+      "recommended": {
+        "description": "Paper towels",
+        "searchQuery": "terrarium paper-based substrate"
+      },
+      "ideal": {
+        "description": "Paper towels",
+        "searchQuery": "terrarium paper-based substrate"
+      }
+    },
+    "notes": "Easy to replace and clean."
+  },
+  "substrate-foam": {
+    "name": "Foam Substrate",
+    "category": "substrate",
+    "needsTags": ["substrate:foam"],
+    "importance": "required",
+    "tiers": {
+      "minimum": {
+        "description": "Frog Foam",
+        "searchQuery": "terrarium foam substrate"
+      },
+      "recommended": {
+        "description": "Frog Foam",
+        "searchQuery": "terrarium foam substrate"
+      },
+      "ideal": {
+        "description": "Frog Foam",
+        "searchQuery": "terrarium foam substrate"
+      }
+    },
+    "notes": "Lightweight and reusable."
+  },
+  "drainage": {
+    "name": "Drainage Layer (LECA or clay balls)",
+    "category": "substrate",
+    "needsTags": ["substrate:bioactive"],
+    "importance": "conditional",
+    "spec": {
+      "depth": "1-3 inches",
+      "material": "LECA or clay balls"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Organic LECA",
+        "searchQuery": "terrarium drainage layer (leca or clay balls)"
+      },
+      "recommended": {
+        "description": "Organic LECA",
+        "searchQuery": "terrarium drainage layer (leca or clay balls)"
+      },
+      "ideal": {
+        "description": "Organic LECA",
+        "searchQuery": "terrarium drainage layer (leca or clay balls)"
+      }
+    },
+    "notes": "Essential for bioactive setups."
+  },
+  "drainage-barrier": {
+    "name": "Drainage Barrier (mesh screen)",
+    "category": "substrate",
+    "needsTags": ["substrate:bioactive"],
+    "importance": "conditional",
+    "tiers": {
+      "minimum": {
+        "description": "Mesh barrier",
+        "searchQuery": "terrarium drainage barrier (mesh screen)"
+      },
+      "recommended": {
+        "description": "Mesh barrier",
+        "searchQuery": "terrarium drainage barrier (mesh screen)"
+      },
+      "ideal": {
+        "description": "Mesh barrier",
+        "searchQuery": "terrarium drainage barrier (mesh screen)"
+      }
+    },
+    "notes": "Prevents substrate from mixing with drainage layer."
+  }
+}

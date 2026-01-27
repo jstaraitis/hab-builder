@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from 'react';
 import { Routes, Route, Navigate, Link, useNavigate, useLocation } from 'react-router-dom';
-import { Bug, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Moon, Sun } from 'lucide-react';
+import { Bug, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare } from 'lucide-react';
 import type { EnclosureInput, BuildPlan, AnimalProfile } from './engine/types';
 import { generatePlan } from './engine/generatePlan';
 import { AnimalSelectView } from './components/Views/AnimalSelectView';
@@ -22,7 +22,7 @@ import { ProgressIndicator } from './components/Navigation/ProgressIndicator';
 function App() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { theme, toggleTheme } = useTheme();
+  useTheme(); // Apply dark mode
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
 
   // Scroll to top when route changes
@@ -117,13 +117,6 @@ function App() {
               >
                 📝
               </button>
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 active:bg-gray-200 dark:active:bg-gray-600"
-                title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-              >
-                {theme === 'light' ? '🌙' : '☀️'}
-              </button>
             </div>
           </div>
 
@@ -194,14 +187,6 @@ function App() {
               title="Send feedback or report issues"
             >
               <MessageSquare className="w-4 h-4 inline mr-1.5" /> Feedback
-            </button>
-            <button
-              onClick={toggleTheme}
-              className="px-4 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-yellow-400 transition-colors"
-              title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-            >
-              {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
             </button>
           </nav>
           </div>

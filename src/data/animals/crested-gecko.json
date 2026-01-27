@@ -62,6 +62,18 @@
     "optionalZones": ["feeding"]
   },
   "bioactiveCompatible": true,
+  "equipmentNeeds": {
+    "climbing": "vertical",
+    "substrate": ["bioactive", "soil", "paper", "foam"],
+    "bioactiveSubstrate": "tropical",
+    "humidity": "high",
+    "heatSource": "ambient",
+    "waterFeature": "shallow-dish",
+    "lighting": "uvb-forest",
+    "diet": ["insectivore"],
+    "animalType": "reptile",
+    "decor": ["branches", "ledges", "hides", "plants"]
+  },
   "lifespan": "15-20 years in captivity",
   "dietType": "Omnivore",
   "adultSize": "7-9 inches (including tail)",

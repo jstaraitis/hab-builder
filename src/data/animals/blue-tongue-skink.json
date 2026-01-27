@@ -62,6 +62,18 @@
     "optionalZones": []
   },
   "bioactiveCompatible": true,
+  "equipmentNeeds": {
+    "climbing": "ground",
+    "substrate": ["bioactive", "soil"],
+    "bioactiveSubstrate": "arid",
+    "humidity": "moderate",
+    "heatSource": "basking",
+    "waterFeature": "shallow-dish",
+    "lighting": "uvb-desert",
+    "diet": ["omnivore"],
+    "animalType": "reptile",
+    "decor": ["climbing-areas", "hides"]
+  },
   "lifespan": "15-20 years in captivity, up to 30 years with excellent care",
   "setupTips": [
     "Provide large floor space - these are terrestrial and need room to roam",

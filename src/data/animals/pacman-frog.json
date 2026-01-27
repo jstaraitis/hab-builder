@@ -60,6 +60,18 @@
     "optionalZones": []
   },
   "bioactiveCompatible": true,
+  "equipmentNeeds": {
+    "climbing": "ground",
+    "substrate": ["bioactive", "soil"],
+    "bioactiveSubstrate": "tropical",
+    "humidity": "high",
+    "heatSource": "ambient",
+    "waterFeature": "shallow-dish",
+    "lighting": "uvb-forest",
+    "diet": ["insectivore"],
+    "animalType": "amphibian",
+    "decor": ["hides"]
+  },
   "lifespan": "6-10 years in captivity",
   "setupTips": [
     "Provide deep substrate (3-4 inches) for burrowing",

@@ -20,12 +20,37 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
   );
 
   // Determine activity pattern from notes/context (fallback logic)
+  // Determine activity pattern from profile field or fallback to notes
   const getActivityPattern = (): string => {
+    // Priority 1: Use explicit activityPattern field if available
+    if (profile.activityPattern) {
+      return profile.activityPattern;
+    }
+    
+    // Priority 2: Fallback to detecting from notes
     const notesText = profile.notes?.join(' ').toLowerCase() || '';
     if (notesText.includes('nocturnal')) return 'Nocturnal';
     if (notesText.includes('diurnal')) return 'Diurnal';
     if (notesText.includes('crepuscular')) return 'Crepuscular';
     return 'Varied';
+  };
+
+  // Get activity icon based on pattern
+  const getActivityIcon = (): React.ReactNode => {
+    const pattern = getActivityPattern();
+    if (pattern === 'Diurnal') {
+      return <Sun className="w-6 h-6" />;
+    }
+    if (pattern === 'Crepuscular') {
+      return (
+        <div className="flex items-center gap-0.5">
+          <Sun className="w-5 h-5" />
+          <Moon className="w-5 h-5" />
+        </div>
+      );
+    }
+    // Nocturnal or other patterns
+    return <Moon className="w-6 h-6" />;
   };
 
   // Get diet type from profile or fallback to detection
@@ -109,7 +134,7 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
       description: undefined
     },
     {
-      icon: <Moon className="w-6 h-6" />,
+      icon: getActivityIcon(),
       label: 'Activity',
       value: getActivityPattern(),
       description: ''

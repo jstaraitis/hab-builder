@@ -1,0 +1,65 @@
+{
+  "enclosure-glass": {
+    "name": "Glass Enclosure",
+    "category": "enclosure",
+    "importance": "required",
+    "needsTags": ["humidity:high", "humidity:moderate", "humidity:low"],
+    "tiers": {
+      "minimum": {
+        "description": "Basic glass enclosure",
+        "searchQuery": "{size} gallon glass enclosure"
+      },
+      "recommended": {
+        "description": "Front-opening glass enclosure",
+        "searchQuery": "{width}x{depth}x{height} glass terrarium front opening"
+      },
+      "ideal": {
+        "description": "Premium glass enclosure with ventilation",
+        "searchQuery": "{width}x{depth}x{height} glass terrarium ventilation"
+      }
+    },
+    "notes": "Excellent visibility. Good humidity retention."
+  },
+  "enclosure-pvc": {
+    "name": "PVC Enclosure",
+    "category": "enclosure",
+    "importance": "required",
+    "needsTags": ["humidity:high", "humidity:moderate", "humidity:low"],
+    "tiers": {
+      "minimum": {
+        "description": "PVC enclosure",
+        "searchQuery": "{width}x{depth}x{height} PVC enclosure terrarium"
+      },
+      "recommended": {
+        "description": "Quality PVC enclosure",
+        "searchQuery": "{width}x{depth}x{height} PVC enclosure terrarium"
+      },
+      "ideal": {
+        "description": "Premium PVC construction",
+        "searchQuery": "{width}x{depth}x{height} PVC terrarium premium"
+      }
+    },
+    "notes": "Superior humidity retention. Professional quality."
+  },
+  "enclosure-screen": {
+    "name": "Screen Enclosure",
+    "category": "enclosure",
+    "needsTags": ["humidity:moderate", "humidity:low"],
+    "importance": "required",
+    "tiers": {
+      "minimum": {
+        "description": "Aluminum screen enclosure",
+        "searchQuery": "terrarium screen enclosure"
+      },
+      "recommended": {
+        "description": "Aluminum screen enclosure",
+        "searchQuery": "terrarium screen enclosure"
+      },
+      "ideal": {
+        "description": "Custom aluminum frame",
+        "searchQuery": "terrarium screen enclosure"
+      }
+    },
+    "notes": "Maximum airflow. Excellent for low-humidity species."
+  }
+}

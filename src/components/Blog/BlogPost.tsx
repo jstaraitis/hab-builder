@@ -4,8 +4,6 @@ import { blogPosts, ContentBlock } from '../../data/blog';
 import { generateArticleStructuredData } from '../../utils/structuredData';
 import * as LucideIcons from 'lucide-react';
 
-type LucideIconName = keyof typeof LucideIcons;
-
 function renderIcon(iconName?: string) {
   if (!iconName) return null;
   const Icon = (LucideIcons as any)[iconName];
@@ -29,7 +27,7 @@ function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
             {block.heading}
           </h2>
           <div className="space-y-4">
-            {block.content?.map((subBlock, subIndex) => renderContentBlock(subBlock, subIndex))}
+            {Array.isArray(block.content) && block.content.map((subBlock: ContentBlock, subIndex: number) => renderContentBlock(subBlock, subIndex))}
           </div>
         </div>
       );

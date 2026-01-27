@@ -1,0 +1,269 @@
+{
+  "calcium": {
+    "name": "Calcium Supplement",
+    "category": "nutrition",
+    "needsTags": ["diet:insectivore", "diet:omnivore"],
+    "importance": "required",
+    "spec": {
+      "type": "powder",
+      "schedule": "every feeding"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Calcium powder with D3",
+        "searchQuery": " Repashy terrarium calcium supplement (no d3)"
+      },
+      "recommended": {
+        "description": "Calcium powder with D3",
+        "searchQuery": "Repashy terrarium calcium supplement (no d3)"
+      },
+      "ideal": {
+        "description": "Calcium powder with D3",
+        "searchQuery": "Repashy terrarium calcium supplement (no d3)"
+      }
+    },
+    "notes": ""
+  },
+  "multivitamin": {
+    "name": "Multivitamin Supplement",
+    "category": "nutrition",
+    "needsTags": ["diet:insectivore", "diet:omnivore"],
+    "importance": "required",
+    "spec": {
+      "type": "powder",
+      "schedule": "once weekly"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Multivitamin powder",
+        "searchQuery": "Repashy terrarium Multivitamin supplement"
+      },
+      "recommended": {
+        "description": "Multivitamin powder",
+        "searchQuery": "Repashy terrarium Multivitamin supplement"
+      },
+      "ideal": {
+        "description": "Multivitamin powder",
+        "searchQuery": "Repashy terrarium Multivitamin supplement"
+      }
+    },
+    "notes": ""
+  },
+  "feeding-tongs": {
+    "name": "Feeding Tongs",
+    "category": "nutrition",
+    "needsTags": [],
+    "importance": "conditional",
+    "tiers": {
+      "minimum": {
+        "description": "Stainless steel tongs",
+        "searchQuery": "terrarium feeding tongs"
+      },
+      "recommended": {
+        "description": "Stainless steel tongs",
+        "searchQuery": "terrarium feeding tongs"
+      },
+      "ideal": {
+        "description": "Stainless steel tongs",
+        "searchQuery": "terrarium feeding tongs"
+      }
+    },
+    "notes": "Safer than hand-feeding. Prevents accidental bites."
+  },
+  "feeder-insects": {
+    "name": "Feeder Insects",
+    "category": "nutrition",
+    "needsTags": ["diet:insectivore", "diet:omnivore"],
+    "importance": "required",
+    "spec": {
+      "types": "crickets, dubia roaches, etc",
+      "size": "appropriate for animal size"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Feeder insects",
+        "searchQuery": "terrarium feeder insects"
+      },
+      "recommended": {
+        "description": "Feeder insects",
+        "searchQuery": "terrarium feeder insects"
+      },
+      "ideal": {
+        "description": "Feeder insects",
+        "searchQuery": "terrarium feeder insects"
+      }
+    },
+    "notes": "Vary diet. Gutload feeders 24hrs before feeding."
+  },
+  "fresh-vegetables-fruits": {
+    "name": "Fresh Vegetables & Fruits",
+    "category": "nutrition",
+    "needsTags": ["diet:omnivore"],
+    "importance": "required",
+    "spec": {
+      "vegetables": "collard greens, mustard greens, squash, bell peppers, etc",
+      "fruits": "occasional treats only"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Fresh vegetables and occasional fruits",
+        "searchQuery": "fresh vegetables leafy greens"
+      },
+      "recommended": {
+        "description": "Fresh vegetables and occasional fruits",
+        "searchQuery": "fresh vegetables leafy greens"
+      },
+      "ideal": {
+        "description": "Fresh organic vegetables and occasional fruits",
+        "searchQuery": "organic vegetables leafy greens"
+      }
+    },
+    "notes": "Daily vegetables required for omnivores. Fruits are treats only (high sugar). Wash thoroughly before feeding."
+  },
+  "frozen-rodents": {
+    "name": "Frozen Rodents (Mice/Rats)",
+    "category": "nutrition",
+    "needsTags": ["diet:carnivore"],
+    "importance": "required",
+    "spec": {
+      "types": "frozen/thawed mice, rats",
+      "size": "appropriate for snake size (1-1.5x snake's widest body part)"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Frozen mice (pinkies to adults)",
+        "searchQuery": "frozen mice for snakes"
+      },
+      "recommended": {
+        "description": "Variety pack (mice and small rats)",
+        "searchQuery": "frozen rodents for snakes"
+      },
+      "ideal": {
+        "description": "Premium quality frozen rodents",
+        "searchQuery": "frozen rodents for snakes"
+      }
+    },
+    "notes": "NEVER feed live prey - risk of injury to snake. Thaw completely in refrigerator or warm water (NOT microwave). Prey should be 1-1.5x snake's widest body part."
+  },
+  "feeding-tongs-long": {
+    "name": "Long Feeding Tongs (12-16\")",
+    "category": "nutrition",
+    "needsTags": ["diet:carnivore"],
+    "importance": "required",
+    "tiers": {
+      "minimum": {
+        "description": "12\" stainless steel tongs",
+        "searchQuery": "long feeding tongs snakes"
+      },
+      "recommended": {
+        "description": "16\" locking tongs",
+        "searchQuery": "long feeding tongs snakes"
+      },
+      "ideal": {
+        "description": "16\" soft-tip locking tongs",
+        "searchQuery": "long feeding tongs snakes"
+      }
+    },
+    "notes": "Essential for safe feeding of frozen prey. Long length protects hands from strikes. NEVER hand-feed snakes."
+  },
+  "kitchen-scale": {
+    "name": "Digital Kitchen Scale",
+    "category": "nutrition",
+    "needsTags": ["diet:carnivore"],
+    "importance": "recommended",
+    "spec": {
+      "accuracy": "1 gram increments",
+      "capacity": "5kg minimum"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic digital scale",
+        "searchQuery": "digital kitchen scale grams"
+      },
+      "recommended": {
+        "description": "Digital scale with tare function",
+        "searchQuery": "digital kitchen scale grams"
+      },
+      "ideal": {
+        "description": "Professional gram scale",
+        "searchQuery": "digital kitchen scale grams"
+      }
+    },
+    "notes": "Track snake weight to monitor health and growth. Weigh weekly or bi-weekly. Sudden weight loss indicates health issues."
+  },
+  "nitrile-gloves": {
+    "name": "Nitrile Gloves (Powder-Free)",
+    "category": "nutrition",
+    "needsTags": ["animalType:amphibian"],
+    "importance": "recommended",
+    "spec": {
+      "type": "powder-free nitrile",
+      "use": "handling and maintenance"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic nitrile gloves",
+        "searchQuery": "nitrile gloves powder free"
+      },
+      "recommended": {
+        "description": "Powder-free nitrile gloves (box of 100)",
+        "searchQuery": "nitrile gloves powder free"
+      },
+      "ideal": {
+        "description": "Premium nitrile gloves (textured grip)",
+        "searchQuery": "nitrile gloves powder free textured"
+      }
+    },
+    "notes": "Essential for amphibian care - protects their sensitive permeable skin from oils, lotions, and chemicals on human hands. Use when handling, feeding, or doing maintenance. NEVER use latex or powdered gloves (powder can harm amphibian skin)."
+  },
+  "dechlorinator": {
+    "name": "Water Dechlorinator",
+    "category": "nutrition",
+    "needsTags": [],
+    "importance": "required",
+    "spec": {
+      "type": "amphibian-safe",
+      "use": "treat all water"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Reptile-safe dechlorinator",
+        "searchQuery": "terrarium water dechlorinator"
+      },
+      "recommended": {
+        "description": "Reptile-safe dechlorinator",
+        "searchQuery": "terrarium water dechlorinator"
+      },
+      "ideal": {
+        "description": "Reptile-safe dechlorinator",
+        "searchQuery": "terrarium water dechlorinator"
+      }
+    },
+    "notes": "Essential for water bowl and misting. Removes chlorine/chloramine."
+  },
+  "water-bowl": {
+    "name": "Water Bowl",
+    "category": "nutrition",
+    "needsTags": ["waterFeature:shallow-dish"],
+    "importance": "required",
+    "spec": {
+      "type": "shallow dish",
+      "size": "large enough for soaking"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic ceramic dish",
+        "searchQuery": "terrarium water bowl"
+      },
+      "recommended": {
+        "description": "Naturalistic rock-style dish",
+        "searchQuery": "terrarium water bowl"
+      },
+      "ideal": {
+        "description": "Naturalistic rock pool",
+        "searchQuery": "terrarium water bowl"
+      }
+    },
+    "notes": "Must be large enough for animal to soak. Change water daily."
+  }
+}

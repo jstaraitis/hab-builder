@@ -58,6 +58,17 @@
     "optionalZones": []
   },
   "bioactiveCompatible": false,
+  "equipmentNeeds": {
+    "climbing": "ground",
+    "substrate": [],
+    "humidity": "high",
+    "heatSource": "basking",
+    "waterFeature": "pool",
+    "lighting": "uvb-desert",
+    "diet": ["insectivore"],
+    "animalType": "reptile",
+    "decor": []
+  },
   "lifespan": "20-40 years in captivity, can live 50+ years",
   "setupTips": [
     "Provide powerful canister filter - turtles are messy eaters",

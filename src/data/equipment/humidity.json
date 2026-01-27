@@ -1,0 +1,93 @@
+{
+  "misting-system": {
+    "name": "Automated Misting System",
+    "category": "equipment",
+    "needsTags": ["humidity:high", "humidity:moderate"],
+    "requiredWith": ["surge-protector"],
+    "importance": "recommended",
+    "spec": {
+      "type": "automated",
+      "schedule": "programmable"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic timer mister",
+        "searchQuery": "terrarium automated misting system"
+      },
+      "recommended": {
+        "description": "Mid-range automatic",
+        "searchQuery": "terrarium automated misting system"
+      },
+      "ideal": {
+        "description": "Professional fogger",
+        "searchQuery": "terrarium automated misting system"
+      }
+    },
+    "notes": "Great for consistent humidity without manual misting."
+  },
+  "humidifier": {
+    "name": "Ultrasonic or Cool Mist Humidifier",
+    "category": "equipment",
+    "needsTags": ["humidity:high"],
+    "requiredWith": ["surge-protector"],
+    "importance": "conditional",
+    "tiers": {
+      "minimum": {
+        "description": "Basic humidifier",
+        "searchQuery": "terrarium ultrasonic or cool mist humidifier"
+      },
+      "recommended": {
+        "description": "Mid-range humidifier",
+        "searchQuery": "terrarium ultrasonic or cool mist humidifier"
+      },
+      "ideal": {
+        "description": "Premium ultrasonic",
+        "searchQuery": "terrarium ultrasonic or cool mist humidifier"
+      }
+    },
+    "notes": "Keep clean and use food-safe (no essential oils)."
+  },
+  "fogger": {
+    "name": "Fogger (Ultrasonic Humidification)",
+    "category": "equipment",
+    "needsTags": ["humidity:high"],
+    "requiredWith": ["surge-protector"],
+    "importance": "conditional",
+    "tiers": {
+      "minimum": {
+        "description": "Basic fogger",
+        "searchQuery": "terrarium fogger (ultrasonic humidification)"
+      },
+      "recommended": {
+        "description": "Mid-range fogger",
+        "searchQuery": "terrarium fogger (ultrasonic humidification)"
+      },
+      "ideal": {
+        "description": "Premium fogger with timer",
+        "searchQuery": "terrarium fogger (ultrasonic humidification)"
+      }
+    },
+    "notes": "Great for bioactive setups with plants."
+  },
+  "spray-bottle": {
+    "name": "Spray Bottle for Misting",
+    "category": "equipment",
+    "needsTags": ["humidity:high", "humidity:moderate"],
+    "importance": "conditional",
+    "tiers": {
+      "minimum": {
+        "description": "Basic spray bottle",
+        "searchQuery": "spray bottle misting terrarium"
+      },
+      "recommended": {
+        "description": "Pressurized mister",
+        "searchQuery": "spray bottle misting terrarium"
+      },
+      "ideal": {
+        "description": "Professional mister",
+        "searchQuery": "spray bottle misting terrarium"
+      }
+    },
+    "notes": "For manual humidity control. Clean regularly."
+  }
+}

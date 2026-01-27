@@ -1,9 +1,9 @@
 {
   "enclosure-glass": {
-    "name": "Glass Terrarium",
+    "name": "Glass Enclosure",
     "category": "enclosure",
     "importance": "required",
-    "incompatibleAnimals": ["bearded-dragon"],
+    "needsTags": ["humidity:high", "humidity:moderate"],
     "tiers": {
       "minimum": {
         "description": "Basic glass enclosure",
@@ -24,7 +24,7 @@
     "name": "PVC Enclosure",
     "category": "enclosure",
     "importance": "required",
-    "incompatibleAnimals": ["bearded-dragon"],
+    "needsTags": ["humidity:high"],
     "tiers": {
       "minimum": {
         "description": "PVC enclosure",
@@ -44,7 +44,7 @@
   "enclosure-screen": {
     "name": "Screen Enclosure",
     "category": "enclosure",
-    "incompatibleAnimals": ["whites-tree-frog", "crested-gecko", "ball-python", "corn-snake", "bearded-dragon", "leopard-gecko"],
+    "needsTags": ["humidity:low"],
     "importance": "required",
     "tiers": {
       "minimum": {
@@ -65,7 +65,7 @@
   "uvb-fixture-forest": {
     "name": "UVB Linear Fixture (5.0 Forest)",
     "category": "equipment",
-    "incompatibleAnimals": ["bearded-dragon"],
+    "needsTags": [],
     "importance": "required",
     "spec": {
       "coverage": "60-80% of enclosure width",
@@ -91,7 +91,7 @@
   "uvb-fixture-desert": {
     "name": "UVB Linear Fixture (10.0 Desert)",
     "category": "equipment",
-    "incompatibleAnimals": ["whites-tree-frog", "crested-gecko", "ball-python", "corn-snake", "leopard-gecko"],
+    "needsTags": [],
     "importance": "required",
     "spec": {
       "coverage": "50-75% of enclosure width",
@@ -117,7 +117,7 @@
   "heat-lamp": {
     "name": "Ceramic Heat Emitter (CHE)",
     "category": "equipment",
-    "incompatibleAnimals": [],
+    "needsTags": ["heatSource:basking", "heatSource:ambient"],
     "importance": "required",
     "spec": {
       "type": "Ceramic Heat Emitter (CHE)",
@@ -143,7 +143,7 @@
   "substrate-bioactive": {
     "name": "Bioactive Substrate Mix",
     "category": "substrate",
-    "incompatibleAnimals": [],
+    "needsTags": ["substrate:bioactive"],
     "importance": "conditional",
     "spec": {
       "depth": "3-4 inches",
@@ -168,7 +168,7 @@
   "substrate-soil": {
     "name": "Soil-Based Substrate",
     "category": "substrate",
-    "incompatibleAnimals": [],
+    "needsTags": ["substrate:soil"],
     "importance": "required",
     "tiers": {
       "minimum": {
@@ -189,7 +189,7 @@
   "substrate-paper": {
     "name": "Paper-Based Substrate",
     "category": "substrate",
-    "incompatibleAnimals": ["bearded-dragon"],
+    "needsTags": ["substrate:paper"],
     "importance": "required",
     "tiers": {
       "minimum": {
@@ -210,7 +210,7 @@
   "substrate-foam": {
     "name": "Foam Substrate",
     "category": "substrate",
-    "incompatibleAnimals": ["bearded-dragon"],
+    "needsTags": ["substrate:foam"],
     "importance": "required",
     "tiers": {
       "minimum": {
@@ -231,7 +231,7 @@
   "drainage": {
     "name": "Drainage Layer (LECA or clay balls)",
     "category": "substrate",
-    "incompatibleAnimals": ["bearded-dragon"],
+    "needsTags": ["substrate:bioactive"],
     "importance": "conditional",
     "spec": {
       "depth": "1-3 inches",
@@ -256,7 +256,7 @@
   "drainage-barrier": {
     "name": "Drainage Barrier (mesh screen)",
     "category": "substrate",
-    "incompatibleAnimals": ["bearded-dragon"],
+    "needsTags": ["substrate:bioactive"],
     "importance": "conditional",
     "tiers": {
       "minimum": {
@@ -277,7 +277,7 @@
   "springtails": {
     "name": "Springtail Culture",
     "category": "cleanup_crew",
-    "incompatibleAnimals": ["bearded-dragon"],
+    "needsTags": ["substrate:bioactive"],
     "importance": "conditional",
     "tiers": {
       "minimum": {
@@ -298,7 +298,7 @@
   "isopods": {
     "name": "Isopod Culture (Dwarf White)",
     "category": "cleanup_crew",
-    "incompatibleAnimals": ["bearded-dragon"],
+    "needsTags": ["substrate:bioactive"],
     "importance": "conditional",
     "tiers": {
       "minimum": {
@@ -317,9 +317,9 @@
     "notes": "Reproduce quickly and are easy to manage."
   },
   "branches": {
-    "name": "Climbing Branches & Perches",
+    "name": "Vertical Climbing Branches (Arboreal)",
     "category": "decor",
-    "incompatibleAnimals": [],
+    "needsTags": ["climbing:vertical", "decor:branches"],
     "importance": "required",
     "tiers": {
       "minimum": {
@@ -340,7 +340,7 @@
   "plants": {
     "name": "Plants (live or artificial)",
     "category": "decor",
-    "incompatibleAnimals": [],
+    "needsTags": ["decor:plants"],
     "importance": "recommended",
     "tiers": {
       "minimum": {
@@ -361,7 +361,7 @@
   "plants-live": {
     "name": "Live Plants",
     "category": "decor",
-    "incompatibleAnimals": [],
+    "needsTags": ["decor:plants"],
     "importance": "recommended",
     "tiers": {
       "minimum": {
@@ -382,7 +382,7 @@
   "plants-artificial": {
     "name": "Artificial Plants",
     "category": "decor",
-    "incompatibleAnimals": [],
+    "needsTags": ["decor:plants"],
     "importance": "optional",
     "tiers": {
       "minimum": {
@@ -403,7 +403,7 @@
   "misting-system": {
     "name": "Automated Misting System",
     "category": "equipment",
-    "incompatibleAnimals": ["bearded-dragon"],
+    "needsTags": ["humidity:high", "humidity:moderate"],
     "importance": "optional",
     "spec": {
       "type": "automated",
@@ -428,7 +428,7 @@
   "humidifier": {
     "name": "Ultrasonic or Cool Mist Humidifier",
     "category": "equipment",
-    "incompatibleAnimals": ["bearded-dragon"],
+    "needsTags": ["humidity:high"],
     "importance": "conditional",
     "tiers": {
       "minimum": {
@@ -449,7 +449,7 @@
   "fogger": {
     "name": "Fogger (Ultrasonic Humidification)",
     "category": "equipment",
-    "incompatibleAnimals": ["bearded-dragon"],
+    "needsTags": ["humidity:high"],
     "importance": "conditional",
     "tiers": {
       "minimum": {
@@ -470,7 +470,7 @@
   "monitoring": {
     "name": "Digital Thermometer & Hygrometer",
     "category": "equipment",
-    "incompatibleAnimals": [],
+    "needsTags": [],
     "importance": "required",
     "spec": {
       "measures": "temperature and humidity",
@@ -495,7 +495,7 @@
   "water-bowl": {
     "name": "Water Bowl",
     "category": "equipment",
-    "incompatibleAnimals": [],
+    "needsTags": [],
     "importance": "required",
     "spec": {
       "type": "shallow dish",
@@ -520,7 +520,7 @@
   "plant-light": {
     "name": "Plant Growth Light",
     "category": "equipment",
-    "incompatibleAnimals": [],
+    "needsTags": ["substrate:bioactive"],
     "importance": "conditional",
     "spec": {
       "type": "LED or fluorescent",
@@ -545,7 +545,7 @@
   "spray-bottle": {
     "name": "Spray Bottle for Misting",
     "category": "equipment",
-    "incompatibleAnimals": ["bearded-dragon"],
+    "needsTags": ["humidity:high", "humidity:moderate"],
     "importance": "conditional",
     "tiers": {
       "minimum": {
@@ -566,7 +566,7 @@
   "dechlorinator": {
     "name": "Water Dechlorinator",
     "category": "equipment",
-    "incompatibleAnimals": [],
+    "needsTags": [],
     "importance": "required",
     "spec": {
       "type": "amphibian-safe",
@@ -591,7 +591,7 @@
   "calcium": {
     "name": "Calcium Supplement",
     "category": "equipment",
-    "incompatibleAnimals": [],
+    "needsTags": [],
     "importance": "required",
     "spec": {
       "type": "powder",
@@ -616,7 +616,7 @@
   "multivitamin": {
     "name": "Multivitamin Supplement",
     "category": "equipment",
-    "incompatibleAnimals": ["crested-gecko", "bearded-dragon"],
+    "needsTags": [],
     "importance": "required",
     "spec": {
       "type": "powder",
@@ -641,7 +641,7 @@
   "feeding-tongs": {
     "name": "Feeding Tongs",
     "category": "equipment",
-    "incompatibleAnimals": [],
+    "needsTags": [],
     "importance": "optional",
     "tiers": {
       "minimum": {
@@ -662,7 +662,7 @@
   "feeder-insects": {
     "name": "Feeder Insects",
     "category": "equipment",
-    "incompatibleAnimals": [],
+    "needsTags": [],
     "importance": "required",
     "spec": {
       "types": "crickets, dubia roaches, etc",
@@ -687,7 +687,7 @@
   "background": {
     "name": "Background (cork bark or foam)",
     "category": "decor",
-    "incompatibleAnimals": [],
+    "needsTags": ["decor:background"],
     "importance": "optional",
     "spec": {
       "type": "cork bark or carved foam",
@@ -712,7 +712,7 @@
   "ledges": {
     "name": "Wall Ledges & Platforms",
     "category": "decor",
-    "incompatibleAnimals": ["bearded-dragon"],
+    "needsTags": ["climbing:vertical", "decor:ledges"],
     "importance": "required",
     "spec": {
       "placement": "various heights",
@@ -735,9 +735,9 @@
     "notes": "Arboreal and semi-arboreal species need multiple perching spots at different heights."
   },
   "climbing-areas": {
-    "name": "Climbing Areas (Rocks, Branches, Platforms)",
+    "name": "Basking Platforms & Ground Enrichment (Terrestrial)",
     "category": "decor",
-    "incompatibleAnimals": [],
+    "needsTags": ["climbing:ground"],
     "importance": "required",
     "spec": {
       "placement": "ground level",
@@ -762,7 +762,7 @@
   "hides": {
     "name": "Hides & Shelters",
     "category": "decor",
-    "incompatibleAnimals": [],
+    "needsTags": [" decor:hides"],
     "importance": "required",
     "spec": {
       "quantity": "2-3 per enclosure",

@@ -2,22 +2,190 @@ import type {
   EnclosureInput,
   ShoppingItem,
 } from './types';
-import equipmentCatalog from '../data/equipment-catalog.json';
+import equipmentCatalog from '../data/equipment';
+
+// Type-safe catalog access
+const catalog = equipmentCatalog as Record<string, any>;
 
 /**
- * Pure function that checks if equipment is compatible with the current animal
- * Uses incompatibleAnimals logic: equipment is compatible unless the animal is explicitly excluded
+ * Helper to create a shopping item from catalog config
  */
-function isCompatibleWithAnimal(
+function createShoppingItem(
+  id: string,
+  config: any,
+  quantity: number | string,
+  sizing: string,
+  overrides?: Partial<ShoppingItem>
+): ShoppingItem {
+  return {
+    id,
+    category: config.category,
+    name: config.name,
+    quantity,
+    sizing,
+    importance: config.importance,
+    setupTierOptions: config.tiers,
+    ...(config.notes && { notes: config.notes }),
+    ...(config.incompatibleAnimals && { incompatibleAnimals: config.incompatibleAnimals }),
+    ...overrides,
+  };
+}
+
+/**
+ * Helper to get equipment from catalog safely
+ */
+function getEquipment(id: string): any | null {
+  return catalog[id] || null;
+}
+
+/**
+ * Adds an item and its required dependencies
+ */
+function addItemWithDependencies(
+  items: ShoppingItem[],
+  itemId: string,
+  config: any,
+  quantity: number | string,
+  sizing: string,
+  profile: any,
+  input: EnclosureInput,
+  overrides?: Partial<ShoppingItem>
+): void {
+  // Add the main item
+  items.push(createShoppingItem(itemId, config, quantity, sizing, overrides));
+
+  // Add required dependencies
+  if (config.requiredWith && Array.isArray(config.requiredWith)) {
+    for (const depId of config.requiredWith) {
+      const depConfig = getEquipment(depId);
+      if (depConfig && matchesAnimalNeeds(depConfig, profile.equipmentNeeds, input)) {
+        // Check if not already added
+        if (!items.some(item => item.id === depId)) {
+          items.push(createShoppingItem(depId, depConfig, 1, ''));
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Calculate enclosure volume in cubic feet
+ */
+function calculateVolume(dims: { width: number; depth: number; height: number }): number {
+  return (dims.width * dims.depth * dims.height) / 1728;
+}
+
+/**
+ * Calculate substrate/drainage quantities
+ */
+function calculateSubstrateQuarts(
+  dims: { width: number; depth: number },
+  depthInches: number
+): number {
+  const volume = (dims.width * dims.depth * depthInches) / 1728; // cubic feet
+  return Math.ceil(volume * 25.7); // ~25.7 quarts per cubic foot
+}
+
+/**
+ * New needs-based matching system:
+ * Equipment declares what needs it fulfills via needsTags
+ * Animals declare what they need via equipmentNeeds
+ * Match when equipment fulfills at least one of the animal's needs
+ * 
+ * needsTags format examples:
+ * - "climbing:vertical" - fulfills vertical climbing needs
+ * - "climbing:ground" - fulfills ground enrichment needs
+ * - "humidity:high" - for high-humidity species
+ * - "substrate:bioactive" - for bioactive setups
+ * - "plants:live" / "plants:artificial" / "plants:mixed" - plant type preferences
+ * - [] (empty array) - universal item, compatible with all animals
+ */
+function matchesAnimalNeeds(
   equipmentConfig: any,
-  animal: string
+  animalNeeds: any,
+  userInput?: EnclosureInput
 ): boolean {
-  // If no incompatibleAnimals specified or it's empty, it's compatible with all animals
-  if (!equipmentConfig.incompatibleAnimals || equipmentConfig.incompatibleAnimals.length === 0) {
+  // If equipment has no needsTags or empty array, it's universal (all animals need it)
+  if (!equipmentConfig.needsTags || equipmentConfig.needsTags.length === 0) {
     return true;
   }
-  // Equipment is compatible if the current animal is NOT in the incompatible list
-  return !equipmentConfig.incompatibleAnimals.includes(animal);
+  
+  // If animal has no equipmentNeeds defined, fallback to old logic (backward compatibility)
+  if (!animalNeeds) {
+    return !equipmentConfig.incompatibleAnimals || 
+           !equipmentConfig.incompatibleAnimals.includes(animalNeeds);
+  }
+  
+  // Check if equipment fulfills any of the animal's declared needs
+  for (const tag of equipmentConfig.needsTags) {
+    const [category, value] = tag.split(':');
+    
+    switch (category) {
+      case 'climbing':
+        if (animalNeeds.climbing === value || animalNeeds.climbing === 'both') {
+          return true;
+        }
+        break;
+      case 'substrate':
+        if (animalNeeds.substrate && animalNeeds.substrate.includes(value)) {
+          return true;
+        }
+        break;
+      case 'humidity':
+        if (animalNeeds.humidity === value) {
+          return true;
+        }
+        break;
+      case 'heatSource':
+        if (animalNeeds.heatSource === value) {
+          return true;
+        }
+        break;
+      case 'waterFeature':
+        if (animalNeeds.waterFeature === value) {
+          return true;
+        }
+        break;
+      case 'decor':
+        if (animalNeeds.decor && animalNeeds.decor.includes(value)) {
+          return true;
+        }
+        break;
+      case 'plants':
+        // Plant matching based on user's plant preference from input
+        if (userInput?.plantPreference) {
+          const userPref = userInput.plantPreference;
+          // If user wants mixed, match all plant types
+          if (userPref === 'mix') {
+            return true;
+          }
+          // Otherwise, match exact preference (live or artificial)
+          return value === userPref;
+        }
+        // Fallback: if no input provided, allow general "plants" tag
+        if (animalNeeds.decor && animalNeeds.decor.includes('plants')) {
+          return true;
+        }
+        break;
+      case 'lighting':
+        if (animalNeeds.lighting === value) {
+          return true;
+        }
+        break;
+      case 'diet':
+        if (animalNeeds.diet && animalNeeds.diet.includes(value)) {
+          return true;
+        }
+        break;
+      case 'animalType':
+        if (animalNeeds.animalType === value) {
+          return true;
+        }
+        break;
+    }
+  }
+  
+  return false;
 }
 
 /**
@@ -27,23 +195,19 @@ function addEnclosure(
   items: ShoppingItem[],
   input: EnclosureInput
 ): void {
-  const enclosureKey = `enclosure-${input.type}`;
-  const enclosureConfig = (equipmentCatalog as Record<string, any>)[enclosureKey];
+  const config = getEquipment(`enclosure-${input.type}`);
+  if (!config) return;
+
   const dimensionsDisplay = input.units === 'in' 
-    ? `${input.width}" × ${input.depth}" × ${input.height}"`
-    : `${input.width}cm × ${input.depth}cm × ${input.height}cm`;
+    ? `${input.width}" Ã— ${input.depth}" Ã— ${input.height}"`
+    : `${input.width}cm Ã— ${input.depth}cm Ã— ${input.height}cm`;
   
-  items.push({
-    id: enclosureKey,
-    category: 'enclosure' as any,
-    name: enclosureConfig.name,
-    quantity: input.quantity,
-    sizing: dimensionsDisplay,
-    importance: enclosureConfig.importance,
-    setupTierOptions: enclosureConfig.tiers,
-    notes: enclosureConfig.notes,
-    incompatibleAnimals: enclosureConfig.incompatibleAnimals,
-  });
+  items.push(createShoppingItem(
+    `enclosure-${input.type}`,
+    config,
+    input.quantity,
+    dimensionsDisplay
+  ));
 }
 
 /**
@@ -55,27 +219,19 @@ function addUVBLighting(
   profile: any,
   input: EnclosureInput
 ): void {
-  if (profile.careTargets.lighting.uvbRequired) {
-    // Determine which UVB fixture to use based on UVB strength requirement
-    const uvbStrength = profile.careTargets.lighting.uvbStrength;
-    const isDesertUVB = uvbStrength === '10.0' || uvbStrength === '12%';
-    const uvbFixtureId = isDesertUVB ? 'uvb-fixture-desert' : 'uvb-fixture-forest';
-    const uvbConfig = (equipmentCatalog as Record<string, any>)[uvbFixtureId];
-    
-    if (uvbConfig && isCompatibleWithAnimal(uvbConfig, input.animal)) {
-      const fixtureLength = Math.round(dims.width * (profile.careTargets.lighting.coveragePercent / 100));
-      items.push({
-        id: uvbFixtureId,
-        category: uvbConfig.category as any,
-        name: uvbConfig.name, // Already includes strength in name (e.g., "UVB Linear Fixture (10.0 Desert)")
-        quantity: 1,
-        sizing: `${fixtureLength}" fixture (${profile.careTargets.lighting.coveragePercent}% of ${Math.round(dims.width)}" width)`,
-        importance: (uvbConfig as any).importance,
-        setupTierOptions: uvbConfig.tiers as any,
-        incompatibleAnimals: uvbConfig.incompatibleAnimals,
-      });
-    }
-  }
+  if (!profile.careTargets.lighting.uvbRequired) return;
+
+  const uvbStrength = profile.careTargets.lighting.uvbStrength;
+  const isDesertUVB = uvbStrength === '10.0' || uvbStrength === '12%';
+  const fixtureId = isDesertUVB ? 'uvb-fixture-desert' : 'uvb-fixture-forest';
+  const config = getEquipment(fixtureId);
+  
+  if (!config || !matchesAnimalNeeds(config, profile.equipmentNeeds, input)) return;
+
+  const fixtureLength = Math.round(dims.width * (profile.careTargets.lighting.coveragePercent / 100));
+  const sizing = `${fixtureLength}" fixture (${profile.careTargets.lighting.coveragePercent}% of ${Math.round(dims.width)}" width)`;
+  
+  items.push(createShoppingItem(fixtureId, config, 1, sizing));
 }
 
 /**
@@ -87,29 +243,44 @@ function addHeatLamp(
   profile: any,
   input: EnclosureInput
 ): void {
-  if (profile.careTargets.temperature.basking) {
-    const heatConfig = equipmentCatalog['heat-lamp'];
-    
-    if (isCompatibleWithAnimal(heatConfig, input.animal)) {
-      // Calculate wattage based on temperature difference and enclosure volume
-      const volume = dims.width * dims.depth * dims.height;
-      const tempDifference = profile.careTargets.temperature.basking - input.ambientTemp;
-      const baseWattage = (volume / 1728) * 20; // 20W per cubic foot as baseline
-      const wattage = Math.max(25, Math.min(150, Math.round(baseWattage * (tempDifference / 20)))); // scale by temp diff
-      
-      items.push({
-        id: 'heat-lamp',
-        category: heatConfig.category as any,
-        name: heatConfig.name,
-        quantity: `1 (${wattage}W estimate)`,
-        sizing: `Based on ${Math.round(volume / 1728)} cubic feet and ${tempDifference}°F temperature difference from ambient (${input.ambientTemp}°F)`,
-        importance: (heatConfig as any).importance,
-        setupTierOptions: heatConfig.tiers as any,
-        notes: heatConfig.notes,
-        incompatibleAnimals: heatConfig.incompatibleAnimals,
-      });
-    }
+  if (!profile.careTargets.temperature.basking) return;
+
+  const config = getEquipment('heat-lamp');
+  if (!config || !matchesAnimalNeeds(config, profile.equipmentNeeds, input)) return;
+
+  // Calculate wattage based on temperature difference and enclosure volume
+  const volume = calculateVolume(dims);
+  const tempDifference = profile.careTargets.temperature.basking - input.ambientTemp;
+  const baseWattage = volume * 20; // 20W per cubic foot as baseline
+  const wattage = Math.max(25, Math.min(150, Math.round(baseWattage * (tempDifference / 20))));
+  
+  const sizing = `Based on ${Math.round(volume)} cubic feet and ${tempDifference}Â°F temperature difference from ambient (${input.ambientTemp}Â°F)`;
+  
+  // Add CHE with automatic dependencies (dome-fixture, thermostat)
+  addItemWithDependencies(items, 'heat-lamp', config, `1 (${wattage}W estimate)`, sizing, profile, input);
+}
+
+/**
+ * Determines which substrate to use based on preferences
+ */
+function getSubstrateKey(input: EnclosureInput, profile: any): string {
+  const bioactiveType = profile.equipmentNeeds?.bioactiveSubstrate || 'tropical';
+  
+  if (input.bioactive) {
+    return `substrate-bioactive-${bioactiveType}`;
   }
+  
+  if (input.substratePreference) {
+    const preferenceMap: Record<string, string> = {
+      'bioactive': `substrate-bioactive-${bioactiveType}`,
+      'soil-based': 'substrate-soil',
+      'paper-based': 'substrate-paper',
+      'foam': 'substrate-foam',
+    };
+    return preferenceMap[input.substratePreference] || 'substrate-simple';
+  }
+  
+  return 'substrate-simple';
 }
 
 /**
@@ -118,35 +289,18 @@ function addHeatLamp(
 function addSubstrate(
   items: ShoppingItem[],
   dims: { width: number; depth: number; height: number },
-  input: EnclosureInput
+  input: EnclosureInput,
+  profile: any
 ): void {
-  let substrateKey = 'substrate-simple';
-  if (input.bioactive) {
-    substrateKey = 'substrate-bioactive';
-  } else if (input.substratePreference) {
-    const preferenceMap: Record<string, string> = {
-      'bioactive': 'substrate-bioactive',
-      'soil-based': 'substrate-soil',
-      'paper-based': 'substrate-paper',
-      'foam': 'substrate-foam',
-    };
-    substrateKey = preferenceMap[input.substratePreference] || 'substrate-simple';
-  }
+  const substrateKey = getSubstrateKey(input, profile);
+  const config = getEquipment(substrateKey);
+  if (!config) return;
 
-  const substrateDepth = input.bioactive ? 4 : 2; // inches
-  const substrateVolume = (dims.width * dims.depth * substrateDepth) / 1728; // cubic feet
-  const quarts = Math.ceil(substrateVolume * 25.7); // ~25.7 quarts per cubic foot
-  const substrateConfig = (equipmentCatalog as Record<string, any>)[substrateKey];
+  const substrateDepth = input.bioactive ? 4 : 2;
+  const quarts = calculateSubstrateQuarts(dims, substrateDepth);
+  const sizing = `${Math.round(dims.width)}" Ã— ${Math.round(dims.depth)}" floor at ${substrateDepth}" depth`;
   
-  items.push({
-    id: 'substrate',
-    category: (substrateConfig as any).category,
-    name: (substrateConfig as any).name,
-    quantity: `${quarts} quarts (${substrateDepth}\" depth)`,
-    sizing: `${Math.round(dims.width)}\" × ${Math.round(dims.depth)}\" floor at ${substrateDepth}\" depth`,    importance: (substrateConfig as any).importance,    setupTierOptions: (substrateConfig as any).tiers,
-    ...((substrateConfig as any).notes && { notes: (substrateConfig as any).notes }),
-    incompatibleAnimals: (substrateConfig as any).incompatibleAnimals,
-  });
+  items.push(createShoppingItem('substrate', config, `${quarts} quarts (${substrateDepth}" depth)`, sizing));
 }
 
 /**
@@ -154,65 +308,35 @@ function addSubstrate(
  */
 function addBioactiveItems(
   items: ShoppingItem[],
-  dims: { width: number; depth: number; height: number },
-  _input: EnclosureInput
+  dims: { width: number; depth: number; height: number }
 ): void {
-  const drainageDepth = dims.height < 24 ? 1.5 : 2.5;
-  const drainageVolume = (dims.width * dims.depth * drainageDepth) / 1728;
-  const drainageQuarts = Math.ceil(drainageVolume * 25.7);
-  const drainageConfig = equipmentCatalog.drainage;
-
   // Drainage layer
-  items.push({
-    id: 'drainage',
-    category: drainageConfig.category as any,
-    name: drainageConfig.name,
-    quantity: `${drainageQuarts} quarts`,
-    sizing: `${drainageDepth}" layer for ${Math.round(dims.height)}" tall enclosure`,
-    importance: 'required', // Required for bioactive setup
-    setupTierOptions: drainageConfig.tiers as any,
-    notes: drainageConfig.notes,
-    incompatibleAnimals: (drainageConfig as any).incompatibleAnimals,
-  });
+  const drainageDepth = dims.height < 24 ? 1.5 : 2.5;
+  const drainageQuarts = calculateSubstrateQuarts(dims, drainageDepth);
+  const drainageConfig = getEquipment('drainage');
+  
+  if (drainageConfig) {
+    const sizing = `${drainageDepth}" layer for ${Math.round(dims.height)}" tall enclosure`;
+    items.push(createShoppingItem('drainage', drainageConfig, `${drainageQuarts} quarts`, sizing, { importance: 'required' }));
+  }
 
   // Drainage barrier
-  const barrierConfig = equipmentCatalog['drainage-barrier'];
-  items.push({
-    id: 'barrier',
-    category: barrierConfig.category as any,
-    name: barrierConfig.name,
-    quantity: '1 sheet',
-    sizing: `Cut to ${Math.round(dims.width)}" × ${Math.round(dims.depth)}"`,    importance: 'required', // Required for bioactive setup
-    setupTierOptions: barrierConfig.tiers as any,
-    notes: barrierConfig.notes,
-    incompatibleAnimals: (barrierConfig as any).incompatibleAnimals,
-  });
+  const barrierConfig = getEquipment('drainage-barrier');
+  if (barrierConfig) {
+    const sizing = `Cut to ${Math.round(dims.width)}" Ã— ${Math.round(dims.depth)}"`;
+    items.push(createShoppingItem('barrier', barrierConfig, '1 sheet', sizing, { importance: 'required' }));
+  }
 
-  // Springtails
-  const springtailsConfig = equipmentCatalog.springtails;
-  items.push({
-    id: 'springtails',
-    category: springtailsConfig.category as any,
-    name: springtailsConfig.name,
-    quantity: '1 culture',
-    sizing: ``,
-    importance: 'required', // Required for bioactive cleanup crew
-    setupTierOptions: springtailsConfig.tiers as any,
-    incompatibleAnimals: (springtailsConfig as any).incompatibleAnimals,
-  });
+  // Cleanup crew
+  const springtailsConfig = getEquipment('springtails');
+  if (springtailsConfig) {
+    items.push(createShoppingItem('springtails', springtailsConfig, '1 culture', '', { importance: 'required' }));
+  }
 
-  // Isopods
-  const isopodsConfig = equipmentCatalog.isopods;
-  items.push({
-    id: 'isopods',
-    category: isopodsConfig.category as any,
-    name: isopodsConfig.name,
-    quantity: '1 culture (10-20 individuals)',
-    sizing: ``,
-    importance: 'required', // Required for bioactive cleanup crew
-    setupTierOptions: isopodsConfig.tiers as any,
-    incompatibleAnimals: (isopodsConfig as any).incompatibleAnimals,
-  });
+  const isopodsConfig = getEquipment('isopods');
+  if (isopodsConfig) {
+    items.push(createShoppingItem('isopods', isopodsConfig, '1 culture (10-20 individuals)', '', { importance: 'required' }));
+  }
 }
 
 /**
@@ -339,21 +463,38 @@ function addDecor(
 }
 
 /**
- * Adds monitoring equipment (thermometer/hygrometer)
+ * Adds monitoring equipment (thermometer/hygrometer, IR thermometer, UV meter, timer)
  */
-function addMonitoring(items: ShoppingItem[]): void {
-  const monitoringConfig = equipmentCatalog.monitoring as Record<string, any>;
-  items.push({
-    id: 'monitoring',
-    category: monitoringConfig.category as any,
-    name: monitoringConfig.name,
-    quantity: 1,
-    sizing: 'Monitor warm and cool zones',
-    importance: (monitoringConfig as any).importance,
-    setupTierOptions: monitoringConfig.tiers as any,
-    notes: monitoringConfig.notes,
-    incompatibleAnimals: monitoringConfig.incompatibleAnimals,
-  });
+function addMonitoring(items: ShoppingItem[], profile: any, input: EnclosureInput): void {
+  const catalogDict = equipmentCatalog as Record<string, any>;
+  const monitoringItems = [
+    'monitoring',
+    'infrared-thermometer', 
+    'uv-meter',
+    'timer'
+  ];
+
+  for (const itemId of monitoringItems) {
+    const config = catalogDict[itemId];
+    if (!config) continue;
+
+    // Use needs-based matching for monitoring equipment
+    if (!matchesAnimalNeeds(config, profile.equipmentNeeds, input)) {
+      continue;
+    }
+
+    items.push({
+      id: itemId,
+      category: config.category as any,
+      name: config.name,
+      quantity: 1,
+      sizing: itemId === 'monitoring' ? 'Monitor warm and cool zones' : '',
+      importance: config.importance || 'recommended',
+      setupTierOptions: config.tiers as any,
+      notes: config.notes,
+      incompatibleAnimals: config.incompatibleAnimals,
+    });
+  }
 }
 
 /**
@@ -378,9 +519,9 @@ function addWaterSupplies(items: ShoppingItem[], input: EnclosureInput, profile:
     });
   }
 
-  // Spray bottle - only add when manual humidity control is selected
+  // Spray bottle - only add when manual humidity control is selected AND humidity control is needed
   const needsHumidityControl = input.ambientHumidity < profile.careTargets.humidity.min;
-  if (input.humidityControl === 'manual') {
+  if (input.humidityControl === 'manual' && needsHumidityControl) {
     const sprayBottleConfig = catalogDict['spray-bottle'];
     if (sprayBottleConfig) {
       items.push({
@@ -389,7 +530,7 @@ function addWaterSupplies(items: ShoppingItem[], input: EnclosureInput, profile:
         name: sprayBottleConfig.name,
         quantity: 1,
         sizing: 'For manual misting',
-        importance: needsHumidityControl ? 'required' : sprayBottleConfig.importance,
+        importance: 'required',
         setupTierOptions: sprayBottleConfig.tiers,
         notes: sprayBottleConfig.notes,
         incompatibleAnimals: sprayBottleConfig.incompatibleAnimals,
@@ -417,12 +558,12 @@ function addWaterSupplies(items: ShoppingItem[], input: EnclosureInput, profile:
 /**
  * Adds feeding supplies and supplements
  */
-function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput): void {
+function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput, profile: any): void {
   const catalogDict = equipmentCatalog as Record<string, any>;
   
-  // Feeder insects
+  // Feeder insects (only add if compatible with selected animal)
   const insectsConfig = catalogDict['feeder-insects'];
-  if (insectsConfig) {
+  if (insectsConfig && matchesAnimalNeeds(insectsConfig, profile.equipmentNeeds, input)) {
     items.push({
       id: 'feeder-insects',
       category: insectsConfig.category,
@@ -438,7 +579,7 @@ function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput): void 
 
   // Calcium supplement (only add if compatible with selected animal)
   const calciumConfig = catalogDict['calcium'];
-  if (calciumConfig && isCompatibleWithAnimal(calciumConfig, input.animal)) {
+  if (calciumConfig && matchesAnimalNeeds(calciumConfig, profile.equipmentNeeds, input)) {
     items.push({
       id: 'calcium',
       category: calciumConfig.category,
@@ -454,7 +595,7 @@ function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput): void 
 
   // Multivitamin (only add if compatible with selected animal)
   const multivitaminConfig = catalogDict['multivitamin'];
-  if (multivitaminConfig && isCompatibleWithAnimal(multivitaminConfig, input.animal)) {
+  if (multivitaminConfig && matchesAnimalNeeds(multivitaminConfig, profile.equipmentNeeds, input)) {
     items.push({
       id: 'multivitamin',
       category: multivitaminConfig.category,
@@ -468,7 +609,23 @@ function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput): void 
     });
   }
 
-  // Feeding tongs
+  // Fresh vegetables & fruits (only add if compatible with selected animal - omnivores)
+  const vegetablesConfig = catalogDict['fresh-vegetables-fruits'];
+  if (vegetablesConfig && matchesAnimalNeeds(vegetablesConfig, profile.equipmentNeeds, input)) {
+    items.push({
+      id: 'fresh-vegetables-fruits',
+      category: vegetablesConfig.category,
+      name: vegetablesConfig.name,
+      quantity: 'Daily supply',
+      sizing: 'Fresh vegetables daily, fruits as treats',
+      importance: vegetablesConfig.importance,
+      setupTierOptions: vegetablesConfig.tiers,
+      notes: vegetablesConfig.notes,
+      incompatibleAnimals: vegetablesConfig.incompatibleAnimals,
+    });
+  }
+
+  // Feeding tongs (universal)
   const tongsConfig = catalogDict['feeding-tongs'];
   if (tongsConfig) {
     items.push({
@@ -481,6 +638,70 @@ function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput): void 
       setupTierOptions: tongsConfig.tiers,
       notes: tongsConfig.notes,
       incompatibleAnimals: tongsConfig.incompatibleAnimals,
+    });
+  }
+
+  // Frozen rodents (only for carnivores)
+  const rodentsConfig = catalogDict['frozen-rodents'];
+  if (rodentsConfig && matchesAnimalNeeds(rodentsConfig, profile.equipmentNeeds, input)) {
+    items.push({
+      id: 'frozen-rodents',
+      category: rodentsConfig.category,
+      name: rodentsConfig.name,
+      quantity: 'Ongoing supply',
+      sizing: 'Size appropriate for snake',
+      importance: rodentsConfig.importance,
+      setupTierOptions: rodentsConfig.tiers,
+      notes: rodentsConfig.notes,
+      incompatibleAnimals: rodentsConfig.incompatibleAnimals,
+    });
+  }
+
+  // Long feeding tongs (only for carnivores - snakes)
+  const longTongsConfig = catalogDict['feeding-tongs-long'];
+  if (longTongsConfig && matchesAnimalNeeds(longTongsConfig, profile.equipmentNeeds, input)) {
+    items.push({
+      id: 'feeding-tongs-long',
+      category: longTongsConfig.category,
+      name: longTongsConfig.name,
+      quantity: '1 pair',
+      sizing: '12-16" for safe distance',
+      importance: longTongsConfig.importance,
+      setupTierOptions: longTongsConfig.tiers,
+      notes: longTongsConfig.notes,
+      incompatibleAnimals: longTongsConfig.incompatibleAnimals,
+    });
+  }
+
+  // Kitchen scale (only for carnivores - track snake weight)
+  const scaleConfig = catalogDict['kitchen-scale'];
+  if (scaleConfig && matchesAnimalNeeds(scaleConfig, profile.equipmentNeeds, input)) {
+    items.push({
+      id: 'kitchen-scale',
+      category: scaleConfig.category,
+      name: scaleConfig.name,
+      quantity: '1',
+      sizing: 'For tracking weight',
+      importance: scaleConfig.importance,
+      setupTierOptions: scaleConfig.tiers,
+      notes: scaleConfig.notes,
+      incompatibleAnimals: scaleConfig.incompatibleAnimals,
+    });
+  }
+
+  // Nitrile gloves (only for amphibians)
+  const glovesConfig = catalogDict['nitrile-gloves'];
+  if (glovesConfig && matchesAnimalNeeds(glovesConfig, profile.equipmentNeeds, input)) {
+    items.push({
+      id: 'nitrile-gloves',
+      category: glovesConfig.category,
+      name: glovesConfig.name,
+      quantity: '1 box',
+      sizing: 'Powder-free for animal safety',
+      importance: glovesConfig.importance,
+      setupTierOptions: glovesConfig.tiers,
+      notes: glovesConfig.notes,
+      incompatibleAnimals: glovesConfig.incompatibleAnimals,
     });
   }
 }
@@ -512,7 +733,7 @@ function addPlantLighting(items: ShoppingItem[], input: EnclosureInput): void {
 /**
  * Adds structural decor (backgrounds, ledges, hides)
  */
-function addStructuralDecor(items: ShoppingItem[], input: EnclosureInput): void {
+function addStructuralDecor(items: ShoppingItem[], input: EnclosureInput, profile: any): void {
   const catalogDict = equipmentCatalog as Record<string, any>;
   
   // Hides (required) - use user's specified quantity
@@ -534,7 +755,7 @@ function addStructuralDecor(items: ShoppingItem[], input: EnclosureInput): void 
   // Wall ledges - use user's specified quantity (for arboreal/vertical species)
   if (input.numberOfLedges > 0) {
     const ledgesConfig = catalogDict['ledges'];
-    if (ledgesConfig && isCompatibleWithAnimal(ledgesConfig, input.animal)) {
+    if (ledgesConfig && matchesAnimalNeeds(ledgesConfig, profile.equipmentNeeds, input)) {
       items.push({
         id: 'ledges',
         category: ledgesConfig.category,
@@ -552,7 +773,7 @@ function addStructuralDecor(items: ShoppingItem[], input: EnclosureInput): void 
   // Climbing areas - branches/rocks for terrestrial/horizontal species
   if (input.numberOfClimbingAreas > 0) {
     const climbingConfig = catalogDict['climbing-areas'];
-    if (climbingConfig && isCompatibleWithAnimal(climbingConfig, input.animal)) {
+    if (climbingConfig && matchesAnimalNeeds(climbingConfig, profile.equipmentNeeds, input)) {
       items.push({
         id: 'climbing-areas',
         category: climbingConfig.category,
@@ -601,19 +822,19 @@ export function generateShoppingList(
   addEnclosure(items, input);
   addUVBLighting(items, dims, profile, input);
   addHeatLamp(items, dims, profile, input);
-  addSubstrate(items, dims, input);
+  addSubstrate(items, dims, input, profile);
   
   if (input.bioactive) {
-    addBioactiveItems(items, dims, input);
+    addBioactiveItems(items, dims);
   }
   
   addHumidityControl(items, dims, profile, input);
   addDecor(items, profile, input);
   addPlantLighting(items, input);
-  addStructuralDecor(items, input);
-  addMonitoring(items);
+  addStructuralDecor(items, input, profile);
+  addMonitoring(items, profile, input);
   addWaterSupplies(items, input, profile);
-  addFeedingSupplies(items, input);
+  addFeedingSupplies(items, input, profile);
 
   return items;
 }

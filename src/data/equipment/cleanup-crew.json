@@ -1,0 +1,44 @@
+{
+  "springtails": {
+    "name": "Springtail Culture",
+    "category": "cleanup_crew",
+    "needsTags": ["substrate:bioactive"],
+    "importance": "conditional",
+    "tiers": {
+      "minimum": {
+        "description": "Springtail culture",
+        "searchQuery": "springtail culture bioactive cleanup crew"
+      },
+      "recommended": {
+        "description": "Springtail starter culture",
+        "searchQuery": "springtail culture bioactive terrarium"
+      },
+      "ideal": {
+        "description": "Large springtail culture",
+        "searchQuery": "springtail culture bioactive large"
+      }
+    },
+    "notes": "Essential cleanup crew for bioactive environments. Eat mold, fungus, and decaying matter."
+  },
+  "isopods": {
+    "name": "Isopod Culture",
+    "category": "cleanup_crew",
+    "needsTags": ["substrate:bioactive"],
+    "importance": "conditional",
+    "tiers": {
+      "minimum": {
+        "description": "Dwarf white isopods",
+        "searchQuery": "dwarf white isopods bioactive culture"
+      },
+      "recommended": {
+        "description": "Dwarf white or powder orange isopods",
+        "searchQuery": "isopods bioactive culture terrarium"
+      },
+      "ideal": {
+        "description": "Mixed isopod culture",
+        "searchQuery": "isopods bioactive culture mix"
+      }
+    },
+    "notes": "Reproduce quickly and process waste. Essential part of bioactive cleanup crew."
+  }
+}

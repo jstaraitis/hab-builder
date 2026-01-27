@@ -11,7 +11,35 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const csvPath = path.join(__dirname, '../equipment-catalog.csv');
-const outputPath = path.join(__dirname, '../src/data/equipment-catalog.json');
+const equipmentDir = path.join(__dirname, '../src/data/equipment');
+
+// Category mapping - determines which file each item belongs to
+const categoryMap = {
+  'enclosure': 'enclosures.json',
+  'substrate': 'substrate.json',
+  'cleanup_crew': 'cleanup-crew.json',
+  'equipment': null, // Will be determined by item ID
+  'decor': 'decor.json'
+};
+
+// Special handling for equipment category (split into multiple files)
+const equipmentFileMap = {
+  'uvb-fixture-forest': 'lighting.json',
+  'uvb-fixture-desert': 'lighting.json',
+  'plant-light': 'lighting.json',
+  'heat-lamp': 'heating.json',
+  'misting-system': 'humidity.json',
+  'humidifier': 'humidity.json',
+  'fogger': 'humidity.json',
+  'spray-bottle': 'humidity.json',
+  'monitoring': 'monitoring.json',
+  'water-bowl': 'monitoring.json',
+  'dechlorinator': 'monitoring.json',
+  'calcium': 'nutrition.json',
+  'multivitamin': 'nutrition.json',
+  'feeding-tongs': 'nutrition.json',
+  'feeder-insects': 'nutrition.json'
+};
 
 // Read CSV file
 const csvContent = fs.readFileSync(csvPath, 'utf-8');
@@ -20,8 +48,8 @@ const lines = parseCSV(csvContent);
 // Remove header
 const headers = lines.shift();
 
-// Convert CSV rows back to JSON
-const catalog = {};
+// Convert CSV rows back to JSON, organized by category file
+const catalogsByFile = {};
 
 lines.forEach(row => {
   if (row.length < 2) return; // Skip empty rows
@@ -82,13 +110,37 @@ lines.forEach(row => {
     if (purchaseLink_ideal) item.purchaseLinks.ideal = purchaseLink_ideal;
   }
 
-  catalog[id] = item;
+  // Determine which file this item belongs to
+  let targetFile;
+  if (category === 'equipment') {
+    targetFile = equipmentFileMap[id];
+    if (!targetFile) {
+      console.warn(`⚠️  Unknown equipment item: ${id}, defaulting to monitoring.json`);
+      targetFile = 'monitoring.json';
+    }
+  } else {
+    targetFile = categoryMap[category] || 'decor.json';
+  }
+
+  // Initialize file if needed
+  if (!catalogsByFile[targetFile]) {
+    catalogsByFile[targetFile] = {};
+  }
+
+  catalogsByFile[targetFile][id] = item;
 });
 
-// Write JSON file with pretty formatting
-fs.writeFileSync(outputPath, JSON.stringify(catalog, null, 2), 'utf-8');
-console.log(`✅ Imported ${Object.keys(catalog).length} items to ${outputPath}`);
-console.log('🎉 Equipment catalog updated successfully!');
+// Write each category file
+let totalItems = 0;
+Object.entries(catalogsByFile).forEach(([filename, catalog]) => {
+  const filePath = path.join(equipmentDir, filename);
+  fs.writeFileSync(filePath, JSON.stringify(catalog, null, 2), 'utf-8');
+  const itemCount = Object.keys(catalog).length;
+  totalItems += itemCount;
+  console.log(`✅ Wrote ${itemCount} items to ${filename}`);
+});
+
+console.log(`🎉 Successfully imported ${totalItems} total items across ${Object.keys(catalogsByFile).length} category files!`);
 
 // Helper function to parse CSV (handles quoted fields with commas)
 function parseCSV(text) {
