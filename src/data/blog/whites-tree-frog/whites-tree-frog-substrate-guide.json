@@ -68,6 +68,10 @@
           "type": "highlight",
           "icon": "Info",
           "content": "CRITICAL: When using ANY loose substrate (coco fiber, topsoil mix), you MUST add a leaf litter layer on top. Leaf litter prevents direct substrate contact, provides hiding spots for cleanup crew in bioactive setups, and reduces impaction risk. Use magnolia, oak, or Indian almond leaves."
+        },
+        {
+          "type": "highlight",
+          "content": "For comprehensive guidance on substrate categories, DIY mixing formulas, impaction myths, and bioactive layering applicable to all reptiles and amphibians, see our <a href='/blog/substrate-selection-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Substrate Selection Guide</a>. The information below covers White's tree frog-specific substrate requirements and tropical habitat recommendations."
         }
       ]
     },

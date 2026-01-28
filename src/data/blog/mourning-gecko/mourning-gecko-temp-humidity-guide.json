@@ -1,0 +1,288 @@
+{
+  "id": "mourning-gecko-temp-humidity-guide",
+  "title": "Mourning Gecko Temperature & Humidity Control Guide",
+  "description": "Complete guide to temperature gradients and humidity levels for mourning geckos, including low-wattage heating, misting protocols, and critical temperature limits.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-28",
+  "category": "Care Guides",
+  "tags": ["mourning gecko", "temperature", "humidity", "heating", "misting"],
+  "image": "/animals/mourning-gecko/mourning-gecko-1.jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Temperature & Humidity Requirements for Mourning Geckos",
+      "content": "Mourning geckos inhabit tropical rainforests where temperatures remain moderate (70-85°F) and humidity stays consistently high (60-80%). Unlike many reptiles, they are sensitive to heat and can die from temperatures above 85°F. Proper temperature and humidity control is non-negotiable for this species - getting these parameters wrong will result in lethal heat stress or dehydration."
+    },
+    {
+      "type": "section",
+      "title": "Target Temperature Ranges"
+    },
+    {
+      "type": "text",
+      "content": "Mourning geckos require a vertical temperature gradient with gentle warmth at the top and cooler areas below. This allows them to thermoregulate by moving up or down. Crepuscular activity means they bask briefly at sunset/sunrise, not for extended periods like diurnal species."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Temperature Requirements by Zone:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Zone", "Temperature Range", "Measurement Point", "Purpose"],
+      "rows": [
+        ["Basking spot (top perch)", "80-85°F", "Surface directly under heat lamp", "Brief warming sessions, digestion boost"],
+        ["Warm zone ambient (upper third)", "75-78°F", "Air temp near top branches", "Active hunting, normal activity"],
+        ["Cool zone ambient (lower third)", "70-75°F", "Air temp near substrate", "Retreat zone, temperature regulation"],
+        ["Nighttime (all zones)", "65-72°F", "Ambient throughout enclosure", "Sleep period, metabolic rest"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "CRITICAL LIMIT: Temperatures consistently above 85°F are LETHAL to mourning geckos. Heat stress sets in quickly at 85-90°F, and death can occur within hours at 90°F+. NEVER exceed 85°F basking temperature."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "COLD LIMIT: Temperatures at or below 72°F for extended periods (days/weeks) cause metabolic slowdown, immune suppression, and illness. Brief nighttime dips to 65°F are acceptable, but daytime lows should not drop below 70°F."
+    },
+    {
+      "type": "section",
+      "title": "Heating Equipment Selection"
+    },
+    {
+      "type": "text",
+      "content": "Because mourning geckos require LOW heat, standard reptile basking bulbs (50-75w) are far too powerful. Low-wattage bulbs with dimmers are essential for fine control."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Heat Source Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Heat Source", "Wattage Range", "Light Output", "Best Application"],
+      "rows": [
+        ["Incandescent bulb (white)", "25w", "Visible light (diurnal cycle)", "BEST - mimics natural sunlight, gentle heat"],
+        ["Halogen bulb", "20-25w", "Bright visible light", "Good alternative, slightly more efficient"],
+        ["Ceramic heat emitter (CHE)", "25-40w", "No light (invisible heat)", "Nighttime supplemental heat only if needed"],
+        ["Heat mat (NOT recommended)", "5-15w", "No light", "Insufficient for arboreal species (can't reach top)"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Recommended setup: 25w incandescent bulb in 5.5-inch dome fixture with ceramic socket + plug-in lamp dimmer. Start with dimmer at 50% and adjust based on temperature gun readings."
+    },
+    {
+      "type": "section",
+      "title": "Heat Lamp Setup & Placement"
+    },
+    {
+      "type": "text",
+      "content": "Proper heat lamp positioning creates a safe basking area without overheating the entire enclosure."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Placement Guidelines:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Element", "Specification", "Reason"],
+      "rows": [
+        ["Lamp position", "Over one upper corner (not center)", "Creates gradient - warm side vs cool side"],
+        ["Distance from perch", "4-6 inches from basking surface", "Achieves 80-85°F without burning"],
+        ["Basking perch", "Horizontal branch or leaf cluster", "Comfortable resting spot directly under lamp"],
+        ["Screen barrier", "Lamp sits on screen top", "Prevents direct contact burns"],
+        ["Fixture type", "Dome with ceramic socket (NOT plastic)", "Plastic melts, ceramic handles heat safely"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "NEVER place heat lamp in the center of the enclosure top - this creates uniform heat with no cool retreat. Always position over one side to maintain a thermal gradient."
+    },
+    {
+      "type": "section",
+      "title": "Dimmer & Thermostat Use"
+    },
+    {
+      "type": "text",
+      "content": "Plug-in lamp dimmers are ESSENTIAL for mourning gecko setups because room temperature, seasonal changes, and enclosure insulation all affect final basking temperature. A dimmer allows real-time adjustment."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Dimmer vs Thermostat:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Control Type", "Function", "Best Use Case"],
+      "rows": [
+        ["Plug-in dimmer", "Manual voltage reduction, instant adjustment", "BEST for low-wattage bulbs (25w), prevents overheating"],
+        ["Dimming thermostat", "Automated dimming based on probe reading", "Advanced option if room temps fluctuate significantly"],
+        ["On/off thermostat", "Cycles power on/off to maintain temperature", "Not ideal for low-wattage bulbs (causes flickering)"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Setup Process:</strong> 1) Install 25w bulb in fixture, 2) Plug fixture into dimmer, 3) Set dimmer to 50%, 4) Wait 30 minutes, 5) Measure basking spot with temp gun, 6) Adjust dimmer up/down to achieve 80-85°F, 7) Recheck after 1 hour and finalize setting."
+    },
+    {
+      "type": "section",
+      "title": "Temperature Measurement Protocol"
+    },
+    {
+      "type": "text",
+      "content": "Accurate temperature monitoring prevents heat stress and ensures proper thermal gradients."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Measurement Tools & Methods:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Tool", "Purpose", "How to Use"],
+      "rows": [
+        ["Infrared thermometer (temp gun)", "Measure surface temperatures", "Point at basking perch, substrate, branches - instant reading"],
+        ["Digital probe thermometer", "Continuous basking temp monitoring", "Secure probe to basking surface with heat-safe tape"],
+        ["Digital hygrometer with temp probe", "Ambient air temperature + humidity", "Place probe mid-height in center of enclosure"],
+        ["Stick-on analog gauges (avoid)", "Poor accuracy", "DO NOT USE - readings often 5-10°F off"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Daily Checks:</strong> Use temp gun to spot-check basking area (should be 80-85°F), mid-zone branches (75-78°F), and substrate level (70-75°F). Check at same time each day after lights have been on for 1+ hour."
+    },
+    {
+      "type": "section",
+      "title": "Nighttime Temperature Management"
+    },
+    {
+      "type": "text",
+      "content": "Turn off all heat sources at night unless room temperature drops below 65°F. Mourning geckos benefit from a natural nighttime temperature drop."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Nighttime Heating Protocol:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Room Temperature", "Action Required", "Equipment"],
+      "rows": [
+        ["65-75°F", "No supplemental heat needed", "Turn off all lights and heat"],
+        ["60-64°F", "Optional ceramic heat emitter", "25w CHE on dimmer (no light output)"],
+        ["Below 60°F", "Ceramic heat emitter required", "40w CHE + thermostat set to 65°F minimum"],
+        ["Above 75°F", "May need cooling", "Increase ventilation, use small fan nearby (not directly on enclosure)"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Natural nighttime temperature drop (72°F day → 65-68°F night) is HEALTHY and mimics tropical rainforest conditions. Do not maintain daytime temperatures 24/7."
+    },
+    {
+      "type": "section",
+      "title": "Humidity Requirements"
+    },
+    {
+      "type": "text",
+      "content": "Mourning geckos require consistently high humidity (60-80%) to prevent dehydration and support shedding. Low humidity (<50%) causes stuck shed, dehydration, and respiratory irritation."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Target Humidity Levels:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Time Period", "Humidity Range", "Notes"],
+      "rows": [
+        ["Daytime baseline", "60-70%", "After morning misting, gradual decline throughout day"],
+        ["Post-misting peak", "75-85%", "Immediately after misting (morning/evening)"],
+        ["Nighttime", "70-80%", "Naturally rises as temperature drops"],
+        ["Shedding period", "75-85%", "Increase misting frequency when geckos appear dull"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Humidity should fluctuate naturally between 60-80% throughout the day. Constant 90%+ humidity with no dry-out period causes respiratory infections and mold. Allow humidity to drop to 60-65% before next misting."
+    },
+    {
+      "type": "section",
+      "title": "Misting Protocol"
+    },
+    {
+      "type": "text",
+      "content": "Misting serves two purposes: providing drinking water (mourning geckos lick droplets) and maintaining ambient humidity."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Misting Schedule:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Time of Day", "Duration", "Target Areas", "Purpose"],
+      "rows": [
+        ["Morning (7-9 AM)", "15-30 seconds", "Foliage, branches, walls", "Drinking opportunity, raise humidity after night"],
+        ["Evening (6-8 PM)", "20-40 seconds", "All surfaces, substrate edges", "Drinking opportunity, boost nighttime humidity"],
+        ["Midday (optional)", "10-15 seconds", "Foliage only", "Only if humidity drops below 55% in dry climates"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Misting Technique:</strong> Use pump-style pressure sprayer (not spray bottle - insufficient mist). Target foliage and branches heavily (geckos drink from leaves), lightly mist substrate edges. Avoid soaking substrate until muddy. Mist from multiple angles to create droplets on all surfaces."
+    },
+    {
+      "type": "highlight",
+      "content": "Water source matters: Use tap water or spring water (contains essential minerals). NEVER use distilled or RO water - lack of minerals can cause deficiencies over time."
+    },
+    {
+      "type": "section",
+      "title": "Troubleshooting Common Issues"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Problem-Solving Guide:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Likely Cause", "Solution"],
+      "rows": [
+        ["Basking area exceeds 85°F", "Wattage too high or dimmer setting too high", "Lower dimmer setting or switch to lower wattage bulb (15-20w)"],
+        ["Entire enclosure too warm (>78°F)", "Room too hot or insufficient ventilation", "Increase ventilation, use small fan nearby, lower ambient AC"],
+        ["Cool zone below 70°F daytime", "Insufficient heat or oversized enclosure", "Increase dimmer setting or add secondary low-wattage heat source"],
+        ["Humidity drops below 50%", "Insufficient misting or too much ventilation", "Increase misting frequency, partially cover screen top with glass"],
+        ["Humidity above 90% constantly", "Oversaturation or poor ventilation", "Reduce misting amount, ensure screen top is not covered, add small fan"],
+        ["Geckos gaping/panting", "HEAT STRESS - temperature too high", "IMMEDIATE: Turn off heat, mist heavily, lower ambient temp. Check basking temp!"],
+        ["Geckos lethargic at night", "Too cold", "Ensure daytime temps reach 75-78°F, check nighttime doesn't drop below 65°F"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Heat stress symptoms (gaping mouth, excessive climbing to top, lethargy): Turn off all heat sources IMMEDIATELY, mist enclosure heavily, move to cooler room. Heat stress can kill within hours - this is an emergency."
+    },
+    {
+      "type": "section",
+      "title": "Seasonal Adjustments"
+    },
+    {
+      "type": "text",
+      "content": "Room temperatures change with seasons, requiring adjustments to maintain proper enclosure parameters."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Seasonal Monitoring:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Season", "Common Issue", "Adjustment"],
+      "rows": [
+        ["Summer (hot)", "Basking area too warm, difficulty cooling", "Lower dimmer setting, increase ventilation, AC if needed"],
+        ["Winter (cold)", "Entire enclosure too cool, high nighttime drop", "Increase dimmer setting, add nighttime CHE if needed"],
+        ["Spring/Fall transitions", "Fluctuating temps throughout day", "Check temps daily, adjust dimmer as needed"],
+        ["Dry winter air", "Humidity drops rapidly between mistings", "Increase misting frequency, add moisture-retaining décor (live plants)"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Pro tip: Re-check enclosure temperatures and humidity every time seasons change or you adjust home heating/cooling. What works in summer may overheat in winter when home heating is active."
+    }
+  ]
+}

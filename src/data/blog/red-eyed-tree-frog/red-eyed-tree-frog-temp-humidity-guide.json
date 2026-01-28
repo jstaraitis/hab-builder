@@ -1,0 +1,419 @@
+{
+  "id": "red-eyed-tree-frog-temp-humidity-guide",
+  "title": "Red-Eyed Tree Frog Temperature & Humidity Guide",
+  "species": "red-eyed-tree-frog",
+  "category": "temperature-humidity",
+  "description": "Complete guide to maintaining proper temperature gradients and humidity levels for Red-Eyed Tree Frogs, including heating equipment, misting schedules, and seasonal adjustments.",
+  "lastUpdated": "2026-01-28",  "tags": ["red-eyed-tree-frog", "temperature", "humidity", "heating", "misting"],  "content": [
+    {
+      "type": "intro",
+      "heading": "Why Temperature & Humidity Are Critical",
+      "text": "Red-Eyed Tree Frogs (Agalychnis callidryas) come from tropical rainforests where temperature and humidity remain remarkably stable year-round. Their physiology is adapted to this narrow environmental range: daytime temps of 75-85°F (24-29°C), nighttime slight drop to 68-75°F (20-24°C), and average humidity of 70-75% with brief morning/evening peaks to 90% from rain/fog. Unlike some hardy species that tolerate wide fluctuations, Red-Eyed Tree Frogs are INTOLERANT of temperature extremes or prolonged low humidity. Overheating causes fatal metabolic stress within hours, while chronic low humidity leads to dehydration, failed sheds, and respiratory infections. Their highly permeable skin makes them especially vulnerable - they absorb moisture and regulate temperature through skin contact, not just respiration."
+    },
+    {
+      "type": "section",
+      "heading": "Target Temperature Parameters"
+    },
+    {
+      "type": "table",
+      "headers": ["Zone/Time", "Temperature Range", "Purpose"],
+      "rows": [
+        ["Basking Spot (daytime)", "82-85°F (28-29°C)", "Warm microclimate for thermoregulation, digestion boost"],
+        ["Ambient Air (daytime)", "78-80°F (25-27°C)", "General activity temperature throughout enclosure"],
+        ["Cool Zone (daytime)", "75-78°F (24-26°C)", "Retreat area if frogs overheat, near water section"],
+        ["Nighttime Drop (all zones)", "68-75°F (20-24°C)", "Natural temperature cycle, simulates rainforest nights"],
+        ["Water Temperature", "78-79°F (25-26°C)", "Constant - supports breeding, prevents thermal shock"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Temperature GRADIENT is more important than hitting exact numbers. Frogs need choices - warm basking area + cooler retreat zones."
+    },
+    {
+      "type": "warning",
+      "text": "NEVER exceed 85°F (29°C) anywhere in enclosure. Red-Eyed Tree Frogs overheat rapidly and can die within 2-4 hours of exposure to 90°F+."
+    },
+    {
+      "type": "section",
+      "heading": "Creating the Temperature Gradient"
+    },
+    {
+      "type": "text",
+      "text": "Proper gradient requires strategic heat source placement combined with vertical enclosure design:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Heat Source Placement: Position basking light over one upper corner of enclosure (not center). Creates warm zone in upper canopy, cooler zone diagonally opposite.",
+        "Vertical Stratification: Hot air rises - upper third naturally warmest (basking zone), middle third ambient, lower third coolest (near water).",
+        "Water Section Cooling: The aquatic zone acts as heat sink, cooling the lower area. This is why paludariums maintain better gradients than dry terrariums.",
+        "No Floor Heating: Under-tank heaters not recommended for arboreal species - frogs don't bask on ground. Heat lamps + water heater only.",
+        "Multiple Thermometers: Place digital thermometers at three heights: top (basking), mid-level (ambient), and near water (cool zone). Monitor all three."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Heating Equipment Options"
+    },
+    {
+      "type": "text",
+      "text": "Primary Heating: Overhead Basking Lamps"
+    },
+    {
+      "type": "table",
+      "headers": ["Bulb Type", "Wattage (18×18×36″)", "Pros", "Cons"],
+      "rows": [
+        ["Daylight Basking Spot", "25-40W", "Natural white light, good gradient", "Visible light may disturb at night"],
+        ["Halogen Basking Spot", "25-50W", "Tight beam, intense basking spot", "Small heat zone, more expensive"],
+        ["Swamp Basking Spot", "40-60W", "Wider beam, humidity-tolerant", "Less intense heat, needs higher wattage"],
+        ["Ceramic Heat Emitter", "40-60W", "No light (24hr use), long-lasting", "Dries air faster, monitor humidity"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Wattage Selection Guide:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "18×18×24″ enclosure: Start with 25W, increase to 40W if needed",
+        "18×18×36″ enclosure: Start with 40W, increase to 60W in cold rooms",
+        "24×18×36″ enclosure: Start with 50W, increase to 75W in cold rooms",
+        "36×18×36″ enclosure: Start with 60-75W, may need two bulbs in opposite corners",
+        "Room Temperature Adjustment: Add 15-25W if room temps consistently under 70°F"
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "ALWAYS use a dimming thermostat or rheostat with heat lamps - prevents overheating if room temps rise unexpectedly. Never rely on bulb wattage alone."
+    },
+    {
+      "type": "text",
+      "text": "Water Heating: Preset Aquarium Heaters"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Recommended: Exo Terra Turtle Heaters - preset to 78-79°F (25-26°C), submersible, safe for frogs",
+        "Wattage: 25W for small paludariums (under 5 gallons water), 50W for medium (5-10 gallons), 75W for large (10+ gallons)",
+        "Placement: Fully submerge in water section, hide behind rocks/driftwood for aesthetics",
+        "Safety: Use heater guard or position where frogs can't directly contact heating element",
+        "Monitoring: Check water temp daily with separate thermometer - heater thermostat can fail"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Stable water temperature is CRITICAL for breeding. Fluctuating water temps confuse frogs' seasonal cues and suppress breeding behavior."
+    },
+    {
+      "type": "section",
+      "heading": "Nighttime Temperature Management"
+    },
+    {
+      "type": "text",
+      "text": "Red-Eyed Tree Frogs require a nighttime temperature DROP to maintain natural circadian rhythms:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Target Drop: 5-10°F (3-6°C) cooler than daytime - ideal nighttime range 68-75°F (20-24°C)",
+        "How to Achieve: Turn OFF basking lamp at night (use light timer). Ambient room temperature provides nighttime cooling.",
+        "If Room Too Cold: Use Ceramic Heat Emitter (CHE) on thermostat set to 70°F minimum. CHE emits no light, won't disturb nocturnal activity.",
+        "If Room Too Warm: Increase nighttime ventilation (small fan near screen top), reduce insulation. May need air conditioning in hot climates.",
+        "Water Section: Keep water heater running 24/7 - maintains stable 78°F water temp regardless of air temp."
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "Never use colored night bulbs (red/blue) or 'moonlight' LEDs near sleeping frogs - disturbs circadian rhythm and increases stress. Total darkness preferred."
+    },
+    {
+      "type": "section",
+      "heading": "Target Humidity Parameters"
+    },
+    {
+      "type": "table",
+      "headers": ["Time Period", "Humidity Range", "Notes"],
+      "rows": [
+        ["Daytime Average", "70-75%", "Baseline humidity for most of 24hr cycle"],
+        ["Morning Peak (6-9am)", "85-90%", "Simulate morning fog/dew - heavy misting"],
+        ["Evening Peak (6-9pm)", "85-90%", "Simulate evening rain - heavy misting"],
+        ["Nighttime", "75-80%", "Slightly elevated from daytime but not peak levels"],
+        ["NEVER Exceed", "75% sustained", "Constantly high humidity (90%+) causes bacterial skin infections"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Key concept: Humidity should CYCLE between 70-90%, not remain constant. Frogs need fluctuations, not static high humidity."
+    },
+    {
+      "type": "section",
+      "heading": "Humidity Sources & Equipment"
+    },
+    {
+      "type": "text",
+      "text": "Manual Misting (Budget Option)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Equipment: Pump-action spray bottle with fine mist nozzle",
+        "Schedule: Heavy misting 2x daily (morning + evening), light misting midday if needed",
+        "Technique: Spray enclosure walls, foliage, substrate until water droplets visible. Avoid directly spraying frogs.",
+        "Duration: 30-60 seconds per session, adjust based on hygrometer readings",
+        "Pros: Free (after bottle purchase), allows you to inspect frogs during misting",
+        "Cons: Requires discipline (must be home twice daily), inconsistent if you travel"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Automated Misting (Recommended)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "System: Exo Terra Monsoon - programmable misting system with timer",
+        "Schedule: Program for 30-60 seconds at 7am, 12pm, and 7pm daily",
+        "Installation: Mount nozzles in upper corners pointing down, connect to reservoir, set timer",
+        "Maintenance: Refill reservoir weekly, clean nozzles monthly (prevents clogs)",
+        "Pros: Consistent misting even when away, longer misting duration possible, hands-free",
+        "Cons: $80-120 investment, requires reservoir refills, nozzles can clog"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Ultrasonic Humidifier (Supplemental)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Use Case: Boost baseline humidity in dry climates (under 40% ambient room humidity)",
+        "Placement: Direct fog tube into lower enclosure vent - fog rises naturally",
+        "Schedule: Run 1-2 hours in morning, 1-2 hours in evening (not 24/7)",
+        "Distilled Water Only: Prevents mineral buildup on glass and plants",
+        "Caution: Can over-humidify if not monitored - use with hygrostat for automatic control"
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "Never use humidifiers 24/7 or keep humidity above 75% constantly - creates perpetually wet conditions that breed bacteria. You need DRY periods for air exchange."
+    },
+    {
+      "type": "section",
+      "heading": "Natural Humidity Sources"
+    },
+    {
+      "type": "text",
+      "text": "Paludarium design inherently boosts humidity through natural evaporation:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Water Section: 25-30% water coverage provides constant evaporation, stabilizes humidity without equipment",
+        "Live Plants: Transpiration from Pothos, Philodendron, ferns releases moisture into air",
+        "Moist Substrate: Forest moss and leaf litter retain water and slowly release humidity",
+        "Waterfalls/Drippers: If installed, increase surface area for evaporation (but also require more maintenance)",
+        "Enclosed Design: Glass enclosure with screen top retains humidity better than open-air mesh cages"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "A well-designed paludarium with 30% water coverage may only need light misting 1-2x daily to maintain 70-75% humidity naturally."
+    },
+    {
+      "type": "section",
+      "heading": "Misting Schedule Examples"
+    },
+    {
+      "type": "table",
+      "headers": ["Climate/Setup", "Morning Mist", "Midday Mist", "Evening Mist", "Notes"],
+      "rows": [
+        ["Humid climate + paludarium", "60 sec (heavy)", "Skip or 15 sec", "60 sec (heavy)", "Natural humidity high, minimal misting needed"],
+        ["Dry climate + paludarium", "90 sec (heavy)", "30 sec (light)", "90 sec (heavy)", "Dry air requires longer/more frequent misting"],
+        ["Humid climate + dry terrarium", "90 sec (heavy)", "45 sec (medium)", "90 sec (heavy)", "No water section = must mist more"],
+        ["Dry climate + dry terrarium", "120 sec (heavy)", "60 sec (medium)", "120 sec (heavy)", "Worst case - consider humidifier"],
+        ["Breeding season boost", "120 sec (heavy)", "60 sec (medium)", "120 sec + extra", "Simulate rainy season with increased misting"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Monitoring Equipment"
+    },
+    {
+      "type": "text",
+      "text": "Accurate monitoring prevents temperature/humidity disasters:"
+    },
+    {
+      "type": "table",
+      "headers": ["Equipment", "Quantity", "Placement", "Purpose"],
+      "rows": [
+        ["Digital Thermometer", "2-3", "Basking zone, mid-level, near water", "Monitor gradient accuracy"],
+        ["Digital Hygrometer", "1-2", "Mid-level, away from misting nozzles", "Track average humidity"],
+        ["Infrared Temp Gun", "1 (optional)", "Point at basking perch", "Verify exact basking spot temp"],
+        ["Thermostat", "1", "Plug for heat lamp", "Prevents overheating if room warms"],
+        ["Hygrostat", "1 (optional)", "Plug for humidifier", "Auto-controls humidity levels"]
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "Analog dial thermometers/hygrometers are often inaccurate by 5-10°F or 10-20% humidity. Invest in digital equipment with remote probes."
+    },
+    {
+      "type": "section",
+      "heading": "Seasonal & Breeding Adjustments"
+    },
+    {
+      "type": "text",
+      "text": "Simulating seasonal changes triggers natural breeding behavior:"
+    },
+    {
+      "type": "text",
+      "text": "Dry Season Simulation (5-6 weeks):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Reduce photoperiod from 12 hours to 10 hours daily",
+        "Lower temperature to 72°F (22°C) daytime, 65-68°F nighttime",
+        "Reduce humidity to 60-65% by cutting misting to 2-3 times WEEKLY (not daily)",
+        "Lower water temperature to 70-72°F (21-22°C)",
+        "Feed sparingly - 2x weekly instead of every other day",
+        "Purpose: Simulates cooler, drier winter period frogs experience in wild"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Rainy Season Transition (Breeding Trigger):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Increase photoperiod back to 12 hours daily",
+        "Restore temperatures to 75-85°F daytime, 70-75°F nighttime",
+        "Increase humidity to 80-85% sustained by misting 3-4x daily for 60-90 seconds",
+        "Restore water temperature to 78°F (25-26°C)",
+        "Resume normal feeding (every 2-3 days)",
+        "Simulate 'heavy summer rains' with 2-3 minute misting sessions for 1-2 weeks",
+        "Males will respond with mating calls and amplexus attempts"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "The dramatic shift from dry season to rainy season is the primary breeding trigger. Gradual transition doesn't work - frogs need abrupt environmental change."
+    },
+    {
+      "type": "section",
+      "heading": "Ventilation Balance"
+    },
+    {
+      "type": "text",
+      "text": "High humidity + poor ventilation = bacterial infections. You MUST balance both:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Full Screen Top: Non-negotiable. Never cover screen with towels, plastic, or solid lids to boost humidity.",
+        "Cross-Ventilation: Ideal setups have both top screen AND lower back/side vents for air circulation.",
+        "Natural Airflow: Hot air rises through top screen, pulls fresh air in from bottom vents. This passive circulation prevents stagnant air.",
+        "Small Fan (Optional): Very low-speed fan directed across (not into) screen top during day improves air exchange without excessive drying.",
+        "Signs of Poor Ventilation: Condensation on walls lasting 4+ hours after misting, musty smell, excessive mold growth, frogs developing skin lesions."
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "If you cannot maintain 70%+ humidity WITH full screen ventilation, your misting is insufficient - do NOT reduce ventilation to compensate."
+    },
+    {
+      "type": "section",
+      "heading": "Troubleshooting Temperature Issues"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Cause", "Solution"],
+      "rows": [
+        ["Basking spot over 90°F", "Bulb wattage too high, no thermostat", "Decrease wattage, add dimming thermostat, increase basking perch distance"],
+        ["No temperature gradient", "Heat source centered, enclosure too small", "Move heat to one corner, upgrade to larger enclosure"],
+        ["Nighttime too cold (under 65°F)", "Room unheated, winter conditions", "Add CHE on thermostat set to 68°F minimum"],
+        ["Nighttime too warm (over 78°F)", "No temp drop, heat lamp left on", "Use timer to turn off heat at night, improve room ventilation"],
+        ["Water temperature fluctuating", "Heater malfunction or undersized", "Replace heater, increase wattage, check thermostat accuracy"],
+        ["Frogs always at bottom (cool zone)", "Entire enclosure too hot", "Reduce heat lamp wattage, add ventilation, check room AC"],
+        ["Frogs lethargic, dark color", "Overheating stress response", "IMMEDIATELY reduce temps, mist heavily, move to cooler room"],
+        ["Frogs refusing to bask", "Basking spot too intense/hot", "Reduce wattage, add foliage near basking area for partial shade"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Troubleshooting Humidity Issues"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Cause", "Solution"],
+      "rows": [
+        ["Humidity under 60%", "Insufficient misting, dry climate, too much ventilation", "Increase misting frequency/duration, add humidifier, increase water section size"],
+        ["Humidity over 85% constantly", "Over-misting, poor ventilation, blocked screen", "Reduce misting frequency, ensure full screen top clear, add fan"],
+        ["Humidity spikes then crashes", "Manual misting inconsistent, no water section", "Install automated misting system, add paludarium water section"],
+        ["Condensation excessive (walls soaked)", "Over-misting, blocked ventilation", "Reduce misting duration, check screen top not blocked, add ventilation"],
+        ["Frogs dehydrated despite misting", "Water droplets evaporating too fast", "Increase misting frequency, add humidifier, reduce heat lamp intensity"],
+        ["Mold/mildew excessive", "Constantly high humidity with stagnant air", "Improve ventilation, reduce misting, add springtails for biocontrol"],
+        ["Hygrometer reading 'stuck' at 90%", "Sensor saturated or faulty", "Move sensor away from misting zone, replace if defective"],
+        ["Frogs developing skin lesions", "Bacterial infection from excess humidity", "REDUCE humidity to 70%, improve ventilation, vet visit for antibiotics"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Emergency Temperature Situations"
+    },
+    {
+      "type": "text",
+      "text": "If Enclosure Overheats (over 88°F):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Immediately turn off all heat sources",
+        "Mist heavily with room-temperature (NOT cold) water",
+        "Place frozen water bottles wrapped in towels near (not touching) screen top",
+        "Move frogs to coolest room in house if possible",
+        "Monitor for signs of heat stress: gaping mouth, lethargy, dark coloration, twitching",
+        "If stress signs present, seek emergency vet care - overheating can be fatal"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "If Enclosure Too Cold (under 65°F):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Add CHE on thermostat immediately",
+        "Insulate sides (NOT top) with foam board or towels temporarily",
+        "Move enclosure away from drafty windows/doors",
+        "Check water heater is functioning - frogs may seek warm water if air too cold",
+        "Prolonged cold causes immune suppression and respiratory infections"
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "Power outages in winter can be fatal. Have battery-powered backup thermometer and emergency heat source (hand warmers, insulated transport container) ready."
+    },
+    {
+      "type": "section",
+      "heading": "Regional Climate Considerations"
+    },
+    {
+      "type": "table",
+      "headers": ["Climate Type", "Primary Challenge", "Recommended Equipment"],
+      "rows": [
+        ["Hot/Humid (Southeast US)", "Preventing overheating in summer", "Lower wattage heat lamp, AC for room, focus on ventilation"],
+        ["Hot/Dry (Southwest US)", "Maintaining humidity despite heat", "Humidifier, larger water section, frequent misting, AC for cooling"],
+        ["Cold/Humid (Pacific Northwest)", "Preventing nighttime chilling", "CHE for night heating, insulation, focus on maintaining temps"],
+        ["Cold/Dry (Northern states)", "Both heating AND humidity", "Higher wattage heat lamp, CHE backup, humidifier, larger water section"],
+        ["Temperate (Midwest)", "Seasonal extremes - cold winter, hot summer", "Adjustable heating (thermostat), AC for summer, insulation for winter"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Your local climate determines which parameter (temp vs humidity) requires more attention. Identify your challenge and invest equipment accordingly."
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "id": "red-eyed-tree-frog",
+  "commonName": "Red-Eyed Tree Frog",
+  "scientificName": "Agalychnis callidryas",
+  "searchQuery": ["red-eyed tree frog", "red eyed tree frog", "agalychnis callidryas", "tree frog", "frog"],
+  "careLevel": "beginner",
+  "emoji": "🐸",
+  "imageUrl": "/animals/red-eyed-tree-frog/red-eyed-tree-frog-main.jpg",
+  "completionStatus": "in-progress",
+  "gallery": [
+    {
+      "url": "/animals/red-eyed-tree-frog/red-eyed-tree-frog-1.jpg",
+      "caption": ""
+    },
+    {
+      "url": "/animals/red-eyed-tree-frog/red-eyed-tree-frog-2.jpg",
+      "caption": ""
+    },
+    {
+      "url": "/animals/red-eyed-tree-frog/red-eyed-tree-frog-3.jpg",
+      "caption": ""
+    },
+    {
+      "url": "/animals/red-eyed-tree-frog/red-eyed-tree-frog-closeup.jpg",
+      "caption": ""
+    },
+    {
+      "url": "/animals/red-eyed-tree-frog/red-eyed-tree-frog-habitat.jpg",
+      "caption": ""
+    }
+  ],
+  "minEnclosureSize": {
+    "width": 18,
+    "depth": 18,
+    "height": 24,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 20,
+    "additionalGallons": 10,
+    "maxRecommended": 8,
+    "description": "Social species - best in groups of 4-8. Provide 20 gallons for first 2-3 frogs, add 10 gallons per additional 2 frogs. Pair ratio: 2 males per 1 female for breeding."
+  },
+  "careTargets": {
+    "temperature": {
+      "min": 70,
+      "max": 85,
+      "basking": {
+        "min": 82,
+        "max": 88
+      },
+      "nighttime": {
+        "min": 68,
+        "max": 75
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "day": {
+        "min": 70,
+        "max": 75
+      },
+      "night": {
+        "min": 80,
+        "max": 95
+      },
+      "shedding": {
+        "min": 85,
+        "max": 95
+      },
+      "unit": "%",
+      "notes": "Average 70-75% daytime with peaks of 90-95% at night during misting. Never keep above 75% continuously during day (bacterial skin infections risk). Well-ventilated setup essential."
+    },
+    "lighting": {
+      "uvbRequired": false,
+      "uvbRecommended": true,
+      "uvbStrength": "5.0",
+      "coveragePercent": 50,
+      "photoperiod": "12 hours"
+    },
+    "gradient": "Subtle vertical gradient with cooler water (72-76°F) and slightly warmer canopy (74-80°F)"
+  },
+  "layoutRules": {
+    "preferVertical": true,
+    "verticalSpacePercent": 85,
+    "thermalGradient": "vertical",
+    "requiredZones": ["basking", "hide", "climbing", "water"],
+    "optionalZones": ["feeding", "secondary_hide"]
+  },
+  "bioactiveCompatible": true,
+  "equipmentNeeds": {
+    "climbing": "vertical",
+    "substrate": ["bioactive", "paludarium"],
+    "bioactiveSubstrate": "tropical",
+    "humidity": "high",
+    "heatSource": "basking",
+    "waterFeature": "paludarium",
+    "lighting": "uvb-forest",
+    "diet": ["insectivore"],
+    "animalType": "amphibian",
+    "decor": ["branches", "vines", "hides", "plants"],
+    "water": ["water-dish-large"]
+  },
+  "lifespan": "5-8+ years",
+  "dietType": "Insectivore",
+  "adultSize": "2-3 inches (5-7 cm)",
+  "temperament": "Social and docile, minimal handling recommended",
+  "activityPattern": "Crepuscular and nocturnal",
+  "originRegion": "Mexico, Central America, Colombia (tropical rainforests)",
+  "setupTips": [
+    "Vertical paludarium setup required - height more important than floor space",
+    "Semi-aquatic species - MUST have both land and water sections (not optional)",
+    "Best kept in groups of 4-8 for natural social behavior and breeding displays",
+    "Provide extensive climbing space with branches, cork, vines positioned diagonally",
+    "Dense foliage with sturdy leaves required for resting/hiding during day",
+    "Create riparian zone (land-water interface) with easy access points",
+    "Use Bio Drain substrate with mesh, topped with Sub Stratum + Plantation Soil + forest moss"
+  ],
+  "notes": [
+    "Social species - single frogs are often stressed and inactive",
+    "Breeding ratio: 2 males per 1 female encourages healthy competition",
+    "Crepuscular and nocturnal - most active dawn/dusk and evening hours",
+    "Do NOT disturb during daytime when sleeping on leaf undersides",
+    "Excellent for paludarium builds - naturally humid environment supports live plants",
+    "Can be picky eaters initially but trainable with patience and variety",
+    "30+ years of successful captive breeding - readily available captive-bred specimens",
+    "Sensitive skin easily damaged by chemicals (soap, lotion)",
+    "Extremely agile - will leap and risk injury if restrained",
+    "Skin secretions may irritate eyes - always wash hands before/after handling"
+  ],
+  "warnings": [
+    {
+      "severity": "critical",
+      "message": "Stable temperature essential - very narrow range (75-85°F day, 68-75°F night). Avoid overheating in summer.",
+      "category": "temperature"
+    },
+    {
+      "severity": "critical",
+      "message": "Clean water mandatory for soaking and breeding. Always treat tap water with Aquatize. Bi-weekly partial water changes (25-33%) required.",
+      "category": "water-quality"
+    },
+    {
+      "severity": "critical",
+      "message": "Never keep humidity above 75% continuously - causes bacterial skin infections. Ensure excellent ventilation despite high humidity needs.",
+      "category": "humidity"
+    },
+    {
+      "severity": "important",
+      "message": "Minimal handling only - sensitive skin and agile leapers. Risk of injury from falls. Skin secretions can irritate eyes.",
+      "category": "handling"
+    },
+    {
+      "severity": "important",
+      "message": "Social species - keep in groups of 4-8 for natural behavior. Single frogs may be stressed and inactive.",
+      "category": "social"
+    },
+    {
+      "severity": "important",
+      "message": "Paludarium setup required (not standard terrarium). Must provide both substantial water section and land area with climbing space.",
+      "category": "setup"
+    },
+    {
+      "severity": "tip",
+      "message": "Can be picky eaters - may refuse certain insects initially. Offer variety and train for tweezer feeding. Takes time to adjust.",
+      "category": "feeding"
+    },
+    {
+      "severity": "tip",
+      "message": "Crepuscular/nocturnal - most active dawn/dusk. Don't disturb during day when sleeping on leaves.",
+      "category": "activity"
+    },
+    {
+      "severity": "tip",
+      "message": "Will breed readily if provided proper rainy season simulation (increased misting, temperature adjustments). Eggs laid on leaves above water.",
+      "category": "breeding"
+    }
+  ],
+  "relatedBlogs": [
+    "red-eyed-tree-frog-enclosure-setup-guide",
+    "red-eyed-tree-frog-substrate-guide",
+    "red-eyed-tree-frog-temp-humidity-guide",
+    "red-eyed-tree-frog-lighting-guide",
+    "red-eyed-tree-frog-feeding-guide",
+    "red-eyed-tree-frog-hydration-guide",
+    "red-eyed-tree-frog-enrichment-welfare-guide"
+  ],
+  "careGuidance": {
+    "feedingRequirements": [
+      "Feed variety of live insects: crickets, roaches, fruit flies, waxworms",
+      "Avoid excessive mealworms/superworms (picky acceptance)",
+      "Gut-load feeders 24-48 hours before feeding",
+      "Dust all insects with calcium + D3",
+      "Can train to accept canned insects with tweezer feeding"
+    ],
+    "feedingSchedule": [
+      "Juveniles: Feed daily",
+      "Adults: Feed every 2-3 days"
+    ],
+    "waterNotes": [
+      "Clean water section required for soaking and breeding",
+      "Always treat tap water with dechlorinator",
+      "Bi-weekly partial water changes (25-33%) required",
+      "Frogs drink by absorbing water through skin"
+    ],
+    "nativeHabitat": {
+      "regions": ["Mexico", "Central America", "Colombia"],
+      "biomes": ["Tropical Rainforest", "Humid Lowland Forest"],
+      "conservationStatus": "Least Concern (LC)"
+    }
+  }
+}

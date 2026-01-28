@@ -1,0 +1,471 @@
+{
+  "id": "red-eyed-tree-frog-feeding-guide",
+  "title": "Red-Eyed Tree Frog Feeding Guide",
+  "species": "red-eyed-tree-frog",
+  "category": "feeding",
+  "description": "Comprehensive feeding guide for Red-Eyed Tree Frogs covering insect selection, gut-loading, supplementation, feeding schedules, and troubleshooting picky eaters.",
+  "lastUpdated": "2026-01-28",
+  "tags": ["red-eyed-tree-frog", "feeding", "diet", "insects", "supplementation"],
+  "content": [
+    {
+      "type": "intro",
+      "heading": "Understanding Red-Eyed Tree Frog Nutrition",
+      "text": "Red-Eyed Tree Frogs (Agalychnis callidryas) are obligate insectivores - their entire diet consists of live (or convincingly presented dead) insects. In the wild, they're opportunistic hunters that consume whatever appropriately-sized prey wanders onto their perch during nighttime foraging: moths, flies, crickets, small beetles, and other soft-bodied invertebrates. Captive nutrition requires replicating this variety while addressing the nutritional deficiencies inherent in commercially-raised feeder insects. Unlike wild insects that feed on diverse plants and accumulate minerals from natural sources, captive-bred feeders are nutritionally incomplete - they lack calcium, essential vitamins, and proper calcium:phosphorus ratios. Without gut-loading (enriching feeders before offering) and dusting (coating with supplements), captive frogs develop metabolic bone disease, vitamin deficiencies, and shortened lifespans."
+    },
+    {
+      "type": "section",
+      "heading": "Appropriate Feeder Insects"
+    },
+    {
+      "type": "text",
+      "text": "Red-Eyed Tree Frogs accept a wide variety of insects, but show individual preferences and pickiness:"
+    },
+    {
+      "type": "table",
+      "headers": ["Insect Type", "Sizes", "Frequency", "Notes"],
+      "rows": [
+        ["Crickets (Acheta/Gryllus)", "1/4 to 1/2 inch", "Staple - 3-4x weekly", "Most accepted feeder. Remove hind legs if frogs struggle to catch."],
+        ["Dubia Roaches", "Small to medium nymphs", "Staple - 2-3x weekly", "Excellent nutrition, less smell than crickets. Some frogs ignore them initially."],
+        ["Black Soldier Fly Larvae", "Medium larvae", "Treat - 1x weekly", "High calcium, no gut-loading needed. Very nutritious."],
+        ["Waxworms", "Small to medium", "Treat - 1x weekly MAX", "High fat - obesity risk if overfed. Use sparingly."],
+        ["Hornworms", "Small (under 1 inch)", "Treat - 1-2x weekly", "High moisture, good for hydration. Low calcium."],
+        ["Fruit Flies (Drosophila)", "Hydei (larger species)", "Juveniles/small adults only", "Too small for adult frogs except as variety."],
+        ["Silkworms", "Small to medium", "Treat - 1x weekly", "Excellent nutrition but expensive and hard to source."],
+        ["Mealworms", "Small only", "Occasional - low acceptance", "Hard exoskeleton, less digestible. Many frogs refuse."],
+        ["Superworms", "Small only", "Occasional - low acceptance", "High fat, aggressive mandibles. Not ideal."],
+        ["Wild-caught insects", "Appropriate size", "NEVER", "Pesticide/parasite risk. Never feed wild-caught prey."]
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Rule of thumb for sizing: Prey width should be NO LARGER than the distance between frog's eyes. Slightly smaller is safer than slightly larger."
+    },
+    {
+      "type": "warning",
+      "text": "NEVER feed wild-caught insects (moths, flies, grasshoppers from outside). Risk of pesticide poisoning, parasites, and bacterial contamination."
+    },
+    {
+      "type": "section",
+      "heading": "The Picky Eater Problem"
+    },
+    {
+      "type": "text",
+      "text": "Red-Eyed Tree Frogs have a reputation for being picky, unpredictable eaters:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Individual Variation: Some frogs eagerly eat anything offered. Others refuse entire insect types for no apparent reason.",
+        "Inconsistent Preferences: A frog may love crickets for months, then suddenly ignore them and only accept roaches.",
+        "Worm Aversion: Many (but not all) Red-Eyed Tree Frogs refuse mealworms, superworms, and other elongated prey. Likely due to unfamiliar movement patterns.",
+        "Neophobia: Frogs raised on one feeder type may refuse new insects initially. Requires gradual introduction.",
+        "Mood-Based: Even well-fed frogs sometimes ignore food for 1-2 weeks with no health issues, then resume eating normally.",
+        "Movement Dependency: Prey MUST move to trigger feeding response. Motionless insects are invisible to frogs."
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Strategies for Picky Eaters:"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "Offer variety - rotate 3-4 insect types weekly rather than one staple",
+        "Feed during peak activity hours (7-9pm) when frogs are naturally hunting",
+        "Use feeding tongs to animate dead/sluggish insects",
+        "Start new feeders when frog is very hungry (skip one feeding first)",
+        "Remove crickets after 2 hours - they bite sleeping frogs and cause stress",
+        "Try canned/vacuum-packed insects for stubborn individuals (pre-supplemented)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Gut-Loading Feeder Insects"
+    },
+    {
+      "type": "text",
+      "text": "Gut-loading is feeding your feeders nutritious food 24-48 hours before offering to frogs. This transfers nutrition from feeder's gut into your frog:"
+    },
+    {
+      "type": "text",
+      "text": "Commercial Gut-Load Diets (Best):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Repashy Superload or Bug Burger - complete balanced formula",
+        "Cricket Crack or Fluker's High Calcium Cricket Diet",
+        "Contains optimal calcium:phosphorus ratios, vitamins, minerals",
+        "Just add water to powder, offer to feeders 24-48hr before feeding out"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "DIY Gut-Load Formula (Budget Option):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Base: High-quality fish flakes or whole grain cereal (calcium-fortified)",
+        "Calcium Source: Crushed cuttlebone or calcium powder mixed in",
+        "Vegetables: Thinly sliced sweet potato, carrots, leafy greens (kale, collards)",
+        "Fruit: Small amounts of apple, orange, or bee pollen for vitamins",
+        "Moisture: Water crystals or fresh vegetables for hydration",
+        "Avoid: Iceberg lettuce (no nutrition), spinach (calcium binding), dog/cat food (inappropriate protein)"
+      ]
+    },
+    {
+      "type": "table",
+      "headers": ["Feeder Type", "Gut-Load Duration", "Best Foods"],
+      "rows": [
+        ["Crickets", "24-48 hours", "Commercial diet, sweet potato, carrots, bee pollen"],
+        ["Dubia Roaches", "48-72 hours", "Commercial diet, leafy greens, apple slices"],
+        ["Mealworms/Superworms", "48-72 hours", "Commercial diet, carrots, oats, calcium powder"],
+        ["Waxworms", "Not needed", "Contain little gut content, primarily fat stores"],
+        ["Black Soldier Fly Larvae", "Not needed", "Already nutritious, high natural calcium"],
+        ["Hornworms", "24-48 hours", "Hornworm chow or mulberry leaves only (won't eat alternatives)"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Gut-loading is NOT optional - it's the PRIMARY way frogs receive vitamins and minerals. Supplements are secondary backup, not replacement."
+    },
+    {
+      "type": "section",
+      "heading": "Supplementation Protocol"
+    },
+    {
+      "type": "text",
+      "text": "Even with perfect gut-loading, feeder insects lack sufficient calcium and vitamin D3. Dusting (coating insects with powder) fills these gaps:"
+    },
+    {
+      "type": "text",
+      "text": "Standard Supplementation Schedule:"
+    },
+    {
+      "type": "table",
+      "headers": ["Feeding", "Supplement", "Ratio/Application"],
+      "rows": [
+        ["Every feeding", "Calcium + D3", "1:1 mix with multivitamin (see below)"],
+        ["Every feeding", "Multivitamin", "1:1 mix with Calcium + D3"],
+        ["Breeding females", "Additional pure Calcium", "Every 3rd feeding add extra calcium (no D3)"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Recommended Products:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Exo Terra Calcium + D3 - provides calcium carbonate + cholecalciferol (D3)",
+        "Exo Terra Multi Vitamin - broad spectrum vitamins A, B, C, E, amino acids",
+        "Mix Protocol: Combine equal parts Calcium+D3 and Multivitamin in small container, shake before each use"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "'Shake and Bake' Dusting Method:"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "Place appropriate number of feeder insects in plastic cup or bag",
+        "Add 1/4 teaspoon supplement powder mix",
+        "Gently shake/tumble until insects evenly coated (looks like powdered donuts)",
+        "Immediately offer to frogs - dust falls off within 10-20 minutes",
+        "For canned insects, dust them after removing from can/pouch"
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "Never skip dusting. Underage supplementation causes metabolic bone disease within 6-12 months. This is the #1 cause of preventable death in captive amphibians."
+    },
+    {
+      "type": "section",
+      "heading": "Feeding Schedule by Age"
+    },
+    {
+      "type": "table",
+      "headers": ["Life Stage", "Feeding Frequency", "Portion Size", "Notes"],
+      "rows": [
+        ["Juveniles (0-6 months)", "Daily", "3-5 small insects per frog", "Growing rapidly, need consistent nutrition"],
+        ["Sub-adults (6-12 months)", "Every other day", "4-6 medium insects per frog", "Still growing but slowing down"],
+        ["Adults (12+ months)", "Every 2-3 days", "5-8 medium insects per frog", "Mature metabolism, risk of obesity if overfed"],
+        ["Breeding females", "Every 1-2 days", "6-10 insects + calcium boost", "Egg production demands extra calcium/protein"],
+        ["Post-breeding recovery", "Every 2 days for 2 weeks", "6-8 insects, extra supplementation", "Replenish depleted reserves after egg laying"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "How Much to Feed:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Offer insects until frog loses interest (usually 5-10 minutes)",
+        "Remove uneaten feeders after 2 hours (crickets bite sleeping frogs)",
+        "Frog should have slightly rounded belly after feeding, not distended/bulging",
+        "If frog refuses food 2+ feedings in a row BUT is alert and active, skip one feeding and try again",
+        "Weight loss, lethargy, or sunken appearance = urgent vet visit"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Feeding Methods"
+    },
+    {
+      "type": "text",
+      "text": "Free-Range Feeding (Standard Method):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Release dusted insects into enclosure during evening hours (7-9pm)",
+        "Insects climb on plants/branches where frogs encounter them",
+        "Most natural method - stimulates hunting behavior",
+        "Pros: Natural, low stress, encourages exercise",
+        "Cons: Difficult to count exact intake, crickets may hide and bite frogs later, can't monitor individual frog intake in groups"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Tong Feeding (Recommended for Picky Eaters):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Use feeding tongs (8-10\" length) to hold insect",
+        "Wiggle insect slowly in front of frog's face to simulate movement",
+        "Frog strikes, loosen grip so it can grab prey",
+        "Pros: Ensures each frog eats, can train frogs to accept canned insects, controlled portions",
+        "Cons: Time-consuming, must be patient, some frogs scared by tongs initially",
+        "Training Period: 1-3 weeks before most frogs accept tong feeding"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Feeding Dish (Not Recommended for Tree Frogs):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Placing insects in dish works for terrestrial frogs, not arboreal species",
+        "Red-Eyed Tree Frogs rarely descend to ground level to feed",
+        "Only viable if using climbing insects (roaches) and dish is elevated"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Canned & Vacuum-Packed Insects"
+    },
+    {
+      "type": "text",
+      "text": "Exo Terra offers 11 varieties of pre-cooked, supplemented insects that can be valuable for picky eaters or backup food:"
+    },
+    {
+      "type": "text",
+      "text": "Benefits:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Already gut-loaded and vitamin-calcium coated - no prep needed",
+        "Softened exoskeleton (easier digestion than live)",
+        "Shelf-stable for years - excellent emergency backup",
+        "No escapees, no cricket noise, no feeder maintenance",
+        "Contains collagen from retorting process - aids bone/cartilage growth"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "How to Use:"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "Open can/pouch, drain excess liquid",
+        "Use feeding tongs to grasp single insect",
+        "Wiggle slowly in front of frog - must mimic live movement",
+        "Release tongs when frog strikes",
+        "Requires training period - most frogs need 2-4 sessions to accept",
+        "Not 100% replacement for live food, but can be 30-50% of diet"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Canned insects are EXCELLENT for travel, emergencies, or when feeder supplier is out of stock. Keep 2-3 cans as backup."
+    },
+    {
+      "type": "section",
+      "heading": "Feeder Insect Housing & Care"
+    },
+    {
+      "type": "text",
+      "text": "Keeping feeders alive and healthy until use:"
+    },
+    {
+      "type": "table",
+      "headers": ["Insect", "Housing", "Temperature", "Food/Water", "Lifespan"],
+      "rows": [
+        ["Crickets", "Ventilated container, egg cartons", "70-75°F", "Gut-load diet, water crystals", "2-3 weeks"],
+        ["Dubia Roaches", "Plastic tub, egg cartons", "75-90°F", "Roach chow, vegetables", "Several months"],
+        ["Mealworms", "Wheat bran bedding", "60-70°F (cooler = longer life)", "Bedding is food, carrot slices", "2-3 months"],
+        ["Waxworms", "Wood shavings or paper bedding", "55-60°F (refrigerate)", "Honey/wax moth diet (won't eat much)", "4-6 weeks refrigerated"],
+        ["Hornworms", "Ventilated cups with food", "75-80°F", "Hornworm chow (provided)", "1-2 weeks before pupating"],
+        ["Black Soldier Fly Larvae", "Dry container, no bedding", "60-75°F", "No food needed", "2-3 weeks before pupating"]
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "Dead/dying feeders accumulate ammonia and bacteria. Remove dead insects daily from feeder bins to prevent die-offs."
+    },
+    {
+      "type": "section",
+      "heading": "Hydration Through Feeding"
+    },
+    {
+      "type": "text",
+      "text": "While Red-Eyed Tree Frogs get most hydration through skin absorption (see hydration guide), food insects contribute moisture:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "High-Moisture Feeders: Hornworms (85% water), silkworms, freshly-molted insects provide bonus hydration",
+        "Standard Feeders: Gut-loaded crickets/roaches are ~70% water after eating vegetables",
+        "Low-Moisture Feeders: Mealworms, superworms are drier - offer vegetables to feeders first",
+        "Hydration Boost: If frog appears dehydrated, offer hornworms or heavily gut-loaded crickets plus increase misting"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Breeding Season Nutrition"
+    },
+    {
+      "type": "text",
+      "text": "Adjust feeding for breeding groups to support egg production and male vigor:"
+    },
+    {
+      "type": "text",
+      "text": "Pre-Breeding Conditioning (4-6 weeks before rainy season trigger):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Increase feeding frequency - every other day instead of every 2-3 days",
+        "Boost calcium supplementation - dust every feeding with extra calcium",
+        "Offer variety - rotate 4-5 different feeder types weekly",
+        "Higher fat content acceptable - waxworms 2x weekly instead of 1x",
+        "Goal: Build fat reserves and calcium stores for egg production"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "During Breeding Season:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Maintain high feeding frequency but don't overfeed (obesity interferes with amplexus)",
+        "Extra calcium critical - females producing 40-60 eggs per clutch, multiple clutches",
+        "Feed males normally - they often eat less while calling/pursuing females",
+        "Remove uneaten feeders promptly - breeding pairs ignore food during amplexus"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Post-Breeding Recovery (Females):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Feed heavily for 2-3 weeks - every 1-2 days with large portions",
+        "Maximum calcium supplementation - pure calcium (no D3) every 3rd feeding in addition to standard mix",
+        "High-protein feeders - crickets, roaches, silkworms preferred over waxworms",
+        "Goal: Replenish depleted calcium reserves before next breeding cycle"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Troubleshooting Feeding Issues"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Possible Causes", "Solutions"],
+      "rows": [
+        ["Refusing all food", "Stress, improper temps, impaction, illness", "Check temps (75-85°F), reduce stress, observe for 1 week, vet if continues"],
+        ["Only eats one insect type", "Neophobia, learned preference, stubbornness", "Offer new feeders when very hungry, tong-train with familiar food first, mix new/old insects"],
+        ["Spits out food after catching", "Insect too large, bad taste, calcium dust too thick", "Offer smaller prey, lighter dusting, remove any dead/spoiled feeders"],
+        ["Weight loss despite eating", "Parasites, metabolic disease, insufficient supplementation", "Fecal exam by vet, verify supplement schedule, increase feeding frequency"],
+        ["Obesity (bulging sides)", "Overfeeding, too many waxworms, insufficient exercise", "Reduce to every 3-4 days, eliminate high-fat feeders, add climbing enrichment"],
+        ["Difficulty catching prey", "Vision problems, MBD (weak jaw), improper lighting", "Tong-feed directly, check for MBD signs, verify UVB if used, slow-moving prey"],
+        ["Regurgitation after feeding", "Overfed, temps too cool, prey too large, stress", "Smaller portions, verify 75-85°F basking available, reduce handling around feeding time"],
+        ["Ignoring food at bottom", "Arboreal species won't ground-feed", "Feed near foliage/perches, use tongs, never rely on floor-level feeding"],
+        ["Crickets biting frog", "Left overnight, frog sleeping vulnerable", "Remove all feeders after 2 hours, never feed crickets before daytime rest period"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Signs of Proper Nutrition"
+    },
+    {
+      "type": "text",
+      "text": "Well-fed Red-Eyed Tree Frogs display these indicators:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Body Condition: Rounded (not bulging) belly, visible muscle tone in limbs, no visible hip bones",
+        "Activity Level: Alert and responsive during evening hours, actively hunts offered prey",
+        "Growth Rate: Juveniles double size every 2-3 months with proper feeding",
+        "Coloration: Vibrant green dorsal color, bright red eyes, no dull/dark stress coloration",
+        "Breeding Success: Females produce multiple clutches per season, high egg viability",
+        "Longevity: Reach 5-8+ year lifespan with proper nutrition (vs 2-3 years with deficiencies)",
+        "No MBD Signs: Strong grip strength, straight spine, no tremors or difficulty climbing"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Cost Considerations"
+    },
+    {
+      "type": "text",
+      "text": "Approximate monthly feeding costs (one adult frog):"
+    },
+    {
+      "type": "table",
+      "headers": ["Setup Type", "Monthly Cost", "Includes"],
+      "rows": [
+        ["Budget (Crickets only)", "$10-15", "Crickets + basic supplements + DIY gut-load"],
+        ["Standard (Mixed diet)", "$20-30", "Crickets, roaches, waxworms + supplements + commercial gut-load"],
+        ["Premium (Maximum variety)", "$35-50", "5+ feeder types, canned backup, premium supplements, breeding colony maintenance"],
+        ["Breeding Group (4-8 frogs)", "$60-120", "Scale above costs by frog quantity plus extra calcium for breeding females"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Raising your own Dubia roach colony can reduce long-term costs by 50-70% after initial setup investment of $50-100."
+    },
+    {
+      "type": "section",
+      "heading": "Emergency Backup Plan"
+    },
+    {
+      "type": "text",
+      "text": "Always have backup food sources in case your supplier runs out or you can't restock:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Keep 2-3 cans of Exo Terra canned crickets or grasshoppers (shelf-stable for years)",
+        "Maintain small Dubia roach breeding colony as self-sustaining backup",
+        "Know 2-3 local pet stores that carry feeders as alternatives to online orders",
+        "Red-Eyed Tree Frogs can safely fast 1-2 weeks if healthy - don't panic if you miss a feeding",
+        "Never resort to wild-caught insects as emergency food - poisoning risk too high"
+      ]
+    }
+  ]
+}

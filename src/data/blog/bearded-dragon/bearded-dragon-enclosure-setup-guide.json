@@ -67,58 +67,16 @@
       "content": "Recommended Setup: Front-opening glass terrarium or PVC enclosure with mesh top (30-40% screen for ventilation). Side ventilation optional for air circulation."
     },
     {
-      "type": "section",
-      "title": "Internal Layout Design"
-    },
-    {
-      "type": "text",
-      "content": "Effective layout creates a thermal gradient (hot → cool zones) while providing basking platforms, hides, and activity space. Design emphasizes horizontal movement over vertical climbing."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Zone Layout Template (4×2×2 ft enclosure):</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Zone", "Location", "Temperature", "Features"],
-      "rows": [
-        ["Basking zone", "One end (12-18 inches)", "100-110°F surface", "Flat rock, basking platform, UVB coverage"],
-        ["Warm side", "Basking end (24 inches)", "85-95°F ambient", "Activity space, food bowl area"],
-        ["Transition zone", "Middle third (24 inches)", "80-85°F ambient", "Open floor space, enrichment items"],
-        ["Cool side", "Opposite end (24 inches)", "75-80°F ambient", "Hide cave, water dish (if provided)"]
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "tip",
-      "content": "Layout Principle: Bearded dragons thermoregulate by moving between zones. Avoid placing hides, food, and water all in one area—distribute across gradient to encourage natural movement patterns."
+      "type": "highlight",
+      "content": "For complete guidance on creating thermal gradients, understanding temperature zones, and selecting temperature monitoring equipment, see our <a href='/blog/thermal-gradient-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Understanding Thermal Gradients</a> and <a href='/blog/temperature-monitoring-equipment-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Temperature Monitoring Equipment</a> guides. Below are the specific layout and enrichment requirements for bearded dragons."
     },
     {
       "type": "section",
-      "title": "Essential Equipment Checklist"
+      "title": "Bearded Dragon Specific Requirements"
     },
     {
       "type": "text",
-      "content": "Complete equipment list for adult bearded dragon enclosure setup. All items should be installed before introducing animals."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Required Equipment:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Equipment Category", "Specific Items", "Purpose"],
-      "rows": [
-        ["Heating", "100W halogen flood, ceramic socket, thermostat", "Basking zone (100-110°F surface)"],
-        ["UVB Lighting", "34\\\" T5 HO 10-12% bulb, reflector fixture", "Vitamin D3 synthesis, bone health"],
-        ["Full-Spectrum Lighting", "48\\\" 6500K LED grow light", "Behavioral health, circadian rhythm"],
-        ["Substrate", "Tile, stone, or bioactive mix (4-6 inches)", "Safe footing, digging enrichment"],
-        ["Basking Platform", "Flat stone or slate, 10-12 inches wide", "Primary basking surface"],
-        ["Hide Structure", "Cave or half-log, 1-2 per zone", "Security, thermoregulation"],
-        ["Climbing Decor", "Branches, rocks, ledges (horizontal)", "Enrichment, vantage points"],
-        ["Thermometers", "Digital probes (2-3), infrared temp gun", "Temperature verification"],
-        ["Timer", "Digital with surge protection (2)", "Consistent photoperiod"]
-      ]
+      "content": "Bearded dragons require a basking surface of 100-110°F at one end and a cool side of 75-80°F at the opposite end. They are diurnal baskers that spend significant time under UVB lighting."
     },
     {
       "type": "highlight",

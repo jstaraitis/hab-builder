@@ -1,0 +1,411 @@
+{
+  "aquarium-chiller": {
+    "name": "Aquarium Chiller",
+    "category": "equipment",
+    "needsTags": ["temperature:cold-water"],
+    "importance": "required",
+    "spec": {
+      "type": "Active cooling system",
+      "capacity": "Based on tank size",
+      "temperature": "Maintains 60-68°F"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic aquarium chiller (1/10 HP)",
+        "searchQuery": "aquarium chiller 1/10 hp cold water"
+      },
+      "recommended": {
+        "description": "Digital aquarium chiller (1/6 HP)",
+        "searchQuery": "aquarium chiller 1/6 hp digital"
+      },
+      "ideal": {
+        "description": "Premium chiller with temperature controller (1/4 HP)",
+        "searchQuery": "aquarium chiller 1/4 hp premium digital"
+      }
+    },
+    "notes": "CRITICAL for axolotls in warm climates. Prevents fatal heat stress. Size chiller based on tank volume and ambient room temperature. Most homes require chiller year-round."
+  },
+  "aquarium-filter-canister": {
+    "name": "Canister Filter (High-Flow)",
+    "category": "equipment",
+    "needsTags": ["filtration:high-flow"],
+    "requiredWith": ["surge-protector"],
+    "importance": "required",
+    "spec": {
+      "type": "Canister filter",
+      "flow": "4-6x tank volume per hour",
+      "media": "Mechanical, biological, chemical"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic canister filter",
+        "searchQuery": "canister filter aquarium turtle"
+      },
+      "recommended": {
+        "description": "Multi-stage canister filter",
+        "searchQuery": "canister filter aquarium turtle multi-stage"
+      },
+      "ideal": {
+        "description": "Premium canister with UV sterilizer",
+        "searchQuery": "canister filter aquarium premium uv sterilizer"
+      }
+    },
+    "notes": "For messy aquatic animals like turtles. Provides mechanical, biological, and chemical filtration. Clean monthly, replace media as needed."
+  },
+  "aquarium-filter-sponge": {
+    "name": "Sponge Filter (Low-Flow)",
+    "category": "equipment",
+    "needsTags": ["filtration:low-flow"],
+    "requiredWith": ["air-pump", "surge-protector"],
+    "importance": "required",
+    "spec": {
+      "type": "Sponge filter",
+      "flow": "Gentle, adjustable",
+      "media": "Biological filtration"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic sponge filter + air pump",
+        "searchQuery": "sponge filter aquarium air pump"
+      },
+      "recommended": {
+        "description": "Double sponge filter + adjustable air pump",
+        "searchQuery": "double sponge filter aquarium adjustable"
+      },
+      "ideal": {
+        "description": "Premium sponge filter system + quiet air pump",
+        "searchQuery": "premium sponge filter aquarium quiet pump"
+      }
+    },
+    "notes": "Essential for axolotls - provides gentle filtration without strong current. Sponge provides biological filtration surface. Clean weekly by squeezing in tank water (never tap water)."
+  },
+  "air-pump": {
+    "name": "Air Pump (Aquarium)",
+    "category": "equipment",
+    "needsTags": ["filtration:low-flow"],
+    "requiredWith": ["surge-protector"],
+    "importance": "required",
+    "spec": {
+      "type": "Adjustable air pump",
+      "output": "Single or dual outlet"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic air pump",
+        "searchQuery": "aquarium air pump adjustable"
+      },
+      "recommended": {
+        "description": "Quiet adjustable air pump",
+        "searchQuery": "aquarium air pump quiet adjustable"
+      },
+      "ideal": {
+        "description": "Ultra-quiet dual outlet air pump",
+        "searchQuery": "aquarium air pump ultra quiet dual"
+      }
+    },
+    "notes": "Powers sponge filters and air stones. Choose adjustable models to control flow rate. Place above tank level or use check valve to prevent backflow."
+  },
+  "aquarium-test-kit": {
+    "name": "Liquid Test Kit (Master)",
+    "category": "equipment",
+    "needsTags": ["water-quality:testing"],
+    "importance": "required",
+    "spec": {
+      "tests": "Ammonia, Nitrite, Nitrate, pH",
+      "type": "Liquid reagent (more accurate than strips)"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic liquid test kit (ammonia, nitrite, pH)",
+        "searchQuery": "api master test kit freshwater"
+      },
+      "recommended": {
+        "description": "Master test kit (ammonia, nitrite, nitrate, pH)",
+        "searchQuery": "api master test kit freshwater"
+      },
+      "ideal": {
+        "description": "Master test kit + GH/KH test kit",
+        "searchQuery": "api master test kit freshwater gh kh"
+      }
+    },
+    "notes": "REQUIRED for all aquatic setups. Test weekly minimum. Ammonia and nitrite must be 0 ppm at all times. Liquid tests more accurate than test strips. Essential for cycling new tanks."
+  },
+  "water-conditioner": {
+    "name": "Water Conditioner (Dechlorinator)",
+    "category": "equipment",
+    "needsTags": ["water-treatment"],
+    "importance": "required",
+    "spec": {
+      "type": "Liquid dechlorinator",
+      "removes": "Chlorine, chloramine, heavy metals"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic dechlorinator",
+        "searchQuery": "seachem prime water conditioner"
+      },
+      "recommended": {
+        "description": "Seachem Prime (concentrated formula)",
+        "searchQuery": "seachem prime water conditioner"
+      },
+      "ideal": {
+        "description": "Seachem Prime large bottle",
+        "searchQuery": "seachem prime 500ml water conditioner"
+      }
+    },
+    "notes": "REQUIRED for all water changes. For axolotls: MUST use aloe-free conditioner - Seachem Prime or Fritz Complete only. Removes chlorine, chloramine, and heavy metals. Very concentrated - small amount treats large volumes."
+  },
+  "aquarium-heater": {
+    "name": "Submersible Aquarium Heater",
+    "category": "equipment",
+    "needsTags": ["heating:aquatic"],
+    "requiredWith": ["heater-guard", "surge-protector"],
+    "importance": "required",
+    "spec": {
+      "type": "Submersible glass or titanium heater",
+      "wattage": "3-5 watts per gallon",
+      "control": "Built-in thermostat"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic glass submersible heater (50-100W)",
+        "searchQuery": "aquarium heater submersible adjustable"
+      },
+      "recommended": {
+        "description": "Digital preset heater (100-150W)",
+        "searchQuery": "aquarium heater submersible digital"
+      },
+      "ideal": {
+        "description": "Titanium heater with external controller (150-200W)",
+        "searchQuery": "titanium aquarium heater external controller"
+      }
+    },
+    "notes": "For tropical aquatic species like red-eared sliders (75-80°F). NOT for axolotls (cold-water species). Use heater guard to prevent animal contact. Position horizontally near filter output for even heat distribution."
+  },
+  "heater-guard": {
+    "name": "Heater Guard (Protective Cover)",
+    "category": "equipment",
+    "needsTags": ["heating:aquatic"],
+    "importance": "required",
+    "spec": {
+      "type": "Plastic or metal cage",
+      "purpose": "Prevents burns and heater damage"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic plastic heater guard",
+        "searchQuery": "aquarium heater guard cover"
+      },
+      "recommended": {
+        "description": "Adjustable heater guard",
+        "searchQuery": "aquarium heater guard adjustable"
+      },
+      "ideal": {
+        "description": "Heavy-duty metal heater guard",
+        "searchQuery": "aquarium heater guard metal heavy duty"
+      }
+    },
+    "notes": "REQUIRED for turtle tanks - prevents turtles from breaking glass heaters. Also prevents burns from direct contact. Allows water flow while protecting equipment."
+  },
+  "aquarium-lid": {
+    "name": "Aquarium Lid/Screen Cover",
+    "category": "equipment",
+    "needsTags": [],
+    "importance": "required",
+    "spec": {
+      "type": "Glass lid or screen top",
+      "purpose": "Prevents escape and jumping"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic glass lid or screen cover",
+        "searchQuery": "aquarium lid glass screen cover"
+      },
+      "recommended": {
+        "description": "Hinged glass lid with feeding door",
+        "searchQuery": "aquarium glass lid hinged feeding door"
+      },
+      "ideal": {
+        "description": "Custom-fit lid with cutouts for equipment",
+        "searchQuery": "aquarium glass lid custom cut equipment"
+      }
+    },
+    "notes": "Prevents jumping and escape - especially important for axolotls. Glass lids reduce evaporation. Screen tops allow better air exchange. Must have cutouts or hinges for heater, filter, and feeding access."
+  },
+  "basking-platform": {
+    "name": "Turtle Basking Platform/Dock",
+    "category": "decor",
+    "needsTags": ["basking:aquatic"],
+    "importance": "required",
+    "spec": {
+      "type": "Above-water platform",
+      "surface": "Completely dry, textured for grip"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic floating basking dock",
+        "searchQuery": "turtle basking platform floating"
+      },
+      "recommended": {
+        "description": "Magnetic or suction basking platform",
+        "searchQuery": "turtle basking platform magnetic adjustable"
+      },
+      "ideal": {
+        "description": "Custom rock/slate basking area",
+        "searchQuery": "turtle basking platform rock custom"
+      }
+    },
+    "notes": "REQUIRED for semi-aquatic turtles. Must be completely dry and easily accessible. Position below heat lamp and UVB light. Should support full body weight without tipping. Textured surface prevents slipping."
+  },
+  "python-siphon": {
+    "name": "Aquarium Water Changer/Siphon",
+    "category": "equipment",
+    "needsTags": ["maintenance:water-change"],
+    "importance": "recommended",
+    "spec": {
+      "type": "Gravel vacuum with hose",
+      "length": "Based on tank size and distance to sink"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic gravel vacuum and bucket",
+        "searchQuery": "aquarium gravel vacuum siphon"
+      },
+      "recommended": {
+        "description": "Python water changer system",
+        "searchQuery": "python no spill aquarium water changer"
+      },
+      "ideal": {
+        "description": "Python pro system with extended reach",
+        "searchQuery": "python no spill aquarium water changer 50ft"
+      }
+    },
+    "notes": "Makes water changes much easier - connects directly to faucet. No more buckets. Python system allows filling and draining. For large tanks, this is essential equipment. Remember to add dechlorinator before refilling."
+  },
+  "air-stone": {
+    "name": "Air Stone/Bubbler",
+    "category": "equipment",
+    "needsTags": [],
+    "importance": "optional",
+    "spec": {
+      "type": "Porous stone diffuser",
+      "purpose": "Increases surface agitation and oxygen"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic air stone",
+        "searchQuery": "aquarium air stone bubbler"
+      },
+      "recommended": {
+        "description": "Cylinder air stone",
+        "searchQuery": "aquarium air stone cylinder"
+      },
+      "ideal": {
+        "description": "LED air stone with color changing lights",
+        "searchQuery": "aquarium air stone led lights"
+      }
+    },
+    "notes": "Optional for most setups if filter provides adequate surface agitation. Can add visual interest. Avoid in axolotl tanks if creates too much current."
+  },
+  "filter-media-bio": {
+    "name": "Biological Filter Media",
+    "category": "equipment",
+    "needsTags": ["filtration:biological"],
+    "importance": "recommended",
+    "spec": {
+      "type": "Ceramic rings, bio balls, or sponge",
+      "purpose": "Houses beneficial bacteria"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic bio media (ceramic rings)",
+        "searchQuery": "aquarium biological filter media ceramic"
+      },
+      "recommended": {
+        "description": "Premium bio media (high surface area)",
+        "searchQuery": "aquarium biological filter media seachem matrix"
+      },
+      "ideal": {
+        "description": "Professional bio media kit",
+        "searchQuery": "aquarium biological filter media professional kit"
+      }
+    },
+    "notes": "Houses beneficial bacteria that convert ammonia → nitrite → nitrate. Never replace all at once - wash in tank water only, never tap water. Essential for biological filtration in all aquatic setups."
+  },
+  "filter-media-carbon": {
+    "name": "Activated Carbon Filter Media",
+    "category": "equipment",
+    "needsTags": ["filtration:chemical"],
+    "importance": "optional",
+    "spec": {
+      "type": "Activated carbon/charcoal",
+      "purpose": "Removes dissolved organics, odors, discoloration"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic activated carbon",
+        "searchQuery": "activated carbon aquarium filter media"
+      },
+      "recommended": {
+        "description": "Premium activated carbon",
+        "searchQuery": "seachem purigen aquarium filter media"
+      },
+      "ideal": {
+        "description": "Purigen + activated carbon combo",
+        "searchQuery": "seachem purigen activated carbon combo"
+      }
+    },
+    "notes": "Removes tannins, medications, and dissolved organics. Replace monthly. Remove before medicating tank. Optional but helpful for water clarity. Purigen is regenerable and more effective than carbon."
+  },
+  "substrate-slate-tile": {
+    "name": "Slate Tile (Aquarium Safe)",
+    "category": "substrate",
+    "needsTags": ["substrate:slate"],
+    "importance": "required",
+    "spec": {
+      "type": "Natural slate tiles",
+      "size": "Cut to fit tank bottom"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Hardware store slate tiles (unsealed)",
+        "searchQuery": "natural slate tile aquarium safe"
+      },
+      "recommended": {
+        "description": "Pre-cut aquarium slate tiles",
+        "searchQuery": "slate tile aquarium bottom cover"
+      },
+      "ideal": {
+        "description": "Custom-cut slate tile set",
+        "searchQuery": "custom slate tile aquarium substrate"
+      }
+    },
+    "notes": "Safe alternative to bare-bottom for axolotls. Provides better traction than glass. Easier to clean than sand. Ensure tiles are natural/unsealed - no sealants or finishes. Rinse thoroughly before use."
+  },
+  "substrate-fine-sand-aquatic": {
+    "name": "Fine Sand (Aquarium Grade)",
+    "category": "substrate",
+    "needsTags": ["substrate:sand-aquatic"],
+    "importance": "conditional",
+    "spec": {
+      "type": "Ultra-fine aquarium sand",
+      "grainSize": "< 1mm grain size",
+      "depth": "1-2 inches"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Fine aquarium sand",
+        "searchQuery": "ultra fine aquarium sand"
+      },
+      "recommended": {
+        "description": "CaribSea Super Naturals",
+        "searchQuery": "caribsea super naturals aquarium sand"
+      },
+      "ideal": {
+        "description": "Estes Marine Sand Ultra Fine",
+        "searchQuery": "estes marine sand ultra fine black"
+      }
+    },
+    "notes": "ONLY for axolotls 6+ inches long - still carries impaction risk. Must be ultra-fine (smaller than grains can swallow). Bare-bottom or slate tile safer options. Rinse thoroughly before adding to tank. Provides natural look and beneficial bacteria surface."
+  }
+}

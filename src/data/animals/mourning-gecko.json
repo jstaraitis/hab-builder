@@ -1,0 +1,198 @@
+{
+  "id": "mourning-gecko",
+  "commonName": "Mourning Gecko",
+  "scientificName": "Lepidodactylus lugubris",
+  "searchQuery": ["mourning gecko", "mourning-gecko", "lepidodactylus lugubris", "gecko", "parthenogenesis gecko"],
+  "careLevel": "beginner",
+  "emoji": "🦎",
+  "imageUrl": "/animals/mourning-gecko/mourning-gecko-1.jpg",
+  "completionStatus": "in-progress",
+  "gallery": [
+    {
+      "url": "/animals/mourning-gecko/mourning-gecko-1.jpg",
+      "caption": ""
+    }
+  ],
+  "minEnclosureSize": {
+    "width": 12,
+    "depth": 12,
+    "height": 18,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 10,
+    "additionalGallons": 5,
+    "maxRecommended": 10,
+    "description": "Mourning geckos MUST be housed in groups of at least 2 (they are naturally social). Minimum 12×12×18 inches comfortably houses up to 4 geckos. Add approximately 5 gallons per additional 2 geckos."
+  },
+  "careTargets": {
+    "temperature": {
+      "min": 70,
+      "max": 75,
+      "basking": {
+        "min": 80,
+        "max": 85
+      },
+      "nighttime": {
+        "min": 65,
+        "max": 72
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "day": {
+        "min": 60,
+        "max": 80
+      },
+      "night": {
+        "min": 70,
+        "max": 90
+      },
+      "shedding": {
+        "min": 70,
+        "max": 85
+      },
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": true,
+      "uvbRecommended": true,
+      "uvbStrength": "5.0",
+      "coveragePercent": 50,
+      "photoperiod": "12h day / 12h night"
+    },
+    "gradient": "Vertical temperature gradient with warmth at top near heat lamp and cooler areas toward bottom"
+  },
+  "layoutRules": {
+    "preferVertical": true,
+    "verticalSpacePercent": 70,
+    "thermalGradient": "vertical",
+    "requiredZones": ["basking", "hide", "climbing"],
+    "optionalZones": ["feeding", "secondary_hide"]
+  },
+  "bioactiveCompatible": true,
+  "equipmentNeeds": {
+    "climbing": "vertical",
+    "substrate": ["bioactive", "soil"],
+    "bioactiveSubstrate": "tropical",
+    "humidity": "high",
+    "heatSource": "low-wattage-bulb",
+    "waterFeature": "misting-only",
+    "lighting": "uvb-forest",
+    "diet": ["omnivore"],
+    "animalType": "reptile",
+    "decor": ["branches", "ledges", "hides", "plants", "vines", "moist-hide"],
+    "water": ["water-dish-large"],
+    "humidity-aids": ["sphagnum-moss"]
+  },
+  "lifespan": "10+ years in captivity",
+  "dietType": "Omnivore",
+  "adultSize": "4 inches (including tail)",
+  "temperament": "Flighty and not handleable - display animals only",
+  "activityPattern": "Crepuscular",
+  "originRegion": "South Pacific islands, Central/South America, Hawaii (tropical rainforest)",
+  "setupTips": [
+    "Maximize vertical climbing space with vines, branches, and foliage at all levels",
+    "Use magnetic feeding ledges for crested gecko diet placement",
+    "Keep basking area low (80-85°F) - use 25w bulb with dimmer to fine-tune",
+    "Add layer of leaf litter over substrate for naturalistic appearance and foraging enrichment"
+  ],
+  "notes": [
+    "ALL mourning geckos are female - they reproduce via parthenogenesis (no males needed)",
+    "Offspring are genetic clones of their mother",
+    "Crepuscular - most active around sunset and sunrise",
+    "Naturally social species - housing groups of 2-4 is essential for wellbeing",
+    "Too small and flighty to handle - best enjoyed as display animals",
+    "Excellent climbers with adhesive toe pads that allow them to scale smooth surfaces",
+    "Lack eyelids like other geckos - lick their eyes to keep them clean"
+  ],
+  "warnings": [
+    {
+      "severity": "critical",
+      "message": "Never house individually - mourning geckos are social and REQUIRE companions (minimum 2 geckos). Single housing causes stress and behavioral issues.",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "critical",
+      "message": "Temperatures consistently above 85°F can be LETHAL. Keep basking area at 80-85°F maximum and use a dimmer to prevent overheating.",
+      "category": "safety"
+    },
+    {
+      "severity": "critical",
+      "message": "Temperatures at or below 72°F for extended periods can cause illness. Ensure proper heating gradient.",
+      "category": "safety"
+    },
+    {
+      "severity": "important",
+      "message": "Not handleable due to tiny size (4 inches) and flighty nature. These are observation pets, not interactive pets.",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "important",
+      "message": "Use tap or spring water (NOT distilled) for misting - distilled water lacks essential minerals and can cause deficiencies.",
+      "category": "common_mistake"
+    },
+    {
+      "severity": "tip",
+      "message": "All offspring will be female and identical to mother - plan for population growth and eventual enclosure upgrades.",
+      "category": "general"
+    }
+  ],
+  "relatedBlogs": [
+    "mourning-gecko-enclosure-setup-guide",
+    "mourning-gecko-substrate-guide",
+    "mourning-gecko-temp-humidity-guide",
+    "mourning-gecko-lighting-guide",
+    "mourning-gecko-feeding-guide",
+    "mourning-gecko-hydration-guide",
+    "mourning-gecko-enrichment-welfare-guide",
+    "mourning-gecko-hydration-guide"
+  ],
+  "careGuidance": {
+    "feedingRequirements": [
+      "Omnivorous - primary diet is commercial crested gecko diet (CGD powder mixed with water)",
+      "Best CGD brands: Pangea, Repashy, Black Panther Zoological, Gecko Pro, Leapin' Leachie, Zoo Med",
+      "Live insects offered 1-2x weekly for enrichment and protein diversity",
+      "Best insects: crickets, dubia roaches, red runner roaches, darkling beetles, snails, grasshoppers",
+      "Insects must be appropriately sized (no larger than space between gecko's eyes)",
+      "Dust insects with calcium supplement without D3 (Arcadia CalciumPro Mg, MinerAll Outdoor, or Repashy SuperCal NoD)",
+      "Skipping one CGD feeding per week is not harmful and may be beneficial"
+    ],
+    "feedingSchedule": [
+      "Provide crested gecko diet (CGD) continuously - replace every 24-48 hours",
+      "Offer calcium-dusted insects 1-2x per week for variety",
+      "Remove uneaten insects after feeding session to prevent stress",
+      "Skip one CGD feeding per week if desired (natural fasting period)",
+      "Breeding females may eat more frequently - monitor body condition"
+    ],
+    "waterNotes": [
+      "Do NOT provide standing water dish (drowning risk for tiny geckos)",
+      "Primary hydration from misting - lick water droplets from leaves and surfaces",
+      "Mist enclosure every morning and evening with pump-style pressure sprayer",
+      "Use tap or spring water (NOT distilled/RO water) to provide essential minerals"
+    ],
+    "mistingNotes": [
+      "Mist twice daily - morning and evening (essential for hydration)",
+      "Target humidity: 60-80% ambient throughout day",
+      "Humidity naturally rises at night and falls during day (this is healthy)",
+      "Humidity should be lower near basking area, higher in cool zone",
+      "Use pump-style pressure sprayer for fine mist coverage",
+      "Ensure adequate ventilation between mistings to prevent mold growth"
+    ],
+    "substrateRecommendations": [
+      "Use moisture-retentive naturalistic substrate (2-4 inches deep)",
+      "Best options: DIY tropical mix (60% organic topsoil + 40% coconut fiber), Lugarti Natural Reptile Bedding, Zoo Med Reptisoil, The Bio Dude Terra Fauna",
+      "Add generous layer of leaf litter on top for naturalistic appearance",
+      "Substrate helps stabilize humidity and cushions falls from climbing",
+      "Spot clean feces/urates daily, scoop contaminated substrate as needed",
+      "Complete substrate replacement every 1-3 months (or go bioactive for less maintenance)"
+    ],
+    "handlingGuidance": [
+      "DO NOT HANDLE - mourning geckos are too small (4 inches) and flighty",
+      "Handling causes extreme stress and injury risk",
+      "These are display/observation animals, not interactive pets",
+      "Enjoy watching natural behaviors instead of hands-on interaction",
+      "If you need to move a gecko, gently guide into small container rather than grabbing"
+    ]
+  }
+}

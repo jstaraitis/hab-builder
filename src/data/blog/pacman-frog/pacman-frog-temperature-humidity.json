@@ -1,0 +1,586 @@
+{
+  "id": "pacman-frog-temperature-humidity",
+  "title": "Pacman Frog Temperature & Humidity Guide: Species Differences & Control",
+  "description": "Complete environmental control guide for Pacman frogs including temperature ranges by species, humidity requirements, monitoring equipment, and troubleshooting.",
+  "author": "Habitat Builder",
+  "date": "2026-01-28",
+  "category": "Care Guides",
+  "excerpt": "Species-specific temperature and humidity requirements for all Pacman frog species with monitoring tips, control methods, and regional habitat considerations.",
+  "tags": ["pacman-frog", "temperature", "humidity", "environment", "ceratophrys"],
+  "content": [
+    {
+      "type": "intro",
+      "heading": "Environmental Requirements for Healthy Pacman Frogs",
+      "text": "Proper temperature and humidity are critical for Pacman frog health. Different species have different requirements based on their native habitats - from arid Gran Chaco grasslands (C. cranwelli) to Amazon rainforests (C. cornuta). This guide covers species-specific needs and how to achieve and maintain them."
+    },
+    {
+      "type": "section",
+      "heading": "Temperature Requirements by Species"
+    },
+    {
+      "type": "text",
+      "text": "All Pacman frogs need a thermal gradient - warm side and cool side - allowing them to thermoregulate by moving between zones."
+    },
+    {
+      "type": "table",
+      "headers": ["Species", "Warm Side (Day)", "Cool Side (Day)", "Nighttime", "Notes"],
+      "rows": [
+        ["C. cranwelli", "80-85°F (27-29°C)", "70-75°F (21-24°C)", "65-75°F (18-24°C)", "Gran Chaco - tolerates wider range"],
+        ["C. cornuta", "80-85°F (27-29°C)", "75-80°F (24-27°C)", "70-75°F (21-24°C)", "Amazon rainforest - prefers warmer"],
+        ["C. ornata", "80-85°F (27-29°C)", "70-75°F (21-24°C)", "65-75°F (18-24°C)", "Standard tropical care"],
+        ["C. aurita", "80-85°F (27-29°C)", "75-80°F (24-27°C)", "68-75°F (20-24°C)", "Atlantic rainforest - similar to cornuta"],
+        ["Hybrids", "80-85°F (27-29°C)", "70-75°F (21-24°C)", "65-75°F (18-24°C)", "Standard tropical care"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Warm side temperature is measured at substrate surface under heat lamp - this is where frog experiences warmth. Use infrared temperature gun for accurate readings."
+    },
+    {
+      "type": "section",
+      "heading": "Why Thermal Gradients Matter"
+    },
+    {
+      "type": "text",
+      "text": "Thermal gradients allow frogs to thermoregulate - self-regulate body temperature by moving between warm and cool zones:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "After eating: Move to warm side for better digestion",
+        "When too warm: Retreat to cool side to prevent overheating",
+        "During activity: Choose preferred temperature for hunting/exploring",
+        "When ill: Can behaviorally fever (seek warmth to boost immune system)",
+        "Prevents chronic stress from being stuck at wrong temperature"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "Never heat entire enclosure uniformly. Frogs need temperature choice. Heat lamps should cover only one side of enclosure."
+    },
+    {
+      "type": "section",
+      "heading": "Achieving Proper Temperatures"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Equipment needed:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Halogen or incandescent heat lamp (20-60w, see heating guide)",
+        "Dimming thermostat OR dimmable fixture + on-off backup",
+        "2 digital thermometers with probes (one warm, one cool)",
+        "Infrared temperature gun for spot checks"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Setup:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Place heat lamp on one end of enclosure (warm side)",
+        "Leave opposite end without heat sources (cool side)",
+        "Position thermostat probe on warm side at substrate level",
+        "Place one thermometer probe on warm side, one on cool side",
+        "Adjust heat lamp wattage or dimmer until warm side reaches 80-85°F",
+        "Verify cool side stays 70-75°F (or species-appropriate range)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "For complete heating equipment guide, see <a href='/blog/pacman-frog-heating-lighting' class='text-emerald-600 underline'>Heating & Lighting Guide</a>."
+    },
+    {
+      "type": "section",
+      "heading": "Troubleshooting Temperature Issues"
+    },
+    {
+      "type": "section",
+      "heading": "Problem: Warm side too cool (below 80°F)"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Solutions:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Increase bulb wattage (try 50-60w instead of 40w)",
+        "Check dimmer setting (if using dimmable fixture, increase power)",
+        "Lower heat lamp closer to enclosure (ensure safe distance)",
+        "Cover more of screen top to retain heat (HVAC tape, foil, acrylic)",
+        "Check room temperature (very cold rooms need more heat)",
+        "Verify thermostat probe placement (should be on warm side)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Problem: Warm side too hot (above 85°F)"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Solutions:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Decrease bulb wattage (try 25-35w instead of 40w)",
+        "Reduce dimmer setting (if using dimmable fixture)",
+        "Raise heat lamp higher above enclosure",
+        "Check thermostat setting (may need lowering)",
+        "Ensure adequate ventilation"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Problem: No thermal gradient (both sides same temp)"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Solutions:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Move heat lamp to one end only (not center)",
+        "Increase enclosure size (too small = no gradient possible)",
+        "Remove heat sources from cool side",
+        "Add more ventilation on warm side",
+        "Check for drafts affecting cool side"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Problem: Nighttime too cold (below 65°F)"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Solutions:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Add nighttime heat source (DHP, CHE, or heat mat - see heating guide)",
+        "Cover more of screen top to retain warmth",
+        "Move enclosure away from windows and drafts",
+        "Increase room temperature if possible",
+        "Note: Most Pacman frogs tolerate 65°F just fine"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Humidity Requirements by Species"
+    },
+    {
+      "type": "text",
+      "text": "Humidity needs vary significantly based on native habitat:"
+    },
+    {
+      "type": "table",
+      "headers": ["Species", "Humidity Range", "Native Habitat", "Special Notes"],
+      "rows": [
+        ["C. cranwelli", "65-75%", "Gran Chaco (semi-arid grasslands)", "Tolerates lower humidity than others"],
+        ["C. cornuta", "75-85%", "Amazon rainforest", "Needs consistently high humidity"],
+        ["C. ornata", "70-80%", "Temperate grasslands/wetlands", "Standard tropical care"],
+        ["C. aurita", "75-85%", "Atlantic rainforest", "Similar to C. cornuta"],
+        ["Hybrids", "70-80%", "N/A (captive-bred)", "Standard tropical care"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "For native habitat maps and climate data, see: <a href='https://www.inaturalist.org/taxa/24255-Ceratophrys' target='_blank' class='text-emerald-600 underline'>iNaturalist Ceratophrys observations</a>"
+    },
+    {
+      "type": "section",
+      "heading": "How Humidity Works in Enclosures"
+    },
+    {
+      "type": "text",
+      "text": "Physics principle: Warm air holds more moisture than cool air. This creates natural humidity variation in enclosures with thermal gradients:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Warm side:</span> Lower humidity (heat evaporates moisture faster)",
+        "<span class='font-semibold'>Cool side:</span> Higher humidity (moisture condenses in cooler air)",
+        "This is NORMAL and expected - don't be alarmed by difference",
+        "If cool side humidity is in species range, you're good"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Monitor humidity on COOL SIDE primarily. If cool side is within range (e.g., 70-80%), warm side will naturally be 10-20% lower. This gradient is healthy and normal."
+    },
+    {
+      "type": "section",
+      "heading": "Maintaining Proper Humidity"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Primary humidity source: Moist substrate</span>"
+    },
+    {
+      "type": "text",
+      "text": "Deep, properly moistened substrate is your main humidity reservoir:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Substrate depth: 4-6 inches for adults (see substrate guide)",
+        "Squeeze test: Water should drip out when squeezed",
+        "Mix water throughout substrate, not just surface misting",
+        "Deeper substrate holds moisture longer",
+        "Check substrate moisture weekly by digging down"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Secondary methods:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Misting:</span> Spray enclosure 1-2x daily with dechlorinated water",
+        "<span class='font-semibold'>Water dish:</span> Large water dish adds humidity through evaporation",
+        "<span class='font-semibold'>Live plants:</span> Transpiration releases moisture into air",
+        "<span class='font-semibold'>Screen top coverage:</span> Cover 50-75% of screen with HVAC tape, foil, or acrylic (on cool side)"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "ALL water (substrate, misting, water dish) must be treated with reptile/amphibian dechlorinator. Chlorine causes toxic shock which is often fatal."
+    },
+    {
+      "type": "section",
+      "heading": "Troubleshooting Humidity Issues"
+    },
+    {
+      "type": "section",
+      "heading": "Problem: Humidity too low (below species minimum)"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Solutions:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Add more water to substrate (thoroughly mix in, don't just mist surface)",
+        "Increase substrate depth (deeper = more moisture retention)",
+        "Mist more frequently (2-3x daily instead of 1x)",
+        "Cover more of screen top (50-75% on cool side)",
+        "Add more live plants (increase transpiration)",
+        "Upgrade to larger water dish (more evaporation surface)",
+        "Move enclosure away from heating vents and drafts",
+        "Use glass enclosure instead of screen (better retention)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Problem: Humidity too high (above species maximum)"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Solutions:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Increase ventilation (uncover more screen top)",
+        "Reduce misting frequency",
+        "Let substrate dry slightly (still moist, but less saturated)",
+        "Ensure no puddles or standing water",
+        "Check for over-watering live plants",
+        "Use smaller water dish",
+        "Add more ventilation holes if using bin enclosure"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "text": "Note: Temporary humidity spikes after misting are normal. Check humidity 2-3 hours after misting for accurate baseline reading."
+    },
+    {
+      "type": "section",
+      "heading": "Problem: Humidity crashes overnight"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Solutions:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Substrate likely too dry - add more water mixed throughout",
+        "Increase substrate depth (retains moisture longer)",
+        "Cover more screen on cool side",
+        "Mist before bedtime",
+        "Add more live plants",
+        "Check for drafts from windows/AC vents"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Monitoring Equipment"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Essential equipment:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "2 digital thermometers with probes (warm and cool side)",
+        "2 digital hygrometers with probes (warm and cool side)",
+        "Infrared temperature gun for spot checks ($15-25)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Recommended models:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Zoo Med Digital Thermometer/Hygrometer Combo ($15-20 each, need 2)",
+        "Govee Bluetooth Thermometer/Hygrometer ($12-18, app tracking)",
+        "AcuRite Digital units ($10-15)",
+        "Etekcity Infrared Thermometer Gun ($15-20)"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "text": "Avoid analog dial thermometers/hygrometers - they are notoriously inaccurate. Digital with probes are far more reliable."
+    },
+    {
+      "type": "section",
+      "heading": "Probe Placement"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Thermometer probes:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Place at substrate level (where frog experiences temperature)",
+        "One on warm side (under heat lamp area but not in direct beam)",
+        "One on cool side (opposite end from heat)",
+        "Secure with tape or tucked under decorations",
+        "Keep away from water dish (inaccurate humidity readings)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Hygrometer probes:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Mid-height in enclosure (not on substrate, not at top)",
+        "One on warm side",
+        "One on cool side (this is your important reading)",
+        "Keep away from direct misting spray",
+        "Don't submerge in substrate"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Seasonal Adjustments"
+    },
+    {
+      "type": "text",
+      "text": "Environmental control needs change with seasons:"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Winter challenges:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Colder room temperatures (need higher wattage bulbs)",
+        "Indoor heating dries air (need more misting/humidity efforts)",
+        "Shorter daylight (maintain 12h light cycle with timer)",
+        "Windows cause drafts (move enclosure away from windows)",
+        "Possible nighttime heat needed if room drops below 65°F"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Summer challenges:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Warmer room temperatures (may need lower wattage bulbs)",
+        "AC dries air (may need more humidity efforts)",
+        "Risk of overheating (monitor closely, adjust as needed)",
+        "Natural humidity often higher (may need less misting)",
+        "Ensure adequate ventilation to prevent heat buildup"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Brumation and Temperature Drops"
+    },
+    {
+      "type": "text",
+      "text": "Some Pacman frogs brumate (hibernate) in winter even with stable conditions:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Frog may bury completely and vanish for weeks/months",
+        "This is NORMAL seasonal behavior for some individuals",
+        "Maintain normal temperatures and humidity",
+        "Do NOT dig up frog (causes stress)",
+        "Substrate must stay moist throughout brumation",
+        "Frog will emerge when ready (usually with spring/warming)",
+        "Not all frogs brumate - many stay active year-round"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Brumation is natural and not cause for concern if enclosure parameters are stable. If unsure, vet checkup never hurts."
+    },
+    {
+      "type": "section",
+      "heading": "Signs of Temperature/Humidity Problems"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Too cold:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Lethargy and reduced appetite",
+        "Slow digestion (food visible in belly for days)",
+        "Staying on warm side constantly",
+        "Reduced activity even at night",
+        "Weakened immune system (more prone to illness)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Too hot:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Staying on cool side constantly",
+        "Mouth gaping (trying to cool down)",
+        "Excessive activity/stress",
+        "Pale or washed-out coloration",
+        "Refusal to burrow",
+        "Medical emergency if severe"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Too dry:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Wrinkled or dry-looking skin",
+        "Excessive soaking in water dish",
+        "Weight loss from dehydration",
+        "Difficulty shedding",
+        "Lethargy"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Too humid:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Excessive mucus production",
+        "Skin infections (red, inflamed areas)",
+        "Fungal growth on substrate or frog",
+        "Respiratory issues (open-mouth breathing)",
+        "Substrate stays waterlogged with puddles"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Species-Specific Summary"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>C. cranwelli (Cranwell's):</span> Most tolerant of temperature and humidity variation. Gran Chaco habitat has hot days, cool nights, and lower humidity. Can handle 65-75% humidity and wider temperature swings."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>C. cornuta (Surinam):</span> Amazon rainforest species - needs consistent warmth (70-85°F) and high humidity (75-85%). Least tolerant of drying out. Prioritize humidity maintenance."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>C. ornata (Ornate):</span> Temperate South America - standard tropical care. Mid-range humidity (70-80%) and normal thermal gradient."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>C. aurita (Brazilian):</span> Atlantic rainforest - similar to C. cornuta. Higher humidity (75-85%) and warmth preferred."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Hybrids (Fantasy):</span> Typically have cranwelli in genetics - standard tropical care usually fine (70-80% humidity)."
+    },
+    {
+      "type": "section",
+      "heading": "Daily Monitoring Checklist"
+    },
+    {
+      "type": "list",
+      "items": [
+        "✓ Check warm side temperature (should be 80-85°F)",
+        "✓ Check cool side temperature (should be 70-75°F or species-appropriate)",
+        "✓ Check cool side humidity (should be in species range)",
+        "✓ Verify thermal gradient exists (10-15°F difference between sides)",
+        "✓ Check substrate moisture (still moist throughout, not just surface)",
+        "✓ Verify all equipment functioning (heat lamp, UVB, thermostats)",
+        "✓ Observe frog behavior (using both warm and cool sides = good)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Common Environmental Mistakes"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Only one thermometer/hygrometer (need both warm and cool side monitoring)",
+        "Using analog equipment (inaccurate)",
+        "Only misting surface (substrate deep down is dry)",
+        "Panicking about humidity difference between sides (this is normal)",
+        "Heating entire enclosure uniformly (no thermal gradient)",
+        "Forgetting to treat water with dechlorinator",
+        "Not adjusting for seasonal changes",
+        "Checking humidity immediately after misting (wait 2-3 hours)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Related Guides"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<a href='/blog/pacman-frog-enrichment-welfare-guide' class='text-emerald-600 underline'>Enrichment & Welfare Guide</a> - Overview of all care requirements",
+        "<a href='/blog/pacman-frog-heating-lighting' class='text-emerald-600 underline'>Heating & Lighting Guide</a> - Equipment selection and setup",
+        "<a href='/blog/pacman-frog-substrate-guide' class='text-emerald-600 underline'>Substrate Guide</a> - Moisture retention and depth",
+        "<a href='/blog/pacman-frog-enclosure-setup' class='text-emerald-600 underline'>Enclosure Setup Guide</a> - Layout for proper thermal gradient"
+      ]
+    }
+  ]
+}

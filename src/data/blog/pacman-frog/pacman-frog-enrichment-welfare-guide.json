@@ -1,0 +1,284 @@
+{
+  "id": "pacman-frog-enrichment-welfare-guide",
+  "title": "Pacman Frog Enrichment & Welfare Guide: Complete Care Overview",
+  "description": "Comprehensive enrichment and welfare guide for all Ceratophrys species including C. cranwelli, C. cornuta, and C. ornata. Learn proper housing, heating, lighting, and care requirements.",
+  "author": "Habitat Builder",
+  "date": "2026-01-28",
+  "category": "Care Guides",
+  "excerpt": "Complete care guide for Pacman frogs (Ceratophrys spp.) with evidence-based recommendations for housing, heating, lighting, and long-term health.",
+  "tags": ["pacman-frog", "horned-frog", "ceratophrys", "beginner", "enrichment", "welfare"],
+  "content": [
+    {
+      "type": "intro",
+      "heading": "Pacman Frog Enrichment & Welfare Guide",
+      "text": "Pacman frogs (Ceratophrys spp.) are terrestrial ambush predators that burrow into substrate and wait for prey. Though often marketed as low-maintenance pets, they deserve enriching environments that allow natural behaviors. This guide covers all common species: C. cranwelli (Cranwell's), C. cornuta (Surinam), C. ornata (Ornate), C. aurita (Brazilian), and hybrids (Fantasy)."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "Pacman frogs are SOLITARY and cannibalistic. Never house two frogs together under any circumstances, regardless of size or sex."
+    },
+    {
+      "type": "section",
+      "heading": "Species Overview"
+    },
+    {
+      "type": "text",
+      "text": "The five common species share similar care requirements, though regional habitat differences create minor variations:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "C. cranwelli (Cranwell's) - Gran Chaco region, prefers sandy substrate (60% soil/40% sand) and lower humidity (65-75%)",
+        "C. cornuta (Surinam) - Amazon rainforest, needs higher humidity (75-85%) and warmer temperatures",
+        "C. ornata (Ornate) - Temperate South America, standard tropical care, most common in pet trade",
+        "C. aurita (Brazilian) - Atlantic rainforest, similar to C. cornuta",
+        "Hybrids (Fantasy) - C. cranwelli × C. cornuta crosses, standard tropical care with various color morphs"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Quick Facts"
+    },
+    {
+      "type": "table",
+      "headers": ["Characteristic", "Details"],
+      "rows": [
+        ["Lifespan", "5-10 years in captivity"],
+        ["Adult Size", "3-7 inches diameter (females larger, varies by species)"],
+        ["Activity Pattern", "Nocturnal"],
+        ["Diet", "Obligate carnivore (insects, worms, occasional rodents)"],
+        ["Temperament", "Sedentary ambush predator, can be defensive"],
+        ["Care Level", "Beginner (with proper research)"],
+        ["Sexual Dimorphism", "Females up to 7\", males 3-4\" - different enclosure minimums"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Why This Guide Is Different"
+    },
+    {
+      "type": "text",
+      "text": "Many basic care guides advocate for small enclosures with minimal heating and lighting. This guide provides evidence-based recommendations that allow Pacman frogs to thrive rather than just survive. You'll find:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Larger enclosure minimums based on sex and species size",
+        "Overhead heating that provides short wavelength infrared (best for digestion)",
+        "UVB lighting recommendations for vitamin D3 synthesis",
+        "Deep substrate for natural burrowing behavior",
+        "Species-specific substrate requirements (especially C. cranwelli)",
+        "Detailed feeding schedules with gutloading and supplementation",
+        "Thermostat guidance for proper temperature control"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Natural Behavior & Enrichment"
+    },
+    {
+      "type": "text",
+      "text": "Pacman frogs are terrestrial ambush predators built for burrowing. They can be quite inactive - staying buried for days or weeks is normal behavior. Some frogs brumate in winter even with stable conditions (can vanish for weeks/months)."
+    },
+    {
+      "type": "highlight",
+      "text": "When provided with enriching spaces (deep substrate, varied hides, leaf litter, proper thermal gradients), Pacman frogs are more likely to explore and change burrows at night. Larger, well-decorated enclosures encourage natural activity patterns."
+    },
+    {
+      "type": "section",
+      "heading": "Core Care Requirements Summary"
+    },
+    {
+      "type": "text",
+      "text": "Before diving into detailed sections, here are the key requirements:"
+    },
+    {
+      "type": "table",
+      "headers": ["Requirement", "Specification"],
+      "rows": [
+        ["Enclosure - Juveniles", "20×10×12\" (10 gal) until 6-7 months old"],
+        ["Enclosure - Males", "30×12×12\" (20 gal long) minimum"],
+        ["Enclosure - Females", "36×18×18\" (40 breeder) minimum"],
+        ["Temperature Warm Side", "80-85°F (27-29°C)"],
+        ["Temperature Cool Side", "70-75°F (21-24°C)"],
+        ["Nighttime Temperature", "65-75°F (18-24°C) - most don't need night heat"],
+        ["Humidity Range", "65-85% (species-dependent)"],
+        ["Substrate Depth", "2-3\" juveniles, 4-6\" adults (must fully burrow)"],
+        ["Water Quality", "ALL water must be treated with reptile/amphibian dechlorinator"],
+        ["UVB", "Optional but highly recommended - 5.0 strength, 50% coverage"],
+        ["Feeding - Juveniles", "Daily or every other day"],
+        ["Feeding - Adults", "Every 7-10 days"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Detailed Care Sections"
+    },
+    {
+      "type": "text",
+      "text": "This main guide provides an overview. For in-depth information on specific topics, see our specialized guides:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<a href='/blog/pacman-frog-enclosure-setup' class='text-emerald-600 hover:text-emerald-700 underline'>Enclosure Setup Guide</a> - Size requirements, enclosure types, decorations, and layout",
+        "<a href='/blog/pacman-frog-substrate-guide' class='text-emerald-600 hover:text-emerald-700 underline'>Substrate Guide</a> - Appropriate substrates, mixing ratios, depth requirements, bioactive options",
+        "<a href='/blog/pacman-frog-heating-lighting' class='text-emerald-600 hover:text-emerald-700 underline'>Heating & Lighting Guide</a> - Heat sources, UVB, thermostats, and equipment recommendations",
+        "<a href='/blog/pacman-frog-temperature-humidity' class='text-emerald-600 hover:text-emerald-700 underline'>Temperature & Humidity Guide</a> - Environmental control, monitoring, and species differences",
+        "<a href='/blog/pacman-frog-feeding-guide' class='text-emerald-600 hover:text-emerald-700 underline'>Feeding Guide</a> - Complete nutrition, feeder insects, schedules, and supplementation",
+        "<a href='/blog/pacman-frog-faq' class='text-emerald-600 hover:text-emerald-700 underline'>FAQ & Troubleshooting</a> - Common issues, health concerns, and emergency protocols"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Critical Safety Warnings"
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "WATER TREATMENT MANDATORY - All water (substrate, dish, misting) must be treated with dechlorinator. Chlorine causes toxic shock syndrome which is often fatal. Use Zoo Med Reptisafe or Tetra AquaSafe."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "LEG TWITCHING/STRETCHING - This is a sign of serious health issues including sepsis. Soak frog in tepid dechlorinated water (change every 15-20 min) and contact vet immediately."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "NEVER USE: Coil UVB bulbs (uneven spread), Mercury Vapor bulbs (too hot), LED UVA/UVB combo bulbs (produce dangerous UVC radiation causing skin/eye injury)."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "VET CARE ESSENTIAL - Establish care with amphibian-experienced vet within first few months. Annual checkups recommended. Don't wait for emergency."
+    },
+    {
+      "type": "section",
+      "heading": "Common Beginner Mistakes"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Using untreated tap water (causes toxic shock)",
+        "Insufficient substrate depth (prevents natural burrowing)",
+        "No overhead heating (heat mats don't provide short wavelength IR for digestion)",
+        "Enclosure too small for sex/species (10 gallon NOT appropriate for adults)",
+        "Paper towel substrate (except quarantine/illness)",
+        "Housing multiple frogs together (cannibalism risk)",
+        "Overfeeding (obesity is common - adults need only weekly feeding)",
+        "Using bin enclosures with UVB (plastic creates toxins under UV)",
+        "Wrong substrate for C. cranwelli (needs 60% soil/40% sand mix)",
+        "Water dish too deep (poor swimmers, can drown)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Getting Started Checklist"
+    },
+    {
+      "type": "text",
+      "text": "Before bringing home a Pacman frog:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "✓ Appropriate enclosure for sex (20 gal males, 40 gal females minimum)",
+        "✓ Substrate appropriate for species (see substrate guide)",
+        "✓ Overhead heating (halogen or incandescent bulb) with dimmer thermostat",
+        "✓ Digital thermometer/hygrometer with probes (need 2 - warm and cool side)",
+        "✓ UVB fixture and bulb (5.0 strength) - optional but recommended",
+        "✓ Water dish for full-body soaking (shallow depth)",
+        "✓ Dechlorinator for all water (Zoo Med Reptisafe)",
+        "✓ Calcium supplement (with D3 if no UVB, without D3 if UVB provided)",
+        "✓ Multivitamin supplement",
+        "✓ Variety of feeder insects (dubia roaches, crickets, hornworms, etc.)",
+        "✓ Hides, leaf litter, and decorations",
+        "✓ Vet who sees amphibians located and contact info saved"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Species-Specific Notes"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>C. cranwelli (Cranwell's Horned Frog):</span> Gran Chaco habitat requires sandy substrate (60% organic topsoil + 40% play sand). Tolerates slightly lower humidity (65-75%). More arid-adapted than other species."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>C. cornuta (Surinam Horned Frog):</span> Amazon rainforest species. Prefers higher humidity (75-85%) and warmer temperatures. True rainforest frog."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>C. ornata (Ornate Pacman):</span> Temperate South America. Standard tropical care. Most common in pet trade."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Albino Morphs:</span> May be sensitive to bright lights but usually tolerate low-wattage heat lamps (20-40w). Provide overhead vines/coverage to break up lighting."
+    },
+    {
+      "type": "section",
+      "heading": "The Science Behind Better Care"
+    },
+    {
+      "type": "text",
+      "text": "Two key principles guide our recommendations:"
+    },
+    {
+      "type": "highlight",
+      "text": "<span class='font-semibold'>1. Short Wavelength Infrared Heating:</span> Overhead halogen/incandescent bulbs provide short wavelength IR that penetrates tissues for better digestion and immune function. Heat mats, CHEs, and DHPs provide long wavelength IR (less effective)."
+    },
+    {
+      "type": "highlight",
+      "text": "<span class='font-semibold'>2. UVB for Vitamin D3 Synthesis:</span> While not traditionally provided, UVB allows amphibians to synthesize vitamin D3 in skin for calcium metabolism. Research shows significant health benefits. See our <a href='/blog/pacman-frog-heating-lighting' class='text-emerald-600 underline'>Heating & Lighting Guide</a> for bulb recommendations."
+    },
+    {
+      "type": "section",
+      "heading": "Myths Debunked"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>MYTH: Hard exoskeletons cause impaction</span>"
+    },
+    {
+      "type": "text",
+      "text": "FALSE. Chitin (exoskeleton material) is a digestible carbohydrate. Impaction from exoskeletons is a myth. With proper overhead heating (short wavelength IR), Pacman frogs easily digest insects with exoskeletons. The hardness does NOT indicate higher fiber levels."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>MYTH: 10 gallon tanks are fine for adults</span>"
+    },
+    {
+      "type": "text",
+      "text": "FALSE. While frogs can survive in 10 gallons, they cannot thrive. Females need minimum 36×18×18\" (40 breeder), males need minimum 30×12×12\" (20 long). Proper thermal gradients and enrichment require adequate space."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>MYTH: Heat mats are safer than heat lamps</span>"
+    },
+    {
+      "type": "text",
+      "text": "FALSE. With proper thermostatic control, overhead heating is both safe and superior for health. Heat mats don't provide the beneficial short wavelength IR, and belly heat can cause dehydration."
+    },
+
+    {
+      "type": "section",
+      "heading": "Next Steps"
+    },
+    {
+      "type": "text",
+      "text": "Now that you understand the overview, explore our specialized guides for detailed information:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "New keepers: Start with <a href='/blog/pacman-frog-enclosure-setup' class='text-emerald-600 underline'>Enclosure Setup</a> and <a href='/blog/pacman-frog-substrate-guide' class='text-emerald-600 underline'>Substrate Guide</a>",
+        "Setting up heating: Read <a href='/blog/pacman-frog-heating-lighting' class='text-emerald-600 underline'>Heating & Lighting Guide</a>",
+        "Feeding questions: See <a href='/blog/pacman-frog-feeding-guide' class='text-emerald-600 underline'>Feeding Guide</a>",
+        "Troubleshooting: Check <a href='/blog/pacman-frog-faq' class='text-emerald-600 underline'>FAQ & Common Issues</a>"
+      ]
+    }
+  ]
+}

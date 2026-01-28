@@ -157,5 +157,55 @@
       }
     },
     "notes": "Prevents substrate from mixing with drainage layer."
+  },
+  "substrate-reptile-carpet": {
+    "name": "Reptile Carpet",
+    "category": "substrate",
+    "needsTags": ["substrate:carpet"],
+    "importance": "conditional",
+    "spec": {
+      "type": "Washable fabric mat",
+      "material": "Non-absorbent synthetic fiber"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic reptile carpet",
+        "searchQuery": "reptile carpet terrarium liner"
+      },
+      "recommended": {
+        "description": "Quality reptile carpet with binding",
+        "searchQuery": "reptile carpet terrarium liner quality"
+      },
+      "ideal": {
+        "description": "Premium carpet with multiple pieces for rotation",
+        "searchQuery": "reptile carpet terrarium liner premium set"
+      }
+    },
+    "notes": "Beginner-friendly substrate alternative. Easy to clean - machine washable. Buy 2-3 pieces to rotate while cleaning. Can harbor bacteria if not cleaned regularly. Not suitable for burrowing species. Beware of loose fibers catching claws."
+  },
+  "substrate-bare-bottom": {
+    "name": "Bare Bottom (No Substrate)",
+    "category": "substrate",
+    "needsTags": ["substrate:bare"],
+    "importance": "conditional",
+    "spec": {
+      "type": "Glass bottom only",
+      "purpose": "Maximum hygiene visibility"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Clean glass bottom",
+        "searchQuery": "bare bottom aquarium no substrate"
+      },
+      "recommended": {
+        "description": "Glass bottom with slate accents",
+        "searchQuery": "bare bottom aquarium slate tile"
+      },
+      "ideal": {
+        "description": "Glass with decorative safe tiles",
+        "searchQuery": "bare bottom aquarium custom tiles"
+      }
+    },
+    "notes": "Safest option for axolotls under 6 inches and other impaction-prone species. Easy to spot-clean and monitor waste. Provides no traction - consider adding slate tiles. Not naturalistic but extremely hygienic. Recommended for quarantine and hospital tanks."
   }
 }

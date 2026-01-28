@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { EnclosureInput, Units, AnimalProfile, HumidityControl, SubstrateType, EnclosureType, BackgroundType } from '../../engine/types';
 import { CheckCircle, Star, Award, AlertTriangle, Thermometer, Droplet } from 'lucide-react';
-import { validateEnclosureSize, validateEnclosureType } from '../../engine/validateEnclosure';
+import { validateEnclosureSize, validateEnclosureType, validateBioactive } from '../../engine/validateEnclosure';
 import { SizeFeedback } from '../Validation/SizeFeedback';
 
 interface EnclosureFormProps {
@@ -11,27 +11,71 @@ interface EnclosureFormProps {
 }
 
 const commonSizes = [
+  { name: '12×12×12"', width: 12, depth: 12, height: 12, units: 'in' as Units },
+  { name: '18×12×12"', width: 18, depth: 12, height: 12, units: 'in' as Units },
   { name: '20×10×10"', width: 20, depth: 10, height: 10, units: 'in' as Units },
   { name: '20×10×20"', width: 20, depth: 10, height: 20, units: 'in' as Units },
+  { name: '18×18×18"', width: 18, depth: 18, height: 18, units: 'in' as Units },
   { name: '18×18×24"', width: 18, depth: 18, height: 24, units: 'in' as Units },
+  { name: '24×18×18"', width: 24, depth: 18, height: 18, units: 'in' as Units },
   { name: '18×18×36"', width: 18, depth: 18, height: 36, units: 'in' as Units },
+  { name: '24×18×24"', width: 24, depth: 18, height: 24, units: 'in' as Units },
   { name: '24×18×36"', width: 24, depth: 18, height: 36, units: 'in' as Units },
   { name: '36×18×18"', width: 36, depth: 18, height: 18, units: 'in' as Units },
+  { name: '36×18×36"', width: 36, depth: 18, height: 36, units: 'in' as Units },
   { name: '40×20×20"', width: 40, depth: 20, height: 20, units: 'in' as Units },
+  { name: '48×18×18" (4×1.5×1.5)', width: 48, depth: 18, height: 18, units: 'in' as Units },
   { name: '48×24×24" (4×2×2)', width: 48, depth: 24, height: 24, units: 'in' as Units },
   { name: '48×24×48" (4×2×4)', width: 48, depth: 24, height: 48, units: 'in' as Units },
+  { name: '60×24×24" (5×2×2)', width: 60, depth: 24, height: 24, units: 'in' as Units },
   { name: '72×24×24" (6×2×2)', width: 72, depth: 24, height: 24, units: 'in' as Units },
-  { name: '72×36×36" (6×3×3)', width: 72, depth: 36, height: 36, units: 'in' as Units },
-  { name: '84×24×24" (7×2×2)', width: 84, depth: 24, height: 24, units: 'in' as Units },
+  { name: '72×30×24" (6×2.5×2)', width: 72, depth: 30, height: 24, units: 'in' as Units },
+  { name: '96×24×24" (8×2×2)', width: 96, depth: 24, height: 24, units: 'in' as Units },
   { name: 'Custom', width: 0, depth: 0, height: 0, units: 'in' as Units },
 ];
 
 export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormProps) {
   const [usePreset, setUsePreset] = useState(true);
+  const [showAllSizes, setShowAllSizes] = useState(false);
 
   // Calculate size validation if animal profile is provided
   const sizeValidation = animalProfile ? validateEnclosureSize(value, animalProfile) : null;
   const typeValidation = animalProfile ? validateEnclosureType(value, animalProfile) : null;
+  const bioactiveValidation = animalProfile ? validateBioactive(value, animalProfile) : null;
+
+  // Helper function to get validation status for a preset
+  const getPresetValidation = (preset: typeof commonSizes[0]) => {
+    if (!animalProfile || preset.name === 'Custom') return 'neutral';
+    
+    const testInput = {
+      ...value,
+      width: preset.width,
+      depth: preset.depth,
+      height: preset.height,
+      units: preset.units,
+    };
+    const validation = validateEnclosureSize(testInput, animalProfile);
+    
+    if (validation.tooSmall) return 'critical';
+    if (validation.warnings.length > 0) return 'warning';
+    return 'good';
+  };
+
+  // Filter and categorize presets when animal is selected
+  const categorizedPresets = animalProfile ? {
+    good: commonSizes.filter(p => getPresetValidation(p) === 'good'),
+    warning: commonSizes.filter(p => getPresetValidation(p) === 'warning'),
+    critical: commonSizes.filter(p => getPresetValidation(p) === 'critical'),
+    custom: commonSizes.filter(p => p.name === 'Custom')
+  } : null;
+
+  // Determine which presets to show
+  const presetsToShow = categorizedPresets && !showAllSizes
+    ? [...categorizedPresets.good, ...categorizedPresets.custom]
+    : commonSizes;
+
+  const hasHiddenSizes = categorizedPresets && 
+    (categorizedPresets.warning.length > 0 || categorizedPresets.critical.length > 0);
 
   const handlePresetChange = (preset: typeof commonSizes[0]) => {
     if (preset.name === 'Custom') {
@@ -100,7 +144,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
           </button>
         </div>
         <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-          This determines which equipment options appear in your shopping list
+          This helps determine which equipment options appear in your shopping list
         </p>
       </div>
 
@@ -146,23 +190,60 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-3">
           Enclosure Size
         </label>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-          {commonSizes.map((preset) => (
-            <button
-              key={preset.name}
-              onClick={() => handlePresetChange(preset)}
-              className={`px-4 py-3 lg:py-2 rounded-lg text-sm font-medium transition-all active:scale-95 ${
-                usePreset && 
-                value.width === preset.width && 
-                value.height === preset.height
-                  ? 'bg-primary-600 text-white shadow-md'
-                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 active:bg-gray-200 dark:active:bg-gray-600'
-              }`}
-            >
-              {preset.name}
-            </button>
-          ))}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1.5">
+          {presetsToShow.map((preset) => {
+            const validationStatus = getPresetValidation(preset);
+            const isSelected = usePreset && 
+              value.width === preset.width && 
+              value.height === preset.height;
+            
+            // Determine button styling based on validation status
+            let buttonStyles = '';
+            if (isSelected) {
+              buttonStyles = 'bg-primary-600 text-white shadow-md';
+            } else if (preset.name === 'Custom') {
+              buttonStyles = 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600';
+            } else if (validationStatus === 'good') {
+              buttonStyles = 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700 hover:bg-emerald-100 dark:hover:bg-emerald-900/30';
+            } else if (validationStatus === 'warning') {
+              buttonStyles = 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-300 border border-yellow-300 dark:border-yellow-700 hover:bg-yellow-100 dark:hover:bg-yellow-900/30';
+            } else if (validationStatus === 'critical') {
+              buttonStyles = 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 border border-red-300 dark:border-red-700 hover:bg-red-100 dark:hover:bg-red-900/30 cursor-not-allowed opacity-60';
+            } else {
+              buttonStyles = 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600';
+            }
+            
+            return (
+              <button
+                key={preset.name}
+                onClick={() => validationStatus !== 'critical' && handlePresetChange(preset)}
+                disabled={validationStatus === 'critical'}
+                className={`px-2 py-1.5 rounded text-xs font-medium transition-all active:scale-95 ${buttonStyles}`}
+                title={
+                  validationStatus === 'critical' 
+                    ? 'Too small for this species' 
+                    : validationStatus === 'warning'
+                    ? 'Below recommended minimum'
+                    : validationStatus === 'good'
+                    ? 'Appropriate size for this species'
+                    : ''
+                }
+              >
+                {preset.name}
+              </button>
+            );
+          })}
         </div>
+        
+        {/* Show More Sizes Button */}
+        {hasHiddenSizes && (
+          <button
+            onClick={() => setShowAllSizes(!showAllSizes)}
+            className="mt-3 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 font-medium flex items-center gap-1"
+          >
+            {showAllSizes ? '− Show fewer sizes' : `+ Show ${(categorizedPresets?.warning.length || 0) + (categorizedPresets?.critical.length || 0)} more sizes`}
+          </button>
+        )}
         
         {/* Size Validation Feedback */}
         {sizeValidation && animalProfile && (
@@ -306,6 +387,18 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
             </p>
           </div>
         </label>
+        
+        {/* Bioactive Validation Feedback */}
+        {bioactiveValidation && !bioactiveValidation.compatible && (
+          <div className="mt-3 bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 dark:border-red-700 p-3 rounded-r">
+            <div className="flex items-start gap-2">
+              <span className="text-red-500 dark:text-red-400"><AlertTriangle className="w-6 h-6" /></span>
+              <p className="text-sm text-red-800 dark:text-red-200 font-medium">
+                {bioactiveValidation.warning}
+              </p>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Substrate Preference */}
@@ -390,7 +483,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
       </div>
 
       {/* Humidity Control Method - Only show if needed */}
-      {animalProfile && value.ambientHumidity < animalProfile.careTargets.humidity.min && (
+      {animalProfile && value.ambientHumidity < animalProfile.careTargets.humidity.day.min && (
       <div>
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
           Humidity Control Method
@@ -414,18 +507,18 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
           Plant Preference
         </label>
-        <div className="grid grid-cols-3 gap-2">
-          {(['live', 'artificial', 'mix']).map((plant) => (
+        <div className="grid grid-cols-2 gap-2">
+          {(['live', 'artificial']).map((plant) => (
             <button
               key={plant}
-              onClick={() => onChange({ ...value, plantPreference: plant as 'live' | 'artificial' | 'mix' })}
+              onClick={() => onChange({ ...value, plantPreference: plant as 'live' | 'artificial' })}
               className={`px-4 py-2 rounded-md text-sm font-medium capitalize transition-colors ${
                 value.plantPreference === plant
                   ? 'bg-primary-600 text-white'
                   : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
               }`}
             >
-              {plant === 'live' ? 'Live' : plant === 'artificial' ? 'Artificial' : 'Mixed'}
+              {plant === 'live' ? 'Live' : 'Artificial'}
             </button>
           ))}
         </div>
@@ -437,7 +530,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
           Background
         </label>
         <div className="grid grid-cols-3 gap-2">
-          {(['none', 'cork-bark', 'foam'] as BackgroundType[]).map((bg) => (
+          {(['none', 'prebuilt', 'custom'] as BackgroundType[]).map((bg) => (
             <button
               key={bg}
               onClick={() => onChange({ ...value, backgroundType: bg })}
@@ -447,7 +540,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
                   : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
               }`}
             >
-              {bg === 'none' ? 'None' : bg === 'cork-bark' ? 'Cork Bark' : 'Custom Foam'}
+              {bg === 'none' ? 'None' : bg === 'prebuilt' ? 'Prebuilt' : 'Custom'}
             </button>
           ))}
         </div>

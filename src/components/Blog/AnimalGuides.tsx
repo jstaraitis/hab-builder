@@ -77,7 +77,7 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
       </div>
       <div className="border-t border-gray-300 dark:border-gray-700 my-8"></div>
       {selectedAnimal && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-lg shadow-md border border-emerald-200 dark:border-emerald-800 p-6">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
             Guides for {animals.find(a => a.id === selectedAnimal)?.commonName}
           </h3>
@@ -89,9 +89,9 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
                 <Link
                   key={blogId}
                   to={`/blog/${blogId}`}
-                  className="group bg-gray-50 dark:bg-gray-700/50 hover:bg-primary-50 dark:hover:bg-primary-900/20 border border-gray-200 dark:border-gray-600 hover:border-primary-300 dark:hover:border-primary-700 rounded-lg p-4 transition-all"
+                  className="group bg-white dark:bg-gray-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-700 hover:border-emerald-400 dark:hover:border-emerald-600 rounded-lg p-4 transition-all shadow-sm hover:shadow-md"
                 >
-                  <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-primary-700 dark:group-hover:text-primary-300 mb-1">
+                  <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-300 mb-1">
                     {blog.title}
                   </h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 line-clamp-2">
@@ -99,7 +99,7 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
                   </p>
                   <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-500">
                     {blog.tags?.slice(0, 3).map((tag: string) => (
-                      <span key={tag} className="px-2 py-0.5 bg-gray-200 dark:bg-gray-600 rounded">
+                      <span key={tag} className="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 rounded">
                         {tag}
                       </span>
                     ))}

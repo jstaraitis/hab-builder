@@ -38,11 +38,21 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
       iconBg: 'bg-red-100 dark:bg-red-900/40',
       iconColor: 'text-red-600 dark:text-red-400',
       linkColor: 'text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300',
-      info: [
-        `Temp: ${profile.careTargets.temperature.min}-${profile.careTargets.temperature.max}°F`,
-        `Humidity: ${profile.careTargets.humidity.min}-${profile.careTargets.humidity.max}%`,
-        profile.careTargets.temperature.basking ? `Basking: ${profile.careTargets.temperature.basking}°F` : 'No basking spot'
-      ]
+      info: profile.careTargets.humidity.day.min === 100 && profile.careTargets.humidity.day.max === 100
+        ? [
+            `Temp: ${profile.careTargets.temperature.min}-${profile.careTargets.temperature.max}°F`,
+            'Fully aquatic species',
+            'Humidity not applicable'
+          ]
+        : [
+            `Temp: ${profile.careTargets.temperature.min}-${profile.careTargets.temperature.max}°F`,
+            `Humidity Day: ${profile.careTargets.humidity.day.min}-${profile.careTargets.humidity.day.max}%`,
+            profile.careTargets.humidity.night.min !== profile.careTargets.humidity.day.min 
+              ? `Humidity Night: ${profile.careTargets.humidity.night.min}-${profile.careTargets.humidity.night.max}%`
+              : profile.careTargets.temperature.basking !== null && profile.careTargets.temperature.basking !== undefined
+                ? `Basking: ${typeof profile.careTargets.temperature.basking === 'number' ? profile.careTargets.temperature.basking : `${profile.careTargets.temperature.basking.min}-${profile.careTargets.temperature.basking.max}`}°F` 
+                : `Shedding: ${profile.careTargets.humidity.shedding.min}-${profile.careTargets.humidity.shedding.max}%`
+          ]
     },
     {
       id: getBlogId('lighting') || getBlogId('uvb'),

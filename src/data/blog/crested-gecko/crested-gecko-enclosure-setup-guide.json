@@ -67,54 +67,8 @@
       "content": "Front-opening glass terrariums are ideal for crested geckos. Top-opening enclosures can stress arboreal species that perceive threats from above (like birds in the wild)."
     },
     {
-      "type": "section",
-      "title": "Vertical Zone Layout"
-    },
-    {
-      "type": "text",
-      "content": "Crested geckos use vertical space extensively. Divide the enclosure into thermal and functional zones from top to bottom."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Vertical Zonation (Top to Bottom):</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Zone", "Height Placement", "Temperature", "Purpose"],
-      "rows": [
-        ["Basking/Warm Zone", "Top 6-8\" (under heat lamp)", "82-85°F", "Daytime sleep spot, thermoregulation, digestion"],
-        ["Mid-Level Transition", "Middle third of enclosure", "75-80°F", "Travel corridors, feeding ledges, activity zone"],
-        ["Cool/Humid Zone", "Bottom third", "70-75°F", "Nighttime activity, high humidity retreat, ground foraging"],
-        ["Substrate Level", "Floor (2-4\" depth)", "68-72°F", "Humidity stability, cushion for falls, plant roots"]
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "tip",
-      "content": "Place vines, branches, and foliage at all vertical levels to create continuous pathways. Crested geckos should be able to move from top to bottom without jumping or falling."
-    },
-    {
-      "type": "section",
-      "title": "Essential Equipment Checklist"
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Required Equipment:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Equipment", "Specification", "Purpose"],
-      "rows": [
-        ["Heat Lamp", "40w white incandescent + 5.5\" dome", "Creates basking zone (82-85°F)"],
-        ["Lamp Dimmer", "Plug-in dimmer switch", "Fine-tune basking temperature"],
-        ["UVB Fixture", "14\" T8 hood with reflector", "Houses UVB bulb for vitamin D3 synthesis"],
-        ["UVB Bulb", "12\" Arcadia 6% or Zoo Med ReptiSun 5.0 T8", "Low-level UVB (1.0-2.0 UVI at basking)"],
-        ["Light Timer(s)", "Digital plug-in timer (2x)", "Automate 12-hour photoperiod"],
-        ["Thermometer", "Infrared temperature gun", "Measure surface temps throughout enclosure"],
-        ["Probe Thermometer", "Digital with probe", "Track basking area temperature"],
-        ["Hygrometer", "Digital probe hygrometer", "Monitor humidity (target 60-80%)"],
-        ["Misting System", "Pump-style pressure sprayer", "Manual misting 2x daily for humidity"]
-      ]
+      "type": "highlight",
+      "content": "For complete guidance on creating vertical thermal gradients and selecting temperature monitoring equipment, see our <a href='/blog/thermal-gradient-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Understanding Thermal Gradients</a> and <a href='/blog/temperature-monitoring-equipment-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Temperature Monitoring Equipment</a> guides. Crested geckos require a vertical gradient with basking at the top (82-85°F) and cooler zones at the bottom (70-75°F)."
     },
     {
       "type": "section",

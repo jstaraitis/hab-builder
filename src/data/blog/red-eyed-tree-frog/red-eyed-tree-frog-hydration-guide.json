@@ -1,0 +1,457 @@
+{
+  "id": "red-eyed-tree-frog-hydration-guide",
+  "title": "Red-Eyed Tree Frog Hydration Guide",
+  "species": "red-eyed-tree-frog",
+  "category": "hydration",
+  "description": "Complete guide to hydration needs for Red-Eyed Tree Frogs, including water sources, misting protocols, water quality requirements, and recognizing dehydration.",
+  "lastUpdated": "2026-01-28",
+  "tags": ["red-eyed-tree-frog", "hydration", "water", "misting", "water-quality"],
+  "content": [
+    {
+      "type": "intro",
+      "heading": "How Red-Eyed Tree Frogs Hydrate",
+      "text": "Red-Eyed Tree Frogs (Agalychnis callidryas) have a fascinating and specialized hydration system that differs dramatically from mammals. They do NOT drink water through their mouths like we do. Instead, they absorb moisture through their highly permeable skin, particularly through a specialized patch on their underside called the 'pelvic patch' or 'drinking patch.' In the wild, they obtain water from multiple sources: morning dew condensing on leaves, rain droplets running down foliage, sitting in shallow water to absorb moisture, and even from humid air through their skin. This semi-aquatic, arboreal lifestyle means captive hydration requires THREE water sources: a soaking pool for submersion, consistent misting for droplets/humidity, and clean water quality to prevent skin absorption of toxins. Understanding this biology is essential - dehydration happens rapidly (within 24-48 hours), and frogs can absorb harmful chemicals through skin just as easily as water."
+    },
+    {
+      "type": "section",
+      "heading": "Three Primary Water Sources"
+    },
+    {
+      "type": "text",
+      "text": "Red-Eyed Tree Frogs require multiple hydration methods simultaneously - no single source is sufficient:"
+    },
+    {
+      "type": "table",
+      "headers": ["Water Source", "Function", "Frequency", "Critical Details"],
+      "rows": [
+        ["Soaking Pool (Paludarium)", "Direct skin absorption, thermoregulation, breeding", "24/7 access", "Must be 25-30% of enclosure, 2-6\" deep, 78°F"],
+        ["Misting/Droplets", "Droplet drinking, skin absorption, humidity boost", "2-3x daily", "Heavy 60-90 second sessions morning & evening"],
+        ["Substrate Moisture", "Passive absorption through ventral patch", "Constant moist", "Substrate damp (not wet), Forest Moss retains moisture"],
+        ["Live Plant Transpiration", "Ambient humidity increase", "Passive 24/7", "Pothos, Philodendron release water vapor"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "The paludarium water section is MANDATORY - it's not optional décor. Red-Eyed Tree Frogs are semi-aquatic and must have soaking access."
+    },
+    {
+      "type": "section",
+      "heading": "Water Section Requirements"
+    },
+    {
+      "type": "text",
+      "text": "The aquatic zone serves as the primary hydration source and must meet specific criteria:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Size: 25-30% of total enclosure floor space minimum. Larger is better for stable water parameters.",
+        "Depth: 2-3 inches for juveniles and non-breeding setups, 4-6 inches for adults planning to breed (females need depth to fill bladder for egg jelly production).",
+        "Temperature: Constant 78-79°F (25-26°C) using preset submersible heater. Prevents thermal shock during soaking.",
+        "Circulation: Gentle filtration or waterfall pump to prevent stagnation. Stagnant water develops bacteria and ammonia.",
+        "Substrate: Large Turtle Pebbles (too big to swallow) or bare glass for easy cleaning. NEVER small gravel or sand.",
+        "Access: 2-3 easy entry/exit points using sloped stones, driftwood ramps, or Cork Bark. Frogs must exit easily without struggling.",
+        "Depth Gradient: Shallow area (1-2\") for nervous frogs, deeper area (4-6\") for confident soakers and breeding."
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "While Red-Eyed Tree Frogs can swim, they're not aquatic species. Steep-sided pools without exit ramps can cause exhaustion drowning."
+    },
+    {
+      "type": "section",
+      "heading": "Water Quality is Life or Death"
+    },
+    {
+      "type": "text",
+      "text": "Because frogs absorb directly through skin, water contamination is far more dangerous than for reptiles:"
+    },
+    {
+      "type": "text",
+      "text": "Mandatory Water Treatment:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "ALWAYS use Aquatize or similar water conditioner - Removes chlorine, chloramines, and heavy metals from tap water",
+        "Never use untreated tap water - Chlorine burns amphibian skin on contact, chloramines are toxic even at low levels",
+        "Test for ammonia - Should be 0 ppm always. Ammonia causes chemical burns to skin and gills (tadpoles).",
+        "Nitrite/Nitrate - Nitrite should be 0 ppm, nitrate under 20 ppm. High nitrates cause immune suppression.",
+        "pH Range - 6.5-7.5 ideal. Avoid extreme pH shifts (stress response, skin damage).",
+        "Temperature - Maintain 78-79°F constantly. Cold water causes thermal shock, hot water (85°F+) causes stress."
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Water Change Schedule:"
+    },
+    {
+      "type": "table",
+      "headers": ["Frequency", "Amount", "Process"],
+      "rows": [
+        ["Bi-weekly (standard)", "25-33% removal", "Siphon waste, replace with temp-matched treated water"],
+        ["Weekly (heavy use)", "25% removal", "If large breeding group or visible waste accumulation"],
+        ["Daily (emergency)", "10-20% removal", "If ammonia spike detected or frog skin lesions appear"],
+        ["NEVER", "100% full changes", "Removes beneficial bacteria, crashes biological filtration"]
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "Frogs can absorb pesticides, herbicides, soap residue, and heavy metals through skin in minutes. Water quality is the #1 cause of sudden unexplained deaths."
+    },
+    {
+      "type": "section",
+      "heading": "Misting Protocol for Droplet Drinking"
+    },
+    {
+      "type": "text",
+      "text": "Red-Eyed Tree Frogs drink water droplets from leaves - misting provides this critical behavior:"
+    },
+    {
+      "type": "text",
+      "text": "How Droplet Drinking Works:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Frogs position themselves head-up on leaves after misting",
+        "Water droplets run down foliage and collect at leaf tips",
+        "Frog presses pelvic patch (underside) against wet leaf surface",
+        "Moisture absorbed through thin, highly vascularized skin in pelvic region",
+        "Also absorb from droplets on their own skin as they press against wet surfaces"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Standard Misting Schedule:"
+    },
+    {
+      "type": "table",
+      "headers": ["Time of Day", "Duration", "Intensity", "Purpose"],
+      "rows": [
+        ["Morning (7-9am)", "60-90 seconds", "Heavy - create runoff", "Simulate morning dew/fog, peak hydration period"],
+        ["Midday (12-2pm)", "30 seconds (optional)", "Light - surface moisture only", "Maintain humidity, prevent drying in dry climates"],
+        ["Evening (6-8pm)", "60-90 seconds", "Heavy - create runoff", "Pre-feeding hydration, simulate evening rain"],
+        ["Night (optional)", "15-30 seconds", "Very light", "Only if humidity drops below 65% overnight"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Misting Technique:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Spray walls, foliage, and substrate - NOT directly at frogs (startles them)",
+        "Aim for fine mist that creates droplets on leaves, not heavy stream",
+        "Continue until water runs down leaves and collects at tips",
+        "Stop before substrate surface looks puddled (over-misting)",
+        "Within 2-3 hours, surfaces should be damp but not dripping (proper ventilation)"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Best misting happens 30-60 minutes BEFORE lights come on (morning) and after lights turn off (evening) - matches natural dew/rain timing."
+    },
+    {
+      "type": "section",
+      "heading": "Manual vs Automated Misting"
+    },
+    {
+      "type": "text",
+      "text": "Manual Misting (Pump Spray Bottle):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Pros: Free (after bottle purchase ~$10-15), allows inspection during misting, can adjust intensity daily, no equipment failure risk",
+        "Cons: Requires discipline (must be home 2x daily), inconsistent if you travel, shorter duration possible (hand fatigue), less effective coverage in large enclosures",
+        "Best For: Single frog setups, people with consistent schedules, budget-conscious keepers"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Automated Misting System (Exo Terra Monsoon):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Pros: Programmable 2-6x daily, consistent timing, longer duration possible (60-120 seconds), works while traveling, multiple nozzles for even coverage",
+        "Cons: $80-120 initial cost, reservoir refills needed weekly, nozzles clog if not cleaned monthly, pump failure possible",
+        "Best For: Multiple frog setups, people with irregular schedules, breeding projects (require precise rainy season simulation), larger enclosures"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Fogger/Humidifier (Supplemental Only):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Function: Boosts baseline humidity but does NOT provide drinking droplets (fog too fine)",
+        "Use Case: Dry climates (room humidity under 40%), supplement to misting (not replacement)",
+        "Schedule: Run 1-2 hours morning and evening, never 24/7 (over-humidifies)",
+        "Requirement: MUST use distilled water only (tap water creates mineral deposits on glass/plants)"
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "Foggers/humidifiers do NOT replace misting. Frogs cannot drink fog - they need visible droplets on leaves to trigger drinking behavior."
+    },
+    {
+      "type": "section",
+      "heading": "Recognizing Dehydration"
+    },
+    {
+      "type": "text",
+      "text": "Early intervention is critical - severe dehydration can be fatal within 24-48 hours:"
+    },
+    {
+      "type": "table",
+      "headers": ["Stage", "Visible Signs", "Urgency", "Action"],
+      "rows": [
+        ["Mild Dehydration", "Skin slightly less plump, spending more time near water, lethargy in evening", "Moderate - address within 24hr", "Increase misting frequency, verify water section access, check humidity 70%+"],
+        ["Moderate Dehydration", "Sunken eyes, wrinkled/saggy skin, dark coloration, refuses food, constant soaking attempts", "High - address immediately", "Heavy misting 3-4x daily, verify water quality, increase humidity to 80%, offer high-moisture feeders (hornworms)"],
+        ["Severe Dehydration", "Emaciated appearance, unable to climb, skin tenting (doesn't bounce back when pinched), unresponsive", "CRITICAL - vet now", "Emergency vet visit, may need subcutaneous fluids. Home treatment often too late at this stage."],
+        ["Overhydration (rare)", "Bloated appearance, skin overstretched, labored breathing", "High - address soon", "Reduce misting, improve ventilation, verify no water aspiration. Very rare with proper setup."]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Skin Tenting Test:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Gently pinch skin on frog's back between fingers",
+        "Healthy frog: Skin immediately springs back to normal",
+        "Dehydrated frog: Skin remains 'tented' or slowly returns to position",
+        "This test is stressful - only use if you suspect dehydration, not for routine checks"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Emergency Rehydration"
+    },
+    {
+      "type":"text",
+      "text": "If you notice dehydration signs, immediate action can prevent death:"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "Verify Water Access: Ensure frog can physically reach water section. Check for obstructions, confirm ramps/access points functional.",
+        "Heavy Misting: Mist enclosure heavily 3-4 times over the next 6-8 hours. Create dripping wet conditions temporarily.",
+        "Shallow Soaking: Place frog in shallow (1\" deep) container of treated water at 78°F for 10-15 minutes. Monitor constantly - never leave unattended.",
+        "Increase Humidity: Boost ambient humidity to 80-85% temporarily using fogger or covering partial screen top (remove after 24 hours).",
+        "Offer High-Moisture Food: Hornworms are 85% water - offer if frog still has appetite.",
+        "Monitor Closely: Check frog every 2-3 hours. If no improvement in 24 hours or worsening, emergency vet visit required.",
+        "Vet Visit: Severe cases need subcutaneous fluid injections by exotic vet. Don't delay if frog is unresponsive."
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "Never force water into frog's mouth - they don't drink this way and you'll cause aspiration pneumonia. All hydration is through skin absorption."
+    },
+    {
+      "type": "section",
+      "heading": "Water Bowl vs Paludarium Section"
+    },
+    {
+      "type": "text",
+      "text": "Why Paludarium is Superior to Simple Water Bowl:"
+    },
+    {
+      "type": "table",
+      "headers": ["Feature", "Water Bowl", "Paludarium Section"],
+      "rows": [
+        ["Surface Area", "Small (limited absorption)", "Large (25-30% enclosure)"],
+        ["Depth Options", "Usually too deep or too shallow", "Gradient from 1-6 inches"],
+        ["Temperature Control", "Difficult to heat evenly", "Easy with submersible heater"],
+        ["Biological Filtration", "None - water stagnates quickly", "Possible with filter + beneficial bacteria"],
+        ["Naturalistic", "Obvious artificial element", "Integrated riparian zone"],
+        ["Breeding Support", "Insufficient for egg-laying behavior", "Proper depth for female bladder filling"],
+        ["Drowning Risk", "Higher if steep-sided", "Lower with proper ramps/access"],
+        ["Evaporative Humidity", "Minimal contribution", "Significant 24/7 humidity boost"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "When Water Bowl is Acceptable:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Temporary housing (quarantine, travel, emergency)",
+        "Hospital tank during illness treatment",
+        "Juvenile setups before permanent paludarium ready",
+        "Use Exo Terra Frog Pond - designed with graduated depth and easy access"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "For long-term (6+ months) housing, paludarium setup is essentially mandatory for proper Red-Eyed Tree Frog welfare."
+    },
+    {
+      "type": "section",
+      "heading": "Breeding Season Hydration Needs"
+    },
+    {
+      "type": "text",
+      "text": "Breeding dramatically increases water requirements:"
+    },
+    {
+      "type": "text",
+      "text": "Female Water Needs:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Before egg-laying, females descend to water multiple times to fill bladder",
+        "Bladder water used to create gelatinous mass encapsulating eggs",
+        "May produce 40-60 eggs per clutch, multiple clutches per season",
+        "Require deeper water (4-6\") to fully submerge and absorb sufficient water",
+        "Without adequate hydration, eggs will be dry and non-viable"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Rainy Season Simulation:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Increase misting to 3-4x daily for 60-120 seconds each session",
+        "Simulate 'heavy summer rains' - enclosure should be dripping wet",
+        "Maintain humidity at 80-85% sustained (vs normal 70-75%)",
+        "Males respond to increased moisture with mating calls",
+        "Continue elevated hydration through entire breeding period (2-4 weeks)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Seasonal Hydration Adjustments"
+    },
+    {
+      "type": "text",
+      "text": "Mimic natural dry and wet seasons to maintain health and trigger breeding:"
+    },
+    {
+      "type": "text",
+      "text": "Dry Season (5-6 weeks):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Reduce misting from 2-3x daily to 2-3x WEEKLY",
+        "Lower humidity to 60-65%",
+        "Maintain water section access (never remove - they still need soaking)",
+        "Frogs become less active, may lose slight weight - this is normal",
+        "Purpose: Simulates natural seasonal variation, primes breeding readiness"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Rainy Season (Breeding Trigger):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Abruptly increase misting to 3-4x daily",
+        "Boost humidity to 80-85%",
+        "Longer misting sessions (90-120 seconds)",
+        "Dramatic shift from dry to wet triggers hormonal breeding response",
+        "Maintain 2-4 weeks for full breeding cycle"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Water Quality Monitoring"
+    },
+    {
+      "type": "text",
+      "text": "Test water parameters regularly to catch problems before frogs show symptoms:"
+    },
+    {
+      "type": "table",
+      "headers": ["Parameter", "Target Range", "Test Frequency", "Action if Out of Range"],
+      "rows": [
+        ["Ammonia (NH3)", "0 ppm", "Weekly or if frogs stressed", "IMMEDIATE 50% water change, increase filtration, reduce feeding"],
+        ["Nitrite (NO2)", "0 ppm", "Weekly", "25-50% water change, verify biological filtration established"],
+        ["Nitrate (NO3)", "0-20 ppm", "Bi-weekly", "If >20ppm, increase water change frequency to weekly"],
+        ["pH", "6.5-7.5", "Monthly", "If drift, adjust with pH buffer (avoid sudden changes)"],
+        ["Temperature", "78-79°F", "Daily visual check", "Adjust heater, verify thermostat functioning"],
+        ["Chlorine/Chloramine", "0 ppm", "Before adding tap water", "Use Aquatize/water conditioner ALWAYS"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Test Kit Recommendations:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "API Freshwater Master Test Kit - Liquid tests for ammonia, nitrite, nitrate, pH (~$25, lasts 800+ tests)",
+        "Test Strips - Faster but less accurate, acceptable for routine monitoring (~$15 for 50 strips)",
+        "Digital pH Meter - Most accurate pH measurement (~$30-50, requires calibration)",
+        "Aquatize/Conditioner - Not optional, treat ALL tap water before adding (~$8-12, treats 1000+ gallons)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Common Hydration Mistakes"
+    },
+    {
+      "type": "table",
+      "headers": ["Mistake", "Consequence", "Prevention"],
+      "rows": [
+        ["Using untreated tap water", "Chemical burns from chlorine/chloramine", "ALWAYS use Aquatize, no exceptions"],
+        ["No water section in terrarium", "Chronic dehydration, stress, no breeding", "Paludarium setup mandatory for species"],
+        ["Water too deep, no exit ramps", "Exhaustion drowning", "Add ramps, keep depth under 6\", provide graduated depth"],
+        ["Stagnant water (no circulation)", "Bacterial blooms, ammonia spikes, illness", "Add small filter or change water more frequently"],
+        ["Misting only once daily", "Insufficient hydration in dry climates", "Minimum 2x daily (morning + evening)"],
+        ["Over-misting (constant 90%+ humidity)", "Bacterial skin infections", "Allow surfaces to dry between mistings, ensure ventilation"],
+        ["Cold water in pool", "Thermal shock, stress response", "Use preset heater, maintain 78-79°F"],
+        ["Forgetting to refill water section", "Frogs dehydrate despite misting", "Weekly checks, top off evaporated water"],
+        ["Small gravel in water section", "Impaction if swallowed", "Only large Turtle Pebbles (0.5\"+ diameter) or bare glass"],
+        ["Using fogger as only hydration", "No droplets to drink from, chronic dehydration", "Fogger supplements misting, never replaces it"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Hydration for Different Life Stages"
+    },
+    {
+      "type": "table",
+      "headers": ["Life Stage", "Water Section Depth", "Misting Frequency", "Special Needs"],
+      "rows": [
+        ["Juveniles (0-6 months)", "1-2 inches maximum", "2-3x daily, 45-60 seconds", "Shallow water only - drowning risk higher, more frequent misting"],
+        ["Sub-adults (6-12 months)", "2-3 inches", "2x daily, 60 seconds", "Can handle standard adult protocol"],
+        ["Adults (non-breeding)", "2-4 inches", "2x daily, 60-90 seconds", "Standard care, optional deeper end"],
+        ["Breeding Adults", "4-6 inches (females need depth)", "3-4x daily, 90-120 seconds", "Deeper water critical for bladder filling, heavy misting"],
+        ["Post-Breeding Females", "2-4 inches", "3x daily for 2 weeks", "Extra hydration to recover from egg production"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Signs of Proper Hydration"
+    },
+    {
+      "type": "text",
+      "text": "Well-hydrated Red-Eyed Tree Frogs display these characteristics:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Skin Appearance: Plump, smooth, vibrant green color (not dull or wrinkled)",
+        "Eyes: Bright, full, protruding slightly (not sunken into skull)",
+        "Behavior: Active during evening hours, normal climbing ability, responds to food",
+        "Soaking Frequency: Observed soaking in water 1-2x per week (not constantly - that indicates stress)",
+        "Urination: Regular urates (white chalky waste) indicate kidney function and hydration",
+        "Shedding: Clean sheds every 1-2 weeks, skin comes off in one piece (not stuck patches)",
+        "Weight: Consistent body mass, slightly rounded belly, visible muscle tone"
+      ]
+    }
+  ]
+}

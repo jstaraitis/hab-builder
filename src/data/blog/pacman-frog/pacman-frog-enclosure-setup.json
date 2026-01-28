@@ -1,0 +1,645 @@
+{
+  "id": "pacman-frog-enclosure-setup",
+  "title": "Pacman Frog Enclosure Setup: Size Requirements, Types & Decorations",
+  "description": "Complete guide to Pacman frog enclosure requirements including size by sex, enclosure types (glass/PVC/screen), bin modifications, decorations, and enrichment setup.",
+  "author": "Habitat Builder",
+  "date": "2026-01-28",
+  "category": "Care Guides",
+  "excerpt": "Learn proper enclosure sizing for male and female Pacman frogs, enclosure type selection, bin modifications, and enrichment setup for thriving frogs.",
+  "tags": ["pacman-frog", "enclosure", "setup", "housing", "enrichment"],
+  "content": [
+    {
+      "type": "intro",
+      "heading": "Proper Housing for Thriving Pacman Frogs",
+      "text": "Pacman frogs can get rather large - females up to 7 inches diameter! Though they can be inactive day-to-day, they explore and move at night when provided enriching spaces. Larger, well-decorated enclosures encourage natural activity patterns and burrowing behavior. These frogs are cannibalistic and MUST be housed alone."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "SOLITARY SPECIES ONLY - Pacman frogs are cannibalistic. Never house two frogs together under any circumstances, regardless of size or sex."
+    },
+    {
+      "type": "section",
+      "heading": "Why Enclosure Size Matters"
+    },
+    {
+      "type": "text",
+      "text": "A 10 gallon tank is NOT appropriate housing for adult frogs of either sex. Here's why:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Unable to establish proper thermal gradient (warm to cool side)",
+        "Insufficient floor space for exploration and burrow changes",
+        "Height limitations make heating/lighting difficult",
+        "No room for enrichment (multiple hides, plants, decorations)",
+        "Females can grow to 7 inches - physically cramped in 10 gallon",
+        "Stress from inadequate space suppresses immune system"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "When provided with larger enclosures and better decoration, Pacman frogs are more likely to explore and change burrows at night. Enriching spaces promote natural behaviors."
+    },
+    {
+      "type": "section",
+      "heading": "Minimum Enclosure Sizes by Sex"
+    },
+    {
+      "type": "text",
+      "text": "Pacman frogs differ greatly in size between males and females, so minimum enclosure sizes differ. Make sure you properly sex your frog before committing to the smaller male minimum."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Minimum Height:</span> All enclosures require minimum 12 inches of height, but 18+ inches makes heating and lighting much easier to manage."
+    },
+    {
+      "type": "section",
+      "heading": "Juvenile Pacman Frogs (Unsexed)"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Minimum Size:</span> 20×10×12\" (50×25×30cm) or 200 sq in floor space"
+    },
+    {
+      "type": "text",
+      "text": "Breeders and pet stores sell frogs as young as quarter-sized. Baby frogs at this age have not been tested for growth, food response, and health. Smaller enclosures help monitor health during this vulnerable time. Upgrade to adult enclosure once 6-7 months old and able to be sexed."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Example Enclosures:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "10 gallon aquarium (20×10×12\")",
+        "Exo Terra Small Low (18×18×12\")",
+        "Exo Terra Small Wide (18×18×18\")",
+        "Zoo Med 10 Gallon ReptiHabitat (20×10×12\")",
+        "Zoo Med Natural Terrarium NT-3 (18×18×12\")",
+        "Zilla 10 Gallon Critter Cage (20×10×12\")",
+        "Zilla 15 Gallon Critter Cage (24×12×12\")",
+        "Zilla QuickBuild Terrarium (20×12×10\")",
+        "Modified plastic bins of appropriate size (check interior dimensions)"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "UPGRADE REQUIRED - Juveniles must be moved to adult-sized enclosure at 6-7 months old. Keeping adult frogs in 10 gallon tanks causes chronic stress and health issues."
+    },
+    {
+      "type": "section",
+      "heading": "Male Pacman Frogs"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Minimum Size:</span> 30×12×12\" (75×30×30cm) or 360 sq in floor space (20 gallon long equivalent)"
+    },
+    {
+      "type": "text",
+      "text": "Males grow to 3-4 inches diameter. Larger enclosures are always welcome and encouraged!"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Example Enclosures:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Exo Terra Medium Low (24×18×12\")",
+        "Exo Terra Medium Wide (24×18×18\")",
+        "Zoo Med 25 Gallon Naturalistic Terrarium (30×12×16\")",
+        "Zilla 20 Long Critter Cage (30×12×12\")",
+        "Zilla 20 Long Deluxe Critter Cage (30×12×12\")",
+        "Zilla Front Opening Enclosure (30×12×16\")",
+        "Zilla QuickBuild Terrarium (30×12×12\")",
+        "Modified plastic bins of appropriate size (check interior dimensions)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Female Pacman Frogs"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Minimum Size:</span> 36×18×18\" (90×45×45cm) or 648 sq in floor space (40 gallon breeder equivalent)"
+    },
+    {
+      "type": "text",
+      "text": "Females grow to 5-7 inches diameter depending on species. They need significantly more space than males."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Example Enclosures:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Zilla 30 Breeder Critter Cage (36×18×12\")",
+        "Zilla 40 Breeder Critter Cage (36×18×16\")",
+        "Zilla 40 Breeder Deluxe Critter Cage (36×18×12\")",
+        "Zilla Front Opening Enclosure (36×18×20\")",
+        "Zilla QuickBuild Terrarium (36×18×18\")",
+        "Zilla QuickBuild Terrarium (48×18×18\") - extra large option",
+        "Zoo Med Naturalistic Terrarium 40g (36×18×18\")",
+        "Zoo Med Naturalistic Terrarium 32g (36×18×12\")",
+        "Exo Terra Large Low (36×18×12\")",
+        "Exo Terra Large Wide (36×18×18\")",
+        "Dubia 50 Gallon PVC Enclosure (36×18×18\")",
+        "Modified plastic bins of appropriate size (check interior dimensions)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Enclosure Type Selection"
+    },
+    {
+      "type": "text",
+      "text": "Three main enclosure types work for Pacman frogs. Choose based on your humidity needs, budget, and aesthetic preferences:"
+    },
+    {
+      "type": "section",
+      "heading": "Glass Terrariums"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Best for:</span> High humidity species (C. cornuta, C. aurita), budget-conscious keepers, those wanting easy viewing"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Pros:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Excellent humidity retention",
+        "Clear viewing on all sides",
+        "Readily available at pet stores",
+        "Affordable (especially used aquariums)",
+        "Heavy/stable (won't tip easily)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Cons:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Screen tops allow heat/humidity escape",
+        "Heavier to move and clean",
+        "Can crack if dropped",
+        "Top-opening only (can stress frog during maintenance)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Tips:</span> Cover 50-75% of screen top with HVAC tape, foil, or acrylic to retain humidity on cool side. Keep warm side open for heat lamp."
+    },
+    {
+      "type": "section",
+      "heading": "PVC Enclosures"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Best for:</span> Serious keepers, multiple frogs in different enclosures, those wanting front-opening access"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Pros:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "BEST humidity and heat retention",
+        "Front-opening doors (less stressful maintenance)",
+        "Lightweight compared to glass",
+        "Very durable (won't crack)",
+        "Professional appearance",
+        "Can have integrated drainage for bioactive"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Cons:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Most expensive option ($150-400+)",
+        "Limited viewing (front only typically)",
+        "Fewer size options than glass",
+        "Shipping costs can be high",
+        "May need to order online"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Recommended brands:</span> Dubia.com, Zen Habitats, Custom Cages"
+    },
+    {
+      "type": "section",
+      "heading": "Screen Enclosures"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Best for:</span> Temporary housing, very warm/humid rooms, dry climates with misting systems"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Pros:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Excellent ventilation",
+        "Lightweight",
+        "Affordable",
+        "Easy to clean"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Cons:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "VERY difficult to maintain humidity",
+        "Not recommended for most Pacman frog setups",
+        "Requires frequent misting",
+        "Heat escapes rapidly",
+        "Deep substrate can be difficult to manage"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "text": "Screen enclosures are generally NOT recommended for Pacman frogs unless you live in a naturally humid environment (Florida, Hawaii, etc.) or have automated misting systems."
+    },
+    {
+      "type": "section",
+      "heading": "Modified Bin Enclosures"
+    },
+    {
+      "type": "text",
+      "text": "Plastic storage bins can be used for quarantine, grow-out enclosures, or transportation. They are NOT suitable as permanent housing for adult frogs."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>When to use bins:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Quarantine new frogs (30 days minimum)",
+        "Temporary housing during enclosure cleaning",
+        "Transporting frogs to vet appointments",
+        "Grow-out enclosures for juveniles",
+        "Emergency backup housing"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Required modifications:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Cut out center of lid (leave 2-3 inch border)",
+        "Replace cutout with 1/4 inch or smaller hardware cloth mesh",
+        "Secure mesh with zip ties, screws, or strong adhesive",
+        "Mesh allows ventilation and safe overhead heat use",
+        "Smooth any sharp edges that could injure frog"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "CRITICAL: UVB cannot be used with plastic bin enclosures. UVB radiation reacts with plastic to create toxic chemicals and makes plastic brittle. Bins are UVB-incompatible even with mesh lid."
+    },
+    {
+      "type": "text",
+      "text": "For bin modification questions, contact experienced keepers on r/pacmanfrogs subreddit."
+    },
+    {
+      "type": "section",
+      "heading": "Decorations and Enrichment"
+    },
+    {
+      "type": "text",
+      "text": "Pacman frogs need coverage and decorations for security and enrichment. Many frogs burrow under plants, wood pieces, and leaf litter rather than sitting exposed."
+    },
+    {
+      "type": "section",
+      "heading": "Hides and Coverage"
+    },
+    {
+      "type": "text",
+      "text": "While frogs burrow to hide, they still benefit from overhead coverage. Provide options on both warm and cool sides of enclosure."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Hide options:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Cork bark slabs and rounds (natural, holds humidity)",
+        "Commercial hides WITHOUT bottoms (must allow burrowing)",
+        "Half log hides depressed into substrate",
+        "Terra cotta pots (break off rim, bury edge)",
+        "Live or fake plants with broad leaves",
+        "Driftwood pieces and branches"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "text": "Avoid hides with plastic bottoms - frogs cannot burrow under them, preventing natural behavior. Remove bottoms or use natural hides that rest on substrate."
+    },
+    {
+      "type": "section",
+      "heading": "Leaf Litter (Essential)"
+    },
+    {
+      "type": "text",
+      "text": "Leaf litter should be added on top of substrate. Benefits:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Extra enrichment and hiding spots",
+        "Frogs burrow under large leaf pieces",
+        "Prevents substrate ingestion during feeding",
+        "Provides habitat for cleanup crew in bioactive setups",
+        "Natural appearance",
+        "Helps maintain humidity"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Best leaf types:</span> Magnolia (large, durable), oak leaves, catappa/Indian almond leaves, commercial reptile leaf litter"
+    },
+    {
+      "type": "section",
+      "heading": "Live and Artificial Plants"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Live plants (best for bioactive):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Pothos (hardy, humidity-loving, trailing vines)",
+        "Ferns (Boston, maidenhair, bird's nest)",
+        "Bromeliads (hold water, tropical appearance)",
+        "Philodendrons (easy care, large leaves)",
+        "Spider plants (tolerant, safe)",
+        "Syngonium (arrow head plant)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Artificial plants:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "No maintenance required",
+        "Won't be damaged by frog",
+        "Provide instant coverage",
+        "Choose reptile-safe materials (no sharp edges)",
+        "Wash before use"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Overhead Vines and Foliage"
+    },
+    {
+      "type": "text",
+      "text": "Breaking up overhead lighting is especially beneficial for albino frogs but enriching for all morphs:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Provides shade zones under lamps",
+        "Makes frogs feel more secure",
+        "Mimics natural canopy coverage",
+        "Allows frog to choose sun/shade preference"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Decorative Items"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Branches and sticks (not for climbing, but enrichment)",
+        "Cork rounds (create tunnels when partially buried)",
+        "Stones and rocks (smooth edges only, not small enough to swallow)",
+        "Background images (taped to outside of enclosure)",
+        "Natural wood pieces"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Water Dish Requirements"
+    },
+    {
+      "type": "text",
+      "text": "Some frogs use water dishes extensively, others rarely. Fresh clean water should be provided at all times regardless."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Water dish requirements:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Frog must fit entire body in dish for soaking",
+        "Water depth: Frog sits with body under water but NOT fully submerged",
+        "Pacman frogs are poor swimmers (short legs, small feet, no webbing)",
+        "Frog must be able to exit dish without assistance",
+        "Smooth sides with gradual slope or steps"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Dish placement:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Place on cool side of enclosure (prevents rapid evaporation)",
+        "Bury rim level with substrate (easy access)",
+        "Keep away from heat lamp (maintains cooler water)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Water maintenance:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Change water daily (frogs often defecate in dish)",
+        "ALL water must be treated with reptile/amphibian dechlorinator",
+        "Clean dish weekly with reptile-safe cleaner",
+        "Rinse thoroughly before refilling"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "Water dish too deep = drowning risk. Pacman frogs are NOT strong swimmers and can drown in deep water. They should always be able to touch bottom and keep head above water."
+    },
+    {
+      "type": "section",
+      "heading": "Layout Planning"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Thermal gradient setup:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Heat lamp and UVB on one side (warm side)",
+        "Keep opposite side empty of heat sources (cool side)",
+        "Place warm-side hide under heat lamp",
+        "Place cool-side hide away from heat",
+        "Water dish on cool side",
+        "Deep substrate throughout (4-6 inches adults)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Avoid these layout mistakes:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Heat sources on both sides (no thermal gradient)",
+        "Water dish directly under heat lamp (rapid evaporation)",
+        "All hides clustered in one area (no temperature choice)",
+        "Decorations too close to heat lamp (fire hazard)",
+        "Shallow substrate (prevents burrowing)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Complete Setup Checklist"
+    },
+    {
+      "type": "text",
+      "text": "Before adding your frog:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "✓ Enclosure minimum size met (20 gal males, 40 gal females)",
+        "✓ Substrate 4-6 inches deep (see substrate guide)",
+        "✓ Leaf litter on top of substrate",
+        "✓ Heat lamp on one side (see heating & lighting guide)",
+        "✓ UVB fixture installed (optional but recommended)",
+        "✓ Thermometer probes on warm and cool sides",
+        "✓ Hygrometer probes on warm and cool sides",
+        "✓ Water dish on cool side (treated water)",
+        "✓ Hide on warm side",
+        "✓ Hide on cool side",
+        "✓ Overhead foliage/vines (especially for albinos)",
+        "✓ Plants and decorations added",
+        "✓ Temperatures stable: warm 80-85°F, cool 70-75°F",
+        "✓ Humidity 65-85% (species dependent)",
+        "✓ Let enclosure stabilize 24-48 hours before adding frog"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Maintenance Schedule"
+    },
+    {
+      "type": "table",
+      "headers": ["Frequency", "Task"],
+      "rows": [
+        ["Daily", "Change water dish, spot clean visible waste, check temperatures/humidity"],
+        ["Weekly", "Mist substrate if needed, clean water dish, check all equipment functioning"],
+        ["Bi-weekly", "Replace leaf litter as it decomposes"],
+        ["Monthly", "Deep clean decorations, check substrate moisture throughout depth"],
+        ["Every 2-3 months", "Replace substrate (except bioactive), full enclosure cleaning"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Bioactive Enclosure Additions"
+    },
+    {
+      "type": "text",
+      "text": "For those pursuing bioactive setups, add these components:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Drainage layer (1-2 inches LECA or hydroballs with screen barrier)",
+        "Bioactive substrate mix (ABG Mix or Terra Firma)",
+        "Cleanup crew (dwarf white or powder orange isopods + temperate springtails)",
+        "Live plants (pothos, ferns, bromeliads)",
+        "Increased leaf litter (food source for CUC)",
+        "Reduced maintenance (no substrate changes, minimal spot cleaning)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Budget-Friendly Setup Tips"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Buy used aquariums (check Craigslist, Facebook Marketplace, local reptile groups)",
+        "Use organic topsoil instead of pet store substrate ($2-5 vs $8-15)",
+        "Collect natural decor (branches, stones) - bake at 200°F for 30 min to sterilize",
+        "Use terra cotta pots as hides (break off rim, $1-3 each)",
+        "Buy feeder insects in bulk online (much cheaper than pet stores)",
+        "DIY background with foam and silicone",
+        "Join local reptile groups for free/cheap supplies"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Common Setup Mistakes"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Enclosure too small for sex (10 gallon for adults)",
+        "No thermal gradient (heat sources everywhere or nowhere)",
+        "Insufficient substrate depth (frog visible when burrowed)",
+        "Using bin enclosures with UVB (toxic reaction)",
+        "Hides with plastic bottoms (can't burrow)",
+        "No leaf litter (missing enrichment)",
+        "Water dish too deep (drowning risk)",
+        "No cool side hide (can't escape heat)",
+        "Decorations too sparse (chronic stress)",
+        "Not treating water with dechlorinator"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Related Guides"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<a href='/blog/pacman-frog-enrichment-welfare-guide' class='text-emerald-600 underline'>Enrichment & Welfare Guide</a> - Overview of all care requirements",
+        "<a href='/blog/pacman-frog-substrate-guide' class='text-emerald-600 underline'>Substrate Guide</a> - Substrate types, depth, C. cranwelli mixing",
+        "<a href='/blog/pacman-frog-heating-lighting' class='text-emerald-600 underline'>Heating & Lighting Guide</a> - Heat lamps, UVB, thermostats",
+        "<a href='/blog/pacman-frog-temperature-humidity' class='text-emerald-600 underline'>Temperature & Humidity Guide</a> - Environmental control"
+      ]
+    }
+  ]
+}

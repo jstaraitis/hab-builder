@@ -102,7 +102,7 @@ export function validateEnclosureSize(
   }
 
   // Tall enclosure humidity warning (only for species that need high humidity)
-  if (userHeight > 36 && profile.careTargets.humidity.min > 60) {
+  if (userHeight > 36 && profile.careTargets.humidity.day.min > 60) {
     warnings.push(
       `Tall enclosure (${input.height}") may lose humidity quickly. Plan extra misting or use a humidifier to maintain ${profile.careTargets.humidity.min}%+ humidity.`
     );
@@ -132,11 +132,11 @@ export function validateEnclosureType(
   input: EnclosureInput,
   profile: AnimalProfile
 ): { compatible: boolean; warning?: string } {
-  // White's Tree Frogs specifically cannot use screen enclosures
-  if (input.type === 'screen' && input.animal === 'whites-tree-frog') {
+  // Amphibians require high humidity - screen enclosures are incompatible
+  if (input.type === 'screen' && profile.equipmentNeeds?.animalType === 'amphibian') {
     return {
       compatible: false,
-      warning: `Screen enclosures are INCOMPATIBLE with White's Tree Frogs. They cannot maintain the warm, stable temperature required. Use glass or PVC only.`,
+      warning: `Screen enclosures are INCOMPATIBLE with ${profile.commonName}. They lose moisture too rapidly to maintain the required ${profile.careTargets.humidity.min}-${profile.careTargets.humidity.max}% humidity. Use glass or PVC enclosures with partial ventilation.`,
     };
   }
   
@@ -145,6 +145,24 @@ export function validateEnclosureType(
     return {
       compatible: false,
       warning: `Screen enclosures are not recommended for ${profile.commonName}. They lose humidity too quickly and frogs can damage their noses on the screen. Use glass or PVC instead.`,
+    };
+  }
+
+  return { compatible: true };
+}
+
+/**
+ * Check if bioactive setup is compatible with the selected animal
+ */
+export function validateBioactive(
+  input: EnclosureInput,
+  profile: AnimalProfile
+): { compatible: boolean; warning?: string } {
+  // Check if bioactive is selected but animal doesn't support it
+  if (input.bioactive && !profile.bioactiveCompatible) {
+    return {
+      compatible: false,
+      warning: `Bioactive setups are NOT RECOMMENDED for ${profile.commonName}. This species requires different substrate and maintenance approaches than traditional bioactive systems.`,
     };
   }
 

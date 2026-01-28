@@ -1,0 +1,254 @@
+{
+  "id": "axolotl",
+  "commonName": "Axolotl",
+  "scientificName": "Ambystoma mexicanum",
+  "searchQuery": ["axolotl", "mexican walking fish", "water dragon", "ambystoma mexicanum"],
+  "careLevel": "intermediate",
+  "emoji": "🦎",
+  "imageUrl": "/animals/axolotl/axolotl-1.jpg",
+  "completionStatus": "in-progress",
+  "gallery": [
+    {
+      "url": "/animals/axolotl/axolotl-1.jpg",
+      "caption": ""
+    }
+  ],
+  "minEnclosureSize": {
+    "width": 36,
+    "depth": 18,
+    "height": 16,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 30,
+    "additionalGallons": 10,
+    "maxRecommended": 1,
+    "description": "Axolotls are solitary and do best when housed alone. A 30-40 gallon breeder tank is minimum for one adult. Tank length and width matter more than height since they are bottom-dwelling."
+  },
+  "careTargets": {
+    "temperature": {
+      "min": 60,
+      "max": 68,
+      "basking": null,
+      "nighttime": {
+        "min": 60,
+        "max": 68
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "day": {
+        "min": 100,
+        "max": 100
+      },
+      "night": {
+        "min": 100,
+        "max": 100
+      },
+      "shedding": {
+        "min": 100,
+        "max": 100
+      },
+      "unit": "%",
+      "notes": "Fully aquatic species - humidity not applicable. Maintain clean, cold water instead."
+    },
+    "lighting": {
+      "uvbRequired": false,
+      "uvbRecommended": false,
+      "uvbStrength": null,
+      "coveragePercent": 0,
+      "photoperiod": "Natural/indoor light sufficient - no special lighting needed"
+    },
+    "gradient": "Aquatic species - no thermal gradient needed. Maintain stable cold water temperature 60-68°F throughout tank."
+  },
+  "layoutRules": {
+    "preferVertical": false,
+    "verticalSpacePercent": 0,
+    "thermalGradient": "none",
+    "requiredZones": ["open-swimming", "hides", "plants"],
+    "optionalZones": ["additional-hides"]
+  },
+  "bioactiveCompatible": false,
+  "equipmentNeeds": {
+    "climbing": "aquatic",
+    "substrate": ["substrate-bare-bottom", "substrate-slate-tile", "substrate-fine-sand-aquatic"],
+    "bioactiveSubstrate": null,
+    "humidity": 100,
+    "heatSource": "none",
+    "waterFeature": "fully-aquatic",
+    "lighting": "none",
+    "diet": ["carnivore"],
+    "animalType": "amphibian",
+    "decor": ["hides-aquatic", "plants"],
+    "filtration": ["aquarium-filter-sponge", "air-pump", "filter-media-bio"],
+    "cooling": ["aquarium-chiller"],
+    "waterTreatment": ["water-conditioner", "aquarium-test-kit"],
+    "maintenance": ["python-siphon"],
+    "safety": ["aquarium-lid"]
+  },
+  "lifespan": "10-15 years in captivity with proper care",
+  "dietType": "Carnivore",
+  "adultSize": "9-12 inches in length",
+  "temperament": "Peaceful, solitary, bottom-dwelling",
+  "activityPattern": "Crepuscular",
+  "originRegion": "Lake Xochimilco, Mexico (Critically Endangered in wild)",
+  "setupTips": [
+    "Tank MUST be fully cycled before adding axolotl - cycling takes 4-6 weeks minimum",
+    "Length and width more important than height - they're bottom-dwelling aquatic animals",
+    "Use low-flow filters only - high water flow causes stress (they evolved in still water)",
+    "Temperature is CRITICAL - never exceed 72°F or axolotl can die. Use aquarium chiller if room temperature is warm",
+    "Fine sand substrate only for axolotls 6+ inches. NO gravel, rocks, or marbles (causes impaction)",
+    "Bare-bottom tanks or slate tile are safest substrate options",
+    "NO eyelids - provide dark hiding spots to escape bright light",
+    "Aquarium lid essential - axolotls can jump out of tank",
+    "Test water weekly with liquid test kit.",
+    "Perform 20-30% water changes weekly with cold, conditioned water"
+  ],
+  "notes": [
+    "Fully aquatic - never leaves water (neotenic salamander that retains juvenile features for life)",
+    "Bottom-dwelling with poor eyesight - uses powerful sensory organs to detect movement",
+    "Critically Endangered in wild - only found in Lake Xochimilco, Mexico",
+    "Can regenerate lost limbs, gills, tail, and even parts of brain and heart",
+    "NO eyelids - evolved in darkness, need hiding spots to escape light",
+    "Sensitive to water quality - ammonia and nitrites must be 0 ppm at all times",
+    "Cold-water species - cannot tolerate warm temperatures (72°F+ can be fatal)",
+    "Solitary animals that don't require companionship - best kept alone",
+    "Juveniles under 6 inches should NEVER have substrate (impaction risk too high)",
+    "Adults 6+ inches can have extremely fine sand only - still risky",
+    "Produces significant waste - requires strong filtration and weekly water changes"
+  ],
+  "warnings": [
+    {
+      "severity": "critical",
+      "message": "TEMPERATURE EXTREME DANGER - Never allow water to exceed 72°F. Temperatures above 74°F can be rapidly fatal. Use aquarium chiller or room AC if ambient temps are warm. Axolotls cannot thermoregulate.",
+      "category": "temperature"
+    },
+    {
+      "severity": "critical",
+      "message": "CYCLING MANDATORY - Tank MUST be fully cycled before adding axolotl. Uncycled tanks cause ammonia poisoning which is often fatal. Cycling takes 4-6 weeks minimum. Test water parameters before purchase.",
+      "category": "water-quality"
+    },
+    {
+      "severity": "critical",
+      "message": "IMPACTION DANGER - NO gravel, rocks, marbles, or glass stones. Axolotls accidentally swallow these causing fatal blockages. Use bare-bottom, slate tile, or extremely fine sand (6+ inches only).",
+      "category": "substrate"
+    },
+    {
+      "severity": "critical",
+      "message": "WATER QUALITY CRITICAL - Ammonia and nitrites MUST be 0 ppm at all times. Even trace amounts cause chemical burns to gills and skin. Test water weekly. Perform 20-30% water changes weekly minimum.",
+      "category": "water-quality"
+    },
+    {
+      "severity": "important",
+      "message": "ALOE VERA TOXICITY - Never use water conditioners containing aloe vera or plant extracts. These are toxic to axolotls. Use Seachem Prime or Fritz Complete only.",
+      "category": "water-treatment"
+    },
+    {
+      "severity": "important",
+      "message": "LOW FLOW REQUIRED - High water flow causes severe stress. Use low-flow filters with adjustable flow rates. Aim filter output toward surface, not directly at axolotl.",
+      "category": "filtration"
+    },
+    {
+      "severity": "important",
+      "message": "TANK MATE RISKS - Fish nip gills/limbs, shrimp/crayfish attack with claws, small snails cause impaction. Best kept alone. Only bladder/pond snails safe for 4+ inch axolotls.",
+      "category": "tank-mates"
+    },
+    {
+      "severity": "important",
+      "message": "FEEDER FISH DANGER - Live feeder fish carry parasites, bacteria, and fungal infections. If using, quarantine fish 2+ weeks and treat. Frozen silversides or worms much safer.",
+      "category": "feeding"
+    },
+    {
+      "severity": "tip",
+      "message": "NO DISTILLED/RO WATER - Distilled and reverse osmosis water lack minerals essential for axolotl health. Use conditioned tap water, spring water, or well water only.",
+      "category": "water-source"
+    },
+    {
+      "severity": "tip",
+      "message": "LIGHTING SENSITIVITY - Axolotls have no eyelids and evolved in darkness. Bright lights cause stress. Natural room light is sufficient. Provide dark hides for retreat.",
+      "category": "lighting"
+    }
+  ],
+  "relatedBlogs": [
+    "axolotl-enrichment-welfare-guide",
+    "axolotl-enclosure-setup",
+    "axolotl-substrate-guide",
+    "axolotl-temperature-water-quality",
+    "axolotl-feeding-guide",
+    "axolotl-water-care-guide"
+  ],
+  "careGuidance": {
+    "feedingRequirements": [
+      "Obligate carnivores - require whole prey items (worms, small fish, insects)",
+      "Food must be small enough to fit in mouth without choking",
+      "Axolotls inhale prey using suction feeding - don't chew",
+      "NEVER feed mealworms - tough exoskeleton causes impaction"
+    ],
+    "feedingSchedule": [
+      "Adults (8+ inches): Feed once every 2-3 days, as much as they'll eat in 10-15 minutes",
+      "Juveniles (under 8 inches): Feed daily, as much as they'll eat in 10-15 minutes",
+      "Remove uneaten food after 30 minutes to prevent water quality degradation",
+      "Variety is important - rotate between different staple foods"
+    ],
+    "feedingVariety": [
+      "STAPLES: Earthworms/nightcrawlers (4+ inches), blackworms (under 4 inches), frozen silversides, frozen brine shrimp cubes, Repashy Grub Pie",
+      "OCCASIONAL (1-2× monthly): Waxworms, hornworms (horn removed), crickets, bloodworms",
+      "AVOID: Mealworms (tough exoskeleton), goldfish (high in thiaminase), any food larger than space between eyes"
+    ],
+    "supplementSchedule": [
+      "No supplementation required - whole prey items provide complete nutrition",
+      "Earthworms and frozen fish contain all necessary vitamins and minerals",
+      "Do NOT use calcium powder or vitamin supplements designed for reptiles"
+    ],
+    "waterNotes": [
+      "Fully aquatic - entire tank is their water feature",
+      "Water temperature: 60-68°F ideal, never exceed 72°F",
+      "pH: 7.4-7.6 ideal (6.5-8.0 acceptable)",
+      "Ammonia: 0 ppm (CRITICAL)",
+      "Nitrites: 0 ppm (CRITICAL)",
+      "Nitrates: 5-20 ppm (under 40 ppm acceptable)",
+      "Use liquid test kit weekly",
+      "20-30% water changes weekly with cold, conditioned water",
+      "Never use conditioners with aloe vera or plant extracts"
+    ],
+    "handlingNotes": [
+      "Minimize handling - causes extreme stress and damages protective slime coat",
+      "Use fine mesh net for transfers (never hands)",
+      "If handling unavoidable: wet hands thoroughly, support entire body, minimize time out of water",
+      "Never lift by tail, gills, or limbs",
+      "Return to water immediately if axolotl struggles or gasps"
+    ],
+    "substrateOptions": [
+      "SAFEST: Bare-bottom tank (easiest to clean, no impaction risk)",
+      "SAFE: Slate tile (natural look, no impaction risk, easy to clean)",
+      "RISKY: Extremely fine sand (pool filter sand or play sand) - ONLY for axolotls 6+ inches",
+      "NEVER USE: Gravel, rocks, marbles, glass stones, coarse sand, artificially colored sand"
+    ],
+    "commonIssues": [
+      "Floating: Gulped too much air during feeding. Usually self-resolves in 24 hours. If persistent, check water quality.",
+      "Curled gills: Poor water quality (ammonia/nitrites present) or temperature too warm. Test water immediately.",
+      "Loss of appetite: Stress from acclimation (normal 2-3 days), water too warm, poor water quality, or illness.",
+      "Frantic swimming: Water quality issue (ammonia/nitrites spike), temperature spike, or extreme stress. Test water and lower temperature.",
+      "Fungus on gills/body: Use Indian almond leaves for mild cases, black tea bath for moderate, methylene blue for severe. Always address underlying water quality issue."
+    ],
+    "tankMateCompatibility": [
+      "BEST ALONE: Axolotls are solitary and thrive when housed individually",
+      "Multiple axolotls: Possible in 40+ gallon tanks with 2-3 adults maximum. Monitor for aggression and nipping.",
+      "Bladder/pond snails: Safe for axolotls 4+ inches. Help clean tank.",
+      "NEVER: Fish (nip gills/limbs), shrimp/crayfish (attack with claws), mystery/apple snails under 2 inches (impaction risk)"
+    ],
+    "cyclingRequirements": [
+      "Tank MUST be cycled before axolotl introduction - non-negotiable",
+      "Cycling establishes beneficial bacteria to process ammonia → nitrites → nitrates",
+      "Process takes 4-6 weeks minimum - cannot be rushed",
+      "Use fishless cycling method: add ammonia source, test daily, wait for bacteria colony",
+      "Cycle is complete when: Ammonia and nitrites stay at 0 ppm after adding ammonia",
+      "Never add axolotl to uncycled tank - causes fatal ammonia poisoning"
+    ],
+    "nativeHabitat": {
+      "regions": ["Lake Xochimilco, Mexico (only remaining natural habitat)"],
+      "biomes": ["Shallow lake with muddy bottom, heavy vegetation, cool water"],
+      "conservationStatus": "Critically Endangered (IUCN Red List) - one step above extinct in wild"
+    }
+  }
+}

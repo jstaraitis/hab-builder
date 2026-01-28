@@ -43,6 +43,10 @@
       "content": "NEVER use: Pine shavings (toxic aromatic oils), cedar shavings (highly toxic), sand alone (doesn't hold humidity), walnut shell (sharp edges cause impaction), reptile carpet (harbors bacteria, snags teeth), newspaper/paper towels (can't maintain humidity). These substrates are inappropriate for corn snakes."
     },
     {
+      "type": "highlight",
+      "content": "For comprehensive guidance on substrate categories, DIY mixing formulas, impaction myths, and bioactive layering applicable to all reptiles, see our <a href='/blog/substrate-selection-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Substrate Selection Guide</a>. The information below covers corn snake-specific substrate requirements and temperate habitat recommendations."
+    },
+    {
       "type": "section",
       "title": "Commercial Substrate Options"
     },

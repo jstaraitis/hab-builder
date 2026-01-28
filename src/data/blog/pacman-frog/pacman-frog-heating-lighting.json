@@ -1,0 +1,613 @@
+{
+  "id": "pacman-frog-heating-lighting",
+  "title": "Pacman Frog Heating & Lighting Guide: UVB, Thermostats & Equipment",
+  "description": "Complete heating and lighting guide for Pacman frogs including heat lamp selection, UVB recommendations, thermostat types, and the science behind overhead heating.",
+  "author": "Brennan Kennedy & Sydney Dybing",
+  "date": "2026-01-28",
+  "category": "Care Guides",
+  "excerpt": "Evidence-based guide to heating and lighting for Pacman frogs: why overhead heating is best, UVB benefits, thermostat selection, and complete equipment recommendations.",
+  "tags": ["pacman-frog", "heating", "lighting", "uvb", "thermostats"],
+  "content": [
+    {
+      "type": "intro",
+      "heading": "Why Proper Heating and Lighting Matters",
+      "text": "Even though Pacman frogs are nocturnal and don't bask like bearded dragons, they still benefit tremendously from overhead heating and UVB lighting. Science shows that heat lamps providing short wavelength infrared radiation improve digestion, immune function, and overall health. This guide explains the evidence and helps you choose the right equipment."
+    },
+    {
+      "type": "section",
+      "heading": "The Science: Short vs Long Wavelength Infrared"
+    },
+    {
+      "type": "text",
+      "text": "Not all heat is created equal. Different heat sources produce different types of infrared radiation:"
+    },
+    {
+      "type": "highlight",
+      "text": "<span class='font-semibold'>Short Wavelength Infrared (Infrared-A):</span> Produced by the sun, halogen bulbs, and incandescent bulbs. Penetrates deep into body tissues for effective warming. Improves digestion, immune function, and tissue health."
+    },
+    {
+      "type": "highlight",
+      "text": "<span class='font-semibold'>Long Wavelength Infrared (Infrared-C):</span> Produced by heat mats, ceramic heat emitters (CHEs), and deep heat projectors (DHPs). Only warms surface tissues. Less effective for core body temperature and digestion."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "OVERHEAD HEATING PREFERRED - Heat lamps provide short wavelength IR that penetrates tissues for better digestion. Heat mats/CHEs/DHPs provide long wavelength IR (less effective for health)."
+    },
+    {
+      "type": "section",
+      "heading": "Daytime Heat Sources"
+    },
+    {
+      "type": "text",
+      "text": "The best daytime heat source for Pacman frogs is a white halogen or incandescent flood bulb:"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Why white light bulbs:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Produce beneficial short wavelength infrared (IR-A)",
+        "Most closely imitate natural sunlight",
+        "Improve digestion and nutrient absorption",
+        "Support healthy immune function",
+        "Create natural day/night cycle",
+        "Much dimmer than actual sunlight (even albinos usually tolerate them)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Recommended bulb types:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Halogen Flood Bulbs:</span> Hardware store bulbs, 20-60w typical range, very affordable ($3-8 each)",
+        "<span class='font-semibold'>Incandescent Flood Bulbs:</span> Increasingly rare due to regulations, 25-75w typical, excellent heat quality",
+        "<span class='font-semibold'>Pet Store \"Basking\" Bulbs:</span> Same as above but marked up ($10-15), not necessary unless convenient"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Wattage selection:</span>"
+    },
+    {
+      "type": "text",
+      "text": "Start with 20-40w for most setups. Factors affecting wattage needed:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Enclosure size (larger = more watts)",
+        "Room temperature (colder room = more watts)",
+        "Enclosure height (taller = more watts for same substrate temperature)",
+        "Screen vs glass top (screen loses more heat)",
+        "Time of year (winter needs more heat than summer)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "If 40w isn't enough, try 50-60w. If too hot even with dimmer, go lower wattage."
+    },
+    {
+      "type": "section",
+      "heading": "Albino Frog Considerations"
+    },
+    {
+      "type": "text",
+      "text": "Albino Pacman frogs may be more light-sensitive, but most tolerate low-wattage heat lamps (20-40w) without issues. These bulbs are FAR dimmer than sunlight."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>If your albino frog shows discomfort with heat lamps:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Add overhead vines and foliage to break up lighting",
+        "Try lower wattage (20-25w)",
+        "As last resort, use DHP (loses short wavelength IR benefits)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "ALWAYS try heat lamps first before switching to DHP."
+    },
+    {
+      "type": "section",
+      "heading": "Nighttime Heat Sources"
+    },
+    {
+      "type": "text",
+      "text": "Most Pacman frogs do fine with nighttime temperatures down to ~65°F (18°C). Supplemental night heat usually not needed."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>If night heating required (room drops below 65°F):</span>"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Option 1: Deep Heat Projector (DHP)</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Produces long wavelength IR without light",
+        "More effective than CHE or heat mat",
+        "Projects heat downward like sun",
+        "Requires dimming thermostat",
+        "Arcadia and Pangea make quality DHPs"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Option 2: Ceramic Heat Emitter (CHE)</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Produces long wavelength IR without light",
+        "Less effective than DHP",
+        "Affordable ($15-25)",
+        "Can use on-off or pulse-proportional thermostat",
+        "Long-lasting (1-2 years typical)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Option 3: Heat Mat</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Belly heat (not ideal but functional)",
+        "Use on SIDE of enclosure, not bottom (risk of dehydration)",
+        "Can use on-off thermostat",
+        "Cover only 1/3 of one side",
+        "Least effective option but most affordable"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "NIGHTTIME DARKNESS REQUIRED - Do NOT use blue/red/purple 'moonlight' bulbs. Frogs can see these lights just fine. Use total darkness for healthy circadian rhythm. See explanation by <a href='https://www.youtube.com/watch?v=j3CweXEr6F4' target='_blank' class='text-emerald-600 underline'>exotic vet Dr. Diehl</a>."
+    },
+    {
+      "type": "section",
+      "heading": "Temperature Goals"
+    },
+    {
+      "type": "table",
+      "headers": ["Zone", "Temperature Range", "Notes"],
+      "rows": [
+        ["Warm Side (Day)", "80-85°F (27-29°C)", "Under heat lamp, measure at substrate surface"],
+        ["Cool Side (Day)", "70-75°F (21-24°C)", "Away from heat sources"],
+        ["Nighttime (Both Sides)", "65-75°F (18-24°C)", "Most don't need supplemental heat"],
+        ["C. cornuta (Amazon species)", "75-85°F (24-29°C)", "Prefers warmer temps year-round"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Use infrared temperature gun to measure substrate surface temperature under heat lamp. This is where frog will experience warmth."
+    },
+    {
+      "type": "section",
+      "heading": "Thermostat Requirements"
+    },
+    {
+      "type": "text",
+      "text": "Heat lamps and DHPs MUST be controlled by thermostats. Two thermostat types exist:"
+    },
+    {
+      "type": "section",
+      "heading": "Dimming Thermostats (BEST for Heat Lamps & DHPs)"
+    },
+    {
+      "type": "text",
+      "text": "Dimming thermostats control the amount of power sent to heat source. When probe gets too hot, dimmer reduces power. When too cold, increases power."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Why dimming is essential for heat lamps:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Prevents flashing lights (disturbs circadian rhythm)",
+        "Extends bulb life dramatically",
+        "Provides smooth temperature control",
+        "Maintains stable environment",
+        "Worth the investment for animal health"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Budget Dimming Options:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Exo Terra 600w Electronic Thermostat:</span> $50-70, basic dimming mode, good entry option"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Professional Grade Dimmers:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Herpstat 1-Basic or higher:</span> $100-200+, excellent quality, many features",
+        "<span class='font-semibold'>Vivarium Electronics VE-200:</span> $80-100, reliable dimming",
+        "<span class='font-semibold'>Vivarium Electronics VE-300:</span> $120-150, dual output (day and night heat)",
+        "<span class='font-semibold'>Vivarium Electronics VE-300X2:</span> $180-220, two independent channels"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "text": "DIMMER THERMOSTATS REQUIRED - Heat lamps and DHPs need dimming thermostats (not on/off). Flashing disrupts circadian rhythm and causes premature bulb failure. Use manual dimmer + on/off thermostat backup if budget-limited."
+    },
+    {
+      "type": "section",
+      "heading": "Budget Alternative: Manual Dimmer + On/Off Thermostat"
+    },
+    {
+      "type": "text",
+      "text": "If dimming thermostat is unaffordable, use this workaround:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Buy dimmable lamp fixture with built-in dimmer switch ($15-30)",
+        "Manually adjust dimmer until correct temperature achieved",
+        "Add on-off thermostat as emergency backup to prevent overheating",
+        "On-off thermostat should rarely trigger if dimmer set correctly"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Dimmable lamp fixtures:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Fluker's Repta-Clamp Lamp with Dimmer Switch ($20-30)",
+        "Hardware store dimmer-equipped clamp lamps"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Budget on/off thermostats:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "BN-Link Thermostat ($15-25)",
+        "Inkbird ITC-308 ($30-40)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "On/Off Thermostats (ONLY for CHEs & Heat Mats)"
+    },
+    {
+      "type": "text",
+      "text": "CHEs and heat mats can safely use cheaper on-off or pulse-proportional thermostats:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "BN-Link Thermostat ($15-25)",
+        "Inkbird ITC-308 ($30-40)",
+        "Zoo Med ReptiTemp ($35-50)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "These toggle power on/off to maintain temperature. Acceptable for non-light heat sources."
+    },
+    {
+      "type": "section",
+      "heading": "Thermostat Probe Placement"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Place probe on warm side of enclosure",
+        "At substrate level (where frog experiences temperature)",
+        "Under decorations or secured to glass (prevent frog from moving it)",
+        "Away from direct heat lamp beam (measures air/substrate temp, not lamp output)",
+        "Keep probe clean and functional"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "UVB Lighting"
+    },
+    {
+      "type": "text",
+      "text": "UVB lighting allows Pacman frogs to synthesize vitamin D3 in their skin for calcium metabolism. Traditionally not provided, but research shows significant health benefits."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Benefits of UVB:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Natural vitamin D3 synthesis (reduces supplement dependency)",
+        "Improved calcium metabolism (prevents MBD)",
+        "Enhanced immune function",
+        "More natural circadian rhythm regulation",
+        "Behavioral enrichment (can sense UV wavelengths)",
+        "Mimics natural habitat (even nocturnal species exposed to UV during day)"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "UVB is NOT required for survival but is HIGHLY RECOMMENDED for optimal health. Think of it like taking multivitamins - you can survive without them, but you're healthier with them."
+    },
+    {
+      "type": "section",
+      "heading": "Appropriate UVB Bulbs"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Recommended UVB strength:</span> 5.0 or 6% (forest/tropical species strength)"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Target coverage:</span> 50% of enclosure length"
+    },
+    {
+      "type": "text",
+      "text": "Picking appropriate UVB is complex and depends on:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Enclosure dimensions (length, width, height)",
+        "Distance between bulb and substrate surface",
+        "Whether frog is albino (lower UVI needed)",
+        "Screen blocking UVB (removes ~30-50%)",
+        "Bulb output and brand variations"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "For detailed UVB bulb recommendations specific to your enclosure, please post on r/pacmanfrogs with:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Enclosure dimensions (L×W×H in inches)",
+        "Distance from lid to substrate surface",
+        "Whether frog is albino",
+        "Type of enclosure top (screen vs solid)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Community members will recommend specific bulb and fixture for your setup."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>General UVB options:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>T5 HO Linear Fixtures:</span> Most effective, even UVB spread, best for 18\"+ enclosures (Arcadia, Zoo Med)",
+        "<span class='font-semibold'>T8 Linear Fixtures:</span> Weaker output, need closer placement, budget option",
+        "<span class='font-semibold'>Compact Fluorescent (NOT coils):</span> Some models acceptable for small enclosures, avoid traditional coil bulbs"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "For extensive UVB science and research, see our <a href='/blog/uvb-guide-comprehensive' class='text-emerald-600 underline'>Comprehensive UVB Guide</a>."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "NEVER USE: Coil UVB bulbs (uneven spread), Mercury Vapor bulbs (too hot), LED UVA/UVB combo bulbs (produce dangerous UVC radiation causing skin/eye injury)."
+    },
+    {
+      "type": "section",
+      "heading": "Why NOT Coil Bulbs"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Extremely uneven UVB distribution (hot spots and dead zones)",
+        "Difficult for frog to get proper UVB exposure",
+        "Poor coverage area",
+        "Frequently fail quality control",
+        "Short effective lifespan"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Why NOT Mercury Vapor Bulbs"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Produce EXTREME heat (150-250w typical)",
+        "Produce EXTREME UVB output (desert-level)",
+        "Cannot be controlled with thermostats",
+        "Will overheat and burn Pacman frogs",
+        "Only suitable for large desert reptile enclosures (6+ feet)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Why NOT LED UVA/UVB Combo Bulbs"
+    },
+    {
+      "type": "text",
+      "text": "LED UVA/UVB bulbs are EXTREMELY DANGEROUS despite marketing claims:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Produce UVC radiation (most harmful UV, causes skin and eye damage)",
+        "Produce unnaturally high UVB levels even after months of use",
+        "High UVI persists even through mesh screens",
+        "Risk of permanent eye damage and skin injury",
+        "Claims of safety are FALSE - independent testing shows danger"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "UVB Replacement Schedule"
+    },
+    {
+      "type": "text",
+      "text": "UVB bulbs lose output over time even though they still produce visible light:"
+    },
+    {
+      "type": "table",
+      "headers": ["Bulb Type", "Replacement Schedule"],
+      "rows": [
+        ["T5 HO Linear", "Every 12 months"],
+        ["T8 Linear", "Every 6-9 months"],
+        ["Compact Fluorescent", "Every 6 months"],
+        ["Mercury Vapor", "DO NOT USE"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Mark replacement date on calendar when installing new bulb."
+    },
+    {
+      "type": "section",
+      "heading": "Complete Lighting Schedule"
+    },
+    {
+      "type": "table",
+      "headers": ["Time", "Heat Lamp", "UVB", "Night Heat (if needed)"],
+      "rows": [
+        ["7 AM - 7 PM (12 hours)", "ON", "ON", "OFF"],
+        ["7 PM - 7 AM (12 hours)", "OFF", "OFF", "ON (if room < 65°F)"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Maintain consistent 12-hour day/night cycle. Use timer for automation ($10-15)."
+    },
+    {
+      "type": "section",
+      "heading": "Equipment Shopping List"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Daytime Heating (Required):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Halogen or incandescent flood bulb (20-60w, start with 40w)",
+        "Dome lamp fixture with ceramic socket (rated for bulb wattage)",
+        "Dimming thermostat OR dimmable fixture + on-off thermostat",
+        "Infrared temperature gun ($15-25)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Nighttime Heating (If Room < 65°F):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "DHP OR CHE OR heat mat",
+        "Second dome fixture if using DHP/CHE",
+        "On-off thermostat for CHE/heat mat (can use same dimmer if using DHP)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>UVB (Optional but Recommended):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "T5 HO or T8 linear fixture (length based on enclosure)",
+        "5.0 or 6% UVB bulb (appropriate length)",
+        "Fixture mounting hardware or legs",
+        "Timer for automation"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Monitoring:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "2 digital thermometers with probes (warm and cool side)",
+        "2 digital hygrometers with probes (warm and cool side)",
+        "Infrared temperature gun for spot checking"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Budget Breakdown"
+    },
+    {
+      "type": "table",
+      "headers": ["Setup Level", "Cost Range", "Includes"],
+      "rows": [
+        ["Minimum (No UVB)", "$60-100", "Heat lamp, manual dimmer fixture, on-off thermostat, thermometers"],
+        ["Recommended (With UVB)", "$150-250", "Above + T5 HO UVB fixture and bulb, timer"],
+        ["Premium", "$300-500", "Above + Herpstat dimming thermostat, DHP for night heat, quality fixtures"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Common Heating & Lighting Mistakes"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Using heat mats instead of overhead heating (loses IR-A benefits)",
+        "No thermostat (overheating or underheating)",
+        "Using on-off thermostat with heat lamp (flashing light)",
+        "Coil UVB bulbs (uneven output)",
+        "Mercury vapor bulbs (too hot, too strong)",
+        "LED UVB bulbs (dangerous UVC production)",
+        "Blue/red night lights (frogs can see them)",
+        "No UVB provided at all (missing health benefits)",
+        "Forgetting to replace UVB bulbs yearly",
+        "Thermostat probe in wrong location (inaccurate temps)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Related Guides"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<a href='/blog/pacman-frog-enrichment-welfare-guide' class='text-emerald-600 underline'>Enrichment & Welfare Guide</a> - Overview of all care requirements",
+        "<a href='/blog/pacman-frog-temperature-humidity' class='text-emerald-600 underline'>Temperature & Humidity Guide</a> - Environmental control and monitoring",
+        "<a href='/blog/pacman-frog-enclosure-setup' class='text-emerald-600 underline'>Enclosure Setup Guide</a> - Layout and equipment placement"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Additional Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<a href='https://www.reptifiles.com/wp-content/uploads/2020/10/Why-Infrared-Matters-by-Roman-Muryn.pdf' target='_blank' class='text-emerald-600 underline'>Why Infrared Matters by Roman Muryn</a> - Science behind heating types",
+        "<a href='https://www.facebook.com/groups/ReptileLighting' target='_blank' class='text-emerald-600 underline'>Reptile Lighting Facebook Group</a> - UVB testing data and recommendations",
+        "<a href='https://www.youtube.com/watch?v=EhbDx11OMfM' target='_blank' class='text-emerald-600 underline'>SnakeDiscovery Thermostat Modes Video</a> - Visual explanation of dimming vs on-off",
+        "<a href='https://www.reptifiles.com/reptile-uvb-lighting/' target='_blank' class='text-emerald-600 underline'>Reptifiles UVB Guide</a> - Comprehensive UVB information"
+      ]
+    }
+  ]
+}

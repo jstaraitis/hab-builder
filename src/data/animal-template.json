@@ -110,7 +110,8 @@
     "uvb-lighting-guide",
     "enclosure-sizing-guide",
     "hydration-water-guide",
-    "enrichment-welfare-guide"
+    "enrichment-welfare-guide",
+    "substrate-guide"
   ],
   "careGuidance": {
     "feedingRequirements": [

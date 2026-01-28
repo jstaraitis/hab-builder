@@ -98,5 +98,31 @@
       }
     },
     "notes": "Automate lighting schedule. Most species need 12hrs on/12hrs off. Prevents forgetting to turn lights on/off."
+  },
+  "reptile-scale": {
+    "name": "Digital Scale (Reptile/Small Animal)",
+    "category": "equipment",
+    "needsTags": [],
+    "importance": "recommended",
+    "spec": {
+      "type": "Digital scale",
+      "capacity": "Based on animal size (grams to pounds)",
+      "accuracy": "1-5 gram precision"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic kitchen scale (0-5000g)",
+        "searchQuery": "digital kitchen scale grams"
+      },
+      "recommended": {
+        "description": "Pet scale with tare function",
+        "searchQuery": "digital pet scale small animal reptile"
+      },
+      "ideal": {
+        "description": "Precision veterinary scale",
+        "searchQuery": "precision digital scale veterinary reptile"
+      }
+    },
+    "notes": "Essential for monitoring health, growth, and feeding calculations. Weigh weekly for juveniles, monthly for adults. Track weight to detect illness early (sudden loss = vet visit). Use tare function with container for small/squirmy animals."
   }
 }

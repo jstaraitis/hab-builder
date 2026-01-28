@@ -1,0 +1,289 @@
+{
+  "id": "mourning-gecko-lighting-guide",
+  "title": "Mourning Gecko Lighting Guide: UVB & Photoperiod Requirements",
+  "description": "Complete lighting guide for mourning geckos covering UVB requirements for egg-laying females, bulb selection, photoperiod schedules, and equipment maintenance.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-28",
+  "category": "Care Guides",
+  "tags": ["mourning gecko", "UVB", "lighting", "photoperiod", "vitamin-d3"],
+  "image": "/animals/mourning-gecko/mourning-gecko-1.jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Essential Lighting Requirements for Mourning Geckos",
+      "content": "Mourning geckos are crepuscular (active at sunrise and sunset), meaning they are exposed to indirect UVB in nature during these twilight periods. While they can survive without UVB due to dietary vitamin D3 from crested gecko diet, they thrive when provided with low-level UVB - especially important for egg-laying females who have elevated calcium demands. Proper lighting also regulates circadian rhythms and supports natural behaviors."
+    },
+    {
+      "type": "section",
+      "title": "UVB Requirements"
+    },
+    {
+      "type": "text",
+      "content": "Mourning geckos fall into Ferguson Zone 1-2 (low to moderate UVB exposure). Their crepuscular activity means they receive brief, indirect UVB during dawn/dusk rather than intense midday sun exposure like diurnal species."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>UVB Requirements:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Parameter", "Target Value", "Measurement Location"],
+      "rows": [
+        ["UVI (UV Index)", "1.0-2.0", "At highest perch (basking area)"],
+        ["Ferguson Zone", "Zone 1-2 (low to moderate partial sun)", "Tropical forest edge/canopy"],
+        ["Coverage Area", "30-50% of enclosure top", "Allows self-regulation - geckos can choose exposure"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "While UVB is not strictly required if using fortified crested gecko diet, it is STRONGLY RECOMMENDED for breeding colonies. Egg-laying females need extra vitamin D3 for calcium absorption, and UVB provides this more naturally than D3 supplementation."
+    },
+    {
+      "type": "section",
+      "title": "UVB Equipment Selection"
+    },
+    {
+      "type": "text",
+      "content": "For tiny 12×12×18 enclosures, compact coil UVB bulbs mounted on their side provide appropriate low-level UVB. Linear tubes are ideal for larger enclosures (18×18×24+)."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Recommended UVB Bulbs:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Product", "UVB Output", "Enclosure Size", "Replacement Interval"],
+      "rows": [
+        ["Zoo Med ReptiSun 5.0 Compact (26w)", "5% UVB", "12×12×18\" to 18×18×24\"", "Every 6-12 months"],
+        ["Arcadia ShadeDweller Kit", "7% UVB (low wattage)", "12×12×18\" (perfect for single colony)", "Every 12 months"],
+        ["Zoo Med ReptiSun 5.0 T8 Linear (14-18\")", "5% UVB", "18×18×24\" to 36×18×18\"", "Every 12 months"],
+        ["Arcadia Forest 6% T5 HO (12-24\")", "6% UVB", "Larger colonies (24\"+ enclosures)", "Every 12 months"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "AVOID desert-strength UVB (10.0+) - this is far too intense for forest-dwelling mourning geckos and can cause eye damage and stress. Always use 5.0-7% \"tropical\" or \"forest\" rated bulbs."
+    },
+    {
+      "type": "section",
+      "title": "UVB Placement Guidelines"
+    },
+    {
+      "type": "text",
+      "content": "UVB bulb placement affects the UV Index at basking areas. Mourning geckos need low UVI (1.0-2.0), so distance and mounting matter."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Mounting Distance Guidelines (12×12×18 Enclosure):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Bulb Type", "Mounting Location", "Distance to Basking", "Expected UVI"],
+      "rows": [
+        ["26w ReptiSun 5.0 Compact", "On top of screen, hood with side mount", "2-4 inches through screen", "1.0-2.0"],
+        ["ShadeDweller Kit", "Inside enclosure top (integrated fixture)", "3-4 inches direct", "1.5-2.5"],
+        ["14\" T8 ReptiSun 5.0 Linear", "On top of screen", "4-6 inches through screen", "1.0-1.5"],
+        ["12\" T5 HO Arcadia Forest 6%", "On top of screen or inside", "6-8 inches", "2.0-3.0 (high end of range)"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Compact Coil Mounting for 12×12×18:</strong> Use a 12-inch terrarium hood with incandescent socket. Mount the 26w compact UVB bulb on its SIDE (not base-up) in the hood. Place hood on screen top so bulb is positioned horizontally across one side. Basking perch should be 2-4 inches below the screen."
+    },
+    {
+      "type": "highlight",
+      "content": "Verification recommendation: Use a Solarmeter 6.5 to measure UVI at highest perch. Adjust perch height to achieve 1.0-2.0 UVI. Without a Solarmeter, follow manufacturer distance guidelines for \"tropical species.\""
+    },
+    {
+      "type": "section",
+      "title": "Full-Spectrum Illumination"
+    },
+    {
+      "type": "text",
+      "content": "Beyond UVB, visible light is important for circadian rhythm regulation and natural behavior. Mourning geckos are crepuscular, so they need a clear day/night cycle but not intense bright light."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Visible Light Sources:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Light Source", "Purpose", "Recommendation"],
+      "rows": [
+        ["Heat bulb (25w incandescent)", "Basking warmth + visible light", "Provides adequate daytime illumination"],
+        ["UVB bulb (5.0)", "UVB provision + some visible light", "Adds to overall brightness"],
+        ["LED grow light (optional)", "Plant growth in bioactive setups", "Low-intensity 6500K if using live plants"],
+        ["Room ambient light", "Supplemental illumination", "Natural window light acceptable (not direct sun)"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "Mourning geckos do not need intense bright light like diurnal lizards. The combination of a 25w heat bulb + UVB bulb provides adequate illumination. Additional lighting is only necessary if growing demanding live plants."
+    },
+    {
+      "type": "section",
+      "title": "Photoperiod Schedule"
+    },
+    {
+      "type": "text",
+      "content": "Consistent light/dark cycles regulate breeding behavior, activity patterns, and overall health. Mourning geckos should have a 12/12 photoperiod (12 hours light, 12 hours dark) year-round."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Recommended Light Schedule:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Time", "Lights Status", "Purpose"],
+      "rows": [
+        ["7:00 AM", "All lights ON (heat + UVB)", "Simulates sunrise - morning activity period"],
+        ["7:00 AM - 7:00 PM", "Lights remain ON", "12 hours of daylight"],
+        ["7:00 PM", "All lights OFF", "Simulates sunset - evening activity period"],
+        ["7:00 PM - 7:00 AM", "Lights remain OFF", "12 hours of darkness for sleep"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Timer Setup:</strong> Use a plug-in timer (digital or mechanical) to automate light schedule. Plug both heat lamp AND UVB fixture into the timer so they turn on/off together. This ensures consistency even when you're away."
+    },
+    {
+      "type": "highlight",
+      "content": "Mourning geckos are most active during the first hour after lights turn on (morning) and the first hour after lights turn off (evening). This is when you'll see breeding behaviors, hunting, and social interactions."
+    },
+    {
+      "type": "section",
+      "title": "Nighttime Lighting"
+    },
+    {
+      "type": "text",
+      "content": "Mourning geckos do NOT need nighttime lighting. Red/blue/moonlight bulbs are unnecessary and can disrupt sleep."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Nighttime Lighting Do's and Don'ts:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Light Type", "Acceptable?", "Reason"],
+      "rows": [
+        ["Complete darkness", "YES - IDEAL", "Natural sleep environment, allows nighttime temp drop"],
+        ["Ambient room light (dim)", "YES - acceptable", "Low light from hallway/windows is fine"],
+        ["Red heat bulb", "NO - avoid", "Visible to geckos, disrupts circadian rhythm"],
+        ["Blue \"moonlight\" LED", "NO - avoid", "Unnecessary, disrupts natural behavior"],
+        ["Ceramic heat emitter", "YES - if needed", "Provides heat without light for cold rooms"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Colored nighttime bulbs (red/blue) are often marketed for nocturnal/crepuscular species, but research shows these disrupt sleep and natural behaviors. Mourning geckos can see these wavelengths. Use complete darkness or ceramic heat emitters only."
+    },
+    {
+      "type": "section",
+      "title": "UVB Bulb Maintenance"
+    },
+    {
+      "type": "text",
+      "content": "UVB output degrades over time even if the bulb still produces visible light. Replace bulbs according to manufacturer recommendations to maintain effective UVB provision."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Replacement Schedule:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Bulb Type", "Replacement Interval", "How to Track"],
+      "rows": [
+        ["Compact coil (ReptiSun 5.0)", "Every 6-12 months", "Write installation date on fixture with marker"],
+        ["T8 linear tubes", "Every 12 months", "Set calendar reminder for annual replacement"],
+        ["T5 HO linear tubes", "Every 12-18 months", "Longer lifespan but still track replacement"],
+        ["Arcadia bulbs (all types)", "Every 12 months", "Consistent replacement interval across products"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Replacement Tips:</strong> Purchase replacement bulbs in advance so you're not caught without UVB. When replacing, dispose of old bulbs properly (check local recycling guidelines for CFL bulbs). Note that visible light output does NOT indicate UVB output - bulbs can appear bright but produce minimal UVB after expiration."
+    },
+    {
+      "type": "section",
+      "title": "Signs of Inadequate UVB"
+    },
+    {
+      "type": "text",
+      "content": "While mourning geckos can survive without UVB thanks to fortified CGD, signs of deficiency may appear over time, especially in breeding females."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>UVB Deficiency Indicators:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Symptom", "Likely Cause", "Solution"],
+      "rows": [
+        ["Soft/rubbery eggs", "Calcium deficiency from low D3", "Add/improve UVB, increase calcium supplementation"],
+        ["Egg binding", "Poor calcium absorption", "Ensure UVB is functioning, vet visit required"],
+        ["Kinked tail in hatchlings", "Metabolic bone disease (MBD)", "Mother had inadequate UVB/calcium during egg development"],
+        ["Lethargy, reduced feeding", "General nutritional deficiency", "Check UVB bulb age, ensure proper diet"],
+        ["Thin/fragile bones (advanced)", "Severe MBD", "Veterinary intervention needed, improve UVB immediately"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Breeding colonies without UVB have higher rates of egg binding, soft eggs, and developmental issues in offspring. Do not rely solely on dietary D3 for long-term breeding success."
+    },
+    {
+      "type": "section",
+      "title": "Lighting Setup Examples"
+    },
+    {
+      "type": "text",
+      "content": "Here are complete lighting configurations for different enclosure sizes:"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Setup Examples:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Enclosure Size", "Heat Lamp", "UVB Source", "Timer Setup"],
+      "rows": [
+        ["12×12×18 (2-4 geckos)", "25w incandescent in 5.5\" dome", "26w ReptiSun 5.0 compact in 12\" hood", "Both plugged into single timer"],
+        ["18×18×24 (5-7 geckos)", "25w incandescent in dome", "14\" ReptiSun 5.0 T8 linear in hood", "Both plugged into single timer"],
+        ["18×18×36 (8-10 geckos)", "25-40w incandescent (may need higher wattage)", "18\" ReptiSun 5.0 T8 or 12\" T5 HO", "Both plugged into single timer"],
+        ["24×18×36+ (large colony)", "40w incandescent or halogen", "24\" Arcadia Forest 6% T5 HO", "Both plugged into single timer"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Pro tip: For larger enclosures (24\"+), consider using a linear T5 HO UVB tube for better coverage. Compact coils work for small enclosures but linear tubes provide more even UVB distribution across wider spaces."
+    },
+    {
+      "type": "section",
+      "title": "Troubleshooting Lighting Issues"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Common Problems & Solutions:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Likely Cause", "Solution"],
+      "rows": [
+        ["UVB bulb won't turn on", "Bulb burned out or poor socket contact", "Check socket connection, replace bulb if old"],
+        ["Enclosure too dark", "Insufficient wattage or bulbs burned out", "Add LED grow light or ensure heat lamp is on"],
+        ["Geckos hiding all day", "Too bright or stressed (not lighting issue)", "Ensure adequate foliage cover, check temps"],
+        ["Plants dying despite light", "Insufficient intensity for plant species", "Add dedicated LED grow light or switch to low-light plants"],
+        ["Basking area too hot", "Heat lamp + UVB generating excessive heat", "Lower heat lamp wattage or increase distance"],
+        ["Geckos avoiding top of enclosure", "UVB too intense (wrong bulb strength)", "Switch to 5.0 from 10.0, increase distance"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Remember: Lighting setup should be tested and adjusted BEFORE adding geckos. Run equipment for 24-48 hours to ensure proper temperatures and light levels are achieved."
+    }
+  ]
+}

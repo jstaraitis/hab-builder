@@ -1,0 +1,779 @@
+{
+  "id": "pacman-frog-feeding-guide",
+  "title": "Pacman Frog Feeding Guide: Complete Nutrition, Schedules & Supplements",
+  "description": "Comprehensive feeding guide for Pacman frogs covering feeder insects, feeding schedules by age, supplementation with and without UVB, and nutritional myths.",
+  "author": "Brennan Kennedy & Sydney Dybing",
+  "date": "2026-01-28",
+  "category": "Care Guides",
+  "excerpt": "Complete nutritional guide for Pacman frogs: appropriate feeders, gutloading, age-based schedules, supplement protocols, and debunking common myths.",
+  "tags": ["pacman-frog", "feeding", "nutrition", "supplements", "diet"],
+  "content": [
+    {
+      "type": "intro",
+      "heading": "Complete Nutritional Guide for Pacman Frogs",
+      "text": "Pacman frogs are obligate carnivores that thrive on variety. In the wild, they ambush prey ranging from insects to small vertebrates. Captive frogs need diverse feeders, proper gutloading, and appropriate supplementation to stay healthy. This guide covers everything from feeder selection to supplement schedules."
+    },
+    {
+      "type": "section",
+      "heading": "Feeding Schedule by Age"
+    },
+    {
+      "type": "table",
+      "headers": ["Life Stage", "Age Range", "Feeding Frequency", "Portion Size"],
+      "rows": [
+        ["Froglets", "0-3 months", "Daily or every other day", "As much as eats in 10-15 min"],
+        ["Juveniles", "3-6 months", "Every 2-3 days", "Increasing portions with growth"],
+        ["Sub-adults", "6-12 months", "Every 3-5 days", "Larger individual feeders"],
+        ["Adults", "12+ months", "Every 7-10 days", "Several large feeders or 1 rodent"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Safe feeding method: Offer as much as frog eats within 10-15 minutes. This prevents overfeeding and obesity while ensuring adequate nutrition."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "AVOID OVERFEEDING - Obesity is extremely common in captive Pacman frogs. Adults need feeding only every 7-10 days. More frequent feeding leads to fatty liver disease and shortened lifespan."
+    },
+    {
+      "type": "section",
+      "heading": "Feeder Size Rule"
+    },
+    {
+      "type": "text",
+      "text": "Width of feeder should not exceed the distance between the frog's eyes. Larger feeders risk:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Choking or impaction",
+        "Regurgitation",
+        "Digestive stress",
+        "Injury to mouth/throat"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "When in doubt, choose smaller feeders. Pacman frogs can eat surprisingly large prey, but err on side of caution."
+    },
+    {
+      "type": "section",
+      "heading": "Primary Feeders (Staples)"
+    },
+    {
+      "type": "text",
+      "text": "These feeders should form the bulk of your frog's diet. Rotate regularly for nutritional variety:"
+    },
+    {
+      "type": "section",
+      "heading": "Dubia / Discoid / Red Runner Roaches"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Excellent staple feeder with good Ca:P ratio",
+        "Easy to gutload, long-lived",
+        "Discoid roaches are only species legal in Canada",
+        "Dubia roaches illegal in Florida (use discoid instead)",
+        "Low chitin (soft-bodied)",
+        "Can be kept as breeding colony"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Crickets"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Readily available, affordable",
+        "MUST be gutloaded 24-48 hours before feeding",
+        "Can bite frogs if left uneaten (remove extras)",
+        "Noisy (males chirp)",
+        "Shorter lifespan than roaches",
+        "Higher maintenance"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Locusts / Grasshoppers"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Excellent nutrition, very enriching",
+        "Large size good for adult frogs",
+        "Live locusts illegal in USA (canned/frozen available)",
+        "Legal in UK and Europe",
+        "High in protein"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Hornworms"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Very high moisture content (hydrating)",
+        "Soft-bodied, easy to digest",
+        "Illegal in UK (risk to tomato crops)",
+        "Wild hornworms eat tomato plants = TOXIC (only use captive-bred)",
+        "Grow quickly (use promptly)",
+        "High calcium when fed properly"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Nightcrawler Earthworms"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Excellent nutrition, natural diet item",
+        "For froglets: Cut into smaller pieces",
+        "Long-lived in fridge",
+        "Easy to source (bait shops, pet stores)",
+        "DO NOT use red wigglers (Eisenia foetida - toxic coelomic fluid)"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "NEVER FEED red wiggler earthworms (Eisenia foetida). Their coelomic fluid is toxic to vertebrates. Only use nightcrawlers or other non-toxic worm species."
+    },
+    {
+      "type": "section",
+      "heading": "Silkworms"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Very high nutritional value",
+        "Soft-bodied, highly digestible",
+        "Can be more expensive",
+        "Require specific food (mulberry or commercial silkworm chow)",
+        "Adult silkmoths can also be fed"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Black Soldier Fly Larvae (BSFL)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Also called phoenix worms, calciworms, nutrigrubs",
+        "VERY high in calcium (mostly in exoskeleton)",
+        "Some frogs have trouble fully digesting exoskeleton (reduced calcium benefit)",
+        "Still need to be supplemented despite high calcium content",
+        "Small size - better for juveniles, may not interest large adults",
+        "Adult soldier flies can also be fed"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Less Frequent Feeders (Occasional)"
+    },
+    {
+      "type": "text",
+      "text": "These feeders can be offered monthly or as occasional treats:"
+    },
+    {
+      "type": "section",
+      "heading": "Feeder Fish"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Guppies, mollies, platies, silversides",
+        "Silversides (frozen) preferred - avoid parasite risk from live fish",
+        "DO NOT FEED: Goldfish, minnows, white suckers (high thiaminase - breaks down thiamine)",
+        "Feed once monthly maximum",
+        "DO NOT dust with supplements (organs and bones provide complete nutrition)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Shrimp"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Frozen/thawed freshwater shrimp",
+        "High in protein and minerals",
+        "Occasional treat only",
+        "DO NOT dust with supplements"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Whole Rodents (Pinky/Fuzzy Mice)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "VERY high in fat - once monthly MAXIMUM",
+        "Appropriate for large adult frogs only",
+        "Use frozen/thawed (safer than live)",
+        "DO NOT dust with supplements (complete nutrition from bones/organs)",
+        "Can contribute to obesity if overfed",
+        "Should NOT be primary diet"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Chicks (Day-Old Pinky Chicks)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "High in fat - once monthly maximum",
+        "Large adult frogs only",
+        "Frozen/thawed recommended",
+        "DO NOT dust with supplements",
+        "Not essential - insects are sufficient"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "High-Fat Treats (Very Occasional)"
+    },
+    {
+      "type": "text",
+      "text": "These feeders are high in fat with poor calcium ratios. Use sparingly:"
+    },
+    {
+      "type": "section",
+      "heading": "Mealworms"
+    },
+    {
+      "type": "list",
+      "items": [
+        "High fat, poor Ca:P ratio",
+        "Small size may not interest large frogs",
+        "Can cause obesity if overfed",
+        "Pupae and adult beetles can also be fed",
+        "Better options available"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Superworms"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Very high fat",
+        "Poor calcium to phosphorus ratio",
+        "Use only as occasional treat",
+        "Pupae and adult beetles can also be fed",
+        "Can bite - may want to crush head before offering"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Waxworms / Butterworms"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Extremely high fat (\"reptile candy\")",
+        "Only for underweight frogs recovering from illness",
+        "NOT for regular feeding",
+        "Adult waxmoths can also be fed"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Emergency Backup: Canned/Preserved Insects"
+    },
+    {
+      "type": "text",
+      "text": "These cannot be gutloaded and are less enriching, but nutritionally adequate:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Canned snails, shrimp, mealworms, crickets, grasshoppers, scorpions",
+        "Preserved silkworms and silkworm pupae",
+        "Great for emergency supplies when live feeders unavailable",
+        "Less behavioral enrichment than hunting live prey",
+        "Still dust with supplements (cannot gutload)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "NEVER Feed"
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "These food items are dangerous or nutritionally inappropriate:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Red wiggler earthworms (Eisenia foetida):</span> Toxic coelomic fluid",
+        "<span class='font-semibold'>Goldfish, minnows, white suckers:</span> High thiaminase (breaks down thiamine)",
+        "<span class='font-semibold'>Wild-caught insects:</span> Pesticide risk, parasites, diseases",
+        "<span class='font-semibold'>Wild hornworms:</span> Fed on tomato plants = toxic",
+        "<span class='font-semibold'>Pac Attack / ZooMed Pacman Frog Food:</span> Plant fillers high on ingredients (obligate carnivores)",
+        "<span class='font-semibold'>Beef, pork, chicken:</span> Not balanced nutrition - feed whole prey with bones/organs",
+        "<span class='font-semibold'>Human food:</span> Processed foods, seasonings, etc. are toxic"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Gutloading Feeders"
+    },
+    {
+      "type": "text",
+      "text": "Gutloading = feeding insects a nutritious diet 24-48 hours before offering to frog. \"You are what you eat\" applies - poorly fed insects = poorly fed frog."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Good gutloading foods:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Commercial gutload diet (Repashy, Mazuri, Cricket Crack)",
+        "Fresh vegetables: collard greens, mustard greens, squash, sweet potato",
+        "Fresh fruits: apples, oranges, berries (small amounts)",
+        "Whole grains: oats, bran",
+        "Bee pollen",
+        "Avoid: iceberg lettuce, potatoes, spinach (poor nutrition or calcium blockers)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Supplementation: Why It Matters"
+    },
+    {
+      "type": "text",
+      "text": "Most feeders have more phosphorus than calcium (poor Ca:P ratio). Body needs ~2:1 calcium to phosphorus. Without supplementation, body steals calcium from bones = Metabolic Bone Disease (MBD)."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Required supplements:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Calcium powder:</span> With D3 if no UVB, without D3 if UVB provided",
+        "<span class='font-semibold'>Multivitamin:</span> With or without D3 depending on UVB setup"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "UVB lighting allows frogs to synthesize vitamin D3 in skin to metabolize calcium. If providing UVB, use calcium WITHOUT D3 for most dustings. If NO UVB, use calcium WITH D3."
+    },
+    {
+      "type": "section",
+      "heading": "Supplement Schedule WITHOUT UVB"
+    },
+    {
+      "type": "text",
+      "text": "No UVB = must provide D3 through supplements:"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Froglet Schedule (Daily/Every Other Day Feeding):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"],
+      "rows": [
+        ["Ca+D3", "Ca+D3", "Ca+D3", "MV+D3", "Ca+D3", "Ca+D3", "MV+D3"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Pattern: Most feedings get Calcium with D3. Every 3-4 feedings use Multivitamin with D3 instead."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Adult Schedule (Every 7-10 Days):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Week 1", "Week 2", "Week 3", "Week 4"],
+      "rows": [
+        ["Ca+D3", "Ca+D3", "MV+D3", "Ca+D3"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Pattern: Mostly Calcium with D3, every 3rd-4th feeding is Multivitamin with D3."
+    },
+    {
+      "type": "section",
+      "heading": "Supplement Schedule WITH UVB"
+    },
+    {
+      "type": "text",
+      "text": "UVB provided = use calcium WITHOUT D3 primarily, occasional multivitamin WITH D3:"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Froglet Schedule (Daily/Every Other Day Feeding):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"],
+      "rows": [
+        ["Ca", "Ca", "Ca", "MV", "Ca", "Ca", "MV"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Pattern: Most feedings get Calcium (no D3). Every 3-4 feedings use Multivitamin (no D3). Every 7-8 feedings use Multivitamin WITH D3."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Example over 4 weeks:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Week 1: Ca, Ca, Ca, MV (no D3)",
+        "Week 2: Ca, Ca, Ca, MV WITH D3",
+        "Week 3: Ca, Ca, Ca, MV (no D3)",
+        "Week 4: Ca, Ca, Ca, MV (no D3)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Adult Schedule (Every 7-10 Days) WITH UVB:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5"],
+      "rows": [
+        ["Ca", "Ca", "MV", "Ca", "MV+D3"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "DO NOT dust rodent or fish feeders with supplements. Whole prey with bones and organs provide complete nutrition already."
+    },
+    {
+      "type": "section",
+      "heading": "How to Dust Feeders"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Place feeder insects in container or plastic bag",
+        "Add small pinch of supplement powder",
+        "Shake/rotate gently until insects lightly coated",
+        "Feed immediately (powder falls off over time)",
+        "Don't over-dust (light coating is enough)",
+        "Different container than one insects are stored in"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Recommended Supplement Brands"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Calcium (WITH D3):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Rep-Cal Calcium with D3",
+        "Zoo Med ReptiCalcium with D3",
+        "Fluker's Calcium with D3"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Calcium (WITHOUT D3):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Rep-Cal Calcium without D3",
+        "Zoo Med ReptiCalcium without D3",
+        "Repashy SuperCal NoD"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Multivitamin (WITH D3):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Rep-Cal Herptivite with Beta Carotene",
+        "Zoo Med Reptivite with D3"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Multivitamin (WITHOUT D3):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Repashy Calcium Plus LoD (all-in-one option)",
+        "Zoo Med Reptivite without D3",
+        "Arcadia EarthPro-A"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Feeding Methods"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Tong feeding:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Use feeding tongs (not hands - bite risk)",
+        "Hold feeder in front of frog",
+        "Wiggle slightly to trigger feeding response",
+        "Keep fingers away from mouth (strong bite)",
+        "Some frogs prefer tong feeding"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Free-range feeding:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Drop feeder insects into enclosure",
+        "Allows natural hunting behavior",
+        "More enriching than tong feeding",
+        "Remove uneaten crickets (can bite frog)",
+        "Some shy frogs prefer not being watched"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Dish feeding:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Place feeders in shallow dish",
+        "Movement attracts frog",
+        "Prevents substrate ingestion",
+        "Good for worms and roaches"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Common Feeding Problems"
+    },
+    {
+      "type": "section",
+      "heading": "Problem: Frog won't eat"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Possible causes:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Temperature too low:</span> Warm side must be 80-85°F for proper digestion",
+        "<span class='font-semibold'>New frog stress:</span> Allow 3-7 days to settle in before offering food",
+        "<span class='font-semibold'>Picky eater:</span> Try different feeder types (some frogs have preferences)",
+        "<span class='font-semibold'>Too shy:</span> Some frogs won't eat if watched - leave and check later",
+        "<span class='font-semibold'>Feeding tong fear:</span> Try free-range feeding instead",
+        "<span class='font-semibold'>Wrong feeder size:</span> Too large or too small",
+        "<span class='font-semibold'>Brumation:</span> Some frogs stop eating seasonally (normal if temps stable)",
+        "<span class='font-semibold'>Illness:</span> If refusing food for 2+ weeks with good temps, see vet"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Problem: Frog keeps begging for food"
+    },
+    {
+      "type": "text",
+      "text": "Pacman frogs are opportunistic feeders that act hungry constantly. This does NOT mean they need more food:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Stick to schedule (adults every 7-10 days)",
+        "Overfeeding causes obesity and fatty liver disease",
+        "Frog will survive and be healthier on proper schedule",
+        "Begging is instinctual, not indication of starvation",
+        "Resist temptation to feed early"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Debunking Feeding Myths"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>MYTH: Hard exoskeletons cause impaction</span>"
+    },
+    {
+      "type": "text",
+      "text": "FALSE. Chitin (exoskeleton material) is a digestible carbohydrate that makes up insect fiber. Hardness does NOT indicate higher fiber. With proper overhead heating providing short wavelength infrared, Pacman frogs easily digest insects with hard exoskeletons. This myth persists despite no scientific evidence."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>MYTH: Black soldier fly larvae don't need supplementation</span>"
+    },
+    {
+      "type": "text",
+      "text": "FALSE. While BSFL are very high in calcium, it's mostly in the exoskeleton which some animals can't fully digest. They still need regular calcium and multivitamin supplementation like any other feeder."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>MYTH: Feeding live prey is cruel</span>"
+    },
+    {
+      "type": "text",
+      "text": "FALSE. Live prey provides essential behavioral enrichment. Hunting and capturing prey is natural, instinctual behavior. Frozen/thawed options are fine for vertebrate prey (rodents, fish) to avoid aggression injuries, but live insects are appropriate and enriching."
+    },
+    {
+      "type": "section",
+      "heading": "Food Budgeting"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Monthly feeding costs (approximate):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Frog Size", "Feeding Frequency", "Monthly Cost", "Notes"],
+      "rows": [
+        ["Froglet", "Daily/every other day", "$15-30", "Small quantities, frequent purchases"],
+        ["Juvenile", "Every 2-3 days", "$20-35", "Growing, increasing portions"],
+        ["Adult", "Every 7-10 days", "$10-20", "Larger feeders, less frequent"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Cost-saving tips:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Buy feeders in bulk online (much cheaper than pet stores)",
+        "Start dubia roach breeding colony (indefinite supply after setup)",
+        "Shop around - prices vary dramatically by supplier",
+        "Join local reptile groups for group feeder orders",
+        "Keep feeders alive longer with proper care (reduces waste)",
+        "Avoid overfeeding (saves money and improves frog health)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Feeder Storage and Care"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Roaches:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Keep in ventilated container with egg crate",
+        "Room temperature (70-80°F)",
+        "Feed gutload diet continuously",
+        "Remove dead roaches promptly",
+        "Can live weeks to months with proper care"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Crickets:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Keep in ventilated cricket keeper",
+        "Room temperature, avoid temperature extremes",
+        "Provide egg crate or cardboard tubes",
+        "Feed gutload continuously",
+        "Remove dead crickets daily (cannibalism)",
+        "Last 1-3 weeks"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Worms (nightcrawlers):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Store in fridge (40-50°F)",
+        "Keep in bedding/soil",
+        "Moist but not waterlogged",
+        "Can last weeks to months",
+        "Check regularly, remove dead worms"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Hornworms/silkworms:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Room temperature (70-80°F)",
+        "Feed specialized diet (comes with or buy separately)",
+        "Grow VERY quickly (use promptly)",
+        "Clean frass (waste) regularly",
+        "Last 1-2 weeks before pupating"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Feeding Checklist"
+    },
+    {
+      "type": "list",
+      "items": [
+        "✓ Feeders appropriately sized (width ≤ distance between eyes)",
+        "✓ Feeders gutloaded 24-48 hours",
+        "✓ Feeder dusted with appropriate supplement (unless rodent/fish)",
+        "✓ Warm side temperature 80-85°F (required for digestion)",
+        "✓ Water dish has fresh treated water",
+        "✓ Feeding method chosen (tong, free-range, or dish)",
+        "✓ Remove uneaten crickets after feeding",
+        "✓ Track feeding date for next scheduled feeding"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Related Guides"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<a href='/blog/pacman-frog-enrichment-welfare-guide' class='text-emerald-600 underline'>Enrichment & Welfare Guide</a> - Overview of all care requirements",
+        "<a href='/blog/pacman-frog-heating-lighting' class='text-emerald-600 underline'>Heating & Lighting Guide</a> - Temperature requirements for digestion",
+        "<a href='/blog/pacman-frog-faq' class='text-emerald-600 underline'>FAQ & Troubleshooting</a> - Common feeding problems"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Additional Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<a href='https://reptifiles.com/feeder-insects-for-reptiles/' target='_blank' class='text-emerald-600 underline'>Reptifiles Feeder Insect Guide</a> - Detailed nutrition analysis",
+        "<a href='https://reptifiles.com/reptile-supplementation/' target='_blank' class='text-emerald-600 underline'>Reptifiles Supplementation Guide</a> - Science behind supplements"
+      ]
+    }
+  ]
+}

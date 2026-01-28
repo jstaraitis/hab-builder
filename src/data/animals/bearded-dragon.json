@@ -29,7 +29,10 @@
     "temperature": {
       "min": 70,
       "max": 85,
-      "basking": 110,
+      "basking": {
+        "min": 100,
+        "max": 110
+      },
       "nighttime": {
         "min": 70,
         "max": 75
@@ -37,10 +40,16 @@
       "unit": "F"
     },
     "humidity": {
-      "min": 30,
-      "max": 60,
-      "shedding": {
+      "day": {
         "min": 30,
+        "max": 40
+      },
+      "night": {
+        "min": 30,
+        "max": 40
+      },
+      "shedding": {
+        "min": 40,
         "max": 60
       },
       "unit": "%"
@@ -72,7 +81,9 @@
     "lighting": "uvb-desert",
     "diet": ["omnivore"],
     "animalType": "reptile",
-    "decor": ["climbing-areas", "hides", "plants"]
+    "decor": ["climbing-areas", "hides", "plants"],
+    "water": ["water-dish-large"],
+    "feeding": ["feeding-dish"]
   },
   "lifespan": "10-15 years in captivity, 20-25 possible with excellent care",
   "dietType": "Omnivore",

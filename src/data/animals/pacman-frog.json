@@ -1,12 +1,12 @@
 {
   "id": "pacman-frog",
   "commonName": "Pacman Frog",
-  "scientificName": "Ceratophrys ornata",
-  "searchQuery": ["pacman frog", "ceratophrys ornata", "ornate horned frog", "frog"],
+  "scientificName": "Ceratophrys spp.",
+  "searchQuery": ["pacman frog", "horned frog", "ceratophrys", "cranwelli", "ornata", "cornuta", "fantasy frog"],
   "careLevel": "beginner",
-  "emoji": "",
+  "emoji": "🐸",
   "imageUrl": "/animals/pacman-frog/pacman-frog-1.jpg",
-  "completionStatus": "draft",
+  "completionStatus": "in-progress",
   "gallery": [
     {
       "url": "/animals/pacman-frog/pacman-frog-1.jpg",
@@ -14,112 +14,238 @@
     }
   ],
   "minEnclosureSize": {
-    "width": 10,
-    "depth": 10,
-    "height": 12,
+    "width": 36,
+    "depth": 18,
+    "height": 18,
     "units": "in"
   },
   "quantityRules": {
-    "baseGallons": 10,
+    "baseGallons": 40,
     "additionalGallons": 0,
     "maxRecommended": 1,
-    "description": "Pacman frogs are solitary and cannibalistic. House individually only - minimum 10 gallons (10×10×12 inches)."
+    "description": "Pacman frogs are cannibalistic and MUST be housed alone. Female frogs need minimum 40 gallons (36×18×18\"), males need minimum 20 gallons (30×12×12\"), juveniles can start in 10 gallons until 6-7 months old."
   },
   "careTargets": {
     "temperature": {
-      "min": 75,
+      "min": 70,
       "max": 85,
+      "basking": {
+        "min": 80,
+        "max": 85
+      },
       "nighttime": {
-        "min": 70,
+        "min": 65,
         "max": 75
       },
       "unit": "F"
     },
     "humidity": {
-      "min": 60,
-      "max": 80,
-      "shedding": {
-        "min": 70,
+      "day": {
+        "min": 65,
         "max": 85
       },
-      "unit": "%"
+      "night": {
+        "min": 70,
+        "max": 90
+      },
+      "shedding": {
+        "min": 75,
+        "max": 90
+      },
+      "unit": "%",
+      "notes": "C. cranwelli (Cranwell's) tolerate slightly lower humidity (more arid habitat). C. cornuta (Surinam) prefer higher humidity (rainforest habitat). Maintain with moist substrate and regular misting."
     },
     "lighting": {
       "uvbRequired": false,
-      "uvbRecommended": false,
-      "coveragePercent": 0,
+      "uvbRecommended": true,
+      "uvbStrength": "5.0",
+      "coveragePercent": 50,
       "photoperiod": "12h day / 12h night"
     },
-    "gradient": "Horizontal thermal gradient"
+    "gradient": "Horizontal thermal gradient with warm side 80-85°F and cool side 70-75°F"
   },
   "layoutRules": {
     "preferVertical": false,
     "verticalSpacePercent": 20,
     "thermalGradient": "horizontal",
-    "requiredZones": ["hide", "water"],
-    "optionalZones": []
+    "requiredZones": ["warm", "cool", "burrow", "water"],
+    "optionalZones": ["secondary_hide"]
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
     "climbing": "ground",
-    "substrate": ["bioactive", "soil"],
+    "substrate": ["bioactive", "soil", "coco-fiber"],
     "bioactiveSubstrate": "tropical",
-    "humidity": "high",
-    "heatSource": "ambient",
+    "humidity": "moderate-high",
+    "heatSource": "basking",
     "waterFeature": "shallow-dish",
     "lighting": "uvb-forest",
     "diet": ["insectivore"],
     "animalType": "amphibian",
-    "decor": ["hides"]
+    "decor": ["hides", "leaf-litter", "plants"],
+    "water": ["water-dish-large"]
   },
-  "lifespan": "6-10 years in captivity",
+  "lifespan": "5-10 years in captivity",
+  "dietType": "Insectivor",
+  "adultSize": "3-7 inches diameter (females larger than males, varies by species)",
+  "temperament": "Sedentary ambush predator, can be defensive and bite",
+  "activityPattern": "Nocturnal",
+  "originRegion": "South America (Gran Chaco, Amazon basin - varies by species)",
   "setupTips": [
-    "Provide deep substrate (3-4 inches) for burrowing",
-    "Keep substrate moist but not waterlogged",
-    "Use coconut fiber or sphagnum moss substrate"
+    "Deep substrate essential (2-3\" minimum for juveniles, 4-6\" for adults) - frogs must be able to completely burrow",
+    "Overhead heating with halogen or incandescent bulbs provides best quality heat (short wavelength IR)",
+    "Water dish must accommodate full body soaking but be shallow enough frog can't fully submerge (poor swimmers)",
+    "All water must be treated with reptile/amphibian dechlorinator (chlorine causes toxic shock)",
+    "C. cranwelli require sandy substrate: 60% organic topsoil + 40% play sand to replicate Gran Chaco habitat",
+    "Leaf litter on substrate surface is critical - prevents substrate ingestion, provides CUC habitat",
+    "Modified bin enclosures acceptable for quarantine/grow-out but CANNOT be used with UVB (plastic creates toxins)",
+    "Substrate must be moist but not waterlogged - squeeze test: water should drip out but no puddles"
   ],
   "notes": [
-    "Terrestrial and sedentary - spends most time buried in substrate",
-    "Voracious appetite - will eat anything that fits in mouth",
-    "Limited handling recommended - sensitive skin and defensive bite",
-    "Profile in development"
+    "Cannibalistic species - must be housed individually at all times",
+    "Terrestrial ambush predators that burrow into substrate and wait for prey",
+    "Can be quite inactive - may stay buried for days or weeks (normal behavior)",
+    "Some frogs brumate in winter even with stable conditions (can vanish for weeks/months)",
+    "Multiple species available: C. cranwelli (Cranwell's), C. ornata (Ornate), C. cornuta (Surinam), C. aurita (Brazilian), hybrids (Fantasy)",
+    "Females grow much larger (up to 7\") than males (3-4\"), different minimum enclosure sizes required",
+    "Strong bite - avoid handling and keep fingers away from mouth during necessary handling",
+    "Can be picky eaters - may refuse certain feeders, experiment with variety",
+    "Impaction from exoskeletons is a MYTH - chitin is digestible with proper heating (short wavelength IR)",
+    "Albino morphs may be sensitive to bright lights but usually tolerate low-wattage heat lamps",
+    "Overhead vines/coverage beneficial for albinos to break up lighting"
   ],
   "warnings": [
     {
       "severity": "critical",
-      "message": "Can deliver painful bite - handle with caution and avoid hand-feeding",
-      "category": "safety"
+      "message": "SOLITARY SPECIES ONLY - Pacman frogs are cannibalistic. Never house two frogs together under any circumstances.",
+      "category": "housing"
+    },
+    {
+      "severity": "critical",
+      "message": "WATER TREATMENT MANDATORY - All water (substrate, dish, misting) must be treated with dechlorinator. Chlorine causes toxic shock syndrome which is often fatal.",
+      "category": "water-quality"
+    },
+    {
+      "severity": "critical",
+      "message": "LEG TWITCHING/STRETCHING - This is a sign of serious health issues including sepsis. Soak frog in tepid dechlorinated water (change every 15-20 min) and contact vet immediately.",
+      "category": "health"
+    },
+    {
+      "severity": "critical",
+      "message": "NEVER USE: Coil UVB bulbs (uneven spread), Mercury Vapor bulbs (too hot), LED UVA/UVB combo bulbs (produce dangerous UVC radiation causing skin/eye injury).",
+      "category": "equipment"
     },
     {
       "severity": "important",
-      "message": "Prone to obesity - do not overfeed. Adults only need feeding every 4-7 days.",
-      "category": "common_mistake"
+      "message": "SCREEN ENCLOSURES INAPPROPRIATE - Screen enclosures cause rapid moisture loss making it nearly impossible to maintain required 65-85% humidity. Use glass or PVC enclosures with partial ventilation. If using glass with screen top, cover 50-75% of screen with plastic wrap or acrylic.",
+      "category": "enclosure"
+    },
+    {
+      "severity": "important",
+      "message": "SUBSTRATE REQUIRED - Paper towels, moss-only, bark, or foam prevent natural burrowing behavior. Use only for quarantine/illness/transport.",
+      "category": "substrate"
+    },
+    {
+      "severity": "important",
+      "message": "OVERHEAD HEATING PREFERRED - Heat lamps provide short wavelength IR that penetrates tissues for better digestion. Heat mats/CHEs/DHPs provide long wavelength IR (less effective).",
+      "category": "heating"
+    },
+    {
+      "severity": "important",
+      "message": "AVOID OVERFEEDING - Obesity is common. Feed juveniles daily/every other day, adults every 7-10 days. Offer as much as frog eats in 10-15 minutes.",
+      "category": "feeding"
+    },
+    {
+      "severity": "important",
+      "message": "VET CARE ESSENTIAL - Establish care with amphibian-experienced vet within first few months. Annual checkups recommended. Don't wait for emergency.",
+      "category": "health"
+    },
+    {
+      "severity": "tip",
+      "message": "DIMMER THERMOSTATS REQUIRED - Heat lamps and DHPs need dimming thermostats (not on/off). Flashing disrupts circadian rhythm and causes premature bulb failure. Use manual dimmer + on/off thermostat backup if budget-limited.",
+      "category": "equipment"
+    },
+    {
+      "severity": "tip",
+      "message": "NIGHTTIME DARKNESS REQUIRED - Do NOT use blue/red/purple 'moonlight' bulbs. Frogs can see these lights. Use total darkness for healthy day/night cycle.",
+      "category": "lighting"
+    },
+    {
+      "severity": "tip",
+      "message": "ANGRY RED UNDERSIDE - If severe with sores, indicates infection. Move to quarantine enclosure and contact vet. Slight pinkness when active is normal.",
+      "category": "health"
     }
   ],
   "relatedBlogs": [
-    ""
+    "pacman-frog-enrichment-welfare-guide",
+    "pacman-frog-enclosure-setup",
+    "pacman-frog-substrate-guide",
+    "pacman-frog-heating-lighting",
+    "pacman-frog-temperature-humidity",
+    "pacman-frog-feeding-guide",
+    "pacman-frog-hydration-guide"
   ],
 
   "careGuidance": {
     "feedingRequirements": [
-      "Carnivorous - crickets, roaches, nightcrawlers, occasional pinky mice",
-      "Use feeding tongs to avoid bite",
-      "Dust insects with calcium and vitamin supplement"
+      "Obligate carnivores - whole prey items only (insects, worms, occasional rodents/fish)",
+      "Feeder size rule: width should not exceed distance between frog's eyes",
+      "Gutload all insects 24-48 hours before feeding for optimal nutrition",
+      "NEVER FEED: Red wiggler earthworms (toxic), goldfish/minnows (thiaminase), Pac Attack commercial food (plant fillers), beef/pork/chicken (nutritionally incomplete)"
     ],
     "feedingSchedule": [
-      "Juveniles (0-6 months): Every 2-3 days, appropriately-sized insects",
-      "Sub-adults (7-12 months): Every 3-4 days",
-      "Adults (1 year+): Every 4-7 days, avoid overfeeding"
+      "Froglets: Daily or every other day",
+      "Adults: Every 7-10 days",
+      "As frog ages: decrease frequency, increase portion size",
+      "Safe feeding method: Offer as much as frog eats within 10-15 minutes"
+    ],
+    "feedingVariety": [
+      "STAPLES (rotate regularly): Dubia/discoid/red runner roaches, crickets, locusts, hornworms, nightcrawler earthworms, silkworms, black soldier fly larvae",
+      "OCCASIONAL (once monthly max): Whole rodents, chicks, guppies/mollies/platies/silversides, shrimp",
+      "TREATS (high fat): Mealworms, superworms, waxworms, butterworms",
+      "EMERGENCY BACKUP: Canned/preserved insects (snails, shrimp, crickets, grasshoppers) - less enriching but nutritionally adequate"
+    ],
+    "supplementSchedule": [
+      "WITHOUT UVB: Dust with calcium + D3 most feedings, multivitamin + D3 every 3-4 feedings",
+      "WITH UVB: Dust with calcium (no D3) most feedings, multivitamin (no D3) every 3-4 feedings, multivitamin WITH D3 every 7-8 feedings",
+      "Rodents/fish feeders: Do NOT dust (bones and organs provide complete nutrition)"
     ],
     "waterNotes": [
-      "Provide shallow water dish for soaking",
-      "Use dechlorinated or spring water",
-      "Change water daily - frogs often defecate in water"
+      "Provide shallow water dish for full-body soaking",
+      "Water depth: Frog should sit with body under water but NOT fully submerge (poor swimmers)",
+      "All water must be treated with reptile/amphibian dechlorinator",
+      "Change water daily - frogs often defecate in water dish"
     ],
-    "mistingNotes": [
-      "Mist substrate daily to maintain 60-80% humidity",
-      "Keep substrate damp but not soggy",
-      "Increase misting during shedding period"
-    ]
+    "handlingNotes": [
+      "Minimal handling only - amphibians not meant for regular handling",
+      "When necessary: Wear moistened nitrile gloves (prevent skin oil transfer)",
+      "Use small carrier/container for transfers",
+      "Keep fingers away from mouth - strong bite reflex",
+      "Frogs may jump - be careful of falls/escape"
+    ],
+    "substrateMixing": [
+      "TROPICAL SPECIES (C. ornata, C. cornuta): 100% coco fiber OR organic topsoil",
+      "ARID SPECIES (C. cranwelli): 60% organic topsoil + 40% play sand (washed sandbox sand)",
+      "BIOACTIVE: Josh's Frogs ABG Mix or BioDude Terra Firma (expensive but indefinite lifespan with CUC)",
+      "Substrate replacement: Coco fiber every 3-4 weeks, ReptiSoil every 2-3 months, bioactive with CUC = never (top off 1-2x yearly)"
+    ],
+    "commonIssues": [
+      "Buried for long time: Normal behavior (ambush predators). Will emerge when hungry. May brumate for weeks/months in winter.",
+      "Won't eat: Check temperature (must be 80-85°F warm side), allow settling period if new (few days), try different feeders (picky eaters common), some prefer not being watched",
+      "Red underside with sores: Severe infection - contact vet immediately and move to quarantine",
+      "Leg twitching/stretching: Medical emergency (sepsis risk) - soak in tepid dechlorinated water and contact vet"
+    ],
+    "speciesNotes": {
+      "cranwelli": "Cranwell's Horned Frog - Gran Chaco region. Prefers sandy substrate (60% soil/40% sand) and slightly lower humidity (65-75%). More arid adapted.",
+      "cornuta": "Surinam Horned Frog - Amazon rainforest. Prefers higher humidity (75-85%) and warmer temperatures. True rainforest species.",
+      "ornata": "Ornate Pacman Frog - Temperate South America. Standard tropical care. Most common in pet trade.",
+      "aurita": "Brazilian Horned Frog - Atlantic rainforest. Similar care to C. cornuta.",
+      "hybrid": "Fantasy Pacman Frog (C. cranwelli × C. cornuta hybrid) - Standard tropical care, various color morphs."
+    },
+    "nativeHabitat": {
+      "regions": ["South America: Argentina, Brazil, Paraguay, Bolivia, Uruguay, Colombia, Venezuela, Suriname"],
+      "biomes": ["Gran Chaco (semi-arid grasslands)", "Amazon Rainforest", "Atlantic Rainforest", "Temperate grasslands"],
+      "conservationStatus": "Least Concern (LC) - most species"
+    }
   }
 }

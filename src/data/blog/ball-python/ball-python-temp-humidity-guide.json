@@ -43,104 +43,16 @@
       "content": "Basking surface temperature is CRITICAL for digestion. If basking surface <92°F, ball pythons cannot properly digest food—this leads to regurgitation, food rot in stomach, and potential death. Always verify basking surface with infrared thermometer, not ambient air temps."
     },
     {
-      "type": "section",
-      "title": "Heating Equipment Selection"
-    },
-    {
-      "type": "text",
-      "content": "The type of heat source dramatically affects thermoregulation quality. Overhead radiant heat (halogen bulbs) is superior to belly heat (heat mats)."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Heating Equipment Comparison:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Heat Source", "Pros", "Cons", "Recommended Use"],
-      "rows": [
-        ["Halogen flood bulbs (90-150w PAR38)", "Mimics sunlight, warms air + surfaces, natural basking behavior, promotes activity", "Visible light (not for nighttime), requires dimmer", "PRIMARY heat source (best option)"],
-        ["Deep heat projector (DHP)", "Infrared heat (no light), 24/7 use possible, efficient", "$50-80 cost, hard to find", "Primary heat OR nighttime supplemental"],
-        ["Ceramic heat emitter (CHE)", "No light, 24/7 use, cheap ($15-25)", "Dries out air (lowers humidity), less efficient", "Nighttime supplemental only"],
-        ["Heat mat (UTH)", "Gentle belly heat, inexpensive ($20-40)", "Does NOT warm air or basking surface adequately", "Supplemental ONLY (under warm hide if needed)"],
-        ["Radiant heat panel (RHP)", "Even heat distribution, efficient, no light", "$100-150 cost, requires ceiling mount", "Primary heat (advanced option)"],
-        ["Heat cable", "Gentle background warmth", "Uneven heat, hard to regulate", "Not recommended"],
-        ["Heat rocks", "—", "CAUSE SEVERE BURNS—ball pythons don't sense surface heat well", "NEVER USE"]
-      ]
-    },
-    {
       "type": "highlight",
-      "content": "ReptiFiles® recommendation: Use TWO 90w PAR38 halogen flood bulbs in a dual dome fixture as primary heat. Halogen bulbs provide the most natural, sun-like heat that warms surfaces and air effectively. Use plug-in dimmers to fine-tune temperatures to 95-104°F basking surface."
+      "content": "For complete guidance on heating equipment options, setup configurations, and temperature monitoring equipment, see our <a href='/blog/temperature-monitoring-equipment-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Temperature Monitoring Equipment Guide</a>. Below are the specific temperature requirements for ball pythons."
     },
     {
       "type": "section",
-      "title": "Heating Setup Configuration"
+      "title": "Ball Python Heating Requirements"
     },
     {
       "type": "text",
-      "content": "Proper heat lamp placement creates the necessary thermal gradient from warm to cool end."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Heating Configuration (Dual Halogen Setup):</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Component", "Specification", "Placement"],
-      "rows": [
-        ["Dual dome heat lamp fixture", "Ceramic sockets rated 150w+ each", "Positioned over warm end of enclosure"],
-        ["Halogen flood bulbs", "90w PAR38 x2 (adjust wattage based on temps)", "Both bulbs in dual dome fixture"],
-        ["Basking rock/slate tile", "8×10 inch flagstone or slate, 1-2 inches thick", "Placed on top of black plastic warm hide box"],
-        ["Plug-in dimmers", "x2 (one per heat lamp socket)", "Plug heat lamps into dimmers for fine-tuning"],
-        ["Black plastic warm hide", "Snug fit for snake", "Directly under basking rock on warm end"],
-        ["Distance from basking surface", "9-11 inches below heat lamps", "Adjust height to achieve 95-104°F surface temp"],
-        ["Optional: Heat mat (if warm hide too cool)", "Thermostat-controlled UTH under warm hide", "Covered with 1 inch substrate to prevent direct contact"]
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "important",
-      "content": "Always use a plug-in dimmer with halogen bulbs—they often produce too much heat at full power. Start at 50% dimmer setting, measure basking surface temp with infrared thermometer, adjust up or down to achieve 95-104°F. Never use thermostats with dimmers (causes equipment damage)."
-    },
-    {
-      "type": "section",
-      "title": "Temperature Measurement"
-    },
-    {
-      "type": "text",
-      "content": "Accurate temperature measurement is critical. Guessing or using stick-on dial thermometers leads to incorrect temps and health issues."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Essential Temperature Monitoring Equipment:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Equipment", "Measurement", "Placement", "Purpose"],
-      "rows": [
-        ["Infrared thermometer (temp gun)", "Basking surface temp", "Point at basking rock from 6-12 inches away", "Verify 95-104°F basking surface temp daily"],
-        ["Digital probe thermometer #1", "Warm hide interior temp", "Probe placed inside warm hide", "Ensure 86-90°F warm hide temp"],
-        ["Digital probe thermometer #2", "Cool hide interior temp", "Probe placed inside cool hide", "Ensure 72-80°F cool hide temp"],
-        ["Digital thermometer/hygrometer combo", "Ambient temps + humidity", "Probe in center of enclosure mid-height", "Monitor overall enclosure conditions"],
-        ["Optional: Temp gun with min/max", "Track temperature fluctuations", "—", "Identify hot/cold spots over 24 hours"]
-      ]
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Thermometers to AVOID:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Thermometer Type", "Why Avoid"],
-      "rows": [
-        ["Stick-on dial thermometers", "Notoriously inaccurate (±10°F error), measure glass temp not air temp"],
-        ["Analog dial thermometers", "Slow response, drift over time, often inaccurate"],
-        ["Cheap laser thermometers (<$15)", "Poor accuracy, inconsistent readings"],
-        ["Thermometer strips", "Measure surface temp only, not useful for ball python care"]
-      ]
-    },
-    {
-      "type": "highlight",
-      "content": "Recommended: Etekcity 774 infrared thermometer ($15-20 on Amazon) for basking surface checks, and any reptile-brand digital probe thermometer ($10-15) for hide temps. Total investment: $30-40 for accurate temperature monitoring—critical for health."
+      "content": "Ball pythons require halogen flood bulbs as primary heat sources to achieve 95-104°F basking surfaces. Use TWO 90w PAR38 halogen flood bulbs in a dual dome fixture with plug-in dimmers."
     },
     {
       "type": "section",

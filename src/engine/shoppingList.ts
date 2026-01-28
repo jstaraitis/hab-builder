@@ -155,11 +155,7 @@ function matchesAnimalNeeds(
         // Plant matching based on user's plant preference from input
         if (userInput?.plantPreference) {
           const userPref = userInput.plantPreference;
-          // If user wants mixed, match all plant types
-          if (userPref === 'mix') {
-            return true;
-          }
-          // Otherwise, match exact preference (live or artificial)
+          // Match exact preference (live or artificial)
           return value === userPref;
         }
         // Fallback: if no input provided, allow general "plants" tag
@@ -433,7 +429,7 @@ function addDecor(
         id: 'plants',
         category: plantsConfig.category,
         name: plantsConfig.name,
-        quantity: input.plantPreference === 'live' ? '4-6 plants' : '2-3 plants',
+        quantity: '4-6 plants',
         sizing: 'Mix of ground cover, mid-level, and upper-level for arboreal species',
         importance: plantsConfig.importance,
         setupTierOptions: plantsConfig.tiers,
@@ -451,9 +447,9 @@ function addDecor(
         id: 'plants-artificial',
         category: artificialConfig.category,
         name: artificialConfig.name,
-        quantity: input.plantPreference === 'artificial' ? '4-6 pieces' : '1-2 pieces',
-        sizing: 'Realistic artificial plants for mixed or minimalist aesthetics',
-        importance: 'required', // Required when artificial or mixed plants selected
+        quantity: '4-6 pieces',
+        sizing: 'Realistic artificial plants for minimalist aesthetics',
+        importance: 'required', // Required when artificial plants selected
         setupTierOptions: artificialConfig.tiers,
         notes: artificialConfig.notes,
         incompatibleAnimals: artificialConfig.incompatibleAnimals,
@@ -711,7 +707,7 @@ function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput, profil
  */
 function addPlantLighting(items: ShoppingItem[], input: EnclosureInput): void {
   // Only add if user wants live plants
-  if (input.plantPreference === 'live' || input.plantPreference === 'mix') {
+  if (input.plantPreference === 'live') {
     const catalogDict = equipmentCatalog as Record<string, any>;
     const plantLightConfig = catalogDict['plant-light'];
     if (plantLightConfig) {
@@ -792,7 +788,7 @@ function addStructuralDecor(items: ShoppingItem[], input: EnclosureInput, profil
   if (input.backgroundType !== 'none') {
     const backgroundConfig = catalogDict['background'];
     if (backgroundConfig) {
-      const bgType = input.backgroundType === 'cork-bark' ? 'Cork bark panels' : 'Custom foam background';
+      const bgType = input.backgroundType === 'prebuilt' ? 'Prebuilt background panel' : 'Custom background (DIY)';
       items.push({
         id: 'background',
         category: backgroundConfig.category,
@@ -803,6 +799,56 @@ function addStructuralDecor(items: ShoppingItem[], input: EnclosureInput, profil
         setupTierOptions: backgroundConfig.tiers,
         notes: backgroundConfig.notes,
         incompatibleAnimals: backgroundConfig.incompatibleAnimals,
+      });
+    }
+  }
+}
+
+/**
+ * Adds specialized equipment directly specified in animal profile arrays
+ * Only processes arrays unique to specialized setups (aquatic, etc.) to avoid conflicts
+ * with existing generic functions (addWaterSupplies, addFeedingSupplies, etc.)
+ */
+function addDirectEquipment(
+  items: ShoppingItem[],
+  profile: any,
+  _input: EnclosureInput // prefixed with _ to indicate intentionally unused
+): void {
+  const catalogDict = equipmentCatalog as Record<string, any>;
+  // Only process specialized equipment arrays that don't overlap with generic functions
+  const specializedArrays = [
+    'filtration',      // Aquatic filters, air pumps
+    'cooling',         // Aquarium chillers
+    'waterTreatment',  // Test kits, conditioners (aquatic-specific)
+    'maintenance',     // Python siphons, gravel vacs
+    'safety',          // Aquarium lids, heater guards
+    'heating'          // Aquarium heaters (aquatic-specific)
+  ];
+
+  for (const arrayName of specializedArrays) {
+    const equipmentIds = profile.equipmentNeeds?.[arrayName];
+    if (!Array.isArray(equipmentIds)) continue;
+
+    for (const itemId of equipmentIds) {
+      // Skip if already added
+      if (items.some(item => item.id === itemId)) continue;
+
+      const config = catalogDict[itemId];
+      if (!config) {
+        console.warn(`Equipment not found in catalog: ${itemId}`);
+        continue;
+      }
+
+      items.push({
+        id: itemId,
+        category: config.category,
+        name: config.name,
+        quantity: 1,
+        sizing: '',
+        importance: config.importance || 'required',
+        setupTierOptions: config.tiers,
+        notes: config.notes,
+        incompatibleAnimals: config.incompatibleAnimals,
       });
     }
   }
@@ -820,6 +866,7 @@ export function generateShoppingList(
 
   // Add items in order of importance/building sequence
   addEnclosure(items, input);
+  addDirectEquipment(items, profile, input); // Add aquatic/specialized equipment first
   addUVBLighting(items, dims, profile, input);
   addHeatLamp(items, dims, profile, input);
   addSubstrate(items, dims, input, profile);

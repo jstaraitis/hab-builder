@@ -1,0 +1,263 @@
+{
+  "id": "mourning-gecko-substrate-guide",
+  "title": "Mourning Gecko Substrate Guide: Safe Options & Setup",
+  "description": "Complete substrate guide for mourning geckos covering moisture-retentive substrates, bioactive setups, depth requirements, and maintenance protocols for tropical arboreal species.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-28",
+  "category": "Care Guides",
+  "tags": ["mourning gecko", "substrate", "bioactive", "tropical"],
+  "image": "/animals/mourning-gecko/mourning-gecko-1.jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Substrate Selection for Mourning Geckos",
+      "content": "While mourning geckos are arboreal and spend most of their time climbing, substrate plays a critical role in maintaining the 60-80% humidity they require. Substrate also provides cushioning for occasional falls and supports bioactive systems with cleanup crews. Choosing the right substrate ensures proper moisture retention while preventing mold and bacterial growth."
+    },
+    {
+      "type": "section",
+      "title": "Natural Habitat Considerations"
+    },
+    {
+      "type": "text",
+      "content": "In their native tropical rainforests, mourning geckos live among leaf litter on tree branches, rarely touching the forest floor. However, the forest floor provides constant moisture through decomposing organic matter and retains humidity throughout the day. In captivity, substrate replicates this moist, organic-rich environment even though the geckos primarily use vertical space."
+    },
+    {
+      "type": "highlight",
+      "content": "Key requirement: Moisture-retentive substrate 2-4 inches deep that maintains humidity without becoming waterlogged. Should support microfauna for bioactive setups and enable natural foraging behaviors if cleanup crew is present."
+    },
+    {
+      "type": "highlight",
+      "content": "For comprehensive guidance on substrate categories, DIY mixing formulas, impaction myths, and bioactive layering applicable to all reptiles, see our <a href='/blog/substrate-selection-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Substrate Selection Guide</a>. The information below covers mourning gecko-specific substrate requirements and tropical habitat recommendations."
+    },
+    {
+      "type": "section",
+      "title": "Recommended Commercial Substrates"
+    },
+    {
+      "type": "text",
+      "content": "Several commercial products work well for mourning geckos. Look for tropical mixes designed for high-humidity species."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Commercial Substrate Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Product", "Type", "Best For", "Depth Requirement"],
+      "rows": [
+        ["Zoo Med Reptisoil", "Organic soil blend", "Simple non-bioactive setups", "2-3 inches"],
+        ["Lugarti Natural Reptile Bedding", "Sphagnum/coco blend", "High humidity retention", "2-3 inches"],
+        ["The Bio Dude Terra Fauna", "Complete bioactive kit", "Advanced bioactive systems", "3-4 inches + drainage"],
+        ["Exo Terra Plantation Soil", "Compressed coco fiber", "Budget-friendly option", "2-3 inches (hydrate before use)"],
+        ["Josh's Frogs ABG Mix", "Advanced bioactive blend", "Plant growth + cleanup crew", "3-4 inches"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "DIY Substrate Formula"
+    },
+    {
+      "type": "text",
+      "content": "Creating your own tropical substrate is cost-effective and allows customization for bioactive setups. This formula provides excellent moisture retention and supports both plants and cleanup crews."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>DIY Tropical Substrate Recipe:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Ingredient", "Ratio", "Purpose"],
+      "rows": [
+        ["Organic topsoil (pesticide-free)", "60%", "Base structure, plant roots, moisture retention"],
+        ["Coconut fiber (coco coir)", "40%", "Increases water holding capacity, prevents compaction"],
+        ["Sphagnum moss (optional)", "5-10% additive", "Boosts humidity, prevents substrate drying"],
+        ["Play sand (optional)", "5-10% additive", "Improves drainage, prevents waterlogging"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Mixing Instructions:</strong> Combine dry ingredients thoroughly in a large bin. Slowly add dechlorinated water while mixing until substrate reaches a consistency where it clumps when squeezed but doesn't drip. Allow to sit 24 hours before adding to enclosure. If using for bioactive, let cure for 2-4 weeks with cleanup crew before adding geckos."
+    },
+    {
+      "type": "section",
+      "title": "Safety Considerations"
+    },
+    {
+      "type": "text",
+      "content": "Mourning geckos are insectivores/omnivores that hunt on vertical surfaces, so accidental substrate ingestion is extremely rare. However, proper husbandry prevents any potential issues."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Safety Best Practices:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Concern", "Prevention", "Notes"],
+      "rows": [
+        ["Substrate ingestion", "Feed on magnetic ledges/elevated cups", "Geckos rarely descend to ground for food"],
+        ["Mold growth", "Maintain 60-80% humidity (not 90%+), good ventilation", "Screen top prevents oversaturation"],
+        ["Bacterial blooms", "Spot clean waste daily, add cleanup crew", "Bioactive systems self-regulate"],
+        ["Toxic chemicals", "Use organic topsoil, avoid Miracle-Gro or fertilizers", "Read labels - \"pesticide-free\" required"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Unlike terrestrial species, substrate impaction is virtually non-existent in mourning geckos due to their arboreal lifestyle. Focus on humidity management and cleanliness instead."
+    },
+    {
+      "type": "section",
+      "title": "Bioactive Substrate Setup"
+    },
+    {
+      "type": "text",
+      "content": "Bioactive systems are ideal for mourning gecko colonies because cleanup crews handle waste management, reducing maintenance dramatically. This is especially beneficial as your colony grows through parthenogenesis."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Bioactive Layer Structure:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Layer", "Material", "Depth", "Purpose"],
+      "rows": [
+        ["Drainage layer", "Hydroballs or LECA", "1-2 inches", "Prevents root rot, water overflow management"],
+        ["Mesh barrier", "Weed fabric or fiberglass mesh", "Single layer", "Keeps substrate separate from drainage"],
+        ["Substrate layer", "DIY tropical mix or Terra Fauna", "3-4 inches", "Plant roots, cleanup crew habitat, humidity"],
+        ["Leaf litter top", "Magnolia, oak, or catappa leaves", "1 inch", "Microfauna breeding ground, naturalistic look"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Cleanup Crew Selection:</strong> Tropical species thrive at mourning gecko temperatures (70-85°F) and humidity (60-80%). Best options: Dwarf white isopods, powder blue isopods, dwarf purple isopods, and tropical springtails. Start with 20-30 isopods and 50+ springtails for a 12×12×18 enclosure."
+    },
+    {
+      "type": "highlight",
+      "content": "Bioactive benefit: Cleanup crew processes waste, controls mold, and aerates substrate. Perfect for breeding colonies where population management is ongoing!"
+    },
+    {
+      "type": "section",
+      "title": "Depth Requirements"
+    },
+    {
+      "type": "text",
+      "content": "Substrate depth affects humidity retention and fall cushioning. Deeper substrate provides better moisture buffering and supports bioactive microfauna populations."
+    },
+    {
+      "type": "table",
+      "headers": ["Setup Type", "Minimum Depth", "Recommended Depth", "Benefit"],
+      "rows": [
+        ["Non-bioactive", "2 inches", "3 inches", "Adequate humidity, easier to replace"],
+        ["Bioactive", "3 inches", "4 inches", "Supports cleanup crew populations"],
+        ["With live plants", "3 inches", "4-5 inches", "Root establishment, plant health"],
+        ["Minimal substrate (not recommended)", "1 inch", "—", "Insufficient humidity, inadequate cushioning"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Leaf Litter Layer"
+    },
+    {
+      "type": "text",
+      "content": "A generous leaf litter layer is ESSENTIAL for both bioactive and non-bioactive setups. It provides hiding spots for cleanup crews, retains moisture, and creates a naturalistic appearance."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Leaf Litter Options:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Leaf Type", "Benefits", "Longevity"],
+      "rows": [
+        ["Magnolia leaves", "Large, slow decomposition, attractive", "6-12 months"],
+        ["Oak leaves", "Medium size, moderate breakdown", "3-6 months"],
+        ["Indian almond (catappa)", "Small, tannin release (antimicrobial)", "2-4 months"],
+        ["Commercial reptile leaf litter", "Pre-cleaned, pesticide-free guaranteed", "Varies by type"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Never collect leaves from roadsides or areas treated with pesticides. If collecting wild leaves, bake at 200°F for 30 minutes to sterilize, or purchase commercial reptile-safe leaf litter."
+    },
+    {
+      "type": "section",
+      "title": "Maintenance & Cleaning"
+    },
+    {
+      "type": "text",
+      "content": "Substrate maintenance depends on whether you use bioactive or non-bioactive systems."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Maintenance Schedule:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Task", "Non-Bioactive Frequency", "Bioactive Frequency"],
+      "rows": [
+        ["Spot cleaning (visible waste)", "Daily", "Optional (cleanup crew handles)"],
+        ["Mist substrate edges", "Morning + evening", "Morning + evening"],
+        ["Remove moldy food", "As needed", "As needed"],
+        ["Replenish leaf litter", "Monthly", "Every 2-3 months"],
+        ["Partial substrate change (top inch)", "Every 1-2 months", "Rarely needed"],
+        ["Complete substrate change", "Every 3-4 months", "Never (established ecosystem)"],
+        ["Cleanup crew monitoring", "N/A", "Monthly (check populations)"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Moisture Management"
+    },
+    {
+      "type": "text",
+      "content": "Proper substrate moisture is critical for humidity maintenance without creating swampy conditions."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Moisture Testing:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Test Method", "Ideal Result", "Action if Wrong"],
+      "rows": [
+        ["Squeeze test", "Forms clump, no water drips", "Too dry: mist substrate. Too wet: increase ventilation"],
+        ["Hygrometer reading", "60-80% ambient humidity", "Adjust misting frequency"],
+        ["Visual inspection", "Substrate appears damp but not muddy", "Redistribute moisture with stirring stick"],
+        ["Condensation check", "Light fog on glass mornings, clears by afternoon", "Too much: reduce misting. Too little: mist more"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Pro tip: Mist substrate edges and leaf litter rather than soaking the entire substrate. This creates humid microclimates while allowing drier areas for cleanup crew egg laying."
+    },
+    {
+      "type": "section",
+      "title": "Substrates to Avoid"
+    },
+    {
+      "type": "text",
+      "content": "Some substrates are inappropriate for mourning geckos due to humidity, safety, or practicality issues."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Incompatible Substrates:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Substrate", "Why Avoid"],
+      "rows": [
+        ["Paper towels", "Cannot maintain 60-80% humidity, aesthetically poor"],
+        ["Reptile carpet", "Traps bacteria, impossible to clean with waste accumulation"],
+        ["Pure sand", "Insufficient moisture retention, inappropriate for tropical species"],
+        ["Cedar/pine shavings", "Toxic aromatic oils, wrong habitat type"],
+        ["Calcium sand", "Desert substrate, wrong climate simulation"],
+        ["Bare bottom (no substrate)", "Zero humidity retention, no fall cushioning"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Mourning geckos are tropical rainforest species - desert substrates (sand, calcium sand) or arid setups will cause dehydration and respiratory issues. Always prioritize moisture retention."
+    }
+  ]
+}

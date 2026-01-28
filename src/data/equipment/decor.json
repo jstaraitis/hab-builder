@@ -169,18 +169,145 @@
     },
     "tiers": {
       "minimum": {
-        "description": "terrarium hides and shelters",
+        "description": "Basic terrarium hides",
         "searchQuery": "terrarium hides & shelters"
       },
       "recommended": {
-        "description": "terrarium hides and shelters",
-        "searchQuery": "terrarium hides & shelters"
+        "description": "Natural cork bark or rock hides",
+        "searchQuery": "terrarium hides & shelters cork bark"
       },
       "ideal": {
-        "description": "terrarium hides and shelters",
-        "searchQuery": "terrarium hides & shelters"
+        "description": "Premium naturalistic hides",
+        "searchQuery": "terrarium hides & shelters naturalistic"
       }
     },
-    "notes": "Provide security. Very placement for enrichment."
+    "notes": "Provide security and reduce stress. Vary placement for enrichment. Need at least one in warm zone and one in cool zone."
+  },
+  "hides-aquatic": {
+    "name": "Aquatic Caves & Hides",
+    "category": "decor",
+    "needsTags": ["decor:hides-aquatic"],
+    "importance": "required",
+    "spec": {
+      "quantity": "2-3 per tank",
+      "material": "Aquarium-safe resin, ceramic, or rock",
+      "placement": "Submerged on tank bottom"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic aquarium cave",
+        "searchQuery": "aquarium cave hide decoration"
+      },
+      "recommended": {
+        "description": "Natural rock cave or ceramic hide",
+        "searchQuery": "aquarium cave hide rock ceramic"
+      },
+      "ideal": {
+        "description": "Custom rock formation with multiple hiding spots",
+        "searchQuery": "aquarium cave hide rock formation"
+      }
+    },
+    "notes": "Essential for aquatic species. Provides dark hiding spots away from light. Must be aquarium-safe with no sharp edges. Ensure large enough for animal to fully enter and turn around."
+  },
+  "moist-hide": {
+    "name": "Humid/Moist Hide",
+    "category": "decor",
+    "needsTags": ["decor:humid-hide"],
+    "importance": "required",
+    "spec": {
+      "type": "Enclosed hide with sphagnum moss",
+      "purpose": "Aids shedding and provides humidity"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic humid hide box",
+        "searchQuery": "reptile humid hide shedding"
+      },
+      "recommended": {
+        "description": "Pre-made humid hide with moss",
+        "searchQuery": "reptile humid hide sphagnum moss"
+      },
+      "ideal": {
+        "description": "Large naturalistic humid hide",
+        "searchQuery": "reptile humid hide naturalistic large"
+      }
+    },
+    "notes": "CRITICAL for snakes and geckos during shedding. Fill with damp (not wet) sphagnum moss. Place in warm zone. Re-moisten moss every 2-3 days. Prevents stuck shed and retained eye caps."
+  },
+  "water-dish-large": {
+    "name": "Water Dish (Large/Shallow)",
+    "category": "decor",
+    "needsTags": ["water:dish"],
+    "importance": "required",
+    "spec": {
+      "size": "Large enough for animal to soak",
+      "depth": "Shallow - no drowning risk",
+      "material": "Heavy ceramic or stone (tip-resistant)"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic ceramic water dish",
+        "searchQuery": "reptile water dish large shallow"
+      },
+      "recommended": {
+        "description": "Heavy rock-style water dish",
+        "searchQuery": "reptile water dish rock style heavy"
+      },
+      "ideal": {
+        "description": "Large naturalistic water feature",
+        "searchQuery": "reptile water dish naturalistic large"
+      }
+    },
+    "notes": "For snakes, geckos, and terrestrial species. Must be heavy enough not to tip. Large enough for animal to soak fully. Change water daily. Position away from heat sources to prevent rapid evaporation."
+  },
+  "feeding-dish": {
+    "name": "Food Dish (Reptile)",
+    "category": "decor",
+    "needsTags": ["feeding:dish"],
+    "importance": "recommended",
+    "spec": {
+      "type": "Shallow dish for insects or vegetables",
+      "material": "Ceramic or smooth plastic"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic feeding dish",
+        "searchQuery": "reptile food dish feeding bowl"
+      },
+      "recommended": {
+        "description": "Ceramic feeding dish",
+        "searchQuery": "reptile food dish ceramic bowl"
+      },
+      "ideal": {
+        "description": "Magnetic or elevated feeding station",
+        "searchQuery": "reptile feeding station elevated magnetic"
+      }
+    },
+    "notes": "For bearded dragons and herbivorous species. Prevents substrate ingestion. Easy to clean. Shallow design allows easy access. Elevated feeders good for larger lizards."
+  },
+  "sphagnum-moss": {
+    "name": "Sphagnum Moss (Hydration)",
+    "category": "substrate",
+    "needsTags": ["humidity:moss"],
+    "importance": "conditional",
+    "spec": {
+      "type": "Long-fiber sphagnum moss",
+      "purpose": "Humid hides and moisture retention"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Compressed sphagnum moss brick",
+        "searchQuery": "sphagnum moss reptile terrarium"
+      },
+      "recommended": {
+        "description": "Premium long-fiber sphagnum moss",
+        "searchQuery": "premium sphagnum moss long fiber terrarium"
+      },
+      "ideal": {
+        "description": "New Zealand sphagnum moss",
+        "searchQuery": "new zealand sphagnum moss terrarium premium"
+      }
+    },
+    "notes": "Essential for humid hides - helps snakes and geckos shed properly. Holds moisture well without being soggy. Place in enclosed hide and mist every 2-3 days. Also useful for egg-laying sites and bioactive layering."
   }
 }

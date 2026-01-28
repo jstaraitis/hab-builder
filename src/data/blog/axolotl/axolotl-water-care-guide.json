@@ -1,0 +1,490 @@
+{
+  "id": "axolotl-water-care-guide",
+  "title": "Axolotl Water Care Guide: Water Changes, Conditioning & Acclimation",
+  "description": "Complete water maintenance guide for axolotls covering weekly water changes, water conditioner safety, acclimation methods, and emergency water quality protocols.",
+  "author": "Habitat Builder",
+  "date": "2026-01-28",
+  "category": "Care Guides",
+  "excerpt": "Master axolotl water maintenance with detailed instructions for water changes, safe conditioner selection, proper acclimation, and emergency water quality responses.",
+  "tags": ["axolotl", "water-care", "maintenance", "acclimation", "water-conditioner"],
+  "content": [
+    {
+      "type": "intro",
+      "heading": "Axolotl Water Care Guide",
+      "text": "Regular water maintenance is THE foundation of axolotl health. Even perfect filtration cannot eliminate nitrates—only water changes remove these toxins. This guide covers weekly water change protocols, water conditioner safety (critical: aloe vera kills axolotls), proper acclimation techniques, and emergency responses to water quality crises."
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "text": "NEVER use water conditioners containing aloe vera or \"stress coat\" formulas—aloe is toxic to axolotls and causes severe illness or death. Use ONLY Seachem Prime or Fritz Complete water conditioners."
+    },
+    {
+      "type": "section",
+      "heading": "Weekly Water Change Protocol"
+    },
+    {
+      "type": "text",
+      "text": "Water changes are NON-NEGOTIABLE for axolotl health. No amount of filtration eliminates the need for regular water changes."
+    },
+    {
+      "type": "section",
+      "heading": "Standard Water Change Schedule"
+    },
+    {
+      "type": "table",
+      "headers": ["Tank Condition", "Change Frequency", "Change Volume", "Notes"],
+      "rows": [
+        ["New Tank (First Month)", "Every 3 days", "25-30%", "More frequent to monitor nitrogen cycle stability"],
+        ["Established Tank (Normal)", "Weekly", "20-30%", "Standard maintenance—keeps nitrates under 20 ppm"],
+        ["Nitrates Rising Rapidly", "Twice weekly", "25-30%", "If nitrates exceed 20 ppm consistently despite weekly changes"],
+        ["Post-Medication", "Daily", "25%", "Removes medication residue, stabilizes water chemistry"],
+        ["Ammonia/Nitrite Emergency", "Daily", "50%", "Dilutes toxins until cycle re-establishes"],
+        ["Hot Weather (Above 70°F)", "Twice weekly", "20-25%", "Warmer water = faster metabolism = more waste"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Never change more than 50% of water at once unless emergency. Large water changes disrupt beneficial bacteria colonies and shock axolotls with rapid parameter shifts."
+    },
+    {
+      "type": "section",
+      "heading": "Water Change Step-by-Step"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Preparation (Before Starting)</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Test Water:</span> Check ammonia, nitrites, nitrates, pH, temperature—record baseline",
+        "<span class='font-semibold'>Prepare New Water:</span> Fill buckets with tap water, add water conditioner (Seachem Prime), let sit 5-10 minutes",
+        "<span class='font-semibold'>Temperature Match:</span> New water should be 60-68°F, within 2°F of tank temperature",
+        "<span class='font-semibold'>Gather Equipment:</span> Siphon/gravel vacuum, buckets (axolotl-dedicated, never use cleaning chemicals), thermometer, conditioner"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Step 1: Remove Old Water</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Insert siphon hose into tank, start siphon flow (mouth-start or pump-start)",
+        "Vacuum substrate surface—siphon waste, uneaten food, debris",
+        "For bare-bottom: hover siphon 1 inch above glass, suction waste without disturbing axolotl",
+        "For sand: hover 1-2 inches above sand—waste sits on top, avoid sucking sand",
+        "For slate tile: vacuum around and between tiles",
+        "Remove 20-30% water volume (40 gallon tank = 8-12 gallons removed)",
+        "Avoid sucking up axolotl—gently guide away if it approaches siphon"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Step 2: Clean Tank Components (Monthly)</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Filter Intake:</span> Wipe sponge/strainer with tank water—removes debris",
+        "<span class='font-semibold'>Decorations:</span> Remove visible algae with soft brush or scraper (rinse in tank water, NOT tap)",
+        "<span class='font-semibold'>Glass:</span> Scrape algae from viewing panels with aquarium scraper",
+        "<span class='font-semibold'>Never Use Soap:</span> Soap residue is lethal—clean only with hot water or tank water"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Step 3: Add New Water</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Double-check new water temperature (60-68°F, within 2°F of tank)",
+        "Slowly pour new water into tank—pour onto decoration or hand to diffuse flow (avoids disturbing axolotl)",
+        "Fill to original water level",
+        "Turn filter/heater/chiller back on if turned off during change",
+        "Wait 30 minutes, test parameters—ammonia and nitrites should still be 0 ppm"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "NEVER add untreated tap water directly to tank with axolotl inside. Always condition water BEFORE adding, or temporarily remove axolotl during change. Chlorine burns gills within seconds."
+    },
+    {
+      "type": "section",
+      "heading": "Water Conditioner Safety"
+    },
+    {
+      "type": "text",
+      "text": "Water conditioners remove chlorine and chloramine from tap water. However, many common conditioners contain ingredients TOXIC to axolotls."
+    },
+    {
+      "type": "section",
+      "heading": "SAFE Water Conditioners"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Seachem Prime (BEST CHOICE):</span> Removes chlorine/chloramine, detoxifies ammonia/nitrites for 24-48 hours, no harmful additives. Highly concentrated—5 ml treats 50 gallons.",
+        "<span class='font-semibold'>Fritz Complete:</span> Removes chlorine/chloramine, adds beneficial minerals, no aloe vera or plant extracts. Good alternative to Prime.",
+        "<span class='font-semibold'>API Tap Water Conditioner (BASIC):</span> Removes chlorine/chloramine only—no extra features. Safe but less effective than Prime during emergencies."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "UNSAFE Water Conditioners (NEVER USE)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>API Stress Coat:</span> Contains aloe vera—TOXIC to axolotls, causes severe skin/gill irritation, often fatal",
+        "<span class='font-semibold'>Tetra AquaSafe Plus:</span> Contains plant extracts—potentially harmful to axolotls",
+        "<span class='font-semibold'>Any \"Stress Coat\" or \"Slime Coat\" Formulas:</span> Contain aloe vera or plant extracts—avoid completely",
+        "<span class='font-semibold'>ReptiSafe:</span> Despite name, some formulations contain aloe—verify ingredients or use Prime instead"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "text": "If you accidentally used aloe-containing conditioner, IMMEDIATELY perform 75% water change with Seachem Prime-treated water. Monitor axolotl for 48 hours for signs of distress (curled gills, mucus overproduction, lethargy)."
+    },
+    {
+      "type": "section",
+      "heading": "Water Sources"
+    },
+    {
+      "type": "text",
+      "text": "Not all water sources are safe or practical for axolotl tanks."
+    },
+    {
+      "type": "table",
+      "headers": ["Water Source", "Safety", "Pros", "Cons", "Conditioning Required"],
+      "rows": [
+        ["Tap Water (City/Municipal)", "SAFE (with conditioner)", "Convenient, unlimited supply, stable parameters", "Contains chlorine/chloramine, may have high/low pH", "YES—always condition"],
+        ["Well Water", "SAFE (test first)", "No chlorine/chloramine (usually), free", "Variable parameters, may contain iron/heavy metals, test required", "MAYBE—test for chlorine/metals"],
+        ["Spring Water (Bottled)", "SAFE", "No chlorine, consistent parameters", "EXPENSIVE ($50-100+/month for 40 gallon), inconvenient", "NO—but test pH initially"],
+        ["Distilled/RO Water", "UNSAFE (alone)", "Pure, no contaminants", "NO minerals—osmotic stress, unstable pH, requires remineralizing", "YES—must add minerals (not practical)"],
+        ["Aquarium Store Water", "NOT RECOMMENDED", "Convenient for emergencies", "Expensive, unknown source quality, disease risk from other tanks", "MAYBE—depends on source"],
+        ["Rainwater", "UNSAFE", "Free", "Acidic, contaminants from roof/air pollution, inconsistent parameters", "NO—not recommended"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Tap Water Testing</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Test tap water BEFORE first use: pH, GH, KH, chlorine/chloramine presence",
+        "Most city tap water is 7.0-8.0 pH—acceptable for axolotls",
+        "If pH below 6.5 or above 8.5, consider pH buffering or alternative water source",
+        "All city tap water contains chlorine or chloramine—ALWAYS condition",
+        "Annual water quality reports available from city—check for heavy metal concerns"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Acclimation Methods"
+    },
+    {
+      "type": "text",
+      "text": "Proper acclimation when introducing axolotl to new tank or after transport prevents osmotic shock and stress."
+    },
+    {
+      "type": "section",
+      "heading": "Float Method (Standard Acclimation)"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>When to Use:</span> New axolotl arrival, moving between tanks with similar parameters"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Step 1:</span> Float sealed bag/container in tank for 15-20 minutes—equalizes temperature",
+        "<span class='font-semibold'>Step 2:</span> Open bag, add 1/4 cup tank water to bag—wait 10 minutes",
+        "<span class='font-semibold'>Step 3:</span> Add another 1/4 cup tank water—wait 10 minutes",
+        "<span class='font-semibold'>Step 4:</span> Repeat step 3 two more times (total 4 additions over 45 minutes)",
+        "<span class='font-semibold'>Step 5:</span> Gently net axolotl (or use hands with wet gloves), transfer to tank",
+        "<span class='font-semibold'>Step 6:</span> Discard bag water—DO NOT add shipping water to tank (contains waste, potential pathogens)",
+        "<span class='font-semibold'>Step 7:</span> Turn off lights, let axolotl settle for 24 hours before feeding"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Drip Acclimation Method (Large Parameter Differences)"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>When to Use:</span> pH difference exceeding 0.5 units, temperature difference exceeding 5°F, moving from store tank to home tank"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Step 1:</span> Place axolotl in large bucket/container with shipping water",
+        "<span class='font-semibold'>Step 2:</span> Set up airline tubing from tank to bucket (siphon drip)",
+        "<span class='font-semibold'>Step 3:</span> Tie knot in airline tubing to slow drip to 2-3 drops per second",
+        "<span class='font-semibold'>Step 4:</span> Let tank water drip into bucket for 1-2 hours until bucket volume doubles",
+        "<span class='font-semibold'>Step 5:</span> Remove 50% water from bucket, continue dripping another 30 minutes",
+        "<span class='font-semibold'>Step 6:</span> Net axolotl, transfer to tank",
+        "<span class='font-semibold'>Step 7:</span> Discard acclimation water, turn off lights, let settle 24 hours"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "NEVER rush acclimation. Rapid parameter changes cause osmotic shock, gill damage, and increased disease susceptibility. Allow minimum 45 minutes for float method, 90 minutes for drip method."
+    },
+    {
+      "type": "section",
+      "heading": "Handling Axolotls Safely"
+    },
+    {
+      "type": "text",
+      "text": "Minimize handling—axolotls have delicate skin and protective slime coat easily damaged."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>When Handling Is Necessary</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Acclimation/tank transfer",
+        "Medical treatment/examination",
+        "Emergency evacuation (power outage, tank leak)",
+        "Separating aggressive tank mates"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Safe Handling Method</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Wet Hands Thoroughly:</span> Dry hands damage slime coat—soak hands in tank water first",
+        "<span class='font-semibold'>Use Soft Net:</span> Fine mesh net preferred over coarse nets (reduces fin damage)",
+        "<span class='font-semibold'>Scoop from Below:</span> Gently slide cupped hands under axolotl, support entire body",
+        "<span class='font-semibold'>Minimize Air Exposure:</span> Transfer quickly (under 30 seconds in air)",
+        "<span class='font-semibold'>Never Grab Gills/Tail:</span> These structures are extremely delicate and easily damaged",
+        "<span class='font-semibold'>No Squeezing:</span> Gentle support only—no pressure on body"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Emergency Water Changes"
+    },
+    {
+      "type": "text",
+      "text": "When ammonia, nitrites detected, or temperature exceeds 74°F, immediate large water change required."
+    },
+    {
+      "type": "section",
+      "heading": "Ammonia/Nitrite Emergency Protocol"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Step 1 (Immediate):</span> Remove 50% water, replace with conditioned, temperature-matched water",
+        "<span class='font-semibold'>Step 2 (15 min later):</span> Dose Seachem Prime at 5× normal dose—temporarily detoxifies ammonia/nitrites for 24-48 hours",
+        "<span class='font-semibold'>Step 3 (1 hour later):</span> Test parameters—if ammonia/nitrites still detectable, repeat 25% water change",
+        "<span class='font-semibold'>Step 4 (Ongoing):</span> Daily 25-50% water changes until parameters stabilize at 0 ppm for 3 consecutive days",
+        "<span class='font-semibold'>Step 5:</span> Stop feeding until parameters stable—food produces ammonia",
+        "<span class='font-semibold'>Step 6:</span> Add beneficial bacteria supplement (Seachem Stability) daily",
+        "<span class='font-semibold'>Step 7:</span> Investigate cause—overfeeding, dead organic matter, filter failure, cycle crash?"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Heat Emergency Protocol"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>If 72-74°F:</span> Float frozen water bottles, turn off lights, add fans, perform 25% water change with cooler water (64-66°F)",
+        "<span class='font-semibold'>If Above 74°F:</span> CRITICAL—perform 50% water change with water at 60-65°F (carefully—max 3°F drop per hour), float multiple frozen bottles, increase surface agitation, add ice packs to filter intake (sealed bags only), move tank to cooler location",
+        "<span class='font-semibold'>Monitor:</span> Test temperature every 30 minutes, aim for 68°F, then stabilize at 64-66°F",
+        "<span class='font-semibold'>Ongoing:</span> Arrange permanent cooling (chiller, AC) before next heat event"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "text": "During heat emergencies, dissolved oxygen plummets. Add airstone for increased surface agitation. Axolotl gasping at surface = oxygen deprivation emergency."
+    },
+    {
+      "type": "section",
+      "heading": "Filter Maintenance and Water Care"
+    },
+    {
+      "type": "text",
+      "text": "Filter maintenance impacts water quality. Improper cleaning kills beneficial bacteria."
+    },
+    {
+      "type": "section",
+      "heading": "Filter Cleaning Schedule"
+    },
+    {
+      "type": "table",
+      "headers": ["Filter Component", "Cleaning Frequency", "Method", "Critical Notes"],
+      "rows": [
+        ["Mechanical Media (Sponge/Pad)", "Every 2-4 weeks", "Rinse in bucket of tank water until water runs clear", "NEVER rinse in tap water—chlorine kills bacteria"],
+        ["Biological Media (Ceramic Rings)", "Every 2-3 months", "Gentle rinse in tank water—remove large debris only", "DO NOT scrub clean—bacteria colonize surface"],
+        ["Chemical Media (Activated Carbon)", "Replace monthly", "Discard old carbon, add new", "Carbon exhausts after 3-4 weeks—no longer effective"],
+        ["Filter Impeller", "Every 3 months", "Remove, rinse under tap water, scrub with small brush", "Impeller okay to clean with tap—no bacteria here"],
+        ["Intake Tube", "Monthly", "Wipe with cloth or brush in tank water", "Prevent clogging from debris"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Filter Cleaning Best Practices</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Never Clean All Media at Once:</span> Stagger cleaning—clean mechanical media one week, biological media next month",
+        "<span class='font-semibold'>Save Old Filter Media:</span> When replacing worn media, run old and new together for 2-3 weeks—bacteria colonize new media",
+        "<span class='font-semibold'>Don't Over-Clean:</span> Filter media should look dirty (brownish)—that's bacteria colonies, not filth",
+        "<span class='font-semibold'>Clean During Water Changes:</span> Use bucket of removed tank water for rinsing media—convenient and safe"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Vacation and Extended Absence Care"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Short Absence (3-7 Days)</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Adults:</span> Can safely skip feeding 1 week—perform water change before leaving",
+        "<span class='font-semibold'>Juveniles:</span> Arrange pet sitter or use automatic feeder (risky—can overfeed)",
+        "<span class='font-semibold'>Temperature:</span> Ensure cooling equipment reliable—consider backup fans if using AC",
+        "<span class='font-semibold'>Test Parameters:</span> Before leaving, ensure ammonia/nitrites 0 ppm",
+        "<span class='font-semibold'>Water Level:</span> Top off water to account for evaporation (especially if using fans)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Extended Absence (1-4 Weeks)</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Pet Sitter REQUIRED:</span> Water changes cannot be skipped beyond 10-14 days",
+        "<span class='font-semibold'>Written Instructions:</span> Leave detailed care sheet with exact portions, water change steps, emergency contacts",
+        "<span class='font-semibold'>Pre-Portioned Food:</span> Prepare individual servings in dated containers—prevents overfeeding",
+        "<span class='font-semibold'>Test Kit:</span> Leave test kit, show sitter how to use—check parameters if axolotl seems lethargic",
+        "<span class='font-semibold'>Backup Plan:</span> Arrange backup sitter in case primary unavailable—have exotic vet contact ready"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Water Change Troubleshooting"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Causes", "Solutions"],
+      "rows": [
+        ["Ammonia spike after water change", "Chlorine killed bacteria, disturbed substrate released trapped waste, too large change", "Dose Seachem Prime (5× dose), beneficial bacteria supplement, smaller changes (20-25%)"],
+        ["pH crash after water change", "Tap water drastically different pH, low KH", "Test tap water pH, acclimate new water (add slowly over 30 min), increase KH"],
+        ["Temperature shock (axolotl lethargic)", "New water too cold/warm", "Match temperature within 2°F, pre-mix water before adding"],
+        ["Cloudy water after change", "Substrate disturbed, bacterial bloom from parameter shift", "Wait 24-48 hours (usually clears), reduce substrate disturbance, test parameters"],
+        ["Axolotl stressed after change", "Too fast water addition, parameter mismatch, handling stress", "Pour new water slowly onto decoration, drip acclimate if large changes, minimize handling"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Water Quality Record-Keeping"
+    },
+    {
+      "type": "text",
+      "text": "Tracking water parameters over time helps identify trends and prevent crises."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>What to Record</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Date and time of test",
+        "Ammonia (ppm)",
+        "Nitrites (ppm)",
+        "Nitrates (ppm)",
+        "pH",
+        "Temperature (°F)",
+        "Water change performed (yes/no, % changed)",
+        "Feeding amount and type",
+        "Observations (axolotl behavior, appetite, appearance)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Record-Keeping Methods</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Notebook:</span> Simple, low-tech, can sketch observations",
+        "<span class='font-semibold'>Spreadsheet:</span> Excel/Google Sheets—easy to graph trends over time",
+        "<span class='font-semibold'>Aquarium Apps:</span> Aquarium Note, AquariumDrunk—built-in parameter tracking and alerts",
+        "<span class='font-semibold'>Photos:</span> Take weekly photos of test results—visual record of parameter trends"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Tracking trends is MORE valuable than individual tests. If nitrates rise from 10 ppm → 15 ppm → 25 ppm over 3 weeks, you need more frequent water changes BEFORE they reach dangerous levels."
+    },
+    {
+      "type": "section",
+      "heading": "Cost of Water Maintenance"
+    },
+    {
+      "type": "table",
+      "headers": ["Item", "Frequency", "Cost per Use", "Annual Cost"],
+      "rows": [
+        ["Water (Tap)", "Weekly (20-30%)", "$0.50-2.00 per 10 gallons", "$25-100 (depends on water rates)"],
+        ["Seachem Prime (500ml)", "Weekly", "$0.25-0.50 per use", "$13-26"],
+        ["Test Kit Reagents", "Weekly testing", "$25 kit lasts 6-12 months", "$25-50"],
+        ["Replacement Filter Media", "As needed", "$10-30 per replacement", "$30-60"],
+        ["Total Annual Maintenance Cost", "—", "—", "$93-236"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Related Guides"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<a href='/blog/axolotl-enrichment-welfare-guide' class='text-emerald-600 underline'>Enrichment & Welfare Guide</a> - Complete overview of axolotl care",
+        "<a href='/blog/axolotl-temperature-water-quality' class='text-emerald-600 underline'>Temperature & Water Quality Guide</a> - Detailed water parameters and testing protocols",
+        "<a href='/blog/axolotl-enclosure-setup' class='text-emerald-600 underline'>Enclosure Setup Guide</a> - Nitrogen cycle and initial tank preparation"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Key Takeaways"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Weekly 20-30% water changes are MANDATORY—no filter eliminates nitrates",
+        "ONLY use Seachem Prime or Fritz Complete—NEVER aloe vera conditioners (fatal to axolotls)",
+        "Temperature-match new water within 2°F of tank water before adding",
+        "Remove old water with siphon/gravel vac—vacuum substrate to remove waste",
+        "Acclimation requires 45+ minutes (float method) or 90+ minutes (drip method)—never rush",
+        "Rinse filter media in tank water only—tap water chlorine kills beneficial bacteria",
+        "Emergency water changes (50%) required for ammonia/nitrite detection or temperature above 74°F",
+        "Track parameters weekly in notebook/app—trends reveal problems before they become crises",
+        "Tap water is best water source (with conditioning)—spring water expensive, RO/distilled unsafe",
+        "Annual water maintenance cost: $93-236 for supplies and water"
+      ]
+    }
+  ]
+}

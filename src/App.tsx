@@ -43,7 +43,7 @@ function App() {
     ambientHumidity: 50,
     humidityControl: 'manual',
     substratePreference: 'soil-based',
-    plantPreference: 'mix',
+    plantPreference: 'live',
     backgroundType: 'none',
     numberOfHides: 3,
     numberOfLedges: 3,

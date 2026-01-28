@@ -94,6 +94,7 @@ npm test             # Run Vitest (NO TESTS EXIST YET - vitest installed but unu
 ```bash
 npm run export-catalog  # equipment-catalog.json → equipment-catalog.csv
 npm run import-catalog  # equipment-catalog.csv → equipment-catalog.json
+npm run export-animals  # Export all animal JSONs to animals-export.txt for review
 ```
 Use CSV for bulk edits by non-developers (e.g., updating purchase links). JSON is source of truth in repo.
 
@@ -101,15 +102,30 @@ Use CSV for bulk edits by non-developers (e.g., updating purchase links). JSON i
 1. Create `data/animals/{species-name}.json` following `animal-template.json` schema
 2. Add to `data/animals/index.ts` export: `import newAnimal from './new-animal.json'`
 3. Add to `animalProfiles` object in same file
-4. Provide `minEnclosureSize`, `quantityRules`, `careTargets`, `layoutRules`, `warnings`
-5. Test with small/medium/large enclosures to validate equipment sizing
-6. Add species images to `public/animals/` (referenced in `imageUrl` and `gallery` fields)
+4. Provide `minEnclosureSize`, `quantityRules`, `careTargets`, `layoutRules`, `warnings`, `careGuidance`
+5. Add `relatedBlogs` array with blog post IDs (see blog content section)
+6. Test with small/medium/large enclosures to validate equipment sizing
+7. Add species images to `public/animals/{species-name}/` (referenced in `imageUrl` and `gallery` fields)
 
-### Adding Blog Content
-1. Create `data/blog/{guide-name}.json` with ContentBlock array
-2. Import in `data/blog/index.ts` and add to `blogPosts` object
-3. ContentBlock types: `intro` (hero), `section` (heading), `text`, `list`, `warning`, `highlight`, `table`
-4. Use `warning` blocks for critical safety info, `highlight` for key takeaways
+### Adding Blog Content (Standard 6-7 Post Structure)
+Each animal should have a complete set of blog posts following this structure:
+1. **Enrichment & Welfare Guide** (`{species}-enrichment-welfare-guide.json`) - Complete overview, species info, quick facts, critical care requirements, getting started
+2. **Enclosure Setup** (`{species}-enclosure-setup.json`) - Tank/enclosure sizing, cycling (for aquatics), equipment, setup checklist
+3. **Substrate Guide** (`{species}-substrate-guide.json`) - Safe substrate options, safety warnings, maintenance
+4. **Heating/Lighting OR Temperature/Water Quality** - For terrestrial: heating-lighting guide; For aquatics: temperature-water-quality guide covering nitrogen cycle
+5. **Feeding Guide** (`{species}-feeding-guide.json`) - Age-based schedules, staple foods, portion sizes, foods to avoid
+6. **Hydration OR Water Care** - For terrestrial: hydration-guide; For aquatics: water-care-guide (water changes, conditioning, acclimation)
+7. **Optional**: Temperature-Humidity guide for terrestrial species with complex environmental needs
+
+**Blog Content Rules:**
+- Create in `data/blog/{species-name}/` directory
+- Import in `data/blog/index.ts` and add to `blogPosts` object
+- ContentBlock types: `intro` (hero), `section` (heading), `text`, `list`, `warning`, `highlight`, `table`
+- Use `warning` blocks for critical safety info (severity: `critical`, `important`, `tip`, `caution`)
+- Use `highlight` for key takeaways
+- Cross-link between guides using `/blog/{blog-id}` internal links
+- Author standardization: "Habitat Builder" or "Habitat Builder Team"
+- **NO external links** - all content should be self-contained to reduce duplicacy and maintain control
 
 ### Modifying Rule Engine
 - All calculations in `engine/generatePlan.ts` should be deterministic (no randomness)
@@ -128,16 +144,60 @@ Use CSV for bulk edits by non-developers (e.g., updating purchase links). JSON i
 
 ## Domain-Specific Knowledge
 
-### Arboreal Species Focus (MVP)
-- Eastern Gray Tree Frog, White's Tree Frog, Crested Gecko
-- These need **vertical space** - height > width in enclosure dimensions
+### Current Animal Roster (12 Species)
+**Arboreal Species:**
+- White's Tree Frog (user expert - gold standard reference)
+- Red-Eyed Tree Frog
+- Crested Gecko
+- Mourning Gecko
+
+**Terrestrial/Semi-Arboreal:**
+- Pacman Frog (ground-dwelling amphibian)
+- Leopard Gecko
+- Bearded Dragon
+- Blue-Tongue Skink
+
+**Snakes:**
+- Ball Python
+- Corn Snake
+
+**Aquatic:**
+- Axolotl (fully aquatic amphibian - cold water, nitrogen cycle critical)
+- Red-Eared Slider (semi-aquatic turtle)
+
+### Species-Specific Critical Knowledge
+
+**Arboreal Species:**
+- Need **vertical space** - height > width in enclosure dimensions
 - Layout emphasis: climbing surfaces (80%+ of wall area), elevated hides, top-third basking zone
+- White's Tree Frog: user's expertise animal - validate other species against this standard
+
+**Amphibians (Pacman Frog, Tree Frogs):**
+- **Screen enclosures incompatible** - cannot maintain humidity requirements
+- Validation logic in `validateEnclosure.ts` checks `animalType === 'amphibian'` first
+- High humidity requirements (65-85%+) necessitate glass or PVC enclosures
+
+**Axolotl (Fully Aquatic):**
+- **Temperature CRITICAL**: 60-68°F (above 72°F dangerous, above 74°F fatal)
+- **Nitrogen cycle mandatory**: 4-6 week cycling before introduction, ammonia/nitrites must be 0 ppm
+- **Aloe vera TOXIC**: Only use Seachem Prime or Fritz Complete water conditioners
+- **Impaction danger**: NO gravel (2-15mm particles) - use bare-bottom, slate tile, or fine sand (6+ inches only)
+- **Cooling equipment required** in most climates: aquarium chiller ($200-500) or dedicated room AC
+
+**Ball Python:**
+- Notorious feeding strikes - not illness, natural behavior
+- Humidity needs often underestimated by beginners (50-60% minimum, 70%+ during shed)
 
 ### Common Beginner Mistakes to Warn Against
-- Glass enclosures for screen-needing species (excessive humidity retention)
-- Insufficient UVB coverage (must span basking zone + 20%)
-- Substrate depth too shallow for bioactive (need 3-4" minimum for CUC)
-- Heat sources directly above water features (humidity interference)
+- **Glass enclosures for screen-needing species** (excessive humidity retention) - primarily arid reptiles like Bearded Dragons benefit from screen
+- **Screen enclosures for amphibians** (cannot maintain humidity) - validation logic catches this in `validateEnclosure.ts`
+- **Insufficient UVB coverage** (must span basking zone + 20%)
+- **Substrate depth too shallow for bioactive** (need 3-4" minimum for CUC)
+- **Heat sources directly above water features** (humidity interference)
+- **Gravel substrate for axolotls** (fatal impaction risk) - bare-bottom, slate tile, or fine sand only
+- **Warm water for axolotls** (above 72°F causes stress, above 74°F often fatal)
+- **Aloe-containing water conditioners for axolotls** (toxic - only Seachem Prime or Fritz Complete)
+- **Uncycled tanks for aquatic species** (ammonia poisoning from uncycled tanks)
 
 ### Equipment Sizing Rules (Examples)
 - **UVB linear fixture**: 50-70% of enclosure length, positioned over basking zone
@@ -145,9 +205,9 @@ Use CSV for bulk edits by non-developers (e.g., updating purchase links). JSON i
 - **Drainage layer**: bioactive only, 1-2" for enclosures < 18" tall, 2-3" for taller
 
 ## MVP Scope Boundaries
-- **In scope**: 3 arboreal species, glass/PVC/screen types, deterministic rule engine, visual layouts, blog content system, interactive designer
-- **Out of scope for v1**: Saved builds, user accounts, PDF export, terrestrial species, custom plant libraries, automated testing
-- **Phase 2**: Shareable URLs, Supabase integration, Stripe for premium exports, test coverage
+- **In scope**: 12 species (3 arboreal, 4 terrestrial, 2 snakes, 2 aquatic, 1 turtle), glass/PVC/screen types, deterministic rule engine, visual layouts, comprehensive blog content system (6-7 posts per species), interactive designer
+- **Out of scope for v1**: Saved builds, user accounts, PDF export, custom plant libraries, automated testing (vitest installed but unused)
+- **Phase 2**: Shareable URLs, Supabase integration, Stripe for premium exports, test coverage, user-submitted setups
 
 ## File Organization Notes
 - Keep `data/animals/*.json` flat - no nested profiles or inheritance (simplicity for MVP)

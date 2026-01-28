@@ -49,11 +49,14 @@ export function CareTargets({ targets, showHeader = true, infoWarnings = [], mis
                 </span>
               </div>
             )}
-            {targets.temperature.basking && (
+            {targets.temperature.basking !== null && targets.temperature.basking !== undefined && (
               <div className="flex items-center justify-between pt-2 border-t border-red-200 dark:border-red-800">
                 <span className="text-sm md:text-base text-gray-600 dark:text-gray-300">Basking</span>
                 <span className="text-lg font-semibold text-red-700 dark:text-red-300">
-                  {targets.temperature.basking}°{targets.temperature.unit}
+                  {typeof targets.temperature.basking === 'number' 
+                    ? `${targets.temperature.basking}°${targets.temperature.unit}`
+                    : `${targets.temperature.basking.min}-${targets.temperature.basking.max}°${targets.temperature.unit}`
+                  }
                 </span>
               </div>
             )}
@@ -72,12 +75,41 @@ export function CareTargets({ targets, showHeader = true, infoWarnings = [], mis
           </div>
           <h4 className="font-bold text-gray-900 dark:text-white text-lg md:text-xl mb-3">Humidity</h4>
           <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <span className="text-sm md:text-base text-gray-600 dark:text-gray-300">Range</span>
-              <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-                {targets.humidity.min}–{targets.humidity.max}{targets.humidity.unit}
-              </span>
-            </div>
+            {targets.humidity.day.min === 100 && targets.humidity.day.max === 100 ? (
+              <>
+                <div className="flex items-center justify-center py-4">
+                  <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                    N/A - Aquatic Species
+                  </span>
+                </div>
+                <p className="text-xs text-gray-600 dark:text-gray-400 pt-2 text-center">
+                  Fully aquatic species - humidity not applicable. Focus on water quality and temperature instead.
+                </p>
+              </>
+            ) : (
+              <>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm md:text-base text-gray-600 dark:text-gray-300">Day</span>
+                  <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                    {targets.humidity.day.min}–{targets.humidity.day.max}{targets.humidity.unit}
+                  </span>
+                </div>
+                {targets.humidity.night.min !== targets.humidity.day.min && (
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm md:text-base text-gray-600 dark:text-gray-300">Night</span>
+                    <span className="text-xl font-bold text-blue-500 dark:text-blue-300">
+                      {targets.humidity.night.min}–{targets.humidity.night.max}{targets.humidity.unit}
+                    </span>
+                  </div>
+                )}
+                <div className="flex items-center justify-between pt-1 border-t border-blue-100 dark:border-blue-800/50">
+                  <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">Shedding</span>
+                  <span className="text-base font-semibold text-blue-600 dark:text-blue-400">
+                    {targets.humidity.shedding.min}–{targets.humidity.shedding.max}{targets.humidity.unit}
+                  </span>
+                </div>
+              </>
+            )}
             {mistingNotes.length > 0 && (
               <div className="pt-2 border-t border-blue-200 dark:border-blue-800">
                 <h5 className="text-sm md:text-base font-semibold text-gray-700 dark:text-gray-300 mb-2">Daily Misting</h5>

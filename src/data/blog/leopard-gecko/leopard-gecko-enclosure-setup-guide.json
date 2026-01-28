@@ -66,56 +66,8 @@
       "content": "Front-opening glass terrariums are ideal for beginners. Top-opening tanks can be used but stress terrestrial species that perceive threats from above. Avoid screen enclosures entirely—insufficient heat retention."
     },
     {
-      "type": "section",
-      "title": "Horizontal Zone Layout"
-    },
-    {
-      "type": "text",
-      "content": "Leopard geckos thermoregulate by moving horizontally between warm and cool zones. Proper layout creates distinct temperature gradients across the floor."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Thermal Zonation (Left to Right):</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Zone", "Floor Placement", "Surface Temperature", "Purpose"],
-      "rows": [
-        ["Hot Basking Zone", "Left 1/3 of enclosure (under heat lamp)", "94-97°F", "Surface basking on heated rock, digestion, activity"],
-        ["Warm Hide Zone", "Left 1/3 (under/adjacent to basking)", "90-92°F inside hide", "Secure warm retreat, daytime sleep spot"],
-        ["Mid-Transition Zone", "Middle 1/3", "80-85°F", "Travel corridor, neutral temperature zone"],
-        ["Cool Zone", "Right 1/3", "70-77°F", "Cool retreat, humid hide placement, water dish"],
-        ["Night Ambient", "Entire enclosure", "Can drop to 60°F", "Natural nighttime cooling promotes healthy metabolism"]
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "tip",
-      "content": "Use an infrared temperature gun to map floor temperatures across the entire enclosure. You should be able to measure a 20-25°F difference between basking spot (94-97°F) and cool end (70-77°F) during the day."
-    },
-    {
-      "type": "section",
-      "title": "Essential Equipment Checklist"
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Required Equipment:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Equipment", "Specification", "Purpose"],
-      "rows": [
-        ["Heat Lamp", "75w halogen flood bulb + 5.5\" dome", "Creates basking zone (94-97°F surface temp)"],
-        ["Lamp Dimmer", "Plug-in dimmer switch or rheostat", "Fine-tune basking temperature"],
-        ["UVB Fixture", "14\" T5 HO hood with reflector", "Houses UVB bulb for vitamin D3 synthesis"],
-        ["UVB Bulb", "12\" Arcadia Forest 6% or Zoo Med ReptiSun 5.0 T5 HO", "Low-level UVB (1.0-2.0 UVI at basking)"],
-        ["Light Timer(s)", "Digital plug-in timer (2x)", "Automate 12-hour photoperiod"],
-        ["Basking Stone", "Flat slate tile, flagstone, or aquarium slate", "Heat-absorbing basking surface under lamp"],
-        ["Infrared Thermometer", "Etekcity 774 or similar temp gun", "Measure surface temps throughout enclosure"],
-        ["Probe Thermometer", "Digital with probe", "Track basking surface temperature continuously"],
-        ["Hygrometer with Probe", "Digital accurate ±3%", "Monitor humid hide humidity (70-80%)"],
-        ["Heat Mat (optional)", "Thermostat-regulated under-tank heater", "Supplemental heat for warm hide if needed"]
-      ]
+      "type": "highlight",
+      "content": "For complete guidance on creating thermal gradients and selecting temperature monitoring equipment, see our <a href='/blog/thermal-gradient-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Understanding Thermal Gradients</a> and <a href='/blog/temperature-monitoring-equipment-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Temperature Monitoring Equipment</a> guides. Leopard geckos require a basking surface of 94-97°F and a cool zone of 70-77°F."
     },
     {
       "type": "section",

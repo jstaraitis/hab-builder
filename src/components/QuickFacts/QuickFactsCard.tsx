@@ -86,6 +86,9 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
   // Get basking temperature display string
   const getBaskingTemp = (): string => {
     const basking = profile.careTargets.temperature.basking;
+    if (basking === null) {
+      return 'N/A';
+    }
     if (!basking) {
       return `${profile.careTargets.temperature.min}-${profile.careTargets.temperature.max}°F`;
     }
@@ -119,6 +122,10 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
     }
   };
 
+  // Check if species is fully aquatic (humidity always 100%)
+  const isAquatic = profile.careTargets.humidity.day.min === 100 && 
+                    profile.careTargets.humidity.day.max === 100;
+
   // Extract quick facts from profile
   const facts: QuickFact[] = [
     {
@@ -142,8 +149,14 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
     {
       icon: <Droplets className="w-6 h-6" />,
       label: 'Humidity',
-      value: `${profile.careTargets.humidity.min}-${profile.careTargets.humidity.max}%`,
-      description: undefined
+      value: isAquatic
+        ? 'N/A - Aquatic'
+        : `${profile.careTargets.humidity.day.min}-${profile.careTargets.humidity.day.max}%`,
+      description: isAquatic
+        ? 'Fully aquatic species'
+        : profile.careTargets.humidity.night.min !== profile.careTargets.humidity.day.min 
+          ? `Night: ${profile.careTargets.humidity.night.min}-${profile.careTargets.humidity.night.max}%` 
+          : undefined
     },
     {
       icon: <Thermometer className="w-6 h-6" />,

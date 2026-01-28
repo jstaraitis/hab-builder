@@ -22,8 +22,10 @@ export interface ContentBlock {
   icon?: string;
 }
 
-// Automatically import all blog post JSON files from subdirectories
-const blogModules = import.meta.glob<{ default: BlogPost }>('./**/*.json', { eager: true });
+// Automatically import all blog post JSON files from subdirectories (excluding templates)
+const blogModules = import.meta.glob<{ default: BlogPost }>(['./**/*.json', '!./_templates/**'], { 
+  eager: true
+});
 
 export const blogPosts: Record<string, BlogPost> = Object.entries(blogModules).reduce(
   (acc, [_, module]) => {

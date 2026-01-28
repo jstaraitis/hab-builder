@@ -1,0 +1,527 @@
+{
+  "id": "mourning-gecko-enrichment-welfare-guide",
+  "title": "Mourning Gecko Enrichment & Welfare Guide",
+  "description": "Complete guide to environmental enrichment, behavioral welfare, and health monitoring for mourning gecko colonies including social dynamics and breeding behaviors.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-28",
+  "category": "Care Guides",
+  "tags": ["mourning gecko", "enrichment", "welfare", "behavior", "social"],
+  "image": "/animals/mourning-gecko/mourning-gecko-1.jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Environmental Enrichment for Mourning Geckos",
+      "content": "Mourning geckos are highly social, crepuscular species that thrive in complex vertical environments. Unlike solitary reptiles, they require colony housing and benefit significantly from environmental enrichment that supports their natural behaviors: climbing, exploring, hunting, and social interaction. Proper enrichment prevents stress, promotes natural behaviors, and ensures long-term welfare in captive breeding colonies."
+    },
+    {
+      "type": "section",
+      "title": "Vertical Climbing Enrichment"
+    },
+    {
+      "type": "text",
+      "content": "As arboreal species, mourning geckos spend 95% of their time on vertical surfaces. Climbing enrichment is the foundation of their environmental welfare."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Essential Climbing Features:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Feature Type", "Quantity (12×12×18)", "Purpose", "Placement"],
+      "rows": [
+        ["Diagonal branches (3-6mm diameter)", "4-6 pieces", "Primary climbing highways between levels", "Zigzag from bottom to top at various angles"],
+        ["Horizontal perches (near-vertical)", "3-4 pieces", "Resting spots, basking surfaces", "Top third near heat source, various heights"],
+        ["Bendable vines (artificial/natural)", "3-5 strands", "Create climbing pathways, connect zones", "Weave throughout all levels"],
+        ["Cork bark (flat or rounds)", "2-3 pieces", "Vertical climbing surfaces, hides", "Lean against walls at 45-70° angles"],
+        ["Live/artificial plants", "4-6 plants", "Leaf surface coverage, security", "Distributed at top, middle, bottom"],
+        ["Bamboo sections (optional)", "1-2 pieces", "Novel texture, hollow hides", "Mid-level, angled or vertical"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Climbing Pathway Design:</strong> Create multiple routes from bottom to top. Geckos should be able to climb via different pathways, allowing them to avoid each other if desired while still accessing all zones. Aim for 3+ distinct climbing routes."
+    },
+    {
+      "type": "highlight",
+      "content": "Critical enrichment principle: Maximize three-dimensional space utilization. Every cubic inch should have a nearby climbing surface within one gecko-length (4 inches). This allows natural movement patterns and reduces territorial conflicts."
+    },
+    {
+      "type": "section",
+      "title": "Foliage & Cover Enrichment"
+    },
+    {
+      "type": "text",
+      "content": "Dense foliage provides security, hunting opportunities, and microhabitat diversity. Mourning geckos are secretive and need cover at all levels."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Plant Selection & Placement:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Plant Type", "Coverage Level", "Enrichment Benefit"],
+      "rows": [
+        ["Pothos (Epipremnum aureum)", "All levels - trailing vines", "Climbing surfaces, broad leaves for droplet drinking, hiding spots"],
+        ["Ferns (various species)", "Lower to mid levels", "Dense coverage, moisture retention, naturalistic appearance"],
+        ["Bromeliads (small varieties)", "Mid to upper levels", "Water-holding cups (extra hydration), interesting textures"],
+        ["Creeping fig (Ficus pumila)", "Background coverage", "Creates vertical green wall, dense hiding network"],
+        ["Snake plant (small Sansevieria)", "Ground level", "Structural interest, low-maintenance, hardy"],
+        ["Artificial vines with leaves", "All levels", "Easy maintenance, no plant care needed, immediate coverage"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Coverage Target:</strong> Aim for 60-70% foliage coverage throughout enclosure. Geckos should be able to hide completely at any height while still having open basking and movement areas."
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "Live plants provide superior enrichment through natural growth, leaf texture variation, and bioactive integration. However, artificial plants work well if you lack plant care experience. Consider mixing both for best results."
+    },
+    {
+      "type": "section",
+      "title": "Substrate & Ground Level Enrichment"
+    },
+    {
+      "type": "text",
+      "content": "While arboreal, mourning geckos occasionally explore the ground level. Naturalistic substrate with complexity provides enrichment and supports bioactive cleanup crews."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Ground Layer Enrichment:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Element", "Purpose", "Enrichment Value"],
+      "rows": [
+        ["Leaf litter (1-2 inch layer)", "Foraging opportunities, cleanup crew habitat, naturalistic appearance", "HIGH - geckos explore leaves hunting springtails"],
+        ["Cork bark pieces (scattered)", "Ground-level hides, climbing launch points", "MEDIUM - provides security, dimensional complexity"],
+        ["Moss patches (live/artificial)", "Moisture microhabitats, soft resting spots", "MEDIUM - textural variety, humidity gradients"],
+        ["Small river rocks (scattered)", "Visual interest, thermal mass for humidity", "LOW - aesthetic, minimal behavioral impact"],
+        ["Cleanup crew (isopods/springtails)", "Bioactive enrichment - living prey items", "HIGH - natural hunting, ecosystem simulation"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Bioactive enrichment: Establishing a cleanup crew (dwarf white isopods, springtails) creates a living ecosystem. Geckos naturally hunt these microfauna, providing continuous low-level enrichment between main feedings."
+    },
+    {
+      "type": "section",
+      "title": "Feeding Enrichment Strategies"
+    },
+    {
+      "type": "text",
+      "content": "Feeding is a primary enrichment opportunity. Vary presentation methods to stimulate natural hunting behaviors and prevent food aggression in colonies."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Enriched Feeding Methods:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Method", "Frequency", "Enrichment Benefit", "Best For"],
+      "rows": [
+        ["Magnetic feeding ledges (2-3 stations)", "Daily CGD", "Reduces competition, allows territory establishment", "Staple feeding - prevents dominant monopolization"],
+        ["Cup feeding (rotating locations)", "2-3x weekly", "Exploration - geckos search for food location", "CGD variety - promotes enclosure exploration"],
+        ["Free-roaming fruit flies", "2x weekly", "Natural hunting behavior, active chasing", "Live insect feeding - mental/physical stimulation"],
+        ["Cup-contained insects", "1x weekly", "Controlled feeding, prevents escapees", "Crickets/roaches - easier cleanup"],
+        ["Tong feeding (careful!)", "Occasional treat", "Interaction enrichment, precision feeding", "Breeding females needing extra nutrition"],
+        ["Bioactive prey (springtails/isopods)", "Continuous", "24/7 natural foraging opportunities", "Ongoing low-level hunting enrichment"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Feeding Station Rotation:</strong> Change CGD ledge locations every 3-4 days. This prevents territorial guarding and encourages exploration. Place stations at different heights (top, middle, lower-mid) to distribute colony across vertical space."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Colony feeding rule: Always provide MORE feeding stations than the minimum needed. For 4 geckos, use 3 stations minimum. This prevents dominant individuals from monopolizing food and reduces stress-related aggression."
+    },
+    {
+      "type": "section",
+      "title": "Social Enrichment & Colony Dynamics"
+    },
+    {
+      "type": "text",
+      "content": "Mourning geckos are obligate social animals - individual housing is a form of deprivation. Proper colony management is critical enrichment."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Healthy Colony Indicators:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Behavior", "What It Indicates", "Status"],
+      "rows": [
+        ["Geckos basking together (touching or near)", "Social bonding, shared thermoregulation", "NORMAL - healthy social behavior"],
+        ["Multiple geckos on same branch (not touching)", "Peaceful coexistence, established hierarchy", "NORMAL - stable colony"],
+        ["Occasional tail waving at each other", "Communication, mild territorial display", "NORMAL - establishing personal space"],
+        ["Geckos sleeping in different zones", "Individual preferences respected", "NORMAL - healthy space distribution"],
+        ["Synchronized activity (all become active together)", "Social cuing, colony cohesion", "NORMAL - strong social bonds"],
+        ["One gecko consistently alone, away from group", "Possible bullying, illness, or just independent", "MONITOR - may be normal or concerning"],
+        ["Chasing/biting (aggression)", "Resource competition, overcrowding", "ABNORMAL - requires intervention"],
+        ["Constant avoidance (fleeing from others)", "Fear, bullying, stress", "ABNORMAL - reassess colony composition"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Optimal Colony Size:</strong> 3-4 geckos in 12×12×18 enclosure is ideal. 2 geckos (minimum) may lack full social dynamics. 5+ geckos requires larger enclosure (18×18×24+) to prevent overcrowding stress."
+    },
+    {
+      "type": "section",
+      "title": "Environmental Complexity & Novelty"
+    },
+    {
+      "type": "text",
+      "content": "Captive environments can become predictable. Controlled novelty maintains interest without causing excessive stress."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Enrichment Rotation Schedule:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Change Type", "Frequency", "Implementation", "Stress Level"],
+      "rows": [
+        ["Feeding station relocation", "Every 3-4 days", "Move magnetic ledges to different positions", "MINIMAL - quick adaptation"],
+        ["Add new branch/vine", "Every 4-6 weeks", "Introduce one new climbing element", "LOW - curious exploration"],
+        ["Rearrange existing décor", "Every 2-3 months", "Move 2-3 items to new positions (not entire setup)", "MODERATE - brief disorientation"],
+        ["Replace worn foliage", "Every 2-4 months", "Swap out damaged artificial plants or trim live plants", "MINIMAL - gradual change"],
+        ["Substrate refresh (top layer)", "Every 1-2 months", "Add new leaf litter, freshen top inch", "LOW - familiar base remains"],
+        ["Complete enclosure overhaul", "AVOID", "Never do total redesign - too stressful", "SEVERE - destroys territories"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Golden rule: Change 10-20% of environment at a time, never more than 30%. Geckos need familiar elements to feel secure while exploring novelty."
+    },
+    {
+      "type": "section",
+      "title": "Thermal & Humidity Gradients as Enrichment"
+    },
+    {
+      "type": "text",
+      "content": "Environmental gradients allow geckos to self-select preferred microclimates - a form of choice-based enrichment."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Creating Choice Zones:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Zone Type", "Location", "Gecko Choice Benefit"],
+      "rows": [
+        ["Warm-dry basking (80-85°F, 60% humidity)", "Top corner under heat lamp", "Active warming, digestion boost, breeding motivation"],
+        ["Warm-humid canopy (78-80°F, 70% humidity)", "Top opposite corner with dense foliage", "Warm without extreme dryness, shedding support"],
+        ["Mid-level moderate (75-78°F, 65-70% humidity)", "Middle branches/vines", "Activity zone - hunting, exploring, socializing"],
+        ["Cool-humid retreat (70-75°F, 75-80% humidity)", "Lower third near substrate", "Thermoregulation downshift, high-humidity refuge"],
+        ["Ground-level moisture (70-72°F, 80% humidity)", "Substrate surface in corners", "Maximum moisture if dehydrated, rarely used"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Enrichment Concept:</strong> Multiple microclimates = continuous choice. Geckos self-regulate temperature and humidity by moving between zones rather than being forced into uniform conditions. This autonomy is psychologically enriching."
+    },
+    {
+      "type": "section",
+      "title": "Lighting & Photoperiod Enrichment"
+    },
+    {
+      "type": "text",
+      "content": "Proper light cycles regulate circadian rhythms, triggering natural activity patterns. This behavioral enrichment is often overlooked."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Light-Based Behavioral Cues:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Light Period", "Gecko Response", "Enrichment Value"],
+      "rows": [
+        ["Dawn simulation (lights turn on)", "Increased activity, morning hunting period", "HIGH - triggers crepuscular behavior peak"],
+        ["Full daylight (mid-day)", "Reduced activity, resting/sleeping", "MODERATE - allows rest cycle"],
+        ["Dusk simulation (lights turn off)", "Peak activity period - hunting, socializing, breeding", "VERY HIGH - primary active enrichment time"],
+        ["Nighttime darkness", "Continued activity (first 2-3 hours), then sleep", "HIGH - nocturnal exploration phase"],
+        ["Inconsistent schedule (no timer)", "Disrupted circadian rhythm, reduced activity", "NEGATIVE - causes stress and lethargy"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Always use an automatic timer for consistent 12/12 photoperiod. Manual light control (forgetting to turn on/off) disrupts circadian rhythms and reduces natural enrichment behaviors like hunting and breeding."
+    },
+    {
+      "type": "section",
+      "title": "Breeding Behavior Enrichment"
+    },
+    {
+      "type": "text",
+      "content": "All mourning geckos are female and reproduce via parthenogenesis. Egg-laying behavior is natural enrichment that should be supported, not prevented."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Supporting Reproductive Enrichment:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Breeding Element", "How to Provide", "Welfare Benefit"],
+      "rows": [
+        ["Egg-laying sites", "Cork bark hollows, bamboo sections, behind branches", "Allows natural nesting behavior, reduces stress"],
+        ["Visual privacy for laying", "Dense foliage clusters, leaf coverage", "Security during vulnerable laying process"],
+        ["Multiple egg sites (3-4 options)", "Distribute hides at various heights", "Choice reduces competition if multiple geckos laying"],
+        ["Leaf litter (egg burial option)", "Deep leaf litter layer on substrate", "Some geckos bury eggs - natural behavior outlet"],
+        ["Adequate calcium access", "Calcium-dusted insects 2-3x weekly, UVB", "Prevents egg binding, supports healthy egg development"],
+        ["Post-laying recovery space", "Quiet zones away from basking area", "Allows females to rest after energy-intensive laying"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Egg Discovery:</strong> Finding eggs is normal - expect 2 eggs per gecko every 4-6 weeks. Leave eggs in place if you want hatchlings, or remove to control population. Removing eggs does NOT harm the laying female."
+    },
+    {
+      "type": "highlight",
+      "content": "Reproductive enrichment note: Egg-laying is a natural, enriching behavior for mourning geckos. Do not attempt to prevent it through environmental manipulation - this causes stress. Instead, manage population by removing eggs if desired."
+    },
+    {
+      "type": "section",
+      "title": "Sensory Enrichment"
+    },
+    {
+      "type": "text",
+      "content": "Mourning geckos experience their environment through multiple senses. Enrichment should engage vision, chemoreception, and tactile senses."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Multi-Sensory Enrichment:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Sense", "Enrichment Method", "Example Implementation"],
+      "rows": [
+        ["Vision (primary sense)", "Varied branch shapes, plant textures, moving prey", "Use twisted branches vs straight, live insects for movement"],
+        ["Chemoreception (smell/taste)", "Leaf litter, live plants, bioactive microbes", "Natural scents from organic materials, gecko pheromones on surfaces"],
+        ["Tactile (surface texture)", "Cork bark, smooth branches, leaves, substrate", "Mix rough cork, smooth bamboo, soft moss, papery leaves"],
+        ["Spatial awareness (proprioception)", "Complex 3D climbing routes", "Zigzagging pathways requiring body awareness and balance"],
+        ["Thermal sense", "Temperature gradients across vertical space", "Allows thermoregulation through movement choice"],
+        ["Moisture detection", "Humidity gradients, water droplets after misting", "Finding drinking spots, selecting humidity preference"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Sensory diversity principle: The more varied the textures, temperatures, and surfaces, the richer the sensory experience. Aim for 5+ different material types in one enclosure."
+    },
+    {
+      "type": "section",
+      "title": "Behavioral Welfare Monitoring"
+    },
+    {
+      "type": "text",
+      "content": "Regular observation identifies when enrichment is effective vs when problems exist. Healthy mourning geckos display specific behaviors."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Normal vs Abnormal Behaviors:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Behavior", "Status", "Meaning / Action Required"],
+      "rows": [
+        ["Active 1-2 hours after lights-off", "NORMAL", "Peak crepuscular activity - hunting, exploring, socializing"],
+        ["Sleeping on vertical surfaces (branches/walls)", "NORMAL", "Arboreal rest posture - completely natural"],
+        ["Licking surfaces after misting", "NORMAL", "Drinking droplets - healthy hydration behavior"],
+        ["Chirping/vocalizations occasionally", "NORMAL", "Communication between geckos - social interaction"],
+        ["Exploring entire enclosure height", "NORMAL", "Confident, enriched behavior - using all space"],
+        ["Brief tail waving at other geckos", "NORMAL", "Mild territorial display - establishing space boundaries"],
+        ["Rarely on ground (95% on vertical surfaces)", "NORMAL", "Typical arboreal behavior - ground use is minimal"],
+        ["Constant hiding, never visible", "ABNORMAL", "Stress, illness, inadequate cover (paradoxically), or excessive disturbance"],
+        ["Glass surfing (repeatedly climbing glass)", "ABNORMAL", "Stress, overcrowding, inadequate climbing surfaces, or environmental issues"],
+        ["Refusing food for 5+ days", "ABNORMAL", "Illness, stress, improper temperatures (too cold), or dehydration"],
+        ["Aggressive chasing/biting", "ABNORMAL", "Overcrowding, insufficient feeding stations, territorial conflict"],
+        ["Lethargy during normal active hours", "ABNORMAL", "Too cold, illness, malnutrition, or parasites - check temps and husbandry"],
+        ["Consistent isolation from colony", "MONITOR", "May be bullying victim, illness, or simply independent personality"],
+        ["Gaping mouth (not eating)", "ABNORMAL - EMERGENCY", "Respiratory distress or severe heat stress - vet immediately"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Emergency signs requiring immediate vet care: Gaping mouth with no food present, wheezing/clicking sounds, lethargy with refusal to move even when handled, visible injuries from aggression, stuck shed covering eyes for 3+ days."
+    },
+    {
+      "type": "section",
+      "title": "Body Condition & Health Checks"
+    },
+    {
+      "type": "text",
+      "content": "Physical health assessment is part of welfare monitoring. Regular checks identify issues before they become severe."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Weekly Health Checklist:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Body Area", "Healthy Signs", "Concerning Signs"],
+      "rows": [
+        ["Tail base thickness", "Plump, rounded base (fat storage)", "Very thin, pinched appearance (malnutrition, illness)"],
+        ["Body shape", "Slightly rounded, smooth sides", "Visible ribs/hip bones OR excessive bloating"],
+        ["Eyes", "Clear, alert, normal size", "Sunken (dehydration) or bulging (infection)"],
+        ["Skin", "Smooth, intact, sheds completely", "Stuck shed, lesions, discoloration, rough texture"],
+        ["Toes/feet", "All digits present, no constrictions", "Stuck shed on toes (can cut off circulation), missing toes"],
+        ["Activity level", "Active at dusk/dawn, responsive", "Lethargic 24/7, unresponsive to stimuli"],
+        ["Appetite", "Eats regularly, shows interest in food", "Refuses food 5+ days, ignores insects"],
+        ["Droppings", "Regular small dark feces with white urate", "Very dry urates, bloody feces, no droppings for week+"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Body Condition Scoring:</strong> Ideal body condition = tail base about 1.5x width of neck, smooth body contours. Underweight = tail base same width as neck. Overweight = tail base 2x+ neck width, heavy body."
+    },
+    {
+      "type": "section",
+      "title": "Handling & Human Interaction"
+    },
+    {
+      "type": "text",
+      "content": "Mourning geckos are NOT handleable pets due to tiny size (4 inches) and extreme fragility. Minimizing handling IS an enrichment strategy."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Interaction Guidelines:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Activity", "Acceptable?", "Best Practice"],
+      "rows": [
+        ["Passive observation", "YES - encouraged", "Watch during evening activity, use dim red light if needed"],
+        ["Photography (no flash)", "YES - minimal stress", "Quick photos from outside enclosure, avoid flash/bright lights"],
+        ["Misting while geckos present", "YES - part of routine", "Geckos quickly learn misting = drinking time, often approach"],
+        ["Feeding with tongs", "OCCASIONAL ONLY", "High stress - only for critical situations (weak/recovering gecko)"],
+        ["Cupping to move gecko", "RARELY - when necessary", "Use small container to gently guide, never grab with hands"],
+        ["Handling with hands", "AVOID ENTIRELY", "Extreme stress, injury risk, oils on skin harmful"],
+        ["Removing from enclosure", "ONLY FOR VET/EMERGENCY", "Causes severe stress - minimize to life-saving situations only"],
+        ["Children handling", "ABSOLUTELY NOT", "Crushing risk, escape risk, stress to animal"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Mourning geckos are DISPLAY ANIMALS, not interactive pets. Enrichment comes from proper environment and colony dynamics, NOT human interaction. Frequent handling attempts cause chronic stress and shortened lifespan."
+    },
+    {
+      "type": "section",
+      "title": "Long-Term Colony Enrichment"
+    },
+    {
+      "type": "text",
+      "content": "Mourning gecko colonies evolve over time as population grows. Long-term enrichment planning is essential for welfare."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Colony Growth Management:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Colony Stage", "Timeline", "Enrichment Needs", "Action Required"],
+      "rows": [
+        ["Founding colony (2-4 adults)", "Months 0-3", "Establish territories, bonding time", "Provide multiple feeding stations, minimize changes"],
+        ["First breeding cycle", "Months 3-6", "Egg-laying sites, nesting privacy", "Add cork hollows, dense foliage for laying"],
+        ["Hatchling integration", "Months 6-12", "Separate hatchling zones, size-appropriate climbing", "Add small-diameter branches, finer foliage"],
+        ["Growing population (8-12 geckos)", "Months 12-18", "Increased space requirements", "UPGRADE to 18×18×24 or larger enclosure"],
+        ["Mature colony (10-20 geckos)", "Months 18+", "Complex social dynamics, multiple territories", "Large enclosure (24×18×36+), extensive décor"],
+        ["Population control phase", "Ongoing", "Remove eggs or separate offspring", "Decide breeding goals, manage population actively"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Enrichment scales with population: More geckos = more vertical space, more feeding stations, more climbing pathways, more hiding spots. Don't try to house 15 geckos in a 12×12×18 - this eliminates enrichment through overcrowding."
+    },
+    {
+      "type": "section",
+      "title": "Enrichment Budget Priorities"
+    },
+    {
+      "type": "text",
+      "content": "Not all enrichment costs equally. Focus investment on high-impact elements."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Enrichment ROI (Return on Investment):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Enrichment Type", "Cost", "Impact", "Priority"],
+      "rows": [
+        ["Vertical climbing surfaces (branches, vines)", "LOW ($10-30)", "VERY HIGH", "ESSENTIAL - foundation of enrichment"],
+        ["Multiple feeding stations (magnetic ledges)", "LOW ($20-40)", "VERY HIGH", "ESSENTIAL - prevents food aggression"],
+        ["Bioactive substrate with cleanup crew", "MEDIUM ($40-80)", "HIGH", "HIGHLY RECOMMENDED - continuous enrichment"],
+        ["Live plants", "MEDIUM ($30-60)", "HIGH", "HIGHLY RECOMMENDED - superior to artificial"],
+        ["Automatic misting system", "HIGH ($80-200)", "HIGH", "RECOMMENDED - consistency is key enrichment"],
+        ["UVB lighting", "MEDIUM ($30-60)", "MEDIUM-HIGH", "RECOMMENDED - especially for breeders"],
+        ["Larger enclosure (18×18×24+)", "HIGH ($100-200)", "VERY HIGH (for 5+ geckos)", "REQUIRED for population growth"],
+        ["Cork bark & natural décor", "LOW-MEDIUM ($20-50)", "MEDIUM-HIGH", "RECOMMENDED - aesthetic + functional"],
+        ["Decorative elements (aesthetic only)", "LOW ($10-30)", "LOW", "OPTIONAL - minimal behavioral benefit"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Budget enrichment tip: Natural branches from your yard (baked 200°F for 30 min to sterilize), DIY substrate mix, and cuttings from your houseplants provide excellent enrichment at near-zero cost."
+    },
+    {
+      "type": "section",
+      "title": "Daily Enrichment Checklist"
+    },
+    {
+      "type": "text",
+      "content": "Use this daily routine to ensure consistent enrichment delivery:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "✓ Morning misting (30-60 seconds) - provides drinking enrichment and humidity variation",
+        "✓ Check all feeding stations have fresh CGD - rotate station locations every 3-4 days",
+        "✓ Observe colony for 2-3 minutes during evening active period - note social interactions",
+        "✓ Verify temperature gradient (80-85°F basking, 70-75°F cool zone) - choice is enrichment",
+        "✓ Spot clean visible waste from branches and substrate - maintain clean environment",
+        "✓ Evening misting (30-60 seconds) - second drinking opportunity before active period",
+        "✓ Offer live insects 1-2x weekly - hunting enrichment stimulates natural behavior",
+        "✓ Check for eggs if colony is breeding - manage population as needed",
+        "✓ Monitor for stress signs (hiding, aggression, lethargy) - intervene if abnormal",
+        "✓ Weekly: Assess body condition of all visible geckos, note any health concerns"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "Consistency IS enrichment: Predictable daily routines (same misting times, same light schedule, regular feeding) reduce stress and allow geckos to anticipate positive events. Erratic care is the opposite of enrichment."
+    },
+    {
+      "type": "section",
+      "title": "Signs of Excellent Enrichment"
+    },
+    {
+      "type": "text",
+      "content": "How do you know if your enrichment strategy is working? Look for these positive welfare indicators:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<strong>Active exploration:</strong> Geckos regularly use all vertical levels, not just hiding in one spot",
+        "<strong>Social cohesion:</strong> Colony members bask together peacefully, minimal aggression",
+        "<strong>Natural behaviors:</strong> Hunting insects actively, licking droplets after misting, vocalizing occasionally",
+        "<strong>Healthy body condition:</strong> All geckos have plump tail bases, smooth skin, clear eyes",
+        "<strong>Breeding success:</strong> Females lay eggs regularly, hatchlings survive and integrate into colony",
+        "<strong>Responsive to environment:</strong> Geckos emerge quickly at dusk, show curiosity about enclosure changes",
+        "<strong>Diverse resting spots:</strong> Different geckos choose different favorite perches (not all cramming into one hide)",
+        "<strong>Feeding eagerness:</strong> Colony actively hunts insects, finishes CGD regularly",
+        "<strong>Calm during maintenance:</strong> Geckos don't panic when you open enclosure for misting/feeding (habituated, not stressed)",
+        "<strong>Longevity:</strong> Geckos living 8-10+ years (approaching maximum lifespan of 10+ years)"
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Ultimate enrichment goal: Creating an environment so complex and stimulating that geckos display full natural behavioral repertoire - climbing, hunting, socializing, breeding, exploring - just as they would in the wild."
+    }
+  ]
+}

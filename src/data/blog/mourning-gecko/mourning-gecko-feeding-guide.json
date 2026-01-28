@@ -1,0 +1,323 @@
+{
+  "id": "mourning-gecko-feeding-guide",
+  "title": "Mourning Gecko Feeding Guide: Complete Nutrition Protocol",
+  "description": "Comprehensive feeding guide for mourning geckos covering crested gecko diet (CGD), insect variety, supplementation, feeding schedules, and nutrition for breeding colonies.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-01-28",
+  "category": "Care Guides",
+  "tags": ["mourning gecko", "feeding", "nutrition", "diet", "supplements"],
+  "image": "/animals/mourning-gecko/mourning-gecko-1.jpg",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Complete Nutritional Guide for Mourning Geckos",
+      "content": "Mourning geckos are omnivores that eat fruit and insects in the wild. In captivity, their diet is simplified using commercial crested gecko diet (CGD) as the staple food, supplemented with live insects 1-2x weekly. This combination provides complete nutrition and enrichment. Because all mourning geckos are female and reproduce continuously via parthenogenesis, proper nutrition - especially calcium - is critical for egg production and hatchling health."
+    },
+    {
+      "type": "section",
+      "title": "Primary Diet: Crested Gecko Diet (CGD)"
+    },
+    {
+      "type": "text",
+      "content": "Commercial crested gecko diet powder is the cornerstone of mourning gecko nutrition. These meal replacement powders are specifically formulated with complete nutrition including protein, vitamins, minerals, and calcium. Mix powder with water to create a smoothie-like consistency."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Recommended CGD Brands:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Brand", "Protein Content", "Flavor Varieties", "Notes"],
+      "rows": [
+        ["Pangea", "18-25% (varies by formula)", "8+ flavors", "Most popular, high quality, insects optional"],
+        ["Repashy", "20-22%", "Multiple formulas", "Powder + water = gel consistency"],
+        ["Black Panther Zoological", "20%+", "3+ varieties", "High protein, good for breeding colonies"],
+        ["Gecko Pro", "18-20%", "Several flavors", "Premium ingredients, pricier"],
+        ["Zoo Med", "15-18%", "3 varieties", "Budget-friendly, widely available"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Mixing Instructions:</strong> Use 2 parts powder to 1 part water (by weight). Example: 2 teaspoons powder + 1 teaspoon water. Stir vigorously until smooth and creamy. Consistency should be like applesauce or yogurt - not runny. Mix fresh for each feeding; do not prepare in bulk and store."
+    },
+    {
+      "type": "highlight",
+      "content": "CGD is nutritionally complete - you can raise mourning geckos on CGD alone. However, adding insects 1-2x weekly provides enrichment, variety, and mental stimulation through hunting behaviors."
+    },
+    {
+      "type": "section",
+      "title": "Feeding Schedule"
+    },
+    {
+      "type": "text",
+      "content": "Mourning geckos should have constant access to CGD, with food replaced every 24-48 hours to prevent spoilage. Insects are offered weekly as supplemental enrichment."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Weekly Feeding Protocol:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Day", "Food Type", "Quantity", "Notes"],
+      "rows": [
+        ["Monday", "Fresh CGD", "Fill feeding ledges/cups", "Replace old CGD from weekend"],
+        ["Tuesday", "CGD (same batch)", "Check levels, refill if needed", "CGD lasts 24-48 hours"],
+        ["Wednesday", "Fresh CGD + Insects", "New CGD + 2-3 insects per gecko", "Dust insects with calcium"],
+        ["Thursday", "CGD (same batch)", "Monitor consumption", "CGD still good for 48h"],
+        ["Friday", "Fresh CGD", "Replace with new batch", "Discard Thursday batch"],
+        ["Saturday", "CGD (same batch)", "Check levels", "Weekend feeding"],
+        ["Sunday", "Fresh CGD + Insects (optional)", "New CGD + insects if desired", "2nd insect feeding optional"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Simplified Schedule:</strong> Provide CGD continuously (replace every 24-48 hours). Offer calcium-dusted insects 1-2x per week. Skip one CGD feeding per week to simulate natural fasting (optional but healthy)."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "NEVER leave CGD longer than 48 hours - it will mold and cause illness. In hot/humid conditions, replace after 24 hours. Discard any CGD that develops mold, strange odor, or separated liquid."
+    },
+    {
+      "type": "section",
+      "title": "Feeder Insects"
+    },
+    {
+      "type": "text",
+      "content": "Live insects provide enrichment and dietary variety. Mourning geckos are small (4 inches), so insect size is critical - nothing larger than the width between their eyes."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Appropriate Feeder Insects:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Insect Type", "Size Range", "Frequency", "Notes"],
+      "rows": [
+        ["Fruit flies (D. melanogaster)", "1-2mm (flightless)", "2-3x weekly", "BEST for tiny geckos, easy hunting"],
+        ["Pinhead crickets", "1-2mm", "1-2x weekly", "Good protein, ensure proper size"],
+        ["Small crickets (1/8\")", "3-4mm", "1x weekly", "For adult geckos only"],
+        ["Baby dubia roaches", "1/4\" or smaller", "1x weekly", "High protein, slower moving"],
+        ["Springtails (wild)", "1mm", "Continuous in bioactive", "Natural prey in enclosure"],
+        ["Very small mealworms", "Under 1/4\"", "Occasional treat only", "High fat, use sparingly"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Sizing Rule:</strong> Insects should be NO WIDER than the space between the gecko's eyes. For mourning geckos, this means TINY insects - most standard \"small\" crickets are too large. Fruit flies and pinhead crickets are ideal."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Oversized insects can cause impaction or choking. When in doubt, go smaller! Fruit flies are always safe and provide excellent hunting enrichment."
+    },
+    {
+      "type": "section",
+      "title": "Insect Supplementation"
+    },
+    {
+      "type": "text",
+      "content": "While CGD is complete nutrition, insects are nutritionally poor and must be dusted with calcium powder before feeding. This balances their poor calcium-to-phosphorus ratio."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Supplement Protocol:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Supplement Type", "Recommended Products", "Frequency", "Purpose"],
+      "rows": [
+        ["Calcium WITHOUT D3", "Arcadia CalciumPro Mg, MinerAll Outdoor, Repashy SuperCal NoD", "Every insect feeding", "Balances insect Ca:P ratio"],
+        ["Calcium WITH D3", "NOT needed if using UVB", "Skip if UVB present", "Only if no UVB lighting"],
+        ["Multivitamin", "NOT needed with CGD", "Skip entirely", "CGD already fortified"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Dusting Technique:</strong> Place insects in small cup or bag, add pinch of calcium powder, shake gently to coat. Feed insects immediately while powder is fresh. For fruit flies, use dusting cup to lightly coat before pouring into enclosure."
+    },
+    {
+      "type": "highlight",
+      "content": "Because CGD provides complete vitamins and minerals, you ONLY need to dust insects with plain calcium (no D3). Do not use multivitamins - CGD already provides these, and over-supplementation can cause toxicity."
+    },
+    {
+      "type": "section",
+      "title": "Feeding Methods"
+    },
+    {
+      "type": "text",
+      "content": "Proper food presentation ensures all geckos have access and reduces competition. Multiple feeding stations are essential for colonies."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Feeding Station Setup:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Method", "Best For", "Pros", "Cons"],
+      "rows": [
+        ["Magnetic feeding ledges", "CGD primary feeding", "Elevated (prevents substrate contamination), multiple stations possible", "Must purchase separately"],
+        ["Small gecko feeding cups", "CGD + insect containment", "Reusable, easy to clean, prevents food waste", "Need multiple for colonies"],
+        ["Direct pour (insects)", "Fruit flies, springtails", "Allows natural hunting behavior", "Harder to control quantity"],
+        ["Cork bark ledges", "Natural CGD placement", "Aesthetic, multi-level feeding", "Harder to clean, CGD drips"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Colony Feeding Tips:</strong> For groups of 4+ geckos, provide at least 2-3 feeding stations at different heights. This prevents dominant geckos from monopolizing food. Rotate station locations weekly to reduce territorial behavior."
+    },
+    {
+      "type": "section",
+      "title": "Breeding Colony Nutrition"
+    },
+    {
+      "type": "text",
+      "content": "All mourning geckos are female and can lay eggs every 4-6 weeks. Egg production demands extra calcium and protein. Breeding colonies need enhanced nutrition."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Enhanced Nutrition for Egg-Layers:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Nutritional Need", "Standard Protocol", "Breeding Enhancement"],
+      "rows": [
+        ["CGD availability", "Replace every 24-48h", "Ensure continuous availability - never empty"],
+        ["Insect frequency", "1-2x weekly", "Increase to 2-3x weekly during laying season"],
+        ["Calcium supplementation", "Dust insects", "Ensure every insect feeding is dusted"],
+        ["UVB exposure", "Recommended", "ESSENTIAL - aids calcium absorption for egg development"],
+        ["Protein-rich CGD", "Any quality brand", "Use high-protein formulas (20%+ protein)"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Signs of nutritional deficiency in breeding females: soft/rubbery eggs, egg binding, lethargy, loss of appetite. Increase calcium dusting frequency, ensure UVB is functioning, and consult a vet if egg binding suspected."
+    },
+    {
+      "type": "section",
+      "title": "Water & Hydration"
+    },
+    {
+      "type": "text",
+      "content": "Mourning geckos do NOT drink from water dishes - they are droplet drinkers who lick water from leaves after misting. CGD also provides dietary moisture."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Hydration Sources:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Source", "Delivery Method", "Frequency"],
+      "rows": [
+        ["Misting (primary)", "Pump-style sprayer, 2x daily", "Morning + evening - coat foliage heavily"],
+        ["CGD moisture content", "Water mixed into powder", "Every time CGD is provided"],
+        ["Water dish", "NOT USED - drowning risk", "Do not provide standing water"],
+        ["Humid substrate", "Supplemental moisture", "Maintain 60-80% humidity"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "NEVER provide a water dish - mourning geckos are too small and can drown in even shallow water. All hydration comes from misting and dietary moisture in CGD."
+    },
+    {
+      "type": "section",
+      "title": "Monitoring Food Consumption"
+    },
+    {
+      "type": "text",
+      "content": "Track feeding patterns to ensure all geckos are eating and to adjust quantities as the colony grows."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Consumption Indicators:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Observation", "What It Means", "Action"],
+      "rows": [
+        ["CGD completely empty within 24h", "Colony is eating well, may need more food", "Increase CGD amount or add extra feeding station"],
+        ["CGD barely touched after 48h", "Too much food, not hungry, or illness", "Reduce portion size, monitor geckos for health issues"],
+        ["Some geckos visibly thin", "Dominant geckos monopolizing food", "Add more feeding stations at different heights"],
+        ["Insects ignored", "Not hungry or insects too large", "Reduce CGD slightly or ensure insects are tiny"],
+        ["Mold on CGD before 48h", "Enclosure too humid or CGD expired", "Replace CGD more frequently (24h max), check humidity"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Foods to Avoid"
+    },
+    {
+      "type": "text",
+      "content": "Some foods marketed for geckos are inappropriate or dangerous for mourning geckos."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Unsafe or Poor-Quality Foods:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Food", "Why Avoid"],
+      "rows": [
+        ["Baby food (human)", "Nutritionally inadequate, lacks calcium, high sugar"],
+        ["Fruit jelly cups", "Empty calories, high sugar, no protein or calcium"],
+        ["Adult crickets (over 1/4\")", "Choking/impaction risk, too large for tiny geckos"],
+        ["Superworms", "Far too large, aggressive, can bite geckos"],
+        ["Waxworms", "Extremely high fat, addictive, nutritionally poor"],
+        ["Wild-caught insects", "Pesticide exposure risk, parasite transmission"],
+        ["Honey or pure fruit", "Sticky, high sugar, no nutritional value"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Do NOT attempt to create homemade CGD substitutes using baby food, fruit puree, or other ingredients. Commercial CGD is specifically formulated with precise calcium, vitamin, and protein ratios that cannot be replicated at home."
+    },
+    {
+      "type": "section",
+      "title": "Body Condition Assessment"
+    },
+    {
+      "type": "text",
+      "content": "Regular body condition checks ensure your feeding regimen is appropriate. Mourning geckos should have plump tails and rounded bodies."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Body Condition Scoring:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Body Condition", "Visual Signs", "Feeding Adjustment"],
+      "rows": [
+        ["Underweight", "Visible ribs, thin tail base, prominent hip bones", "Increase CGD amount, add 3rd insect feeding weekly, check for bullying"],
+        ["Ideal", "Tail base thick, body rounded, ribs not visible, active", "Maintain current feeding schedule"],
+        ["Overweight", "Excessive tail fat, swollen body, reduced activity", "Reduce CGD portions slightly, maintain insects, increase enclosure enrichment"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Breeding females may appear plumper due to egg development - this is normal. However, if a gecko appears bloated with no egg laying, consult a vet for potential egg binding or other issues."
+    },
+    {
+      "type": "section",
+      "title": "Common Feeding Mistakes"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Mistakes to Avoid:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Mistake", "Problem", "Solution"],
+      "rows": [
+        ["Only one feeding station for colony", "Dominant geckos monopolize food", "Provide 2-3 stations at different heights"],
+        ["Leaving CGD longer than 48h", "Mold growth, bacterial contamination", "Replace every 24-48 hours maximum"],
+        ["Oversized insects", "Choking, impaction, stress", "Use only fruit flies, pinheads, or baby insects"],
+        ["No calcium dusting", "Metabolic bone disease, poor egg quality", "Dust ALL insects with plain calcium powder"],
+        ["Providing water dish", "Drowning risk", "Remove dish - mist for hydration instead"],
+        ["Using baby food instead of CGD", "Nutritional deficiencies, MBD, illness", "Switch to proper commercial CGD"],
+        ["Not monitoring consumption", "Missing illness/bullying/competition", "Check feeding stations daily, observe all geckos"]
+      ]
+    }
+  ]
+}

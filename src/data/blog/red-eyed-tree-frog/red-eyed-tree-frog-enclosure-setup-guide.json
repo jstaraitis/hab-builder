@@ -1,0 +1,301 @@
+{
+  "id": "red-eyed-tree-frog-enclosure-setup-guide",
+  "title": "Red-Eyed Tree Frog Enclosure Setup Guide",
+  "species": "red-eyed-tree-frog",
+  "category": "enclosure",
+  "description": "Complete guide to setting up a proper paludarium habitat for Red-Eyed Tree Frogs, including size requirements, vertical layout design, water section, and naturalistic décor.",
+  "lastUpdated": "2026-01-28",
+  "tags": ["red-eyed-tree-frog", "enclosure", "paludarium", "arboreal", "semi-aquatic"],
+  "content": [
+    {
+      "type": "intro",
+      "heading": "Why Paludarium Setup Matters",
+      "text": "Red-Eyed Tree Frogs (Agalychnis callidryas) are semi-aquatic arboreal amphibians that require a specialized enclosure called a paludarium - a habitat combining both substantial water and vertical climbing space. Unlike standard terrariums, paludariums recreate the riparian zones (interfaces between land and water) where these frogs naturally live near ponds and streams in tropical rainforests. The paludarium design supports their dual lifestyle: climbing and sleeping on foliage during the day, then descending to water for hydration, thermoregulation, and breeding at night."
+    },
+    {
+      "type": "section",
+      "heading": "Minimum Enclosure Size Requirements"
+    },
+    {
+      "type": "text",
+      "text": "Red-Eyed Tree Frogs need vertical space for climbing combined with a substantial water section. The height-to-floor-space ratio is critical - these frogs spend most of their time in the upper canopy layers, not on the ground."
+    },
+    {
+      "type": "table",
+      "headers": ["Group Size", "Minimum Dimensions (W×D×H)", "Gallons", "Notes"],
+      "rows": [
+        ["2-3 frogs", "18×18×24 inches", "~20 gal", "Minimum viable paludarium"],
+        ["3-4 frogs", "18×18×36 inches", "~30 gal", "Recommended for breeding groups"],
+        ["4-5 frogs", "24×18×36 inches", "~40 gal", "Better space for social dynamics"],
+        ["5-8 frogs", "36×18×36 inches", "~60 gal", "Ideal for colony breeding"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Prioritize HEIGHT over floor space. An 18×18×36″ enclosure is better than a 24×24×24″ cube for arboreal species."
+    },
+    {
+      "type": "warning",
+      "text": "Never place paludariums near windows with direct sunlight - can cause fatal overheating despite water cooling effects."
+    },
+    {
+      "type": "section",
+      "heading": "Paludarium Zone Layout"
+    },
+    {
+      "type": "text",
+      "text": "A functional paludarium divides into three zones that recreate natural rainforest stream edges:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Aquatic Zone (bottom 2-6 inches): Open water section for soaking, hydration, and breeding. Minimum 2″ depth for juveniles, 4-6″ for adults planning to breed. Water should be 25-30% of total enclosure volume.",
+        "Riparian Zone (land-water interface): Gently sloped transition area with easy access points. Use flat stones, driftwood ramps, or Cork Bark positioned to allow frogs to enter/exit water safely. Partially submerged plants like Anubias or Java Fern work well here.",
+        "Terrestrial/Arboreal Zone (upper 60-80%): Dense climbing network of branches, vines, cork bark positioned diagonally from bottom to top. Must include foliage layers at multiple heights with sturdy leaves (Pothos, Philodendron, Monstera) for daytime sleeping spots."
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "The riparian zone is CRITICAL - frogs must easily transition between water and climbing areas without stress or risk of drowning."
+    },
+    {
+      "type": "highlight",
+      "text": "For complete guidance on creating vertical thermal gradients and selecting temperature monitoring equipment, see our <a href='/blog/thermal-gradient-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Understanding Thermal Gradients</a> and <a href='/blog/temperature-monitoring-equipment-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Temperature Monitoring Equipment</a> guides. Red-eyed tree frogs need a subtle vertical gradient with cooler water (72-76°F) and slightly warmer canopy (74-80°F)."
+    },
+    {
+      "type": "section",
+      "heading": "Substrate & Drainage System"
+    },
+    {
+      "type": "text",
+      "text": "Paludariums require a false bottom drainage system to separate the water section from the terrestrial substrate and prevent waterlogging:"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "Layer 1 - Aquatic Bottom: Use large Turtle Pebbles (too large to swallow) or leave bare glass in the water section for easy cleaning.",
+        "Layer 2 - Bio Drain Substrate: Lightweight volcanic drainage media (1-2″ layer) in terrestrial zone only. Supports land area and houses beneficial bacteria for biological filtration.",
+        "Layer 3 - Bio Drain Mesh: Separates drainage layer from planting substrate. Prevents soil contamination of water while allowing drainage.",
+        "Layer 4 - Planting Mix: 2-3″ of Sub Stratum + Plantation Soil (60:40 ratio) for live plants. Holds moisture without waterlogging.",
+        "Layer 5 - Leaf Litter/Moss: Top with Equatorial Forest Floor or Forest Moss for moisture retention, hiding spots, and microfauna habitat."
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "Without proper drainage, terrestrial substrate becomes anaerobic and toxic. The Bio Drain system is mandatory for long-term paludarium health."
+    },
+    {
+      "type": "section",
+      "heading": "Climbing Structure Design"
+    },
+    {
+      "type": "text",
+      "text": "Red-Eyed Tree Frogs need 80-90% of vertical wall space covered with climbing pathways:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Diagonal Branches: Position branches at 30-60° angles from bottom to top, creating highways to climb. Use natural hardwood branches (avoid resinous woods) or cork bark tubes.",
+        "Vines & Lianas: Add bendable Jungle Vines or Moss Vines to fill gaps and create 3D climbing networks. Twist multiple vines together for structural complexity.",
+        "Cork Bark Panels: Attach flat Cork Bark pieces to back and side walls to expand climbable surface area. Also creates hiding spaces behind bark.",
+        "Live Plant Vines: Pothos (Epipremnum), Philodendron, and Scindapsus provide natural climbing routes and large leaves for sleeping spots. Train vines to grow across entire enclosure."
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Frogs should be able to travel from water level to top of enclosure using only branches/vines without touching glass walls."
+    },
+    {
+      "type": "section",
+      "heading": "Foliage Density & Sleeping Spots"
+    },
+    {
+      "type": "text",
+      "text": "Red-Eyed Tree Frogs sleep on the UNDERSIDE of large leaves during the day, tucked tight with eyes closed for camouflage. Proper foliage is non-negotiable:"
+    },
+    {
+      "type": "table",
+      "headers": ["Plant Type", "Function", "Examples"],
+      "rows": [
+        ["Large-Leafed Vines", "Primary sleeping surfaces", "Pothos, Philodendron, Monstera"],
+        ["Sturdy Bromeliads", "Multi-level hiding + water collection", "Neoregelia, Aechmea, Guzmania"],
+        ["Air Plants", "Visual barriers + humidity boost", "Tillandsia (mounted on branches)"],
+        ["Background Foliage", "Depth/security + egg-laying sites", "Ficus, Aglaonema, Dieffenbachia"]
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "Always rinse new plants thoroughly and quarantine 7-14 days to remove pesticide residues and pests before introducing to frog enclosure."
+    },
+    {
+      "type": "section",
+      "heading": "Water Section Setup"
+    },
+    {
+      "type": "text",
+      "text": "The aquatic zone serves multiple functions beyond decoration - it's essential for hydration, thermoregulation, and breeding behavior:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Water Depth: 2-3″ for juveniles/non-breeding setups, 4-6″ for adults planning breeding (females need depth to absorb water into bladder for egg jelly).",
+        "Water Volume: Aim for 25-30% of total enclosure volume in water. Larger volume = more stable parameters and less frequent changes.",
+        "Circulation: Use a small submersible filter or waterfall pump for gentle circulation. Prevents stagnation and supports beneficial bacteria colonies.",
+        "Temperature: Maintain water at 78-79°F (25-26°C) using preset Turtle Heaters. Slightly cooler than ambient air temp is ideal.",
+        "Treatment: ALWAYS treat tap water with Aquatize to remove chlorine, chloramines, and heavy metals. Add Turtle Clean to boost beneficial organisms.",
+        "Access Points: Ensure 2-3 easy entry/exit locations using sloped stones, driftwood ramps, or partially submerged Cork Bark."
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Water quality directly impacts frog health - they absorb through skin. Bi-weekly partial water changes (25-33%) are mandatory."
+    },
+    {
+      "type": "section",
+      "heading": "Ventilation Requirements"
+    },
+    {
+      "type": "text",
+      "text": "Despite needing high humidity, Red-Eyed Tree Frogs MUST have excellent airflow to prevent bacterial skin infections:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Full stainless steel screen top mandatory (never glass or solid plastic top)",
+        "Dual ventilation preferred: full screen top + ventilation strip on back/sides",
+        "Natural upward airflow from bottom vents to top screen",
+        "Prevents condensation buildup that causes respiratory/skin infections",
+        "DO NOT block ventilation to boost humidity - use misting frequency instead"
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "Never keep humidity constantly above 75% even if frogs tolerate brief 90% peaks. Stagnant high humidity = bacterial infections."
+    },
+    {
+      "type": "section",
+      "heading": "Additional Décor & Enrichment"
+    },
+    {
+      "type": "text",
+      "text": "Beyond functional climbing structures, add enrichment elements:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Canopy Cave or Cork Bark Hides: Provide 2-3 shaded retreat areas at mid/upper levels for stressed frogs",
+        "Frog Pond or Aztec Water Dish: Naturalistic water dish design if building minimalist water section",
+        "Waterfall or Cascade: Adds oxygenation, biological filtration, and visual/auditory enrichment (use low-flow pumps)",
+        "Floating Plants: Water Hyacinth, Duckweed, or Frogbit provide shade over water and egg-laying surfaces for breeding",
+        "Background Texturing: Apply silicone + coco fiber to back wall for naturalistic appearance and additional climbing surface"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Equipment Checklist"
+    },
+    {
+      "type": "table",
+      "headers": ["Equipment", "Purpose", "Notes"],
+      "rows": [
+        ["Exo Terra X-Tall Terrarium", "Vertical paludarium enclosure", "18×18×36″ minimum for 3-4 frogs"],
+        ["Bio Drain Substrate + Mesh", "False bottom drainage system", "Mandatory for paludarium"],
+        ["Sub Stratum + Plantation Soil", "Bioactive planting substrate", "60:40 ratio, 2-3″ depth"],
+        ["Large Turtle Pebbles", "Aquatic zone substrate", "Too large to swallow"],
+        ["Preset Turtle Heater (78°F)", "Water temperature regulation", "25-50W depending on water volume"],
+        ["Small Submersible Filter/Pump", "Water circulation & filtration", "Low flow rate (under 100 GPH)"],
+        ["Hardwood Branches + Cork Bark", "Climbing structure framework", "Boil/bake before use"],
+        ["Jungle Vines + Moss Vines", "3D climbing network", "Bendable, waterproof"],
+        ["Live Plants (Pothos, Philodendron)", "Foliage canopy + sleeping surfaces", "Quarantine 7-14 days first"],
+        ["Aquatize Water Conditioner", "Tap water treatment", "Use for all water changes"],
+        ["Misting System or Spray Bottle", "Humidity maintenance", "Manual or automated (Monsoon)"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Assembly Instructions"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "Plan Layout: Sketch where water section, land section, and climbing branches will go before adding substrate.",
+        "Install Drainage: Add 1-2″ Bio Drain Substrate to terrestrial zone only (not under water). Lay Bio Drain Mesh over top, cutting around water section.",
+        "Add Aquatic Substrate: Place Turtle Pebbles or leave bare glass in water section for easy cleaning.",
+        "Position Hardscape: Arrange large branches, Cork Bark panels, and stones to create climbing framework and riparian access points. Use silicone to secure if needed.",
+        "Add Planting Substrate: Top terrestrial zone with 2-3″ Sub Stratum + Plantation Soil mix. Slope away from water section.",
+        "Install Water Equipment: Position heater and filter/pump in water section. Hide with stones or driftwood. Connect drainage system if using drain valve.",
+        "Plant Live Plants: Install plants in substrate or in concealed pots. Create foliage density at multiple heights (low, mid, canopy).",
+        "Add Vines & Finishing: Weave Jungle Vines through branches. Add top layer of Forest Moss or leaf litter. Install floating plants in water.",
+        "Fill Water Section: Add dechlorinated water to desired depth (2-6″). Add Aquatize and Turtle Clean.",
+        "Cycle Setup: Run filtration and heating for 1-2 weeks before adding frogs to establish beneficial bacteria colonies.",
+        "Test Parameters: Use thermometers and hygrometer to verify temperature gradient (75-85°F) and humidity (70-75%) are within range."
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "NEVER add frogs until water has cycled for at least 1 week and temperature/humidity are stable within target ranges."
+    },
+    {
+      "type": "section",
+      "heading": "Maintenance Schedule"
+    },
+    {
+      "type": "table",
+      "headers": ["Frequency", "Task"],
+      "rows": [
+        ["Daily", "Check water temperature, mist 2x (morning/evening), spot-check frogs during evening activity"],
+        ["Every 2-3 days", "Spot-clean feces, dead insects, fallen leaves from land and water sections"],
+        ["Weekly", "Test water quality (ammonia, nitrite, nitrate if cycled system), top off evaporated water"],
+        ["Bi-weekly", "Partial water change (25-33%), clean filter intake/media, check equipment function"],
+        ["Monthly", "Deep clean water section (gravel vacuum), trim overgrown plants, inspect climbing structures"],
+        ["Every 3-6 months", "Replace substrate if showing signs of degradation or foul odor, replace filter media"]
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "NEVER do full water changes - removes beneficial bacteria. Partial changes only unless emergency (ammonia spike, disease)."
+    },
+    {
+      "type": "section",
+      "heading": "Common Setup Mistakes"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Insufficient Height: Using standard terrariums instead of tall paludariums - frogs stressed without vertical climbing space",
+        "No Drainage System: Waterlogging terrestrial substrate without Bio Drain layer - causes anaerobic soil and root rot",
+        "Poor Water Access: Steep walls into water with no ramps - frogs struggle to exit, risk drowning from exhaustion",
+        "Inadequate Foliage: Sparse planting with no large leaves - frogs have nowhere to sleep, constantly exposed and stressed",
+        "Blocked Ventilation: Covering screen top with towels/plastic to boost humidity - causes respiratory infections",
+        "Overcrowding: Too many frogs in small space - territorial aggression, poor breeding success, disease spread",
+        "Direct Sunlight Placement: Near windows - causes fatal temperature spikes even with water cooling",
+        "Untreated Tap Water: Chlorine/chloramines burn frog skin - always use Aquatize",
+        "No Cycling Period: Adding frogs immediately - ammonia spikes from uncycled water cause chemical burns",
+        "Horizontal Emphasis: Using wide, short enclosures - wasted floor space frogs don't use"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Budget-Conscious Setup Options"
+    },
+    {
+      "type": "text",
+      "text": "If starting with limited budget, prioritize these essentials and upgrade later:"
+    },
+    {
+      "type": "table",
+      "headers": ["Priority Level", "Essential Items", "Can Upgrade Later"],
+      "rows": [
+        ["MUST HAVE", "18×18×36″ terrarium, Bio Drain system, branches, Pothos plants, spray bottle, thermometer/hygrometer", "Automated misting, waterfalls, expensive live plants"],
+        ["STRONGLY RECOMMENDED", "Turtle heater, small filter, Aquatize, Cork Bark, additional live plants", "High-end filtration, elaborate rockwork"],
+        ["NICE TO HAVE", "Monsoon misting system, decorative water features, rare plant species, background texturing", "These add aesthetics/convenience but aren't mandatory for frog health"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "You CAN build a functional paludarium for under $200-250, but expect to invest $400-600 for a well-equipped, low-maintenance setup."
+    }
+  ]
+}

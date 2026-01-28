@@ -29,7 +29,10 @@
     "temperature": {
       "min": 75,
       "max": 85,
-      "basking": 90,
+      "basking": {
+        "min": 85,
+        "max": 90
+      },
       "nighttime": {
         "min": 68,
         "max": 75
@@ -37,11 +40,17 @@
       "unit": "F"
     },
     "humidity": {
-      "min": 65,
-      "max": 75,
+      "day": {
+        "min": 65,
+        "max": 75
+      },
+      "night": {
+        "min": 65,
+        "max": 75
+      },
       "shedding": {
         "min": 70,
-        "max": 75
+        "max": 80
       },
       "unit": "%"
     },
@@ -72,7 +81,9 @@
     "lighting": "uvb-forest",
     "diet": ["carnivore"],
     "animalType": "reptile",
-    "decor": ["branches", "hides", "plants"]
+    "decor": ["branches", "hides", "plants", "moist-hide"],
+    "water": ["water-dish-large"],
+    "humidity-aids": ["sphagnum-moss"]
   },
   "lifespan": "20-25 years in captivity with proper care",
   "dietType": "Carnivore",

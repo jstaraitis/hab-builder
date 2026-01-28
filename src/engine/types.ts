@@ -7,7 +7,8 @@ export type EnclosureType = 'glass' | 'pvc' | 'screen';
 export type SetupTier = 'minimum' | 'recommended' | 'ideal';
 export type HumidityControl = 'none' | 'manual' | 'misting-system' | 'humidifier' | 'fogger';
 export type SubstrateType = 'bioactive' | 'soil-based' | 'paper-based' | 'foam';
-export type BackgroundType = 'none' | 'cork-bark' | 'foam';
+export type BackgroundType = 'none' | 'prebuilt' | 'custom';
+export type AnimalType = 'reptile' | 'amphibian'; // Taxonomic classification for equipment/enclosure compatibility
 
 export interface EnclosureInput {
   width: number;
@@ -24,7 +25,7 @@ export interface EnclosureInput {
   ambientHumidity: number; // % (0-100)
   humidityControl: HumidityControl;
   substratePreference: SubstrateType;
-  plantPreference: 'live' | 'artificial' | 'mix';
+  plantPreference: 'live' | 'artificial';
   backgroundType: BackgroundType;
   numberOfHides: number; // 2-4 typical
   numberOfLedges: number; // 0-6 typical (for arboreal/vertical species)
@@ -34,7 +35,7 @@ export interface EnclosureInput {
 export interface TemperatureRange {
   min: number;
   max: number;
-  basking?: number;
+  basking?: number | { min: number; max: number } | null;
   nighttime?: {
     min: number;
     max: number;
@@ -43,9 +44,22 @@ export interface TemperatureRange {
 }
 
 export interface HumidityRange {
-  min: number;
-  max: number;
+  min?: number; // Legacy field - kept for backwards compatibility
+  max?: number; // Legacy field - kept for backwards compatibility
+  day: {
+    min: number;
+    max: number;
+  };
+  night: {
+    min: number;
+    max: number;
+  };
+  shedding: {
+    min: number;
+    max: number;
+  };
   unit: '%';
+  notes?: string;
 }
 
 export interface LightingRequirements {
@@ -190,6 +204,7 @@ export interface EquipmentNeeds {
   humidity?: 'high' | 'moderate' | 'low'; // Determines if misting/humidifier needed
   heatSource?: 'basking' | 'ambient' | 'none'; // Type of heat needed
   waterFeature?: 'large-bowl' | 'shallow-dish' | 'pool' | 'none'; // Water needs
+  animalType?: AnimalType; // Taxonomic classification for equipment compatibility and enclosure validation
   decor?: Array<'branches' | 'ledges' | 'hides' | 'plants' | 'background'>; // Specific decor needed
 }
 

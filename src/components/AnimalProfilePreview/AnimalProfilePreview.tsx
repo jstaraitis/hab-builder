@@ -101,7 +101,12 @@ export function AnimalProfilePreview() {
             <div className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
               <p>Range: {profile.careTargets.temperature.min}-{profile.careTargets.temperature.max}°{profile.careTargets.temperature.unit}</p>
               {profile.careTargets.temperature.basking && (
-                <p>Basking: {profile.careTargets.temperature.basking}°{profile.careTargets.temperature.unit}</p>
+                <p>Basking: {typeof profile.careTargets.temperature.basking === 'number' 
+                  ? `${profile.careTargets.temperature.basking}°${profile.careTargets.temperature.unit}`
+                  : profile.careTargets.temperature.basking 
+                    ? `${profile.careTargets.temperature.basking.min}-${profile.careTargets.temperature.basking.max}°${profile.careTargets.temperature.unit}`
+                    : 'N/A'
+                }</p>
               )}
             </div>
           </div>

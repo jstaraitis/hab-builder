@@ -6,7 +6,7 @@
   "careLevel": "intermediate",
   "emoji": "🐢",
   "imageUrl": "/animals/red-eared-slider/red-eared-slider-1.jpg",
-  "completionStatus": "draft",
+  "completionStatus": "in-progress",
   "gallery": [
     {
       "url": "/animals/red-eared-slider/red-eared-slider-1.jpg",
@@ -29,7 +29,10 @@
     "temperature": {
       "min": 75,
       "max": 80,
-      "basking": 90,
+      "basking": {
+        "min": 88,
+        "max": 92
+      },
       "nighttime": {
         "min": 70,
         "max": 75
@@ -37,8 +40,18 @@
       "unit": "F"
     },
     "humidity": {
-      "min": 100,
-      "max": 100,
+      "day": {
+        "min": 100,
+        "max": 100
+      },
+      "night": {
+        "min": 100,
+        "max": 100
+      },
+      "shedding": {
+        "min": 100,
+        "max": 100
+      },
       "unit": "%"
     },
     "lighting": {
@@ -60,14 +73,19 @@
   "bioactiveCompatible": false,
   "equipmentNeeds": {
     "climbing": "ground",
-    "substrate": [],
+    "substrate": ["substrate-bare-bottom"],
     "humidity": "high",
     "heatSource": "basking",
     "waterFeature": "pool",
     "lighting": "uvb-desert",
     "diet": ["insectivore"],
     "animalType": "reptile",
-    "decor": []
+    "decor": ["basking-platform", "hides-aquatic"],
+    "filtration": ["aquarium-filter-canister", "filter-media-bio"],
+    "heating": ["aquarium-heater", "heater-guard"],
+    "waterTreatment": ["water-conditioner", "aquarium-test-kit"],
+    "maintenance": ["python-siphon"],
+    "safety": ["aquarium-lid"]
   },
   "lifespan": "20-40 years in captivity, can live 50+ years",
   "setupTips": [

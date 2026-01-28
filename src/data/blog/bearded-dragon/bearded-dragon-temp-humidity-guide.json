@@ -42,6 +42,10 @@
       "content": "Critical Requirement: Basking surface temperature of 100-110°F is NON-NEGOTIABLE for proper digestion. Temperatures below 95°F cause food to rot in the digestive tract, leading to impaction and bacterial overgrowth."
     },
     {
+      "type": "highlight",
+      "content": "For complete guidance on heating equipment options, thermostat configuration, and temperature monitoring tools, see our <a href='/blog/temperature-monitoring-equipment-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Temperature Monitoring Equipment Guide</a>. The information below covers bearded dragon-specific heating requirements."
+    },
+    {
       "type": "section",
       "title": "Heating Equipment Selection"
     },

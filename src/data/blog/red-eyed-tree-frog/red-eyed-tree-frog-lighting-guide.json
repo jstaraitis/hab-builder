@@ -1,0 +1,440 @@
+{
+  "id": "red-eyed-tree-frog-lighting-guide",
+  "title": "Red-Eyed Tree Frog Lighting Guide",
+  "species": "red-eyed-tree-frog",
+  "category": "lighting",
+  "description": "Complete guide to lighting requirements for Red-Eyed Tree Frogs, including UVB benefits, photoperiod cycles, plant growth lighting, and avoiding common mistakes.",
+  "lastUpdated": "2026-01-28",
+  "tags": ["red-eyed-tree-frog", "lighting", "UVB", "photoperiod", "plant-lighting"],
+  "content": [
+    {
+      "type": "intro",
+      "heading": "Understanding Lighting for Nocturnal Tree Frogs",
+      "text": "Red-Eyed Tree Frogs are primarily crepuscular (dawn/dusk active) and nocturnal, spending daylight hours sleeping on leaf undersides with eyes closed. This lifestyle has led to debate about whether UVB lighting is necessary - after all, they avoid direct sun exposure in the wild. However, research increasingly shows that even shade-dwelling amphibians benefit from low-level UVB exposure filtered through forest canopy. While not 'required' in the strictest sense (captive frogs survive without it), proper UVB lighting improves calcium metabolism, immune function, breeding success, and overall longevity. Additionally, a proper photoperiod (day/night cycle) is essential for regulating circadian rhythms, and strong lighting is mandatory if you want live plants to thrive in your paludarium."
+    },
+    {
+      "type": "section",
+      "heading": "UVB for Red-Eyed Tree Frogs: The Controversy"
+    },
+    {
+      "type": "text",
+      "text": "The Debate:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "'Not Required' Camp: Red-Eyed Tree Frogs have been successfully bred for 30+ years without UVB, relying on dietary D3 supplementation",
+        "'Highly Recommended' Camp: UVB improves natural D3 synthesis, breeding success, bone density, and reduces metabolic bone disease incidence",
+        "Current Best Practice: Provide LOW-LEVEL UVB (UVI 1.0-2.0) as a 'belt and suspenders' approach - supplements dietary D3 rather than replaces it"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Think of UVB as INSURANCE - frogs can survive without it with perfect supplementation, but UVB provides safety margin if supplementation is inconsistent."
+    },
+    {
+      "type": "section",
+      "heading": "Recommended UVB Setup"
+    },
+    {
+      "type": "table",
+      "headers": ["Parameter", "Specification", "Notes"],
+      "rows": [
+        ["UVB Strength", "5.0 / 5% / Low", "NOT 10.0 - too intense for shade-dwelling species"],
+        ["UVI at Basking", "1.0-2.0", "Ferguson Zone 1-2 (low-moderate)"],
+        ["Bulb Type", "Linear fluorescent or LED", "Compact coils provide poor coverage"],
+        ["Coverage", "50-70% of enclosure length", "Allows UV gradient - frogs can self-regulate"],
+        ["Height Above Perches", "6-12 inches", "Closer = stronger UVI, adjust based on bulb output"],
+        ["Photoperiod", "10-12 hours daily", "Matches natural equatorial day length"],
+        ["Replacement Schedule", "Every 6-12 months", "UVB output degrades before visible light fails"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Specific Product Recommendation: Exo Terra Reptile UVB100 (5.0)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Ideal for amphibians and shade-dwelling reptiles",
+        "Provides UVB for D3 synthesis without risk of overexposure",
+        "Also emits UVA which stimulates natural behavior and appetite",
+        "Linear T8 format provides even coverage across enclosure width",
+        "Position 6-8 inches above highest basking perch for UVI 1.0-2.0"
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "NEVER use desert/high-output UVB bulbs (10.0, 12% strength) for Red-Eyed Tree Frogs. Overexposure causes eye damage, skin burns, and photokeratitis."
+    },
+    {
+      "type": "section",
+      "heading": "UVB Benefits for Frogs"
+    },
+    {
+      "type": "text",
+      "text": "Research-backed benefits of low-level UVB exposure:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Vitamin D3 Synthesis: Skin converts UVB to D3, enabling calcium absorption from gut. Reduces dependency on dietary D3 supplementation.",
+        "Improved Bone Density: Studies show amphibians with UVB access have denser bones and lower MBD incidence compared to UVB-deprived controls.",
+        "Enhanced Breeding: Breeding females with UVB access produce eggs with better shell quality and higher hatch rates.",
+        "Natural Behavior: UVA component (also present in UVB bulbs) stimulates daytime activity patterns, feeding response, and breeding behavior.",
+        "Immune Support: D3 regulates immune function - UVB-exposed frogs show better resistance to bacterial and fungal infections.",
+        "Coloration: Some studies suggest UVB enhances skin pigmentation vibrancy, though this is less documented for tree frogs."
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Even if you dust feeders with D3, UVB allows frogs to self-regulate D3 levels (can't overdose from sun like they can from supplements)."
+    },
+    {
+      "type": "section",
+      "heading": "Alternative: No UVB Setup"
+    },
+    {
+      "type": "text",
+      "text": "If you choose to skip UVB (budget constraints, availability), this approach works WITH strict supplementation:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Mandatory Supplement Protocol: Dust ALL feeder insects with calcium + D3 powder at EVERY feeding (no skipping)",
+        "Higher Supplement Frequency: Since no UVB, frogs rely 100% on dietary D3 - must be consistent",
+        "Careful Monitoring: Watch for MBD signs (weak legs, curved spine, tremors) and adjust supplementation immediately",
+        "Breeding Considerations: Breeding success may be lower without UVB - females may have more egg-binding issues",
+        "Not Recommended For: Beginners who may forget supplementation, breeding projects, long-term (5+ year) keeping"
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "If skipping UVB, you CANNOT also skip supplements. This combination guarantees metabolic bone disease within 6-12 months."
+    },
+    {
+      "type": "section",
+      "heading": "Photoperiod (Day/Night Cycle)"
+    },
+    {
+      "type": "text",
+      "text": "Consistent day/night lighting cycle is NON-NEGOTIABLE even if you skip UVB:"
+    },
+    {
+      "type": "table",
+      "headers": ["Period", "Duration", "Light Type", "Purpose"],
+      "rows": [
+        ["Daytime", "10-12 hours", "Full spectrum + UVB or LED", "Regulates circadian rhythm, plant growth"],
+        ["Dawn/Dusk", "30-60 min transition", "Gradual dimming (if automated)", "Simulates natural twilight, reduces stress"],
+        ["Nighttime", "12-14 hours", "TOTAL DARKNESS", "Rest period, nocturnal activity, breeding displays"],
+        ["Seasonal Variation", "10hr (dry season) to 12hr (rainy)", "Adjustable timer", "Triggers breeding when shifted"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Why Photoperiod Matters:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Regulates circadian rhythm - without light cycle, frogs become disoriented and stressed",
+        "Controls melatonin production - affects sleep quality and immune function",
+        "Synchronizes reproductive hormones - breeding only occurs with proper photoperiod cues",
+        "Live plants require consistent light for photosynthesis - random lighting = dying plants",
+        "Prevents continuous activity exhaustion - frogs need dark period to rest"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Use a TIMER - manual on/off is inconsistent and stresses frogs. Set it and forget it for best results."
+    },
+    {
+      "type": "section",
+      "heading": "Plant Growth Lighting"
+    },
+    {
+      "type": "text",
+      "text": "Paludariums with live plants require strong PAR (Photosynthetically Active Radiation) for sustained growth:"
+    },
+    {
+      "type": "text",
+      "text": "Best Option: Exo Terra TerraSky Planted Terrarium Light"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Spectrum: 6500K color temperature - ideal for plant photosynthesis",
+        "Intensity: High output with 120° dispersion - reaches all layers of enclosure",
+        "Penetration: Strong enough to support plants even in 36\" tall paludariums",
+        "Supports: Orchids, Bromeliads, Pothos, Philodendron, ferns, mosses, air plants, carnivorous plants",
+        "Bonus: Also provides adequate daytime illumination for viewing frogs",
+        "Photoperiod: Run 10-12 hours daily on timer"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Alternative Plant Lights:"
+    },
+    {
+      "type": "table",
+      "headers": ["Light Type", "Plant Support", "UVB Output", "Best For"],
+      "rows": [
+        ["TerraSky Planted", "Excellent - high PAR", "None", "Heavily planted paludariums"],
+        ["TerraSky UV", "Good - moderate PAR", "Low UVB included", "All-in-one: plants + frog UVB needs"],
+        ["Forest Canopy LED", "Good - 6500K spectrum", "None", "Moderate plant loads, lower cost"],
+        ["Deep Forest LED", "Moderate - lower PAR", "None", "Viewing light only, slow-growing plants"],
+        ["Standard Reptile UVB 5.0", "Poor - limited PAR", "UVB for frogs", "Frogs only, must supplement with plant light"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "The TerraSky UV is the BEST all-in-one solution - combines plant PAR + frog UVB in single fixture. Simplifies equipment and reduces cost."
+    },
+    {
+      "type": "section",
+      "heading": "Combining UVB + Plant Lighting"
+    },
+    {
+      "type": "text",
+      "text": "Three approaches to meeting both frog UVB and plant PAR needs:"
+    },
+    {
+      "type": "text",
+      "text": "Option 1: Single Fixture (TerraSky UV)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "One light provides both UVB for frogs and PAR for plants",
+        "Simplest setup, lowest cost, easiest maintenance",
+        "Adequate for moderate plant loads (Pothos, Philodendron, hardy ferns)",
+        "May not support high-light plants (some orchids, carnivorous plants)",
+        "Best for: Beginners, standard planted paludariums"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Option 2: Dual Fixture (Reptile UVB 5.0 + TerraSky Planted)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Separate UVB bulb for frogs + dedicated plant light",
+        "Maximum plant growth support - can grow demanding species",
+        "Independent control - adjust UVB vs plant light separately",
+        "Higher cost, two fixtures to maintain/replace",
+        "Best for: Experienced keepers, heavy plant loads, breeding projects"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Option 3: Plant Light Only (No UVB)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "TerraSky Planted provides excellent plant growth, no UVB",
+        "Rely on dietary D3 supplementation for frog health",
+        "Simplest equipment, lowest initial cost",
+        "Requires strict supplement discipline",
+        "Best for: Budget setups, non-breeding colonies, experienced keepers confident in supplementation"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Light Fixture Placement"
+    },
+    {
+      "type": "text",
+      "text": "Proper positioning maximizes effectiveness and safety:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "On Top of Screen: Place fixtures directly on screen top - no gap. Glass/acrylic blocks UVB entirely.",
+        "Coverage Area: Linear bulbs should span 50-70% of enclosure length, positioned to one side (creates light gradient)",
+        "Height from Perches: Maintain 6-12\" distance from highest basking perch to achieve UVI 1.0-2.0",
+        "Combine with Heat: Position heat lamp to one side, UVB/plant light to same side - creates basking zone with light + warmth",
+        "Avoid Overheating: If using high-output plant lights, ensure they're not heating enclosure excessively - may need to adjust heat lamp wattage down",
+        "Shaded Retreat: At least 30% of enclosure should have no direct light - allows frogs to retreat if overexposed"
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "Never place UVB bulbs INSIDE enclosure where frogs can directly contact - risk of burns. Always mount on top of screen lid."
+    },
+    {
+      "type": "section",
+      "heading": "Bulb Maintenance & Replacement"
+    },
+    {
+      "type": "table",
+      "headers": ["Bulb Type", "Replacement Schedule", "Reason"],
+      "rows": [
+        ["UVB Fluorescent (5.0)", "Every 6-12 months", "UVB output degrades to 50% by 6mo, even if light still works"],
+        ["LED UVB", "Every 12-24 months", "LED UVB lasts longer but still degrades over time"],
+        ["Plant Growth LED", "Every 24-36 months", "LED PAR output slowly decreases, affects plant health"],
+        ["Basking Bulb (heat)", "As needed when burned out", "Visible light indicates functionality"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Tracking Replacement:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Write installation date on bulb base with Sharpie",
+        "Set calendar reminder for replacement date",
+        "Buy replacement bulbs in advance - don't wait for complete failure",
+        "UVB meters (e.g., Solarmeter 6.5) can verify output if you want to test rather than replace on schedule"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "UVB bulbs LOOK fine even after output drops to zero. Don't trust visual inspection - replace on schedule regardless of appearance."
+    },
+    {
+      "type": "section",
+      "heading": "Avoiding Light Pollution at Night"
+    },
+    {
+      "type": "text",
+      "text": "Red-Eyed Tree Frogs are nocturnal - light pollution disrupts natural behavior:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "No Night Lights: Never use red, blue, purple, or 'moonlight' bulbs - frogs see these wavelengths and it disrupts circadian rhythm",
+        "No Indicator LEDs: Cover bright equipment LEDs (filter lights, thermostats) with electrical tape if in same room as enclosure",
+        "Room Lighting: If you must use room lights at night, position enclosure so it's shaded or use room divider/curtain",
+        "Emergency Viewing: Use dim red headlamp for brief nighttime checks (frogs less sensitive to red) - keep it brief",
+        "Location: Avoid placing enclosure in rooms with TV, computer monitors, or other light sources used at night"
+      ]
+    },
+    {
+      "type": "warning",
+      "text": "Constant light exposure at night causes chronic stress, suppresses breeding behavior, and weakens immune system. TOTAL darkness is essential."
+    },
+    {
+      "type": "section",
+      "heading": "Seasonal Photoperiod Adjustments for Breeding"
+    },
+    {
+      "type": "text",
+      "text": "Manipulating photoperiod triggers breeding season response:"
+    },
+    {
+      "type": "text",
+      "text": "Dry Season Simulation (5-6 weeks):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Reduce photoperiod from 12 hours to 10 hours daily",
+        "Maintain same light intensity (don't dim)",
+        "Simulates shorter winter days in natural habitat",
+        "Combine with temperature/humidity reduction (see temp guide)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Rainy Season Transition:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Increase photoperiod back to 12 hours daily",
+        "Maintain for 1-2 weeks before heavy misting begins",
+        "The lengthening day + increased temps/humidity signal breeding season",
+        "Males will begin calling within 3-7 days of light increase"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Lighting for Different Enclosure Sizes"
+    },
+    {
+      "type": "table",
+      "headers": ["Enclosure Size", "Recommended Lighting", "Notes"],
+      "rows": [
+        ["18×18×24″", "Single 18\" TerraSky UV OR 18\" UVB 5.0 + 18\" plant light", "Small footprint, single fixture adequate"],
+        ["18×18×36″", "Single 18\" TerraSky UV OR 18\" UVB 5.0 + 24\" plant light", "Taller = need stronger plant light penetration"],
+        ["24×18×36″", "24\" TerraSky UV + optional 18\" supplemental plant light", "Medium size, may need dual lights for full plant coverage"],
+        ["36×18×36″", "36\" TerraSky Planted + 24\" UVB 5.0 (dual fixture)", "Large - definitely needs dual fixture for coverage"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Measuring Light Intensity"
+    },
+    {
+      "type": "text",
+      "text": "Optional but helpful tools for advanced keepers:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Solarmeter 6.5 UVB Meter: Measures UVI at basking spot - verify you're achieving UVI 1.0-2.0. One-time $200-250 investment.",
+        "PAR Meter: Measures plant-usable light intensity. Verify plants receiving adequate PAR (50-100 μmol/m²/s minimum for low-light plants). $150-300.",
+        "Lux Meter (Budget): Measures visible light intensity. Not perfect for UVB/PAR but gives rough idea. Smartphone apps available for free.",
+        "Visual Assessment: If plants grow vigorously and frogs show normal behavior, lighting is adequate - meters are nice-to-have, not essential."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Common Lighting Mistakes"
+    },
+    {
+      "type": "table",
+      "headers": ["Mistake", "Consequence", "Fix"],
+      "rows": [
+        ["Using desert UVB (10.0)", "Eye damage, skin burns, photokeratitis", "Replace with 5.0 strength immediately"],
+        ["No photoperiod consistency", "Circadian rhythm disruption, stress, poor breeding", "Install timer for automatic 12hr cycles"],
+        ["Compact coil UVB bulbs", "Poor coverage, hotspots, uneven UVB distribution", "Upgrade to linear fluorescent tubes"],
+        ["Night lights for viewing", "Sleep disruption, chronic stress, suppressed breeding", "Remove all night lighting, use brief red light only"],
+        ["Insufficient plant light", "Plants die/stretch, poor growth, algae takeover", "Upgrade to TerraSky Planted or add supplemental lighting"],
+        ["Placing bulbs inside enclosure", "Burn risk, overheating, frog contact with hot surface", "Mount all lights on TOP of screen lid only"],
+        ["Never replacing UVB", "Zero UVB output after 12mo, false sense of security", "Replace on 6-12mo schedule regardless of appearance"],
+        ["Glass/acrylic blocking UVB", "UVB cannot penetrate - frogs get zero benefit", "Only screen mesh tops, remove any barriers"],
+        ["Excessive light duration (14+hr)", "Frogs exhausted from no rest, abnormal behavior", "Limit to 10-12hr maximum photoperiod"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Budget Lighting Setup"
+    },
+    {
+      "type": "text",
+      "text": "Minimum viable lighting on a budget:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Bare Minimum (No UVB): Single 18-24\" 6500K LED plant light ($30-50) + strict dietary D3 supplementation",
+        "Recommended Budget: Exo Terra Forest Canopy LED ($60-80) + separate 18\" Reptile UVB 5.0 bulb + fixture ($40-60) = ~$100-140 total",
+        "Best Value: Single Exo Terra TerraSky UV (~$120-150) - combines plant PAR + UVB in one fixture, best long-term cost",
+        "Premium Setup: TerraSky Planted (~$150) + separate UVB 5.0 (~$60) = ~$210 - maximum plant and frog support"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Lighting is one area where spending an extra $50-100 up front saves money long-term - better plant growth, healthier frogs, less replacement/vet costs."
+    },
+    {
+      "type": "section",
+      "heading": "Signs of Proper vs Improper Lighting"
+    },
+    {
+      "type": "table",
+      "headers": ["Parameter", "Signs of Proper Lighting", "Signs of Problems"],
+      "rows": [
+        ["Frog Behavior", "Active at dusk/dawn, sleeping on leaves during day, normal feeding response", "Always hiding, never basking, lethargy, constantly active at wrong times"],
+        ["Plant Health", "Vigorous growth, vibrant green color, no stretching/etiolation", "Yellowing, slow/no growth, plants stretching toward light, algae takeover"],
+        ["Breeding", "Males calling during evening, amplexus behavior observed", "No breeding behavior despite proper temps/humidity"],
+        ["Bone Health", "Strong legs, normal posture, active climbing", "Weak/trembling limbs, curved spine, difficulty climbing (MBD signs)"],
+        ["Color", "Bright green dorsal, vibrant red eyes, blue side stripes vivid", "Dull/dark coloration, washed out colors"]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,509 @@
+{
+  "id": "pacman-frog-substrate-guide",
+  "title": "Pacman Frog Substrate Guide: Depth, Mixing, and Bioactive Options",
+  "description": "Complete substrate guide for Pacman frogs including appropriate types, depth requirements, species-specific mixing ratios (especially C. cranwelli), and bioactive setup options.",
+  "author": "Habitat Builder",
+  "date": "2026-01-28",
+  "category": "Care Guides",
+  "excerpt": "Learn proper substrate selection, mixing ratios, depth requirements, and maintenance for all Pacman frog species including C. cranwelli's special sandy substrate needs.",
+  "tags": ["pacman-frog", "substrate", "bioactive", "ceratophrys", "cranwelli"],
+  "content": [
+    {
+      "type": "intro",
+      "heading": "Why Substrate Matters for Pacman Frogs",
+      "text": "Pacman frogs burrow as part of their natural behavior and predatory instincts. They are terrestrial ambush predators that bury themselves in substrate and wait for prey. Deep substrate also helps maintain humidity levels. Proper substrate is NOT optional - it's essential for natural behavior and health."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "SUBSTRATE REQUIRED - Paper towels, moss-only, bark, or foam prevent natural burrowing behavior. Use only for quarantine/illness/transport. Frogs denied burrowing substrate suffer chronic stress."
+    },
+    {
+      "type": "section",
+      "heading": "Substrate Depth Requirements"
+    },
+    {
+      "type": "text",
+      "text": "The frog must be able to completely burrow out of sight. Depth requirements scale with frog size:"
+    },
+    {
+      "type": "table",
+      "headers": ["Frog Size", "Minimum Substrate Depth", "Notes"],
+      "rows": [
+        ["Juveniles (quarter-sized)", "2-3 inches", "Increase depth as frog grows"],
+        ["Sub-adults", "3-4 inches", "Monitor and adjust with growth"],
+        ["Adults (3-7 inches)", "4-6 inches", "Females need deeper than males"],
+        ["Large females (6-7 inches)", "6-8 inches", "Must fully disappear when burrowed"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "When your frog burrows, you should NOT be able to see any part of it. If you can still see the frog after it burrows, add more substrate."
+    },
+    {
+      "type": "section",
+      "heading": "Moisture Level Testing"
+    },
+    {
+      "type": "text",
+      "text": "Substrate must be moist but not waterlogged. Use the squeeze test:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Grab a handful of substrate and squeeze it firmly",
+        "Water should drip out of the substrate",
+        "There should be NO puddles or standing water in the enclosure",
+        "Substrate should hold its shape when squeezed",
+        "Mix dechlorinated water throughout substrate, don't just mist the surface"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "ALL water used (substrate, misting, water dish) must be treated with reptile/amphibian dechlorinator. Chlorine causes toxic shock which is often fatal. Use Zoo Med Reptisafe or Tetra AquaSafe."
+    },
+    {
+      "type": "section",
+      "heading": "Appropriate Substrates"
+    },
+    {
+      "type": "text",
+      "text": "Several substrate options work well for Pacman frogs. Choose based on your goals, budget, and species:"
+    },
+    {
+      "type": "section",
+      "heading": "1. Coco Fiber / Coco Coir / Eco Earth"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Best for:</span> Budget-conscious keepers, standard tropical species (C. ornata, C. cornuta)"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Pros:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Soft and comfortable for frogs",
+        "Absorbs moisture very well",
+        "Holds burrows well",
+        "Readily available at pet stores",
+        "Affordable ($3-8 per brick)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Cons:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Needs replacement every 3-4 weeks to prevent mold",
+        "Not a true soil (lacks nutrients for bioactive)",
+        "Can dry out quickly in low humidity",
+        "NOT suitable for C. cranwelli (wrong texture)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Usage:</span> Expand brick with dechlorinated water, break up clumps, perform squeeze test before adding to enclosure. Completely replace every 3-4 weeks."
+    },
+    {
+      "type": "section",
+      "heading": "2. Organic Topsoil"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Best for:</span> Budget-conscious keepers wanting natural substrate, planted tanks, C. cranwelli substrate mixes"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Pros:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "MUCH cheaper than pet store options ($2-5 per 40 lb bag)",
+        "True soil that supports live plants",
+        "Natural texture and appearance",
+        "Can be used in bioactive setups",
+        "Required component for C. cranwelli substrate"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Cons:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "MUST be additive-free, fertilizer-free, and manure-free",
+        "Regional variations (check local brands carefully)",
+        "Can be harder to find appropriate brands",
+        "May need mixing with sand for some species"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Recommended brands:</span> Scott's Premium Topsoil, Timberline Topsoil (brands vary by region - always check ingredients)"
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "For C. cranwelli, mix 60% organic topsoil + 40% play sand. This replicates their Gran Chaco habitat with well-draining sandy soil."
+    },
+    {
+      "type": "section",
+      "heading": "3. ReptiSoil"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Best for:</span> Keepers wanting convenience, planted tanks, those avoiding big-box store shopping"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Pros:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Fertilizer-free soil made specifically for reptiles/amphibians",
+        "Supports live plants and bioactive setups",
+        "No research needed - guaranteed safe ingredients",
+        "Lasts longer than coco fiber (2-3 months)",
+        "Available at most pet stores"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Cons:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "More expensive than organic topsoil ($8-15 per bag)",
+        "Can become hard-packed (needs fluffing)",
+        "May still need sand added for C. cranwelli (60% ReptiSoil, 40% play sand)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Maintenance:</span> Fluff substrate as it packs down. Replace every 2-3 months in naturalistic setups."
+    },
+    {
+      "type": "section",
+      "heading": "4. Bioactive Substrate Mixes"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Best for:</span> Keepers committed to bioactive setups with cleanup crew (isopods/springtails)"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Options:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Josh's Frogs ABG Mix (Atlanta Botanical Garden formula)",
+        "The BioDude's Terra Firma Bio Mix",
+        "Custom mixes with tree fern fiber, charcoal, sphagnum moss, coco fiber"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Pros:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "When used with cleanup crew (CUC), substrate NEVER needs replacing",
+        "Self-regulating ecosystem processes waste",
+        "Enriching for frogs with natural soil fauna",
+        "Supports diverse live plant growth",
+        "Top off 1-2 times per year (minimal maintenance)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Cons:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "EXPENSIVE upfront ($30-60 per bag)",
+        "Requires isopods, springtails, and live plants to function",
+        "If NOT used as bioactive, still needs replacement every 3-6 months",
+        "Not cost-effective for non-bioactive setups",
+        "Steeper learning curve for beginners"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Only purchase bioactive substrate mixes if you plan to keep a true bioactive enclosure with cleanup crew. Otherwise, use coco fiber, topsoil, or ReptiSoil for much lower cost."
+    },
+    {
+      "type": "section",
+      "heading": "C. cranwelli Special Substrate Requirements"
+    },
+    {
+      "type": "text",
+      "text": "Cranwell's Horned Frogs live in the Gran Chaco region - an area with well-draining, sandy soil. They require a different substrate mix than other Pacman frog species."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold text-lg'>Required Mix: 60% Organic Topsoil + 40% Play Sand</span>"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Play sand requirements:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "MUST be washed sand made for sandboxes (not construction sand)",
+        "Quikrete Play Sand is a popular brand",
+        "Available at hardware stores for $3-5 per 50 lb bag",
+        "Wash sand before mixing if dusty"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Mixing instructions:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Use a large container or tub for mixing",
+        "Add 6 scoops of organic topsoil",
+        "Add 4 scoops of play sand",
+        "Mix thoroughly until evenly distributed",
+        "Repeat ratio until you have enough substrate",
+        "Add dechlorinated water and perform squeeze test",
+        "Test: Poke substrate with finger - should retain a hole shape"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "This sandy soil is well-draining and can become hard-packed. Fluff it regularly to prevent excessive compaction."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "C. cranwelli kept on standard coco fiber or 100% topsoil cannot replicate natural burrowing behavior properly. The sandy mix is NOT optional for this species."
+    },
+    {
+      "type": "section",
+      "heading": "Inappropriate Substrates (DO NOT USE)"
+    },
+    {
+      "type": "text",
+      "text": "The following substrates are unsafe or prevent natural behavior:"
+    },
+    {
+      "type": "section",
+      "heading": "❌ Paper Towels"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Prevents all natural burrowing behavior",
+        "Chronic stress from inability to hide properly",
+        "ONLY acceptable for: quarantine, illness treatment, transportation",
+        "Switch to proper substrate as soon as possible"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "❌ Sphagnum or Peat Moss (as sole substrate)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "IMPACTION RISK if ingested in quantity",
+        "Pacman frogs have sensitive digestive systems",
+        "Can be used as topper or moisture zones in bioactive setups",
+        "CANNOT be used as the only substrate"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "❌ Any Bark-Based Substrate"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Orchid bark, cypress mulch, reptile bark",
+        "Too coarse for burrowing behavior",
+        "Can cause injuries to delicate frog skin",
+        "Does not hold burrows"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "❌ Aquarium Gravel or Stones"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Impaction risk if swallowed",
+        "Cannot burrow",
+        "Does not maintain humidity"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "❌ Frog Foam or Aquarium Foam"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Prevents natural burrowing behavior",
+        "Not absorbent enough for humidity",
+        "Can harbor bacteria"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "❌ Sand Only (No soil)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Too loose - burrows collapse",
+        "Doesn't hold moisture well",
+        "Even desert species need soil mixed with sand",
+        "C. cranwelli needs 60% soil for proper burrows"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Substrate Maintenance Schedule"
+    },
+    {
+      "type": "table",
+      "headers": ["Substrate Type", "Replacement Schedule", "Maintenance"],
+      "rows": [
+        ["Coco Fiber", "Every 3-4 weeks", "Daily spot cleaning, weekly moisture check"],
+        ["Organic Topsoil", "Every 2-3 months", "Daily spot cleaning, fluff if compacting"],
+        ["ReptiSoil", "Every 2-3 months", "Daily spot cleaning, fluff as it packs"],
+        ["Bioactive (with CUC)", "Never (indefinite)", "Top off 1-2x yearly, spot clean minimally"],
+        ["C. cranwelli Mix", "Every 2-3 months", "Fluff regularly (compacts faster), spot clean"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Spot cleaning:</span> Remove visible waste daily. Frogs often defecate in water dish - change water daily and clean any contaminated substrate nearby."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Complete replacement:</span> Remove frog to temporary container, dispose of old substrate, clean enclosure with reptile-safe cleaner, add fresh substrate, restore decorations."
+    },
+    {
+      "type": "section",
+      "heading": "Adding Leaf Litter (Highly Recommended)"
+    },
+    {
+      "type": "text",
+      "text": "Leaf litter should be added ON TOP of whatever substrate you choose. Benefits:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Extra enrichment and hiding options",
+        "Frogs love burrowing under large leaf pieces",
+        "Prevents substrate ingestion during feeding",
+        "Provides habitat for cleanup crew in bioactive setups",
+        "Natural appearance",
+        "Helps maintain humidity"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Recommended leaf litter types:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Magnolia leaves (large, durable, long-lasting)",
+        "Oak leaves (readily available, natural)",
+        "Catappa/Indian almond leaves (beneficial tannins)",
+        "Commercial reptile leaf litter mixes"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Replace leaf litter as it breaks down (every 2-4 weeks depending on humidity)."
+    },
+    {
+      "type": "section",
+      "heading": "Bioactive Setup Primer"
+    },
+    {
+      "type": "text",
+      "text": "True bioactive enclosures require more than just bioactive substrate. Checklist:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Drainage layer (1-2 inches LECA, hydroballs, or gravel with screen barrier)",
+        "Bioactive substrate mix (ABG Mix or Terra Firma)",
+        "Leaf litter layer on top",
+        "Cleanup crew: Dwarf white or powder orange isopods + temperate springtails",
+        "Live plants (pothos, ferns, bromeliads)",
+        "Patience for ecosystem to establish (4-8 weeks)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "For full bioactive guide, see our <a href='/blog/bioactive-setup-guide' class='text-emerald-600 underline'>Bioactive Enclosure Guide</a> (coming soon)."
+    },
+    {
+      "type": "section",
+      "heading": "Quick Reference Chart"
+    },
+    {
+      "type": "table",
+      "headers": ["Species", "Best Substrate", "Depth", "Special Notes"],
+      "rows": [
+        ["C. cranwelli", "60% topsoil + 40% sand", "4-6\"", "Sandy substrate REQUIRED"],
+        ["C. cornuta", "Coco fiber or topsoil", "4-6\"", "Keep extra moist (rainforest)"],
+        ["C. ornata", "Coco fiber or topsoil", "4-6\"", "Standard tropical care"],
+        ["C. aurita", "Coco fiber or topsoil", "4-6\"", "Similar to C. cornuta"],
+        ["Hybrids (Fantasy)", "Coco fiber or topsoil", "4-6\"", "Standard tropical care"],
+        ["Juveniles (all)", "Any appropriate type", "2-3\"", "Increase depth with growth"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Common Substrate Mistakes"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Insufficient depth (frog still visible when burrowed)",
+        "Substrate too dry (should drip water when squeezed)",
+        "Using untreated tap water (chlorine causes toxic shock)",
+        "Replacing bioactive substrate too frequently (disrupts ecosystem)",
+        "Using fertilized or manure-containing topsoil (toxic)",
+        "C. cranwelli kept on substrate without sand (wrong texture)",
+        "No leaf litter (missing enrichment and feeding safety)",
+        "Only misting surface instead of mixing water throughout substrate"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Related Guides"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<a href='/blog/pacman-frog-enrichment-welfare-guide' class='text-emerald-600 underline'>Enrichment & Welfare Guide</a> - Overview of all care requirements",
+        "<a href='/blog/pacman-frog-enclosure-setup' class='text-emerald-600 underline'>Enclosure Setup Guide</a> - Size, decorations, and layout",
+        "<a href='/blog/pacman-frog-temperature-humidity' class='text-emerald-600 underline'>Temperature & Humidity Guide</a> - Environmental control"
+      ]
+    }
+  ]
+}

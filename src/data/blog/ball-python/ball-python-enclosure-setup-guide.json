@@ -68,33 +68,8 @@
       "content": "Recommendation: Front-opening PVC enclosures (Animal Plastics, Zen Habitats, Reptile Kages) are ideal for ball pythons. They maintain humidity naturally, reduce stress (no hand reaching from above), and are specifically designed for reptile keeping."
     },
     {
-      "type": "section",
-      "title": "Thermal Gradient Layout"
-    },
-    {
-      "type": "text",
-      "content": "Ball pythons are ectothermic (cold-blooded) and require a horizontal thermal gradient to thermoregulate by moving between zones."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Temperature Zone Design (48×24×24 Enclosure):</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Zone", "Temperature Range", "Location", "Purpose"],
-      "rows": [
-        ["Basking Surface", "95-104°F (35-40°C)", "Warm end, elevated rock/slate on top of warm hide", "Digestion, thermoregulation, metabolic processes"],
-        ["Warm Hide Interior", "86-90°F (30-32°C)", "Warm end, under basking surface", "Security + warmth, primary resting spot after feeding"],
-        ["Ambient Warm Side", "82-88°F", "Warm end general area", "Transition zone for thermoregulation"],
-        ["Ambient Cool Side", "75-80°F", "Cool end general area", "Prevents overheating, comfortable activity temperature"],
-        ["Cool Hide Interior", "72-80°F (22-27°C)", "Cool end", "Security + cooling, shedding location (high humidity)"],
-        ["Nighttime (entire enclosure)", "72-78°F (22-26°C)", "All zones drop naturally", "Mimics natural nighttime temperature drop"]
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "important",
-      "content": "Both warm AND cool hides are MANDATORY. Ball pythons must be able to thermoregulate while feeling secure. 'Hide on warm side only' or 'hide on cool side only' setups force the snake to choose between thermal comfort and security—this causes chronic stress."
+      "type": "highlight",
+      "content": "For complete guidance on creating thermal gradients, understanding temperature zones, and selecting temperature monitoring equipment, see our <a href='/blog/thermal-gradient-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Understanding Thermal Gradients</a> and <a href='/blog/temperature-monitoring-equipment-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Temperature Monitoring Equipment</a> guides. Below are the specific hide placement and enrichment requirements for ball pythons."
     },
     {
       "type": "section",

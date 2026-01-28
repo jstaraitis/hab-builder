@@ -10,7 +10,10 @@
     "preview": "vite preview",
     "test": "vitest",
     "export-catalog": "node scripts/export-catalog-to-csv.js",
-    "import-catalog": "node scripts/import-catalog-from-csv.js"
+    "import-catalog": "node scripts/import-catalog-from-csv.js",
+    "export-animals": "node scripts/export-animals-to-txt.js",
+    "export-equipment-needs": "node scripts/export-equipment-needs.js",
+    "format-for-word": "node scripts/format-for-word.js"
   },
   "dependencies": {
     "konva": "^10.2.0",

@@ -1,0 +1,630 @@
+{
+  "id": "axolotl-feeding-guide",
+  "title": "Axolotl Feeding Guide: Diet, Schedule & Nutrition",
+  "description": "Complete feeding guide for axolotls covering age-based schedules, staple foods (earthworms, blackworms, frozen fish), occasional feeders, portion sizes, and foods to avoid.",
+  "author": "Habitat Builder",
+  "date": "2026-01-28",
+  "category": "Care Guides",
+  "excerpt": "Evidence-based axolotl diet recommendations including feeding schedules, portion sizes, food safety, and nutritional requirements for Ambystoma mexicanum.",
+  "tags": ["axolotl", "feeding", "diet", "nutrition", "food"],
+  "content": [
+    {
+      "type": "intro",
+      "heading": "Axolotl Feeding Guide",
+      "text": "Axolotls are carnivorous amphibians that use powerful suction feeding to inhale prey whole. Their diet in captivity should mimic the invertebrates, small fish, and aquatic worms they consume in Lake Xochimilco. This guide covers age-appropriate feeding schedules, staple and occasional foods, portion sizing, and common feeding mistakes."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "Axolotls do NOT chew. All food must be small enough to swallow whole. Oversized food causes choking, stress, or regurgitation. When in doubt, cut food into smaller pieces."
+    },
+    {
+      "type": "section",
+      "heading": "Feeding Schedules by Age"
+    },
+    {
+      "type": "text",
+      "text": "Feeding frequency changes dramatically as axolotls mature. Overfeeding causes obesity and water quality issues, while underfeeding stunts growth."
+    },
+    {
+      "type": "table",
+      "headers": ["Age/Size", "Feeding Frequency", "Portion Size", "Primary Foods"],
+      "rows": [
+        ["Juveniles (Under 4 inches)", "Once daily", "As much as they'll eat in 10-15 minutes", "Blackworms, daphnia, baby brine shrimp, small earthworm pieces"],
+        ["Sub-Adults (4-8 inches)", "Once daily or every other day", "2-3 medium earthworms or equivalent", "Earthworms, blackworms, bloodworms, small frozen fish"],
+        ["Adults (8+ inches)", "Every 2-3 days", "3-4 large earthworms or equivalent", "Large earthworms, nightcrawlers, frozen silversides, occasional variety foods"],
+        ["Breeding Adults", "Every 2-3 days (increased portions)", "5-6 large earthworms or equivalent", "High-protein foods—earthworms, blackworms, Repashy Grub Pie"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Why Frequency Matters</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Juveniles:</span> Rapid growth phase—need frequent, smaller meals to support development",
+        "<span class='font-semibold'>Adults:</span> Slower metabolism—overfeeding causes obesity, fatty liver disease, reduced lifespan",
+        "<span class='font-semibold'>Water Quality:</span> Less frequent feeding = less waste = more stable water parameters",
+        "<span class='font-semibold'>Natural Feeding:</span> Wild axolotls are opportunistic feeders—don't eat daily"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "Transition from daily to every-other-day feeding around 6 inches length, then to every 2-3 days at 8+ inches. This mimics natural slowing metabolism and prevents obesity."
+    },
+    {
+      "type": "section",
+      "heading": "Staple Foods (Feed Regularly)"
+    },
+    {
+      "type": "text",
+      "text": "These foods provide complete nutrition and should form 80-90% of diet."
+    },
+    {
+      "type": "section",
+      "heading": "1. Earthworms (BEST Overall Food)"
+    },
+    {
+      "type": "text",
+      "text": "Earthworms and nightcrawlers are the GOLD STANDARD for axolotl nutrition."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Advantages</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Complete Nutrition:</span> High protein, moderate fat, essential vitamins and minerals",
+        "<span class='font-semibold'>Appropriate Size:</span> Can source small to large worms for any axolotl size",
+        "<span class='font-semibold'>Easy to Digest:</span> Soft-bodied, no hard exoskeleton",
+        "<span class='font-semibold'>Readily Available:</span> Pet stores, bait shops, online suppliers",
+        "<span class='font-semibold'>Long-Term Storage:</span> Live worms store 1-2 months in refrigerator"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Types of Earthworms</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Red Wigglers (Eisenia fetida):</span> Small, active, ideal for juveniles and smaller adults (4-6 inches)",
+        "<span class='font-semibold'>European Nightcrawlers (Eisenia hortensis):</span> Medium size, excellent for sub-adults and adults (6-10 inches)",
+        "<span class='font-semibold'>Canadian Nightcrawlers (Lumbricus terrestris):</span> Large, best for adult axolotls 8+ inches",
+        "<span class='font-semibold'>Avoid:</span> Wild-caught earthworms (pesticide exposure), bleached/dyed bait worms"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Sourcing Earthworms</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Bait Shops:</span> Cheap, readily available—rinse thoroughly before feeding",
+        "<span class='font-semibold'>Pet Stores:</span> \"Fishing worms\" or \"feeder worms\"—more expensive but convenient",
+        "<span class='font-semibold'>Online:</span> Uncle Jim's Worm Farm, Amazon, reptile food suppliers—buy in bulk for savings",
+        "<span class='font-semibold'>DIY Worm Composting:</span> Maintain worm bin at home—sustainable, cost-effective long-term"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Storage</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Store in breathable container (plastic tub with air holes)",
+        "Use bedding: coconut coir, shredded paper, or worm-specific bedding",
+        "Keep refrigerated at 40-50°F—worms go dormant, live 1-2 months",
+        "Mist bedding weekly to maintain moisture (not soaking wet)",
+        "Remove dead worms immediately to prevent contamination",
+        "Feed worms vegetable scraps to \"gut-load\" before feeding to axolotl"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Feeding Method</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Remove worm from refrigerator 10 minutes before feeding (warms to room temp)",
+        "Rinse worm in dechlorinated water",
+        "For juveniles: Cut worm into 1-2 inch pieces with clean scissors",
+        "For adults: Feed whole worm or cut large nightcrawlers in half",
+        "Use feeding tongs to present worm near axolotl's head—encourages natural hunting",
+        "Worm will wriggle, triggering axolotl's suction feeding response",
+        "Remove uneaten worm pieces after 30 minutes"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "2. Blackworms (Lumbriculus variegatus)"
+    },
+    {
+      "type": "text",
+      "text": "Small aquatic worms, excellent for juveniles and variety."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Advantages</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>High Protein:</span> Excellent nutrition, promotes growth",
+        "<span class='font-semibold'>Small Size:</span> Perfect for juveniles under 4 inches",
+        "<span class='font-semibold'>Live in Tank:</span> Can add to tank, axolotl hunts them (enrichment)",
+        "<span class='font-semibold'>Visible Movement:</span> Wriggling triggers strong feeding response"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Disadvantages</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Expensive:</span> More costly than earthworms per feeding",
+        "<span class='font-semibold'>Short Storage:</span> Live only 1-2 weeks refrigerated",
+        "<span class='font-semibold'>Availability:</span> Not all pet stores stock—often need to order online"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Storage</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Store in shallow dish with 1-2 inches dechlorinated water",
+        "Refrigerate at 40-50°F",
+        "Change water daily—worms produce waste quickly",
+        "Remove dead worms (turn white) immediately",
+        "Use within 1-2 weeks for best nutrition"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Feeding Method</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Scoop desired amount with small net or spoon",
+        "Drop into tank near axolotl—worms sink slowly, triggering feeding response",
+        "For juveniles: feed 10-20 worms per meal",
+        "For adults: feed 30-50 worms or supplement with other foods"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "3. Frozen Silversides/Fish"
+    },
+    {
+      "type": "text",
+      "text": "Small frozen fish, good protein source for adults."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Advantages</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Convenient:</span> Long freezer storage (6+ months)",
+        "<span class='font-semibold'>High Protein:</span> Good muscle meat content",
+        "<span class='font-semibold'>Variety:</span> Different from worm-based diet",
+        "<span class='font-semibold'>Readily Available:</span> Most fish stores stock"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Disadvantages</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Less Nutritious:</span> Frozen process depletes some vitamins",
+        "<span class='font-semibold'>Thiaminase:</span> Some fish contain enzyme that breaks down vitamin B1 (feed variety)",
+        "<span class='font-semibold'>Water Quality:</span> Oily—clouds water, increases waste more than worms"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Recommended Fish</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Silversides:</span> Small saltwater fish, 2-4 inches—ideal size for adults",
+        "<span class='font-semibold'>Frozen Brine Shrimp:</span> Tiny, good for juveniles (less nutritious than blackworms)",
+        "<span class='font-semibold'>Frozen Bloodworms:</span> Small, good supplemental food (not sole diet)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Feeding Method</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Thaw fish in small dish of tank water (10-15 minutes)",
+        "Feed 1-2 silversides to adult axolotl as meal",
+        "Use feeding tongs to present near axolotl",
+        "Remove uneaten fish after 30 minutes—decomposes quickly, pollutes water"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "4. Repashy Grub Pie (Commercial Diet)"
+    },
+    {
+      "type": "text",
+      "text": "Powdered gel diet formulated for amphibians."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Advantages</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Complete Nutrition:</span> Vitamin/mineral fortified",
+        "<span class='font-semibold'>Long Shelf Life:</span> Powder stores 1+ years",
+        "<span class='font-semibold'>Convenient:</span> Mix with boiling water, sets into gel",
+        "<span class='font-semibold'>Portion Control:</span> Easy to cut into exact sizes"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Disadvantages</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Less Palatable:</span> Some axolotls refuse—not as enticing as live worms",
+        "<span class='font-semibold'>Learning Curve:</span> Axolotls need training to recognize as food",
+        "<span class='font-semibold'>Not Sole Diet:</span> Best as supplement, not primary food"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Preparation</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Mix 1 part powder to 2-3 parts boiling water",
+        "Stir vigorously until smooth",
+        "Pour into shallow dish, refrigerate until set (2-3 hours)",
+        "Cut into small cubes (1cm per cube)",
+        "Store in refrigerator 1-2 weeks or freeze 3+ months"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Occasional Foods (Variety Only)"
+    },
+    {
+      "type": "text",
+      "text": "These foods provide variety but should NOT be staples (10-20% of diet maximum)."
+    },
+    {
+      "type": "section",
+      "heading": "Safe Occasional Foods"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Waxworms:</span> High fat—treat only (1-2 per week). Good for underweight axolotls.",
+        "<span class='font-semibold'>Hornworms:</span> Moderate protein, hydrating—occasional variety (2-3 per week).",
+        "<span class='font-semibold'>Crickets:</span> Gut-loaded, dusted with calcium—occasional (3-4 per feeding, once weekly). Remove legs/head before feeding (choking hazard).",
+        "<span class='font-semibold'>Bloodworms (Frozen):</span> Small, convenient—good for juveniles but less nutritious than blackworms.",
+        "<span class='font-semibold'>Brine Shrimp (Frozen):</span> Tiny, low nutrition—okay for juveniles as snack, not meal."
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "Occasional foods should NOT exceed 20% of total diet. Overfeeding high-fat foods (waxworms) causes obesity and fatty liver disease."
+    },
+    {
+      "type": "section",
+      "heading": "Foods to AVOID (Unsafe)"
+    },
+    {
+      "type": "table",
+      "headers": ["Food", "Why It's Dangerous", "Safe Alternative"],
+      "rows": [
+        ["Mealworms/Superworms", "Hard exoskeleton difficult to digest, impaction risk", "Waxworms (softer) or hornworms"],
+        ["Goldfish (Feeder Fish)", "High thiaminase (vitamin B1 deficiency), parasites, fatty", "Frozen silversides, earthworms"],
+        ["Tubifex Worms", "Harbor parasites, poor water quality from supplier tanks", "Blackworms or earthworms"],
+        ["Beef/Chicken/Pork", "Wrong fat/protein ratio, no nutritional balance", "Earthworms (natural food source)"],
+        ["Fish Flakes/Pellets", "Designed for fish, not amphibians—nutritional mismatch", "Repashy Grub Pie or whole prey"],
+        ["Live Fish (As Tank Mates)", "Nip axolotl gills, stress, potential disease transmission", "Keep axolotls solitary, feed frozen fish"],
+        ["Bread/Human Food", "No nutritional value, causes digestive blockage", "Any appropriate carnivore food above"],
+        ["Feeder Guppies/Minnows", "Disease vectors, high thiaminase, poor nutrition", "Frozen silversides"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "text": "NEVER feed live fish to axolotls. Fish nip gills, transmit parasites, and have poor nutritional value. Frozen fish are safer and more nutritious."
+    },
+    {
+      "type": "section",
+      "heading": "Feeding Techniques"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Tong-Feeding (Recommended)</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Use long feeding tongs or chopsticks",
+        "Hold food 1-2 inches from axolotl's head",
+        "Wiggle food to trigger feeding response",
+        "Axolotl will snap/suck food from tongs",
+        "Advantages: Prevents substrate ingestion, ensures all axolotls in multi-specimen tanks eat, interactive feeding"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Dropping Food</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Drop food near axolotl (not directly on head)",
+        "Works well for wriggling worms—movement triggers feeding",
+        "Disadvantages: Food may land on substrate, axolotl inhales substrate while eating",
+        "Monitor to ensure food is consumed—remove uneaten food"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Feeding Dishes</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Shallow dish (ceramic, glass) on tank bottom",
+        "Place food in dish, axolotl learns to check dish at feeding time",
+        "Advantages: Easy to remove uneaten food, reduces substrate ingestion",
+        "Disadvantages: Less interactive, some axolotls ignore dish initially (training period)"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Portion Sizing"
+    },
+    {
+      "type": "text",
+      "text": "Determining correct portion sizes prevents underfeeding (stunted growth) and overfeeding (obesity)."
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>General Guidelines</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Juveniles:</span> As much as they'll eat in 10-15 minutes, once daily",
+        "<span class='font-semibold'>Adults:</span> Abdomen should be slightly rounded after meal, not bulging",
+        "<span class='font-semibold'>Earthworm Portions:</span> Adult axolotl (10 inches) = 3-4 large nightcrawlers every 2-3 days",
+        "<span class='font-semibold'>Visual Check:</span> Axolotl should have visible backbone when hungry (not spine protruding), slightly filled when fed"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Signs of Overfeeding</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Visibly swollen abdomen lasting 24+ hours after feeding",
+        "Floating (intestinal gas from overfeeding)",
+        "Regurgitating food 1-2 hours after eating",
+        "Rapid nitrate accumulation in tank (excess waste)",
+        "Loss of visible spine/waistline—looks rounded/tubby even when unfed"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Signs of Underfeeding</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Prominent spine and hip bones visible even after feeding",
+        "Thin appearance—head wider than body",
+        "Frantic feeding behavior—lunges desperately at food",
+        "Slow growth rate in juveniles (should grow 1-2 inches per month)",
+        "Lethargy from insufficient energy"
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "When switching from daily to every-other-day feeding (around 6 inches length), increase portion size by 50% to compensate for reduced frequency. Monitor body condition and adjust accordingly."
+    },
+    {
+      "type": "section",
+      "heading": "Special Feeding Situations"
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Fasting Periods</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Adult axolotls can safely fast 1-2 weeks without harm",
+        "Fasting recommended during water quality emergencies (reduces ammonia production)",
+        "Some keepers fast adults 1 day per week to prevent obesity",
+        "Never fast juveniles—they need consistent food for growth"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Post-Illness Feeding</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "After illness/medication, resume feeding at 50% normal portions",
+        "Gradually increase to full portions over 5-7 days",
+        "Offer highly palatable foods (blackworms, small earthworms) to encourage appetite",
+        "If axolotl refuses food 5+ days post-recovery, consult exotic vet"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Multi-Specimen Feeding</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Use feeding tongs to ensure each axolotl receives appropriate portion",
+        "Feed in separate corners to prevent competition/aggression",
+        "Watch for dominant axolotl stealing food from smaller tank mates",
+        "Consider temporary separation during feeding if aggression occurs",
+        "Remove uneaten food after 30 minutes to prevent water quality issues"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Water Quality and Feeding"
+    },
+    {
+      "type": "text",
+      "text": "Feeding directly impacts water quality. Overfeeding is a leading cause of ammonia spikes."
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Always Remove Uneaten Food:</span> After 30 minutes, siphon out uneaten worms/fish to prevent decomposition",
+        "<span class='font-semibold'>Reduce Feeding if Nitrates Rise:</span> If nitrates climb rapidly (10+ ppm per week), reduce portion size or frequency",
+        "<span class='font-semibold'>Fast During Water Emergencies:</span> If ammonia/nitrites detected, stop feeding until parameters stabilize (0 ppm for 48+ hours)",
+        "<span class='font-semibold'>Post-Water Change Feeding:</span> Some keepers skip feeding day of water change to avoid excess waste accumulation"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Cost Considerations"
+    },
+    {
+      "type": "table",
+      "headers": ["Food Type", "Cost per Feeding", "Monthly Cost (Adult)", "Availability"],
+      "rows": [
+        ["Earthworms (Bulk)", "$0.10-0.30", "$4-12", "Excellent (bait shops, online)"],
+        ["Blackworms", "$0.50-1.00", "$15-30", "Good (specialty stores, online)"],
+        ["Frozen Silversides", "$0.30-0.60", "$9-18", "Excellent (most fish stores)"],
+        ["Repashy Grub Pie", "$0.20-0.40", "$6-12", "Good (online, reptile stores)"],
+        ["Waxworms (Occasional)", "$0.30-0.50 per treat", "$2-4 (occasional)", "Good (reptile stores)"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='font-semibold'>Cost-Saving Tips</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Buy earthworms in bulk online (500-1000 count)—significant per-worm savings",
+        "Maintain DIY worm composting bin—worms reproduce, free food long-term",
+        "Alternate between earthworms (cheap) and occasional variety foods (expensive) instead of all premium foods",
+        "Purchase frozen fish in bulk bags instead of small packets",
+        "Split bulk orders with other axolotl keepers—group buying discounts"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Common Feeding Mistakes"
+    },
+    {
+      "type": "table",
+      "headers": ["Mistake", "Why It's Harmful", "Correct Approach"],
+      "rows": [
+        ["Feeding adult axolotls daily", "Obesity, fatty liver disease, reduced lifespan", "Adults: every 2-3 days. Juveniles: daily."],
+        ["Using only one food type", "Nutritional imbalance over time", "Rotate 2-3 staple foods (earthworms, blackworms, frozen fish)"],
+        ["Feeding live fish", "Parasites, disease, gill damage, poor nutrition", "Feed frozen fish only—safer, more nutritious"],
+        ["Oversized food pieces", "Choking, regurgitation, stress", "Cut food to 1/2 axolotl's head width maximum"],
+        ["Leaving uneaten food", "Water quality crashes from decomposition", "Remove uneaten food after 30 minutes"],
+        ["Feeding immediately after water change", "Stress from handling, some keepers report reduced appetite", "Feed 2-3 hours after water change or skip that day"],
+        ["Not fasting during illness", "Continued ammonia production worsens water quality", "Fast until water parameters stabilize (ammonia/nitrites 0)"]
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Signs of Healthy Feeding Behavior"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Immediate interest when food presented—turns toward food, approaches",
+        "Powerful suction feeding—food disappears instantly",
+        "Swallows food within 5-10 seconds",
+        "Resumes normal activity after feeding (no floating, no regurgitation)",
+        "Consistent appetite on feeding schedule",
+        "Gradual, steady growth in juveniles (1-2 inches per month)",
+        "Healthy body condition—slight spine visibility when unfed, slight fill when fed"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Loss of Appetite Troubleshooting"
+    },
+    {
+      "type": "text",
+      "text": "If axolotl refuses food for 3+ consecutive feedings:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Test Water:</span> Ammonia, nitrites, nitrates, pH, temperature—poor water quality = appetite loss",
+        "<span class='font-semibold'>Check Temperature:</span> Above 70°F reduces appetite. Cool water immediately.",
+        "<span class='font-semibold'>Offer Different Food:</span> Switch from earthworms to blackworms or frozen fish—may stimulate interest",
+        "<span class='font-semibold'>Check for Illness:</span> Curled gills, fungus, lethargy indicate health issues—consult exotic vet",
+        "<span class='font-semibold'>Reduce Stress:</span> Minimize handling, provide hiding spots, reduce light exposure",
+        "<span class='font-semibold'>Fast 3-5 Days:</span> Sometimes appetites reset after brief fasting period (adults only)",
+        "<span class='font-semibold'>Veterinary Consultation:</span> If appetite loss exceeds 7-10 days with no obvious cause"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Related Guides"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<a href='/blog/axolotl-enrichment-welfare-guide' class='text-emerald-600 underline'>Enrichment & Welfare Guide</a> - Complete overview of axolotl care",
+        "<a href='/blog/axolotl-temperature-water-quality' class='text-emerald-600 underline'>Temperature & Water Quality Guide</a> - Water parameters and feeding's impact on water quality",
+        "<a href='/blog/axolotl-substrate-guide' class='text-emerald-600 underline'>Substrate Guide</a> - Preventing substrate ingestion during feeding"
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Key Takeaways"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Juveniles (under 8 inches): feed daily. Adults (8+ inches): feed every 2-3 days.",
+        "Earthworms are BEST staple food—complete nutrition, appropriate size, readily available",
+        "Rotate 2-3 staple foods for balanced nutrition—earthworms, blackworms, frozen silversides",
+        "NEVER feed live fish, mealworms, or human food—causes disease, poor nutrition, blockage",
+        "All food must be swallowable whole—cut oversized pieces before feeding",
+        "Remove uneaten food after 30 minutes—prevents water quality degradation",
+        "Tong-feeding preferred—reduces substrate ingestion, ensures even feeding in multi-specimen tanks",
+        "Monitor body condition: slight spine visibility when hungry = healthy weight",
+        "Fast during water quality emergencies—reduces ammonia production",
+        "Monthly feeding cost: $4-30 depending on food choices and bulk buying"
+      ]
+    }
+  ]
+}
