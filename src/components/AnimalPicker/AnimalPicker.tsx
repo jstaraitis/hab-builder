@@ -94,7 +94,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-3 sm:p-6">
       <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">Select Animal</h2>
       <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">Choose your animal and we'll build a habitat for it.</p>
       
@@ -267,7 +267,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
         )}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 min-[400px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4 justify-items-stretch">
         {filteredAnimals.map((animal) => {
           // Determine border and accent colors based on care level
           const getCareLevelColors = () => {
@@ -319,8 +319,8 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
               <div className={`absolute top-0 left-0 right-0 h-1 ${colors.accent}`} />
 
               {/* Image with colored border and text overlay */}
-              <div className="p-4">
-                <div className={`relative w-full aspect-[4/3] rounded-lg overflow-hidden border-4 ${
+              <div className="p-2 sm:p-3">
+                <div className={`relative w-full aspect-[4/3] rounded-lg overflow-hidden border-2 md:border-4 ${
                   selected === animal.id ? colors.border : 'border-gray-200 dark:border-gray-700'
                 } transition-all duration-300`}>
                   {animal.imageUrl ? (
@@ -336,21 +336,21 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
                   )}
                   
                   {/* Dark gradient overlay for text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
                   
                   {/* Status Ribbon - Top Right Corner */}
                   {animal.completionStatus && getStatusBadge(animal.completionStatus)}
 
                   {/* Text overlay at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 p-3 space-y-0.5">
+                  <div className="absolute bottom-0 left-0 right-0 p-2.5 md:p-3 space-y-0.5">
                     {/* Common Name - Bold and Prominent */}
-                    <h3 className="font-bold text-base text-white leading-tight tracking-tight line-clamp-2 drop-shadow-lg">
+                    <h3 className="font-bold text-sm md:text-base text-white leading-tight tracking-tight line-clamp-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                       {animal.name}
                     </h3>
                     
                     {/* Scientific Name - Prominent italic */}
                     {animal.scientificName && (
-                      <p className="text-xs font-medium italic text-white/90 tracking-wide drop-shadow-md">
+                      <p className="text-[11px] md:text-xs font-medium italic text-white/95 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                         {animal.scientificName}
                       </p>
                     )}

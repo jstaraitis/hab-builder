@@ -55,10 +55,10 @@ export function SuppliesView({ plan, input }: SuppliesViewProps) {
       <div className="flex justify-center mt-6">
         <Link
           to="/plan"
-          className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-200 hover:-translate-y-1 active:scale-95 inline-flex items-center gap-2"
+          className="group w-full lg:w-auto px-12 py-5 lg:py-4 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white font-bold text-lg lg:text-xl rounded-xl shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 hover:-translate-y-1 active:scale-95 active:rotate-1 border-2 border-emerald-400/20 inline-flex items-center justify-center gap-2"
         >
           Continue to Plan
-          <ArrowRight className="w-5 h-5" />
+          <ArrowRight className="w-5 h-5 transition-transform duration-200 group-active:translate-x-1 group-active:scale-110" />
         </Link>
       </div>
     </div>

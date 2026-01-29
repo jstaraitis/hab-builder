@@ -246,11 +246,18 @@ function addHeatLamp(
 
   // Calculate wattage based on temperature difference and enclosure volume
   const volume = calculateVolume(dims);
-  const tempDifference = profile.careTargets.temperature.basking - input.ambientTemp;
+  
+  // Handle basking temp as either number or object with min/max
+  const baskingTemp = typeof profile.careTargets.temperature.basking === 'number' 
+    ? profile.careTargets.temperature.basking 
+    : profile.careTargets.temperature.basking.max || profile.careTargets.temperature.basking.min || 90;
+  
+  const ambientTemp = input.ambientTemp || 72; // Default to 72°F if not specified
+  const tempDifference = baskingTemp - ambientTemp;
   const baseWattage = volume * 20; // 20W per cubic foot as baseline
   const wattage = Math.max(25, Math.min(150, Math.round(baseWattage * (tempDifference / 20))));
   
-  const sizing = `Based on ${Math.round(volume)} cubic feet and ${tempDifference}°F temperature difference from ambient (${input.ambientTemp}°F)`;
+  const sizing = `Based on ${Math.round(volume)} cubic feet and ${tempDifference}°F temperature difference from ambient (${ambientTemp}°F)`;
   
   // Add CHE with automatic dependencies (dome-fixture, thermostat)
   addItemWithDependencies(items, 'heat-lamp', config, `1 (${wattage}W estimate)`, sizing, profile, input);

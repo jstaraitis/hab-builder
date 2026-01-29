@@ -105,46 +105,75 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-3">
           Setup Quality & Budget
         </label>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
+          {/* Minimum Tier */}
           <button
             onClick={() => onChange({ ...value, setupTier: 'minimum' })}
-            className={`relative overflow-hidden rounded-xl px-4 py-5 lg:py-4 text-sm font-medium transition-all active:scale-95 ${
+            className={`group relative overflow-hidden rounded-xl px-3 py-4 sm:px-4 sm:py-5 text-sm font-medium transition-all duration-200 ${
               value.setupTier === 'minimum'
-                ? 'bg-gradient-to-br from-gray-100 to-slate-100 dark:from-gray-700 dark:to-slate-700 border-2 border-gray-400 dark:border-gray-500 shadow-md'
-                : 'bg-gradient-to-br from-gray-50 to-slate-50 dark:from-gray-800 dark:to-slate-800 border-2 border-gray-300 dark:border-gray-600'
+                ? 'bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-800 border-2 border-slate-400 dark:border-slate-500 shadow-lg scale-[1.02]'
+                : 'bg-white dark:bg-gray-800 border-2 border-slate-200 dark:border-gray-700 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-md hover:scale-[1.01]'
             }`}
           >
-              <CheckCircle className="w-7 h-7 lg:w-6 lg:h-6 mb-2 mx-auto lg:mx-0 text-gray-900 dark:text-white" />
-            <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">Minimum</div>
-            <div className="text-xs text-gray-600 dark:text-gray-400 mt-1 whitespace-nowrap">Bare essentials</div>
+            <div className="flex flex-col items-center text-center">
+              <CheckCircle className={`w-8 h-8 mb-2 transition-colors ${
+                value.setupTier === 'minimum' 
+                  ? 'text-slate-600 dark:text-slate-300' 
+                  : 'text-slate-400 dark:text-gray-500 group-hover:text-slate-500 dark:group-hover:text-slate-400'
+              }`} />
+              <div className="font-bold text-gray-900 dark:text-white text-base mb-0.5">Minimum</div>
+              <div className="text-xs text-gray-600 dark:text-gray-400">Budget-friendly & functional</div>
+            </div>
           </button>
+
+          {/* Recommended Tier - Emphasized */}
           <button
             onClick={() => onChange({ ...value, setupTier: 'recommended' })}
-            className={`relative overflow-hidden rounded-xl px-4 py-5 lg:py-4 text-sm font-medium transition-all active:scale-95 ${
+            className={`group relative overflow-hidden rounded-xl px-3 py-5 sm:px-4 sm:py-6 text-sm font-medium transition-all duration-200 ${
               value.setupTier === 'recommended'
-                ? 'bg-gradient-to-br from-amber-100 to-yellow-100 dark:from-amber-900/40 dark:to-yellow-900/40 border-2 border-amber-400 dark:border-amber-600 shadow-md'
-                : 'bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-2 border-amber-200 dark:border-amber-800'
+                ? 'bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 dark:from-amber-900/50 dark:via-yellow-900/50 dark:to-amber-800/50 border-2 border-amber-400 dark:border-amber-500 shadow-xl shadow-amber-200/50 dark:shadow-amber-900/30 scale-105 sm:scale-110 z-10'
+                : 'bg-white dark:bg-gray-800 border-2 border-amber-200 dark:border-amber-900/40 hover:border-amber-300 dark:hover:border-amber-700 hover:shadow-lg hover:shadow-amber-100/50 dark:hover:shadow-amber-900/20 hover:scale-[1.03] sm:hover:scale-[1.08]'
             }`}
           >
-            <Star className="w-7 h-7 lg:w-6 lg:h-6 mb-2 mx-auto lg:mx-0 text-amber-600 dark:text-amber-400" />
-            <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">Recommended</div>
-            <div className="text-xs text-amber-700 dark:text-amber-400 mt-1 whitespace-nowrap">Best value</div>
+            {/* Popular Badge */}
+            <div className={`absolute -top-1 -right-1 px-2 py-0.5 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[10px] font-bold rounded-bl-lg rounded-tr-lg shadow-md transition-opacity ${
+              value.setupTier === 'recommended' ? 'opacity-100' : 'opacity-0 group-hover:opacity-80'
+            }`}>
+              POPULAR
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <Star className={`w-10 h-10 mb-2.5 transition-all ${
+                value.setupTier === 'recommended' 
+                  ? 'text-amber-500 dark:text-amber-400 drop-shadow-md fill-amber-400 dark:fill-amber-500' 
+                  : 'text-amber-400 dark:text-amber-600 group-hover:text-amber-500 dark:group-hover:text-amber-500 group-hover:fill-amber-300 dark:group-hover:fill-amber-600'
+              }`} />
+              <div className="font-bold text-gray-900 dark:text-white text-lg mb-1">Recommended</div>
+              <div className="text-xs font-medium text-amber-600 dark:text-amber-400">Best quality-to-price ratio</div>
+            </div>
           </button>
+
+          {/* Ideal Tier */}
           <button
             onClick={() => onChange({ ...value, setupTier: 'ideal' })}
-            className={`relative overflow-hidden rounded-xl px-4 py-5 lg:py-4 text-sm font-medium transition-all active:scale-95 ${
+            className={`group relative overflow-hidden rounded-xl px-3 py-4 sm:px-4 sm:py-5 text-sm font-medium transition-all duration-200 ${
               value.setupTier === 'ideal'
-                ? 'bg-gradient-to-br from-emerald-100 to-green-100 dark:from-emerald-900/40 dark:to-green-900/40 border-2 border-emerald-400 dark:border-emerald-600 shadow-md'
-                : 'bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 border-2 border-emerald-200 dark:border-emerald-800'
+                ? 'bg-gradient-to-br from-emerald-100 to-green-200 dark:from-emerald-900/50 dark:to-green-900/50 border-2 border-emerald-400 dark:border-emerald-500 shadow-lg shadow-emerald-200/50 dark:shadow-emerald-900/30 scale-[1.02]'
+                : 'bg-white dark:bg-gray-800 border-2 border-emerald-200 dark:border-emerald-900/40 hover:border-emerald-300 dark:hover:border-emerald-700 hover:shadow-md hover:shadow-emerald-100/50 dark:hover:shadow-emerald-900/20 hover:scale-[1.01]'
             }`}
           >
-            <Award className="w-7 h-7 lg:w-6 lg:h-6 mb-2 mx-auto lg:mx-0 text-emerald-600 dark:text-emerald-400" />
-            <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">Ideal</div>
-            <div className="text-sm text-emerald-700 dark:text-emerald-400 mt-1 whitespace-nowrap">Premium quality</div>
+            <div className="flex flex-col items-center text-center">
+              <Award className={`w-8 h-8 mb-2 transition-colors ${
+                value.setupTier === 'ideal' 
+                  ? 'text-emerald-600 dark:text-emerald-400' 
+                  : 'text-emerald-400 dark:text-emerald-600 group-hover:text-emerald-500 dark:group-hover:text-emerald-500'
+              }`} />
+              <div className="font-bold text-gray-900 dark:text-white text-base mb-0.5">Ideal</div>
+              <div className="text-xs text-emerald-700 dark:text-emerald-400">Top-tier equipment</div>
+            </div>
           </button>
         </div>
-        <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-          This helps determine which equipment options appear in your shopping list
+        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-3 text-center sm:text-left">
+          This determines which equipment options appear in your shopping list
         </p>
       </div>
 
@@ -479,7 +508,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
             background: 'linear-gradient(to right, rgb(245, 158, 11), rgb(6, 182, 212))'
           }}
         />
-        <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">Your room's natural humidity level</p>
+        <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">Your room's average humidity level</p>
       </div>
 
       {/* Humidity Control Method - Only show if needed */}

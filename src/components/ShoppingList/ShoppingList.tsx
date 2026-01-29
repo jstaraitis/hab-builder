@@ -59,26 +59,26 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 lg:p-6">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md px-0 py-3 sm:px-2 sm:py-4">
       {showHeader && (
-        <div className="mb-5 lg:mb-6">
-          <h3 className="text-2xl lg:text-2xl font-bold text-gray-800 dark:text-white mb-4">Shopping List</h3>
+        <div className="mb-2">
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white mb-1.5">Shopping List</h3>
           <p className="text-base text-gray-600 dark:text-gray-400">
             Showing <span className={`font-semibold ${tierLabels[selectedTier].color}`}>{tierLabels[selectedTier].label}</span> tier
           </p>
         </div>
       )}
 
-      <div className="space-y-3 lg:space-y-4">
+      <div className="space-y-2 sm:space-y-3">
         {Object.entries(groupedItems).map(([category, categoryItems]) => {
           const isExpanded = expandedCategories[category];
           return (
             <div key={category} className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
               <button
                 onClick={() => toggleCategory(category)}
-                className="w-full flex items-center justify-between p-3 lg:py-4 lg:px-4 bg-gray-50 dark:bg-gray-900/50 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
+                className="w-full flex items-center justify-between p-2.5 sm:p-3 bg-gray-50 dark:bg-gray-900/50 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
               >
-                <div className="flex items-center gap-2 lg:gap-3">
+                <div className="flex items-center gap-2 sm:gap-3">
                   {(() => {
                     const imap: Record<string, React.ReactNode> = {
                       enclosure: <Home className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
@@ -91,10 +91,10 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
                     };
                     return imap[category] ?? null;
                   })()}
-                  <h4 className="text-base lg:text-lg font-semibold text-gray-800 dark:text-gray-100">
+                  <h4 className="text-sm sm:text-base font-semibold text-gray-800 dark:text-gray-100">
                     {categories[category as keyof typeof categories]}
                   </h4>
-                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-gray-700 px-3 py-1.5 rounded-full">
+                  <span className="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded-full">
                     {categoryItems.length}
                   </span>
                 </div>
@@ -120,29 +120,31 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
                         className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/30 transition-colors"
                       >
                         {/* Compact Row */}
-                        <div className="p-3 lg:p-4">
-                          <div className="flex items-start justify-between gap-3">
+                        <div className="p-2.5 sm:p-3">
+                          <div className="flex items-start justify-between gap-1 sm:gap-3">
                             <button
                               onClick={() => toggleItem(item.id)}
                               className="flex-1 text-left"
                             >
-                              <div className="flex items-center gap-2">
+                              <div className="flex items-start gap-2">
                                 {/* Importance Badge */}
                                 {item.importance === 'required' && (
-                                  <span className="w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
+                                  <span className="w-2 h-2 rounded-full bg-red-500 flex-shrink-0 mt-1.5"></span>
                                 )}
                                 {item.importance === 'recommended' && (
-                                  <span className="w-2 h-2 rounded-full bg-cyan-500 flex-shrink-0"></span>
+                                  <span className="w-2 h-2 rounded-full bg-cyan-500 flex-shrink-0 mt-1.5"></span>
                                 )}
                                 {item.importance === 'conditional' && (
-                                  <span className="w-2 h-2 rounded-full bg-yellow-500 flex-shrink-0"></span>
+                                  <span className="w-2 h-2 rounded-full bg-yellow-500 flex-shrink-0 mt-1.5"></span>
                                 )}
-                                <h5 className="font-medium text-base lg:text-base text-gray-900 dark:text-white line-clamp-1">
-                                  {item.name}
-                                </h5>
-                                <span className="text-sm text-gray-500 dark:text-gray-400 flex-shrink-0">
-                                  × {item.quantity}
-                                </span>
+                                <div className="flex-1">
+                                  <h5 className="font-medium text-sm sm:text-base text-gray-900 dark:text-white inline">
+                                    {item.name}
+                                  </h5>
+                                  <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 ml-2 whitespace-nowrap">
+                                    × {item.quantity}
+                                  </span>
+                                </div>
                               </div>
                             </button>
                             
@@ -153,7 +155,7 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={(e) => e.stopPropagation()}
-                                className="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 lg:px-4 lg:py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs lg:text-sm font-medium rounded-lg transition-colors active:scale-95"
+                                className="flex-shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-medium rounded-lg transition-colors active:scale-95"
                               >
                                 <ShoppingBag className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
                                 <span className="hidden sm:inline">Buy Now</span>
@@ -165,7 +167,7 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
 
                         {/* Expanded Details */}
                         {isItemExpanded && (
-                          <div className="px-3 pb-3 lg:px-4 lg:pb-4 space-y-2 border-t border-gray-100 dark:border-gray-700 pt-3">
+                          <div className="px-2.5 pb-2.5 sm:px-3 sm:pb-3 space-y-1.5 border-t border-gray-100 dark:border-gray-700 pt-2">
                             {tierOption && (
                               <div className="space-y-1">
                                 <p className="text-xs lg:text-sm text-gray-700 dark:text-gray-300">

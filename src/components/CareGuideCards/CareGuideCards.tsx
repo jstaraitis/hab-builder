@@ -117,27 +117,27 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
   ];
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-      <div className="flex items-center justify-between mb-5">
-        <h3 className="text-3xl font-semibold text-gray-900 dark:text-white">Complete Care Guides</h3>
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-3 sm:p-4">
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-900 dark:text-white">Complete Care Guides</h3>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {guides.map((guide, index) => (
           guide.id ? (
             <div
               key={index}
-              className={`relative overflow-hidden rounded-xl bg-gradient-to-br ${guide.gradient} border-2 ${guide.border} p-5 h-full flex flex-col`}
+              className={`relative overflow-hidden rounded-xl bg-gradient-to-br ${guide.gradient} border-2 ${guide.border} p-3 sm:p-4 h-full flex flex-col`}
             >
-              <div className="flex items-start justify-between mb-3">
-                <div className={`${guide.iconBg} rounded-full p-3`}>
+              <div className="flex items-start justify-between mb-2">
+                <div className={`${guide.iconBg} rounded-full p-2`}>
                   <div className={guide.iconColor}>{guide.icon}</div>
                 </div>
               </div>
               
-              <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-3">{guide.title}</h4>
+              <h4 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg mb-2">{guide.title}</h4>
               
-              <div className="space-y-2 flex-grow">
+              <div className="space-y-1.5 flex-grow">
                 {guide.info.map((item, idx) => (
                   <p key={idx} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
                     <span className={`${guide.iconColor} mt-0.5`}>•</span>
@@ -147,7 +147,7 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
               </div>
               
               {guide.secondaryId ? (
-                <div className={`mt-4 pt-3 border-t ${guide.border} space-y-2`}>
+                <div className={`mt-3 pt-2 border-t ${guide.border} space-y-1.5`}>
                   <Link
                     to={`/blog/${guide.id}`}
                     className={`flex items-center gap-2 text-sm font-semibold ${guide.linkColor} hover:underline group`}

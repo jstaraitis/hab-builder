@@ -191,23 +191,23 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-lg p-6 mb-6 border border-gray-200 dark:border-gray-700">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="p-2 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg">
-          <Ruler className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+    <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-lg p-3 sm:p-4 mb-6 border border-gray-200 dark:border-gray-700">
+      <div className="flex items-center gap-2 mb-3">
+        <div className="p-1.5 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg">
+          <Ruler className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
         </div>
-        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
           Quick Facts
         </h3>
       </div>
       
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
         {facts.map((fact, index) => (
           <div
             key={index}
-            className="group relative flex flex-col items-center text-center p-4 rounded-xl bg-white dark:bg-gray-800 border-2 border-gray-100 dark:border-gray-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-lg transition-all duration-200 hover:-translate-y-1"
+            className="group relative flex flex-col items-center text-center p-3 rounded-xl bg-white dark:bg-gray-800 border-2 border-gray-100 dark:border-gray-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-lg transition-all duration-200 hover:-translate-y-1"
           >
-            <div className="mb-3 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-200">
+            <div className="mb-2 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-200">
               {fact.icon}
             </div>
             <div className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
@@ -225,8 +225,8 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
         ))}
       </div>
       
-      <div className="mt-6 pt-5 border-t-2 border-gray-200 dark:border-gray-700">
-        <div className="flex items-start gap-3 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-200 dark:border-yellow-800">
+      <div className="mt-4 pt-3 border-t-2 border-gray-200 dark:border-gray-700">
+        <div className="flex items-start gap-2 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-200 dark:border-yellow-800">
           <Sun className="w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />
           <p className="text-sm text-gray-700 dark:text-gray-300">
             <strong className="text-yellow-700 dark:text-yellow-400">Pro Tip:</strong> These are baseline requirements. Larger enclosures are always better for your animal's health and happiness!

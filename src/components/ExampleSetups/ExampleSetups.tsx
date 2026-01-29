@@ -32,22 +32,31 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
   ];
 
   return (
-    <div className="space-y-6">
-      <div className="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-6">
-        <div className="flex items-start gap-4">
-          <Star className="w-8 h-8 text-purple-700 mt-1" />
+    <div className="space-y-4 sm:space-y-6">
+      {/* Main Header Card - Improved Design */}
+      <div className="bg-gradient-to-br from-purple-50 via-indigo-50 to-purple-100 dark:from-purple-900/30 dark:via-indigo-900/30 dark:to-purple-800/30 border-2 border-purple-200 dark:border-purple-700 rounded-xl p-4 sm:p-6 shadow-lg">
+        <div className="flex items-start gap-3 sm:gap-4">
+          <div className="p-2 sm:p-2.5 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+            <Star className="w-6 h-6 sm:w-7 sm:h-7 text-purple-600 dark:text-purple-400" />
+          </div>
           <div className="flex-1">
-            <h3 className="text-xl font-bold text-purple-900 dark:text-purple-200 mb-2">Example Enclosure Setups</h3>
-            <p className="text-purple-800 dark:text-purple-300 mb-3">
+            <h3 className="text-lg sm:text-xl font-bold text-purple-900 dark:text-purple-100 mb-1.5 sm:mb-2">Example Enclosure Setups</h3>
+            <p className="text-sm sm:text-base text-purple-800 dark:text-purple-200 mb-3 sm:mb-4 leading-relaxed">
               Browse personal designed enclosure layouts for inspiration. Each setup is tailored for White's Tree Frogs with proper care requirements.
             </p>
-            <div className="bg-white/50 dark:bg-gray-800/50 rounded-lg p-3 border border-purple-200 dark:border-purple-700">
-              <p className="text-sm font-medium text-purple-900 dark:text-purple-200 flex items-center gap-2">
-                <Award className="w-4 h-4 text-amber-500" /> <strong>Want to create custom layouts?</strong>
-              </p>
-              <p className="text-sm text-purple-800 dark:text-purple-300 mt-1">
-               Interactive Enclosure Designer with drag-and-drop equipment, rotation, resizing, and more is in progress!
-              </p>
+            
+            {/* Premium Feature Callout - Redesigned */}
+            <div className="relative overflow-hidden bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/30 dark:to-yellow-900/30 rounded-lg p-3 sm:p-4 border-2 border-amber-200 dark:border-amber-700 shadow-sm">
+              <div className="absolute top-0 right-0 w-20 h-20 bg-amber-200/30 dark:bg-amber-600/20 rounded-full -mr-10 -mt-10" />
+              <div className="relative">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <Award className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                  <span className="text-sm sm:text-base font-bold text-amber-900 dark:text-amber-200">Want to create custom layouts?</span>
+                </div>
+                <p className="text-xs sm:text-sm text-amber-800 dark:text-amber-300 leading-relaxed">
+                  Interactive Enclosure Designer with drag-and-drop equipment, rotation, resizing, and more is in progress!
+                </p>
+              </div>
             </div>
           </div>
         </div>

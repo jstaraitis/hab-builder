@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from 'react';
 import { Routes, Route, Navigate, Link, useNavigate, useLocation } from 'react-router-dom';
-import { Bug, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare } from 'lucide-react';
 import type { EnclosureInput, BuildPlan, AnimalProfile } from './engine/types';
 import { generatePlan } from './engine/generatePlan';
 import { AnimalSelectView } from './components/Views/AnimalSelectView';
@@ -91,7 +91,7 @@ function App() {
   };
 
   const progressSteps = [
-    { label: 'Choose Animal', icon: Bug },
+    { label: 'Choose Animal', icon: Worm },
     { label: 'Design Enclosure', icon: Pencil },
     { label: 'Get Supplies', icon: ShoppingCart },
     { label: 'Build Plan', icon: ClipboardList },
@@ -132,7 +132,7 @@ function App() {
               to="/animal"
               className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/animal') ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-emerald-400'}`}
             >
-             <Bug className="w-4 h-4 inline mr-1.5" /> Animal
+             <Worm className="w-4 h-4 inline mr-1.5" /> Animal
             </Link>
             {input.animal && (
               <Link
@@ -247,7 +247,7 @@ function App() {
                 <div className="space-y-6">
                   <div className="flex justify-between items-center">
                     <div>
-                      <h2 className="text-2xl font-bold text-gray-800 dark:text-white">💎 Interactive Designer</h2>
+                      <h2 className="text-2xl font-bold text-gray-800 dark:text-white">💎 In Development - Interactive Designer</h2>
                       <p className="text-sm text-gray-600 dark:text-gray-400">Drag, rotate, and resize equipment to design your perfect enclosure</p>
                     </div>
                     <Link to="/plan" className="hidden lg:inline text-blue-700 dark:text-blue-400 font-medium underline">Back to Plan</Link>
