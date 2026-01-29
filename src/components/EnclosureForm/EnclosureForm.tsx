@@ -600,6 +600,43 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
         </p>
       </div>
 
+      {/* Number of Hides */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+          Number of Hides
+        </label>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => onChange({ ...value, numberOfHides: Math.max(1, value.numberOfHides - 1) })}
+            className="w-10 h-10 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold transition-colors flex items-center justify-center"
+            aria-label="Decrease hides"
+          >
+            −
+          </button>
+          <input
+            type="number"
+            value={value.numberOfHides}
+            onChange={(e) => {
+              const num = parseInt(e.target.value) || 1;
+              onChange({ ...value, numberOfHides: Math.max(1, Math.min(6, num)) });
+            }}
+            min="1"
+            max="6"
+            className="w-20 px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md text-center font-medium focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          />
+          <button
+            onClick={() => onChange({ ...value, numberOfHides: Math.min(6, value.numberOfHides + 1) })}
+            className="w-10 h-10 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold transition-colors flex items-center justify-center"
+            aria-label="Increase hides"
+          >
+            +
+          </button>
+          <span className="text-sm text-gray-600 dark:text-gray-400">
+            Shelters for security (1-6)
+          </span>
+        </div>
+      </div>
+
       {/* Number of Ledges (for vertical/arboreal species) OR Climbing Areas (for horizontal/terrestrial species) */}
       {animalProfile?.layoutRules.preferVertical ? (
         <div>

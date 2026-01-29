@@ -195,11 +195,11 @@ export function FindYourAnimalView({ onAnimalSelected }: FindYourAnimalViewProps
         )}
 
         {/* Possible with Modifications */}
-        {possible.length > 0 && (
+        {possibleMatches.length > 0 && (
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Possible (with modifications)</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {possible.map((rec) => (
+              {possibleMatches.map((rec) => (
                 <AnimalRecommendationCard
                   key={rec.animalId}
                   recommendation={rec}
