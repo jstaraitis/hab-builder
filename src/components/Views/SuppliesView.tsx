@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Info, ArrowRight } from 'lucide-react';
 import type { BuildPlan, EnclosureInput } from '../../engine/types';
 import { ShoppingList } from '../ShoppingList/ShoppingList';
+import { CostSummary, RecurringCosts } from '../CostSummary';
 import { SEO } from '../SEO/SEO';
 
 interface SuppliesViewProps {
@@ -46,6 +47,19 @@ export function SuppliesView({ plan, input }: SuppliesViewProps) {
           </div>
         </div>
       </div>
+
+      {/* Cost Estimate */}
+      {plan.costEstimate && (
+        <CostSummary
+          costEstimate={plan.costEstimate}
+          selectedTier={input.setupTier || 'recommended'}
+        />
+      )}
+
+      {/* Recurring Costs Section */}
+      {plan.costEstimate && (
+        <RecurringCosts costEstimate={plan.costEstimate} />
+      )}
 
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Shopping List</h3>

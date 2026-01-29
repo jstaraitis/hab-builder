@@ -5,6 +5,8 @@
     "needsTags": ["heatSource:basking", "heatSource:ambient"],
     "requiredWith": ["dome-fixture", "thermostat", "surge-protector"],
     "importance": "required",
+    "isRecurring": false,
+    "recurringInterval": "12 months",
     "spec": {
       "type": "Ceramic Heat Emitter (CHE)",
       "wattage": "75-150W",
@@ -12,19 +14,22 @@
     },
     "tiers": {
       "minimum": {
-        "description": "Ceramic Heat Emitter",
-        "searchQuery": "ceramic heat emitter reptile"
+        "description": "Ceramic Heat Emitter 100W",
+        "searchQuery": "ceramic heat emitter reptile 100w",
+        "priceRange": { "min": 12, "max": 18 }
       },
       "recommended": {
-        "description": "Ceramic Heat Emitter",
-        "searchQuery": "ceramic heat emitter reptile"
+        "description": "Exo Terra Ceramic Heat Emitter 150W",
+        "searchQuery": "exo terra ceramic heat emitter 150w",
+        "priceRange": { "min": 16, "max": 25 }
       },
       "ideal": {
-        "description": "Ceramic Heat Emitter",
-        "searchQuery": "ceramic heat emitter reptile"
+        "description": "Premium Ceramic Heat Emitter with thermostat control",
+        "searchQuery": "premium ceramic heat emitter reptile",
+        "priceRange": { "min": 22, "max": 35 }
       }
     },
-    "notes": "Use thermostat to prevent overheating. NO heat mats (burn risk)."
+    "notes": "Use thermostat to prevent overheating. NO heat mats (burn risk). 75-150W depending on enclosure size."
   },
   "dome-fixture": {
     "name": "Dome Fixture (for CHE/DHP)",
@@ -39,18 +44,21 @@
     "tiers": {
       "minimum": {
         "description": "5.5\" basic dome with ceramic socket",
-        "searchQuery": "ceramic dome fixture reptile 5.5 inch"
+        "searchQuery": "ceramic dome fixture reptile 5.5 inch",
+        "priceRange": { "min": 15, "max": 25 }
       },
       "recommended": {
-        "description": "8.5\" dome with ceramic socket + clamp",
-        "searchQuery": "ceramic dome fixture reptile 8.5 inch clamp"
+        "description": "Zoo Med 8.5\" combo dome with clamp",
+        "searchQuery": "zoo med combo dome fixture 8.5 inch",
+        "priceRange": { "min": 45, "max": 70 }
       },
       "ideal": {
-        "description": "10\" deep dome with ceramic socket + guard",
-        "searchQuery": "deep dome fixture ceramic socket 10 inch"
+        "description": "Arcadia 10\" deep dome with ceramic socket + guard",
+        "searchQuery": "arcadia deep dome fixture ceramic 10 inch",
+        "priceRange": { "min": 65, "max": 95 }
       }
     },
-    "notes": "MUST have ceramic socket for CHE (plastic melts). Deep domes provide better heat spread. Ensure wattage rating matches or exceeds bulb wattage."
+    "notes": "MUST have ceramic socket for CHE (plastic melts). Deep domes provide better heat spread. Zoo Med Combo includes dual fixture capability."
   },
   "thermostat": {
     "name": "Thermostat (Heat Control)",
@@ -64,18 +72,21 @@
     "tiers": {
       "minimum": {
         "description": "Basic on/off thermostat",
-        "searchQuery": "reptile thermostat basic on off"
+        "searchQuery": "reptile thermostat basic on off",
+        "priceRange": { "min": 13, "max": 20 }
       },
       "recommended": {
-        "description": "Digital thermostat with probe",
-        "searchQuery": "digital reptile thermostat probe"
+        "description": "Digital pulse-proportional thermostat (Inkbird/Vivosun)",
+        "searchQuery": "inkbird digital thermostat reptile",
+        "priceRange": { "min": 25, "max": 40 }
       },
       "ideal": {
-        "description": "Dimming/proportional thermostat",
-        "searchQuery": "dimming thermostat reptile proportional"
+        "description": "Premium dual-channel thermostat with alarms",
+        "searchQuery": "premium digital thermostat dual channel reptile",
+        "priceRange": { "min": 45, "max": 65 }
       }
     },
-    "notes": "REQUIRED for all heat sources to prevent burns and overheating. Place probe at basking spot height. Dimming thermostats provide more stable temps than on/off."
+    "notes": "Essential for safe heat control. Prevents overheating which can kill reptiles. Pulse-proportional models are more efficient and maintain stable temps."
   },
   "deep-heat-projector": {
     "name": "Deep Heat Projector (DHP)",
@@ -83,6 +94,8 @@
     "needsTags": [],
     "requiredWith": ["surge-protector"],
     "importance": "recommended",
+    "isRecurring": false,
+    "recurringInterval": "12 months",
     "spec": {
       "type": "Infrared-A/B emitter",
       "wattage": "50-80W",
@@ -90,19 +103,22 @@
     },
     "tiers": {
       "minimum": {
-        "description": "50W DHP + basic dome",
-        "searchQuery": "deep heat projector 50w reptile"
+        "description": "Generic 50W DHP + basic dome",
+        "searchQuery": "deep heat projector 50w reptile",
+        "priceRange": { "min": 30, "max": 45 }
       },
       "recommended": {
-        "description": "80W DHP + dimming thermostat",
-        "searchQuery": "deep heat projector 80w dimming thermostat"
+        "description": "80W branded DHP (Arcadia/Pangea) + dimming thermostat",
+        "searchQuery": "arcadia deep heat projector 80w",
+        "priceRange": { "min": 49, "max": 71 }
       },
       "ideal": {
-        "description": "80W Arcadia DHP + premium dimmer",
-        "searchQuery": "arcadia deep heat projector 80w dimmer"
+        "description": "Arcadia 80W DHP + Arcadia EarthPro dimming thermostat",
+        "searchQuery": "arcadia deep heat projector 80w earthpro dimmer",
+        "priceRange": { "min": 64, "max": 90 }
       }
     },
-    "notes": "Emits infrared-A/B for deep tissue warming. Safe for 24/7 use. No visible light. Mimics sun better than CHE."
+    "notes": "Emits infrared-A/B for deep tissue warming. Safe for 24/7 use. No visible light. Mimics sun better than CHE. Arcadia DHPs are premium quality with longer lifespan and more consistent heat output."
   },
   "halogen-flood-bulb": {
     "name": "Halogen Flood Bulb",
@@ -110,6 +126,8 @@
     "needsTags": [],
     "requiredWith": ["surge-protector"],
     "importance": "recommended",
+    "isRecurring": false,
+    "recurringInterval": "12 months",
     "spec": {
       "type": "Halogen PAR38",
       "wattage": "50-100W",
@@ -118,15 +136,18 @@
     "tiers": {
       "minimum": {
         "description": "50W halogen flood",
-        "searchQuery": "halogen flood bulb 50w par38"
+        "searchQuery": "halogen flood bulb 50w par38",
+        "priceRange": { "min": 4, "max": 9 }
       },
       "recommended": {
         "description": "75W halogen PAR38 + dimmer",
-        "searchQuery": "halogen flood bulb 75w par38 dimmer"
+        "searchQuery": "halogen flood bulb 75w par38 dimmer",
+        "priceRange": { "min": 6, "max": 14 }
       },
       "ideal": {
         "description": "90W halogen PAR38 x2 + dimmer",
-        "searchQuery": "halogen flood bulb 90w par38"
+        "searchQuery": "halogen flood bulb 90w par38",
+        "priceRange": { "min": 11, "max": 23 }
       }
     },
     "notes": "Best daytime heat source - provides visible light + intense basking heat. DAYTIME ONLY (turn off at night). Emits infrared-A for deep penetrating warmth."
@@ -145,15 +166,18 @@
     "tiers": {
       "minimum": {
         "description": "Small heat mat + thermostat",
-        "searchQuery": "reptile heat mat thermostat"
+        "searchQuery": "reptile heat mat thermostat",
+        "priceRange": { "min": 19, "max": 30 }
       },
       "recommended": {
         "description": "Medium heat mat + digital thermostat",
-        "searchQuery": "reptile heat mat digital thermostat"
+        "searchQuery": "reptile heat mat digital thermostat",
+        "priceRange": { "min": 26, "max": 41 }
       },
       "ideal": {
         "description": "Heat mat + proportional thermostat",
-        "searchQuery": "reptile heat mat proportional thermostat"
+        "searchQuery": "reptile heat mat proportional thermostat",
+        "priceRange": { "min": 38, "max": 60 }
       }
     },
     "notes": "SUPPLEMENTAL ONLY - NOT primary heat source. Use under warm hide. MUST use thermostat (burns risk without). Does NOT heat ambient air. Good for belly heat for digestion."
@@ -172,15 +196,18 @@
     "tiers": {
       "minimum": {
         "description": "40W RHP + basic thermostat",
-        "searchQuery": "radiant heat panel 40w reptile"
+        "searchQuery": "radiant heat panel 40w reptile",
+        "priceRange": { "min": 45, "max": 68 }
       },
       "recommended": {
         "description": "60W RHP + thermostat",
-        "searchQuery": "radiant heat panel 60w thermostat"
+        "searchQuery": "radiant heat panel 60w thermostat",
+        "priceRange": { "min": 60, "max": 90 }
       },
       "ideal": {
         "description": "80W Pro Heat RHP + dimmer",
-        "searchQuery": "pro heat radiant heat panel 80w"
+        "searchQuery": "pro heat radiant heat panel 80w",
+        "priceRange": { "min": 83, "max": 120 }
       }
     },
     "notes": "Mounts to enclosure ceiling. Even heat distribution across enclosure. Safe for 24/7 use. No light emission. Very efficient - low energy use."
@@ -199,15 +226,18 @@
     "tiers": {
       "minimum": {
         "description": "15W heat cable + thermostat",
-        "searchQuery": "reptile heat cable 15w thermostat"
+        "searchQuery": "reptile heat cable 15w thermostat",
+        "priceRange": { "min": 23, "max": 38 }
       },
       "recommended": {
         "description": "25W heat cable + thermostat",
-        "searchQuery": "reptile heat cable 25w thermostat"
+        "searchQuery": "reptile heat cable 25w thermostat",
+        "priceRange": { "min": 30, "max": 49 }
       },
       "ideal": {
         "description": "Flexible heat cable + pulse thermostat",
-        "searchQuery": "flexible heat cable pulse thermostat reptile"
+        "searchQuery": "flexible heat cable pulse thermostat reptile",
+        "priceRange": { "min": 41, "max": 64 }
       }
     },
     "notes": "For bioactive setups - buried in substrate to create underground thermal gradient. Snake through substrate in zigzag pattern. Helps with plant root growth."
@@ -224,15 +254,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic 6-outlet surge protector",
-        "searchQuery": "surge protector 6 outlet"
+        "searchQuery": "surge protector 6 outlet",
+        "priceRange": { "min": 8, "max": 15 }
       },
       "recommended": {
         "description": "8-outlet surge protector with joule rating",
-        "searchQuery": "surge protector 8 outlet 1000 joules"
+        "searchQuery": "surge protector 8 outlet 1000 joules",
+        "priceRange": { "min": 14, "max": 26 }
       },
       "ideal": {
         "description": "Premium surge protector with individual switches",
-        "searchQuery": "surge protector 8 outlet individual switches"
+        "searchQuery": "surge protector 8 outlet individual switches",
+        "priceRange": { "min": 23, "max": 41 }
       }
     },
     "notes": "Protects expensive equipment (thermostats, lights, timers) from power surges. Get one with enough outlets for all devices (lights, heat, timers, misters, etc.)."

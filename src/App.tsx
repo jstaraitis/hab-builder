@@ -1,12 +1,13 @@
 import { useMemo, useState, useEffect } from 'react';
 import { Routes, Route, Navigate, Link, useNavigate, useLocation } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Camera } from 'lucide-react';
 import type { EnclosureInput, BuildPlan, AnimalProfile } from './engine/types';
 import { generatePlan } from './engine/generatePlan';
 import { AnimalSelectView } from './components/Views/AnimalSelectView';
 import { DesignView } from './components/Views/DesignView';
 import { PlanView } from './components/Views/PlanView';
 import { SuppliesView } from './components/Views/SuppliesView';
+import { FindYourAnimalView } from './components/Views/FindYourAnimalView';
 import CanvasDesigner from './components/EnclosureDesigner/CanvasDesigner';
 import { FeedbackModal } from './components/FeedbackModal/FeedbackModal';
 import { BlogList } from './components/Blog/BlogList';
@@ -100,6 +101,20 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800 pb-20 lg:pb-0">
+      {/* User Submission Banner */}
+      <div className="bg-gradient-to-br from-green-400 via-emerald-400 to-orange-400 text-white py-3 px-4 text-center">
+        <p className="text-base md:text-lg flex items-center justify-center gap-2">
+          <Camera className="w-5 h-5 flex-shrink-0" />
+          <span><strong>Share Your Setup!</strong> Submit photos of your animals and enclosures to help others.{' '}
+          <button
+            onClick={() => setIsFeedbackOpen(true)}
+            className="underline font-semibold hover:text-green-100 transition-colors"
+          >
+            Click here to share
+          </button></span>
+        </p>
+      </div>
+
       {/* Mobile-optimized header */}
       <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 py-4 lg:py-6">
@@ -215,6 +230,14 @@ function App() {
                 plan={plan}
                 onSelect={handleAnimalSelect}
                 onContinue={() => navigate('/design')}
+              />
+            }
+          />
+          <Route
+            path="/find-animal"
+            element={
+              <FindYourAnimalView
+                onAnimalSelected={handleAnimalSelect}
               />
             }
           />

@@ -7,10 +7,11 @@ import type {
   BuildStep,
   Warning,
   AnimalProfile,
-  CareTargets,
 } from './types';
+import { normalizeEnclosureInput, normalizeMinimumSize, calculateGallons } from './dimensionUtils';
 import { generateHusbandryCareChecklist } from './husbandryCare';
-import { generateShoppingList } from './shoppingList';
+import { generateShoppingList } from './shopping';
+import { calculateCostEstimate } from './shopping/calculateCosts';
 import { animalProfiles } from '../data/animals';
 import buildStepsData from '../data/build-steps.json';
 import layoutNotesData from '../data/layout-notes.json';
@@ -20,20 +21,14 @@ import layoutNotesData from '../data/layout-notes.json';
  * This is deterministic, not AI-generated
  */
 export function generatePlan(input: EnclosureInput): BuildPlan {
-  const profile = animalProfiles[input.animal as keyof typeof animalProfiles] as AnimalProfile;
+  const profile = animalProfiles[input.animal as keyof typeof animalProfiles];
   
   if (!profile) {
     throw new Error(`Unknown animal: ${input.animal}`);
   }
 
   // Convert dimensions to inches for calculations
-  const dimensions = input.units === 'cm' 
-    ? { 
-        width: input.width / 2.54, 
-        depth: input.depth / 2.54, 
-        height: input.height / 2.54 
-      }
-    : { width: input.width, depth: input.depth, height: input.height };
+  const dimensions = normalizeEnclosureInput(input);
 
   // Generate all plan components
   const layout = generateLayout(dimensions, profile, input);
@@ -42,20 +37,24 @@ export function generatePlan(input: EnclosureInput): BuildPlan {
   const warnings = generateWarnings(profile, input, dimensions);
   const careGuidance = generateCareGuidance(profile, input);
   const husbandryChecklist = generateHusbandryCareChecklist(input, profile);
+  
+  // Calculate cost estimate based on selected tier
+  const costEstimate = calculateCostEstimate(shoppingList, input.setupTier || 'recommended');
 
   return {
     enclosure: input,
-    careTargets: profile.careTargets as CareTargets,
+    careTargets: profile.careTargets,
     layout,
     shoppingList,
     steps,
     warnings,
     careGuidance,
     husbandryChecklist,
+    costEstimate,
     species: {
       commonName: profile.commonName,
       scientificName: profile.scientificName,
-      careLevel: profile.careLevel as 'beginner' | 'intermediate' | 'advanced',
+      careLevel: profile.careLevel,
       bioactiveCompatible: profile.bioactiveCompatible,
       notes: profile.notes,
     },
@@ -96,7 +95,7 @@ function generateCareGuidance(profile: AnimalProfile, _input: EnclosureInput): {
 
 function generateLayout(
   _dims: { width: number; depth: number; height: number },
-  profile: any,
+  profile: AnimalProfile,
   _input: EnclosureInput
 ): Layout {
   const zones: Zone[] = [];
@@ -206,7 +205,18 @@ function generateBuildSteps(input: EnclosureInput): BuildStep[] {
     });
   });
 
-  // Bioactive-specific steps
+  // Background MUST come before substrate
+  if (buildStepsData.background) {
+    steps.push({
+      id: stepCounter++,
+      title: buildStepsData.background.title,
+      description: buildStepsData.background.description,
+      order: steps.length + 1,
+      important: buildStepsData.background.important,
+    });
+  }
+
+  // Bioactive-specific steps (drainage layer + barrier)
   if (input.bioactive) {
     buildStepsData.bioactive.forEach((step) => {
       steps.push({
@@ -231,7 +241,7 @@ function generateBuildSteps(input: EnclosureInput): BuildStep[] {
     important: substrateStep.important,
   });
 
-  // Shared steps (background, hardscape, plants)
+  // Shared steps (hardscape, water, hides, plants, feeding)
   buildStepsData.shared.forEach((step) => {
     steps.push({
       id: stepCounter++,
@@ -242,7 +252,7 @@ function generateBuildSteps(input: EnclosureInput): BuildStep[] {
     });
   });
 
-  // Cleanup crew (bioactive only)
+  // Cleanup crew (bioactive only, after plants are in for anchor points)
   if (input.bioactive) {
     const cleanupStep = buildStepsData.bioactiveCleanupCrew;
     steps.push({
@@ -254,7 +264,18 @@ function generateBuildSteps(input: EnclosureInput): BuildStep[] {
     });
   }
 
-  // Final steps (lighting, monitoring, testing, intro)
+  // Equipment installation (lights, heating, cables, monitoring, misting)
+  buildStepsData.equipment.forEach((step) => {
+    steps.push({
+      id: stepCounter++,
+      title: step.title,
+      description: step.description,
+      order: steps.length + 1,
+      important: step.important,
+    });
+  });
+
+  // Final steps (escape-proof, test 48-72hrs, final check, introduce)
   buildStepsData.final.forEach((step) => {
     steps.push({
       id: stepCounter++,
@@ -269,19 +290,20 @@ function generateBuildSteps(input: EnclosureInput): BuildStep[] {
 }
 
 function generateWarnings(
-  profile: any,
+  profile: AnimalProfile,
   input: EnclosureInput,
   dims: { width: number; depth: number; height: number }
 ): Warning[] {
   const warnings: Warning[] = [];
   
   // Enclosure type warnings
-  if (input.type === 'screen' && profile.careTargets.humidity.min > 60) {
+  const minHumidity = profile.careTargets.humidity.day?.min ?? profile.careTargets.humidity.min ?? 60;
+  if (input.type === 'screen' && minHumidity > 60) {
     warnings.push({
       id: 'screen-humidity',
       severity: 'important',
       category: 'common_mistake',
-      message: `Screen enclosures lose humidity quickly. ${profile.commonName} needs ${profile.careTargets.humidity.min}%+ humidity - you'll need active humidity management (misting system or fogger). Screen material allows excellent airflow but requires careful environmental control.`,
+      message: `Screen enclosures lose humidity quickly. ${profile.commonName} needs ${minHumidity}%+ humidity - you'll need active humidity management (misting system or fogger). Screen material allows excellent airflow but requires careful environmental control.`,
     });
   }
   
@@ -295,7 +317,7 @@ function generateWarnings(
     });
   }
   
-  if (input.type === 'glass' && input.bioactive && profile.careTargets.humidity.min < 50) {
+  if (input.type === 'glass' && input.bioactive && minHumidity < 50) {
     warnings.push({
       id: 'glass-ventilation',
       severity: 'tip',
@@ -305,7 +327,7 @@ function generateWarnings(
   }
   
   // Add profile-specific warnings with IDs
-  profile.warnings.forEach((w: any, idx: number) => {
+  profile.warnings.forEach((w: Omit<Warning, 'id'>, idx: number) => {
     warnings.push({
       id: `profile-${idx}`,
       ...w,
@@ -316,8 +338,7 @@ function generateWarnings(
   if (profile.quantityRules && input.quantity > 0) {
     const requiredGallons = profile.quantityRules.baseGallons + 
       (input.quantity - 1) * profile.quantityRules.additionalGallons;
-    const volumeInches = dims.width * dims.depth * dims.height;
-    const currentGallons = volumeInches / 231;
+    const currentGallons = calculateGallons(dims);
 
     if (currentGallons < requiredGallons) {
       warnings.unshift({
@@ -349,9 +370,7 @@ function generateWarnings(
 
   // Size validation
   const minSize = profile.minEnclosureSize;
-  const minDims = minSize.units === 'cm' 
-    ? { width: minSize.width / 2.54, height: minSize.height / 2.54, depth: minSize.depth / 2.54 }
-    : minSize;
+  const minDims = normalizeMinimumSize(profile);
 
   if (dims.width < minDims.width || dims.depth < minDims.depth || dims.height < minDims.height) {
     warnings.unshift({

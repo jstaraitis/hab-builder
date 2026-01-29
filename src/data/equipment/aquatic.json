@@ -12,15 +12,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic aquarium chiller (1/10 HP)",
-        "searchQuery": "aquarium chiller 1/10 hp cold water"
+        "searchQuery": "aquarium chiller 1/10 hp cold water",
+        "priceRange": { "min": 150, "max": 263 }
       },
       "recommended": {
         "description": "Digital aquarium chiller (1/6 HP)",
-        "searchQuery": "aquarium chiller 1/6 hp digital"
+        "searchQuery": "aquarium chiller 1/6 hp digital",
+        "priceRange": { "min": 263, "max": 413 }
       },
       "ideal": {
         "description": "Premium chiller with temperature controller (1/4 HP)",
-        "searchQuery": "aquarium chiller 1/4 hp premium digital"
+        "searchQuery": "aquarium chiller 1/4 hp premium digital",
+        "priceRange": { "min": 413, "max": 600 }
       }
     },
     "notes": "CRITICAL for axolotls in warm climates. Prevents fatal heat stress. Size chiller based on tank volume and ambient room temperature. Most homes require chiller year-round."
@@ -39,15 +42,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic canister filter",
-        "searchQuery": "canister filter aquarium turtle"
+        "searchQuery": "canister filter aquarium turtle",
+        "priceRange": { "min": 45, "max": 75 }
       },
       "recommended": {
         "description": "Multi-stage canister filter",
-        "searchQuery": "canister filter aquarium turtle multi-stage"
+        "searchQuery": "canister filter aquarium turtle multi-stage",
+        "priceRange": { "min": 75, "max": 120 }
       },
       "ideal": {
         "description": "Premium canister with UV sterilizer",
-        "searchQuery": "canister filter aquarium premium uv sterilizer"
+        "searchQuery": "canister filter aquarium premium uv sterilizer",
+        "priceRange": { "min": 135, "max": 225 }
       }
     },
     "notes": "For messy aquatic animals like turtles. Provides mechanical, biological, and chemical filtration. Clean monthly, replace media as needed."
@@ -66,15 +72,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic sponge filter + air pump",
-        "searchQuery": "sponge filter aquarium air pump"
+        "searchQuery": "sponge filter aquarium air pump",
+        "priceRange": { "min": 9, "max": 19 }
       },
       "recommended": {
         "description": "Double sponge filter + adjustable air pump",
-        "searchQuery": "double sponge filter aquarium adjustable"
+        "searchQuery": "double sponge filter aquarium adjustable",
+        "priceRange": { "min": 15, "max": 26 }
       },
       "ideal": {
         "description": "Premium sponge filter system + quiet air pump",
-        "searchQuery": "premium sponge filter aquarium quiet pump"
+        "searchQuery": "premium sponge filter aquarium quiet pump",
+        "priceRange": { "min": 23, "max": 38 }
       }
     },
     "notes": "Essential for axolotls - provides gentle filtration without strong current. Sponge provides biological filtration surface. Clean weekly by squeezing in tank water (never tap water)."
@@ -92,15 +101,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic air pump",
-        "searchQuery": "aquarium air pump adjustable"
+        "searchQuery": "aquarium air pump adjustable",
+        "priceRange": { "min": 8, "max": 14 }
       },
       "recommended": {
         "description": "Quiet adjustable air pump",
-        "searchQuery": "aquarium air pump quiet adjustable"
+        "searchQuery": "aquarium air pump quiet adjustable",
+        "priceRange": { "min": 11, "max": 21 }
       },
       "ideal": {
         "description": "Ultra-quiet dual outlet air pump",
-        "searchQuery": "aquarium air pump ultra quiet dual"
+        "searchQuery": "aquarium air pump ultra quiet dual",
+        "priceRange": { "min": 19, "max": 34 }
       }
     },
     "notes": "Powers sponge filters and air stones. Choose adjustable models to control flow rate. Place above tank level or use check valve to prevent backflow."
@@ -116,44 +128,50 @@
     },
     "tiers": {
       "minimum": {
-        "description": "Basic liquid test kit (ammonia, nitrite, pH)",
-        "searchQuery": "api master test kit freshwater"
+        "description": "API Freshwater Test Kit (pH, ammonia, nitrite, nitrate)",
+        "searchQuery": "api freshwater test kit",
+        "priceRange": { "min": 11, "max": 19 }
       },
       "recommended": {
-        "description": "Master test kit (ammonia, nitrite, nitrate, pH)",
-        "searchQuery": "api master test kit freshwater"
+        "description": "API Master Test Kit (industry standard, accurate liquid tests)",
+        "searchQuery": "api master test kit freshwater",
+        "priceRange": { "min": 19, "max": 30 }
       },
       "ideal": {
-        "description": "Master test kit + GH/KH test kit",
-        "searchQuery": "api master test kit freshwater gh kh"
+        "description": "API Master Kit + Seachem MultiTest (GH/KH/phosphate)",
+        "searchQuery": "api master test kit seachem multitest",
+        "priceRange": { "min": 34, "max": 53 }
       }
     },
-    "notes": "REQUIRED for all aquatic setups. Test weekly minimum. Ammonia and nitrite must be 0 ppm at all times. Liquid tests more accurate than test strips. Essential for cycling new tanks."
+    "notes": "REQUIRED for all aquatic setups. API Master Test Kit is the gold standard for accuracy. Test weekly minimum. Ammonia and nitrite must be 0 ppm at all times. Liquid tests more accurate than test strips. Essential for cycling new tanks. Advanced tests (GH/KH/phosphate) helpful for planted tanks and water hardness monitoring."
   },
   "water-conditioner": {
     "name": "Water Conditioner (Dechlorinator)",
     "category": "equipment",
     "needsTags": ["water-treatment"],
-    "importance": "required",
-    "spec": {
+    "importance": "required",    "isRecurring": true,
+    "recurringInterval": "monthly",    "spec": {
       "type": "Liquid dechlorinator",
       "removes": "Chlorine, chloramine, heavy metals"
     },
     "tiers": {
       "minimum": {
-        "description": "Basic dechlorinator",
-        "searchQuery": "seachem prime water conditioner"
+        "description": "Basic dechlorinator (API Tap Water Conditioner)",
+        "searchQuery": "api tap water conditioner aquarium",
+        "priceRange": { "min": 4, "max": 8 }
       },
       "recommended": {
-        "description": "Seachem Prime (concentrated formula)",
-        "searchQuery": "seachem prime water conditioner"
+        "description": "Seachem Prime 100ml (concentrated, detoxifies ammonia)",
+        "searchQuery": "seachem prime water conditioner 100ml",
+        "priceRange": { "min": 6, "max": 11 }
       },
       "ideal": {
-        "description": "Seachem Prime large bottle",
-        "searchQuery": "seachem prime 500ml water conditioner"
+        "description": "Seachem Prime 500ml + Seachem Stability",
+        "searchQuery": "seachem prime 500ml stability",
+        "priceRange": { "min": 19, "max": 34 }
       }
     },
-    "notes": "REQUIRED for all water changes. For axolotls: MUST use aloe-free conditioner - Seachem Prime or Fritz Complete only. Removes chlorine, chloramine, and heavy metals. Very concentrated - small amount treats large volumes."
+    "notes": "REQUIRED for all water changes. For axolotls: MUST use aloe-free conditioner - Seachem Prime or Fritz Complete only. Seachem Prime is the gold standard - removes chlorine, chloramine, heavy metals, and detoxifies ammonia/nitrite. Very concentrated - small amount treats large volumes. Stability adds beneficial bacteria."
   },
   "aquarium-heater": {
     "name": "Submersible Aquarium Heater",
@@ -169,15 +187,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic glass submersible heater (50-100W)",
-        "searchQuery": "aquarium heater submersible adjustable"
+        "searchQuery": "aquarium heater submersible adjustable",
+        "priceRange": { "min": 11, "max": 23 }
       },
       "recommended": {
         "description": "Digital preset heater (100-150W)",
-        "searchQuery": "aquarium heater submersible digital"
+        "searchQuery": "aquarium heater submersible digital",
+        "priceRange": { "min": 19, "max": 34 }
       },
       "ideal": {
         "description": "Titanium heater with external controller (150-200W)",
-        "searchQuery": "titanium aquarium heater external controller"
+        "searchQuery": "titanium aquarium heater external controller",
+        "priceRange": { "min": 45, "max": 90 }
       }
     },
     "notes": "For tropical aquatic species like red-eared sliders (75-80°F). NOT for axolotls (cold-water species). Use heater guard to prevent animal contact. Position horizontally near filter output for even heat distribution."
@@ -194,15 +215,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic plastic heater guard",
-        "searchQuery": "aquarium heater guard cover"
+        "searchQuery": "aquarium heater guard cover",
+        "priceRange": { "min": 6, "max": 11 }
       },
       "recommended": {
         "description": "Adjustable heater guard",
-        "searchQuery": "aquarium heater guard adjustable"
+        "searchQuery": "aquarium heater guard adjustable",
+        "priceRange": { "min": 9, "max": 17 }
       },
       "ideal": {
         "description": "Heavy-duty metal heater guard",
-        "searchQuery": "aquarium heater guard metal heavy duty"
+        "searchQuery": "aquarium heater guard metal heavy duty",
+        "priceRange": { "min": 14, "max": 26 }
       }
     },
     "notes": "REQUIRED for turtle tanks - prevents turtles from breaking glass heaters. Also prevents burns from direct contact. Allows water flow while protecting equipment."
@@ -219,15 +243,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic glass lid or screen cover",
-        "searchQuery": "aquarium lid glass screen cover"
+        "searchQuery": "aquarium lid glass screen cover",
+        "priceRange": { "min": 11, "max": 23 }
       },
       "recommended": {
         "description": "Hinged glass lid with feeding door",
-        "searchQuery": "aquarium glass lid hinged feeding door"
+        "searchQuery": "aquarium glass lid hinged feeding door",
+        "priceRange": { "min": 19, "max": 34 }
       },
       "ideal": {
         "description": "Custom-fit lid with cutouts for equipment",
-        "searchQuery": "aquarium glass lid custom cut equipment"
+        "searchQuery": "aquarium glass lid custom cut equipment",
+        "priceRange": { "min": 30, "max": 53 }
       }
     },
     "notes": "Prevents jumping and escape - especially important for axolotls. Glass lids reduce evaporation. Screen tops allow better air exchange. Must have cutouts or hinges for heater, filter, and feeding access."
@@ -244,15 +271,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic floating basking dock",
-        "searchQuery": "turtle basking platform floating"
+        "searchQuery": "turtle basking platform floating",
+        "priceRange": { "min": 11, "max": 23 }
       },
       "recommended": {
         "description": "Magnetic or suction basking platform",
-        "searchQuery": "turtle basking platform magnetic adjustable"
+        "searchQuery": "turtle basking platform magnetic adjustable",
+        "priceRange": { "min": 19, "max": 34 }
       },
       "ideal": {
         "description": "Custom rock/slate basking area",
-        "searchQuery": "turtle basking platform rock custom"
+        "searchQuery": "turtle basking platform rock custom",
+        "priceRange": { "min": 30, "max": 60 }
       }
     },
     "notes": "REQUIRED for semi-aquatic turtles. Must be completely dry and easily accessible. Position below heat lamp and UVB light. Should support full body weight without tipping. Textured surface prevents slipping."
@@ -269,15 +299,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic gravel vacuum and bucket",
-        "searchQuery": "aquarium gravel vacuum siphon"
+        "searchQuery": "aquarium gravel vacuum siphon",
+        "priceRange": { "min": 8, "max": 14 }
       },
       "recommended": {
         "description": "Python water changer system",
-        "searchQuery": "python no spill aquarium water changer"
+        "searchQuery": "python no spill aquarium water changer",
+        "priceRange": { "min": 26, "max": 41 }
       },
       "ideal": {
         "description": "Python pro system with extended reach",
-        "searchQuery": "python no spill aquarium water changer 50ft"
+        "searchQuery": "python no spill aquarium water changer 50ft",
+        "priceRange": { "min": 38, "max": 56 }
       }
     },
     "notes": "Makes water changes much easier - connects directly to faucet. No more buckets. Python system allows filling and draining. For large tanks, this is essential equipment. Remember to add dechlorinator before refilling."
@@ -294,15 +327,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic air stone",
-        "searchQuery": "aquarium air stone bubbler"
+        "searchQuery": "aquarium air stone bubbler",
+        "priceRange": { "min": 2, "max": 6 }
       },
       "recommended": {
         "description": "Cylinder air stone",
-        "searchQuery": "aquarium air stone cylinder"
+        "searchQuery": "aquarium air stone cylinder",
+        "priceRange": { "min": 4, "max": 9 }
       },
       "ideal": {
         "description": "LED air stone with color changing lights",
-        "searchQuery": "aquarium air stone led lights"
+        "searchQuery": "aquarium air stone led lights",
+        "priceRange": { "min": 8, "max": 15 }
       }
     },
     "notes": "Optional for most setups if filter provides adequate surface agitation. Can add visual interest. Avoid in axolotl tanks if creates too much current."
@@ -311,23 +347,26 @@
     "name": "Biological Filter Media",
     "category": "equipment",
     "needsTags": ["filtration:biological"],
-    "importance": "recommended",
-    "spec": {
+    "importance": "recommended",    "isRecurring": true,
+    "recurringInterval": "12 months",    "spec": {
       "type": "Ceramic rings, bio balls, or sponge",
       "purpose": "Houses beneficial bacteria"
     },
     "tiers": {
       "minimum": {
         "description": "Basic bio media (ceramic rings)",
-        "searchQuery": "aquarium biological filter media ceramic"
+        "searchQuery": "aquarium biological filter media ceramic",
+        "priceRange": { "min": 8, "max": 15 }
       },
       "recommended": {
         "description": "Premium bio media (high surface area)",
-        "searchQuery": "aquarium biological filter media seachem matrix"
+        "searchQuery": "aquarium biological filter media seachem matrix",
+        "priceRange": { "min": 14, "max": 26 }
       },
       "ideal": {
         "description": "Professional bio media kit",
-        "searchQuery": "aquarium biological filter media professional kit"
+        "searchQuery": "aquarium biological filter media professional kit",
+        "priceRange": { "min": 23, "max": 41 }
       }
     },
     "notes": "Houses beneficial bacteria that convert ammonia → nitrite → nitrate. Never replace all at once - wash in tank water only, never tap water. Essential for biological filtration in all aquatic setups."
@@ -337,6 +376,8 @@
     "category": "equipment",
     "needsTags": ["filtration:chemical"],
     "importance": "optional",
+    "isRecurring": true,
+    "recurringInterval": "monthly",
     "spec": {
       "type": "Activated carbon/charcoal",
       "purpose": "Removes dissolved organics, odors, discoloration"
@@ -344,15 +385,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic activated carbon",
-        "searchQuery": "activated carbon aquarium filter media"
+        "searchQuery": "activated carbon aquarium filter media",
+        "priceRange": { "min": 6, "max": 11 }
       },
       "recommended": {
         "description": "Premium activated carbon",
-        "searchQuery": "seachem purigen aquarium filter media"
+        "searchQuery": "seachem purigen aquarium filter media",
+        "priceRange": { "min": 11, "max": 21 }
       },
       "ideal": {
         "description": "Purigen + activated carbon combo",
-        "searchQuery": "seachem purigen activated carbon combo"
+        "searchQuery": "seachem purigen activated carbon combo",
+        "priceRange": { "min": 19, "max": 34 }
       }
     },
     "notes": "Removes tannins, medications, and dissolved organics. Replace monthly. Remove before medicating tank. Optional but helpful for water clarity. Purigen is regenerable and more effective than carbon."
@@ -369,15 +413,18 @@
     "tiers": {
       "minimum": {
         "description": "Hardware store slate tiles (unsealed)",
-        "searchQuery": "natural slate tile aquarium safe"
+        "searchQuery": "natural slate tile aquarium safe",
+        "priceRange": { "min": 8, "max": 19 }
       },
       "recommended": {
         "description": "Pre-cut aquarium slate tiles",
-        "searchQuery": "slate tile aquarium bottom cover"
+        "searchQuery": "slate tile aquarium bottom cover",
+        "priceRange": { "min": 15, "max": 30 }
       },
       "ideal": {
         "description": "Custom-cut slate tile set",
-        "searchQuery": "custom slate tile aquarium substrate"
+        "searchQuery": "custom slate tile aquarium substrate",
+        "priceRange": { "min": 26, "max": 49 }
       }
     },
     "notes": "Safe alternative to bare-bottom for axolotls. Provides better traction than glass. Easier to clean than sand. Ensure tiles are natural/unsealed - no sealants or finishes. Rinse thoroughly before use."
@@ -395,15 +442,18 @@
     "tiers": {
       "minimum": {
         "description": "Fine aquarium sand",
-        "searchQuery": "ultra fine aquarium sand"
+        "searchQuery": "ultra fine aquarium sand",
+        "priceRange": { "min": 11, "max": 23 }
       },
       "recommended": {
         "description": "CaribSea Super Naturals",
-        "searchQuery": "caribsea super naturals aquarium sand"
+        "searchQuery": "caribsea super naturals aquarium sand",
+        "priceRange": { "min": 15, "max": 30 }
       },
       "ideal": {
         "description": "Estes Marine Sand Ultra Fine",
-        "searchQuery": "estes marine sand ultra fine black"
+        "searchQuery": "estes marine sand ultra fine black",
+        "priceRange": { "min": 19, "max": 38 }
       }
     },
     "notes": "ONLY for axolotls 6+ inches long - still carries impaction risk. Must be ultra-fine (smaller than grains can swallow). Bare-bottom or slate tile safer options. Rinse thoroughly before adding to tank. Provides natural look and beneficial bacteria surface."

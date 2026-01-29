@@ -42,7 +42,7 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
           <div className="flex-1">
             <h3 className="text-lg sm:text-xl font-bold text-purple-900 dark:text-purple-100 mb-1.5 sm:mb-2">Example Enclosure Setups</h3>
             <p className="text-sm sm:text-base text-purple-800 dark:text-purple-200 mb-3 sm:mb-4 leading-relaxed">
-              Browse personal designed enclosure layouts for inspiration. Each setup is tailored for White's Tree Frogs with proper care requirements.
+              Browse personal designed enclosure layouts for inspiration. Each setup is tailored for your animal with proper care requirements.
             </p>
             
             {/* Premium Feature Callout - Redesigned */}

@@ -83,38 +83,62 @@ function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
 
     case 'table':
       return (
-        <div key={index} className="overflow-x-auto mb-6">
-          <table className="min-w-full border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
-            <thead className="bg-gray-100 dark:bg-gray-800">
-              <tr>
-                {block.headers?.map((header, headerIndex) => (
-                  <th
-                    key={headerIndex}
-                    className="px-4 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-200 border-b border-gray-300 dark:border-gray-700"
-                  >
-                    {header}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {block.rows?.map((row, rowIndex) => (
-                <tr
-                  key={rowIndex}
-                  className={rowIndex % 2 === 0 ? 'bg-white dark:bg-gray-900' : 'bg-gray-50 dark:bg-gray-800/50'}
-                >
-                  {row.map((cell, cellIndex) => (
-                    <td
-                      key={cellIndex}
-                      className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700"
+        <div key={index} className="mb-6">
+          {/* Desktop Table View */}
+          <div className="hidden md:block overflow-x-auto">
+            <table className="min-w-full border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
+              <thead className="bg-gray-100 dark:bg-gray-800">
+                <tr>
+                  {block.headers?.map((header, headerIndex) => (
+                    <th
+                      key={headerIndex}
+                      className="px-4 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-200 border-b border-gray-300 dark:border-gray-700"
                     >
-                      {cell}
-                    </td>
+                      {header}
+                    </th>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {block.rows?.map((row, rowIndex) => (
+                  <tr
+                    key={rowIndex}
+                    className={rowIndex % 2 === 0 ? 'bg-white dark:bg-gray-900' : 'bg-gray-50 dark:bg-gray-800/50'}
+                  >
+                    {row.map((cell, cellIndex) => (
+                      <td
+                        key={cellIndex}
+                        className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700"
+                      >
+                        {cell}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Mobile Card View */}
+          <div className="md:hidden space-y-4">
+            {block.rows?.map((row, rowIndex) => (
+              <div
+                key={rowIndex}
+                className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm"
+              >
+                {row.map((cell, cellIndex) => (
+                  <div key={cellIndex} className="mb-3 last:mb-0">
+                    <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">
+                      {block.headers?.[cellIndex]}
+                    </div>
+                    <div className="text-sm text-gray-900 dark:text-white font-medium">
+                      {cell}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       );
 
@@ -163,7 +187,7 @@ export function BlogPost() {
         ← Back to all guides
       </Link>
 
-      <article className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 border border-gray-200 dark:border-gray-700">
+      <article className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-3 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700">
         <header className="mb-8 pb-6 border-b border-gray-200 dark:border-gray-700">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             {post.title}

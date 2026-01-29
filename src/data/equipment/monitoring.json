@@ -11,15 +11,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic digital combo",
-        "searchQuery": "terrarium digital thermometer & hygrometer"
+        "searchQuery": "terrarium digital thermometer & hygrometer",
+        "priceRange": { "min": 6, "max": 11 }
       },
       "recommended": {
         "description": "Dual gauge combo unit",
-        "searchQuery": "terrarium digital thermometer & hygrometer"
+        "searchQuery": "terrarium digital thermometer & hygrometer",
+        "priceRange": { "min": 9, "max": 17 }
       },
       "ideal": {
         "description": "WiFi monitor with app",
-        "searchQuery": "terrarium digital thermometer & hygrometer"
+        "searchQuery": "terrarium digital thermometer & hygrometer",
+        "priceRange": { "min": 23, "max": 45 }
       }
     },
     "notes": "Monitor both warm and cool zones."
@@ -36,15 +39,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic IR temp gun",
-        "searchQuery": "infrared thermometer gun reptile"
+        "searchQuery": "infrared thermometer gun reptile",
+        "priceRange": { "min": 9, "max": 15 }
       },
       "recommended": {
         "description": "Digital IR thermometer with laser",
-        "searchQuery": "infrared thermometer gun reptile accurate"
+        "searchQuery": "infrared thermometer gun reptile accurate",
+        "priceRange": { "min": 14, "max": 26 }
       },
       "ideal": {
         "description": "Professional IR thermometer",
-        "searchQuery": "infrared thermometer gun reptile professional"
+        "searchQuery": "infrared thermometer gun reptile professional",
+        "priceRange": { "min": 23, "max": 41 }
       }
     },
     "notes": "Measure basking spot surface temps accurately. Essential for verifying heat lamp temps. Point at basking surface, NOT at animal."
@@ -54,25 +60,30 @@
     "category": "equipment",
     "needsTags": ["lighting:uvb-forest", "lighting:uvb-desert"],
     "importance": "recommended",
+    "isRecurring": true,
+    "recurringInterval": "12 months",
     "spec": {
       "measures": "UVB output (μW/cm²)",
       "type": "Solarmeter 6.5 or equivalent"
     },
     "tiers": {
       "minimum": {
-        "description": "UV test cards",
-        "searchQuery": "uvb test card reptile"
+        "description": "UV test cards (disposable)",
+        "searchQuery": "uvb test card reptile",
+        "priceRange": { "min": 4, "max": 9 }
       },
       "recommended": {
-        "description": "Digital UVB meter or UV test cards",
-        "searchQuery": "uvb test card reptile digital"
+        "description": "Solarmeter 6.5 UVB meter (industry standard)",
+        "searchQuery": "solarmeter 6.5 uvb meter reptile",
+        "priceRange": { "min": 135, "max": 188 }
       },
       "ideal": {
-        "description": "Solarmeter 6.5 UVB meter",
-        "searchQuery": "solarmeter 6.5 uvb meter reptile"
+        "description": "Solarmeter 6.5R with recall function",
+        "searchQuery": "solarmeter 6.5r uvb meter recall",
+        "priceRange": { "min": 180, "max": 225 }
       }
     },
-    "notes": "Verify UVB bulb output and placement. Bulbs lose UVB before visible light dims - replace every 6-12 months even if still lit."
+    "notes": "Verify UVB bulb output and placement. Solarmeter 6.5 is the gold standard for accurate UVI readings. Bulbs lose UVB before visible light dims - replace every 6-12 months even if still lit."
   },
   "timer": {
     "name": "Light Timer (Digital)",
@@ -86,15 +97,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic mechanical timer",
-        "searchQuery": "outlet timer plug"
+        "searchQuery": "outlet timer plug",
+        "priceRange": { "min": 6, "max": 11 }
       },
       "recommended": {
         "description": "Digital programmable timer",
-        "searchQuery": "digital outlet timer programmable"
+        "searchQuery": "digital outlet timer programmable",
+        "priceRange": { "min": 9, "max": 19 }
       },
       "ideal": {
         "description": "Smart plug with app control",
-        "searchQuery": "smart plug wifi outlet timer"
+        "searchQuery": "smart plug wifi outlet timer",
+        "priceRange": { "min": 11, "max": 26 }
       }
     },
     "notes": "Automate lighting schedule. Most species need 12hrs on/12hrs off. Prevents forgetting to turn lights on/off."
@@ -112,15 +126,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic kitchen scale (0-5000g)",
-        "searchQuery": "digital kitchen scale grams"
+        "searchQuery": "digital kitchen scale grams",
+        "priceRange": { "min": 8, "max": 15 }
       },
       "recommended": {
         "description": "Pet scale with tare function",
-        "searchQuery": "digital pet scale small animal reptile"
+        "searchQuery": "digital pet scale small animal reptile",
+        "priceRange": { "min": 14, "max": 26 }
       },
       "ideal": {
         "description": "Precision veterinary scale",
-        "searchQuery": "precision digital scale veterinary reptile"
+        "searchQuery": "precision digital scale veterinary reptile",
+        "priceRange": { "min": 30, "max": 60 }
       }
     },
     "notes": "Essential for monitoring health, growth, and feeding calculations. Weigh weekly for juveniles, monthly for adults. Track weight to detect illness early (sudden loss = vet visit). Use tare function with container for small/squirmy animals."

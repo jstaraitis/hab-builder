@@ -1,7 +1,8 @@
-ï»¿{
+{
   "id": "bearded-dragon-substrate-guide",
   "title": "Bearded Dragon Substrate Guide: Sand, Soil & Safe Options",
   "description": "Everything you need to know about choosing and maintaining substrate for bearded dragons, including sand safety, DIY mixes, and when to avoid loose substrate.",
+  "excerpt": "Everything you need to know about choosing and maintaining substrate for bearded dragons, including sand safety, DIY mixes, and when to avoid loose substrate.",
   "author": "Habitat Builder",
   "publishDate": "2026-01-20",
   "category": "Care Guides",
@@ -81,7 +82,7 @@
       "type": "table",
       "headers": ["Contributing Factor", "Impact on Digestion"],
       "rows": [
-        ["Low basking temperature (<95Â°F)", "Slows metabolism and digestion"],
+        ["Low basking temperature (<95°F)", "Slows metabolism and digestion"],
         ["Inadequate UVB exposure", "Reduces appetite and gut motility"],
         ["Chronic dehydration", "Causes constipation and blockages"],
         ["Oversized prey items", "Difficult to digest fully"],
@@ -215,7 +216,7 @@
     },
     {
       "type": "highlight",
-      "content": "Naturalistic substrate isn't just decorationâ€”it's enrichment that allows bearded dragons to express natural behaviors and live fuller, healthier lives."
+      "content": "Naturalistic substrate isn't just decoration—it's enrichment that allows bearded dragons to express natural behaviors and live fuller, healthier lives."
     }
   ]
 }

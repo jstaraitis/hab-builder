@@ -4,18 +4,23 @@
     "category": "cleanup_crew",
     "needsTags": ["substrate:bioactive"],
     "importance": "conditional",
+    "isRecurring": false,
+    "recurringInterval": "12 months",
     "tiers": {
       "minimum": {
         "description": "Springtail culture",
-        "searchQuery": "springtail culture bioactive cleanup crew"
+        "searchQuery": "springtail culture bioactive cleanup crew",
+        "priceRange": { "min": 9, "max": 15 }
       },
       "recommended": {
         "description": "Springtail starter culture",
-        "searchQuery": "springtail culture bioactive terrarium"
+        "searchQuery": "springtail culture bioactive terrarium",
+        "priceRange": { "min": 11, "max": 21 }
       },
       "ideal": {
         "description": "Large springtail culture",
-        "searchQuery": "springtail culture bioactive large"
+        "searchQuery": "springtail culture bioactive large",
+        "priceRange": { "min": 19, "max": 30 }
       }
     },
     "notes": "Essential cleanup crew for bioactive environments. Eat mold, fungus, and decaying matter."
@@ -25,18 +30,23 @@
     "category": "cleanup_crew",
     "needsTags": ["substrate:bioactive"],
     "importance": "conditional",
+    "isRecurring": false,
+    "recurringInterval": "12 months",
     "tiers": {
       "minimum": {
         "description": "Dwarf white isopods",
-        "searchQuery": "dwarf white isopods bioactive culture"
+        "searchQuery": "dwarf white isopods bioactive culture",
+        "priceRange": { "min": 9, "max": 17 }
       },
       "recommended": {
         "description": "Dwarf white or powder orange isopods",
-        "searchQuery": "isopods bioactive culture terrarium"
+        "searchQuery": "isopods bioactive culture terrarium",
+        "priceRange": { "min": 14, "max": 24 }
       },
       "ideal": {
         "description": "Mixed isopod culture",
-        "searchQuery": "isopods bioactive culture mix"
+        "searchQuery": "isopods bioactive culture mix",
+        "priceRange": { "min": 23, "max": 38 }
       }
     },
     "notes": "Reproduce quickly and process waste. Essential part of bioactive cleanup crew."

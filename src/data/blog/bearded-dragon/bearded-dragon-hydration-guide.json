@@ -1,7 +1,8 @@
-ï»¿{
+{
   "id": "bearded-dragon-hydration-guide",
   "title": "Bearded Dragon Hydration & Water Management Guide",
   "description": "Complete guide to hydration strategies for bearded dragons including water dish setup, misting protocols, hydrating foods, and recognizing dehydration signs.",
+  "excerpt": "Complete guide to hydration strategies for bearded dragons including water dish setup, misting protocols, hydrating foods, and recognizing dehydration signs.",
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
@@ -100,11 +101,11 @@
       "type": "table",
       "headers": ["Step", "Action", "Duration"],
       "rows": [
-        ["1. Preparation", "Fill spray bottle or syringe with lukewarm dechlorinated water", "â€”"],
-        ["2. Positioning", "Hold dragon securely or allow to remain in enclosure", "â€”"],
+        ["1. Preparation", "Fill spray bottle or syringe with lukewarm dechlorinated water", "—"],
+        ["2. Positioning", "Hold dragon securely or allow to remain in enclosure", "—"],
         ["3. Application", "Gently drip 1-2 drops on tip of snout", "Until licking begins"],
         ["4. Continuation", "Continue dripping as long as dragon licks actively", "5-10 minutes"],
-        ["5. Termination", "Stop when dragon turns away or stops licking", "â€”"]
+        ["5. Termination", "Stop when dragon turns away or stops licking", "—"]
       ]
     },
     {
@@ -124,8 +125,8 @@
       "type": "table",
       "headers": ["Parameter", "Specification", "Safety Notes"],
       "rows": [
-        ["Water temperature", "90-95Â°F (lukewarm)", "Test with thermometer, never hot"],
-        ["Water depth", "Belly-deep (chest level max)", "NEVER allow water above shouldersâ€”drowning risk"],
+        ["Water temperature", "90-95°F (lukewarm)", "Test with thermometer, never hot"],
+        ["Water depth", "Belly-deep (chest level max)", "NEVER allow water above shoulders—drowning risk"],
         ["Container size", "Large enough to move freely", "Smooth-sided tub prevents escape injuries"],
         ["Duration", "10-15 minutes maximum", "Remove immediately if signs of stress"],
         ["Frequency", "Weekly or as needed", "Daily bathing unnecessary and stressful"],
@@ -230,7 +231,7 @@
         ["Over-misting enclosure", "High humidity, respiratory infections", "Mist vegetables only, not enclosure"],
         ["Ignoring urate color", "Missed dehydration warning signs", "Monitor urates at every defecation"],
         ["Forcing water via syringe", "Aspiration pneumonia risk", "Use drip method on snout instead"],
-        ["Cold water", "Thermal shock, digestive upset", "Always use lukewarm (90-95Â°F) water"]
+        ["Cold water", "Thermal shock, digestive upset", "Always use lukewarm (90-95°F) water"]
       ]
     },
     {
@@ -247,7 +248,7 @@
       "rows": [
         ["Dechlorination", "Reptile-safe water conditioner", "Removes chlorine, chloramines"],
         ["Filtration", "Carbon filter or RO system", "Removes heavy metals, chemicals"],
-        ["Temperature adjustment", "Mix hot/cold to 90-95Â°F", "Prevents thermal shock"],
+        ["Temperature adjustment", "Mix hot/cold to 90-95°F", "Prevents thermal shock"],
         ["Mineral content", "Use conditioned tap or remineralized RO", "Maintains electrolyte balance"]
       ]
     },

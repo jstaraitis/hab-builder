@@ -79,7 +79,7 @@
     "heatSource": "ambient",
     "waterFeature": "shallow-dish",
     "lighting": "uvb-forest",
-    "diet": ["insectivore"],
+    "diet": ["omnivore", "frugivore"],
     "animalType": "reptile",
     "decor": ["branches", "ledges", "hides", "plants", "moist-hide"],
     "water": ["water-dish-large"],
@@ -97,12 +97,11 @@
     "Use vertical plants (real or fake) for cover and humidity"
   ],
   "notes": [
-    "Nocturnal and arboreal - active at night, lives in trees",
-    "Very docile and easy to handle",
-    "Can drop tail when stressed - will NOT regrow",
-    "Unique diet - can thrive on commercial crested gecko diet (CGD)",
-    "Crested geckos come in a variety of colors and patterns due to selective breeding",
-    "Do not have eyelids, instead lick their eyes to keep them clean and moist"
+    "Huge variety of colors and patterns due to extensive selective breeding",
+    "Declared extinct in 1994 after not being seen for decades - spectacularly rediscovered in 1994 during herpetological expedition to New Caledonia",
+    "Lack eyelids - instead have transparent spectacle scale covering eyes that they clean by licking with their long tongue",
+    "'Crests' (fringed ridges) run from eyes to tail - evolutionary purpose unknown but possibly for water channeling, communication, or making profile appear larger to predators",
+    "One of few gecko species that can vocalize - produce squeaking/clicking sounds when threatened or during social interactions with other geckos"
   ],
   "warnings": [
     {

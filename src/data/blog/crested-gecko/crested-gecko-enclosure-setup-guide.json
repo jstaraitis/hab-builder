@@ -1,7 +1,8 @@
-ï»¿{
+{
   "id": "crested-gecko-enclosure-setup-guide",
   "title": "Crested Gecko Enclosure Setup Guide: Complete Housing Requirements",
   "description": "Complete enclosure setup guide for crested geckos covering dimensions, materials, vertical layout design, equipment checklist, and arboreal habitat creation.",
+  "excerpt": "Complete enclosure setup guide for crested geckos covering dimensions, materials, vertical layout design, equipment checklist, and arboreal habitat creation.",
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
@@ -29,10 +30,10 @@
       "type": "table",
       "headers": ["Life Stage", "Weight/Age", "Minimum Dimensions", "Rationale"],
       "rows": [
-        ["Hatchling/Juvenile", "Under 12g or 0-6 months", "12\"L Ã— 12\"W Ã— 12\"H (5 gal)", "Temporary grow-out enclosure for easy feeding/monitoring"],
-        ["Large Juvenile", "12-25g or 6-12 months", "12\"L Ã— 12\"W Ã— 18\"H", "Transition size before adult housing"],
-        ["Adult", "Over 25g or 12+ months", "18\"L Ã— 18\"W Ã— 24\"H", "Minimum for proper thermoregulation and exercise"],
-        ["Adult (Preferred)", "12+ months", "18\"L Ã— 18\"W Ã— 36\"H or larger", "More climbing space improves enrichment and activity"]
+        ["Hatchling/Juvenile", "Under 12g or 0-6 months", "12\"L × 12\"W × 12\"H (5 gal)", "Temporary grow-out enclosure for easy feeding/monitoring"],
+        ["Large Juvenile", "12-25g or 6-12 months", "12\"L × 12\"W × 18\"H", "Transition size before adult housing"],
+        ["Adult", "Over 25g or 12+ months", "18\"L × 18\"W × 24\"H", "Minimum for proper thermoregulation and exercise"],
+        ["Adult (Preferred)", "12+ months", "18\"L × 18\"W × 36\"H or larger", "More climbing space improves enrichment and activity"]
       ]
     },
     {
@@ -68,7 +69,7 @@
     },
     {
       "type": "highlight",
-      "content": "For complete guidance on creating vertical thermal gradients and selecting temperature monitoring equipment, see our <a href='/blog/thermal-gradient-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Understanding Thermal Gradients</a> and <a href='/blog/temperature-monitoring-equipment-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Temperature Monitoring Equipment</a> guides. Crested geckos require a vertical gradient with basking at the top (82-85Â°F) and cooler zones at the bottom (70-75Â°F)."
+      "content": "For complete guidance on creating vertical thermal gradients and selecting temperature monitoring equipment, see our <a href='/blog/thermal-gradient-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Understanding Thermal Gradients</a> and <a href='/blog/temperature-monitoring-equipment-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Temperature Monitoring Equipment</a> guides. Crested geckos require a vertical gradient with basking at the top (82-85°F) and cooler zones at the bottom (70-75°F)."
     },
     {
       "type": "section",
@@ -100,11 +101,11 @@
     },
     {
       "type": "section",
-      "title": "Climbing Structures & DÃ©cor"
+      "title": "Climbing Structures & Décor"
     },
     {
       "type": "text",
-      "content": "DÃ©cor is not optionalâ€”it's essential for crested gecko mental and physical health. Create a dense, jungle-like environment with multiple pathways."
+      "content": "Décor is not optional—it's essential for crested gecko mental and physical health. Create a dense, jungle-like environment with multiple pathways."
     },
     {
       "type": "text",
@@ -112,7 +113,7 @@
     },
     {
       "type": "table",
-      "headers": ["Item Type", "Quantity for 18Ã—18Ã—24", "Placement Strategy"],
+      "headers": ["Item Type", "Quantity for 18×18×24", "Placement Strategy"],
       "rows": [
         ["Cork bark branches", "2-3 pieces", "Diagonal from bottom to top, intersecting for pathways"],
         ["Bamboo poles", "2-4 pieces", "Vertical and horizontal, create highway system"],
@@ -142,7 +143,7 @@
         ["Day 1", "Equipment assembly", "Install lights, heat lamp, thermometers. Test all equipment without gecko."],
         ["Day 2", "Hardscape & substrate", "Add substrate (2-4\"), position branches/cork bark, secure with substrate."],
         ["Day 3", "Plants & vines", "Install live plants (if using), arrange artificial plants, weave vines through hardscape."],
-        ["Day 4-5", "Temperature/humidity testing", "Run setup for 48 hours. Verify basking temp 82-85Â°F, humidity 60-80%."],
+        ["Day 4-5", "Temperature/humidity testing", "Run setup for 48 hours. Verify basking temp 82-85°F, humidity 60-80%."],
         ["Day 6", "Feeding station setup", "Install magnetic ledges, place feeding cups, add water features if applicable."],
         ["Day 7", "Introduce gecko", "Place gecko in enclosure during evening hours (their active time). Monitor for 24-48 hours."]
       ]
@@ -160,7 +161,7 @@
       "headers": ["Mistake", "Problem", "Solution"],
       "rows": [
         ["Using screen/mesh enclosure", "Cannot maintain 60-80% humidity", "Use glass terrarium with screen top only"],
-        ["Sparse dÃ©cor (empty tank)", "Stress, refusal to eat, hiding constantly", "Add dense foliageâ€”aim for 70%+ coverage"],
+        ["Sparse décor (empty tank)", "Stress, refusal to eat, hiding constantly", "Add dense foliage—aim for 70%+ coverage"],
         ["No temperature gradient", "Cannot thermoregulate properly", "Heat lamp at top only, cool zone at bottom"],
         ["Top-opening enclosure only", "Hand-from-above triggers predator response", "Choose front-opening or add front access"],
         ["Oversized enclosure for juveniles", "Can't find food, stress from exposure", "Use 5-10 gallon grow-out tank until 12g+"],
@@ -183,20 +184,20 @@
       "type": "table",
       "headers": ["Scenario", "Enclosure Size", "Success Rate", "Risk Factors"],
       "rows": [
-        ["Single gecko (recommended)", "18Ã—18Ã—24\" minimum", "100%", "Noneâ€”ideal for beginners"],
-        ["Two females", "24Ã—18Ã—36\" minimum", "70% success", "Size difference, competition for basking, food aggression"],
-        ["One male + multiple females", "36Ã—18Ã—36\" minimum", "50% success", "Breeding stress, male aggression, dominance issues"],
+        ["Single gecko (recommended)", "18×18×24\" minimum", "100%", "None—ideal for beginners"],
+        ["Two females", "24×18×36\" minimum", "70% success", "Size difference, competition for basking, food aggression"],
+        ["One male + multiple females", "36×18×36\" minimum", "50% success", "Breeding stress, male aggression, dominance issues"],
         ["Two males (NEVER)", "Any size", "0% success", "Severe fighting, injuries, tail loss, death"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Males should NEVER be housed togetherâ€”they will fight and cause severe injuries. If attempting cohabitation with females, provide multiple feeding stations, hides, and basking areas to reduce competition. Monitor daily for signs of stress or aggression (tail loss, bite marks, weight loss, one gecko always hiding)."
+      "content": "Males should NEVER be housed together—they will fight and cause severe injuries. If attempting cohabitation with females, provide multiple feeding stations, hides, and basking areas to reduce competition. Monitor daily for signs of stress or aggression (tail loss, bite marks, weight loss, one gecko always hiding)."
     },
     {
       "type": "highlight",
-      "content": "For first-time crested gecko keepers, house your gecko individually. Cohabitation adds complexity, risk, and requires larger enclosures with redundant equipmentâ€”factors that increase difficulty significantly."
+      "content": "For first-time crested gecko keepers, house your gecko individually. Cohabitation adds complexity, risk, and requires larger enclosures with redundant equipment—factors that increase difficulty significantly."
     }
   ]
 }

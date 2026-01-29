@@ -1,4 +1,5 @@
 import type { EnclosureInput, AnimalProfile } from './types';
+import { normalizeEnclosureInput, normalizeMinimumSize, calculateGallons } from './dimensionUtils';
 
 export interface SizeValidation {
   isValid: boolean;
@@ -28,25 +29,12 @@ export function validateEnclosureSize(
     units: profile.minEnclosureSize.units as 'in' | 'cm',
   };
 
-  // Convert to common units for comparison if needed
-  let userWidth = input.width;
-  let userDepth = input.depth;
-  let userHeight = input.height;
-  let minWidth = profile.minEnclosureSize.width;
-  let minDepth = profile.minEnclosureSize.depth;
-  let minHeight = profile.minEnclosureSize.height;
-
-  // Normalize to inches for comparison
-  if (input.units === 'cm') {
-    userWidth = input.width / 2.54;
-    userDepth = input.depth / 2.54;
-    userHeight = input.height / 2.54;
-  }
-  if (profile.minEnclosureSize.units === 'cm') {
-    minWidth = profile.minEnclosureSize.width / 2.54;
-    minDepth = profile.minEnclosureSize.depth / 2.54;
-    minHeight = profile.minEnclosureSize.height / 2.54;
-  }
+  // Normalize dimensions to inches for comparison
+  const userDims = normalizeEnclosureInput(input);
+  const minDims = normalizeMinimumSize(profile);
+  
+  const { width: userWidth, depth: userDepth, height: userHeight } = userDims;
+  const { width: minWidth, depth: minDepth, height: minHeight } = minDims;
 
   let tooSmall = false;
 
@@ -55,9 +43,8 @@ export function validateEnclosureSize(
     const requiredGallons = profile.quantityRules.baseGallons + 
       (input.quantity - 1) * profile.quantityRules.additionalGallons;
     
-    // Calculate current enclosure volume in gallons (1 gallon ≈ 231 cubic inches)
-    const volumeInches = userWidth * userDepth * userHeight;
-    const currentGallons = volumeInches / 231;
+    // Calculate current enclosure volume in gallons
+    const currentGallons = calculateGallons(userDims);
 
     if (currentGallons < requiredGallons) {
       warnings.push(

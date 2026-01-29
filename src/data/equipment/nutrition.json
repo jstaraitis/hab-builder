@@ -4,6 +4,8 @@
     "category": "nutrition",
     "needsTags": ["diet:insectivore", "diet:omnivore"],
     "importance": "required",
+    "isRecurring": true,
+    "recurringInterval": "quarterly",
     "spec": {
       "type": "powder",
       "schedule": "every feeding"
@@ -11,15 +13,18 @@
     "tiers": {
       "minimum": {
         "description": "Calcium powder with D3",
-        "searchQuery": " Repashy terrarium calcium supplement (no d3)"
+        "searchQuery": " Repashy terrarium calcium supplement (no d3)",
+        "priceRange": { "min": 6, "max": 11 }
       },
       "recommended": {
         "description": "Calcium powder with D3",
-        "searchQuery": "Repashy terrarium calcium supplement (no d3)"
+        "searchQuery": "Repashy terrarium calcium supplement (no d3)",
+        "priceRange": { "min": 8, "max": 14 }
       },
       "ideal": {
         "description": "Calcium powder with D3",
-        "searchQuery": "Repashy terrarium calcium supplement (no d3)"
+        "searchQuery": "Repashy terrarium calcium supplement (no d3)",
+        "priceRange": { "min": 9, "max": 17 }
       }
     },
     "notes": ""
@@ -29,6 +34,8 @@
     "category": "nutrition",
     "needsTags": ["diet:insectivore", "diet:omnivore"],
     "importance": "required",
+    "isRecurring": true,
+    "recurringInterval": "quarterly",
     "spec": {
       "type": "powder",
       "schedule": "once weekly"
@@ -36,15 +43,18 @@
     "tiers": {
       "minimum": {
         "description": "Multivitamin powder",
-        "searchQuery": "Repashy terrarium Multivitamin supplement"
+        "searchQuery": "Repashy terrarium Multivitamin supplement",
+        "priceRange": { "min": 8, "max": 14 }
       },
       "recommended": {
         "description": "Multivitamin powder",
-        "searchQuery": "Repashy terrarium Multivitamin supplement"
+        "searchQuery": "Repashy terrarium Multivitamin supplement",
+        "priceRange": { "min": 9, "max": 15 }
       },
       "ideal": {
         "description": "Multivitamin powder",
-        "searchQuery": "Repashy terrarium Multivitamin supplement"
+        "searchQuery": "Repashy terrarium Multivitamin supplement",
+        "priceRange": { "min": 11, "max": 19 }
       }
     },
     "notes": ""
@@ -57,15 +67,18 @@
     "tiers": {
       "minimum": {
         "description": "Stainless steel tongs",
-        "searchQuery": "terrarium feeding tongs"
+        "searchQuery": "terrarium feeding tongs",
+        "priceRange": { "min": 4, "max": 8 }
       },
       "recommended": {
         "description": "Stainless steel tongs",
-        "searchQuery": "terrarium feeding tongs"
+        "searchQuery": "terrarium feeding tongs",
+        "priceRange": { "min": 6, "max": 11 }
       },
       "ideal": {
         "description": "Stainless steel tongs",
-        "searchQuery": "terrarium feeding tongs"
+        "searchQuery": "terrarium feeding tongs",
+        "priceRange": { "min": 9, "max": 15 }
       }
     },
     "notes": "Safer than hand-feeding. Prevents accidental bites."
@@ -75,6 +88,8 @@
     "category": "nutrition",
     "needsTags": ["diet:insectivore", "diet:omnivore"],
     "importance": "required",
+    "isRecurring": true,
+    "recurringInterval": "weekly",
     "spec": {
       "types": "crickets, dubia roaches, etc",
       "size": "appropriate for animal size"
@@ -82,15 +97,18 @@
     "tiers": {
       "minimum": {
         "description": "Feeder insects",
-        "searchQuery": "terrarium feeder insects"
+        "searchQuery": "terrarium feeder insects",
+        "priceRange": { "min": 8, "max": 19 }
       },
       "recommended": {
         "description": "Feeder insects",
-        "searchQuery": "terrarium feeder insects"
+        "searchQuery": "terrarium feeder insects",
+        "priceRange": { "min": 11, "max": 26 }
       },
       "ideal": {
         "description": "Feeder insects",
-        "searchQuery": "terrarium feeder insects"
+        "searchQuery": "terrarium feeder insects",
+        "priceRange": { "min": 15, "max": 34 }
       }
     },
     "notes": "Vary diet. Gutload feeders 24hrs before feeding."
@@ -100,6 +118,8 @@
     "category": "nutrition",
     "needsTags": ["diet:omnivore"],
     "importance": "required",
+    "isRecurring": true,
+    "recurringInterval": "weekly",
     "spec": {
       "vegetables": "collard greens, mustard greens, squash, bell peppers, etc",
       "fruits": "occasional treats only"
@@ -107,15 +127,18 @@
     "tiers": {
       "minimum": {
         "description": "Fresh vegetables and occasional fruits",
-        "searchQuery": "fresh vegetables leafy greens"
+        "searchQuery": "fresh vegetables leafy greens",
+        "priceRange": { "min": 8, "max": 15 }
       },
       "recommended": {
         "description": "Fresh vegetables and occasional fruits",
-        "searchQuery": "fresh vegetables leafy greens"
+        "searchQuery": "fresh vegetables leafy greens",
+        "priceRange": { "min": 11, "max": 23 }
       },
       "ideal": {
         "description": "Fresh organic vegetables and occasional fruits",
-        "searchQuery": "organic vegetables leafy greens"
+        "searchQuery": "organic vegetables leafy greens",
+        "priceRange": { "min": 15, "max": 30 }
       }
     },
     "notes": "Daily vegetables required for omnivores. Fruits are treats only (high sugar). Wash thoroughly before feeding."
@@ -125,6 +148,8 @@
     "category": "nutrition",
     "needsTags": ["diet:carnivore"],
     "importance": "required",
+    "isRecurring": true,
+    "recurringInterval": "weekly",
     "spec": {
       "types": "frozen/thawed mice, rats",
       "size": "appropriate for snake size (1-1.5x snake's widest body part)"
@@ -132,15 +157,18 @@
     "tiers": {
       "minimum": {
         "description": "Frozen mice (pinkies to adults)",
-        "searchQuery": "frozen mice for snakes"
+        "searchQuery": "frozen mice for snakes",
+        "priceRange": { "min": 11, "max": 26 }
       },
       "recommended": {
         "description": "Variety pack (mice and small rats)",
-        "searchQuery": "frozen rodents for snakes"
+        "searchQuery": "frozen rodents for snakes",
+        "priceRange": { "min": 19, "max": 38 }
       },
       "ideal": {
         "description": "Premium quality frozen rodents",
-        "searchQuery": "frozen rodents for snakes"
+        "searchQuery": "frozen rodents for snakes",
+        "priceRange": { "min": 26, "max": 53 }
       }
     },
     "notes": "NEVER feed live prey - risk of injury to snake. Thaw completely in refrigerator or warm water (NOT microwave). Prey should be 1-1.5x snake's widest body part."
@@ -153,15 +181,18 @@
     "tiers": {
       "minimum": {
         "description": "12\" stainless steel tongs",
-        "searchQuery": "long feeding tongs snakes"
+        "searchQuery": "long feeding tongs snakes",
+        "priceRange": { "min": 6, "max": 11 }
       },
       "recommended": {
         "description": "16\" locking tongs",
-        "searchQuery": "long feeding tongs snakes"
+        "searchQuery": "long feeding tongs snakes",
+        "priceRange": { "min": 9, "max": 17 }
       },
       "ideal": {
         "description": "16\" soft-tip locking tongs",
-        "searchQuery": "long feeding tongs snakes"
+        "searchQuery": "long feeding tongs snakes",
+        "priceRange": { "min": 11, "max": 23 }
       }
     },
     "notes": "Essential for safe feeding of frozen prey. Long length protects hands from strikes. NEVER hand-feed snakes."
@@ -178,15 +209,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic digital scale",
-        "searchQuery": "digital kitchen scale grams"
+        "searchQuery": "digital kitchen scale grams",
+        "priceRange": { "min": 8, "max": 15 }
       },
       "recommended": {
         "description": "Digital scale with tare function",
-        "searchQuery": "digital kitchen scale grams"
+        "searchQuery": "digital kitchen scale grams",
+        "priceRange": { "min": 11, "max": 23 }
       },
       "ideal": {
         "description": "Professional gram scale",
-        "searchQuery": "digital kitchen scale grams"
+        "searchQuery": "digital kitchen scale grams",
+        "priceRange": { "min": 19, "max": 38 }
       }
     },
     "notes": "Track snake weight to monitor health and growth. Weigh weekly or bi-weekly. Sudden weight loss indicates health issues."
@@ -196,6 +230,8 @@
     "category": "nutrition",
     "needsTags": ["animalType:amphibian"],
     "importance": "recommended",
+    "isRecurring": true,
+    "recurringInterval": "quarterly",
     "spec": {
       "type": "powder-free nitrile",
       "use": "handling and maintenance"
@@ -203,15 +239,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic nitrile gloves",
-        "searchQuery": "nitrile gloves powder free"
+        "searchQuery": "nitrile gloves powder free",
+        "priceRange": { "min": 6, "max": 11 }
       },
       "recommended": {
         "description": "Powder-free nitrile gloves (box of 100)",
-        "searchQuery": "nitrile gloves powder free"
+        "searchQuery": "nitrile gloves powder free",
+        "priceRange": { "min": 9, "max": 17 }
       },
       "ideal": {
-        "description": "Premium nitrile gloves (textured grip)",
-        "searchQuery": "nitrile gloves powder free textured"
+        "description": "Premium nitrile gloves (box of 200)",
+        "searchQuery": "nitrile gloves powder free",
+        "priceRange": { "min": 14, "max": 23 }
       }
     },
     "notes": "Essential for amphibian care - protects their sensitive permeable skin from oils, lotions, and chemicals on human hands. Use when handling, feeding, or doing maintenance. NEVER use latex or powdered gloves (powder can harm amphibian skin)."
@@ -221,6 +260,8 @@
     "category": "nutrition",
     "needsTags": [],
     "importance": "required",
+    "isRecurring": true,
+    "recurringInterval": "monthly",
     "spec": {
       "type": "amphibian-safe",
       "use": "treat all water"
@@ -228,15 +269,18 @@
     "tiers": {
       "minimum": {
         "description": "Reptile-safe dechlorinator",
-        "searchQuery": "terrarium water dechlorinator"
+        "searchQuery": "terrarium water dechlorinator",
+        "priceRange": { "min": 4, "max": 8 }
       },
       "recommended": {
         "description": "Reptile-safe dechlorinator",
-        "searchQuery": "terrarium water dechlorinator"
+        "searchQuery": "terrarium water dechlorinator",
+        "priceRange": { "min": 6, "max": 11 }
       },
       "ideal": {
         "description": "Reptile-safe dechlorinator",
-        "searchQuery": "terrarium water dechlorinator"
+        "searchQuery": "terrarium water dechlorinator",
+        "priceRange": { "min": 8, "max": 14 }
       }
     },
     "notes": "Essential for water bowl and misting. Removes chlorine/chloramine."
@@ -253,17 +297,51 @@
     "tiers": {
       "minimum": {
         "description": "Basic ceramic dish",
-        "searchQuery": "terrarium water bowl"
+        "searchQuery": "terrarium water bowl",
+        "priceRange": { "min": 6, "max": 11 }
       },
       "recommended": {
         "description": "Naturalistic rock-style dish",
-        "searchQuery": "terrarium water bowl"
+        "searchQuery": "terrarium water bowl",
+        "priceRange": { "min": 9, "max": 19 }
       },
       "ideal": {
         "description": "Naturalistic rock pool",
-        "searchQuery": "terrarium water bowl"
+        "searchQuery": "terrarium water bowl",
+        "priceRange": { "min": 15, "max": 30 }
       }
     },
     "notes": "Must be large enough for animal to soak. Change water daily."
+  },
+  "gecko-fruit-diet": {
+    "name": "Gecko Diet (Fruit-Based)",
+    "category": "nutrition",
+    "needsTags": ["diet:frugivore", "diet:omnivore"],
+    "importance": "required",
+    "isRecurring": true,
+    "recurringInterval": "monthly",
+    "spec": {
+      "type": "powdered fruit diet",
+      "examples": "Pangea, Repashy, The Bio Dude",
+      "frequency": "3-4x per week"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic powdered fruit diet",
+        "searchQuery": "crested gecko diet fruit powder",
+        "priceRange": { "min": 9, "max": 17 }
+      },
+      "recommended": {
+        "description": "Pangea or Repashy gecko diet",
+        "searchQuery": "pangea repashy crested gecko diet",
+        "priceRange": { "min": 12, "max": 21 }
+      },
+      "ideal": {
+        "description": "Premium blend (Pangea Complete with insects, probiotics)",
+        "searchQuery": "pangea complete crested gecko diet premium",
+        "priceRange": { "min": 15, "max": 26 }
+      }
+    },
+    "notes": "Essential for crested and mourning geckos. Mix with water to create paste. Feed 3-4x per week on rotating schedule (alternate with insects/fruit). Remove uneaten portions within 24 hours to prevent mold. Store in cool, dry place."
   }
 }

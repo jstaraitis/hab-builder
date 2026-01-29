@@ -11,19 +11,22 @@
     },
     "tiers": {
       "minimum": {
-        "description": "Basic timer mister",
-        "searchQuery": "terrarium automated misting system"
+        "description": "Basic timer mister (Exo Terra Monsoon)",
+        "searchQuery": "exo terra monsoon misting system",
+        "priceRange": { "min": 40, "max": 55 }
       },
       "recommended": {
-        "description": "Mid-range automatic",
-        "searchQuery": "terrarium automated misting system"
+        "description": "Programmable automatic mister (Zoo Med ReptiRain)",
+        "searchQuery": "zoo med reptirain automatic misting system",
+        "priceRange": { "min": 65, "max": 95 }
       },
       "ideal": {
-        "description": "Professional fogger",
-        "searchQuery": "terrarium automated misting system"
+        "description": "MistKing Starter System (pro-grade)",
+        "searchQuery": "mistking starter misting system professional",
+        "priceRange": { "min": 120, "max": 160 }
       }
     },
-    "notes": "Great for consistent humidity without manual misting."
+    "notes": "Great for consistent humidity without manual misting. MistKing is the gold standard for professional breeders - extremely reliable with fine mist nozzles and expandable to multiple enclosures."
   },
   "humidifier": {
     "name": "Ultrasonic or Cool Mist Humidifier",
@@ -33,19 +36,22 @@
     "importance": "conditional",
     "tiers": {
       "minimum": {
-        "description": "Basic humidifier",
-        "searchQuery": "terrarium ultrasonic or cool mist humidifier"
+        "description": "Small humidifier (1-2L capacity)",
+        "searchQuery": "small ultrasonic humidifier reptile terrarium",
+        "priceRange": { "min": 20, "max": 35 }
       },
       "recommended": {
-        "description": "Mid-range humidifier",
-        "searchQuery": "terrarium ultrasonic or cool mist humidifier"
+        "description": "Mid-range humidifier (3-5L capacity)",
+        "searchQuery": "mid-range ultrasonic humidifier terrarium",
+        "priceRange": { "min": 35, "max": 60 }
       },
       "ideal": {
-        "description": "Premium ultrasonic",
-        "searchQuery": "terrarium ultrasonic or cool mist humidifier"
+        "description": "Premium ultrasonic humidifier (6+ liters)",
+        "searchQuery": "premium ultrasonic humidifier large",
+        "priceRange": { "min": 60, "max": 90 }
       }
     },
-    "notes": "Keep clean and use food-safe (no essential oils)."
+    "notes": "Keep clean and use distilled water (no essential oils)."
   },
   "fogger": {
     "name": "Fogger (Ultrasonic Humidification)",
@@ -55,19 +61,22 @@
     "importance": "conditional",
     "tiers": {
       "minimum": {
-        "description": "Basic fogger",
-        "searchQuery": "terrarium fogger (ultrasonic humidification)"
+        "description": "Basic fogger unit",
+        "searchQuery": "ultrasonic fogger reptile terrarium",
+        "priceRange": { "min": 20, "max": 35 }
       },
       "recommended": {
-        "description": "Mid-range fogger",
-        "searchQuery": "terrarium fogger (ultrasonic humidification)"
+        "description": "Programmable fogger with timer",
+        "searchQuery": "programmable ultrasonic fogger terrarium",
+        "priceRange": { "min": 40, "max": 70 }
       },
       "ideal": {
-        "description": "Premium fogger with timer",
-        "searchQuery": "terrarium fogger (ultrasonic humidification)"
+        "description": "Premium programmable fogger with humidifier",
+        "searchQuery": "premium ultrasonic fogger humidifier system",
+        "priceRange": { "min": 75, "max": 120 }
       }
     },
-    "notes": "Great for bioactive setups with plants."
+    "notes": "Great for creating natural daytime fog. Essential for mimicking rainforest conditions. Use distilled water only."
   },
   "spray-bottle": {
     "name": "Spray Bottle for Misting",
@@ -77,15 +86,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic spray bottle",
-        "searchQuery": "spray bottle misting terrarium"
+        "searchQuery": "spray bottle misting terrarium",
+        "priceRange": { "min": 4, "max": 8 }
       },
       "recommended": {
         "description": "Pressurized mister",
-        "searchQuery": "spray bottle misting terrarium"
+        "searchQuery": "spray bottle misting terrarium",
+        "priceRange": { "min": 8, "max": 14 }
       },
       "ideal": {
         "description": "Professional mister",
-        "searchQuery": "spray bottle misting terrarium"
+        "searchQuery": "spray bottle misting terrarium",
+        "priceRange": { "min": 11, "max": 23 }
       }
     },
     "notes": "For manual humidity control. Clean regularly."

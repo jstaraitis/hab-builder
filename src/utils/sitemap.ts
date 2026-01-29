@@ -77,7 +77,13 @@ export function getDefaultSitemapEntries(): SitemapEntry[] {
       priority: 1.0
     },
     {
-      loc: '/select',
+      loc: '/animal',
+      lastmod: today,
+      changefreq: 'weekly',
+      priority: 0.9
+    },
+    {
+      loc: '/find-animal',
       lastmod: today,
       changefreq: 'weekly',
       priority: 0.9
@@ -99,6 +105,12 @@ export function getDefaultSitemapEntries(): SitemapEntry[] {
       lastmod: today,
       changefreq: 'weekly',
       priority: 0.8
+    },
+    {
+      loc: '/designer',
+      lastmod: today,
+      changefreq: 'weekly',
+      priority: 0.7
     },
     {
       loc: '/blog',

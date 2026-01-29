@@ -6,19 +6,22 @@
     "importance": "required",
     "tiers": {
       "minimum": {
-        "description": "Natural branches",
-        "searchQuery": "branches terrarium"
+        "description": "Collected branches (sanitized DIY - bake at 200°F for 1 hour)",
+        "searchQuery": "natural branches terrarium",
+        "priceRange": { "min": 0, "max": 11 }
       },
       "recommended": {
-        "description": "Natural branches",
-        "searchQuery": "cork bark branches terrarium"
+        "description": "Cork bark rounds or flats (natural, safe, holds humidity)",
+        "searchQuery": "cork bark branches terrarium rounds flats",
+        "priceRange": { "min": 11, "max": 26 }
       },
       "ideal": {
-        "description": "Premium Natural branches",
-        "searchQuery": "branches terrarium"
+        "description": "Manzanita or Ghostwood (premium hardwood, long-lasting, aesthetic)",
+        "searchQuery": "manzanita wood branches terrarium",
+        "priceRange": { "min": 26, "max": 60 }
       }
     },
-    "notes": "Cork bark and manzanita recommended."
+    "notes": "Cork bark is naturally rot-resistant and holds humidity well. Manzanita and Ghostwood are premium hardwoods with beautiful branching patterns and extreme durability. Sanitize all DIY branches before use."
   },
   "plants": {
     "name": "Plants (live or artificial)",
@@ -28,15 +31,18 @@
     "tiers": {
       "minimum": {
         "description": "Artificial plants",
-        "searchQuery": "terrarium plants (live or artificial)"
+        "searchQuery": "terrarium plants (live or artificial)",
+        "priceRange": { "min": 11, "max": 26 }
       },
       "recommended": {
         "description": "Mixed live and artificial",
-        "searchQuery": "terrarium plants (live or artificial)"
+        "searchQuery": "terrarium plants (live or artificial)",
+        "priceRange": { "min": 23, "max": 45 }
       },
       "ideal": {
         "description": "Premium live plants",
-        "searchQuery": "terrarium plants (live or artificial)"
+        "searchQuery": "terrarium plants (live or artificial)",
+        "priceRange": { "min": 38, "max": 75 }
       }
     },
     "notes": "Artificial easier for beginners. Live plants for naturalistic setups."
@@ -49,15 +55,18 @@
     "tiers": {
       "minimum": {
         "description": "Beginner plants",
-        "searchQuery": "terrarium live plants"
+        "searchQuery": "terrarium live plants",
+        "priceRange": { "min": 11, "max": 23 }
       },
       "recommended": {
         "description": "Variety pack",
-        "searchQuery": "terrarium live plants"
+        "searchQuery": "terrarium live plants",
+        "priceRange": { "min": 19, "max": 38 }
       },
       "ideal": {
         "description": "Premium rare species",
-        "searchQuery": "terrarium live plants"
+        "searchQuery": "terrarium live plants",
+        "priceRange": { "min": 30, "max": 60 }
       }
     },
     "notes": "Pothos and ficus are reliable starters."
@@ -70,15 +79,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic artificial",
-        "searchQuery": "terrarium artificial plants"
+        "searchQuery": "terrarium artificial plants",
+        "priceRange": { "min": 6, "max": 15 }
       },
       "recommended": {
         "description": "Realistic artificial",
-        "searchQuery": "terrarium artificial plants"
+        "searchQuery": "terrarium artificial plants",
+        "priceRange": { "min": 11, "max": 26 }
       },
       "ideal": {
         "description": "Premium realistic",
-        "searchQuery": "terrarium artificial plants"
+        "searchQuery": "terrarium artificial plants",
+        "priceRange": { "min": 19, "max": 38 }
       }
     },
     "notes": "Easy to maintain and won't wilt."
@@ -95,15 +107,18 @@
     "tiers": {
       "minimum": {
         "description": "Cork bark panels",
-        "searchQuery": "terrarium background (cork bark or foam)"
+        "searchQuery": "terrarium background (cork bark or foam)",
+        "priceRange": { "min": 11, "max": 26 }
       },
       "recommended": {
         "description": "Cork bark background",
-        "searchQuery": "terrarium background (cork bark or foam)"
+        "searchQuery": "terrarium background (cork bark or foam)",
+        "priceRange": { "min": 19, "max": 41 }
       },
       "ideal": {
         "description": "Custom foam background",
-        "searchQuery": "terrarium background (cork bark or foam)"
+        "searchQuery": "terrarium background (cork bark or foam)",
+        "priceRange": { "min": 38, "max": 75 }
       }
     },
     "notes": "Adds depth and climbing surfaces. Cork bark is natural and safe."
@@ -120,15 +135,18 @@
     "tiers": {
       "minimum": {
         "description": "Suction cup ledges",
-        "searchQuery": "terrarium wall ledges & platforms"
+        "searchQuery": "terrarium wall ledges & platforms",
+        "priceRange": { "min": 8, "max": 15 }
       },
       "recommended": {
         "description": "Cork bark ledges",
-        "searchQuery": "terrarium wall ledges & platforms"
+        "searchQuery": "terrarium wall ledges & platforms",
+        "priceRange": { "min": 11, "max": 23 }
       },
       "ideal": {
         "description": "Custom wood platforms",
-        "searchQuery": "terrarium wall ledges & platforms"
+        "searchQuery": "terrarium wall ledges & platforms",
+        "priceRange": { "min": 19, "max": 34 }
       }
     },
     "notes": "Arboreal and semi-arboreal species need multiple perching spots at different heights."
@@ -145,15 +163,18 @@
     "tiers": {
       "minimum": {
         "description": "Natural rocks or branches",
-        "searchQuery": "terrarium basking rock platform"
+        "searchQuery": "terrarium basking rock platform",
+        "priceRange": { "min": 8, "max": 19 }
       },
       "recommended": {
         "description": "Basking platforms and natural decor",
-        "searchQuery": "terrarium basking platform climbing rock"
+        "searchQuery": "terrarium basking platform climbing rock",
+        "priceRange": { "min": 15, "max": 30 }
       },
       "ideal": {
         "description": "Premium basking platforms with ledges",
-        "searchQuery": "terrarium basking platform hammock"
+        "searchQuery": "terrarium basking platform hammock",
+        "priceRange": { "min": 23, "max": 45 }
       }
     },
     "notes": "For terrestrial species - provides enrichment, basking surfaces, and exercise. Includes rocks, flat basking platforms, and low branches."
@@ -170,15 +191,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic terrarium hides",
-        "searchQuery": "terrarium hides & shelters"
+        "searchQuery": "terrarium hides & shelters",
+        "priceRange": { "min": 6, "max": 14 }
       },
       "recommended": {
         "description": "Natural cork bark or rock hides",
-        "searchQuery": "terrarium hides & shelters cork bark"
+        "searchQuery": "terrarium hides & shelters cork bark",
+        "priceRange": { "min": 11, "max": 23 }
       },
       "ideal": {
         "description": "Premium naturalistic hides",
-        "searchQuery": "terrarium hides & shelters naturalistic"
+        "searchQuery": "terrarium hides & shelters naturalistic",
+        "priceRange": { "min": 19, "max": 38 }
       }
     },
     "notes": "Provide security and reduce stress. Vary placement for enrichment. Need at least one in warm zone and one in cool zone."
@@ -196,15 +220,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic aquarium cave",
-        "searchQuery": "aquarium cave hide decoration"
+        "searchQuery": "aquarium cave hide decoration",
+        "priceRange": { "min": 8, "max": 15 }
       },
       "recommended": {
         "description": "Natural rock cave or ceramic hide",
-        "searchQuery": "aquarium cave hide rock ceramic"
+        "searchQuery": "aquarium cave hide rock ceramic",
+        "priceRange": { "min": 14, "max": 26 }
       },
       "ideal": {
         "description": "Custom rock formation with multiple hiding spots",
-        "searchQuery": "aquarium cave hide rock formation"
+        "searchQuery": "aquarium cave hide rock formation",
+        "priceRange": { "min": 23, "max": 41 }
       }
     },
     "notes": "Essential for aquatic species. Provides dark hiding spots away from light. Must be aquarium-safe with no sharp edges. Ensure large enough for animal to fully enter and turn around."
@@ -221,15 +248,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic humid hide box",
-        "searchQuery": "reptile humid hide shedding"
+        "searchQuery": "reptile humid hide shedding",
+        "priceRange": { "min": 8, "max": 14 }
       },
       "recommended": {
         "description": "Pre-made humid hide with moss",
-        "searchQuery": "reptile humid hide sphagnum moss"
+        "searchQuery": "reptile humid hide sphagnum moss",
+        "priceRange": { "min": 11, "max": 21 }
       },
       "ideal": {
         "description": "Large naturalistic humid hide",
-        "searchQuery": "reptile humid hide naturalistic large"
+        "searchQuery": "reptile humid hide naturalistic large",
+        "priceRange": { "min": 17, "max": 30 }
       }
     },
     "notes": "CRITICAL for snakes and geckos during shedding. Fill with damp (not wet) sphagnum moss. Place in warm zone. Re-moisten moss every 2-3 days. Prevents stuck shed and retained eye caps."
@@ -247,15 +277,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic ceramic water dish",
-        "searchQuery": "reptile water dish large shallow"
+        "searchQuery": "reptile water dish large shallow",
+        "priceRange": { "min": 8, "max": 15 }
       },
       "recommended": {
         "description": "Heavy rock-style water dish",
-        "searchQuery": "reptile water dish rock style heavy"
+        "searchQuery": "reptile water dish rock style heavy",
+        "priceRange": { "min": 11, "max": 23 }
       },
       "ideal": {
         "description": "Large naturalistic water feature",
-        "searchQuery": "reptile water dish naturalistic large"
+        "searchQuery": "reptile water dish naturalistic large",
+        "priceRange": { "min": 19, "max": 38 }
       }
     },
     "notes": "For snakes, geckos, and terrestrial species. Must be heavy enough not to tip. Large enough for animal to soak fully. Change water daily. Position away from heat sources to prevent rapid evaporation."
@@ -272,15 +305,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic feeding dish",
-        "searchQuery": "reptile food dish feeding bowl"
+        "searchQuery": "reptile food dish feeding bowl",
+        "priceRange": { "min": 5, "max": 9 }
       },
       "recommended": {
         "description": "Ceramic feeding dish",
-        "searchQuery": "reptile food dish ceramic bowl"
+        "searchQuery": "reptile food dish ceramic bowl",
+        "priceRange": { "min": 8, "max": 15 }
       },
       "ideal": {
         "description": "Magnetic or elevated feeding station",
-        "searchQuery": "reptile feeding station elevated magnetic"
+        "searchQuery": "reptile feeding station elevated magnetic",
+        "priceRange": { "min": 14, "max": 26 }
       }
     },
     "notes": "For bearded dragons and herbivorous species. Prevents substrate ingestion. Easy to clean. Shallow design allows easy access. Elevated feeders good for larger lizards."
@@ -290,6 +326,8 @@
     "category": "substrate",
     "needsTags": ["humidity:moss"],
     "importance": "conditional",
+    "isRecurring": false,
+    "recurringInterval": "3 months",
     "spec": {
       "type": "Long-fiber sphagnum moss",
       "purpose": "Humid hides and moisture retention"
@@ -297,15 +335,18 @@
     "tiers": {
       "minimum": {
         "description": "Compressed sphagnum moss brick",
-        "searchQuery": "sphagnum moss reptile terrarium"
+        "searchQuery": "sphagnum moss reptile terrarium",
+        "priceRange": { "min": 6, "max": 11 }
       },
       "recommended": {
         "description": "Premium long-fiber sphagnum moss",
-        "searchQuery": "premium sphagnum moss long fiber terrarium"
+        "searchQuery": "premium sphagnum moss long fiber terrarium",
+        "priceRange": { "min": 9, "max": 15 }
       },
       "ideal": {
         "description": "New Zealand sphagnum moss",
-        "searchQuery": "new zealand sphagnum moss terrarium premium"
+        "searchQuery": "new zealand sphagnum moss terrarium premium",
+        "priceRange": { "min": 14, "max": 23 }
       }
     },
     "notes": "Essential for humid hides - helps snakes and geckos shed properly. Holds moisture well without being soggy. Place in enclosed hide and mist every 2-3 days. Also useful for egg-laying sites and bioactive layering."

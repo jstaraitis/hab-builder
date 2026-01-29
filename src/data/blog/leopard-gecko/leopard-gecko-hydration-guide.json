@@ -1,7 +1,8 @@
-ï»¿{
+{
   "id": "leopard-gecko-hydration-guide",
   "title": "Leopard Gecko Hydration Guide: Water Requirements for Desert Species",
   "description": "Complete hydration guide for leopard geckos covering water dish requirements, humid hide for shedding, dehydration recognition, and desert-adapted hydration strategies.",
+  "excerpt": "Complete hydration guide for leopard geckos covering water dish requirements, humid hide for shedding, dehydration recognition, and desert-adapted hydration strategies.",
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
@@ -11,7 +12,7 @@
     {
       "type": "intro",
       "title": "Hydration for Desert-Adapted Leopard Geckos",
-      "content": "Leopard geckos originate from semi-arid regions of Afghanistan, Pakistan, India, and Nepal, where water sources are seasonal and limited. Despite their desert origins, they require consistent access to fresh water and periodic high-humidity microclimates (humid hides) for proper shedding. Their hydration needs differ dramatically from tropical speciesâ€”they don't require misting or high ambient humidity, but they do need strategic humidity zones and reliable water sources. This guide covers evidence-based hydration practices including water dish placement, humid hide construction, dehydration recognition, and troubleshooting stuck sheds."
+      "content": "Leopard geckos originate from semi-arid regions of Afghanistan, Pakistan, India, and Nepal, where water sources are seasonal and limited. Despite their desert origins, they require consistent access to fresh water and periodic high-humidity microclimates (humid hides) for proper shedding. Their hydration needs differ dramatically from tropical species—they don't require misting or high ambient humidity, but they do need strategic humidity zones and reliable water sources. This guide covers evidence-based hydration practices including water dish placement, humid hide construction, dehydration recognition, and troubleshooting stuck sheds."
     },
     {
       "type": "section",
@@ -38,7 +39,7 @@
     },
     {
       "type": "highlight",
-      "content": "Leopard geckos are NOT desert specialistsâ€”they're semi-arid species that exploit humid microclimates (burrows) for thermoregulation and shedding. Provide both dry zones (30-40% ambient) and a humid retreat (70-80% humid hide). They don't need misting like tropical species."
+      "content": "Leopard geckos are NOT desert specialists—they're semi-arid species that exploit humid microclimates (burrows) for thermoregulation and shedding. Provide both dry zones (30-40% ambient) and a humid retreat (70-80% humid hide). They don't need misting like tropical species."
     },
     {
       "type": "section",
@@ -59,7 +60,7 @@
         ["Size", "3-5\" diameter for adults, 2-3\" for juveniles", "Large enough for gecko to soak (optional), not so large it dominates enclosure"],
         ["Depth", "1-2\" deep (shallow sides preferred)", "Prevents drowning risk, easy access for all sizes"],
         ["Material", "Ceramic, glass, or heavy plastic", "Stable (won't tip), easy to clean, non-porous"],
-        ["Placement", "Cool zone (70-77Â°F)", "Warm side evaporates water too quickly, cool zone maintains water"],
+        ["Placement", "Cool zone (70-77°F)", "Warm side evaporates water too quickly, cool zone maintains water"],
         ["Water Level", "Fill 1/2 to 3/4 full", "Allows soaking without overflow, reduces evaporation surface area"],
         ["Cleaning Frequency", "Rinse daily, deep clean 2x/week", "Prevents bacterial growth, removes substrate/fecal contamination"]
       ]
@@ -67,7 +68,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Never use sponges or 'water pillows' as sole water sourceâ€”they harbor bacteria and don't provide adequate hydration. Leopard geckos lap water directly, not from sponges. A shallow dish with fresh water is non-negotiable."
+      "content": "Never use sponges or 'water pillows' as sole water source—they harbor bacteria and don't provide adequate hydration. Leopard geckos lap water directly, not from sponges. A shallow dish with fresh water is non-negotiable."
     },
     {
       "type": "section",
@@ -88,7 +89,7 @@
         ["Container", "Plastic food container, tupperware, or commercial humid hide", "Holds moisture, provides darkness and security"],
         ["Substrate Inside", "Damp (not wet) sphagnum moss, paper towels, or coconut fiber", "Retains moisture, comfortable surface"],
         ["Entry Hole", "1.5-2\" diameter for adults, 1\" for juveniles", "Easy access, snug fit reduces moisture loss"],
-        ["Placement", "Warm side (85-90Â°F) OR middle of thermal gradient", "Warm side = better shedding aid, middle = comfortable humidity access"],
+        ["Placement", "Warm side (85-90°F) OR middle of thermal gradient", "Warm side = better shedding aid, middle = comfortable humidity access"],
         ["Target Humidity", "70-80% inside hide", "Mimics burrow humidity, sufficient for shedding"],
         ["Maintenance", "Re-moisten substrate daily, replace weekly", "Prevents mold growth, maintains humidity"]
       ]
@@ -100,7 +101,7 @@
     {
       "type": "list",
       "items": [
-        "Select opaque plastic container with lid (6Ã—4\" for adults, 4Ã—3\" for juveniles)",
+        "Select opaque plastic container with lid (6×4\" for adults, 4×3\" for juveniles)",
         "Cut circular entrance hole in side (not top) - 1.5-2\" diameter for adults",
         "Sand edges smooth to prevent injury",
         "Fill bottom with 1-2\" damp sphagnum moss (squeeze out excess water)",
@@ -111,7 +112,7 @@
     },
     {
       "type": "highlight",
-      "content": "Cost: $2-5 for DIY humid hide (plastic container + sphagnum moss), or $10-20 for commercial options (Zoo Med 3-in-1 Repti Rock, Exo Terra Gecko Cave). Either worksâ€”key is maintaining 70-80% humidity inside with daily maintenance."
+      "content": "Cost: $2-5 for DIY humid hide (plastic container + sphagnum moss), or $10-20 for commercial options (Zoo Med 3-in-1 Repti Rock, Exo Terra Gecko Cave). Either works—key is maintaining 70-80% humidity inside with daily maintenance."
     },
     {
       "type": "section",
@@ -131,7 +132,7 @@
       "rows": [
         ["Frequency", "Every 2-3 days on average", "Some drink daily, others every 4-5 days (both normal if hydrated)"],
         ["Time of Day", "Dawn and dusk primarily", "Crepuscular species = drink during active periods (may not be observed)"],
-        ["Method", "Lapping with tongue", "Similar to dogs/catsâ€”repeated tongue flicks into water"],
+        ["Method", "Lapping with tongue", "Similar to dogs/cats—repeated tongue flicks into water"],
         ["Duration", "10-30 seconds per drinking session", "Short sessions, multiple laps"],
         ["Post-Feeding", "Often drink after eating", "Digestion requires water, expect drinking within 12 hours of feeding"],
         ["Shedding", "Increased water intake before/during shed", "Hydration aids shed process, may see soaking behavior"]
@@ -140,7 +141,7 @@
     {
       "type": "warning",
       "severity": "tip",
-      "content": "Rarely seeing your gecko drink is NORMALâ€”they're active when you're asleep. Signs of adequate hydration matter more than observed drinking: plump tail, clear eyes, regular bowel movements, clean sheds. If these are present, hydration is sufficient."
+      "content": "Rarely seeing your gecko drink is NORMAL—they're active when you're asleep. Signs of adequate hydration matter more than observed drinking: plump tail, clear eyes, regular bowel movements, clean sheds. If these are present, hydration is sufficient."
     },
     {
       "type": "section",
@@ -159,7 +160,7 @@
       "headers": ["Severity", "Visual Signs", "Behavioral Signs", "Action Required"],
       "rows": [
         ["Mild", "Slightly wrinkled skin, tail less plump than usual", "Normal activity, eating regularly", "Ensure water dish full, check temps (low temps = reduced drinking), verify humid hide 70-80%"],
-        ["Moderate", "Sunken eyes (eye turgor test), dry skin, stuck shed on toes/tail", "Lethargy, reduced appetite", "Offer water via dropper/syringe, warm soaks (85Â°F) 15 min daily, vet consultation if no improvement in 48 hrs"],
+        ["Moderate", "Sunken eyes (eye turgor test), dry skin, stuck shed on toes/tail", "Lethargy, reduced appetite", "Offer water via dropper/syringe, warm soaks (85°F) 15 min daily, vet consultation if no improvement in 48 hrs"],
         ["Severe", "Deeply sunken eyes, skin 'tenting' (doesn't flatten after pinch), weight loss", "Refuses food, minimal movement, weakness", "EMERGENCY VET VISIT: IV fluids may be required, risk of organ failure"],
         ["Chronic (long-term)", "Dry patches on skin, repeated stuck sheds, weight loss over weeks", "Decreased activity over time", "Vet visit for hydration assessment + underlying cause (kidney disease, parasites)"]
       ]
@@ -167,7 +168,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Eye turgor test: Gently press on closed eyelidâ€”eye should feel firm and plump. Sunken eyes (soft, recessed appearance) indicate moderate-to-severe dehydration requiring immediate intervention. Do not waitâ€”dehydration progresses rapidly in reptiles."
+      "content": "Eye turgor test: Gently press on closed eyelid—eye should feel firm and plump. Sunken eyes (soft, recessed appearance) indicate moderate-to-severe dehydration requiring immediate intervention. Do not wait—dehydration progresses rapidly in reptiles."
     },
     {
       "type": "section",
@@ -186,9 +187,9 @@
       "headers": ["Shed Phase", "Duration", "Behavior", "Humidity Support"],
       "rows": [
         ["Pre-shed (dull color)", "3-5 days before", "Reduced appetite, duller coloration, cloudy eyes", "Ensure humid hide 70-80%, may spend more time inside"],
-        ["Active Shedding", "30 minutes to 2 hours", "Rubbing on decor, eating shed skin", "Humid hide access criticalâ€”check moss is damp"],
-        ["Post-Shed", "Within 24 hours", "Bright coloration returns, resumes normal activity", "Verify complete shedâ€”check toes, tail tip, vent area"],
-        ["Stuck Shed (problem)", "Shed doesn't come off fully", "Skin remains on toes, tail, eyelids", "See troubleshooting sectionâ€”soaks + manual removal"]
+        ["Active Shedding", "30 minutes to 2 hours", "Rubbing on decor, eating shed skin", "Humid hide access critical—check moss is damp"],
+        ["Post-Shed", "Within 24 hours", "Bright coloration returns, resumes normal activity", "Verify complete shed—check toes, tail tip, vent area"],
+        ["Stuck Shed (problem)", "Shed doesn't come off fully", "Skin remains on toes, tail, eyelids", "See troubleshooting section—soaks + manual removal"]
       ]
     },
     {
@@ -207,7 +208,7 @@
     },
     {
       "type": "highlight",
-      "content": "Healthy geckos eat their shed skin (nutritional recycling). If shed is incomplete (stuck on toes, tail tip), immediate intervention is neededâ€”stuck sheds constrict blood flow, causing tissue death and toe loss within days."
+      "content": "Healthy geckos eat their shed skin (nutritional recycling). If shed is incomplete (stuck on toes, tail tip), immediate intervention is needed—stuck sheds constrict blood flow, causing tissue death and toe loss within days."
     },
     {
       "type": "section",
@@ -225,9 +226,9 @@
       "type": "table",
       "headers": ["Location", "Removal Method", "Safety Notes"],
       "rows": [
-        ["Toes (most common)", "Warm soak (85Â°F, 15 min), gently peel with tweezers", "Stuck toe sheds = #1 cause of toe loss, do NOT delay"],
+        ["Toes (most common)", "Warm soak (85°F, 15 min), gently peel with tweezers", "Stuck toe sheds = #1 cause of toe loss, do NOT delay"],
         ["Tail Tip", "Soak + gentle rolling motion with damp q-tip", "Tail tip loss from constriction is permanent"],
-        ["Eyelids (eye caps)", "Soak + use damp q-tip to gently lift edge, peel carefully", "NEVER forceâ€”if doesn't lift after soak, vet visit (risk of eye damage)"],
+        ["Eyelids (eye caps)", "Soak + use damp q-tip to gently lift edge, peel carefully", "NEVER force—if doesn't lift after soak, vet visit (risk of eye damage)"],
         ["Body (torso, limbs)", "Soak + gentle rubbing with soft cloth", "Usually less critical but improves next shed"],
         ["Vent Area", "Soak + gentle wipe with damp paper towel", "Stuck shed near vent can block defecation"]
       ]
@@ -239,17 +240,17 @@
     {
       "type": "list",
       "items": [
-        "Fill shallow container (tupperware) with 85Â°F dechlorinated water (depth = gecko's shoulders)",
+        "Fill shallow container (tupperware) with 85°F dechlorinated water (depth = gecko's shoulders)",
         "Place gecko in water for 10-15 minutes (supervise entire time)",
         "Water should cover toes/tail but allow head to stay above water easily",
         "After soak, gently attempt to peel stuck shed with clean tweezers or fingers",
-        "If shed doesn't come off after 2 soaks, vet visit required (don't forceâ€”causes injury)"
+        "If shed doesn't come off after 2 soaks, vet visit required (don't force—causes injury)"
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Stuck shed on toes for >48 hours can cause permanent toe loss due to blood flow constriction. Multiple stuck sheds indicate chronic low humidityâ€”increase humid hide humidity to 80% and verify daily moss moistening. Repeating stuck sheds = husbandry problem requiring adjustment."
+      "content": "Stuck shed on toes for >48 hours can cause permanent toe loss due to blood flow constriction. Multiple stuck sheds indicate chronic low humidity—increase humid hide humidity to 80% and verify daily moss moistening. Repeating stuck sheds = husbandry problem requiring adjustment."
     },
     {
       "type": "section",
@@ -266,8 +267,8 @@
         ["Egg-Laying Females", "Increase water dish size (allows soaking), add second humid hide", "2 weeks before laying through recovery (3-4 weeks total)"],
         ["Post-Brumation", "Offer water immediately, warm soaks if dehydrated appearance", "1-2 weeks after emergence until normal drinking resumes"],
         ["Illness/Anorexia", "Syringe water/Pedialyte (diluted 50/50), daily soaks", "Until eating resumes, vet guidance"],
-        ["Impaction", "Daily warm soaks (85-90Â°F, 15-20 min), increase hydration", "Until blockage passes (days to weeks, vet involvement)"],
-        ["High Temperatures (>85Â°F ambient)", "Increase water dish size, check water levels 2x daily", "During summer heat waves or if room temps uncontrolled"],
+        ["Impaction", "Daily warm soaks (85-90°F, 15-20 min), increase hydration", "Until blockage passes (days to weeks, vet involvement)"],
+        ["High Temperatures (>85°F ambient)", "Increase water dish size, check water levels 2x daily", "During summer heat waves or if room temps uncontrolled"],
         ["Juveniles (<6 months)", "Smaller but proportionally larger water dish (easier access)", "Until adulthood"]
       ]
     },
@@ -291,13 +292,13 @@
         ["Stuck Shed Emergency", "Lightly mist gecko's body before manual removal", "Softens stuck skin temporarily (soaking is more effective)"],
         ["Ambient Humidity <20%", "Light mist in cool zone (not on gecko), once daily", "Raises ambient to 30% minimum (very dry climates only)"],
         ["Normal Conditions", "Do NOT mist enclosure", "Leopard geckos are semi-arid, 30-40% ambient is ideal (misting raises too high)"],
-        ["Tropical Bioactive Setups", "Do NOT mist", "Wrong humidity profile for leopard geckosâ€”use arid bioactive methods"]
+        ["Tropical Bioactive Setups", "Do NOT mist", "Wrong humidity profile for leopard geckos—use arid bioactive methods"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Do NOT mist enclosure daily like tropical speciesâ€”this creates respiratory infection risk (>50% ambient humidity). Only mist humid hide substrate (not enclosure air). If ambient humidity >50%, increase ventilation or reduce misting."
+      "content": "Do NOT mist enclosure daily like tropical species—this creates respiratory infection risk (>50% ambient humidity). Only mist humid hide substrate (not enclosure air). If ambient humidity >50%, increase ventilation or reduce misting."
     },
     {
       "type": "section",
@@ -312,11 +313,11 @@
       "headers": ["Problem", "Likely Causes", "Solutions"],
       "rows": [
         ["Repeated stuck sheds", "Humid hide <70% humidity, substrate not moistened daily, no humid hide provided", "Increase moss moisture, verify 70-80% with hygrometer, provide humid hide on warm side"],
-        ["Gecko won't use humid hide", "Hide too hot (>95Â°F), substrate too wet (soaking), hide too small or too large", "Move to cooler area (85-90Â°F), moss damp not dripping, size = 1.5x gecko length"],
+        ["Gecko won't use humid hide", "Hide too hot (>95°F), substrate too wet (soaking), hide too small or too large", "Move to cooler area (85-90°F), moss damp not dripping, size = 1.5x gecko length"],
         ["Sunken eyes but gecko drinks", "Chronic dehydration from low humidity, kidney disease, parasites", "Vet visit for bloodwork/fecal test, increase humid hide humidity to 80%"],
-        ["Water dish constantly empty", "Gecko soaking (overheating or dehydration), evaporation from heat lamp proximity", "Check basking temps <97Â°F, move dish away from heat, refill 2x daily if needed"],
+        ["Water dish constantly empty", "Gecko soaking (overheating or dehydration), evaporation from heat lamp proximity", "Check basking temps <97°F, move dish away from heat, refill 2x daily if needed"],
         ["Gecko defecates in water dish", "Natural behavior (moist environment triggers defecation)", "Clean immediately (bacteria), consider second dish, place humid hide near (may prefer humid hide for defecation)"],
-        ["Refusing water for >1 week", "Temps too low (<75Â°F), impaction, illness, brumation", "Check temps, palpate for blockage, offer water via dropper, vet visit if no improvement"],
+        ["Refusing water for >1 week", "Temps too low (<75°F), impaction, illness, brumation", "Check temps, palpate for blockage, offer water via dropper, vet visit if no improvement"],
         ["Bioactive too dry for humid hide", "Substrate dries rapidly, springtails dying", "Mist humid hide substrate only (not enclosure), consider separate humid hide chamber"]
       ]
     },
@@ -339,12 +340,12 @@
         ["Ambient (general enclosure)", "30-40%", "Hygrometer in center of enclosure, mid-height", "If <30%, add larger water dish or light misting once daily; if >50%, increase ventilation"],
         ["Humid Hide Interior", "70-80%", "Small hygrometer inside hide OR test with separate hygrometer placed inside for 1 hour", "If <70%, increase moss depth, re-moisten 2x daily; if >85%, reduce moisture (mold risk)"],
         ["Basking Zone", "20-30% (dry)", "Hygrometer near basking area", "If >40%, reduce water sources on warm side (expect dry area under heat lamp)"],
-        ["Cool Zone", "35-45%", "Hygrometer in cool hide", "Slightly higher than ambient due to water dish proximityâ€”normal"]
+        ["Cool Zone", "35-45%", "Hygrometer in cool hide", "Slightly higher than ambient due to water dish proximity—normal"]
       ]
     },
     {
       "type": "highlight",
-      "content": "Essential Equipment: Digital hygrometer for ambient ($5-10), optional second hygrometer for humid hide ($5). Analog dial hygrometers are notoriously inaccurateâ€”use digital only. Govee WiFi hygrometers ($15-20) track trends over time."
+      "content": "Essential Equipment: Digital hygrometer for ambient ($5-10), optional second hygrometer for humid hide ($5). Analog dial hygrometers are notoriously inaccurate—use digital only. Govee WiFi hygrometers ($15-20) track trends over time."
     },
     {
       "type": "section",
@@ -363,8 +364,8 @@
         ["Sphagnum Moss", "Long-fiber sphagnum moss (NOT peat moss)", "Retains moisture in humid hide, comfortable texture"],
         ["Spray Bottle", "Misting bottle for humid hide substrate", "Daily re-moistening of humid hide moss"],
         ["Digital Hygrometer", "2x preferred (ambient + humid hide)", "Monitors humidity levels accurately"],
-        ["Shallow Soaking Container", "Tupperware, 6Ã—4Ã—2\" minimum", "Warm soaks for stuck shed treatment"],
-        ["Thermometer (infrared or probe)", "Verify humid hide location temp 85-90Â°F", "Ensures humid hide in proper thermal zone"],
+        ["Shallow Soaking Container", "Tupperware, 6×4×2\" minimum", "Warm soaks for stuck shed treatment"],
+        ["Thermometer (infrared or probe)", "Verify humid hide location temp 85-90°F", "Ensures humid hide in proper thermal zone"],
         ["Tweezers (blunt tip)", "For gentle stuck shed removal", "Assists with toe/tail shed removal after soaking"]
       ]
     },

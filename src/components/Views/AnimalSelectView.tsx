@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Lightbulb } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import type { EnclosureInput, BuildPlan, AnimalProfile } from '../../engine/types';
 import { AnimalPicker } from '../AnimalPicker/AnimalPicker';
 import { ImageGallery } from '../ImageGallery/ImageGallery';
@@ -17,6 +18,7 @@ interface AnimalSelectViewProps {
 }
 
 export function AnimalSelectView({ input, selectedProfile, profileCareTargets, onSelect, onContinue }: AnimalSelectViewProps) {
+  const navigate = useNavigate();
   const animalDataRef = useRef<HTMLDivElement>(null);
   const [showContinueButton, setShowContinueButton] = useState(false);
 
@@ -69,6 +71,24 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
   return (
     <div className="space-y-6">
       <SEO {...animalSEO} />
+      
+      {/* Find Your Animal CTA */}
+      <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-4">
+        <div className="flex items-start gap-3">
+          <Lightbulb className="w-6 h-6 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+          <div className="flex-1">
+            <h3 className="font-bold text-blue-900 dark:text-blue-300 mb-1">Not sure which animal you want?</h3>
+            <p className="text-sm text-blue-800 dark:text-blue-400 mb-3">Answer some questions and we'll recommend animals that fit your setup!</p>
+            <button
+              onClick={() => navigate('/find-animal')}
+              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 dark:hover:bg-blue-600 text-white font-medium rounded-lg transition-colors text-sm"
+            >
+              Get Recommendations →
+            </button>
+          </div>
+        </div>
+      </div>
+
       <AnimalPicker selected={input.animal} onSelect={onSelect} />
       
       {!input.animal && (

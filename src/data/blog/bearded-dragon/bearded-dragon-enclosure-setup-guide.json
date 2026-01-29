@@ -1,7 +1,8 @@
-ï»¿{
+{
   "id": "bearded-dragon-enclosure-setup-guide",
   "title": "Bearded Dragon Enclosure Setup: Size, Layout & Equipment Guide",
   "description": "Complete guide to setting up a bearded dragon enclosure including minimum size requirements, enclosure types, layout design, and essential equipment checklist.",
+  "excerpt": "Complete guide to setting up a bearded dragon enclosure including minimum size requirements, enclosure types, layout design, and essential equipment checklist.",
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
@@ -27,18 +28,18 @@
     },
     {
       "type": "table",
-      "headers": ["Life Stage", "Minimum Dimensions (LÃ—WÃ—H)", "Floor Space", "Notes"],
+      "headers": ["Life Stage", "Minimum Dimensions (L×W×H)", "Floor Space", "Notes"],
       "rows": [
-        ["Hatchling (0-6 months)", "36Ã—18Ã—18 inches", "4.5 sq ft", "Can start in 40-gallon breeder"],
-        ["Juvenile (6-12 months)", "48Ã—24Ã—24 inches", "8 sq ft", "Upgrade before reaching 12 inches"],
-        ["Adult (12+ months)", "72Ã—24Ã—24 inches", "12 sq ft", "Minimum 120-gallon equivalent"],
-        ["Large Adult (18+ inches)", "96Ã—24Ã—24 inches", "16 sq ft", "Recommended for males 20+ inches"]
+        ["Hatchling (0-6 months)", "36×18×18 inches", "4.5 sq ft", "Can start in 40-gallon breeder"],
+        ["Juvenile (6-12 months)", "48×24×24 inches", "8 sq ft", "Upgrade before reaching 12 inches"],
+        ["Adult (12+ months)", "72×24×24 inches", "12 sq ft", "Minimum 120-gallon equivalent"],
+        ["Large Adult (18+ inches)", "96×24×24 inches", "16 sq ft", "Recommended for males 20+ inches"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Critical Requirement: Adult bearded dragons require a MINIMUM 4Ã—2Ã—2 foot enclosure (120 gallons). Smaller enclosures cause chronic stress, obesity from reduced activity, and aggressive behaviors. Bigger is always better."
+      "content": "Critical Requirement: Adult bearded dragons require a MINIMUM 4×2×2 foot enclosure (120 gallons). Smaller enclosures cause chronic stress, obesity from reduced activity, and aggressive behaviors. Bigger is always better."
     },
     {
       "type": "section",
@@ -76,7 +77,7 @@
     },
     {
       "type": "text",
-      "content": "Bearded dragons require a basking surface of 100-110Â°F at one end and a cool side of 75-80Â°F at the opposite end. They are diurnal baskers that spend significant time under UVB lighting."
+      "content": "Bearded dragons require a basking surface of 100-110°F at one end and a cool side of 75-80°F at the opposite end. They are diurnal baskers that spend significant time under UVB lighting."
     },
     {
       "type": "highlight",
@@ -116,7 +117,7 @@
     },
     {
       "type": "text",
-      "content": "Appropriate decor provides enrichment while maintaining clear sightlines and accessible floor space. Bearded dragons are ground-dwellersâ€”prioritize horizontal structures."
+      "content": "Appropriate decor provides enrichment while maintaining clear sightlines and accessible floor space. Bearded dragons are ground-dwellers—prioritize horizontal structures."
     },
     {
       "type": "table",
@@ -146,7 +147,7 @@
       "type": "table",
       "headers": ["Error", "Consequence", "Correction"],
       "rows": [
-        ["Undersized enclosure (<4Ã—2Ã—2)", "Chronic stress, obesity, aggression", "Upgrade to minimum adult size"],
+        ["Undersized enclosure (<4×2×2)", "Chronic stress, obesity, aggression", "Upgrade to minimum adult size"],
         ["No thermal gradient", "Inability to thermoregulate", "Position heat source at one end only"],
         ["Basking platform too low", "Insufficient heat exposure", "Raise platform 8-10\\\" from heat bulb"],
         ["Overcrowded decor", "Restricted movement, stress", "Maintain 50%+ open floor space"],
@@ -168,9 +169,9 @@
       "headers": ["Day", "Task", "Success Criteria"],
       "rows": [
         ["1-2", "Install equipment, test heating/lighting", "All fixtures operational, bulbs at correct distance"],
-        ["3-4", "Monitor temperatures across gradient", "Basking 100-110Â°F, cool side 75-80Â°F, stable nighttime drop"],
+        ["3-4", "Monitor temperatures across gradient", "Basking 100-110°F, cool side 75-80°F, stable nighttime drop"],
         ["5-6", "Verify UVB levels (if Solarmeter available)", "UVI 4.0-6.0 at basking surface"],
-        ["7", "Final checks: timer schedules, stability tests", "12-14hr photoperiod, all decor secure, no hot spots >115Â°F"]
+        ["7", "Final checks: timer schedules, stability tests", "12-14hr photoperiod, all decor secure, no hot spots >115°F"]
       ]
     },
     {

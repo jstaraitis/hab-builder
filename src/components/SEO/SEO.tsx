@@ -21,12 +21,14 @@ interface SEOProps {
 
 const DEFAULT_SEO = {
   title: 'Habitat Builder - Free Reptile & Amphibian Enclosure Planner with Visual Designer',
-  description: 'Design the perfect enclosure for your reptile or amphibian with our free interactive planner. Get custom shopping lists with Amazon links, species-specific care parameters, drag-and-drop visual designer with 70+ equipment items, and step-by-step build instructions. Supports tree frogs, geckos, bearded dragons, snakes, and more.',
+  description: 'Design the perfect enclosure for your reptile or amphibian with our free interactive planner. Find animals that fit your space, get custom shopping lists with Amazon links, species-specific care parameters, drag-and-drop visual designer with 70+ equipment items, and detailed step-by-step build instructions with equipment installation guidance. Supports tree frogs, geckos, bearded dragons, snakes, and more.',
   keywords: [
     'reptile enclosure planner',
     'vivarium builder',
     'habitat designer',
     'terrarium planner',
+    'find reptile for enclosure',
+    'animal recommendation tool',
     'bearded dragon setup',
     'bioactive enclosure calculator',
     'reptile care guide',
@@ -51,7 +53,11 @@ const DEFAULT_SEO = {
     'reptile temperature guide',
     'humidity calculator',
     'enclosure size calculator',
-    'reptile budget planner'
+    'reptile budget planner',
+    'equipment installation guide',
+    'thermostat setup guide',
+    'misting system installation',
+    'escape proof enclosure'
   ],
   ogImage: '/og-image.jpg',
   canonical: 'https://habitat-builder.com'

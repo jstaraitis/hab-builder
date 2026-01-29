@@ -1,7 +1,8 @@
-ï»¿{
+{
   "id": "ball-python-feeding-guide",
   "title": "Ball Python Feeding Guide: Complete Carnivore Diet & Prey Variety",
   "description": "Evidence-based feeding guide for ball pythons covering whole prey diet (rats, mice, ASF rats, quail, chicks), age-based feeding schedules, prey sizing (10% body weight rule), and dietary variety for optimal health.",
+  "excerpt": "Evidence-based feeding guide for ball pythons covering whole prey diet (rats, mice, ASF rats, quail, chicks), age-based feeding schedules, prey sizing (10% body weight rule), and dietary variety for optimal health.",
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
@@ -11,7 +12,7 @@
     {
       "type": "intro",
       "title": "Complete Carnivore Diet for Ball Pythons",
-      "content": "Ball pythons are obligate carnivores, requiring a diet of whole animal prey to obtain complete nutrition. Unlike some reptiles that can survive on single prey types, ball pythons thrive on dietary varietyâ€”rats, mice, African soft-furred rats, quail, and chicks all contribute unique nutritional profiles. Modern ball python nutrition emphasizes the '10% body weight rule' for portion sizing, age-based feeding frequencies (ranging from every 5 days for hatchlings to every 4-8 weeks for large adults), and frozen-thawed prey for safety and humaneness. This ReptiFilesÂ®-based guide covers feeding schedules, prey selection, troubleshooting picky eaters, and avoiding common feeding mistakes that lead to obesity or nutritional deficiencies."
+      "content": "Ball pythons are obligate carnivores, requiring a diet of whole animal prey to obtain complete nutrition. Unlike some reptiles that can survive on single prey types, ball pythons thrive on dietary variety—rats, mice, African soft-furred rats, quail, and chicks all contribute unique nutritional profiles. Modern ball python nutrition emphasizes the '10% body weight rule' for portion sizing, age-based feeding frequencies (ranging from every 5 days for hatchlings to every 4-8 weeks for large adults), and frozen-thawed prey for safety and humaneness. This ReptiFiles®-based guide covers feeding schedules, prey selection, troubleshooting picky eaters, and avoiding common feeding mistakes that lead to obesity or nutritional deficiencies."
     },
     {
       "type": "section",
@@ -19,7 +20,7 @@
     },
     {
       "type": "text",
-      "content": "Ball pythons need whole prey itemsâ€”entire animals with bones, organs, and tissue. They cannot survive on meat alone (no bones = calcium deficiency)."
+      "content": "Ball pythons need whole prey items—entire animals with bones, organs, and tissue. They cannot survive on meat alone (no bones = calcium deficiency)."
     },
     {
       "type": "text",
@@ -62,13 +63,13 @@
         ["African soft-furred rats (ASF)", "Adult (50-80g)", "Lower fat than domestic rats, excellent nutrition", "Ideal variety feeder, picky eaters often prefer"],
         ["Quail (Coturnix)", "Chicks to adult (20g-150g)", "High protein, lower fat, different micronutrient profile", "Excellent variety, different from rodents"],
         ["Chicks (domestic chicken)", "Day-old to feeder (30g-60g)", "Very lean, high protein, good calcium from bones", "Variety feeder, some ball pythons love them"],
-        ["Hamsters (not recommended)", "â€”", "Too fatty, sharp teeth risk", "Avoidâ€”domestic rats preferable"],
-        ["Gerbils (not recommended)", "â€”", "Nutritionally similar to mice but less available", "Not necessaryâ€”use mice or ASF rats instead"]
+        ["Hamsters (not recommended)", "—", "Too fatty, sharp teeth risk", "Avoid—domestic rats preferable"],
+        ["Gerbils (not recommended)", "—", "Nutritionally similar to mice but less available", "Not necessary—use mice or ASF rats instead"]
       ]
     },
     {
       "type": "highlight",
-      "content": "ReptiFilesÂ® recommendation: Rotate between rats (primary), mice (variety), ASF rats (variety), quail (variety), and chicks (variety). Feed rats 60-70% of the time, vary other prey types 30-40% of feedings. This prevents picky eating and provides balanced nutrition."
+      "content": "ReptiFiles® recommendation: Rotate between rats (primary), mice (variety), ASF rats (variety), quail (variety), and chicks (variety). Feed rats 60-70% of the time, vary other prey types 30-40% of feedings. This prevents picky eating and provides balanced nutrition."
     },
     {
       "type": "section",
@@ -92,7 +93,7 @@
         ["Juveniles 350-500g (12-18 months)", "Every 10-14 days", "10% of snake weight", "450g juvenile = 45g prey (small rat)"],
         ["Sub-adults/adults 500-1500g", "Every 14-21 days", "10% of snake weight", "1000g adult = 100g prey (medium rat)"],
         ["Adults >1500g (large females)", "Every 28-56 days (4-8 weeks)", "10% of snake weight", "2000g large female = 200g prey (large rat)"],
-        ["Breeding females (gravid)", "Every 10-14 days", "Slightly increased portions", "Increased calcium demandâ€”feed more frequently"]
+        ["Breeding females (gravid)", "Every 10-14 days", "Slightly increased portions", "Increased calcium demand—feed more frequently"]
       ]
     },
     {
@@ -158,10 +159,10 @@
       "type": "table",
       "headers": ["Method", "Pros", "Cons", "Recommended?"],
       "rows": [
-        ["Frozen-thawed (recommended)", "Safe for snake, humane for prey, convenient storage, cheaper in bulk", "Some picky eaters refuse", "YESâ€”always attempt F/T first"],
+        ["Frozen-thawed (recommended)", "Safe for snake, humane for prey, convenient storage, cheaper in bulk", "Some picky eaters refuse", "YES—always attempt F/T first"],
         ["Fresh-killed (pre-killed)", "Warmer than F/T, more natural scent", "Less humane (must kill prey yourself), not readily available", "Acceptable if F/T refused"],
         ["Live prey", "Natural hunting experience, picky eaters usually accept", "Prey can bite/scratch snake (severe injuries/death documented), stressful for prey", "Last resort ONLY, supervised closely"],
-        ["Assist feeding (forcing prey into mouth)", "â€”", "Extremely stressful, can cause regurgitation, damages snake psychologically", "NEVERâ€”causes more harm than missing 1-2 meals"]
+        ["Assist feeding (forcing prey into mouth)", "—", "Extremely stressful, can cause regurgitation, damages snake psychologically", "NEVER—causes more harm than missing 1-2 meals"]
       ]
     },
     {
@@ -185,8 +186,8 @@
       "type": "list",
       "items": [
         "Remove prey from freezer, place in sealed ziplock bag (prevents waterlogging)",
-        "Submerge bag in warm water (100-110Â°F, NOT boiling) for 20-60 minutes depending on prey size",
-        "Check prey temperature: Should feel lukewarm to warm (100-105Â°F), not cold or hot",
+        "Submerge bag in warm water (100-110°F, NOT boiling) for 20-60 minutes depending on prey size",
+        "Check prey temperature: Should feel lukewarm to warm (100-105°F), not cold or hot",
         "Dry prey with paper towel (ball pythons prefer dry prey over wet/slimy)",
         "Use feeding tongs (12\" minimum) to present prey with wiggling motion",
         "Dangle prey near snake's head, move slowly to simulate live prey",
@@ -196,7 +197,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Never use microwave to thaw preyâ€”this cooks prey unevenly (exploding internal organs, scalding hot exterior). Always use warm water bath method. Verify prey temp with infrared thermometer if available (target 100-105Â°F)."
+      "content": "Never use microwave to thaw prey—this cooks prey unevenly (exploding internal organs, scalding hot exterior). Always use warm water bath method. Verify prey temp with infrared thermometer if available (target 100-105°F)."
     },
     {
       "type": "section",
@@ -214,9 +215,9 @@
       "type": "table",
       "headers": ["Method", "Pros", "Cons", "Best For"],
       "rows": [
-        ["Feed in enclosure (recommended)", "Less stressful (no handling), natural behavior, no transport", "May associate handler's hand with food", "Most ball pythonsâ€”best practice"],
+        ["Feed in enclosure (recommended)", "Less stressful (no handling), natural behavior, no transport", "May associate handler's hand with food", "Most ball pythons—best practice"],
         ["Separate feeding container", "Prevents substrate ingestion (minimal risk), easier cleanup", "Stressful handling before/after feeding, risk of regurgitation from movement", "Snakes with consistent substrate ingestion issues"],
-        ["Tong-feeding in enclosure", "Keeps hands safe, controls prey placement", "Requires 12\"+ tongs to prevent strikes", "All snakesâ€”use tongs regardless of method"],
+        ["Tong-feeding in enclosure", "Keeps hands safe, controls prey placement", "Requires 12\"+ tongs to prevent strikes", "All snakes—use tongs regardless of method"],
         ["Drop prey and leave", "Allows snake to hunt naturally overnight", "Harder to monitor feeding response", "Shy snakes that won't eat with observer present"]
       ]
     },
@@ -240,18 +241,18 @@
       "type": "table",
       "headers": ["Action", "Timeline", "Rationale"],
       "rows": [
-        ["No handling", "48-72 hours post-feeding (minimum)", "Movement can cause regurgitationâ€”snake needs stillness to digest"],
-        ["Verify basking temps", "Ensure 95-104Â°F basking available", "Digestion requires heatâ€”low temps (<85Â°F) cause food to rot in stomach"],
+        ["No handling", "48-72 hours post-feeding (minimum)", "Movement can cause regurgitation—snake needs stillness to digest"],
+        ["Verify basking temps", "Ensure 95-104°F basking available", "Digestion requires heat—low temps (<85°F) cause food to rot in stomach"],
         ["Provide water", "Water bowl accessible at all times", "Hydration aids digestion"],
-        ["Expect hiding", "Snake will likely stay in warm hide 24-48 hours", "Normal behaviorâ€”basking for digestion"],
-        ["Visible food lump", "Food lump visible for 2-4 days (normal)", "Large prey takes longerâ€”juveniles digest faster than adults"],
-        ["Bowel movement", "Usually 5-7 days post-feeding", "Large urates (white) + feces (brown)â€”indicates complete digestion"]
+        ["Expect hiding", "Snake will likely stay in warm hide 24-48 hours", "Normal behavior—basking for digestion"],
+        ["Visible food lump", "Food lump visible for 2-4 days (normal)", "Large prey takes longer—juveniles digest faster than adults"],
+        ["Bowel movement", "Usually 5-7 days post-feeding", "Large urates (white) + feces (brown)—indicates complete digestion"]
       ]
     },
     {
       "type": "warning",
       "severity": "critical",
-      "content": "Regurgitation causes: Handling within 48 hours of feeding, temps too low (<85Â°F), prey too large (>1.5x girth), stress, illness. If regurgitation occurs, wait 10-14 days before offering food again and offer prey 50% smaller than usual to allow stomach to recover."
+      "content": "Regurgitation causes: Handling within 48 hours of feeding, temps too low (<85°F), prey too large (>1.5x girth), stress, illness. If regurgitation occurs, wait 10-14 days before offering food again and offer prey 50% smaller than usual to allow stomach to recover."
     },
     {
       "type": "section",
@@ -271,9 +272,9 @@
       "rows": [
         ["Week 1", "Medium rat (100g)", "Staple feeder"],
         ["Week 3", "Medium rat (100g)", "Staple feeder"],
-        ["Week 5", "ASF rat (70g) + large mouse (30g) = 100g total", "Varietyâ€”different micronutrients"],
+        ["Week 5", "ASF rat (70g) + large mouse (30g) = 100g total", "Variety—different micronutrients"],
         ["Week 7", "Medium rat (100g)", "Back to staple"],
-        ["Week 9", "Adult quail (100g)", "Avian varietyâ€”different protein profile"],
+        ["Week 9", "Adult quail (100g)", "Avian variety—different protein profile"],
         ["Week 11", "Medium rat (100g)", "Staple feeder"],
         ["Week 13", "Day-old chicks x2 (50g each) = 100g total", "Avian variety"]
       ]
@@ -298,14 +299,14 @@
       "type": "table",
       "headers": ["Cause", "How to Identify", "Solution"],
       "rows": [
-        ["Temps too low", "Basking <92Â°F OR warm hide <86Â°F", "Fix temps immediatelyâ€”low temps prevent hunger response"],
+        ["Temps too low", "Basking <92°F OR warm hide <86°F", "Fix temps immediately—low temps prevent hunger response"],
         ["Shedding", "Eyes cloudy (blue), dull skin color", "Wait until shed completes (usually 7-10 days), then offer food"],
         ["Stress (new enclosure, frequent handling)", "Recent setup change or excessive handling", "Leave snake alone for 7-14 days minimum, no handling"],
         ["Wrong prey size (too large)", "Prey >1.5x snake's girth", "Offer smaller prey (50-75% current size)"],
-        ["Seasonal fasting (fall/winter)", "Temps correct, snake healthy, just won't eat for 1-3 months", "Normal behaviorâ€”monitor weight, offer food every 2 weeks, don't worry unless losing >10% weight"],
-        ["Prey presentation issue", "Prey too cold, too wet, or wrong species", "Ensure prey 100-105Â°F, dry, try different species (ASF rats for picky eaters)"],
-        ["Breeding season (males)", "Breeding age male (18+ months), refuses food in spring", "Normalâ€”males fast during breeding season (Feb-May), offer food monthly"],
-        ["Medical issue", "Weight loss >10%, lethargic, regurgitation, mucus in mouth", "VET VISIT requiredâ€”parasites, respiratory infection, or other illness"]
+        ["Seasonal fasting (fall/winter)", "Temps correct, snake healthy, just won't eat for 1-3 months", "Normal behavior—monitor weight, offer food every 2 weeks, don't worry unless losing >10% weight"],
+        ["Prey presentation issue", "Prey too cold, too wet, or wrong species", "Ensure prey 100-105°F, dry, try different species (ASF rats for picky eaters)"],
+        ["Breeding season (males)", "Breeding age male (18+ months), refuses food in spring", "Normal—males fast during breeding season (Feb-May), offer food monthly"],
+        ["Medical issue", "Weight loss >10%, lethargic, regurgitation, mucus in mouth", "VET VISIT required—parasites, respiratory infection, or other illness"]
       ]
     },
     {
@@ -328,12 +329,12 @@
     {
       "type": "list",
       "items": [
-        "Verify husbandry: 95-104Â°F basking, 86-90Â°F warm hide, 60-75% humidity, no handling (rule out environmental causes first)",
+        "Verify husbandry: 95-104°F basking, 86-90°F warm hide, 60-75% humidity, no handling (rule out environmental causes first)",
         "Try African soft-furred rats (ASF): Many picky eaters prefer ASF over domestic rats",
         "Try live prey (supervised, remove if not eaten in 10 min): Some snakes only recognize live movement",
         "Scent transfer: Rub prey with ASF rat bedding OR chick feathers to add scent",
         "Braining (advanced): Make small incision in prey skull to expose brain (strong scent triggers feeding)",
-        "Smaller prey size: Offer prey 50% smaller than usualâ€”some snakes prefer small meals",
+        "Smaller prey size: Offer prey 50% smaller than usual—some snakes prefer small meals",
         "Leave prey overnight: Cover enclosure, leave prey in cool zone, check in morning",
         "Wait 2-3 weeks between attempts: Offering food too frequently causes stress and further refusal"
       ]
@@ -373,7 +374,7 @@
       "type": "list",
       "items": [
         "Thaw prey completely, dry with paper towel",
-        "Lightly dust prey with supplement powder (don't overdoâ€”thin coating only)",
+        "Lightly dust prey with supplement powder (don't overdo—thin coating only)",
         "Let powder dry for 1-2 minutes before offering to snake",
         "Recommended products: Arcadia EarthPro-A (multivitamin) + Repashy Calcium Plus LoD (calcium with low D3)"
       ]
@@ -402,7 +403,7 @@
         ["Underweight (1-2)", "Ribs visible, spine prominent, thin tail, sunken eyes", "Increase feeding frequency, verify temps, vet check for parasites"],
         ["Ideal (3)", "Smooth body, no ribs visible, triangular cross-section, muscular", "Maintain current feeding schedule"],
         ["Overweight (4)", "Rounded body, fat rolls at neck, tail base thick", "Reduce feeding frequency (every 3-4 weeks instead of 2 weeks)"],
-        ["Obese (5)", "Extreme fat rolls, difficulty moving, very round cross-section", "VET VISITâ€”risk of fatty liver disease, reduce to monthly feeding"]
+        ["Obese (5)", "Extreme fat rolls, difficulty moving, very round cross-section", "VET VISIT—risk of fatty liver disease, reduce to monthly feeding"]
       ]
     },
     {
@@ -426,7 +427,7 @@
         ["Feeding tongs (12\"+ length)", "Safe prey presentation", "$10-15 one-time"],
         ["Digital kitchen scale", "Weigh snake and prey for accurate portions", "$15-25 one-time"],
         ["Large ziplock bags", "Thaw prey in water without waterlogging", "$5 for 50-pack"],
-        ["Thermometer (infrared)", "Verify prey temp (100-105Â°F)", "$15-20 (already owned for basking temps)"],
+        ["Thermometer (infrared)", "Verify prey temp (100-105°F)", "$15-20 (already owned for basking temps)"],
         ["Freezer space", "Store 6-12 months prey supply", "Bulk buying saves 30-50%"],
         ["Optional: Supplements", "Calcium + multivitamin powder", "$10-15 per bottle (lasts 1-2 years)"]
       ]

@@ -47,7 +47,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
   const getPresetValidation = (preset: typeof commonSizes[0]) => {
     if (!animalProfile || preset.name === 'Custom') return 'neutral';
     
-    const testInput = {
+    const testInput: EnclosureInput = {
       ...value,
       width: preset.width,
       depth: preset.depth,
@@ -430,6 +430,28 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
         )}
       </div>
 
+      {/* Care Level Preference (for Find Your Animal feature) */}
+      {!animalProfile && (
+        <div>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            Preferred Care Level
+          </label>
+          <select
+            value={value.careLevelPreference || 'any'}
+            onChange={(e) => onChange({ ...value, careLevelPreference: e.target.value as 'beginner' | 'intermediate' | 'advanced' | 'any' })}
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          >
+            <option value="any">Any (show all animals)</option>
+            <option value="beginner">Beginner - Easy to care for</option>
+            <option value="intermediate">Intermediate - Some experience needed</option>
+            <option value="advanced">Advanced - Requires expertise</option>
+          </select>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+            Filter recommendations by experience level
+          </p>
+        </div>
+      )}
+
       {/* Substrate Preference */}
       <div>
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
@@ -578,43 +600,6 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
         </p>
       </div>
 
-      {/* Number of Hides */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
-          Number of Hides
-        </label>
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => onChange({ ...value, numberOfHides: Math.max(2, value.numberOfHides - 1) })}
-            className="w-10 h-10 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold transition-colors flex items-center justify-center"
-            aria-label="Decrease hides"
-          >
-            −
-          </button>
-          <input
-            type="number"
-            value={value.numberOfHides}
-            onChange={(e) => {
-              const num = parseInt(e.target.value) || 2;
-              onChange({ ...value, numberOfHides: Math.max(2, Math.min(5, num)) });
-            }}
-            min="2"
-            max="5"
-            className="w-20 px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md text-center font-medium focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-          />
-          <button
-            onClick={() => onChange({ ...value, numberOfHides: Math.min(5, value.numberOfHides + 1) })}
-            className="w-10 h-10 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold transition-colors flex items-center justify-center"
-            aria-label="Increase hides"
-          >
-            +
-          </button>
-          <span className="text-sm text-gray-600 dark:text-gray-400">
-            Provide security and enrichment (2-5 recommended)
-          </span>
-        </div>
-      </div>
-
       {/* Number of Ledges (for vertical/arboreal species) OR Climbing Areas (for horizontal/terrestrial species) */}
       {animalProfile?.layoutRules.preferVertical ? (
         <div>
@@ -652,43 +637,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
             </span>
           </div>
         </div>
-      ) : (
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
-            Number of Climbing Areas
-          </label>
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => onChange({ ...value, numberOfClimbingAreas: Math.max(0, value.numberOfClimbingAreas - 1) })}
-              className="w-10 h-10 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold transition-colors flex items-center justify-center"
-              aria-label="Decrease climbing areas"
-            >
-              −
-            </button>
-            <input
-              type="number"
-              value={value.numberOfClimbingAreas}
-              onChange={(e) => {
-                const num = parseInt(e.target.value) || 0;
-                onChange({ ...value, numberOfClimbingAreas: Math.max(0, Math.min(4, num)) });
-              }}
-              min="0"
-              max="4"
-              className="w-20 px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md text-center font-medium focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-            />
-            <button
-              onClick={() => onChange({ ...value, numberOfClimbingAreas: Math.min(4, value.numberOfClimbingAreas + 1) })}
-              className="w-10 h-10 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold transition-colors flex items-center justify-center"
-              aria-label="Increase climbing areas"
-            >
-              +
-            </button>
-            <span className="text-sm text-gray-600 dark:text-gray-400">
-              Rocks, branches, or basking platforms (0-4)
-            </span>
-          </div>
-        </div>
-      )}
+      ) : null}
     </div>
   );
 }

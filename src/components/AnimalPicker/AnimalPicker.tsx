@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { animalList } from '../../data/animals';
-import { FileText, CheckCircle, Sliders, Zap, Star, Clock } from 'lucide-react';
+import { FileText, CheckCircle, Sliders, Zap, Star, Clock, Flame, Bug, Fish } from 'lucide-react';
 
 interface AnimalPickerProps {
   selected: string;
@@ -65,7 +65,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
   const getStatusBadge = (status?: string) => {
     if (status === 'complete' || status === 'validated') {
       return (
-        <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-emerald-600/95 dark:bg-emerald-500/95 flex items-center justify-center shadow-xl backdrop-blur-sm border-2 border-white dark:border-gray-900">
+        <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-emerald-600/70 dark:bg-emerald-500/70 flex items-center justify-center shadow-xl backdrop-blur-md border-2 border-white dark:border-gray-900">
           <Star className="w-5 h-5 text-white fill-white" />
         </div>
       );
@@ -73,7 +73,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
     if (status === 'in-progress') {
       return (
         <div className="absolute top-0 right-0 overflow-hidden w-24 h-24 pointer-events-none">
-          <div className="absolute top-4 -right-8 bg-yellow-400 dark:bg-yellow-400 text-gray-900 text-[10px] md:text-xs font-bold py-1 px-10 rotate-45 shadow-lg flex items-center justify-center gap-1">
+          <div className="absolute top-4 -right-8 bg-yellow-400/70 dark:bg-yellow-400/70 backdrop-blur-md text-gray-900 text-[10px] md:text-xs font-bold py-1 px-10 rotate-45 shadow-lg flex items-center justify-center gap-1">
             <Clock className="w-3 h-3 md:w-3.5 md:h-3.5" />
             <span>NEW</span>
           </div>
@@ -83,7 +83,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
     if (status === 'draft') {
       return (
         <div className="absolute top-0 right-0 overflow-hidden w-24 h-24 pointer-events-none">
-          <div className="absolute top-4 -right-8 bg-gray-500 dark:bg-gray-500 text-white text-[10px] md:text-xs font-bold py-1 px-10 rotate-45 shadow-lg flex items-center justify-center gap-1">
+          <div className="absolute top-4 -right-8 bg-gray-500/70 dark:bg-gray-500/70 backdrop-blur-md text-white text-[10px] md:text-xs font-bold py-1 px-10 rotate-45 shadow-lg flex items-center justify-center gap-1">
             <FileText className="w-3 h-3 md:w-3.5 md:h-3.5" />
             <span>SOON</span>
           </div>
@@ -108,11 +108,11 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
             className="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500"
           >
             <option value="all">All Animals</option>
-            <option value="frogs">🐸 Frogs & Toads</option>
-            <option value="geckos">🦎 Geckos</option>
-            <option value="snakes">🐍 Snakes</option>
-            <option value="lizards">🦎 Lizards</option>
-            <option value="turtles">🐢 Turtles & Tortoises</option>
+            <option value="frogs">Frogs & Toads</option>
+            <option value="geckos">Geckos</option>
+            <option value="snakes">Snakes</option>
+            <option value="lizards">Lizards</option>
+            <option value="turtles">Turtles & Tortoises</option>
           </select>
         </div>
 
@@ -130,53 +130,58 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
           </button>
           <button
             onClick={() => setCategoryFilter('frogs')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-1.5 ${
               categoryFilter === 'frogs'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
             }`}
           >
-            🐸 Frogs & Toads
+            <Bug className="w-4 h-4" />
+            Frogs & Toads
           </button>
           <button
             onClick={() => setCategoryFilter('geckos')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-1.5 ${
               categoryFilter === 'geckos'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
             }`}
           >
-            🦎 Geckos
+            <Flame className="w-4 h-4" />
+            Geckos
           </button>
           <button
             onClick={() => setCategoryFilter('snakes')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-1.5 ${
               categoryFilter === 'snakes'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
             }`}
           >
-            🐍 Snakes
+            <Zap className="w-4 h-4" />
+            Snakes
           </button>
           <button
             onClick={() => setCategoryFilter('lizards')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-1.5 ${
               categoryFilter === 'lizards'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
             }`}
           >
-            🦎 Lizards
+            <Flame className="w-4 h-4" />
+            Lizards
           </button>
           <button
             onClick={() => setCategoryFilter('turtles')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-1.5 ${
               categoryFilter === 'turtles'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
             }`}
           >
-            🐢 Turtles & Tortoises
+            <Fish className="w-4 h-4" />
+            Turtles & Tortoises
           </button>
         </div>
       </div>
@@ -273,23 +278,23 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
           const getCareLevelColors = () => {
             if (animal.careLevel === 'beginner') {
               return {
-                border: 'border-green-500',
+                border: 'border-green-400',
                 bg: 'bg-green-50 dark:bg-green-900/20',
-                accent: 'bg-green-500',
+                accent: 'bg-green-400',
                 text: 'text-green-700 dark:text-green-300'
               };
             } else if (animal.careLevel === 'intermediate') {
               return {
-                border: 'border-orange-500',
+                border: 'border-orange-400',
                 bg: 'bg-orange-50 dark:bg-orange-900/20',
-                accent: 'bg-orange-500',
+                accent: 'bg-orange-400',
                 text: 'text-orange-700 dark:text-orange-300'
               };
             } else {
               return {
-                border: 'border-red-500',
+                border: 'border-red-400',
                 bg: 'bg-red-50 dark:bg-red-900/20',
-                accent: 'bg-red-500',
+                accent: 'bg-red-400',
                 text: 'text-red-700 dark:text-red-300'
               };
             }
@@ -315,14 +320,9 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
                   : 'bg-white dark:bg-gray-800 hover:shadow-lg hover:scale-[1.01]'
               } ${isDraft ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'}`}
             >
-              {/* Colored accent bar */}
-              <div className={`absolute top-0 left-0 right-0 h-1 ${colors.accent}`} />
-
               {/* Image with colored border and text overlay */}
               <div className="p-2 sm:p-3">
-                <div className={`relative w-full aspect-[4/3] rounded-lg overflow-hidden border-2 md:border-4 ${
-                  selected === animal.id ? colors.border : 'border-gray-200 dark:border-gray-700'
-                } transition-all duration-300`}>
+                <div className={`relative w-full aspect-[4/3] rounded-lg overflow-hidden border-2 md:border-4 ${colors.border} transition-all duration-300`}>
                   {animal.imageUrl ? (
                     <img 
                       src={animal.imageUrl} 

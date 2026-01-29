@@ -1,7 +1,8 @@
-锘縶
+{
   "id": "bearded-dragon-lighting-guide",
   "title": "Complete Bearded Dragon Lighting Guide: UVB & Full-Spectrum Setup",
   "description": "Learn how to set up proper UVB and full-spectrum lighting for your bearded dragon, including bulb recommendations, placement distances, and the importance of bright daylight.",
+  "excerpt": "Learn how to set up proper UVB and full-spectrum lighting for your bearded dragon, including bulb recommendations, placement distances, and the importance of bright daylight.",
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
@@ -45,7 +46,7 @@
     },
     {
       "type": "text",
-      "content": "Linear T5 high-output fluorescent bulbs provide optimal UVB output and coverage for adult bearded dragon enclosures (minimum 4脳2脳2 feet):"
+      "content": "Linear T5 high-output fluorescent bulbs provide optimal UVB output and coverage for adult bearded dragon enclosures (minimum 4󫎾 feet):"
     },
     {
       "type": "text",
@@ -71,7 +72,7 @@
     },
     {
       "type": "text",
-      "content": "UVB intensity follows inverse square law鈥攐utput decreases exponentially with distance. Proper positioning is critical for achieving therapeutic UVI levels while avoiding photodamage."
+      "content": "UVB intensity follows inverse square law梠utput decreases exponentially with distance. Proper positioning is critical for achieving therapeutic UVI levels while avoiding photodamage."
     },
     {
       "type": "text",

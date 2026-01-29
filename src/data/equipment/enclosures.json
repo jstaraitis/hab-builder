@@ -7,18 +7,21 @@
     "tiers": {
       "minimum": {
         "description": "Basic glass enclosure",
-        "searchQuery": "{size} gallon glass enclosure"
+        "searchQuery": "{size} gallon glass enclosure",
+        "priceRange": { "min": 170, "max": 220 }
       },
       "recommended": {
-        "description": "Front-opening glass enclosure",
-        "searchQuery": "{width}x{depth}x{height} glass terrarium front opening"
+        "description": "Front-opening glass enclosure with better quality",
+        "searchQuery": "{width}x{depth}x{height} glass terrarium front opening",
+        "priceRange": { "min": 220, "max": 320 }
       },
       "ideal": {
-        "description": "Premium glass enclosure with ventilation",
-        "searchQuery": "{width}x{depth}x{height} glass terrarium ventilation"
+        "description": "Premium glass enclosure with ventilation and stands",
+        "searchQuery": "{width}x{depth}x{height} glass terrarium ventilation premium",
+        "priceRange": { "min": 320, "max": 450 }
       }
     },
-    "notes": "Excellent visibility. Good humidity retention."
+    "notes": "Excellent visibility. Good humidity retention. Prices vary significantly by size and retailer."
   },
   "enclosure-pvc": {
     "name": "PVC Enclosure",
@@ -27,19 +30,22 @@
     "needsTags": ["humidity:high", "humidity:moderate", "humidity:low"],
     "tiers": {
       "minimum": {
-        "description": "PVC enclosure",
-        "searchQuery": "{width}x{depth}x{height} PVC enclosure terrarium"
+        "description": "Basic PVC enclosure",
+        "searchQuery": "{width}x{depth}x{height} PVC enclosure terrarium",
+        "priceRange": { "min": 250, "max": 350 }
       },
       "recommended": {
-        "description": "Quality PVC enclosure",
-        "searchQuery": "{width}x{depth}x{height} PVC enclosure terrarium"
+        "description": "Quality PVC enclosure with better seals",
+        "searchQuery": "{width}x{depth}x{height} PVC enclosure terrarium professional",
+        "priceRange": { "min": 350, "max": 500 }
       },
       "ideal": {
-        "description": "Premium PVC construction",
-        "searchQuery": "{width}x{depth}x{height} PVC terrarium premium"
+        "description": "Premium PVC construction with optimal humidity control",
+        "searchQuery": "{width}x{depth}x{height} PVC terrarium premium professional",
+        "priceRange": { "min": 500, "max": 750 }
       }
     },
-    "notes": "Superior humidity retention. Professional quality."
+    "notes": "Superior humidity retention and durability. Professional quality. Higher cost than glass but better for moisture-sensitive species."
   },
   "enclosure-screen": {
     "name": "Screen Enclosure",
@@ -48,18 +54,21 @@
     "importance": "required",
     "tiers": {
       "minimum": {
-        "description": "Aluminum screen enclosure",
-        "searchQuery": "terrarium screen enclosure"
+        "description": "Basic aluminum screen enclosure",
+        "searchQuery": "18x18x24 terrarium screen enclosure",
+        "priceRange": { "min": 100, "max": 150 }
       },
       "recommended": {
-        "description": "Aluminum screen enclosure",
-        "searchQuery": "terrarium screen enclosure"
+        "description": "Quality aluminum screen with better frame",
+        "searchQuery": "terrarium screen enclosure quality frame",
+        "priceRange": { "min": 150, "max": 225 }
       },
       "ideal": {
-        "description": "Custom aluminum frame",
-        "searchQuery": "terrarium screen enclosure"
+        "description": "Premium aluminum frame with locking doors",
+        "searchQuery": "premium terrarium screen enclosure locking",
+        "priceRange": { "min": 225, "max": 350 }
       }
     },
-    "notes": "Maximum airflow. Excellent for low-humidity species."
+    "notes": "Maximum airflow. Excellent for low-humidity species. Most budget-friendly option."
   }
 }

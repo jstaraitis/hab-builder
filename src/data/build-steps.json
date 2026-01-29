@@ -3,7 +3,7 @@
     {
       "id": "clean",
       "title": "Clean and Prepare Enclosure",
-      "description": "Thoroughly clean enclosure with reptile-safe disinfectant. Rinse well and let dry completely.",
+      "description": "Thoroughly clean enclosure with reptile-safe disinfectant. Rinse well and let dry completely. This is your chance to start fresh with a sterile environment.",
       "important": false
     }
   ],
@@ -11,133 +11,129 @@
     {
       "id": "drainage-layer",
       "title": "Install Drainage Layer",
-      "description": "Add LECA or clay balls to create drainage layer. Level carefully.",
+      "description": "Add 1-2 inches of LECA (lightweight expanded clay aggregate) or clay balls to create drainage layer. Level carefully to ensure even water distribution.",
       "important": false
     },
     {
       "id": "drainage-barrier",
       "title": "Add Drainage Barrier",
-      "description": "Cut mesh screen to size and place over drainage layer. Ensure complete coverage.",
+      "description": "Cut mesh screen (window screen or weed barrier fabric) to size and place over drainage layer. Ensure complete coverage to prevent substrate from mixing with drainage layer. Overlap edges by at least 1 inch.",
       "important": true
     }
   ],
   "substrate": {
     "bioactive": {
       "id": "substrate",
-      "title": "Add Substrate",
-      "description": "Add bioactive substrate mix. Create slight slope from back to front for drainage. Lightly moisten.",
+      "title": "Add Bioactive Substrate",
+      "description": "Add 3-4 inches of bioactive substrate mix. Create a slight slope from back to front (higher in back) to aid drainage. Lightly moisten the substrate - it should be damp but not soggy. Leave it slightly drier than final target to account for misting.",
       "important": false
     },
     "simple": {
       "id": "substrate",
       "title": "Add Substrate",
-      "description": "Add substrate layer. Ensure even depth across enclosure floor.",
+      "description": "Add substrate layer to appropriate depth (1-2 inches for most setups). Ensure even depth across enclosure floor. Avoid packing it down too tightly.",
       "important": false
     }
   },
+  "background": {
+    "id": "background",
+    "title": "Install Background (Optional)",
+    "description": "If using foam background, cork bark backing, or Great Stuff foam, install now BEFORE substrate. Silicone it to back wall. Allow 24-48 hours for silicone to cure fully. This step cannot be done after substrate is added.",
+    "important": false
+  },
   "shared": [
-    {
-      "id": "background",
-      "title": "Install Background (Optional)",
-      "description": "If using foam background or cork bark backing, install before adding branches.",
-      "important": false
-    },
     {
       "id": "hardscape",
       "title": "Add Hardscape and Branches",
-      "description": "Install climbing branches at various angles. Ensure stability - test that branches don't shift.",
-      "important": false
+      "description": "Install climbing branches at various angles, creating a network for arboreal movement. Use thicker branches near ground level and thinner branches higher up. Secure branches by wedging them firmly or using zip ties to attach to enclosure structure. Test stability - branches should not shift when pressure is applied.",
+      "important": true
     },
     {
       "id": "water-feature",
-      "title": "Install Water Feature",
-      "description": "Place water dish or bowl in easily accessible location. Ensure it's stable and won't tip. For arboreal species, consider elevated water stations.",
+      "title": "Install Water Feature and Fill",
+      "description": "Place water dish or bowl in easily accessible location (cool end for most species). Ensure it's stable and won't tip over. Fill with dechlorinated water. For arboreal species, consider adding elevated water stations (bottle caps on branches). For semi-aquatic species, ensure water area is large enough for soaking.",
       "important": true
     },
     {
       "id": "hides",
       "title": "Position Hides",
-      "description": "Place hides in both warm and cool zones. Ensure entrances are appropriately sized. Add leaf litter or plants for additional security.",
+      "description": "Place at least 2-3 hides: one in warm zone (near basking spot), one in cool zone, and one in mid-range. Ensure hide entrances are appropriately sized - animal should fit snugly but not get stuck. Add leaf litter around hides for additional security. Terrestrial species need ground-level hides; arboreal species benefit from elevated cork bark or hollow branches.",
       "important": false
     },
     {
       "id": "plants",
       "title": "Add Plants and Decor",
-      "description": "Place plants (live or artificial). Create visual barriers and hiding spots. Leave clear paths for animal movement.",
+      "description": "Place live or artificial plants throughout enclosure. Create visual barriers and hiding spots to reduce stress. Ensure plants are securely anchored (especially important for heavy climbing species). Leave clear pathways for animal movement. For live plants in bioactive setups, plant directly in substrate; for non-bioactive, use weighted pots.",
       "important": false
     },
     {
       "id": "feeding-station",
       "title": "Set Up Feeding Station",
-      "description": "Designate feeding area - elevated ledge for arboreal species, open ground area for terrestrial. Ensure easy access for both animal and keeper.",
+      "description": "Designate a consistent feeding area. For arboreal species, use an elevated ledge or flat branch at mid-height. For terrestrial species, use a shallow dish on open ground away from water. Ensure easy access for both animal and keeper. This helps with feeding response and monitoring intake.",
       "important": false
     }
   ],
   "bioactiveCleanupCrew": {
     "id": "cleanup-crew",
     "title": "Add Cleanup Crew",
-    "description": "Introduce springtails and isopods. Let them establish for 2-3 weeks before adding animal.",
+    "description": "Introduce springtails (for mold control) and isopods (for waste breakdown). Start with a culture of 50-100+ springtails and 10-20+ isopods depending on enclosure size. They will reproduce naturally. Let them establish for 2-3 weeks minimum before adding your animal to allow the population to grow.",
     "important": true
   },
-  "final": [
+  "equipment": [
     {
       "id": "lighting",
-      "title": "Install Lighting and Heating",
-      "description": "Mount UVB fixture and heat lamp on screen top. Position basking lamp over designated zone.",
+      "title": "Install Lighting and Heating Equipment",
+      "description": "Mount UVB fixture across the top of enclosure (should cover 50-70% of length). Position heat lamp/basking lamp over designated basking zone. Install any additional heating (ceramic heat emitter, deep heat projector, heat mat). Use clamps or secure fixtures properly to prevent them from falling. Keep all heat sources at safe distances per manufacturer specifications.",
       "important": true
     },
     {
-      "id": "timers",
-      "title": "Set Up Timers",
-      "description": "Connect lights to programmable timers. Set appropriate photoperiod (typically 12h on/12h off). Verify timers are functioning correctly.",
-      "important": false
-    },
-    {
       "id": "cable-management",
-      "title": "Organize Cables and Power",
-      "description": "Route cables safely away from moisture. Use power strip with surge protection. Keep cables organized and away from animal access. Label all cords.",
-      "important": false
+      "title": "Organize Cables and Secure Equipment",
+      "description": "Route all cables safely away from moisture and animal access. Use power strip with surge protection mounted securely outside enclosure. Double-check that heat lamps are clamped securely and cannot fall. Verify screen lid fits tightly with locking mechanisms engaged. Label all power cords for easy identification. Ensure no cords create trip hazards.",
+      "important": true
     },
     {
-      "id": "secure-equipment",
-      "title": "Secure All Equipment",
-      "description": "Double-check that heat lamps are clamped securely. Verify screen fits tightly with no gaps. Ensure no equipment can fall into enclosure.",
+      "id": "timers-thermostats",
+      "title": "Set Up Timers and Thermostats",
+      "description": "Connect lights to programmable timers or smart plugs. Set appropriate photoperiod (typically 12 hours on/12 hours off, mimicking natural day/night cycle). Connect heating elements to thermostats to prevent overheating. Set target temperatures based on species requirements. Verify all timers and thermostats are functioning correctly by testing manual override.",
       "important": true
     },
     {
       "id": "monitoring",
-      "title": "Add Monitoring Equipment",
-      "description": "Place thermometer probes in basking and cool zones. Position hygrometer at mid-height.",
-      "important": false
-    },
-    {
-      "id": "misting-setup",
-      "title": "Test Misting/Humidity System",
-      "description": "If using misting system, test spray coverage and drainage. Set appropriate misting schedule on timer. Verify substrate isn't getting waterlogged.",
-      "important": false
-    },
-    {
-      "id": "test",
-      "title": "Test and Adjust Parameters",
-      "description": "Run enclosure for 48-72 hours without animal. Monitor temps and humidity. Adjust lighting height, wattage, and misting schedule as needed.",
+      "title": "Install Monitoring Equipment",
+      "description": "Place digital thermometer probes in both basking zone (warm end) and cool zone (opposite end). Position hygrometer sensor at mid-height in center of enclosure for accurate readings. Avoid placing sensors directly under misting nozzles or heat lamps. Consider using multiple sensors for large enclosures to monitor gradients accurately.",
       "important": true
     },
     {
+      "id": "misting-setup",
+      "title": "Set Up and Test Misting/Humidity System",
+      "description": "If using an automatic misting system, install nozzles pointing at walls or decorations (not directly at animal). Program misting schedule - start conservative (2-3 times daily for 30 seconds) and adjust based on readings. For manual misting, prepare your spray bottle with dechlorinated water. Test system to verify spray coverage reaches all areas and drainage is working. Ensure substrate isn't getting waterlogged - adjust timing if water pools.",
+      "important": false
+    }
+  ],
+  "final": [
+    {
       "id": "escape-proofing",
-      "title": "Escape-Proof Enclosure",
-      "description": "Check all gaps, seams, and door closures. Verify screen is secure with no tears. Test door latches multiple times. Seal any gaps larger than 1/4 inch.",
+      "title": "Escape-Proof the Enclosure",
+      "description": "Inspect all gaps, seams, and door closures carefully. Verify screen lid is secure with no tears or loose edges. Test door latches and locks multiple times - they should close firmly every time. Check corners and edges where glass or acrylic panels meet. Seal any gaps larger than 1/4 inch with aquarium-safe silicone. For small species like mourning geckos, check for gaps as small as 1/8 inch. Remember: if your animal can fit its head through a gap, it can escape.",
+      "important": true
+    },
+    {
+      "id": "test",
+      "title": "Test and Adjust Parameters (48-72 Hour Cycle)",
+      "description": "Run the complete enclosure setup for at least 48-72 hours without your animal present. Monitor temperature ranges every 4-6 hours - basking spot should hit target temps and cool end should remain cooler. Check humidity levels throughout the day (morning, afternoon, evening). Adjust lighting height, lamp wattage, and misting frequency/duration as needed to dial in parameters. This is your opportunity to find and fix problems before your animal's life depends on it.",
       "important": true
     },
     {
       "id": "final-check",
-      "title": "Final Check",
-      "description": "Verify all parameters are stable. Check for any sharp edges or hazards. Ensure all equipment is secure and functioning.",
-      "important": false
+      "title": "Final Safety Check",
+      "description": "Verify all environmental parameters are stable and within species requirements for at least 24 consecutive hours. Check for any sharp edges, loose decorations, or potential hazards. Ensure all equipment is functioning properly and securely mounted. Verify water dish is full and clean. Check that no decorations or hides are unstable. Make sure there are no exposed wires or electrical hazards. Take photos of your setup for future reference.",
+      "important": true
     },
     {
       "id": "introduce",
-      "title": "Introduce Animal",
-      "description": "Place animal in enclosure during evening hours. Minimize handling. Do not feed for 24-48 hours to reduce stress.",
+      "title": "Introduce Your Animal",
+      "description": "Transfer your animal to its new enclosure during evening hours when it will be less stressed. Minimize handling - use a container to transfer rather than hand-carrying if possible. Place the animal gently in a hide or sheltered area, not directly under a heat lamp. Resist the urge to handle or disturb your animal for the first 3-5 days. Provide fresh water daily but otherwise let it explore and settle in at its own pace.",
       "important": true
     }
   ]

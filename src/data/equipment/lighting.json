@@ -1,10 +1,12 @@
 {
   "uvb-fixture-forest": {
-    "name": "UVB Linear Fixture (5.0 Forest)",
+    "name": "UVB Bulb Replacement (5.0 Forest)",
     "category": "equipment",
     "needsTags": ["lighting:uvb-forest"],
     "requiredWith": ["surge-protector"],
     "importance": "required",
+    "isRecurring": true,
+    "recurringInterval": "12 months",
     "spec": {
       "coverage": "60-80% of enclosure width",
       "type": "T5 HO",
@@ -12,26 +14,31 @@
     },
     "tiers": {
       "minimum": {
-        "description": "T5 HO 5.0 basic fixture",
-        "searchQuery": "T5 HO reptisun 5.0 uvb linear fixture"
+        "description": "Exo Terra T5 HO 5.0 fixture",
+        "searchQuery": "exo terra T5 HO 5.0 uvb fixture",
+        "priceRange": { "min": 35, "max": 50 }
       },
       "recommended": {
-        "description": "Arcadia Forest 6% T5 HO fixture",
-        "searchQuery": "Arcadia Forest 6% T5 HO uvb fixture"
+        "description": "Arcadia Forest 6% T5 HO 24\" fixture",
+        "searchQuery": "arcadia forest 6% T5 HO uvb fixture",
+        "priceRange": { "min": 65, "max": 85 }
       },
       "ideal": {
-        "description": "Arcadia ProT5 Forest Kit",
-        "searchQuery": "Arcadia ProT5 Forest uvb kit"
+        "description": "Arcadia ProT5 Forest 24\" complete kit",
+        "searchQuery": "arcadia proT5 forest uvb kit complete",
+        "priceRange": { "min": 95, "max": 130 }
       }
     },
-    "notes": "Essential for vitamin D3 synthesis. 5.0/6% for tropical forest species."
+    "notes": "Essential for vitamin D3 synthesis. 5.0/6% for tropical forest species. Arcadia kits include fixture + reflector + bulb."
   },
   "uvb-fixture-desert": {
-    "name": "UVB Linear Fixture (10.0 Desert)",
+    "name": "UVB Bulb Replacement (10.0 Desert)",
     "category": "equipment",
     "needsTags": ["lighting:uvb-desert"],
     "requiredWith": ["surge-protector"],
     "importance": "required",
+    "isRecurring": true,
+    "recurringInterval": "12 months",
     "spec": {
       "coverage": "50-75% of enclosure width",
       "type": "T5 HO",
@@ -39,16 +46,19 @@
     },
     "tiers": {
       "minimum": {
-        "description": "T5 HO 10.0 basic fixture",
-        "searchQuery": "T5 HO reptisun 10.0 uvb linear fixture"
+        "description": "ReptiSun 10.0 T5 HO fixture",
+        "searchQuery": "reptisun 10.0 T5 HO uvb fixture",
+        "priceRange": { "min": 40, "max": 55 }
       },
       "recommended": {
-        "description": "Arcadia Desert 12% T5 HO fixture",
-        "searchQuery": "Arcadia Desert 12% T5 HO uvb fixture"
+        "description": "Arcadia Desert 12% T5 HO 24\" fixture",
+        "searchQuery": "arcadia desert 12% T5 HO uvb fixture",
+        "priceRange": { "min": 70, "max": 90 }
       },
       "ideal": {
-        "description": "Arcadia ProT5 Desert Kit with reflector",
-        "searchQuery": "Arcadia ProT5 Desert uvb kit reflector"
+        "description": "Arcadia ProT5 Desert 24\" complete kit",
+        "searchQuery": "arcadia proT5 desert uvb kit complete",
+        "priceRange": { "min": 100, "max": 140 }
       }
     },
     "notes": "Essential for calcium metabolism. 10.0/12% for desert species. Requires proper distance - use Solarmeter to verify UVI 4.0-6.0 at basking spot."
@@ -59,6 +69,8 @@
     "needsTags": ["substrate:bioactive", "plants:live"],
     "requiredWith": ["surge-protector"],
     "importance": "conditional",
+    "isRecurring": true,
+    "recurringInterval": "12 months",
     "spec": {
       "type": "LED or fluorescent",
       "spectrum": "full spectrum for plants"
@@ -66,15 +78,18 @@
     "tiers": {
       "minimum": {
         "description": "Basic LED grow light",
-        "searchQuery": "terrarium plant growth light"
+        "searchQuery": "terrarium plant growth light",
+        "priceRange": { "min": 11, "max": 23 }
       },
       "recommended": {
         "description": "6500K LED strip",
-        "searchQuery": "terrarium plant growth light"
+        "searchQuery": "terrarium plant growth light",
+        "priceRange": { "min": 19, "max": 34 }
       },
       "ideal": {
         "description": "Full spectrum LED bar",
-        "searchQuery": "terrarium plant growth light"
+        "searchQuery": "terrarium plant growth light",
+        "priceRange": { "min": 38, "max": 60 }
       }
     },
     "notes": "Nice to have for visibility but only required for live plant setups. Use separate from UVB. "

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { SEO } from '../SEO/SEO';
-import { Target, Lightbulb, Workflow, Database, Calculator, AlertTriangle, Rocket, MessageCircle, Heart, Squirrel, Ruler, Sparkles, CheckCircle2, Factory, Users, FlaskConical, XCircle, Home, DollarSign, Box, Save, Share2, ArrowRight } from 'lucide-react';
+import { Calculator, AlertTriangle, MessageCircle, Heart, Squirrel, Ruler, Sparkles, CheckCircle2, XCircle, DollarSign, Box, Save, Share2, ArrowRight } from 'lucide-react';
 
 interface AboutProps {
   readonly onOpenFeedback: () => void;

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import type { EnclosureInput, BuildPlan } from '../../engine/types';
 import ExampleSetups from '../ExampleSetups/ExampleSetups';
 import { BuildSteps } from '../BuildSteps/BuildSteps';
-// import { SubmitSetup } from '../SubmitSetup/SubmitSetup';
+import { SubmitSetup } from '../SubmitSetup/SubmitSetup';
 import { SEO } from '../SEO/SEO';
 import { animalProfiles } from '../../data/animals';
 
@@ -50,7 +50,7 @@ export function PlanView({ plan, input }: PlanViewProps) {
         <ExampleSetups animalType={input.animal} layoutNotes={plan.layout.notes} speciesSetupTips={animalProfile?.setupTips} />
       </div>
 
-      {/* <SubmitSetup /> */}
+      <SubmitSetup />
 
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
         <BuildSteps steps={plan.steps} showHeader={true} animalName={animalName} />

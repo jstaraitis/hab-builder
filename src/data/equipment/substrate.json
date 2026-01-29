@@ -4,68 +4,92 @@
     "category": "substrate",
     "needsTags": ["substrate:bioactive"],
     "importance": "required",
+    "isRecurring": false,
+    "recurringInterval": "6 months",
     "spec": {
       "depth": "3-4 inches",
       "type": "ABG mix or equivalent"
     },
     "tiers": {
       "minimum": {
-        "description": "DIY ABG Mix (coco fiber, sphagnum moss, charcoal, tree fern)",
-        "searchQuery": "ABG mix bioactive substrate"
+        "description": "DIY ABG Mix (2:2:1:1 ratio - coco fiber, sphagnum, charcoal, tree fern)",
+        "searchQuery": "coco fiber sphagnum moss charcoal tree fern",
+        "priceRange": { "min": 19, "max": 34 },
+        "pricePerUnit": { "min": 1.0, "max": 1.7 }
       },
       "recommended": {
-        "description": "Pre-mixed tropical ABG substrate",
-        "searchQuery": "ABG mix bioactive substrate"
+        "description": "Josh's Frogs ABG or Reptanicals ABG (pre-mixed, quality controlled)",
+        "searchQuery": "joshs frogs abg mix bioactive substrate",
+        "priceRange": { "min": 26, "max": 45 },
+        "pricePerUnit": { "min": 1.3, "max": 2.3 }
       },
       "ideal": {
-        "description": "Premium tropical bioactive mix",
-        "searchQuery": "premium ABG mix bioactive"
+        "description": "The Bio Dude Terra Firma (premium ingredients, mycorrhizae included)",
+        "searchQuery": "bio dude terra firma bioactive substrate",
+        "priceRange": { "min": 34, "max": 56 },
+        "pricePerUnit": { "min": 1.7, "max": 2.8 }
       }
     },
-    "notes": "Standard ABG (Atlanta Botanical Garden) mix for tropical/forest species. Retains moisture while providing drainage. Mix ratio: 2 parts coco fiber, 2 parts sphagnum moss, 1 part charcoal, 1 part tree fern."
+    "notes": "Standard ABG (Atlanta Botanical Garden) mix for tropical/forest species. Retains moisture while providing drainage. The Bio Dude Terra Firma includes beneficial mycorrhizae fungi for plant health. Mix ratio for DIY: 2 parts coco fiber, 2 parts sphagnum moss, 1 part charcoal, 1 part tree fern."
   },
   "substrate-bioactive-arid": {
     "name": "Bioactive Substrate Mix (Arid/Desert)",
     "category": "substrate",
     "needsTags": ["substrate:bioactive"],
     "importance": "required",
+    "isRecurring": false,
+    "recurringInterval": "6 months",
     "spec": {
       "depth": "3-4 inches",
       "type": "Sand/soil mix with drainage"
     },
     "tiers": {
       "minimum": {
-        "description": "DIY arid mix (play sand, organic topsoil, excavator clay)",
-        "searchQuery": "bioactive substrate desert arid"
+        "description": "DIY arid mix (60/30/10 ratio - play sand, organic topsoil, excavator clay)",
+        "searchQuery": "play sand organic topsoil excavator clay",
+        "priceRange": { "min": 15, "max": 30 },
+        "pricePerUnit": { "min": 0.75, "max": 1.5 }
       },
       "recommended": {
-        "description": "Pre-mixed arid bioactive substrate",
-        "searchQuery": "bioactive substrate desert reptile"
+        "description": "Josh's Frogs Desert substrate (pre-mixed arid blend)",
+        "searchQuery": "joshs frogs desert substrate bioactive",
+        "priceRange": { "min": 23, "max": 41 },
+        "pricePerUnit": { "min": 1.15, "max": 2.1 }
       },
       "ideal": {
-        "description": "Premium arid bioactive mix",
-        "searchQuery": "premium bioactive substrate desert"
+        "description": "The Bio Dude Terra Sahara (premium desert blend with beneficial bacteria)",
+        "searchQuery": "bio dude terra sahara bioactive substrate",
+        "priceRange": { "min": 30, "max": 53 },
+        "pricePerUnit": { "min": 1.5, "max": 2.7 }
       }
     },
-    "notes": "For arid/desert species (bearded dragons, leopard geckos). Drains quickly, doesn't retain excess moisture. Mix ratio: 60% play sand, 30% organic topsoil, 10% excavator clay."
+    "notes": "For arid/desert species (bearded dragons, leopard geckos). Drains quickly, doesn't retain excess moisture. The Bio Dude Terra Sahara includes beneficial bacteria for waste breakdown. DIY mix ratio: 60% play sand, 30% organic topsoil, 10% excavator clay."
   },
   "substrate-soil": {
     "name": "Soil-Based Substrate",
     "category": "substrate",
     "needsTags": ["substrate:soil"],
     "importance": "required",
+    "isRecurring": true,
+    "recurringInterval": "6 months",
     "tiers": {
       "minimum": {
         "description": "DIY ABG Mix",
-        "searchQuery": "terrarium soil-based substrate"
+        "searchQuery": "terrarium soil-based substrate",
+        "priceRange": { "min": 11, "max": 23 },
+        "pricePerUnit": { "min": 0.55, "max": 1.15 }
       },
       "recommended": {
         "description": "Pre-mixed soil substrate",
-        "searchQuery": "terrarium soil-based substrate"
+        "searchQuery": "terrarium soil-based substrate",
+        "priceRange": { "min": 15, "max": 30 },
+        "pricePerUnit": { "min": 0.75, "max": 1.5 }
       },
       "ideal": {
         "description": "Premium soil mix",
-        "searchQuery": "terrarium soil-based substrate"
+        "searchQuery": "terrarium soil-based substrate",
+        "priceRange": { "min": 23, "max": 41 },
+        "pricePerUnit": { "min": 1.15, "max": 2.1 }
       }
     },
     "notes": "Good for plants and naturalistic setups."
@@ -75,18 +99,26 @@
     "category": "substrate",
     "needsTags": ["substrate:paper"],
     "importance": "required",
+    "isRecurring": true,
+    "recurringInterval": "6 months",
     "tiers": {
       "minimum": {
         "description": "Paper towels",
-        "searchQuery": "terrarium paper-based substrate"
+        "searchQuery": "terrarium paper-based substrate",
+        "priceRange": { "min": 4, "max": 9 },
+        "pricePerUnit": { "min": 0.2, "max": 0.45 }
       },
       "recommended": {
         "description": "Paper towels",
-        "searchQuery": "terrarium paper-based substrate"
+        "searchQuery": "terrarium paper-based substrate",
+        "priceRange": { "min": 6, "max": 11 },
+        "pricePerUnit": { "min": 0.3, "max": 0.55 }
       },
       "ideal": {
         "description": "Paper towels",
-        "searchQuery": "terrarium paper-based substrate"
+        "searchQuery": "terrarium paper-based substrate",
+        "priceRange": { "min": 8, "max": 14 },
+        "pricePerUnit": { "min": 0.4, "max": 0.7 }
       }
     },
     "notes": "Easy to replace and clean."
@@ -95,19 +127,25 @@
     "name": "Foam Substrate",
     "category": "substrate",
     "needsTags": ["substrate:foam"],
-    "importance": "required",
-    "tiers": {
+    "importance": "required",    "isRecurring": true,
+    "recurringInterval": "12 months",    "tiers": {
       "minimum": {
         "description": "Frog Foam",
-        "searchQuery": "terrarium foam substrate"
+        "searchQuery": "terrarium foam substrate",
+        "priceRange": { "min": 9, "max": 15 },
+        "pricePerUnit": { "min": 0.45, "max": 0.75 }
       },
       "recommended": {
         "description": "Frog Foam",
-        "searchQuery": "terrarium foam substrate"
+        "searchQuery": "terrarium foam substrate",
+        "priceRange": { "min": 11, "max": 19 },
+        "pricePerUnit": { "min": 0.55, "max": 0.95 }
       },
       "ideal": {
         "description": "Frog Foam",
-        "searchQuery": "terrarium foam substrate"
+        "searchQuery": "terrarium foam substrate",
+        "priceRange": { "min": 14, "max": 23 },
+        "pricePerUnit": { "min": 0.7, "max": 1.15 }
       }
     },
     "notes": "Lightweight and reusable."
@@ -124,15 +162,21 @@
     "tiers": {
       "minimum": {
         "description": "Organic LECA",
-        "searchQuery": "terrarium drainage layer (leca or clay balls)"
+        "searchQuery": "terrarium drainage layer (leca or clay balls)",
+        "priceRange": { "min": 11, "max": 19 },
+        "pricePerUnit": { "min": 0.55, "max": 0.95 }
       },
       "recommended": {
         "description": "Organic LECA",
-        "searchQuery": "terrarium drainage layer (leca or clay balls)"
+        "searchQuery": "terrarium drainage layer (leca or clay balls)",
+        "priceRange": { "min": 14, "max": 23 },
+        "pricePerUnit": { "min": 0.7, "max": 1.15 }
       },
       "ideal": {
         "description": "Organic LECA",
-        "searchQuery": "terrarium drainage layer (leca or clay balls)"
+        "searchQuery": "terrarium drainage layer (leca or clay balls)",
+        "priceRange": { "min": 17, "max": 29 },
+        "pricePerUnit": { "min": 0.85, "max": 1.45 }
       }
     },
     "notes": "Essential for bioactive setups."
@@ -145,15 +189,21 @@
     "tiers": {
       "minimum": {
         "description": "Mesh barrier",
-        "searchQuery": "terrarium drainage barrier (mesh screen)"
+        "searchQuery": "terrarium drainage barrier (mesh screen)",
+        "priceRange": { "min": 4, "max": 9 },
+        "pricePerUnit": { "min": 0.2, "max": 0.45 }
       },
       "recommended": {
         "description": "Mesh barrier",
-        "searchQuery": "terrarium drainage barrier (mesh screen)"
+        "searchQuery": "terrarium drainage barrier (mesh screen)",
+        "priceRange": { "min": 6, "max": 11 },
+        "pricePerUnit": { "min": 0.3, "max": 0.55 }
       },
       "ideal": {
         "description": "Mesh barrier",
-        "searchQuery": "terrarium drainage barrier (mesh screen)"
+        "searchQuery": "terrarium drainage barrier (mesh screen)",
+        "priceRange": { "min": 8, "max": 14 },
+        "pricePerUnit": { "min": 0.4, "max": 0.7 }
       }
     },
     "notes": "Prevents substrate from mixing with drainage layer."
@@ -170,15 +220,21 @@
     "tiers": {
       "minimum": {
         "description": "Basic reptile carpet",
-        "searchQuery": "reptile carpet terrarium liner"
+        "searchQuery": "reptile carpet terrarium liner",
+        "priceRange": { "min": 8, "max": 15 },
+        "pricePerUnit": { "min": 0.4, "max": 0.75 }
       },
       "recommended": {
         "description": "Quality reptile carpet with binding",
-        "searchQuery": "reptile carpet terrarium liner quality"
+        "searchQuery": "reptile carpet terrarium liner quality",
+        "priceRange": { "min": 12, "max": 22 },
+        "pricePerUnit": { "min": 0.6, "max": 1.1 }
       },
       "ideal": {
         "description": "Premium carpet with multiple pieces for rotation",
-        "searchQuery": "reptile carpet terrarium liner premium set"
+        "searchQuery": "reptile carpet terrarium liner premium set",
+        "priceRange": { "min": 20, "max": 35 },
+        "pricePerUnit": { "min": 1.0, "max": 1.75 }
       }
     },
     "notes": "Beginner-friendly substrate alternative. Easy to clean - machine washable. Buy 2-3 pieces to rotate while cleaning. Can harbor bacteria if not cleaned regularly. Not suitable for burrowing species. Beware of loose fibers catching claws."
@@ -195,17 +251,56 @@
     "tiers": {
       "minimum": {
         "description": "Clean glass bottom",
-        "searchQuery": "bare bottom aquarium no substrate"
+        "searchQuery": "bare bottom aquarium no substrate",
+        "priceRange": { "min": 0, "max": 0 },
+        "pricePerUnit": { "min": 0, "max": 0 }
       },
       "recommended": {
         "description": "Glass bottom with slate accents",
-        "searchQuery": "bare bottom aquarium slate tile"
+        "searchQuery": "bare bottom aquarium slate tile",
+        "priceRange": { "min": 10, "max": 25 },
+        "pricePerUnit": { "min": 0.5, "max": 1.25 }
       },
       "ideal": {
         "description": "Glass with decorative safe tiles",
-        "searchQuery": "bare bottom aquarium custom tiles"
+        "searchQuery": "bare bottom aquarium custom tiles",
+        "priceRange": { "min": 20, "max": 40 },
+        "pricePerUnit": { "min": 1.0, "max": 2.0 }
       }
     },
     "notes": "Safest option for axolotls under 6 inches and other impaction-prone species. Easy to spot-clean and monitor waste. Provides no traction - consider adding slate tiles. Not naturalistic but extremely hygienic. Recommended for quarantine and hospital tanks."
+  },
+  "substrate-sphagnum-moss": {
+    "name": "Sphagnum Moss",
+    "category": "substrate",
+    "needsTags": ["substrate:moss"],
+    "importance": "conditional",
+    "isRecurring": true,
+    "recurringInterval": "3 months",
+    "spec": {
+      "type": "Sphagnum moss",
+      "purpose": "Moisture retention and naturalistic substrate"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Dried sphagnum moss",
+        "searchQuery": "sphagnum moss terrarium",
+        "priceRange": { "min": 6, "max": 11 },
+        "pricePerUnit": { "min": 0.3, "max": 0.55 }
+      },
+      "recommended": {
+        "description": "Live sphagnum moss",
+        "searchQuery": "live sphagnum moss terrarium",
+        "priceRange": { "min": 11, "max": 19 },
+        "pricePerUnit": { "min": 0.55, "max": 0.95 }
+      },
+      "ideal": {
+        "description": "Premium New Zealand sphagnum",
+        "searchQuery": "premium sphagnum moss terrarium",
+        "priceRange": { "min": 15, "max": 27 },
+        "pricePerUnit": { "min": 0.75, "max": 1.35 }
+      }
+    },
+    "notes": "Excellent for tropical and moisture-loving species. Retains moisture well without becoming waterlogged. Live moss provides naturalistic appearance and filter surface for beneficial bacteria. Harvested sustainably from New Zealand bogs."
   }
 }

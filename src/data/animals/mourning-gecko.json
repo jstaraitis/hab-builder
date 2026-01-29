@@ -79,7 +79,7 @@
     "heatSource": "low-wattage-bulb",
     "waterFeature": "misting-only",
     "lighting": "uvb-forest",
-    "diet": ["omnivore"],
+    "diet": ["omnivore", "frugivore"],
     "animalType": "reptile",
     "decor": ["branches", "ledges", "hides", "plants", "vines", "moist-hide"],
     "water": ["water-dish-large"],
@@ -98,13 +98,11 @@
     "Add layer of leaf litter over substrate for naturalistic appearance and foraging enrichment"
   ],
   "notes": [
-    "ALL mourning geckos are female - they reproduce via parthenogenesis (no males needed)",
+    "ALL mourning geckos are female - reproduce via parthenogenesis (no males exist)",
     "Offspring are genetic clones of their mother",
-    "Crepuscular - most active around sunset and sunrise",
-    "Naturally social species - housing groups of 2-4 is essential for wellbeing",
-    "Too small and flighty to handle - best enjoyed as display animals",
-    "Excellent climbers with adhesive toe pads that allow them to scale smooth surfaces",
-    "Lack eyelids like other geckos - lick their eyes to keep them clean"
+    "Males were documented once in 1960s Vietnam - so rare they're considered extinct, making mourning geckos only known self-sustaining all-female vertebrate species",
+    "'Mourning' name comes from soft chirping vocalizations that sound like mournful crying - used for territory defense and social communication",
+    "Climb on glass/smooth surfaces using microscopic hair-like setae (500,000 per foot) - each hair creates weak molecular attraction allowing vertical climbing"
   ],
   "warnings": [
     {

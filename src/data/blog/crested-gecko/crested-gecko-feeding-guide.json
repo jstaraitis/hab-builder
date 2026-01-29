@@ -1,7 +1,8 @@
-ï»¿{
+{
   "id": "crested-gecko-feeding-guide",
   "title": "Crested Gecko Feeding Guide: Complete Nutrition by Life Stage",
   "description": "Comprehensive feeding guide for crested geckos covering age-based diets, crested gecko diet powder, feeder insects, supplementation schedules, and body condition assessment.",
+  "excerpt": "Comprehensive feeding guide for crested geckos covering age-based diets, crested gecko diet powder, feeder insects, supplementation schedules, and body condition assessment.",
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
@@ -46,7 +47,7 @@
     },
     {
       "type": "text",
-      "content": "CGD powder is a revolutionary product that transformed crested gecko keeping. It's nutritionally completeâ€”no fruits, vegetables, or vitamin dusting required when CGD is the primary diet."
+      "content": "CGD powder is a revolutionary product that transformed crested gecko keeping. It's nutritionally complete—no fruits, vegetables, or vitamin dusting required when CGD is the primary diet."
     },
     {
       "type": "text",
@@ -66,7 +67,7 @@
     },
     {
       "type": "highlight",
-      "content": "Variety is keyâ€”rotate 2-3 different CGD brands/flavors to provide nutritional diversity and prevent boredom. Many keepers mix brands in the same feeding to combine nutritional benefits."
+      "content": "Variety is key—rotate 2-3 different CGD brands/flavors to provide nutritional diversity and prevent boredom. Many keepers mix brands in the same feeding to combine nutritional benefits."
     },
     {
       "type": "section",
@@ -100,7 +101,7 @@
       "rows": [
         ["1. Prepare fresh CGD", "Mix powder + water in small cup or ledge", "Mix immediately before feeding (evening, around 7-9 PM)"],
         ["2. Place in enclosure", "Magnetic ledge, gecko feeding cup, or cork bark", "Mid to upper level, easily accessible from vines"],
-        ["3. Remove previous CGD", "Discard any uneaten CGD from prior feeding", "CGD spoils in 24 hoursâ€”never leave more than one night"],
+        ["3. Remove previous CGD", "Discard any uneaten CGD from prior feeding", "CGD spoils in 24 hours—never leave more than one night"],
         ["4. Offer for 24 hours", "Leave fresh CGD overnight", "Crested geckos are most active 8 PM-4 AM"],
         ["5. Monitor consumption", "Check if gecko licked cup clean or left residue", "Adjust portion size based on consumption patterns"]
       ]
@@ -108,7 +109,7 @@
     {
       "type": "warning",
       "severity": "tip",
-      "content": "Mix CGD fresh for each feedingâ€”don't pre-mix and refrigerate. Refrigeration changes texture and reduces palatability. Unused dry powder lasts 6-12 months sealed in a cool, dry place."
+      "content": "Mix CGD fresh for each feeding—don't pre-mix and refrigerate. Refrigeration changes texture and reduces palatability. Unused dry powder lasts 6-12 months sealed in a cool, dry place."
     },
     {
       "type": "section",
@@ -138,7 +139,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "NEVER feed insects wider than the space between your gecko's eyes. Oversized insects cause impaction, choking, or regurgitation. For dubias/roaches, use 1/2 width ruleâ€”they're bulkier than crickets of similar length."
+      "content": "NEVER feed insects wider than the space between your gecko's eyes. Oversized insects cause impaction, choking, or regurgitation. For dubias/roaches, use 1/2 width rule—they're bulkier than crickets of similar length."
     },
     {
       "type": "section",
@@ -190,7 +191,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Do NOT dust CGD with calcium powderâ€”it's already fortified and over-supplementation can cause organ damage. Only dust insects. Use light dusting (\"shake and bake\" method in cup)â€”insects should look lightly frosted, not caked white."
+      "content": "Do NOT dust CGD with calcium powder—it's already fortified and over-supplementation can cause organ damage. Only dust insects. Use light dusting (\"shake and bake\" method in cup)—insects should look lightly frosted, not caked white."
     },
     {
       "type": "section",
@@ -235,8 +236,8 @@
       "headers": ["Food Source", "Water Content", "Hydration Contribution"],
       "rows": [
         ["CGD (properly mixed)", "60-70%", "Primary dietary water source, provides moisture + nutrients"],
-        ["Feeder insects (live)", "60-75%", "Moderateâ€”insects contain body fluids"],
-        ["Additional fruit (not recommended)", "80-90%", "Not neededâ€”CGD already contains fruit, fresh fruit upsets gut flora"],
+        ["Feeder insects (live)", "60-75%", "Moderate—insects contain body fluids"],
+        ["Additional fruit (not recommended)", "80-90%", "Not needed—CGD already contains fruit, fresh fruit upsets gut flora"],
         ["Water dish (direct drinking)", "100%", "Some geckos drink standing water, but most rely on droplets/CGD"]
       ]
     },
@@ -262,10 +263,10 @@
       "headers": ["Body Condition", "Visual/Palpable Signs", "Feeding Adjustment"],
       "rows": [
         ["Underweight", "Hip bones very prominent, tail narrow, ribs visible, sunken eyes", "Increase CGD to daily + insects 2-3x/week until weight improves"],
-        ["Ideal (Hatchling-Juvenile)", "Tail plump but not wider than neck, hip bones barely visible, active", "Maintain current scheduleâ€”daily CGD, insects 2x/week"],
-        ["Ideal (Adult)", "Hip bones slightly visible, tail rounded but not bulbous, active", "Maintain current scheduleâ€”CGD every 2-3 days, insects 1x/week"],
+        ["Ideal (Hatchling-Juvenile)", "Tail plump but not wider than neck, hip bones barely visible, active", "Maintain current schedule—daily CGD, insects 2x/week"],
+        ["Ideal (Adult)", "Hip bones slightly visible, tail rounded but not bulbous, active", "Maintain current schedule—CGD every 2-3 days, insects 1x/week"],
         ["Overweight", "No hip bones visible, tail wider than head, fat deposits in armpits/neck", "Reduce CGD to every 3-4 days, insects every 10-14 days"],
-        ["Obese", "Severe fat deposits, tail 2x width of head, lethargic, labored breathing", "Vet consultationâ€”possible fatty liver disease, reduce feeding drastically"]
+        ["Obese", "Severe fat deposits, tail 2x width of head, lethargic, labored breathing", "Vet consultation—possible fatty liver disease, reduce feeding drastically"]
       ]
     },
     {
@@ -285,12 +286,12 @@
       "headers": ["Mistake", "Health Consequence", "Correct Approach"],
       "rows": [
         ["Offering only insects (no CGD)", "Nutritional deficiencies, calcium deficiency, metabolic bone disease", "CGD must be primary diet (70-80% of intake), insects are supplemental"],
-        ["Overfeeding adults", "Obesity, fatty liver disease, shortened lifespan (10 years vs 20)", "Feed adults every 2-3 days, NOT dailyâ€”they don't need constant food"],
+        ["Overfeeding adults", "Obesity, fatty liver disease, shortened lifespan (10 years vs 20)", "Feed adults every 2-3 days, NOT daily—they don't need constant food"],
         ["Leaving CGD for multiple days", "Bacterial growth, mold, food poisoning", "Remove uneaten CGD after 24 hours, mix fresh each feeding"],
-        ["Offering fresh fruit regularly", "Diarrhea, gut flora disruption, CGD refusal", "No fresh fruitâ€”CGD contains optimal fruit nutrition already"],
-        ["Over-dusting insects", "Hypercalcemia, organ damage, supplement toxicity", "Light dusting onlyâ€”insects should be lightly frosted, not caked"],
-        ["Using baby food instead of CGD", "Incomplete nutrition, lacks insects/protein, vitamin deficiencies", "Only use CGD formulated for crested geckosâ€”baby food is not nutritionally adequate"],
-        ["Feeding insects too large", "Choking, impaction, regurgitation, stress", "Insect width â‰¤ space between gecko's eyes (or 1/2 for bulky roaches)"]
+        ["Offering fresh fruit regularly", "Diarrhea, gut flora disruption, CGD refusal", "No fresh fruit—CGD contains optimal fruit nutrition already"],
+        ["Over-dusting insects", "Hypercalcemia, organ damage, supplement toxicity", "Light dusting only—insects should be lightly frosted, not caked"],
+        ["Using baby food instead of CGD", "Incomplete nutrition, lacks insects/protein, vitamin deficiencies", "Only use CGD formulated for crested geckos—baby food is not nutritionally adequate"],
+        ["Feeding insects too large", "Choking, impaction, regurgitation, stress", "Insect width = space between gecko's eyes (or 1/2 for bulky roaches)"]
       ]
     },
     {
@@ -318,7 +319,7 @@
     },
     {
       "type": "highlight",
-      "content": "Position feeding ledges mid to upper level of enclosureâ€”crested geckos feel safer eating off the ground. Have 2-3 ledges/cups so you can rotate (one in use, one being cleaned)."
+      "content": "Position feeding ledges mid to upper level of enclosure—crested geckos feel safer eating off the ground. Have 2-3 ledges/cups so you can rotate (one in use, one being cleaned)."
     },
     {
       "type": "section",
@@ -334,10 +335,10 @@
       "rows": [
         ["Refuses CGD, only eats insects", "Insect preference, overfeeding insects", "Reduce insect frequency to every 10-14 days, try different CGD flavors"],
         ["Won't eat after moving to new home", "Stress, acclimation period", "Normal for 1-2 weeks, ensure temps/humidity correct, minimize handling"],
-        ["Sudden appetite loss (adult)", "Breeding season behavior (males), seasonal variation", "Monitor weightâ€”if stable, this is normal behavior (reduce feeding frequency)"],
-        ["Sudden appetite loss (any age) + weight loss", "Illness, parasites, improper temps, stress", "Vet visit requiredâ€”check fecal for parasites, verify temperatures"],
-        ["Regurgitates food", "Food too large, temps too low, illness", "Reduce insect size, verify basking area 82-85Â°F, vet check if continues"],
-        ["Only licks CGD, doesn't consume much", "CGD mixed too thick", "Add more water to thin consistencyâ€”should flow slowly, not be paste-like"]
+        ["Sudden appetite loss (adult)", "Breeding season behavior (males), seasonal variation", "Monitor weight—if stable, this is normal behavior (reduce feeding frequency)"],
+        ["Sudden appetite loss (any age) + weight loss", "Illness, parasites, improper temps, stress", "Vet visit required—check fecal for parasites, verify temperatures"],
+        ["Regurgitates food", "Food too large, temps too low, illness", "Reduce insect size, verify basking area 82-85°F, vet check if continues"],
+        ["Only licks CGD, doesn't consume much", "CGD mixed too thick", "Add more water to thin consistency—should flow slowly, not be paste-like"]
       ]
     },
     {
