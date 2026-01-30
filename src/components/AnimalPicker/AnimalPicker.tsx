@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { animalList } from '../../data/animals';
-import { FileText, CheckCircle, Sliders, Zap, Star, Clock, Flame, Bug, Fish } from 'lucide-react';
+import { FileText, CheckCircle, Sliders, Zap, Star, Clock } from 'lucide-react';
 
 interface AnimalPickerProps {
   selected: string;
@@ -322,7 +322,6 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
 
           const colors = getCareLevelColors();
           const isDraft = animal.completionStatus === 'draft';
-          const isVerified = animal.completionStatus === 'complete' || animal.completionStatus === 'validated';
 
           return (
             <button
