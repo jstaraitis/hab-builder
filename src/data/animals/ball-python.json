@@ -27,26 +27,33 @@
   },
   "careTargets": {
     "temperature": {
-      "min": 72,
-      "max": 80,
+      "thermalGradient": true,
+      "coolSide": {
+        "min": 76,
+        "max": 80
+      },
+      "warmSide": {
+        "min": 88,
+        "max": 92
+      },
       "basking": {
-        "min": 95,
-        "max": 104
+        "min": 90,
+        "max": 95
       },
       "nighttime": {
-        "min": 72,
-        "max": 78
+        "min": 76,
+        "max": 80
       },
       "unit": "F"
     },
     "humidity": {
       "day": {
-        "min": 60,
+        "min": 70,
         "max": 80
       },
       "night": {
-        "min": 80,
-        "max": 100
+        "min": 70,
+        "max": 80
       },
       "shedding": {
         "min": 70,
@@ -58,10 +65,10 @@
       "uvbRequired": true,
       "uvbRecommended": true,
       "coveragePercent": 50,
-      "photoperiod": "12-14h light (spring/summer), 10-12h (fall/winter)",
+      "photoperiod": "12-14h light for day/night cycle",
       "uvbStrength": "5.0"
     },
-    "gradient": "Horizontal thermal gradient required (95-104°F basking surface → 86-90°F warm hide → 72-80°F cool hide)"
+    "gradient": "Horizontal thermal gradient required (88-92°F warm side → 76-80°F cool side)"
   },
   "layoutRules": {
     "preferVertical": false,
@@ -79,7 +86,7 @@
     "heatSource": "basking",
     "waterFeature": "shallow-dish",
     "lighting": "uvb-forest",
-    "diet": ["carnivore"],
+    "diet": ["carnivore-rodents"],
     "animalType": "reptile",
     "decor": ["branches", "hides", "plants", "moist-hide"],
     "water": ["water-dish-large"],
@@ -89,16 +96,16 @@
   "dietType": "Carnivore",
   "adultSize": "3-5 feet (females larger than males)",
   "temperament": "Docile and calm, may ball up when stressed but rarely bites",
-  "activityPattern": "Nocturnal",
+  "activityPattern": "Crepuscular",
   "originRegion": "West and Central Africa (grasslands and forest edges)",
   "setupTips": [
-    "PVC front-opening enclosures are ideal - hold humidity better than glass, easier access than top-opening",
-    "Use halogen flood bulbs (90w PAR38 x2) as PRIMARY heat source - heat mats are supplemental only",
-    "Soil-based substrate (ReptiSoil, Eco Earth, or DIY 40% topsoil + 40% coco coir + 20% sand) 2-4 inches deep",
-    "BOTH warm hide (under basking) AND cool hide (opposite end) are mandatory - not optional",
-    "Large water bowl (8-10 inch diameter) on cool side for soaking",
-    "Provide climbing enrichment - cork bark, branches, ledges (debunks 'terrestrial only' myth)",
-    "Basking surface temp (95-104°F) is CRITICAL for digestion - measure with infrared thermometer, not ambient air temp"
+    "PVC or wood enclosures hold humidity better than glass tanks with screen tops",
+    "Multiple heating options work: UTHs, CHEs, DHPs, RHPs, or halogen flood lights - use thermostat with any heat source",
+    "Soil-based substrate (coconut husk, cypress mulch, organic topsoil, or ReptiSoil) holds humidity best - avoid aspen",
+    "Minimum of two hides required: one warm side, one cool side - identical hides preferred so snake doesn't prioritize security over temperature",
+    "Water bowl must be large enough for full-body soaking",
+    "Provide climbing opportunities - ball pythons are active semi-arboreal hunters in the wild and will utilize vertical space",
+    "Use thermostat to regulate all heat sources - unregulated UTH can reach 120°F+ and cause severe burns"
   ],
   "notes": [
     "Over 6500 morphs available - huge variety in colors/patterns",
@@ -110,12 +117,12 @@
   "warnings": [
     {
       "severity": "critical",
-      "message": "BASKING SURFACE TEMP 95-104°F IS CRITICAL FOR DIGESTION. Measure with infrared thermometer on basking rock surface, not ambient air. Low temps (<85°F) cause food to rot in stomach, leading to regurgitation or death.",
+      "message": "Proper temperature gradient is critical for digestion. Warm side 88-92°F, cool side 76-80°F. Temperatures below 88°F on warm side prevent proper digestion; above 95°F can cause injury with prolonged exposure. Temps below 75°F compromise immune system.",
       "category": "common_mistake"
     },
     {
       "severity": "critical",
-      "message": "NEVER use heat rocks - cause severe thermal burns. Heat mats are supplemental only (under warm hide if needed), NOT primary heat source. Use halogen flood bulbs as primary heat.",
+      "message": "All heat sources MUST be regulated by thermostat. Unregulated UTH can reach 120°F+ causing severe burns. Choose heat source based on enclosure type: UTHs work for tubs/tanks/PVC, RHPs for solid-top cages, CHEs/DHPs for screen-top tanks, halogens for daytime heat + light.",
       "category": "equipment_danger"
     },
     {
@@ -125,7 +132,7 @@
     },
     {
       "severity": "important",
-      "message": "Humidity measured inside cool hide (60-75%) - NOT at top of enclosure. Use digital hygrometer probe placed on substrate level. Low humidity (<45%) causes stuck sheds, dehydration, and respiratory moisture loss.",
+      "message": "Ideal humidity is 70-80% (typical of African tropical savannas). Many sources say 60% is adequate, but 60% can cause dehydration in some individuals. Humidity below 60% causes bad sheds and respiratory infections. Above 80% with wet substrate surface can lead to scale rot.",
       "category": "common_mistake"
     },
     {
@@ -135,12 +142,12 @@
     },
     {
       "severity": "tip",
-      "message": "40-gallon enclosures are OUTDATED. Modern standard is 120 gallons (48×24×24) minimum. Larger enclosures do NOT stress ball pythons if proper hides and clutter are provided.",
+      "message": "Minimum enclosure footprint: length equal to or greater than snake length, with 24+ inches depth. 4'×2' footprint comfortably accommodates average adults. Larger is better if properly cluttered. Empty space causes stress, not enclosure size itself.",
       "category": "common_mistake"
     },
     {
       "severity": "tip",
-      "message": "Obesity is the #1 health issue in captive ball pythons. Adults (500-1500g) should eat every 14-21 days (10% body weight). Large adults (>1500g) every 28-56 days. Weekly feeding causes obesity.",
+      "message": "Obesity is the #1 health issue in captive ball pythons. Hatchlings: 10-15% every 7 days. Juveniles until weight plateaus: 7% every 14-20 days. Adults: 5% every 20-30 days OR 6% every 30-40 days. Weekly feeding in adults causes obesity.",
       "category": "common_mistake"
     }
   ],
@@ -163,13 +170,13 @@
       "Use 12\"+ feeding tongs for safety"
     ],
     "feedingSchedule": [
-      "Hatchlings (<5 weeks): Every 5 days, 10% body weight (hopper mice or rat pups)",
-      "Juveniles <200g (5 weeks-6 months): Every 7 days, 10% body weight (small adult mice)",
-      "Juveniles 200-350g (6-12 months): Every 7-10 days, 10% body weight (weaned rats)",
-      "Juveniles 350-500g (12-18 months): Every 10-14 days, 10% body weight (small rats)",
-      "Sub-adults/adults 500-1500g: Every 14-21 days, 10% body weight (medium rats)",
-      "Adults >1500g (large females): Every 28-56 days (4-8 weeks), 10% body weight (large rats)",
-      "Weigh snake monthly to adjust portions - visible ribs = underfed, fat rolls = overfed"
+      "0-12 months OR until snake reaches ~500g: 10-15% body weight every 7 days",
+      "12-24 months OR until weight remains consistent for 2 months: up to 7% body weight every 14-20 days",
+      "Adults: up to 5% body weight every 20-30 days, OR slightly larger meals (up to 6%) every 30-40 days",
+      "Body at healthy weight: softly rounded triangular shape, clearly defined neck, smooth taper from body to tail, feels muscular and strong",
+      "If body is more round than triangular: reduce prey weight and/or space out feedings more",
+      "If body is sharply triangular with prominent spine and straight/concave sides: increase prey size",
+      "Weigh snake monthly to adjust portions and monitor health"
     ],
     "waterNotes": [
       "Large water bowl essential - must be large enough for snake to curl up inside completely",
@@ -180,12 +187,12 @@
       "Ball pythons soak 1-3 hours before shedding (normal behavior)"
     ],
     "mistingNotes": [
-      "Mist 1-2x daily in moderate climates, 2-3x daily in dry climates",
-      "Target: 60-75% humidity in cool hide (measured with hygrometer probe on substrate level)",
-      "During shed cycle: Increase misting to achieve 65-70% humidity",
-      "Soil-based substrate (2-4 inches deep) is PRIMARY humidity management tool - holds moisture",
-      "Optional humid hide: Plastic hide box with damp sphagnum moss maintains 80-90% microclimate",
-      "PVC enclosures hold humidity 50% better than glass tanks"
+      "Target humidity: 70-80% for optimal health (60% minimum, but some individuals may show dehydration at this level)",
+      "Primary humidity method: Pour 1-2 quarts of water directly into deep substrate (2-4 inches) for gradual evaporation - more effective than surface misting",
+      "Surface misting evaporates quickly causing humidity spikes that drop within hours - saturating substrate provides stable humidity",
+      "Keep hide areas dry to avoid scale rot while maintaining overall humidity",
+      "If struggling with humidity: reduce screen ventilation, use water-friendly substrate (coconut husk, cypress mulch, ReptiSoil), provide large water dish",
+      "Avoid foggers/misters that create constantly wet environment - can cause scale rot"
     ]
   }
 }

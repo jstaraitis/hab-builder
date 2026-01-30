@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "whites-tree-frog-feeding-guide",
   "title": "Feeding Guide for White's Tree Frogs",
   "author": "Habitat Builder Team",
@@ -136,8 +136,8 @@
         {
           "type": "list",
           "items": [
-            "Calcium + D3: Dust feeders 2-3 times per week",
-            "Multivitamin: Dust feeders 1-2 times per week",
+            "Calcium + D3: Dust feeders following product recommendation (typically 2-3x a week)",
+            "Multivitamin: Dust feeders following product recommendation (typically 1x a week)",
             "Gut-loading: Feed crickets nutritious food 24 hours before feeding to frogs"
           ]
         },
@@ -159,7 +159,7 @@
             "Feeders too large: Can cause impaction or choking - feeder should be smaller than the gap between frog's eyes",
             "No supplementation: Leads to metabolic bone disease over time",
             "Wild-caught insects: Risk of pesticide exposure and parasites",
-            "Leaving crickets overnight: Crickets will bite and stress frogs"
+            "Leaving crickets overnight: Crickets can bite and stress frogs, many keepers have not reported issues as long as enclosure is proper size."
           ]
         }
       ]
@@ -204,7 +204,7 @@
         },
         {
           "type": "highlight",
-          "content": "Weight Check: Weigh your frog monthly. Adult White's should be 40-80g. If gaining rapidly or showing fat deposits, reduce portions. If not gaining weight, try increasing feeding frequency."
+          "content": "Weight Check: Weigh your frog monthly. If gaining rapidly or showing fat deposits, reduce portions. If not gaining weight, try increasing feeding frequency."
         }
       ]
     }

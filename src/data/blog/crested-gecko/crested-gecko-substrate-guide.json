@@ -1,4 +1,4 @@
-{
+ï»¿{
   "id": "crested-gecko-substrate-guide",
   "title": "Crested Gecko Substrate Guide: Best Options for Humidity & Safety",
   "description": "Complete substrate guide for crested geckos covering humidity retention, naturalistic options, DIY tropical mixes, bioactive setups, and maintenance schedules.",
@@ -39,11 +39,11 @@
     },
     {
       "type": "highlight",
-      "content": "Substrate depth of 2-4 inches allows for proper humidity buffering—shallow substrates (under 1 inch) dry out too quickly and require excessive misting."
+      "content": "Substrate depth of 2-4 inches allows for proper humidity bufferingÃ—shallow substrates (under 1 inch) dry out too quickly and require excessive misting."
     },
     {
       "type": "highlight",
-      "content": "For comprehensive guidance on substrate categories, DIY mixing formulas, impaction myths, and bioactive layering applicable to all reptiles, see our <a href='/blog/substrate-selection-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Substrate Selection Guide</a>. The information below covers crested gecko-specific substrate requirements and tropical habitat recommendations."
+      "content": "For comprehensive guidance on substrate categories, DIY mixing formulas, impaction myths, and bioactive layering applicable to most reptiles, see our <a href='/blog/substrate-selection-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Substrate Selection Guide</a>. The information below covers crested gecko-specific substrate requirements and tropical habitat recommendations."
     },
     {
       "type": "section",
@@ -66,7 +66,7 @@
         ["Zoo Med Reptisoil", "Good (5-7 days)", "$15-20 per bag", "Beginner-friendly commercial option"],
         ["The Bio Dude Terra Fauna", "Excellent (10+ days)", "$35-50 per bag", "Premium bioactive substrate with beneficial microbes"],
         ["Coco fiber (alone)", "Moderate (3-5 days)", "$8-12 per brick", "Temporary use, not ideal long-term"],
-        ["Sphagnum moss (top layer)", "Excellent (10+ days)", "$15-20 per bag", "Added moisture layer, not sole substrate"]
+        ["Sphagnum moss", "Excellent (10+ days)", "$15-20 per bag", "Added moisture layer, not sole substrate"]
       ]
     },
     {
@@ -90,9 +90,9 @@
       "type": "table",
       "headers": ["Ingredient", "Ratio", "Purpose", "Where to Source"],
       "rows": [
-        ["Organic topsoil (additive-free)", "60%", "Moisture retention, plant nutrients, structure", "Garden centers (check ingredients—no fertilizers/pesticides)"],
+        ["Organic topsoil (additive-free)", "60%", "Moisture retention, plant nutrients, structure", "Garden centers (check ingredientsÃ—no fertilizers/pesticides)"],
         ["Coconut fiber/coir", "40%", "Drainage, aeration, moisture buffering", "Reptile stores or garden centers (compressed bricks)"],
-        ["Leaf litter (optional top layer)", "1-2\" layer", "Naturalistic appearance, microfauna habitat", "Collect from pesticide-free areas or purchase magnolia leaves"],
+        ["Leaf litter (top layer)", "1-2\" layer", "Naturalistic appearance, microfauna habitat", "Collect from pesticide-free areas or purchase magnolia leaves"],
         ["Sphagnum moss (optional)", "10-15% mixed in", "Extra moisture retention, anti-microbial properties", "Craft stores or reptile suppliers"]
       ]
     },
@@ -143,7 +143,7 @@
     },
     {
       "type": "table",
-      "headers": ["CUC Species", "Quantity (18×18×24 tank)", "Role"],
+      "headers": ["CUC Species", "Quantity (18Ã—18Ã—24 tank)", "Role"],
       "rows": [
         ["Dwarf white isopods", "20-30", "Consume feces, dead plant matter, mold"],
         ["Powder orange isopods", "10-20", "More aggressive decomposers, faster breeding"],
@@ -203,7 +203,7 @@
       "rows": [
         ["Spot clean feces/urates", "Daily", "Remove visible waste with scooper or paper towel, replace substrate in that area"],
         ["Remove uneaten food", "After 24 hours", "Discard any CGD or insects not consumed to prevent mold/odor"],
-        ["Substrate moisture check", "Every 2-3 days", "Squeeze test—should hold shape but not drip. Mist if too dry."],
+        ["Substrate moisture check", "Every 2-3 days", "Squeeze testÃ—should hold shape but not drip. Mist if too dry."],
         ["Leaf litter replacement", "Monthly", "Add fresh leaf litter, remove heavily decomposed leaves"],
         ["Partial substrate change", "Every 2-3 months", "Replace top 1-2 inches, stir remaining substrate"],
         ["Complete substrate change", "Every 6-12 months (non-bioactive)", "Remove all substrate, sanitize enclosure, add fresh mix"],
@@ -212,7 +212,7 @@
     },
     {
       "type": "highlight",
-      "content": "Bioactive setups require less maintenance long-term—CUC handles waste breakdown, eliminating the need for full substrate changes. Initial setup is more expensive but saves time and money over 3-5 years."
+      "content": "Bioactive setups require less maintenance long-term, CUC handles waste breakdown, eliminating the need for full substrate changes. Initial setup is more expensive but saves time and money over 3-5 years."
     },
     {
       "type": "section",

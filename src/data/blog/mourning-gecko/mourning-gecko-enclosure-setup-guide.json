@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "mourning-gecko-enclosure-setup-guide",
   "title": "Mourning Gecko Enclosure Setup: Size, Layout & Equipment Guide",
   "description": "Complete guide to setting up a mourning gecko enclosure including minimum size requirements for social groups, vertical layout design, and essential equipment checklist.",
@@ -93,10 +93,6 @@
       "type": "warning",
       "severity": "tip",
       "content": "Create multiple climbing pathways at each level so geckos can move vertically without conflict. Social doesn't mean they won't compete for prime basking spots!"
-    },
-    {
-      "type": "highlight",
-      "content": "For complete guidance on creating vertical thermal gradients and selecting temperature monitoring equipment, see our <a href='/blog/thermal-gradient-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Understanding Thermal Gradients</a> and <a href='/blog/temperature-monitoring-equipment-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Temperature Monitoring Equipment</a> guides. Mourning geckos require a vertical gradient with a basking zone of 80-85°F at the top."
     },
     {
       "type": "section",

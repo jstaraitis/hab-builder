@@ -127,8 +127,10 @@
     "name": "Foam Substrate",
     "category": "substrate",
     "needsTags": ["substrate:foam"],
-    "importance": "required",    "isRecurring": true,
-    "recurringInterval": "12 months",    "tiers": {
+    "importance": "required",
+    "isRecurring": true,
+    "recurringInterval": "12 months",
+    "tiers": {
       "minimum": {
         "description": "Frog Foam",
         "searchQuery": "terrarium foam substrate",
@@ -149,6 +151,68 @@
       }
     },
     "notes": "Lightweight and reusable."
+  },
+  "substrate-sand": {
+    "name": "Sand-Based Substrate (Desert)",
+    "category": "substrate",
+    "needsTags": ["substrate:sand"],
+    "importance": "required",
+    "isRecurring": true,
+    "recurringInterval": "12 months",
+    "tiers": {
+      "minimum": {
+        "description": "Play sand (washed, fine grain)",
+        "searchQuery": "reptile play sand substrate",
+        "priceRange": { "min": 8, "max": 15 },
+        "pricePerUnit": { "min": 0.4, "max": 0.75 }
+      },
+      "recommended": {
+        "description": "ReptiSand or Vita-Sand (calcium fortified)",
+        "searchQuery": "reptisand calcium fortified substrate",
+        "priceRange": { "min": 12, "max": 22 },
+        "pricePerUnit": { "min": 0.6, "max": 1.1 }
+      },
+      "ideal": {
+        "description": "Excavator Clay Sand Mix (for burrowing species)",
+        "searchQuery": "excavator clay sand substrate reptile",
+        "priceRange": { "min": 18, "max": 32 },
+        "pricePerUnit": { "min": 0.9, "max": 1.6 }
+      }
+    },
+    "notes": "Ideal for desert species like leopard geckos and bearded dragons. Never use calcium sand for animals that may ingest it regularly."
+  },
+  "substrate-sand-aquatic": {
+    "name": "Fine Aquarium Sand (Aquatic)",
+    "category": "substrate",
+    "needsTags": ["substrate:sand-aquatic"],
+    "importance": "conditional",
+    "isRecurring": false,
+    "recurringInterval": "24 months",
+    "spec": {
+      "depth": "6+ inches",
+      "grainSize": "< 1mm (ultra fine)"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "CaribSea Super Naturals (fine grain, aquarium-safe)",
+        "searchQuery": "caribsea super naturals fine aquarium sand",
+        "priceRange": { "min": 12, "max": 22 },
+        "pricePerUnit": { "min": 0.6, "max": 1.1 }
+      },
+      "recommended": {
+        "description": "Fluval Plant & Shrimp Stratum Sand (nutrient-rich, fine)",
+        "searchQuery": "fluval plant shrimp sand substrate",
+        "priceRange": { "min": 18, "max": 32 },
+        "pricePerUnit": { "min": 0.9, "max": 1.6 }
+      },
+      "ideal": {
+        "description": "Seachem Flourite Black Sand (planted tank grade, ultra fine)",
+        "searchQuery": "seachem flourite black sand aquarium",
+        "priceRange": { "min": 24, "max": 42 },
+        "pricePerUnit": { "min": 1.2, "max": 2.1 }
+      }
+    },
+    "notes": "CRITICAL FOR AXOLOTLS: Only use with animals 6+ inches long to prevent impaction. Requires minimum 6 inch depth so substrate can be passed safely if ingested. Grain size MUST be ultra-fine (< 1mm). NEVER use gravel (2-15mm) - fatal impaction risk. Bare-bottom or slate tile safer for juveniles under 6 inches. Rinse thoroughly before adding to tank."
   },
   "drainage": {
     "name": "Drainage Layer (LECA or clay balls)",

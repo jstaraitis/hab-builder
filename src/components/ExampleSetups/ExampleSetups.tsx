@@ -46,14 +46,14 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
             </p>
             
             {/* Premium Feature Callout - Redesigned */}
-            <div className="relative overflow-hidden bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/30 dark:to-yellow-900/30 rounded-lg p-3 sm:p-4 border-2 border-amber-200 dark:border-amber-700 shadow-sm">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-amber-200/30 dark:bg-amber-600/20 rounded-full -mr-10 -mt-10" />
+            <div className="relative overflow-hidden bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/30 dark:to-emerald-900/30 rounded-lg p-3 sm:p-4 border-2 border-green-200 dark:border-green-700 shadow-sm">
+              <div className="absolute top-0 right-0 w-20 h-20 bg-green-200/30 dark:bg-green-600/20 rounded-full -mr-10 -mt-10" />
               <div className="relative">
                 <div className="flex items-center gap-2 mb-1.5">
-                  <Award className="w-5 h-5 text-amber-600 dark:text-amber-400" />
-                  <span className="text-sm sm:text-base font-bold text-amber-900 dark:text-amber-200">Want to create custom layouts?</span>
+                  <Award className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <span className="text-sm sm:text-base font-bold text-green-900 dark:text-green-200">Want to create custom layouts?</span>
                 </div>
-                <p className="text-xs sm:text-sm text-amber-800 dark:text-amber-300 leading-relaxed">
+                <p className="text-xs sm:text-sm text-green-800 dark:text-green-300 leading-relaxed">
                   Interactive Enclosure Designer with drag-and-drop equipment, rotation, resizing, and more is in progress!
                 </p>
               </div>

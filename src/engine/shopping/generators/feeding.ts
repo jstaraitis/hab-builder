@@ -197,4 +197,58 @@ export function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput,
       ...(geckoInsectsConfig.recurringInterval && { recurringInterval: geckoInsectsConfig.recurringInterval }),
     });
   }
+
+  // Axolotl pellets (only for aquatic carnivores)
+  const axolotlPelletsConfig = catalogDict['axolotl-pellets'];
+  if (axolotlPelletsConfig && matchesAnimalNeeds(axolotlPelletsConfig, profile.equipmentNeeds, input)) {
+    items.push({
+      id: 'axolotl-pellets',
+      category: axolotlPelletsConfig.category,
+      name: axolotlPelletsConfig.name,
+      quantity: '1 container',
+      sizing: 'Daily staple food',
+      importance: axolotlPelletsConfig.importance,
+      setupTierOptions: axolotlPelletsConfig.tiers,
+      notes: axolotlPelletsConfig.notes,
+      incompatibleAnimals: axolotlPelletsConfig.incompatibleAnimals,
+      ...(axolotlPelletsConfig.isRecurring && { isRecurring: axolotlPelletsConfig.isRecurring }),
+      ...(axolotlPelletsConfig.recurringInterval && { recurringInterval: axolotlPelletsConfig.recurringInterval }),
+    });
+  }
+
+  // Earthworms (only for aquatic carnivores)
+  const earthwormsConfig = catalogDict['earthworms'];
+  if (earthwormsConfig && matchesAnimalNeeds(earthwormsConfig, profile.equipmentNeeds, input)) {
+    items.push({
+      id: 'earthworms',
+      category: earthwormsConfig.category,
+      name: earthwormsConfig.name,
+      quantity: 'Ongoing supply',
+      sizing: 'Cut into bite-sized pieces for juveniles',
+      importance: earthwormsConfig.importance,
+      setupTierOptions: earthwormsConfig.tiers,
+      notes: earthwormsConfig.notes,
+      incompatibleAnimals: earthwormsConfig.incompatibleAnimals,
+      ...(earthwormsConfig.isRecurring && { isRecurring: earthwormsConfig.isRecurring }),
+      ...(earthwormsConfig.recurringInterval && { recurringInterval: earthwormsConfig.recurringInterval }),
+    });
+  }
+
+  // Frozen bloodworms (only for aquatic carnivores)
+  const bloodwormsConfig = catalogDict['frozen-bloodworms'];
+  if (bloodwormsConfig && matchesAnimalNeeds(bloodwormsConfig, profile.equipmentNeeds, input)) {
+    items.push({
+      id: 'frozen-bloodworms',
+      category: bloodwormsConfig.category,
+      name: bloodwormsConfig.name,
+      quantity: 'Weekly supply',
+      sizing: '2-3 times per week as treats',
+      importance: bloodwormsConfig.importance,
+      setupTierOptions: bloodwormsConfig.tiers,
+      notes: bloodwormsConfig.notes,
+      incompatibleAnimals: bloodwormsConfig.incompatibleAnimals,
+      ...(bloodwormsConfig.isRecurring && { isRecurring: bloodwormsConfig.isRecurring }),
+      ...(bloodwormsConfig.recurringInterval && { recurringInterval: bloodwormsConfig.recurringInterval }),
+    });
+  }
 }

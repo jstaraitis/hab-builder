@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "bearded-dragon-feeding-guide",
   "title": "Bearded Dragon Feeding Guide: Diet, Schedule & Nutrition",
   "description": "Complete feeding guide for bearded dragons covering insects, vegetables, feeding frequency by age, supplements, and common nutritional mistakes.",
@@ -30,8 +30,8 @@
       "type": "table",
       "headers": ["Life Stage", "Insect Frequency", "Vegetable Frequency", "Protein Ratio"],
       "rows": [
-        ["Hatchling (0-6 months)", "Twice daily (ad libitum)", "Daily (small portions)", "60-80%"],
-        ["Juvenile (6-12 months)", "Once daily (measured)", "Daily (increasing portions)", "50-60%"],
+        ["Hatchling (0-6 months)", "Twice daily", "Daily (small portions)", "60-80%"],
+        ["Juvenile (6-12 months)", "Once daily", "Daily (increasing portions)", "50-60%"],
         ["Subadult (12-18 months)", "3-4 times weekly", "Daily (primary diet)", "30-40%"],
         ["Adult (18+ months)", "2-3 times weekly", "Daily (staple diet)", "20-30%"]
       ]
@@ -137,8 +137,8 @@
       "type": "table",
       "headers": ["Supplement Type", "Active Ingredients", "Frequency", "Application"],
       "rows": [
-        ["Calcium (no D3)", "Calcium carbonate/citrate", "Most insect feedings", "Light dusting on feeders"],
-        ["Multivitamin (with D3)", "Vitamins A, D3, E, B-complex", "1-2x weekly", "Light dusting on feeders"],
+        ["Calcium (with D3)", "Calcium carbonate/citrate", "Most insect feedings", "Light dusting on feeders"],
+        ["Multivitamin", "Vitamins A, D3, E, B-complex", "1-2x weekly", "Light dusting on feeders"],
         ["All-in-one formula", "Calcium + vitamins + trace minerals", "Alternative to separate", "Repashy Calcium Plus LoD, Arcadia EarthPro-A"]
       ]
     },
@@ -192,7 +192,7 @@
         ["Fresh water dish", "Moderate (if recognized)", "Shallow dish changed daily"],
         ["Misting vegetables", "High (natural behavior)", "Spray greens before offering"],
         ["Drip method", "High (triggers drinking)", "Drip water on snout until licking"],
-        ["Syringe feeding", "High (during handling)", "Offer water via needleless syringe"],
+        ["Syringe feeding", "High (during handling)", "Offer water via needleless syringe, not for beginners"],
         ["Hydrating foods", "Moderate (supplemental)", "Hornworms, cucumber, cactus pads"]
       ]
     },

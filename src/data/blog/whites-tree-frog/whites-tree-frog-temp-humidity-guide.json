@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "whites-tree-frog-temp-humidity-guide",
   "title": "Temperature & Humidity Control for White's Tree Frogs",
   "author": "Habitat Builder Team",
@@ -22,7 +22,7 @@
           "rows": [
             ["Ambient temp", "75-88°F", "70-75°F", "Warm zone at top (85-88°F), cooler below. Critical nighttime drop mimics wild fluctuations."],
             ["Basking spot", "88°F", "—", "Warm zone at top for basking and digestion. Essential for metabolic health."],
-            ["Humidity", "30-40%", "30-45%", "CRITICAL: Semi-arid species. Stay DRY. Never exceed 50% sustained."],
+            ["Humidity", "30-40%", "30-40%", "CRITICAL: Semi-arid species. Stay DRY. Never exceed 50% sustained."],
             ["Surface moisture", "Mostly dry", "Lightly damp", "Substrate should not be soggy; top layer must dry out by morning"]
           ]
         },

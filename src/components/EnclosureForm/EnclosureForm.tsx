@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import type { EnclosureInput, Units, AnimalProfile, HumidityControl, SubstrateType, EnclosureType, BackgroundType } from '../../engine/types';
 import { CheckCircle, Star, Award, AlertTriangle, Thermometer, Droplet } from 'lucide-react';
 import { validateEnclosureSize, validateEnclosureType, validateBioactive } from '../../engine/validateEnclosure';
@@ -12,6 +12,7 @@ interface EnclosureFormProps {
 
 const commonSizes = [
   { name: '12×12×12"', width: 12, depth: 12, height: 12, units: 'in' as Units },
+  { name: '12×12×18"', width: 12, depth: 12, height: 18, units: 'in' as Units },
   { name: '18×12×12"', width: 18, depth: 12, height: 12, units: 'in' as Units },
   { name: '20×10×10"', width: 20, depth: 10, height: 10, units: 'in' as Units },
   { name: '20×10×20"', width: 20, depth: 10, height: 20, units: 'in' as Units },
@@ -25,6 +26,7 @@ const commonSizes = [
   { name: '36×18×36"', width: 36, depth: 18, height: 36, units: 'in' as Units },
   { name: '40×20×20"', width: 40, depth: 20, height: 20, units: 'in' as Units },
   { name: '48×18×18" (4×1.5×1.5)', width: 48, depth: 18, height: 18, units: 'in' as Units },
+  { name: '48×24×18"', width: 48, depth: 24, height: 18, units: 'in' as Units },
   { name: '48×24×24" (4×2×2)', width: 48, depth: 24, height: 24, units: 'in' as Units },
   { name: '48×24×48" (4×2×4)', width: 48, depth: 24, height: 48, units: 'in' as Units },
   { name: '60×24×24" (5×2×2)', width: 60, depth: 24, height: 24, units: 'in' as Units },
@@ -61,18 +63,23 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
     return 'good';
   };
 
-  // Filter and categorize presets when animal is selected
-  const categorizedPresets = animalProfile ? {
-    good: commonSizes.filter(p => getPresetValidation(p) === 'good'),
-    warning: commonSizes.filter(p => getPresetValidation(p) === 'warning'),
-    critical: commonSizes.filter(p => getPresetValidation(p) === 'critical'),
-    custom: commonSizes.filter(p => p.name === 'Custom')
-  } : null;
+  // Memoize preset categorization - only recalculates when animal or value changes
+  const categorizedPresets = useMemo(() => {
+    if (!animalProfile) return null;
+    return {
+      good: commonSizes.filter(p => getPresetValidation(p) === 'good'),
+      warning: commonSizes.filter(p => getPresetValidation(p) === 'warning'),
+      critical: commonSizes.filter(p => getPresetValidation(p) === 'critical'),
+      custom: commonSizes.filter(p => p.name === 'Custom')
+    };
+  }, [animalProfile, value]);
 
-  // Determine which presets to show
-  const presetsToShow = categorizedPresets && !showAllSizes
-    ? [...categorizedPresets.good, ...categorizedPresets.custom]
-    : commonSizes;
+  // Memoize which presets to show
+  const presetsToShow = useMemo(() => {
+    return categorizedPresets && !showAllSizes
+      ? [...categorizedPresets.good, ...categorizedPresets.custom]
+      : commonSizes;
+  }, [categorizedPresets, showAllSizes]);
 
   const hasHiddenSizes = categorizedPresets && 
     (categorizedPresets.warning.length > 0 || categorizedPresets.critical.length > 0);
@@ -224,6 +231,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
             const validationStatus = getPresetValidation(preset);
             const isSelected = usePreset && 
               value.width === preset.width && 
+              value.depth === preset.depth &&
               value.height === preset.height;
             
             // Determine button styling based on validation status
@@ -396,17 +404,21 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
         )}
       </div>
 
-      {/* Bioactive Setup */}
+      {/* Bioactive Setup - Hidden for fully aquatic animals */}
+      {animalProfile?.equipmentNeeds?.waterFeature !== 'fully-aquatic' && (
       <div className="space-y-3 pt-4 border-t border-gray-200 dark:border-gray-700">
         <label className="flex items-center gap-3 cursor-pointer">
           <input
             type="checkbox"
             checked={value.bioactive}
-            onChange={(e) => onChange({ 
-              ...value, 
-              bioactive: e.target.checked,
-              substratePreference: e.target.checked ? 'bioactive' : 'soil-based'
-            })}
+            onChange={(e) => {
+              const updates: Partial<EnclosureInput> = { bioactive: e.target.checked };
+              // Only auto-set substrate preference if user hasn't manually selected one
+              if (!value.substratePreference || value.substratePreference === 'bioactive' || value.substratePreference === 'soil-based') {
+                updates.substratePreference = e.target.checked ? 'bioactive' : 'soil-based';
+              }
+              onChange({ ...value, ...updates });
+            }}
             className="w-5 h-5 text-primary-600 border-gray-300 dark:border-gray-600 rounded focus:ring-primary-500"
           />
           <div>
@@ -429,6 +441,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
           </div>
         )}
       </div>
+      )}
 
       {/* Care Level Preference (for Find Your Animal feature) */}
       {!animalProfile && (
@@ -458,14 +471,31 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
           Substrate Preference
         </label>
         <select
-          value={value.substratePreference || 'soil-based'}
+          value={value.substratePreference || (animalProfile?.equipmentNeeds?.waterFeature === 'fully-aquatic' ? '' : 'soil-based')}
           onChange={(e) => onChange({ ...value, substratePreference: e.target.value as SubstrateType })}
           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500"
         >
-          <option value="bioactive">Bioactive Mix</option>
-          <option value="soil-based">Soil-Based</option>
-          <option value="paper-based">Paper-Based</option>
-          <option value="foam">Foam</option>
+          {animalProfile?.equipmentNeeds?.waterFeature === 'fully-aquatic' && (
+            <option value="">Select substrate (optional)</option>
+          )}
+          {(!animalProfile?.equipmentNeeds?.substrate || animalProfile.equipmentNeeds.substrate.includes('bioactive')) && (
+            <option value="bioactive">Bioactive Mix</option>
+          )}
+          {(!animalProfile?.equipmentNeeds?.substrate || animalProfile.equipmentNeeds.substrate.includes('soil')) && (
+            <option value="soil-based">Soil-Based</option>
+          )}
+          {(!animalProfile?.equipmentNeeds?.substrate || animalProfile.equipmentNeeds.substrate.includes('paper')) && (
+            <option value="paper-based">Paper-Based</option>
+          )}
+          {(!animalProfile?.equipmentNeeds?.substrate || animalProfile.equipmentNeeds.substrate.includes('foam')) && (
+            <option value="foam">Foam</option>
+          )}
+          {(!animalProfile?.equipmentNeeds?.substrate || animalProfile.equipmentNeeds.substrate.includes('sand')) && (
+            <option value="sand-based">Sand-Based (Desert)</option>
+          )}
+          {(!animalProfile?.equipmentNeeds?.substrate || animalProfile.equipmentNeeds.substrate.includes('sand-aquatic')) && (
+            <option value="sand-aquatic">Fine Aquarium Sand (Aquatic)</option>
+          )}
         </select>
       </div>
 
@@ -501,7 +531,8 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
         <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">Affects heating power needed</p>
       </div>
 
-      {/* Ambient Room Humidity */}
+      {/* Ambient Room Humidity - Hidden for fully aquatic animals */}
+      {animalProfile?.equipmentNeeds?.waterFeature !== 'fully-aquatic' && (
       <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border-2 border-blue-200 dark:border-blue-800 p-5">
         <div className="flex items-center justify-between mb-3">
           <label className="text-sm font-semibold text-gray-700 dark:text-gray-200 flex items-center gap-2">
@@ -532,9 +563,10 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
         />
         <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">Your room's average humidity level</p>
       </div>
+      )}
 
-      {/* Humidity Control Method - Only show if needed */}
-      {animalProfile && value.ambientHumidity < animalProfile.careTargets.humidity.day.min && (
+      {/* Humidity Control Method - Only show if needed and not fully aquatic */}
+      {animalProfile?.equipmentNeeds?.waterFeature !== 'fully-aquatic' && animalProfile && value.ambientHumidity < animalProfile.careTargets.humidity.day.min && (
       <div>
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
           Humidity Control Method

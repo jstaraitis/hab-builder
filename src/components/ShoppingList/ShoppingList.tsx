@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Home, Wrench, Layers, Image, Leaf, Bug, ChevronRight, ShoppingBag, Utensils } from 'lucide-react';
 import type { ShoppingItem, SetupTier, EnclosureInput } from '../../engine/types';
 import { generateAmazonLink } from '../../utils/amazonLinks';
@@ -28,11 +28,14 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
     ideal: { label: 'Ideal', color: 'text-emerald-600 dark:text-emerald-400' },
   };
 
-  const groupedItems = items.reduce((acc, item) => {
-    if (!acc[item.category]) acc[item.category] = [];
-    acc[item.category].push(item);
-    return acc;
-  }, {} as Record<string, ShoppingItem[]>);
+  // Memoize expensive grouping calculation - only recalculates when items change
+  const groupedItems = useMemo(() => {
+    return items.reduce((acc, item) => {
+      if (!acc[item.category]) acc[item.category] = [];
+      acc[item.category].push(item);
+      return acc;
+    }, {} as Record<string, ShoppingItem[]>);
+  }, [items]);
 
   // Track which categories are expanded (default all expanded on desktop, collapsed on mobile)
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>(

@@ -1,4 +1,4 @@
-{
+ï»¿{
   "id": "crested-gecko-hydration-guide",
   "title": "Crested Gecko Hydration Guide: Water Sources & Dehydration Prevention",
   "description": "Complete hydration guide for crested geckos covering natural water behaviors, misting protocols, drinking methods, dehydration recognition, and humidity-based hydration strategies.",
@@ -12,7 +12,7 @@
     {
       "type": "intro",
       "title": "Essential Hydration for Crested Geckos",
-      "content": "Crested geckos are rainforest dwellers that obtain most of their water from droplets on leaves, morning dew, and high humidity rather than from standing water sources. Understanding their natural drinking behaviors is critical to providing appropriate hydration in captivity. Dehydration is a common but preventable health issue in crested geckos—proper misting, humidity management, and recognition of early warning signs ensure your gecko stays healthy and hydrated."
+      "content": "Crested geckos are rainforest dwellers that obtain most of their water from droplets on leaves, morning dew, and high humidity rather than from standing water sources. Understanding their natural drinking behaviors is critical to providing appropriate hydration in captivity. Dehydration is a common but preventable health issue in crested geckos, proper misting, humidity management, and recognition of early warning signs ensure your gecko stays healthy and hydrated."
     },
     {
       "type": "section",
@@ -56,9 +56,9 @@
       "type": "table",
       "headers": ["Method", "Effectiveness", "Maintenance Level", "Best Use Case"],
       "rows": [
-        ["Manual misting (pressure sprayer)", "High (95% of geckos drink)", "Moderate (2x daily, 1-2 min)", "Primary method—must-have for all setups"],
+        ["Manual misting (pressure sprayer)", "High (95% of geckos drink)", "Moderate (2x daily, 1-2 min)", "Primary method, must-have for all setups"],
         ["Automated misting system", "High (consistent delivery)", "Low (weekly refill)", "Ideal for multiple enclosures or busy schedules"],
-        ["Water dish (standing water)", "Low-Moderate (30-40% drink)", "Daily (change water)", "Supplemental only—never sole water source"],
+        ["Water dish (standing water)", "Low-Moderate (30-40% drink)", "Daily (change water)", "Supplemental only, never sole water source"],
         ["Drip system", "Moderate (moving water more attractive)", "Moderate (daily setup/cleanup)", "Supplemental enrichment, not primary method"],
         ["Fogger (ultrasonic)", "Moderate (atmospheric humidity)", "Moderate (daily water changes)", "Humidity boost, minimal direct drinking"]
       ]
@@ -66,7 +66,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Never rely on water dishes alone. Up to 60% of crested geckos do not recognize standing water as drinkable. Misting is non-negotiable—it's the primary hydration method that replicates their natural rainforest drinking behavior."
+      "content": "Never rely on water dishes alone. Up to 60% of crested geckos do not recognize standing water as drinkable. Misting is non-negotiable, it's the primary hydration method that replicates their natural rainforest drinking behavior."
     },
     {
       "type": "section",
@@ -84,8 +84,8 @@
       "type": "table",
       "headers": ["Session", "Timing", "Duration", "Target Coverage"],
       "rows": [
-        ["Morning misting", "7-9 AM (before lights/heat turn on)", "30-45 seconds", "All walls, plants, branches—visible droplets on all surfaces"],
-        ["Evening misting", "7-9 PM (primary drinking opportunity)", "60-90 seconds", "Heavy misting—substrate should feel moist 1\" down, large droplets on leaves"],
+        ["Morning misting", "7-9 AM (before lights/heat turn on)", "30-45 seconds", "All walls, plants, branches, visible droplets on all surfaces"],
+        ["Evening misting", "7-9 PM (primary drinking opportunity)", "60-90 seconds", "Heavy misting, substrate should feel moist 1\" down, large droplets on leaves"],
         ["Optional midday (if needed)", "12-2 PM (only if humidity <50%)", "15-20 seconds", "Light refresher mist on plants only"]
       ]
     },
@@ -128,7 +128,7 @@
         ["Exo Terra Monsoon", "$60-100", "1-2 enclosures", "Budget option, basic programmability"],
         ["Climist", "$100-150", "1-3 enclosures", "Mid-range, good for bioactive setups"],
         ["DIY Arduino/timer system", "$40-80", "Custom", "Tech-savvy keepers, fully customizable"],
-        ["Fogger (as supplement)", "$30-60", "1 enclosure", "Not misting replacement—adds humidity only"]
+        ["Fogger (as supplement)", "$30-60", "1 enclosure", "Not misting replacement, adds humidity only"]
       ]
     },
     {
@@ -167,7 +167,7 @@
       "headers": ["Parameter", "Specification", "Rationale"],
       "rows": [
         ["Dish size", "2-3\" diameter, shallow depth", "Prevents drowning, easy access for small geckos"],
-        ["Water depth", "0.5-1\" maximum", "Crested geckos are not aquatic—shallow prevents stress"],
+        ["Water depth", "0.5-1\" maximum", "Crested geckos are not aquatic, shallow prevents stress"],
         ["Placement", "Mid-level on magnetic ledge or stable branch", "Arboreal species prefer elevated water sources"],
         ["Material", "Glass or ceramic (heavy)", "Won't tip over when gecko climbs on edge"],
         ["Water change frequency", "Daily", "Prevents bacterial growth, fecal contamination"]
@@ -176,7 +176,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Never place water dish on substrate floor—this creates a ground-level puddle that crested geckos don't naturally encounter. Elevated water dishes at mid-height are more likely to be utilized and stay cleaner."
+      "content": "Never place water dish on substrate floor, this creates a ground-level puddle that crested geckos don't naturally encounter. Elevated water dishes at mid-height are more likely to be utilized and stay cleaner."
     },
     {
       "type": "section",
@@ -197,13 +197,12 @@
         ["Tap water (dechlorinated)", "Excellent (RECOMMENDED)", "Contains beneficial calcium/magnesium", "Let sit 24 hours to off-gas chlorine, or use dechlorinator"],
         ["Spring water (bottled)", "Good", "Moderate minerals", "Expensive for daily misting, but safe"],
         ["Distilled water", "Poor (avoid)", "Zero minerals (leaches from gecko)", "Can cause mineral deficiencies long-term"],
-        ["Reverse osmosis (RO)", "Poor-Fair", "Near-zero minerals", "Requires remineralization for reptile use"],
-        ["Rainwater (collected)", "Fair", "Variable (depends on area)", "Risk of pollutants—use only if area is chemical-free"]
+        ["Reverse osmosis (RO)", "Poor-Fair", "Near-zero minerals", "Requires remineralization for reptile use"]
       ]
     },
     {
       "type": "highlight",
-      "content": "Use tap water for misting unless your municipal supply has extreme chlorine levels. The minerals (calcium, magnesium) in tap water are beneficial for crested geckos and absorbed through skin/licking. If concerned about chlorine, let water sit open for 24 hours before use."
+      "content": "Use treated tap water for misting. The minerals (calcium, magnesium) in tap water are beneficial for crested geckos and absorbed through skin/licking."
     },
     {
       "type": "section",
@@ -223,7 +222,7 @@
       "rows": [
         ["Mild (5-7% deficit)", "Slightly sunken eyes, sticky saliva when yawning", "Lethargic, less active than usual", "Increase misting to 3x daily, verify humidity 60-80%"],
         ["Moderate (8-10% deficit)", "Sunken eyes, skin loses elasticity (tent test), wrinkled skin", "Refuses food, stays in one spot, closes eyes during day", "Heavy misting 3-4x daily, increase humidity to 70-90%, monitor 48 hours"],
-        ["Severe (>10% deficit)", "Eyes deeply sunken, skin wrinkled/dry, weight loss visible", "Unresponsive, difficulty moving, respiratory distress", "VETERINARY EMERGENCY—subcutaneous fluids needed, mist enclosure heavily"]
+        ["Severe (>10% deficit)", "Eyes deeply sunken, skin wrinkled/dry, weight loss visible", "Unresponsive, difficulty moving, respiratory distress", "VETERINARY EMERGENCY, subcutaneous fluids needed, mist enclosure heavily"]
       ]
     },
     {
@@ -243,7 +242,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Sunken eyes are the earliest visible sign of dehydration in crested geckos. If you notice this symptom, increase misting immediately. Severe dehydration requires veterinary subcutaneous fluid administration—home intervention alone is insufficient."
+      "content": "Sunken eyes are the earliest visible sign of dehydration in crested geckos. If you notice this symptom, increase misting immediately. Severe dehydration requires veterinary subcutaneous fluid administration, home intervention alone is insufficient."
     },
     {
       "type": "section",
@@ -261,15 +260,15 @@
       "type": "table",
       "headers": ["Food Source", "Water Content", "Hydration Role"],
       "rows": [
-        ["CGD (proper consistency)", "60-70%", "Provides 30-40% of daily water needs—significant but not sole source"],
-        ["Feeder insects (live)", "60-75%", "Minor contribution—insects eaten 1-2x/week only"],
-        ["Direct misting/droplets", "100%", "Primary hydration source—provides 60-70% of daily water needs"],
+        ["CGD (proper consistency)", "60-70%", "Provides 30-40% of daily water needs, significant but not sole source"],
+        ["Feeder insects (live)", "60-75%", "Minor contribution, insects eaten 1-2x/week only"],
+        ["Direct misting/droplets", "100%", "Primary hydration source, provides 60-70% of daily water needs"],
         ["Ambient humidity (passive)", "Absorbed through skin/respiratory", "Supports hydration but cannot replace drinking"]
       ]
     },
     {
       "type": "highlight",
-      "content": "Mix CGD to \"ketchup\" consistency—not too thick. If CGD is paste-like, it reduces water content and palatability. Proper consistency flows slowly but holds shape; this maximizes both nutrition and hydration from diet."
+      "content": "Mix CGD to \"ketchup\" consistency, not too thick. If CGD is paste-like, it reduces water content and palatability. Proper consistency flows slowly but holds shape; this maximizes both nutrition and hydration from diet."
     },
     {
       "type": "section",
@@ -296,7 +295,7 @@
     {
       "type": "warning",
       "severity": "tip",
-      "content": "Humidity and misting work together: high humidity reduces water loss, while misting provides active drinking opportunities. Both are needed—high humidity alone without droplets doesn't provide drinking water."
+      "content": "Humidity and misting work together: high humidity reduces water loss, while misting provides active drinking opportunities. Both are needed, high humidity alone without droplets doesn't provide drinking water."
     },
     {
       "type": "section",
@@ -332,13 +331,13 @@
       "type": "table",
       "headers": ["Mistake", "Why It's Problematic", "Correct Approach"],
       "rows": [
-        ["Relying only on water dish", "60% of crested geckos don't drink from standing water", "Misting 2x daily is mandatory—water dish is supplemental only"],
+        ["Relying only on water dish", "60% of crested geckos don't drink from standing water", "Misting 2x daily is mandatory, water dish is supplemental only"],
         ["Using distilled/RO water exclusively", "Leaches minerals from gecko, causes deficiencies", "Use dechlorinated tap water for beneficial minerals"],
-        ["Misting only once daily", "Insufficient hydration opportunities, humidity drops too low", "Minimum 2x daily—morning and evening sessions"],
+        ["Misting only once daily", "Insufficient hydration opportunities, humidity drops too low", "Minimum 2x daily, morning and evening sessions"],
         ["Misting too lightly (no droplets)", "Geckos can't drink mist vapor, need visible droplets", "Mist until water beads visibly on leaves and walls"],
         ["Over-misting (constant 95%+ humidity)", "Mold, respiratory infections, skin infections", "Allow humidity to drop to 50-60% midday between mistings"],
         ["Ignoring sunken eyes", "Early dehydration progresses to severe stage", "Sunken eyes = increase misting immediately to 3-4x daily"],
-        ["Misting only substrate (not plants/walls)", "No drinking surfaces created for arboreal gecko", "Focus misting on vertical surfaces—walls, leaves, branches"]
+        ["Misting only substrate (not plants/walls)", "No drinking surfaces created for arboreal gecko", "Focus misting on vertical surfaces, walls, leaves, branches"]
       ]
     },
     {
@@ -359,15 +358,15 @@
       "rows": [
         ["Intensive misting", "Mild dehydration (slightly sunken eyes)", "Mist 3-4x daily for 2-3 days, verify humidity stays 70-80%"],
         ["Sauna box treatment", "Moderate dehydration (sunken eyes + lethargy)", "Place gecko in small container with damp paper towels for 30-60 min, 2x daily"],
-        ["Dropper water administration", "Moderate dehydration, gecko won't drink", "Drip 1-2 drops water on nose—gecko should lick off. Do NOT force into mouth."],
-        ["Pedialyte misting (diluted 50%)", "Moderate dehydration + electrolyte loss", "Mix 50/50 Pedialyte:water, mist enclosure—provides electrolytes through skin absorption"],
-        ["Veterinary subcutaneous fluids", "Severe dehydration (deeply sunken eyes, unresponsive)", "CANNOT BE DONE AT HOME—vet injects fluids under skin, rehydrates in hours"]
+        ["Dropper water administration", "Moderate dehydration, gecko won't drink", "Drip 1-2 drops water on nose, gecko should lick off. Do NOT force into mouth."],
+        ["Pedialyte misting (diluted 50%)", "Moderate dehydration + electrolyte loss", "Mix 50/50 Pedialyte:water, mist enclosure, provides electrolytes through skin absorption"],
+        ["Veterinary subcutaneous fluids", "Severe dehydration (deeply sunken eyes, unresponsive)", "CANNOT BE DONE AT HOME, vet injects fluids under skin, rehydrates in hours"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "NEVER attempt to force-feed water with a syringe into a crested gecko's mouth—this causes aspiration pneumonia (water in lungs). If gecko won't drink on its own and shows severe dehydration, veterinary subcutaneous fluids are required."
+      "content": "NEVER attempt to force-feed water with a syringe into a crested gecko's mouth, this causes aspiration pneumonia (water in lungs). If gecko won't drink on its own and shows severe dehydration, veterinary subcutaneous fluids are required."
     },
     {
       "type": "section",
@@ -382,7 +381,7 @@
       "headers": ["Equipment", "Specification", "Purpose"],
       "rows": [
         ["Pressure sprayer", "1-2 liter pump-style with adjustable nozzle", "Manual misting 2x daily (primary hydration method)"],
-        ["Digital hygrometer", "Probe-style, accurate ±3%", "Monitor humidity levels (target 60-80%)"],
+        ["Digital hygrometer", "Probe-style, accurate , 3%", "Monitor humidity levels (target 60-80%)"],
         ["Water dish (optional)", "2-3\" diameter, shallow ceramic or glass", "Supplemental water source for geckos that drink standing water"],
         ["Dechlorinator (optional)", "Aquarium-grade water conditioner", "Remove chlorine if letting tap water sit 24h not feasible"],
         ["Automated misting system (optional)", "MistKing or Exo Terra Monsoon", "Hands-free consistent misting for busy schedules"],
@@ -405,7 +404,7 @@
       "type": "table",
       "headers": ["Season", "Environmental Challenge", "Adjustment Strategy"],
       "rows": [
-        ["Summer (hot/humid)", "High ambient humidity may reduce misting needs", "Monitor humidity—may reduce to 1-2x daily if room stays >60% naturally"],
+        ["Summer (hot/humid)", "High ambient humidity may reduce misting needs", "Monitor humidity, may reduce to 1-2x daily if room stays >60% naturally"],
         ["Winter (cold/dry)", "Indoor heating drastically lowers humidity", "Increase to 3x daily, add humid hide, consider room humidifier"],
         ["Spring/Fall (variable)", "Day-to-day fluctuations", "Monitor daily, adjust frequency based on hygrometer readings"],
         ["Dry climates (year-round)", "Naturally low humidity (<30% ambient)", "3x daily misting minimum, deeper substrate (4\"), consider automated system"]

@@ -38,21 +38,50 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
       iconBg: 'bg-red-100 dark:bg-red-900/40',
       iconColor: 'text-red-600 dark:text-red-400',
       linkColor: 'text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300',
-      info: profile.careTargets.humidity.day.min === 100 && profile.careTargets.humidity.day.max === 100
-        ? [
-            `Temp: ${profile.careTargets.temperature.min}-${profile.careTargets.temperature.max}°F`,
+      info: (() => {
+        const isAquatic = profile.careTargets.humidity.day.min === 100 && profile.careTargets.humidity.day.max === 100;
+        
+        if (isAquatic) {
+          return [
+            `Temp: ${profile.careTargets.temperature.coolSide?.min ?? profile.careTargets.temperature.min}-${profile.careTargets.temperature.coolSide?.max ?? profile.careTargets.temperature.max}°F`,
             'Fully aquatic species',
             'Humidity not applicable'
-          ]
-        : [
-            `Temp: ${profile.careTargets.temperature.min}-${profile.careTargets.temperature.max}°F`,
-            `Humidity Day: ${profile.careTargets.humidity.day.min}-${profile.careTargets.humidity.day.max}%`,
-            profile.careTargets.humidity.night.min !== profile.careTargets.humidity.day.min 
-              ? `Humidity Night: ${profile.careTargets.humidity.night.min}-${profile.careTargets.humidity.night.max}%`
-              : profile.careTargets.temperature.basking !== null && profile.careTargets.temperature.basking !== undefined
-                ? `Basking: ${typeof profile.careTargets.temperature.basking === 'number' ? profile.careTargets.temperature.basking : `${profile.careTargets.temperature.basking.min}-${profile.careTargets.temperature.basking.max}`}°F` 
-                : `Shedding: ${profile.careTargets.humidity.shedding.min}-${profile.careTargets.humidity.shedding.max}%`
-          ]
+          ];
+        }
+        
+        const result: string[] = [];
+        
+        if (profile.careTargets.temperature.thermalGradient) {
+          // Show cool and warm sides
+          result.push(`Cool Side: ${profile.careTargets.temperature.coolSide?.min ?? profile.careTargets.temperature.min}-${profile.careTargets.temperature.coolSide?.max ?? profile.careTargets.temperature.max}°F`);
+          result.push(`Warm Side: ${profile.careTargets.temperature.warmSide?.min ?? profile.careTargets.temperature.min}-${profile.careTargets.temperature.warmSide?.max ?? profile.careTargets.temperature.max}°F`);
+        } else {
+          // No gradient - show single temperature
+          result.push(`Temp: ${profile.careTargets.temperature.coolSide?.min ?? profile.careTargets.temperature.min}-${profile.careTargets.temperature.coolSide?.max ?? profile.careTargets.temperature.max}°F`);
+        }
+        
+        // Add basking if present
+        const basking = profile.careTargets.temperature.basking;
+        if (basking !== null && basking !== undefined) {
+          const baskingTemp = typeof basking === 'number' 
+            ? `${basking}°F` 
+            : `${basking.min}-${basking.max}°F`;
+          result.push(`Basking: ${baskingTemp}`);
+        }
+        
+        // Add nighttime if different from daytime
+        const nighttime = profile.careTargets.temperature.nighttime;
+        const coolMin = profile.careTargets.temperature.coolSide?.min ?? profile.careTargets.temperature.min;
+        const coolMax = profile.careTargets.temperature.coolSide?.max ?? profile.careTargets.temperature.max;
+        if (nighttime && (nighttime.min !== coolMin || nighttime.max !== coolMax)) {
+          result.push(`Night: ${nighttime.min}-${nighttime.max}°F`);
+        }
+        
+        // Add humidity
+        result.push(`Humidity: ${profile.careTargets.humidity.day.min}-${profile.careTargets.humidity.day.max}%`);
+        
+        return result;
+      })()
     },
     {
       id: getBlogId('lighting') || getBlogId('uvb'),

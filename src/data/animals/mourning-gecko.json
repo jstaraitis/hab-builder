@@ -27,8 +27,15 @@
   },
   "careTargets": {
     "temperature": {
-      "min": 70,
-      "max": 75,
+      "thermalGradient": false,
+      "coolSide": {
+        "min": 70,
+        "max": 75
+      },
+      "warmSide": {
+        "min": 70,
+        "max": 75
+      },
       "basking": {
         "min": 80,
         "max": 85
@@ -73,7 +80,7 @@
   "bioactiveCompatible": true,
   "equipmentNeeds": {
     "climbing": "vertical",
-    "substrate": ["bioactive", "soil"],
+    "substrate": ["bioactive", "soil", "paper", "foam"],
     "bioactiveSubstrate": "tropical",
     "humidity": "high",
     "heatSource": "low-wattage-bulb",

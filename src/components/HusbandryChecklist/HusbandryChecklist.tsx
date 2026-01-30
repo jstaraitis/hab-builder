@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Lightbulb } from 'lucide-react';
 import type { HusbandryCareChecklist, ChecklistItem } from '../../engine/husbandryCare';
 import { CollapsibleSection } from '../PlanPreview/CollapsibleSection';
@@ -54,9 +54,19 @@ export function HusbandryChecklist({ checklist }: HusbandryChecklistProps) {
     setMonthlyChecked(prev => ({ ...prev, [id]: completed }));
   };
 
-  const preBuildCount = Object.values(preBuildChecked).filter(Boolean).length;
-  const weeklyCount = Object.values(weeklyChecked).filter(Boolean).length;
-  const monthlyCount = Object.values(monthlyChecked).filter(Boolean).length;
+  // Memoize count calculations - only recalculates when checked state changes
+  const preBuildCount = useMemo(
+    () => Object.values(preBuildChecked).filter(Boolean).length,
+    [preBuildChecked]
+  );
+  const weeklyCount = useMemo(
+    () => Object.values(weeklyChecked).filter(Boolean).length,
+    [weeklyChecked]
+  );
+  const monthlyCount = useMemo(
+    () => Object.values(monthlyChecked).filter(Boolean).length,
+    [monthlyChecked]
+  );
 
   return (
     <div className="space-y-4">

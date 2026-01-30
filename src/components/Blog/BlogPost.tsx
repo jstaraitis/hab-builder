@@ -1,69 +1,98 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { SEO } from '../SEO/SEO';
 import { blogPosts, ContentBlock } from '../../data/blog';
 import { generateArticleStructuredData } from '../../utils/structuredData';
-import * as LucideIcons from 'lucide-react';
-
-function renderIcon(iconName?: string) {
-  if (!iconName) return null;
-  const Icon = (LucideIcons as any)[iconName];
-  if (!Icon || typeof Icon !== 'function') return null;
-  return <Icon className="w-5 h-5 inline-block mr-2" />;
-}
 
 function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
   switch (block.type) {
     case 'intro':
       return (
-        <p key={index} className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          {block.text}
-        </p>
+        <div key={index} className="rounded-xl p-6 mb-8 border-l-8 border-green-600 shadow-lg bg-green-600/5 dark:bg-green-600/10">
+          <p className="text-lg font-semibold text-gray-900 dark:text-gray-100 leading-relaxed">
+            {block.text || (typeof block.content === 'string' ? block.content : '')}
+          </p>
+        </div>
       );
 
     case 'section':
       return (
-        <div key={index} className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
-            {block.heading}
+        <div key={index} className="mt-10 mb-6 first:mt-0">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 pb-3 border-b-2 border-green-500">
+            {block.heading || ''}
           </h2>
-          <div className="space-y-4">
-            {Array.isArray(block.content) && block.content.map((subBlock: ContentBlock, subIndex: number) => renderContentBlock(subBlock, subIndex))}
-          </div>
+          {block.content && Array.isArray(block.content) && (
+            <div className="space-y-4">
+              {block.content.map((nestedBlock, nestedIndex) => 
+                renderContentBlock(nestedBlock, typeof index === 'number' ? index * 1000 + nestedIndex : nestedIndex)
+              )}
+            </div>
+          )}
         </div>
       );
 
     case 'text':
       return (
-        <p
-          key={index}
-          className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4"
-          dangerouslySetInnerHTML={{ __html: block.text || '' }}
-        />
+        <div key={index} className="mb-5">
+          <p
+            className="text-gray-700 dark:text-gray-300 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: block.text || block.content || '' }}
+          />
+        </div>
       );
 
     case 'list':
       return (
-        <ul key={index} className="list-disc list-inside space-y-2 mb-4 text-gray-700 dark:text-gray-300">
-          {block.items?.map((item, itemIndex) => (
-            <li key={itemIndex} dangerouslySetInnerHTML={{ __html: item }} />
-          ))}
-        </ul>
+        <div key={index} className="rounded-xl p-5 mb-6 shadow-sm border border-gray-200 dark:border-gray-700">
+          <div className="space-y-1.5">
+            {block.items?.map((item, itemIndex) => (
+              <div
+                key={itemIndex}
+                className="flex items-start gap-2"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 flex-shrink-0 mt-2" />
+                <span
+                  className="text-gray-700 dark:text-gray-300 leading-relaxed flex-1"
+                  dangerouslySetInnerHTML={{ __html: item }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       );
 
     case 'warning':
+      const isCritical = block.severity === 'critical';
       const isImportant = block.severity === 'important';
       const isTip = block.severity === 'tip';
-      const warningBg = isImportant ? 'bg-red-50 dark:bg-red-900/20' : isTip ? 'bg-blue-50 dark:bg-blue-900/20' : 'bg-yellow-50 dark:bg-yellow-900/20';
-      const warningBorder = isImportant ? 'border-red-500 dark:border-red-700' : isTip ? 'border-blue-500 dark:border-blue-700' : 'border-yellow-500 dark:border-yellow-700';
-      const warningText = isImportant ? 'text-red-800 dark:text-red-300' : isTip ? 'text-blue-800 dark:text-blue-300' : 'text-yellow-800 dark:text-yellow-300';
+      const warningBg = isCritical 
+        ? 'bg-red-50 dark:bg-red-900/20' 
+        : isImportant 
+          ? 'bg-orange-50 dark:bg-orange-900/20' 
+          : isTip 
+            ? 'bg-emerald-50 dark:bg-emerald-900/20' 
+            : 'bg-yellow-50 dark:bg-yellow-900/20';
+      const warningBorder = isCritical 
+        ? 'border-red-500' 
+        : isImportant 
+          ? 'border-orange-500' 
+          : isTip 
+            ? 'border-emerald-500' 
+            : 'border-yellow-500';
+      const warningText = isCritical 
+        ? 'text-red-800 dark:text-red-300' 
+        : isImportant 
+          ? 'text-orange-800 dark:text-orange-300' 
+          : isTip 
+            ? 'text-emerald-800 dark:text-emerald-300' 
+            : 'text-yellow-800 dark:text-yellow-300';
       return (
         <div
           key={index}
-          className={`${warningBg} border-l-4 ${warningBorder} p-4 rounded-r-md mb-4`}
+          className={`${warningBg} border-l-4 ${warningBorder} p-5 rounded-xl mb-6 shadow-sm`}
         >
-          <p className={`${warningText} font-medium`}>
-            {renderIcon(block.icon)}
-            <span dangerouslySetInnerHTML={{ __html: typeof block.content === 'string' ? block.content : '' }} />
+          <p className={`${warningText} font-medium leading-relaxed`}>
+            <span dangerouslySetInnerHTML={{ __html: block.text || block.content || '' }} />
           </p>
         </div>
       );
@@ -72,10 +101,9 @@ function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
       return (
         <div
           key={index}
-          className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 dark:border-blue-700 p-4 rounded-r-md mb-4"
+          className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-l-4 border-green-600 p-6 rounded-xl mb-6 shadow-sm"
         >
-          <p className="text-blue-800 dark:text-blue-300 font-medium">
-            {renderIcon(block.icon)}
+          <p className="text-green-800 dark:text-green-300 font-medium leading-relaxed">
             <span dangerouslySetInnerHTML={{ __html: typeof block.content === 'string' ? block.content : '' }} />
           </p>
         </div>
@@ -83,32 +111,31 @@ function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
 
     case 'table':
       return (
-        <div key={index} className="mb-6">
+        <div key={index} className="rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden mb-8">
           {/* Desktop Table View */}
           <div className="hidden md:block overflow-x-auto">
-            <table className="min-w-full border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
-              <thead className="bg-gray-100 dark:bg-gray-800">
+            <table className="min-w-full">
+              <thead className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20">
                 <tr>
                   {block.headers?.map((header, headerIndex) => (
                     <th
                       key={headerIndex}
-                      className="px-4 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-200 border-b border-gray-300 dark:border-gray-700"
+                      className="px-6 py-4 text-left text-sm font-bold text-green-800 dark:text-green-300 border-b-2 border-green-500"
                     >
                       {header}
                     </th>
                   ))}
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                 {block.rows?.map((row, rowIndex) => (
                   <tr
                     key={rowIndex}
-                    className={rowIndex % 2 === 0 ? 'bg-white dark:bg-gray-900' : 'bg-gray-50 dark:bg-gray-800/50'}
                   >
                     {row.map((cell, cellIndex) => (
                       <td
                         key={cellIndex}
-                        className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700"
+                        className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300"
                       >
                         {cell}
                       </td>
@@ -119,25 +146,37 @@ function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
             </table>
           </div>
 
-          {/* Mobile Card View */}
-          <div className="md:hidden space-y-4">
-            {block.rows?.map((row, rowIndex) => (
-              <div
-                key={rowIndex}
-                className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm"
-              >
-                {row.map((cell, cellIndex) => (
-                  <div key={cellIndex} className="mb-3 last:mb-0">
-                    <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">
-                      {block.headers?.[cellIndex]}
-                    </div>
-                    <div className="text-sm text-gray-900 dark:text-white font-medium">
-                      {cell}
-                    </div>
+          {/* Mobile Swipeable Card View */}
+          <div className="md:hidden">
+            <div className="overflow-x-auto snap-x snap-mandatory flex gap-1 pb-1 px-4 -mx-4 scrollbar-hide">
+              {block.rows?.map((row, rowIndex) => (
+                <div
+                  key={rowIndex}
+                  className="snap-center flex-shrink-0 w-[80vw] bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700/40 dark:to-gray-800/40 border border-gray-200 dark:border-gray-600 rounded-xl p-4 shadow-md first:ml-4"
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-semibold text-green-700 dark:text-green-400 uppercase">
+                      {rowIndex + 1} of {block.rows?.length}
+                    </span>
                   </div>
-                ))}
-              </div>
-            ))}
+                  {row.map((cell, cellIndex) => (
+                    <div key={cellIndex} className="mb-3 last:mb-0">
+                      <div className="text-xs font-bold text-green-700 dark:text-green-400 uppercase tracking-wide mb-1">
+                        {block.headers?.[cellIndex]}
+                      </div>
+                      <div className="text-sm text-gray-900 dark:text-white leading-relaxed">
+                        {cell}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-center gap-1.5 mt-1">
+              {block.rows?.map((_, idx) => (
+                <div key={idx} className="w-1.5 h-1.5 rounded-full bg-green-500 dark:bg-green-400" />
+              ))}
+            </div>
           </div>
         </div>
       );
@@ -149,6 +188,21 @@ function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
 
 export function BlogPost() {
   const { postId } = useParams<{ postId: string }>();
+  const [scrollProgress, setScrollProgress] = useState(0);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY;
+      const scrollableHeight = documentHeight - windowHeight;
+      const progress = (scrollTop / scrollableHeight) * 100;
+      setScrollProgress(Math.min(progress, 100));
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
   if (!postId || !blogPosts[postId]) {
     return <Navigate to="/blog" replace />;
@@ -165,36 +219,36 @@ export function BlogPost() {
   );
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto px-2 py-4 md:px-4 md:py-8">
+      {/* Mobile Reading Progress Bar */}
+      <div className="md:hidden fixed top-0 left-0 right-0 h-1 bg-gray-200 dark:bg-gray-700 z-50">
+        <div 
+          className="h-full bg-gradient-to-r from-green-600 to-emerald-500 transition-all duration-150"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
       <SEO
         title={post.title}
         description={post.description}
-        keywords={[...post.tags, 'care guide', 'reptile care', 'enclosure setup']}
-        ogType="article"
-        article={{
-          publishedTime: post.date,
-          modifiedTime: post.date,
-          author: post.author,
-          tags: post.tags
-        }}
         structuredData={structuredData}
       />
-      
+
       <Link
         to="/blog"
-        className="inline-flex items-center text-primary-600 dark:text-primary-400 hover:underline mb-6"
+        className="inline-flex items-center text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 font-medium mb-6 transition-colors"
       >
-        ← Back to all guides
+        ← Back to Blog
       </Link>
 
-      <article className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-3 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700">
-        <header className="mb-8 pb-6 border-b border-gray-200 dark:border-gray-700">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+      <article className="rounded-2xl shadow-lg p-4 md:p-10 border border-gray-200 dark:border-gray-700">
+        <header className="mb-10 pb-8 border-b-2 border-gray-200 dark:border-gray-700">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
             {post.title}
           </h1>
           
           <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600 dark:text-gray-400 mb-4">
-            <span className="px-3 py-1 bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 rounded-full font-medium">
+            <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full font-medium">
               {post.category}
             </span>
             <span>•</span>
@@ -207,7 +261,7 @@ export function BlogPost() {
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded text-xs"
+                className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md text-xs"
               >
                 #{tag}
               </span>
@@ -223,7 +277,7 @@ export function BlogPost() {
       <div className="mt-8 text-center">
         <Link
           to="/blog"
-          className="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg shadow-md transition-all"
+          className="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md transition-all"
         >
           ← Back to all guides
         </Link>

@@ -4,24 +4,37 @@ import { createShoppingItem, getEquipment, calculateSubstrateQuarts } from '../u
 /**
  * Determines which substrate to use based on preferences
  */
+/**
+ * Determines which substrate to use based on preferences
+ */
 function getSubstrateKey(input: EnclosureInput, profile: AnimalProfile): string {
   const bioactiveType = profile.equipmentNeeds?.bioactiveSubstrate || 'tropical';
   
-  if (input.bioactive) {
-    return `substrate-bioactive-${bioactiveType}`;
+  // Special handling for fully aquatic animals - no substrate recommendation by default
+  if (profile.equipmentNeeds?.waterFeature === 'fully-aquatic' && !input.substratePreference) {
+    return ''; // Return empty string to skip substrate for aquatic animals unless user explicitly chooses
   }
   
-  if (input.substratePreference) {
+  // Check explicit substrate preference FIRST (before bioactive checkbox)
+  // This allows users to override bioactive with specific substrate choices
+  if (input.substratePreference && input.substratePreference !== 'bioactive') {
     const preferenceMap: Record<string, string> = {
-      'bioactive': `substrate-bioactive-${bioactiveType}`,
       'soil-based': 'substrate-soil',
       'paper-based': 'substrate-paper',
       'foam': 'substrate-foam',
+      'sand-based': 'substrate-sand',
+      'sand-aquatic': 'substrate-sand-aquatic',
     };
-    return preferenceMap[input.substratePreference] || 'substrate-simple';
+    return preferenceMap[input.substratePreference] || '';
   }
   
-  return 'substrate-simple';
+  // If bioactive is checked OR preference is explicitly 'bioactive'
+  if (input.bioactive || input.substratePreference === 'bioactive') {
+    return `substrate-bioactive-${bioactiveType}`;
+  }
+  
+  // Default for terrestrial animals
+  return 'substrate-soil';
 }
 
 /**
@@ -34,6 +47,10 @@ export function addSubstrate(
   profile: AnimalProfile
 ): void {
   const substrateKey = getSubstrateKey(input, profile);
+  
+  // Skip substrate if key is empty (for aquatic animals with no preference)
+  if (!substrateKey) return;
+  
   const config = getEquipment(substrateKey);
   if (!config) return;
 

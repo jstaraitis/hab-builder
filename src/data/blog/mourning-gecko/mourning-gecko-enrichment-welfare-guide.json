@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "mourning-gecko-enrichment-welfare-guide",
   "title": "Mourning Gecko Enrichment & Welfare Guide",
   "description": "Complete guide to environmental enrichment, behavioral welfare, and health monitoring for mourning gecko colonies including social dynamics and breeding behaviors.",
@@ -480,16 +480,16 @@
     {
       "type": "list",
       "items": [
-        "✓ Morning misting (30-60 seconds) - provides drinking enrichment and humidity variation",
-        "✓ Check all feeding stations have fresh CGD - rotate station locations every 3-4 days",
-        "✓ Observe colony for 2-3 minutes during evening active period - note social interactions",
-        "✓ Verify temperature gradient (80-85°F basking, 70-75°F cool zone) - choice is enrichment",
-        "✓ Spot clean visible waste from branches and substrate - maintain clean environment",
-        "✓ Evening misting (30-60 seconds) - second drinking opportunity before active period",
-        "✓ Offer live insects 1-2x weekly - hunting enrichment stimulates natural behavior",
-        "✓ Check for eggs if colony is breeding - manage population as needed",
-        "✓ Monitor for stress signs (hiding, aggression, lethargy) - intervene if abnormal",
-        "✓ Weekly: Assess body condition of all visible geckos, note any health concerns"
+        " Morning misting (30-60 seconds) - provides drinking enrichment and humidity variation",
+        " Check all feeding stations have fresh CGD - rotate station locations every 3-4 days",
+        " Observe colony for 2-3 minutes during evening active period - note social interactions",
+        " Verify temperature gradient (80-85°F basking, 70-75°F cool zone) - choice is enrichment",
+        " Spot clean visible waste from branches and substrate - maintain clean environment",
+        " Evening misting (30-60 seconds) - second drinking opportunity before active period",
+        " Offer live insects 1-2x weekly - hunting enrichment stimulates natural behavior",
+        " Check for eggs if colony is breeding - manage population as needed",
+        " Monitor for stress signs (hiding, aggression, lethargy) - intervene if abnormal",
+        " Weekly: Assess body condition of all visible geckos, note any health concerns"
       ]
     },
     {

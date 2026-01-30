@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "whites-tree-frog-uvb-lighting-guide",
   "title": "UVB Lighting & Photoperiod for White's Tree Frogs",
   "author": "Habitat Builder Team",
@@ -125,7 +125,7 @@
         {
           "type": "list",
           "items": [
-            "Perch available under UVI 0.5-1.0 with 88°F basking temp.",
+            "Perch available under UVI 0.5-1.0 with proper basking temp.",
             "Shade and foliage within the UVB zone for self-regulated exposure.",
             "UVB fixture mounted outside/above enclosure, never inside.",
             "No glass between bulb and frogs—glass blocks UVB.",

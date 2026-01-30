@@ -1,4 +1,4 @@
-{
+Ôªø{
   "id": "corn-snake-lighting-guide",
   "title": "Corn Snake Lighting Guide: UVB Benefits & Photoperiod for Crepuscular Snakes",
   "description": "Evidence-based lighting guide for corn snakes covering UVB recommendations (2.0-3.0 UVI), photoperiod management for crepuscular activity, and debunking the 'corn snakes don't need UVB' myth.",
@@ -12,7 +12,7 @@
     {
       "type": "intro",
       "title": "Lighting Requirements for Corn Snakes",
-      "content": "Corn snakes (Pantherophis guttatus) are crepuscular constrictors, most active during dawn and dusk when light levels transition. For decades, conventional wisdom claimed corn snakes don't need or even benefit from lighting, leading to common husbandry practices of keeping them in dark racks with no lighting whatsoever. Modern research has debunked this myth: corn snakes benefit significantly from UVB lighting and natural day/night cycles. Studies show improved bone density, better appetite, enhanced immune function, and more natural behaviors in UVB-exposed corn snakes. This ReptiFilesÆ-based guide covers UVB provision (2.0-3.0 UVI target), photoperiod management for crepuscular species, and why the 'no light needed' myth is harmful to corn snake welfare."
+      "content": "Corn snakes (Pantherophis guttatus) are crepuscular constrictors, most active during dawn and dusk when light levels transition. For decades, conventional wisdom claimed corn snakes don't need or even benefit from lighting, leading to common husbandry practices of keeping them in dark racks with no lighting whatsoever. Modern research has debunked this myth: corn snakes benefit significantly from UVB lighting and natural day/night cycles. Studies show improved bone density, better appetite, enhanced immune function, and more natural behaviors in UVB-exposed corn snakes."
     },
     {
       "type": "section",
@@ -31,10 +31,10 @@
       "headers": ["Factor", "With UVB Lighting (2.0-3.0 UVI)", "Without UVB (Dietary D3 Only)"],
       "rows": [
         ["D3 Source", "Synthesized naturally in skin from UVB exposure", "Pre-formed D3 in prey dusting supplements"],
-        ["Self-Regulation", "Snake controls exposure by moving (seeks/avoids UVB)", "Fixed doseórisk of over/under supplementation"],
+        ["Self-Regulation", "Snake controls exposure by moving (seeks/avoids UVB)", "Fixed dose√órisk of over/under supplementation"],
         ["Bone Density", "Research shows higher bone density, stronger skeletal structure", "Adequate for survival, some deficiencies observed long-term"],
         ["Immune Function", "Improved immune response, better wound healing", "Normal but not optimized"],
-        ["Behavioral Enrichment", "Stimulates natural basking behavior, crepuscular activity patterns", "No behavioral benefitóoften lethargic"],
+        ["Behavioral Enrichment", "Stimulates natural basking behavior, crepuscular activity patterns", "No behavioral benefit√óoften lethargic"],
         ["Appetite", "Studies show improved feeding response", "Normal appetite but some picky eaters"],
         ["Activity Levels", "More alert during dawn/dusk periods, natural circadian rhythm", "Often inactive 24/7, disrupted day/night cycle"],
         ["Research Consensus (2015-present)", "Recommended as best practice by leading herpetologists", "Acceptable minimum but suboptimal"],
@@ -44,7 +44,7 @@
     {
       "type": "warning",
       "severity": "critical",
-      "content": "Myth: 'Corn snakes are nocturnal and stressed by light.' Reality: Corn snakes are CREPUSCULAR (active dawn/dusk), NOT nocturnal. Wild corn snakes experience indirect and direct sunlight exposure during activity periods. Providing appropriate lighting promotes natural behaviorsódarkness 24/7 is unnatural and harmful."
+      "content": "Myth: 'Corn snakes are nocturnal and stressed by light.' Reality: Corn snakes are CREPUSCULAR (active dawn/dusk), NOT nocturnal. Wild corn snakes experience indirect and direct sunlight exposure during activity periods. Providing appropriate lighting promotes natural behaviors√ódarkness 24/7 is unnatural and harmful."
     },
     {
       "type": "section",
@@ -72,7 +72,7 @@
     },
     {
       "type": "highlight",
-      "content": "Recommended UVB bulb for 48◊24◊24 enclosure: 24\" T8 Zoo Med ReptiSun 5.0 OR 22\" T5 HO Arcadia D3+ Forest 6%. These provide appropriate UVI levels (2.0-3.0) for corn snakes without risk of overexposure."
+      "content": "Recommended UVB bulb for 48√ó24√ó24 enclosure: 24\" T8 Zoo Med ReptiSun 5.0 OR 22\" T5 HO Arcadia D3+ Forest 6%. These provide appropriate UVI levels (2.0-3.0) for corn snakes without risk of overexposure."
     },
     {
       "type": "section",
@@ -93,8 +93,8 @@
         ["T5 HO (high output) linear", "Strong UVB penetration, efficient, long-lasting", "$80-120 fixture cost", "48+ inch enclosures, over mesh setups, best performance"],
         ["T8 standard linear", "Cheaper fixtures ($40-60), adequate UVB output", "Weaker penetration, must be closer to basking", "36-48 inch enclosures, under mesh setups"],
         ["Compact/coil UVB bulbs", "Small footprint, fits dome fixtures", "Uneven UVB distribution, hotspots, eye damage risk", "NOT RECOMMENDED for corn snakes"],
-        ["Mercury vapor bulbs (MVB)", "Combines heat + UVB in one bulb", "Too intense for corn snakes (Ferguson Zone 3-4), expensive", "Not appropriateótoo strong"],
-        ["LED UVB bulbs", "Energy efficient, long lifespan", "New technology, expensive, limited availability", "Future optionónot widely available yet"]
+        ["Mercury vapor bulbs (MVB)", "Combines heat + UVB in one bulb", "Too intense for corn snakes (Ferguson Zone 3-4), expensive", "Not appropriate√ótoo strong"],
+        ["LED UVB bulbs", "Energy efficient, long lifespan", "New technology, expensive, limited availability", "Future option√ónot widely available yet"]
       ]
     },
     {
@@ -122,13 +122,13 @@
         ["Zoo Med ReptiSun 5.0 (T5 HO)", "5.0% UVB output", "12 months", "Higher output than T8, better penetration ($35-40)"],
         ["Arcadia D3+ Forest 6% (T8)", "6% UVB output", "12 months", "Slightly stronger than ReptiSun 5.0, excellent quality ($30-35)"],
         ["Arcadia D3+ Forest 6% (T5 HO)", "6% UVB output", "12-18 months", "Best quality, longest lifespan, premium option ($40-50)"],
-        ["Exo Terra Reptile UVB 100 (5.0)", "5.0% UVB output", "6-8 months", "Shorter lifespan, less reliable outputónot preferred"],
-        ["Generic/off-brand UVB bulbs", "Claimed 5.0%", "Unknown", "Avoidóoften mislabeled, inconsistent output, safety concerns"]
+        ["Exo Terra Reptile UVB 100 (5.0)", "5.0% UVB output", "6-8 months", "Shorter lifespan, less reliable output√ónot preferred"],
+        ["Generic/off-brand UVB bulbs", "Claimed 5.0%", "Unknown", "Avoid√óoften mislabeled, inconsistent output, safety concerns"]
       ]
     },
     {
       "type": "highlight",
-      "content": "ReptiFilesÆ recommendation: Zoo Med ReptiSun 5.0 (T8 or T5 HO) OR Arcadia D3+ Forest 6% (T8 or T5 HO). These are proven, reliable brands with consistent UVB output. Budget option: ReptiSun T8. Best quality: Arcadia T5 HO."
+      "content": "Zoo Med ReptiSun 5.0 (T8 or T5 HO) OR Arcadia D3+ Forest 6% (T8 or T5 HO). These are proven, reliable brands with consistent UVB output. Budget option: ReptiSun T8. Best quality: Arcadia T5 HO."
     },
     {
       "type": "section",
@@ -146,18 +146,18 @@
       "type": "table",
       "headers": ["Setup Configuration", "Bulb Type", "Distance to Basking", "Expected UVI", "Notes"],
       "rows": [
-        ["Over mesh screen top", "T8 5.0%", "7-10 inches", "2.0-3.0", "Screen blocks ~50% UVBómust be closer"],
+        ["Over mesh screen top", "T8 5.0%", "7-10 inches", "2.0-3.0", "Screen blocks ~50% UVB√ómust be closer"],
         ["Over mesh screen top", "T5 HO 5.0-6%", "10-12 inches", "2.0-3.0", "T5 HO penetrates better through mesh"],
         ["Under mesh (inside enclosure)", "T8 5.0%", "11-16 inches", "2.0-3.0", "No mesh blockage, can be farther away"],
         ["Under mesh (inside enclosure)", "T5 HO 5.0-6%", "14-18 inches", "2.0-3.0", "Best option for consistent UVB delivery"],
-        ["Too close (any bulb type)", "ó", "<6 inches", ">4.0 UVI", "Risk of overexposureóeye damage, stress"],
-        ["Too far (any bulb type)", "ó", ">20 inches", "<1.0 UVI", "Insufficient UVBóminimal benefit"]
+        ["Too close (any bulb type)", "√ó", "<6 inches", ">4.0 UVI", "Risk of overexposure√óeye damage, stress"],
+        ["Too far (any bulb type)", "√ó", ">20 inches", "<1.0 UVI", "Insufficient UVB√óminimal benefit"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Measure actual UVI levels with a Solarmeter 6.5 UVI meter ($200-250) if possible. Distance recommendations are estimatesóactual UVI varies by bulb age, reflector quality, and screen type. Target 2.0-3.0 UVI at basking spot."
+      "content": "Measure actual UVI levels with a Solarmeter 6.5 UVI meter ($200-250) if possible. Distance recommendations are estimates√óactual UVI varies by bulb age, reflector quality, and screen type. Target 2.0-3.0 UVI at basking spot."
     },
     {
       "type": "section",
@@ -191,7 +191,7 @@
     },
     {
       "type": "text",
-      "content": "Corn snakes need heat 24/7 (or at least nighttime warmth if room drops below 68∞F) but only need light during daytime. Separate heat and light sources for proper day/night cycles."
+      "content": "Corn snakes need heat 24/7 (or at least nighttime warmth if room drops below 68√óF) but only need light during daytime. Separate heat and light sources for proper day/night cycles."
     },
     {
       "type": "text",
@@ -202,15 +202,15 @@
       "headers": ["Time Period", "Heat Source", "Light Source", "Purpose"],
       "rows": [
         ["Daytime (12-14 hours)", "90w halogen flood bulbs x2", "Same halogen bulbs (provide light + heat)", "Basking heat + visible light + UVB mimics natural day"],
-        ["Daytime UVB", "ó", "T8 5.0% UVB linear bulb", "UVB provision during active hours"],
-        ["Nighttime (10-12 hours)", "CHE or DHP (if needed)", "NONEócomplete darkness", "Heat without light (only if room drops below 68∞F)"],
-        ["Nighttime (warm room)", "No supplemental heat needed", "NONEócomplete darkness", "Natural ambient warmth (68∞F+ room temp)"]
+        ["Daytime UVB", "√ó", "T8 5.0% UVB linear bulb", "UVB provision during active hours"],
+        ["Nighttime (10-12 hours)", "CHE or DHP (if needed)", "NONE√ócomplete darkness", "Heat without light (only if room drops below 68√óF)"],
+        ["Nighttime (warm room)", "No supplemental heat needed", "NONE√ócomplete darkness", "Natural ambient warmth (68√óF+ room temp)"]
       ]
     },
     {
       "type": "warning",
       "severity": "critical",
-      "content": "Common mistake: Using red/blue 'night bulbs' or leaving white heat lamps on 24/7. Corn snakes NEED complete darkness at nightóany visible light disrupts sleep and circadian rhythms. Use ceramic heat emitters (CHE) or deep heat projectors (DHP) for nighttime heat if neededóthese produce heat with NO light."
+      "content": "Common mistake: Using red/blue 'night bulbs' or leaving white heat lamps on 24/7. Corn snakes NEED complete darkness at night√óany visible light disrupts sleep and circadian rhythms. Use ceramic heat emitters (CHE) or deep heat projectors (DHP) for nighttime heat if needed√óthese produce heat with NO light."
     },
     {
       "type": "section",
@@ -218,7 +218,7 @@
     },
     {
       "type": "text",
-      "content": "Complete lighting setup for a 48◊24◊24 corn snake enclosure with UVB and proper day/night cycles."
+      "content": "Complete lighting setup for a 48√ó24√ó24 corn snake enclosure with UVB and proper day/night cycles."
     },
     {
       "type": "text",
@@ -234,7 +234,7 @@
         ["Zoo Med ReptiSun 5.0 OR Arcadia 6% UVB bulb", "2", "UVB provision (1 active + 1 backup for yearly replacement)", "$25-50 each"],
         ["Timer (for heat + visible light)", "1", "Automates day/night cycle (12-14 hours on)", "$10-15"],
         ["Timer (for UVB bulb)", "1", "Separate timer for UVB (same schedule as heat lamps)", "$10-15"],
-        ["CHE or DHP (optional nighttime heat)", "1", "Heat without light if room drops below 68∞F at night", "$20-80"],
+        ["CHE or DHP (optional nighttime heat)", "1", "Heat without light if room drops below 68√óF at night", "$20-80"],
         ["Thermostat for nighttime heat (if using CHE/DHP)", "1", "Controls nighttime heat source", "$30-80"],
         ["Solarmeter 6.5 UVI meter (optional but ideal)", "1", "Measure actual UVI levels at basking spot", "$200-250"]
       ]
@@ -261,9 +261,9 @@
       "rows": [
         ["'Corn snakes are nocturnal and don't need light'", "Corn snakes are CREPUSCULAR (active dawn/dusk), benefit from UVB and day/night cycles", "Kept in darkness 24/7, disrupted circadian rhythms, lethargy"],
         ["'UVB is only for basking lizards, not snakes'", "UVB benefits bone density, immune function, and behavior in ALL diurnal/crepuscular reptiles", "Preventable health deficiencies, lower quality of life"],
-        ["'Red or blue night bulbs are safe'", "Corn snakes CAN see red/blue lightódisrupts sleep and stress them", "Sleep deprivation, chronic stress, health issues"],
-        ["'Heat mats provide enough warmth, no lights needed'", "Heat mats don't warm air or create basking spotsóinadequate thermoregulation", "Digestive issues, lethargy, failure to thrive"],
-        ["'Compact UVB bulbs are fine'", "Compact bulbs create dangerous UVB hotspotsórisk of eye damage", "Eye injuries, burns, avoidance of basking area"],
+        ["'Red or blue night bulbs are safe'", "Corn snakes CAN see red/blue light√ódisrupts sleep and stress them", "Sleep deprivation, chronic stress, health issues"],
+        ["'Heat mats provide enough warmth, no lights needed'", "Heat mats don't warm air or create basking spots√óinadequate thermoregulation", "Digestive issues, lethargy, failure to thrive"],
+        ["'Compact UVB bulbs are fine'", "Compact bulbs create dangerous UVB hotspots√órisk of eye damage", "Eye injuries, burns, avoidance of basking area"],
         ["'UVB bulbs last 2-3 years'", "UVB output degrades 30-50% after 12 months even if visible light remains", "Insufficient UVB exposure, false sense of adequate provision"],
         ["'Corn snakes don't bask'", "Corn snakes DO bask (especially in morning/evening), just less than diurnal lizards", "No basking opportunities provided, missed behavioral enrichment"]
       ]
@@ -292,9 +292,9 @@
         ["Snake always hides, never basks", "UVB too strong (>3.5 UVI), or enclosure lacks cover", "Measure UVI, increase distance if too high, add more hides/clutter"],
         ["Snake has cloudy eyes (not shedding-related)", "Possible UVB overexposure from compact bulb or too-close fixture", "Switch to linear tube, increase distance, vet check for eye damage"],
         ["UVB bulb flickers or won't turn on", "Bulb expired, bad fixture ballast, or poor connection", "Replace bulb (try known-good bulb first), check fixture wiring"],
-        ["Basking area too hot AND too bright", "Heat lamps + UVB both directly over basking spot", "Offset UVB fixture slightlyódoesn't need to be directly over basking"],
+        ["Basking area too hot AND too bright", "Heat lamps + UVB both directly over basking spot", "Offset UVB fixture slightly√ódoesn't need to be directly over basking"],
         ["Corn snake seems lethargic despite good temps", "No day/night cycle (lights on 24/7 or off 24/7)", "Establish 12-14 hour photoperiod with timer"],
-        ["UVB bulb is 2+ years old but 'still works'", "Visible light remains but UVB output degraded 50-70%", "Replace bulbóUVB degrades long before visible light stops"],
+        ["UVB bulb is 2+ years old but 'still works'", "Visible light remains but UVB output degraded 50-70%", "Replace bulb√óUVB degrades long before visible light stops"],
         ["Snake avoids one side of enclosure entirely", "Lighting too intense on that side, no gradient", "Create light gradient (UVB covers 50-70%, not 100% of enclosure)"]
       ]
     },
@@ -314,11 +314,11 @@
       "type": "table",
       "headers": ["UVI Range", "Interpretation", "Action Needed"],
       "rows": [
-        ["0.0-1.0", "Insufficientóminimal UVB benefit", "Move fixture closer or use stronger bulb (T5 HO)"],
-        ["1.0-2.0", "Low but acceptableósome benefit", "Consider moving slightly closer for optimal 2.0-3.0 range"],
-        ["2.0-3.0", "IDEAL for corn snakes (Ferguson Zone 2)", "No adjustment neededóthis is the target range"],
+        ["0.0-1.0", "Insufficient√óminimal UVB benefit", "Move fixture closer or use stronger bulb (T5 HO)"],
+        ["1.0-2.0", "Low but acceptable√ósome benefit", "Consider moving slightly closer for optimal 2.0-3.0 range"],
+        ["2.0-3.0", "IDEAL for corn snakes (Ferguson Zone 2)", "No adjustment needed√óthis is the target range"],
         ["3.0-4.0", "Slightly high but tolerable short-term", "Move fixture farther away or reduce bulb strength"],
-        ["4.0+", "TOO HIGHórisk of overexposure, eye damage", "Immediately increase distance or switch to weaker bulb"]
+        ["4.0+", "TOO HIGH√órisk of overexposure, eye damage", "Immediately increase distance or switch to weaker bulb"]
       ]
     },
     {

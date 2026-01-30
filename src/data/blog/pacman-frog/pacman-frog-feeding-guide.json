@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "pacman-frog-feeding-guide",
   "title": "Pacman Frog Feeding Guide: Complete Nutrition, Schedules & Supplements",
   "description": "Comprehensive feeding guide for Pacman frogs covering feeder insects, feeding schedules by age, supplementation with and without UVB, and nutritional myths.",
@@ -742,37 +742,14 @@
     {
       "type": "list",
       "items": [
-        "✓ Feeders appropriately sized (width ≤ distance between eyes)",
-        "✓ Feeders gutloaded 24-48 hours",
-        "✓ Feeder dusted with appropriate supplement (unless rodent/fish)",
-        "✓ Warm side temperature 80-85°F (required for digestion)",
-        "✓ Water dish has fresh treated water",
-        "✓ Feeding method chosen (tong, free-range, or dish)",
-        "✓ Remove uneaten crickets after feeding",
-        "✓ Track feeding date for next scheduled feeding"
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Related Guides"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<a href='/blog/pacman-frog-enrichment-welfare-guide' class='text-emerald-600 underline'>Enrichment & Welfare Guide</a> - Overview of all care requirements",
-        "<a href='/blog/pacman-frog-heating-lighting' class='text-emerald-600 underline'>Heating & Lighting Guide</a> - Temperature requirements for digestion",
-        "<a href='/blog/pacman-frog-faq' class='text-emerald-600 underline'>FAQ & Troubleshooting</a> - Common feeding problems"
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Additional Resources"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<a href='https://reptifiles.com/feeder-insects-for-reptiles/' target='_blank' class='text-emerald-600 underline'>Reptifiles Feeder Insect Guide</a> - Detailed nutrition analysis",
-        "<a href='https://reptifiles.com/reptile-supplementation/' target='_blank' class='text-emerald-600 underline'>Reptifiles Supplementation Guide</a> - Science behind supplements"
+        " Feeders appropriately sized (width ≤ distance between eyes)",
+        " Feeders gutloaded 24-48 hours",
+        " Feeder dusted with appropriate supplement (unless rodent/fish)",
+        " Warm side temperature 80-85°F (required for digestion)",
+        " Water dish has fresh treated water",
+        " Feeding method chosen (tong, free-range, or dish)",
+        " Remove uneaten crickets after feeding",
+        " Track feeding date for next scheduled feeding"
       ]
     }
   ]

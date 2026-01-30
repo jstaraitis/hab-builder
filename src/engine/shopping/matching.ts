@@ -45,7 +45,7 @@ export function matchesAnimalNeeds(
         }
         break;
       case 'substrate':
-        if (animalNeeds.substrate && animalNeeds.substrate.includes(value as 'bioactive' | 'soil' | 'paper' | 'foam')) {
+        if (animalNeeds.substrate && animalNeeds.substrate.includes(value as 'bioactive' | 'soil' | 'paper' | 'foam' | 'sand' | 'sand-aquatic')) {
           return true;
         }
         break;

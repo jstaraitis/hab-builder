@@ -27,8 +27,15 @@
   },
   "careTargets": {
     "temperature": {
-      "min": 70,
-      "max": 77,
+      "thermalGradient": true,
+      "coolSide": {
+        "min": 70,
+        "max": 77
+      },
+      "warmSide": {
+        "min": 88,
+        "max": 92
+      },
       "basking": {
         "min": 90,
         "max": 95
@@ -37,12 +44,7 @@
         "min": 60,
         "max": 70
       },
-      "unit": "F",
-      "zones": {
-        "baskingSurface": "94-97°F",
-        "warmHide": "90-92°F",
-        "coolZone": "70-77°F"
-      }
+      "unit": "F"
     },
     "humidity": {
       "day": {
@@ -82,7 +84,7 @@
   "bioactiveCompatible": true,
   "equipmentNeeds": {
     "climbing": "ground",
-    "substrate": ["bioactive", "soil"],
+    "substrate": ["bioactive", "soil", "sand"],
     "bioactiveSubstrate": "arid",
     "humidity": "low",
     "heatSource": "basking",

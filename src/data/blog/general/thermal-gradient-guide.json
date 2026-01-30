@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "thermal-gradient-guide",
   "title": "Understanding Thermal Gradients: Essential for All Ectotherms",
   "species": "general",
@@ -339,18 +339,18 @@
     {
       "type": "list",
       "items": [
-        "✓ Heat source is on ONE END of enclosure, not centered",
-        "✓ Basking surface temperature measured with IR gun meets species requirements",
-        "✓ Cool zone surface temperature is 15-25°F cooler than basking zone",
-        "✓ Air temperature measured at multiple heights and locations",
-        "✓ Hides placed in warm, mid, and cool zones (animal can choose secure retreat at any temperature)",
-        "✓ Digital probe thermometers monitoring warm and cool zones continuously",
-        "✓ All heat sources connected to thermostats (if applicable)",
-        "✓ Temperature measurements taken at different times of day (morning, afternoon, evening)",
-        "✓ Night temperatures checked—should drop 10-25°F depending on species",
-        "✓ Gradient maintained consistently for 48-72 hours before adding animal",
-        "✓ No drafts, direct sunlight, or room temp fluctuations affecting gradient",
-        "✓ IR temperature gun accessible for regular spot checks"
+        " Heat source is on ONE END of enclosure, not centered",
+        " Basking surface temperature measured with IR gun meets species requirements",
+        " Cool zone surface temperature is 15-25°F cooler than basking zone",
+        " Air temperature measured at multiple heights and locations",
+        " Hides placed in warm, mid, and cool zones (animal can choose secure retreat at any temperature)",
+        " Digital probe thermometers monitoring warm and cool zones continuously",
+        " All heat sources connected to thermostats (if applicable)",
+        " Temperature measurements taken at different times of day (morning, afternoon, evening)",
+        " Night temperatures checked—should drop 10-25°F depending on species",
+        " Gradient maintained consistently for 48-72 hours before adding animal",
+        " No drafts, direct sunlight, or room temp fluctuations affecting gradient",
+        " IR temperature gun accessible for regular spot checks"
       ]
     },
     {

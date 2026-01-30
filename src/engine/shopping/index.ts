@@ -27,7 +27,8 @@ export function generateShoppingList(
   addHeatLamp(items, dims, profile, input);
   addSubstrate(items, dims, input, profile);
   
-  if (input.bioactive) {
+  // Only add bioactive items for non-aquatic animals
+  if (input.bioactive && profile.equipmentNeeds?.waterFeature !== 'fully-aquatic') {
     addBioactiveItems(items, dims);
   }
   

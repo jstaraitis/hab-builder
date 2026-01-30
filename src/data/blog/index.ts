@@ -18,7 +18,7 @@ export interface ContentBlock {
   items?: string[];
   headers?: string[];
   rows?: string[][];
-  severity?: 'important' | 'tip';
+  severity?: 'critical' | 'important' | 'tip' | 'caution';
   icon?: string;
 }
 

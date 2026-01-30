@@ -16,7 +16,7 @@ export function SizeFeedback({ validation, animalName }: SizeFeedbackProps) {
             </div>
           <div className="ml-3">
             <p className="text-sm font-medium text-green-800 dark:text-green-200">
-              ✓ Perfect size for {animalName}
+               Perfect size for {animalName}
             </p>
           </div>
         </div>

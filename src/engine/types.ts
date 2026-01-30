@@ -6,7 +6,7 @@ export type Units = 'in' | 'cm';
 export type EnclosureType = 'glass' | 'pvc' | 'screen';
 export type SetupTier = 'minimum' | 'recommended' | 'ideal';
 export type HumidityControl = 'none' | 'manual' | 'misting-system' | 'humidifier' | 'fogger';
-export type SubstrateType = 'bioactive' | 'soil-based' | 'paper-based' | 'foam';
+export type SubstrateType = 'bioactive' | 'soil-based' | 'paper-based' | 'foam' | 'sand-based' | 'sand-aquatic';
 export type BackgroundType = 'none' | 'prebuilt' | 'custom';
 export type AnimalType = 'reptile' | 'amphibian'; // Taxonomic classification for equipment/enclosure compatibility
 
@@ -41,6 +41,9 @@ export interface TemperatureRange {
     min: number;
     max: number;
   };
+  coolSide?: { min: number; max: number }; // Cool side of thermal gradient
+  warmSide?: { min: number; max: number }; // Warm side of thermal gradient
+  thermalGradient?: boolean; // True if species requires a thermal gradient
   unit: 'F' | 'C';
 }
 
@@ -238,18 +241,26 @@ export interface CareGuidance {
 }
 
 export interface EquipmentNeeds {
-  climbing?: 'vertical' | 'ground' | 'both' | 'none'; // Type of climbing structures needed
-  substrate?: Array<'bioactive' | 'soil' | 'paper' | 'foam'>; // Compatible substrate types
-  humidity?: 'high' | 'moderate' | 'low'; // Determines if misting/humidifier needed
+  climbing?: 'vertical' | 'ground' | 'both' | 'none' | 'aquatic'; // Type of climbing structures needed
+  substrate?: Array<'bioactive' | 'soil' | 'paper' | 'foam' | 'sand' | 'sand-aquatic' | 'substrate-bare-bottom' | 'substrate-slate-tile' | 'substrate-fine-sand-aquatic'>; // Compatible substrate types
+  humidity?: 'high' | 'moderate' | 'low' | number; // Determines if misting/humidifier needed (number for aquatic = 100%)
   heatSource?: 'basking' | 'ambient' | 'none'; // Type of heat needed
-  waterFeature?: 'large-bowl' | 'shallow-dish' | 'pool' | 'none'; // Water needs
+  waterFeature?: 'large-bowl' | 'shallow-dish' | 'pool' | 'none' | 'fully-aquatic'; // Water needs
   animalType?: AnimalType; // Taxonomic classification for equipment compatibility and enclosure validation
-  decor?: Array<'branches' | 'ledges' | 'hides' | 'plants' | 'background'>; // Specific decor needed
-  lighting?: string; // Lighting type needed (e.g., 'uvb-forest', 'uvb-desert')
-  diet?: string[]; // Diet types for feeding supplies matching
-  bioactiveSubstrate?: string; // Type of bioactive substrate (e.g., 'tropical', 'arid')
-  // Dynamic properties for specialized equipment arrays (aquatic, etc.)
-  [key: string]: any; // Allow additional properties like 'filtration', 'cooling', etc.
+  decor?: Array<'branches' | 'ledges' | 'hides' | 'plants' | 'background' | 'hides-aquatic'>; // Specific decor needed
+  lighting?: string; // Lighting type needed (e.g., 'uvb-forest', 'uvb-desert', 'none')
+  diet?: string[]; // Diet types for feeding supplies matching (e.g., 'insectivore', 'carnivore-rodents', 'carnivore-aquatic', 'omnivore')
+  bioactiveSubstrate?: string | null; // Type of bioactive substrate (e.g., 'tropical', 'arid'), null for incompatible species
+  // Specialized equipment for aquatic species
+  filtration?: string[]; // Array of filtration equipment IDs
+  cooling?: string[]; // Array of cooling equipment IDs
+  waterTreatment?: string[]; // Array of water treatment equipment IDs
+  maintenance?: string[]; // Array of maintenance equipment IDs
+  safety?: string[]; // Array of safety equipment IDs
+  water?: string[]; // Array of water-related equipment IDs
+  'humidity-aids'?: string[]; // Array of humidity equipment IDs
+  // Allow other string array properties for future expansion
+  [key: string]: string | string[] | number | AnimalType | null | undefined;
 }
 
 export interface EquipmentConfig {
@@ -289,6 +300,7 @@ export interface AnimalProfile {
   warnings: Omit<Warning, 'id'>[];
   bioactiveCompatible: boolean;
   equipmentNeeds?: EquipmentNeeds; // Optional: explicit equipment needs for this species
+  waterFeature?: 'fully-aquatic' | 'pool' | 'shallow-dish' | 'paludarium' | 'misting-only' | 'large-bowl'; // Optional: water feature type
   notes: string[];
   setupTips?: string[]; // Optional: species-specific setup tips for enclosure building
   lifespan?: string; // Optional: e.g., "12-16 years"

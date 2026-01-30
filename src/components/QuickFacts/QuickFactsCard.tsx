@@ -83,23 +83,6 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
     return 'Carnivore';
   };
 
-  // Get basking temperature display string
-  const getBaskingTemp = (): string => {
-    const basking = profile.careTargets.temperature.basking;
-    if (basking === null) {
-      return 'N/A';
-    }
-    if (!basking) {
-      return `${profile.careTargets.temperature.min}-${profile.careTargets.temperature.max}°F`;
-    }
-    if (typeof basking === 'number') {
-      return `${basking}°F`;
-    }
-    // It's an object with min/max
-    const baskingRange = basking as { min: number; max: number };
-    return `${baskingRange.min}-${baskingRange.max}°F`;
-  };
-
   // Get diet icon based on type
   const getDietIcon = (): React.ReactNode => {
     const dietType = getDietType();
@@ -126,6 +109,64 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
   const isAquatic = profile.careTargets.humidity.day.min === 100 && 
                     profile.careTargets.humidity.day.max === 100;
 
+  // Get temperature info as a single consolidated card
+  const getTemperatureCard = (): QuickFact => {
+    const parts: string[] = [];
+    
+    if (profile.careTargets.temperature.thermalGradient) {
+      // Show cool and warm sides
+      const coolMin = profile.careTargets.temperature.coolSide?.min ?? profile.careTargets.temperature.min;
+      const coolMax = profile.careTargets.temperature.coolSide?.max ?? profile.careTargets.temperature.max;
+      const warmMin = profile.careTargets.temperature.warmSide?.min ?? profile.careTargets.temperature.min;
+      const warmMax = profile.careTargets.temperature.warmSide?.max ?? profile.careTargets.temperature.max;
+      parts.push(`Cool: ${coolMin}-${coolMax}°F`);
+      parts.push(`Warm: ${warmMin}-${warmMax}°F`);
+    } else {
+      // No gradient - show single temperature
+      const coolMin = profile.careTargets.temperature.coolSide?.min ?? profile.careTargets.temperature.min;
+      const coolMax = profile.careTargets.temperature.coolSide?.max ?? profile.careTargets.temperature.max;
+      parts.push(`${coolMin}-${coolMax}°F`);
+    }
+    
+    // Add basking if present
+    const basking = profile.careTargets.temperature.basking;
+    if (basking !== null && basking !== undefined) {
+      const baskingTemp = typeof basking === 'number' 
+        ? `${basking}°F` 
+        : `${basking.min}-${basking.max}°F`;
+      parts.push(`Basking: ${baskingTemp}`);
+    }
+    
+    // For gradient species, show "Gradient" as value and full range as description
+    if (profile.careTargets.temperature.thermalGradient) {
+      const minTemp = profile.careTargets.temperature.coolSide?.min ?? profile.careTargets.temperature.min;
+      let maxTemp = profile.careTargets.temperature.warmSide?.max ?? profile.careTargets.temperature.max;
+      
+      // Check if basking temp is higher
+      if (basking && typeof basking === 'object' && basking.max > maxTemp) {
+        maxTemp = basking.max;
+      } else if (basking && typeof basking === 'number' && basking > maxTemp) {
+        maxTemp = basking;
+      }
+      
+      return {
+        icon: <Thermometer className="w-6 h-6" />,
+        label: 'Temperature',
+        value: 'Gradient',
+        description: `${minTemp}-${maxTemp}°F`
+      };
+    } else {
+      return {
+        icon: <Thermometer className="w-6 h-6" />,
+        label: 'Temperature',
+        value: parts.join(' • '),
+        description: undefined
+      };
+    }
+  };
+
+  const temperatureCard = getTemperatureCard();
+
   // Extract quick facts from profile
   const facts: QuickFact[] = [
     {
@@ -146,6 +187,7 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
       value: getActivityPattern(),
       description: ''
     },
+    temperatureCard,
     {
       icon: <Droplets className="w-6 h-6" />,
       label: 'Humidity',
@@ -157,12 +199,6 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
         : profile.careTargets.humidity.night.min !== profile.careTargets.humidity.day.min 
           ? `Night: ${profile.careTargets.humidity.night.min}-${profile.careTargets.humidity.night.max}%` 
           : undefined
-    },
-    {
-      icon: <Thermometer className="w-6 h-6" />,
-      label: 'Basking',
-      value: getBaskingTemp(),
-      description: 'Surface temp'
     },
     {
       icon: <Sun className="w-6 h-6" />,

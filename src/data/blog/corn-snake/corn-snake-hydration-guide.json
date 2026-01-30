@@ -1,4 +1,4 @@
-{
+Ôªø{
   "id": "corn-snake-hydration-guide",
   "title": "Corn Snake Hydration Guide: Water, Humidity & Shedding Support",
   "description": "Evidence-based hydration guide for corn snakes covering water bowl requirements, humidity support for shedding, dehydration signs, and stuck shed treatment protocols.",
@@ -12,7 +12,7 @@
     {
       "type": "intro",
       "title": "Hydration Requirements for Corn Snakes",
-      "content": "Corn snakes (Pantherophis guttatus) require consistent access to clean water for drinking, soaking, and thermoregulation. Unlike some desert reptiles that obtain most moisture from prey, corn snakes from southeastern US forests actively drink water and benefit from humidity levels that support healthy shedding cycles. Proper hydration involves three components: a large water bowl for drinking/soaking (snake should be able to curl up inside), humidity management (65-75% average with higher levels during shedding), and recognition of dehydration signs (sunken eyes, wrinkled skin, stuck sheds). This ReptiFilesÆ-based guide covers water bowl selection, shedding cycle support, dehydration prevention, and stuck shed treatment protocols for optimal corn snake health."
+      "content": "Corn snakes (Pantherophis guttatus) require consistent access to clean water for drinking, soaking, and thermoregulation. Unlike some desert reptiles that obtain most moisture from prey, corn snakes from southeastern US forests actively drink water and benefit from humidity levels that support healthy shedding cycles. Proper hydration involves three components: a large water bowl for drinking/soaking (snake should be able to curl up inside), humidity management (65-75% average with higher levels during shedding), and recognition of dehydration signs (sunken eyes, wrinkled skin, stuck sheds)."
     },
     {
       "type": "section",
@@ -32,8 +32,8 @@
       "rows": [
         ["Size", "Snake can curl up completely inside bowl", "Corn snakes soak for thermoregulation, shedding, and hydration"],
         ["Depth", "2-4 inches deep (adult), 1-2 inches (juveniles)", "Deep enough to submerge body but shallow enough to prevent drowning"],
-        ["Diameter", "10-12 inches (adult), 6-8 inches (juvenile)", "Proportional to snake sizeóupgrade as snake grows"],
-        ["Material", "Ceramic, glass, or heavy plastic", "Prevents tippingócorn snakes are strong and will knock over light bowls"],
+        ["Diameter", "10-12 inches (adult), 6-8 inches (juvenile)", "Proportional to snake size√óupgrade as snake grows"],
+        ["Material", "Ceramic, glass, or heavy plastic", "Prevents tipping√ócorn snakes are strong and will knock over light bowls"],
         ["Shape", "Low sides for easy entry/exit", "High sides make it difficult for snake to climb in"],
         ["Placement", "Cool side of enclosure", "Prevents excessive evaporation from heat, maintains gradient"],
         ["Stability", "Weighted or secured to prevent tipping", "Spilled water raises humidity dangerously high and soaks substrate"],
@@ -43,7 +43,7 @@
     {
       "type": "warning",
       "severity": "critical",
-      "content": "Water bowls that are too small (snake can't fit inside) are INADEQUATE. Corn snakes need to be able to soak their entire body, especially during shedding. A 4-foot adult corn snake needs a 10-12 inch diameter bowl minimumóupgrade bowl size as snake grows."
+      "content": "Water bowls that are too small (snake can't fit inside) are INADEQUATE. Corn snakes need to be able to soak their entire body, especially during shedding. A 4-foot adult corn snake needs a 10-12 inch diameter bowl minimum√óupgrade bowl size as snake grows."
     },
     {
       "type": "section",
@@ -61,17 +61,17 @@
       "type": "table",
       "headers": ["Bowl Type", "Pros", "Cons", "Best For"],
       "rows": [
-        ["Heavy ceramic crock", "Very stable, won't tip, easy to clean, retains cool temp", "Heavy to move, can break if dropped", "Adult corn snakesóBEST OPTION"],
+        ["Heavy ceramic crock", "Very stable, won't tip, easy to clean, retains cool temp", "Heavy to move, can break if dropped", "Adult corn snakes√óBEST OPTION"],
         ["Glass Pyrex dish", "Stable, clear visibility, easy to clean", "Can break, gets hot near heat source", "Temporary use or cool side placement"],
         ["Thick plastic reptile bowl", "Affordable ($10-15), lightweight, won't break", "Can tip if too light, scratches harbor bacteria", "Juveniles or budget option"],
         ["Rock-look resin bowls", "Naturalistic appearance, stable", "Hard to clean (textured surface), expensive", "Display enclosures"],
-        ["Stainless steel dog bowls", "Durable, easy to sanitize, dishwasher safe", "Can tip easily, reflects light", "Not idealóuse weighted ceramic instead"],
-        ["Tupperware containers", "Cheap, available", "Tips easily, looks bad, not stable", "Emergency onlyóreplace with proper bowl ASAP"]
+        ["Stainless steel dog bowls", "Durable, easy to sanitize, dishwasher safe", "Can tip easily, reflects light", "Not ideal√óuse weighted ceramic instead"],
+        ["Tupperware containers", "Cheap, available", "Tips easily, looks bad, not stable", "Emergency only√óreplace with proper bowl ASAP"]
       ]
     },
     {
       "type": "highlight",
-      "content": "ReptiFilesÆ recommendation: Heavy ceramic crock (10-12 inch diameter, 3-4 inch depth) placed on cool end of enclosure. Cost: $15-30. Lasts for years, stable, easy to clean, perfect for corn snakes."
+      "content": "Heavy ceramic crock (10-12 inch diameter, 3-4 inch depth) placed on cool end of enclosure. Cost: $15-30. Lasts for years, stable, easy to clean, perfect for corn snakes."
     },
     {
       "type": "section",
@@ -99,7 +99,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "NEVER use soap or detergents on reptile water bowlsóresidue is toxic. Use hot water + scrubbing OR 10% bleach solution (rinse thoroughly afterward). If using bleach, rinse 3-4 times to remove all residue."
+      "content": "NEVER use soap or detergents on reptile water bowls√óresidue is toxic. Use hot water + scrubbing OR 10% bleach solution (rinse thoroughly afterward). If using bleach, rinse 3-4 times to remove all residue."
     },
     {
       "type": "section",
@@ -126,7 +126,7 @@
     },
     {
       "type": "highlight",
-      "content": "It's normal to rarely observe your corn snake drinkingóthey're crepuscular and often drink when you're not watching. As long as water bowl is clean and full, and snake shows no dehydration signs, drinking frequency is adequate."
+      "content": "It's normal to rarely observe your corn snake drinking√óthey're crepuscular and often drink when you're not watching. As long as water bowl is clean and full, and snake shows no dehydration signs, drinking frequency is adequate."
     },
     {
       "type": "section",
@@ -201,18 +201,18 @@
       "type": "table",
       "headers": ["Shed Type", "Description", "Cause", "Action Needed"],
       "rows": [
-        ["Perfect shed", "Entire skin comes off in one piece, eye caps included, no tears", "Optimal humidity (70-75%), healthy snake", "Noneócontinue current husbandry"],
-        ["Good shed with minor tears", "Mostly complete, 1-2 small tears, eye caps off", "Adequate humidity, minor roughness in enclosure", "Acceptableómonitor next shed"],
+        ["Perfect shed", "Entire skin comes off in one piece, eye caps included, no tears", "Optimal humidity (70-75%), healthy snake", "None√ócontinue current husbandry"],
+        ["Good shed with minor tears", "Mostly complete, 1-2 small tears, eye caps off", "Adequate humidity, minor roughness in enclosure", "Acceptable√ómonitor next shed"],
         ["Patchy shed (multiple pieces)", "Skin comes off in several large pieces, eye caps off", "Humidity slightly low (60-65%) or inadequate rough surfaces", "Increase humidity to 70-75%, add rough branches"],
-        ["Stuck shed (partial retention)", "Large patches of old skin remain (tail tip, body), eye caps stuck", "Humidity too low (<60%), dehydration, illness", "URGENTósee stuck shed treatment section"],
-        ["Frequent stuck sheds (3+ in a row)", "Repeated shedding problems", "Chronic low humidity, parasites, kidney disease, or malnutrition", "Vet visitómay indicate underlying health issue"],
-        ["Shed retained at tail tip only", "Tail tip retains old skin (looks dry/crinkled)", "Most common stuck shed locationópoor circulation", "Soak and gently remove (see treatment section)"]
+        ["Stuck shed (partial retention)", "Large patches of old skin remain (tail tip, body), eye caps stuck", "Humidity too low (<60%), dehydration, illness", "URGENT√ósee stuck shed treatment section"],
+        ["Frequent stuck sheds (3+ in a row)", "Repeated shedding problems", "Chronic low humidity, parasites, kidney disease, or malnutrition", "Vet visit√ómay indicate underlying health issue"],
+        ["Shed retained at tail tip only", "Tail tip retains old skin (looks dry/crinkled)", "Most common stuck shed location√ópoor circulation", "Soak and gently remove (see treatment section)"]
       ]
     },
     {
       "type": "warning",
       "severity": "critical",
-      "content": "Retained eye caps (spectacles) are SERIOUSócan cause permanent eye damage, blindness, and infection. If you see old skin covering eyes after shed, treat immediately with soaking protocol and consult vet if not resolved within 48 hours."
+      "content": "Retained eye caps (spectacles) are SERIOUS√ócan cause permanent eye damage, blindness, and infection. If you see old skin covering eyes after shed, treat immediately with soaking protocol and consult vet if not resolved within 48 hours."
     },
     {
       "type": "section",
@@ -231,18 +231,18 @@
       "headers": ["Sign", "Severity", "Description", "What to Check"],
       "rows": [
         ["Sunken eyes", "Moderate to severe", "Eyes appear recessed into skull, not bright and round", "Compare to photos of healthy corn snake eyes"],
-        ["Wrinkled skin", "Moderate", "Skin has visible wrinkles/folds when not moving (not during shedding)", "Check skin on sides of bodyóshould be smooth"],
+        ["Wrinkled skin", "Moderate", "Skin has visible wrinkles/folds when not moving (not during shedding)", "Check skin on sides of body√óshould be smooth"],
         ["Stuck sheds (repeated)", "Moderate", "Multiple consecutive sheds with retained skin", "Review humidity levels and water bowl access"],
-        ["Skin tent test failure", "Severe", "Gently pinch skinóif it doesn't snap back quickly, dehydrated", "Skin should immediately return to position when released"],
+        ["Skin tent test failure", "Severe", "Gently pinch skin√óif it doesn't snap back quickly, dehydrated", "Skin should immediately return to position when released"],
         ["Dull, dry appearance", "Mild to moderate", "Skin looks papery/dull instead of smooth and glossy", "Compare to photos of healthy corn snake coloration"],
-        ["Lethargy and weakness", "Severe", "Minimal movement, doesn't react to handling", "May indicate advanced dehydrationóvet visit urgent"],
+        ["Lethargy and weakness", "Severe", "Minimal movement, doesn't react to handling", "May indicate advanced dehydration√óvet visit urgent"],
         ["Urate consistency changes", "Mild to moderate", "Urates (white part of feces) are crumbly/dry instead of soft", "Healthy urates are chalky white and slightly moist"],
-        ["Refusal to eat", "Variable", "Loss of appetite (can be dehydration or other issues)", "Check other signsódehydration affects appetite"]
+        ["Refusal to eat", "Variable", "Loss of appetite (can be dehydration or other issues)", "Check other signs√ódehydration affects appetite"]
       ]
     },
     {
       "type": "highlight",
-      "content": "Skin tent test: Gently pinch a fold of skin on the snake's side, then release. Skin should immediately snap back flat. If skin stays 'tented' (raised) for more than 1-2 seconds, snake is dehydratedóincrease humidity and ensure water access."
+      "content": "Skin tent test: Gently pinch a fold of skin on the snake's side, then release. Skin should immediately snap back flat. If skin stays 'tented' (raised) for more than 1-2 seconds, snake is dehydrated√óincrease humidity and ensure water access."
     },
     {
       "type": "section",
@@ -260,18 +260,18 @@
       "type": "table",
       "headers": ["Treatment Step", "Method", "Duration", "Notes"],
       "rows": [
-        ["Warm water soak", "Place snake in shallow container with 85-90∞F water (1-2 inch depth)", "20-30 minutes", "Supervise entire soakósnake should be able to lift head out of water"],
+        ["Warm water soak", "Place snake in shallow container with 85-90√óF water (1-2 inch depth)", "20-30 minutes", "Supervise entire soak√ósnake should be able to lift head out of water"],
         ["Increase enclosure humidity", "Mist 2-3x daily, add humid hide with damp moss", "Continue for 1-2 weeks", "Target 70-75% average humidity"],
         ["Verify water bowl access", "Check water bowl is full, large enough, and accessible", "Daily", "Replace with larger bowl if needed"],
         ["Monitor hydration improvements", "Check for sunken eyes, skin tent test, shed quality", "Daily for 1 week", "Should see improvement within 3-5 days"],
-        ["Vet visit if no improvement", "If still dehydrated after 1 week of home treatment", "ó", "May need subcutaneous fluids or diagnosis of underlying issue"],
-        ["Address underlying causes", "Review enclosure humidity, temps, water access, illness", "ó", "Dehydration is a symptomófix root cause"]
+        ["Vet visit if no improvement", "If still dehydrated after 1 week of home treatment", "√ó", "May need subcutaneous fluids or diagnosis of underlying issue"],
+        ["Address underlying causes", "Review enclosure humidity, temps, water access, illness", "√ó", "Dehydration is a symptom√ófix root cause"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "During soaks, NEVER leave snake unattended. Corn snakes can drown in deep water or escape from soaking container. Use shallow water (1-2 inches max), supervise for entire 20-30 minutes, and ensure water temperature is 85-90∞F (not hot, not cold)."
+      "content": "During soaks, NEVER leave snake unattended. Corn snakes can drown in deep water or escape from soaking container. Use shallow water (1-2 inches max), supervise for entire 20-30 minutes, and ensure water temperature is 85-90√óF (not hot, not cold)."
     },
     {
       "type": "section",
@@ -289,14 +289,14 @@
       "type": "table",
       "headers": ["Step", "Method", "Duration/Frequency", "Notes"],
       "rows": [
-        ["1. Warm water soak", "Place snake in 85-90∞F shallow water (1-2 inch depth)", "20-30 minutes", "Softens stuck skin for easier removal"],
+        ["1. Warm water soak", "Place snake in 85-90√óF shallow water (1-2 inch depth)", "20-30 minutes", "Softens stuck skin for easier removal"],
         ["2. Increase enclosure humidity", "Mist enclosure to 70-75% humidity", "Maintain for 3-7 days", "Creates environment for skin to loosen naturally"],
         ["3. Wait 24 hours after soak", "Allow snake to rub against rough surfaces naturally", "1-2 days", "Often sheds remaining skin on own after soaking"],
-        ["4. Gentle manual removal (if needed)", "After soaking, gently roll/peel stuck skin starting at loosest edge", "5-10 minutes", "NEVER FORCEóif skin won't come off easily, soak again"],
-        ["5. Focus on tail tip", "Stuck tail tip skin forms ringógently unroll from tip toward body", "Carefully", "Most critical areaóretained tail tip skin can cut off circulation"],
+        ["4. Gentle manual removal (if needed)", "After soaking, gently roll/peel stuck skin starting at loosest edge", "5-10 minutes", "NEVER FORCE√óif skin won't come off easily, soak again"],
+        ["5. Focus on tail tip", "Stuck tail tip skin forms ring√ógently unroll from tip toward body", "Carefully", "Most critical area√óretained tail tip skin can cut off circulation"],
         ["6. Eye cap removal (if stuck)", "Soak, then use damp Q-tip to gently roll skin off eye", "Very carefully", "If unsuccessful after 2 attempts, vet visit required"],
         ["7. Post-treatment monitoring", "Check for redness, swelling, or injury after removal", "Next 3-5 days", "If injury occurs, apply dilute betadine and consult vet"],
-        ["8. Prevent future stuck sheds", "Maintain 70-75% humidity during sheds, humid hide, rough surfaces", "Every shed cycle", "Fix underlying causeóstuck sheds shouldn't be recurring"]
+        ["8. Prevent future stuck sheds", "Maintain 70-75% humidity during sheds, humid hide, rough surfaces", "Every shed cycle", "Fix underlying cause√óstuck sheds shouldn't be recurring"]
       ]
     },
     {
@@ -320,19 +320,19 @@
       "type": "table",
       "headers": ["Prevention Method", "Implementation", "Effectiveness", "Cost"],
       "rows": [
-        ["Maintain 65-75% humidity year-round", "Daily misting 1-2x, moisture-retaining substrate, covered screen", "Very highóprevents 90% of stuck sheds", "Minimal ($5-10/month for misting)"],
-        ["Increase humidity to 70-75% during shedding", "Mist 2-3x daily when eyes turn blue", "Criticalóprevents shedding issues", "Minimal (extra misting)"],
-        ["Provide humid hide with damp moss", "Enclosed hide box filled with sphagnum moss, placed on cool end", "Highógives localized high humidity", "$10-15 (hide box) + $8-12 (moss)"],
-        ["Add rough surfaces for rubbing", "Cork bark, branches, rocks for snake to rub against", "Highófacilitates mechanical skin removal", "$15-30 (natural decor)"],
-        ["Large water bowl for soaking", "10-12 inch diameter bowl, snake can curl up inside", "Highóallows self-soaking during sheds", "$15-30 (ceramic crock)"],
-        ["Regular enclosure maintenance", "Change water daily, spot clean, maintain equipment", "Mediumóclean environment supports health", "Time investment"],
-        ["Monitor shed quality", "Inspect each shed for completeness, retained skin", "Highócatch problems early", "Free (observation)"],
+        ["Maintain 65-75% humidity year-round", "Daily misting 1-2x, moisture-retaining substrate, covered screen", "Very high√óprevents 90% of stuck sheds", "Minimal ($5-10/month for misting)"],
+        ["Increase humidity to 70-75% during shedding", "Mist 2-3x daily when eyes turn blue", "Critical√óprevents shedding issues", "Minimal (extra misting)"],
+        ["Provide humid hide with damp moss", "Enclosed hide box filled with sphagnum moss, placed on cool end", "High√ógives localized high humidity", "$10-15 (hide box) + $8-12 (moss)"],
+        ["Add rough surfaces for rubbing", "Cork bark, branches, rocks for snake to rub against", "High√ófacilitates mechanical skin removal", "$15-30 (natural decor)"],
+        ["Large water bowl for soaking", "10-12 inch diameter bowl, snake can curl up inside", "High√óallows self-soaking during sheds", "$15-30 (ceramic crock)"],
+        ["Regular enclosure maintenance", "Change water daily, spot clean, maintain equipment", "Medium√óclean environment supports health", "Time investment"],
+        ["Monitor shed quality", "Inspect each shed for completeness, retained skin", "High√ócatch problems early", "Free (observation)"],
         ["Address health issues promptly", "Vet visits for parasites, infections, or chronic stuck sheds", "Critical for medical causes", "$50-150 per vet visit"]
       ]
     },
     {
       "type": "highlight",
-      "content": "ReptiFilesÆ recommendation: Prevention is 100x easier than treatment. Maintain 70-75% humidity during shedding cycles, provide humid hide with damp moss, and ensure large water bowl for soaking. If you do this, stuck sheds should be extremely rare or never occur."
+      "content": "Prevention is 100x easier than treatment. Maintain 70-75% humidity during shedding cycles, provide humid hide with damp moss, and ensure large water bowl for soaking. If you do this, stuck sheds should be extremely rare or never occur."
     },
     {
       "type": "section",
@@ -356,7 +356,7 @@
         ["Humid hide box", "Enclosed hide with one entrance for high-humidity retreat", "$10-15"],
         ["Sphagnum moss (bag)", "Fill humid hide, retains moisture for shedding support", "$8-12"],
         ["Shallow soaking container", "For warm water soaks to treat dehydration/stuck sheds", "$5-10 (plastic storage bin)"],
-        ["Thermometer (water temp)", "Verify soak water is 85-90∞F", "$5-10 OR use existing infrared thermometer"],
+        ["Thermometer (water temp)", "Verify soak water is 85-90√óF", "$5-10 OR use existing infrared thermometer"],
         ["Reptile-safe disinfectant OR bleach", "Weekly water bowl cleaning and sanitizing", "$10-15 (or bleach $3-5)"],
         ["Scrub brush dedicated to reptile use", "Scrub water bowl without cross-contamination", "$5-8"],
         ["HVAC foil tape OR acrylic sheet", "Cover 50-70% of screen top to retain humidity", "$10-20"]

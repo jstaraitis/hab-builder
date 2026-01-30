@@ -185,7 +185,7 @@ function exportAnimalsToTxt() {
   // Write to output file
   fs.writeFileSync(OUTPUT_FILE, outputContent, 'utf8');
   
-  console.log('\n✓ Export complete!');
+  console.log('\n Export complete!');
   console.log(`Output file: ${OUTPUT_FILE}`);
   console.log(`File size: ${(fs.statSync(OUTPUT_FILE).size / 1024).toFixed(2)} KB`);
 }

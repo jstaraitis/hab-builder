@@ -1,4 +1,4 @@
-{
+ï»¿{
   "id": "bearded-dragon-substrate-guide",
   "title": "Bearded Dragon Substrate Guide: Sand, Soil & Safe Options",
   "description": "Everything you need to know about choosing and maintaining substrate for bearded dragons, including sand safety, DIY mixes, and when to avoid loose substrate.",
@@ -28,7 +28,7 @@
     },
     {
       "type": "highlight",
-      "content": "For comprehensive guidance on substrate categories, DIY mixing formulas, impaction myths, and bioactive layering applicable to all reptiles, see our <a href='/blog/substrate-selection-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Substrate Selection Guide</a>. The information below covers bearded dragon-specific substrate requirements and arid habitat recommendations."
+      "content": "For comprehensive guidance on substrate categories, DIY mixing formulas, impaction myths, and bioactive layering applicable to most reptiles, see our <a href='/blog/substrate-selection-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Substrate Selection Guide</a>. The information below covers bearded dragon-specific substrate requirements and arid habitat recommendations."
     },
     {
       "type": "section",
@@ -82,7 +82,7 @@
       "type": "table",
       "headers": ["Contributing Factor", "Impact on Digestion"],
       "rows": [
-        ["Low basking temperature (<95°F)", "Slows metabolism and digestion"],
+        ["Low basking temperature (<95F)", "Slows metabolism and digestion"],
         ["Inadequate UVB exposure", "Reduces appetite and gut motility"],
         ["Chronic dehydration", "Causes constipation and blockages"],
         ["Oversized prey items", "Difficult to digest fully"],
@@ -105,11 +105,11 @@
       "type": "table",
       "headers": ["Situation", "Duration", "Alternative"],
       "rows": [
-        ["Illness or injury", "Until recovered", "Paper towels"],
-        ["Post-surgical recovery", "2-4 weeks", "Paper towels"],
-        ["Suspected impaction", "Until resolved", "Paper towels"],
+        ["Illness or injury", "Until recovered", "Paper towels or tile"],
+        ["Post-surgical recovery", "2-4 weeks", "Paper towels or tile"],
+        ["Suspected impaction", "Until resolved", "Paper towels or tile"],
         ["Hatchlings (<3 months)", "Until eating consistently", "Paper towels or tile"],
-        ["Quarantine period", "30-90 days", "Paper towels"]
+        ["Quarantine period", "30-90 days", "Paper towels or tile"]
       ]
     },
     {
@@ -187,7 +187,7 @@
         "Ceramic tile or slate (retains heat well, easy to clean)",
         "Textured stone (provides grip, naturalistic appearance)",
         "Paper towels (temporary, easy to replace)",
-        "Reptile carpet (washable but harbors bacteria over time)"
+        "Reptile carpet (washable but harbors bacteria over time) NOT recommended."
       ]
     },
     {
@@ -216,7 +216,7 @@
     },
     {
       "type": "highlight",
-      "content": "Naturalistic substrate isn't just decoration—it's enrichment that allows bearded dragons to express natural behaviors and live fuller, healthier lives."
+      "content": "Naturalistic substrate isn't just decoration, it's enrichment that allows bearded dragons to express natural behaviors and live fuller, healthier lives."
     }
   ]
 }

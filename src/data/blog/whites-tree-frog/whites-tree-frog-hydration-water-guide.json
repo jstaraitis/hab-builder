@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "whites-tree-frog-hydration-water-guide",
   "title": "Hydration & Water Quality for White's Tree Frogs",
   "author": "Habitat Builder Team",
@@ -81,7 +81,7 @@
         {
           "type": "list",
           "items": [
-            "Target ambient humidity: 30-40% day, 30-45% night (White's are semi-arid, NOT tropical).",
+            "Target ambient humidity: 30-40% day, 30-40% night (White's are semi-arid, NOT tropical). Humidity spikes at night is normal due to environmental processes.",
             "DO NOT use misters or foggers—White's Tree Frogs need DRY conditions.",
             "A large water dish for soaking provides all the humidity they need.",
             "High humidity (>50%) promotes bacterial blooms, respiratory infections, and mold.",
@@ -104,7 +104,7 @@
           "items": [
             "Cloudy or smelly water: Clean dish immediately; increase change frequency.",
             "Persistent skin shedding issues: Offer a supervised shallow-water soak for 10-15 minutes; do NOT increase ambient humidity.",
-            "Red, irritated skin or lethargy: Lower humidity if above 40%, increase ventilation, and consult an exotics vet immediately.",
+            "Red, irritated skin or lethargy: Lower humidity if above 50%, increase ventilation, and consult an exotics vet immediately.",
             "White biofilm in the bowl: Sanitize more often; check that dechlorinator is fresh and dosed correctly.",
             "Respiratory distress (gaping mouth, wheezing): Emergency—humidity likely too high; increase ventilation and vet ASAP."
           ]

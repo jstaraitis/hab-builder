@@ -95,10 +95,13 @@ export function validateEnclosureSize(
     );
   }
 
-  // Very small enclosure warning
+  // Very small enclosure warning - only if it's larger than minimum but still quite small
   const volumeInches = userWidth * userDepth * userHeight;
-  if (volumeInches < 5832) {
-    // Less than 18x18x18
+  const minVolumeInches = minWidth * minDepth * minHeight;
+  
+  // Only warn if enclosure is valid (meets minimum), is larger than the minimum, but smaller than 18x18x18
+  if (!tooSmall && volumeInches < 5832 && volumeInches > minVolumeInches * 1.1) {
+    // Less than 18x18x18 but more than 10% larger than minimum
     warnings.push(
       `Enclosure is very small. Consider upgrading to provide better environmental stability and enrichment.`
     );

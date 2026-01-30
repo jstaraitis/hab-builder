@@ -6,7 +6,7 @@
   "careLevel": "beginner",
   "emoji": "🦎",
   "imageUrl": "/animals/bearded-dragon/bearded-dragon-1.jpg",
-  "completionStatus": "in-progress",
+  "completionStatus": "validated",
   "gallery": [
     {
       "url": "/animals/bearded-dragon/bearded-dragon-1.jpg",
@@ -27,11 +27,18 @@
   },
   "careTargets": {
     "temperature": {
-      "min": 70,
-      "max": 85,
+      "thermalGradient": true,
+      "coolSide": {
+        "min": 77,
+        "max": 85
+      },
+      "warmSide": {
+        "min": 90,
+        "max": 95
+      },
       "basking": {
-        "min": 100,
-        "max": 110
+        "min": 108,
+        "max": 113
       },
       "nighttime": {
         "min": 70,
@@ -49,8 +56,8 @@
         "max": 40
       },
       "shedding": {
-        "min": 40,
-        "max": 60
+        "min": 30,
+        "max": 40
       },
       "unit": "%"
     },
@@ -73,7 +80,7 @@
   "bioactiveCompatible": true,
   "equipmentNeeds": {
     "climbing": "ground",
-    "substrate": ["bioactive", "soil", "paper"],
+    "substrate": ["bioactive", "soil", "paper", "sand"],
     "bioactiveSubstrate": "arid",
     "humidity": "low",
     "heatSource": "basking",
@@ -122,7 +129,8 @@
     "bearded-dragon-lighting-guide",
     "bearded-dragon-enclosure-setup-guide",
     "bearded-dragon-hydration-guide",
-    "bearded-dragon-temp-humidity-guide"
+    "bearded-dragon-temp-humidity-guide",
+    "bearded-dragon-enrichment-welfare-guide"
   ],
   "careGuidance": {
     "feedingRequirements": [

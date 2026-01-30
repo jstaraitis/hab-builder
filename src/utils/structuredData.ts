@@ -5,7 +5,46 @@
 export interface StructuredData {
   '@context': string;
   '@type': string;
-  [key: string]: any;
+  [key: string]: unknown;
+}
+
+// Schema.org type interfaces for type safety
+interface HowToStep {
+  '@type': 'HowToStep';
+  position: string;
+  name: string;
+  text: string;
+  image?: string;
+}
+
+interface PriceSpecification {
+  '@type': 'PriceSpecification';
+  priceCurrency: string;
+  price: string;
+}
+
+interface HowToSchema extends StructuredData {
+  '@type': 'HowTo';
+  name: string;
+  description: string;
+  step: HowToStep[];
+  totalTime?: string;
+  estimatedCost?: PriceSpecification;
+}
+
+interface ProductSchema extends StructuredData {
+  '@type': 'Product';
+  name: string;
+  description: string;
+  brand: { '@type': 'Brand'; name: string };
+  offers?: {
+    '@type': 'Offer';
+    price: string;
+    priceCurrency: string;
+    availability: string;
+  };
+  url?: string;
+  image?: string;
 }
 
 /**
@@ -59,8 +98,8 @@ export function generateHowToStructuredData(
   totalTime?: string,
   estimatedCost?: string
 ): StructuredData {
-  const estimatedSteps = steps.map((step, index) => ({
-    '@type': 'HowToStep',
+  const estimatedSteps: HowToStep[] = steps.map((step, index) => ({
+    '@type': 'HowToStep' as const,
     position: (index + 1).toString(),
     name: step.name,
     text: step.text,
@@ -69,7 +108,7 @@ export function generateHowToStructuredData(
     })
   }));
 
-  const data: any = {
+  const data: HowToSchema = {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
     name: title,
@@ -102,7 +141,7 @@ export function generateProductStructuredData(
   url?: string,
   imageUrl?: string
 ): StructuredData {
-  const data: any = {
+  const data: ProductSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: name,

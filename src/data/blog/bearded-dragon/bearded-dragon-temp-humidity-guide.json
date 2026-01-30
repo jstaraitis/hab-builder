@@ -1,4 +1,4 @@
-{
+Ôªø{
   "id": "bearded-dragon-temp-humidity-guide",
   "title": "Bearded Dragon Temperature & Humidity Control Guide",
   "description": "Complete guide to maintaining proper temperature gradients and humidity levels for bearded dragons, including equipment selection, measurement protocols, and troubleshooting common issues.",
@@ -20,7 +20,7 @@
     },
     {
       "type": "text",
-      "content": "Proper thermal gradients enable behavioral thermoregulationóthe ability to move between zones to maintain optimal body temperature. Multiple temperature zones are required, not a single ambient temperature."
+      "content": "Proper thermal gradients enable behavioral thermoregulation√óthe ability to move between zones to maintain optimal body temperature. Multiple temperature zones are required, not a single ambient temperature."
     },
     {
       "type": "text",
@@ -30,17 +30,17 @@
       "type": "table",
       "headers": ["Zone", "Temperature Range", "Measurement Point", "Purpose"],
       "rows": [
-        ["Basking surface", "100-110∞F", "Surface temp (infrared gun)", "Digestion, metabolic activity"],
-        ["Basking ambient", "95-100∞F", "Air temp 6\\\" above surface", "Warm zone activity"],
-        ["Warm side ambient", "85-90∞F", "Mid-enclosure, warm end", "General activity zone"],
-        ["Cool side ambient", "75-80∞F", "Opposite end from heat", "Thermoregulation, retreat"],
-        ["Nighttime drop", "65-75∞F", "All zones", "Natural circadian cycle"]
+        ["Basking surface", "100-110F", "Surface temp (infrared gun)", "Digestion, metabolic activity"],
+        ["Basking ambient", "95-100F", "Air temp 6\" above surface", "Warm zone activity"],
+        ["Warm side ambient", "85-90F", "Mid-enclosure, warm end", "General activity zone"],
+        ["Cool side ambient", "75-80F", "Opposite end from heat", "Thermoregulation, retreat"],
+        ["Nighttime drop", "65-75F", "All zones", "Natural circadian cycle"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Critical Requirement: Basking surface temperature of 100-110∞F is NON-NEGOTIABLE for proper digestion. Temperatures below 95∞F cause food to rot in the digestive tract, leading to impaction and bacterial overgrowth."
+      "content": "Critical Requirement: Basking surface temperature of 100-110F is NON-NEGOTIABLE for proper digestion. Temperatures below 95F can cause food to rot in the digestive tract, leading to impaction and bacterial overgrowth."
     },
     {
       "type": "highlight",
@@ -93,12 +93,12 @@
     },
     {
       "type": "text",
-      "content": "<strong>Probe Placement:</strong> Position thermostat probe at basking surface level, 2-3 inches from center of basking spot. Set target temperature 5-10∞F below desired surface temp to account for radiant heat. Verify with infrared thermometer."
+      "content": "<strong>Probe Placement:</strong> Position thermostat probe at basking surface level, 2-3 inches from center of basking spot. Set target temperature 5-10√óF below desired surface temp to account for radiant heat. Verify with infrared thermometer."
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Safety Critical: NEVER operate heat sources without thermostatic control. A failed bulb or malpositioned fixture can create lethal hot spots exceeding 150∞F within minutes."
+      "content": "Safety Critical: NEVER operate heat sources without thermostatic control. A failed bulb or malpositioned fixture can create lethal hot spots exceeding 150F within minutes."
     },
     {
       "type": "section",
@@ -119,7 +119,7 @@
         ["Infrared temperature gun", "Surface temperature verification", "Measure basking rock, substrate, decor surfaces"],
         ["Digital probe thermometer", "Ambient air temperature", "Place at basking height on warm side"],
         ["Second digital probe", "Cool side monitoring", "Place at mid-height on cool end"],
-        ["Analog stick-on thermometers", "General reference only", "Notoriously inaccurateódo not rely on these"]
+        ["Analog stick-on thermometers", "General reference only", "Notoriously inaccurate√ódo not rely on these"]
       ]
     },
     {
@@ -151,7 +151,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Common Mistake: Many keepers over-humidify bearded dragon enclosures. These are DESERT animals. No misting required. A water dish is optional and often not needed. High humidity is harmful, not beneficial."
+      "content": "Common Mistake: Many keepers over-humidify bearded dragon enclosures. These are DESERT animals. No misting required. High humidity is harmful, not beneficial."
     },
     {
       "type": "section",
@@ -165,10 +165,10 @@
       "type": "table",
       "headers": ["Life Stage/Season", "Basking Temp", "Ambient Adjustment", "Notes"],
       "rows": [
-        ["Hatchling (0-6 months)", "105-110∞F", "Warmer basking preferred", "Higher metabolism, more heat needed"],
-        ["Juvenile (6-12 months)", "100-110∞F", "Standard gradient", "Peak growth period"],
-        ["Adult (12+ months)", "100-110∞F", "Standard gradient", "Maintain consistent temps"],
-        ["Brumation (optional)", "50-65∞F", "Gradual reduction over 2 weeks", "Natural winter dormancy, 8-12 weeks"]
+        ["Hatchling (0-6 months)", "105-110F", "Warmer basking preferred", "Higher metabolism, more heat needed"],
+        ["Juvenile (6-12 months)", "100-110F", "Standard gradient", "Peak growth period"],
+        ["Adult (12+ months)", "100-110F", "Standard gradient", "Maintain consistent temps"],
+        ["Brumation (optional)", "50-65F", "Gradual reduction over 2 weeks", "Natural winter dormancy, 8-12 weeks"]
       ]
     },
     {
@@ -187,11 +187,11 @@
       "type": "table",
       "headers": ["Problem", "Cause", "Solution"],
       "rows": [
-        ["Basking spot <100∞F", "Bulb too far, insufficient wattage", "Lower bulb 2-3\\\" or increase wattage"],
-        ["Basking spot >115∞F", "Bulb too close, excessive wattage", "Raise bulb or decrease wattage, add thermostat"],
+        ["Basking spot <100F", "Bulb too far, insufficient wattage", "Lower bulb 2-3\" or increase wattage"],
+        ["Basking spot >115F", "Bulb too close, excessive wattage", "Raise bulb or decrease wattage, add thermostat"],
         ["No thermal gradient", "Heat source centered", "Move heat to one end only, ensure cool retreat"],
-        ["Cool side >85∞F", "Insufficient ventilation, oversized heat", "Add ventilation, reduce heat source wattage"],
-        ["Nighttime too warm (>80∞F)", "Room temperature high, heat not turning off", "Ensure heat sources turn off at night, increase ventilation"],
+        ["Cool side >85F", "Insufficient ventilation, oversized heat", "Add ventilation, reduce heat source wattage"],
+        ["Nighttime too warm (>80F)", "Room temperature high, heat not turning off", "Ensure heat sources turn off at night, increase ventilation"],
         ["Temperature fluctuates wildly", "No thermostat, drafts", "Install dimming thermostat, seal drafts"],
         ["Heat source failing prematurely", "No thermostat causing overheating", "Replace bulb, install thermostat immediately"]
       ]
@@ -208,11 +208,11 @@
       "type": "table",
       "headers": ["Emergency Scenario", "Immediate Action", "Safe Duration"],
       "rows": [
-        ["Power outage (cold)", "Wrap enclosure with blankets, use heat packs (external)", "24-48 hours if room temp >65∞F"],
-        ["Power outage (hot)", "Open enclosure, increase ventilation, cool room", "Monitor closely, risk of overheating >95∞F"],
-        ["Thermostat failure", "Disconnect heat immediately, replace equipment", "Zero toleranceóimmediate action required"],
+        ["Power outage (cold)", "Wrap enclosure with blankets, use heat packs (external)", "24-48 hours if room temp >65F"],
+        ["Power outage (hot)", "Open enclosure, increase ventilation, cool room", "Monitor closely, risk of overheating >95F"],
+        ["Thermostat failure", "Disconnect heat immediately, replace equipment", "Zero tolerance, immediate action required"],
         ["Bulb burnout", "Replace with spare (keep backup bulbs)", "4-6 hours max without basking heat"],
-        ["Overheating >115∞F", "Turn off heat, open enclosure, mist lightly", "Immediateócan be lethal within 30 minutes"]
+        ["Overheating >115F", "Turn off heat, open enclosure, mist lightly", "Immediate can be lethal within 30 minutes"]
       ]
     },
     {

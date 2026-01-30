@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "whites-tree-frog-substrate-guide",
   "title": "Substrate Guide for White's Tree Frogs",
   "author": "Habitat Builder Team",
@@ -25,9 +25,9 @@
           "type": "table",
           "headers": ["Setup Type", "Pros", "Cons", "Best For"],
           "rows": [
-            ["Simple (Coco Fiber)", "Lower cost ($15-25), easier setup, faster cleaning, safe if ingested", "Requires full substrate replacement every 4-6 weeks", "Beginners, budget setups, quarantine enclosures"],
+            ["Simple (Coco Fiber)", "Lower cost ($15-25), easier setup, faster cleaning, typically safe if ingested", "Requires full substrate replacement every 4-6 weeks", "Beginners, budget setups, quarantine enclosures"],
             ["Bioactive (Natural)", "Self-sustaining cleanup crew, minimal maintenance, naturalistic", "Higher initial cost ($80-150), 2-3 month establishment period", "Experienced keepers, long-term displays"],
-            ["Paper Towels (Bare Minimum)", "Cheapest ($5-10), zero impaction risk, excellent for health monitoring", "Must be changed daily, no humidity retention, requires frequent misting", "Emergency setups, quarantine, medical recovery"],
+            ["Paper Towels (Bare Minimum)", "Cheapest ($5-10), low impaction risk, excellent for health monitoring", "Must be changed daily, no humidity retention, requires frequent misting", "Emergency setups, quarantine, medical recovery"],
             ["Frog Foam", "Reusable (rinse weekly), cushioned surface, no impaction risk", "Zero humidity retention (mist 2-3x daily), unnatural appearance, foam degrades over 1-2 years", "Easy maintenance priority, frogs with impaction history"]
           ]
         },
@@ -44,7 +44,7 @@
       "content": [
         {
           "type": "text",
-          "text": "<strong>Coconut Fiber (Coco Coir / Eco Earth)</strong><br/>The gold standard for White's Tree Frogs. Retains moisture without becoming waterlogged, safe if ingested, affordable, and works for both bioactive and simple setups. Comes in compressed bricks (soak before use) or loose bags."
+          "text": "<strong>Coconut Fiber (Coco Coir / Eco Earth)</strong><br/>The gold standard for White's Tree Frogs. Retains moisture without becoming waterlogged, typically safe if ingested, affordable, and works for both bioactive and simple setups. Comes in compressed bricks (soak before use) or loose bags."
         },
         {
           "type": "text",
@@ -71,7 +71,7 @@
         },
         {
           "type": "highlight",
-          "content": "For comprehensive guidance on substrate categories, DIY mixing formulas, impaction myths, and bioactive layering applicable to all reptiles and amphibians, see our <a href='/blog/substrate-selection-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Substrate Selection Guide</a>. The information below covers White's tree frog-specific substrate requirements and tropical habitat recommendations."
+          "content": "For comprehensive guidance on substrate categories, DIY mixing formulas, impaction myths, and bioactive layering applicable to most reptiles and amphibians, see our <a href='/blog/substrate-selection-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Substrate Selection Guide</a>. The information below covers White's tree frog-specific substrate requirements and tropical habitat recommendations."
         }
       ]
     },
@@ -168,7 +168,7 @@
             ["Foul smell (ammonia/sour)", "Waterlogged substrate, inadequate drainage", "Remove wet substrate immediately, increase ventilation, reduce misting"],
             ["Mold (white fuzzy patches)", "Normal in bioactive (first 2-3 months); excess moisture in simple setups", "Bioactive: Wait for cleanup crew to consume. Simple: Remove moldy sections, reduce misting"],
             ["Substrate too dry (dusty)", "Insufficient misting, low humidity", "Mist lightly until slightly damp, add larger water dish, partially cover mesh top (25%)"],
-            ["Frog ingesting substrate", "Feeding on substrate, lunging at prey near ground", "Switch to tong-feeding, use feeding dish, or temporarily use paper towels during feeding"]
+            ["Frog ingesting substrate", "Feeding on substrate, lunging at prey near ground", "Switch to tong-feeding, use feeding dish, or temporarily use paper towels during feeding, add larger leaf litter"]
           ]
         }
       ]

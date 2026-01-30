@@ -105,7 +105,7 @@ files.forEach(filename => {
   content = content.replace(/✅ /g, '[YES] ');
   content = content.replace(/⚠️ /g, '[WARNING] ');
   content = content.replace(/❌ /g, '[NO] ');
-  content = content.replace(/✓/g, '[YES]');
+  content = content.replace(//g, '[YES]');
   content = content.replace(/✗/g, '[NO]');
   
   // Integration/feature emojis

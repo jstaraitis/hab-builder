@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { animalList } from '../../data/animals';
 import { FileText, CheckCircle, Sliders, Zap, Star, Clock, Flame, Bug, Fish } from 'lucide-react';
 
@@ -24,43 +24,44 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
   const [careLevelFilter, setCareLevelFilter] = useState<'all' | 'beginner' | 'intermediate' | 'advanced'>('all');
   const [categoryFilter, setCategoryFilter] = useState<Category>('all');
 
-  // Filter animals based on search query and care level
-  // Search will match `name`, `id`, and optional `searchQuery` or `commonNames` fields in animal profiles
-  const filteredAnimals = animalList
-    .filter(animal => {
-      const q = searchQuery.trim().toLowerCase();
+  // Memoize expensive filtering and sorting - only recalculates when filters change
+  const filteredAnimals = useMemo(() => {
+    return animalList
+      .filter(animal => {
+        const q = searchQuery.trim().toLowerCase();
 
-      const searchParts: string[] = [];
-      if (animal.name) searchParts.push(animal.name);
-      if (animal.id) searchParts.push(animal.id);
-      if (animal.searchQuery) {
-        searchParts.push(Array.isArray(animal.searchQuery) ? animal.searchQuery.join(' ') : String(animal.searchQuery));
-      }
-      if (animal.scientificName) {
-        searchParts.push(animal.scientificName);
-      }
+        const searchParts: string[] = [];
+        if (animal.name) searchParts.push(animal.name);
+        if (animal.id) searchParts.push(animal.id);
+        if (animal.searchQuery) {
+          searchParts.push(Array.isArray(animal.searchQuery) ? animal.searchQuery.join(' ') : String(animal.searchQuery));
+        }
+        if (animal.scientificName) {
+          searchParts.push(animal.scientificName);
+        }
 
-      const searchable = searchParts.join(' ').toLowerCase();
-      const matchesSearch = q === '' || searchable.includes(q);
-      const matchesCareLevel = careLevelFilter === 'all' || animal.careLevel === careLevelFilter;
-      const matchesCategory = categoryFilter === 'all' || getAnimalCategory(animal.id) === categoryFilter;
-      return matchesSearch && matchesCareLevel && matchesCategory;
-    })
-    // Sort by status priority (validated → in-progress → draft), then by name
-    .sort((a, b) => {
-      const statusOrder: Record<string, number> = {
-        'validated': 0,
-        'in-progress': 1,
-        'draft': 2,
-        'complete': 3,
-      };
+        const searchable = searchParts.join(' ').toLowerCase();
+        const matchesSearch = q === '' || searchable.includes(q);
+        const matchesCareLevel = careLevelFilter === 'all' || animal.careLevel === careLevelFilter;
+        const matchesCategory = categoryFilter === 'all' || getAnimalCategory(animal.id) === categoryFilter;
+        return matchesSearch && matchesCareLevel && matchesCategory;
+      })
+      // Sort by status priority (validated → in-progress → draft), then by name
+      .sort((a, b) => {
+        const statusOrder: Record<string, number> = {
+          'validated': 0,
+          'in-progress': 1,
+          'draft': 2,
+          'complete': 3,
+        };
 
-      const pa = statusOrder[a.completionStatus ?? ''] ?? 99;
-      const pb = statusOrder[b.completionStatus ?? ''] ?? 99;
+        const pa = statusOrder[a.completionStatus ?? ''] ?? 99;
+        const pb = statusOrder[b.completionStatus ?? ''] ?? 99;
 
-      if (pa !== pb) return pa - pb;
-      return a.name.localeCompare(b.name);
-    });
+        if (pa !== pb) return pa - pb;
+        return a.name.localeCompare(b.name);
+      });
+  }, [searchQuery, careLevelFilter, categoryFilter]);
 
   const getStatusBadge = (status?: string) => {
     if (status === 'complete' || status === 'validated') {

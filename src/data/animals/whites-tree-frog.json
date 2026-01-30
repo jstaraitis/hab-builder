@@ -47,11 +47,18 @@
   },
   "careTargets": {
     "temperature": {
-      "min": 75,
-      "max": 88,
+      "thermalGradient": true,
+      "coolSide": {
+        "min": 70,
+        "max": 75
+      },
+      "warmSide": {
+        "min": 75,
+        "max": 88
+      },
       "basking": {
         "min": 83,
-        "max": 86
+        "max": 88
       },
       "nighttime": {
         "min": 70,
@@ -65,12 +72,12 @@
         "max": 40
       },
       "night": {
-        "min": 50,
-        "max": 70
+        "min": 30,
+        "max": 40
       },
       "shedding": {
-        "min": 60,
-        "max": 70
+        "min": 30,
+        "max": 40
       },
       "unit": "%"
     },

@@ -41,11 +41,11 @@
         - aquarium-lid
 
   🔧 SPECIALIZED EQUIPMENT (processed by addDirectEquipment):
-    ✓ filtration: 3 item(s)
-    ✓ cooling: 1 item(s)
-    ✓ waterTreatment: 2 item(s)
-    ✓ maintenance: 1 item(s)
-    ✓ safety: 1 item(s)
+     filtration: 3 item(s)
+     cooling: 1 item(s)
+     waterTreatment: 2 item(s)
+     maintenance: 1 item(s)
+     safety: 1 item(s)
 
   📊 TOTAL EQUIPMENT ITEMS: 14
 
@@ -303,11 +303,11 @@
         - aquarium-lid
 
   🔧 SPECIALIZED EQUIPMENT (processed by addDirectEquipment):
-    ✓ filtration: 2 item(s)
-    ✓ waterTreatment: 2 item(s)
-    ✓ maintenance: 1 item(s)
-    ✓ safety: 1 item(s)
-    ✓ heating: 2 item(s)
+     filtration: 2 item(s)
+     waterTreatment: 2 item(s)
+     maintenance: 1 item(s)
+     safety: 1 item(s)
+     heating: 2 item(s)
 
   📊 TOTAL EQUIPMENT ITEMS: 12
 
@@ -378,7 +378,7 @@
 
 Animal                    Total Items     Specialized    
 ------------------------- --------------- ---------------
-Axolotl                   14              ✓              
+Axolotl                   14                            
 Ball Python               9                              
 Bearded Dragon            9                              
 Corn Snake                9                              
@@ -386,7 +386,7 @@ Crested Gecko             12
 Leopard Gecko             8                              
 Mourning Gecko            11                             
 Pacman Frog               8                              
-Red-Eared Slider          12              ✓              
+Red-Eared Slider          12                            
 Red-Eyed Tree Frog        8                              
 White's Tree Frog         10                             
 

@@ -6,7 +6,7 @@
   "careLevel": "beginner",
   "emoji": "🦎",
   "imageUrl": "/animals/crested-gecko/crested-gecko-1.jpg",
-  "completionStatus": "in-progress",
+  "completionStatus": "validated",
   "gallery": [
     {
       "url": "/animals/crested-gecko/crested-gecko-1.jpg",
@@ -27,11 +27,18 @@
   },
   "careTargets": {
     "temperature": {
-      "min": 72,
-      "max": 78,
+      "thermalGradient": true,
+      "coolSide": {
+        "min": 70,
+        "max": 75
+      },
+      "warmSide": {
+        "min": 75,
+        "max": 78
+      },
       "basking": {
-        "min": 78,
-        "max": 82
+        "min": 82,
+        "max": 85
       },
       "nighttime": {
         "min": 65,
@@ -45,11 +52,11 @@
         "max": 80
       },
       "night": {
-        "min": 70,
-        "max": 90
+        "min": 60,
+        "max": 80
       },
       "shedding": {
-        "min": 70,
+        "min": 60,
         "max": 80
       },
       "unit": "%"
@@ -98,7 +105,6 @@
   ],
   "notes": [
     "Huge variety of colors and patterns due to extensive selective breeding",
-    "Declared extinct in 1994 after not being seen for decades - spectacularly rediscovered in 1994 during herpetological expedition to New Caledonia",
     "Lack eyelids - instead have transparent spectacle scale covering eyes that they clean by licking with their long tongue",
     "'Crests' (fringed ridges) run from eyes to tail - evolutionary purpose unknown but possibly for water channeling, communication, or making profile appear larger to predators",
     "One of few gecko species that can vocalize - produce squeaking/clicking sounds when threatened or during social interactions with other geckos"
@@ -131,7 +137,8 @@
     "crested-gecko-temp-humidity-guide",
     "crested-gecko-lighting-guide",
     "crested-gecko-feeding-guide",
-    "crested-gecko-hydration-guide"
+    "crested-gecko-hydration-guide",
+    "crested-gecko-enrichment-welfare-guide"
   ],
   "careGuidance": {
     "feedingRequirements": [

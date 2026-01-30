@@ -96,7 +96,7 @@ function exportEquipmentNeeds() {
       output += '\n  🔧 SPECIALIZED EQUIPMENT (processed by addDirectEquipment):\n';
       specializedArrays.forEach(field => {
         if (Array.isArray(needs[field]) && needs[field].length > 0) {
-          output += `    ✓ ${field}: ${needs[field].length} item(s)\n`;
+          output += `     ${field}: ${needs[field].length} item(s)\n`;
         }
       });
     }
@@ -125,7 +125,7 @@ function exportEquipmentNeeds() {
     const specializedArrays = ['filtration', 'cooling', 'waterTreatment', 'maintenance', 'safety', 'heating'];
     const specializedItems = specializedArrays.reduce((sum, field) => sum + (Array.isArray(needs[field]) ? needs[field].length : 0), 0);
     
-    const hasSpecialized = specializedItems > 0 ? '✓' : '';
+    const hasSpecialized = specializedItems > 0 ? '' : '';
     output += `${animal.commonName.padEnd(25)} ${totalItems.toString().padEnd(15)} ${hasSpecialized.padEnd(15)}\n`;
   });
 

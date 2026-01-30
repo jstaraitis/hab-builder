@@ -1,4 +1,4 @@
-{
+ï»¿{
   "id": "leopard-gecko-enclosure-setup-guide",
   "title": "Leopard Gecko Enclosure Setup Guide: Complete Housing Requirements",
   "description": "Complete enclosure setup guide for leopard geckos covering dimensions, terrestrial layout design, heating zones, equipment checklist, and naturalistic desert habitat creation.",
@@ -30,15 +30,15 @@
       "type": "table",
       "headers": ["Number of Geckos", "Minimum Dimensions", "Floor Area", "Rationale"],
       "rows": [
-        ["1 gecko (recommended)", "36\"L × 18\"W × 18\"H", "648 sq in (4.5 sq ft)", "Adequate floor space for thermal gradient and multiple hides"],
-        ["2-3 females (advanced only)", "48\"L × 24\"W × 18\"H", "1,152 sq in (8 sq ft)", "Reduces competition, provides space for multiple basking/hiding areas"],
-        ["Hatchling grow-out (temporary)", "20\"L × 10\"W × 12\"H", "200 sq in", "Easier to monitor feeding, transition to adult size at 6-12 months"]
+        ["1 gecko (recommended)", "36\"L Ã— 18\"W Ã— 18\"H", "648 sq in (4.5 sq ft)", "Adequate floor space for thermal gradient and multiple hides"],
+        ["2-3 females (advanced only)", "48\"L Ã— 24\"W Ã— 18\"H", "1,152 sq in (8 sq ft)", "Reduces competition, provides space for multiple basking/hiding areas"],
+        ["Hatchling grow-out (temporary)", "20\"L Ã— 10\"W Ã— 12\"H", "200 sq in", "Easier to monitor feeding, transition to adult size at 6-12 months"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Never house leopard geckos in enclosures smaller than 36×18×18. Common '20-gallon long' tanks (30×12×12) are too narrow to establish proper temperature gradients. Height is less critical—18\" is sufficient, though 24\" allows for rock stacks."
+      "content": "Never house leopard geckos in enclosures smaller than 36Ã—18Ã—18. Common '20-gallon long' tanks (30Ã—12Ã—12) are too narrow to establish proper temperature gradients. Height is less criticalÃ—18\" is sufficient, though 24\" allows for rock stacks."
     },
     {
       "type": "section",
@@ -59,16 +59,12 @@
         ["Glass Terrarium (front-opening)", "Good (maintains basking heat)", "Excellent with screen top", "Beginners, easy viewing, widely available"],
         ["PVC/Plastic Panel", "Excellent (holds heat well)", "Adjustable vents", "Advanced keepers, colder climates, better insulation"],
         ["Wood/Melamine (sealed)", "Excellent (best insulation)", "Requires added vents", "Custom builds, bioactive setups, visual appeal"],
-        ["Screen/Mesh Enclosure", "Poor (heat escapes)", "Excessive (too dry)", "Not recommended—can't maintain humidity for humid hide"]
+        ["Screen/Mesh Enclosure", "Poor (heat escapes)", "Excessive (too dry)", "Not recommendedÃ—can't maintain humidity for humid hide"]
       ]
     },
     {
       "type": "highlight",
-      "content": "Front-opening glass terrariums are ideal for beginners. Top-opening tanks can be used but stress terrestrial species that perceive threats from above. Avoid screen enclosures entirely—insufficient heat retention."
-    },
-    {
-      "type": "highlight",
-      "content": "For complete guidance on creating thermal gradients and selecting temperature monitoring equipment, see our <a href='/blog/thermal-gradient-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Understanding Thermal Gradients</a> and <a href='/blog/temperature-monitoring-equipment-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Temperature Monitoring Equipment</a> guides. Leopard geckos require a basking surface of 94-97°F and a cool zone of 70-77°F."
+      "content": "Front-opening glass terrariums are ideal for beginners. Top-opening tanks can be used but stress terrestrial species that perceive threats from above. Avoid screen enclosures entirelyÃ—insufficient heat retention."
     },
     {
       "type": "section",
@@ -109,7 +105,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "A humid hide is NOT optional—it's required equipment for leopard geckos. Without 70-80% humidity access, they experience stuck shed (especially on toes, leading to toe loss), dehydration, and eye problems."
+      "content": "A humid hide is NOT optionalÃ—it's required equipment for leopard geckos. Without 70-80% humidity access, they experience stuck shed (especially on toes, leading to toe loss), dehydration, and eye problems."
     },
     {
       "type": "section",
@@ -133,7 +129,7 @@
         ["Exo Terra Desert Sand", "Good", "Red sand, naturalistic appearance"],
         ["The Bio Dude Terra Sahara", "Excellent", "Premium bioactive substrate with beneficial microbes"],
         ["Tile/Slate (flat stones)", "Fair", "Easy to clean, heat-absorbing, but no digging/enrichment"],
-        ["Paper towels (temporary)", "Poor", "Quarantine/medical use only—no enrichment value"]
+        ["Paper towels (temporary)", "Poor", "Quarantine/medical use onlyÃ—no enrichment value"]
       ]
     },
     {
@@ -143,7 +139,7 @@
     },
     {
       "type": "section",
-      "title": "Décor & Climbing Structures"
+      "title": "DÃ—cor & Climbing Structures"
     },
     {
       "type": "text",
@@ -155,19 +151,19 @@
     },
     {
       "type": "table",
-      "headers": ["Item Type", "Quantity for 36×18×18", "Placement Strategy"],
+      "headers": ["Item Type", "Quantity for 36Ã—18Ã—18", "Placement Strategy"],
       "rows": [
         ["Flat basking rocks", "2-3 pieces slate/flagstone", "Under heat lamp, stacked for climbing access"],
         ["Rock caves/stacks", "1-2 formations", "Mid to warm zone, create hide openings and ledges"],
         ["Cork bark (flat or round)", "2-3 pieces", "Horizontal ground hides, vertical for climbing"],
         ["Driftwood/mopani branches", "1-2 pieces", "Diagonal placement, climbing enrichment"],
-        ["Live succulents (optional)", "2-4 small plants", "Aloe, haworthia, echeveria—arid tolerant, low water"],
+        ["Live succulents (optional)", "2-4 small plants", "Aloe, haworthia, echeveriaÃ—arid tolerant, low water"],
         ["Background (optional)", "3D foam rock background or slate", "Visual security, climbing surface, naturalistic"]
       ]
     },
     {
       "type": "highlight",
-      "content": "Leopard geckos love to climb—provide ledges and rock stacks up to 8-12\" high. Ensure stacks are stable (use aquarium-safe silicone to bond rocks if needed) to prevent collapse injuries."
+      "content": "Leopard geckos love to climbÃ—provide ledges and rock stacks up to 8-12\" high. Ensure stacks are stable (use aquarium-safe silicone to bond rocks if needed) to prevent collapse injuries."
     },
     {
       "type": "section",
@@ -184,8 +180,8 @@
         ["Day 1", "Equipment assembly", "Install lights, heat lamp, thermometers. Test all equipment without gecko."],
         ["Day 2", "Substrate & hardscape", "Add 2-4\" substrate, position rocks/cork bark, create stable formations."],
         ["Day 3", "Hide placement", "Install warm hide under basking, cool hide on opposite end, humid hide near water dish."],
-        ["Day 4-5", "Temperature testing", "Run setup for 48 hours. Verify basking surface 94-97°F, cool end 70-77°F."],
-        ["Day 6", "Final décor & plants", "Add climbing branches, background plants, food/water dishes."],
+        ["Day 4-5", "Temperature testing", "Run setup for 48 hours. Verify basking surface 94-97Ã—F, cool end 70-77Ã—F."],
+        ["Day 6", "Final dÃ—cor & plants", "Add climbing branches, background plants, food/water dishes."],
         ["Day 7", "Introduce gecko", "Place gecko in cool end during evening. Monitor for 48 hours, minimal handling."]
       ]
     },
@@ -201,13 +197,13 @@
       "type": "table",
       "headers": ["Mistake", "Problem", "Solution"],
       "rows": [
-        ["Using 20-gallon long tank (30×12×12)", "Too narrow for proper thermal gradient", "Use minimum 36×18×18—width is critical for temperature zones"],
+        ["Using 20-gallon long tank (30Ã—12Ã—12)", "Too narrow for proper thermal gradient", "Use minimum 36Ã—18Ã—18Ã—width is critical for temperature zones"],
         ["No humid hide provided", "Stuck shed, toe loss, dehydration, eye caps stuck", "Humid hide with 70-80% humidity is mandatory equipment"],
         ["Only 1-2 hides total", "Gecko forced to choose between temperature and security", "Minimum 3 hides: warm, cool, humid (plus additional optional)"],
-        ["Heat mat as sole heat source", "No overhead basking, unnatural heat source", "Heat lamp is primary—mat only supplemental if needed"],
-        ["Basking temp too low (<90°F)", "Poor digestion, lethargy, won't eat", "Use 75-100w halogen to achieve 94-97°F surface temp"],
-        ["No temperature gradient (hot everywhere)", "Can't thermoregulate, stress, overheating", "Heat lamp on one end only—cool end should be 70-77°F"],
-        ["Sparse décor (empty tank)", "Stress, hiding constantly, reduced activity", "Add rock stacks, branches, ledges—aim for 50% floor coverage"]
+        ["Heat mat as sole heat source", "No overhead basking, unnatural heat source", "Heat lamp is primaryÃ—mat only supplemental if needed"],
+        ["Basking temp too low (<90Ã—F)", "Poor digestion, lethargy, won't eat", "Use 75-100w halogen to achieve 94-97Ã—F surface temp"],
+        ["No temperature gradient (hot everywhere)", "Can't thermoregulate, stress, overheating", "Heat lamp on one end onlyÃ—cool end should be 70-77Ã—F"],
+        ["Sparse dÃ—cor (empty tank)", "Stress, hiding constantly, reduced activity", "Add rock stacks, branches, ledgesÃ—aim for 50% floor coverage"]
       ]
     },
     {
@@ -226,16 +222,16 @@
       "type": "table",
       "headers": ["Scenario", "Enclosure Size", "Success Rate", "Risk Factors"],
       "rows": [
-        ["Single gecko (recommended)", "36×18×18 minimum", "100%", "None—ideal for all keepers"],
-        ["Two females", "48×24×18 minimum", "60% success", "Competition for basking, food aggression, tail loss, stress"],
-        ["One male + multiple females", "72×24×18 minimum", "40% success", "Breeding stress, male aggression, females may fight"],
-        ["Two males (NEVER)", "Any size", "0% success", "Severe fighting, injuries, death—males are highly territorial"]
+        ["Single gecko (recommended)", "36Ã—18Ã—18 minimum", "100%", "NoneÃ—ideal for all keepers"],
+        ["Two females", "48Ã—24Ã—18 minimum", "60% success", "Competition for basking, food aggression, tail loss, stress"],
+        ["One male + multiple females", "72Ã—24Ã—18 minimum", "40% success", "Breeding stress, male aggression, females may fight"],
+        ["Two males (NEVER)", "Any size", "0% success", "Severe fighting, injuries, deathÃ—males are highly territorial"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Males should NEVER be housed together—they will fight to the death. Signs of failed cohabitation: tail loss, bite marks, weight loss (one gecko not eating), one gecko always hiding. Separate immediately if any aggression is observed."
+      "content": "Males should NEVER be housed togetherÃ—they will fight to the death. Signs of failed cohabitation: tail loss, bite marks, weight loss (one gecko not eating), one gecko always hiding. Separate immediately if any aggression is observed."
     },
     {
       "type": "section",

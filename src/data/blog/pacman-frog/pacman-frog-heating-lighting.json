@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "pacman-frog-heating-lighting",
   "title": "Pacman Frog Heating & Lighting Guide: UVB, Thermostats & Equipment",
   "description": "Complete heating and lighting guide for Pacman frogs including heat lamp selection, UVB recommendations, thermostat types, and the science behind overhead heating.",
@@ -582,31 +582,6 @@
         "No UVB provided at all (missing health benefits)",
         "Forgetting to replace UVB bulbs yearly",
         "Thermostat probe in wrong location (inaccurate temps)"
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Related Guides"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<a href='/blog/pacman-frog-enrichment-welfare-guide' class='text-emerald-600 underline'>Enrichment & Welfare Guide</a> - Overview of all care requirements",
-        "<a href='/blog/pacman-frog-temperature-humidity' class='text-emerald-600 underline'>Temperature & Humidity Guide</a> - Environmental control and monitoring",
-        "<a href='/blog/pacman-frog-enclosure-setup' class='text-emerald-600 underline'>Enclosure Setup Guide</a> - Layout and equipment placement"
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Additional Resources"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<a href='https://www.reptifiles.com/wp-content/uploads/2020/10/Why-Infrared-Matters-by-Roman-Muryn.pdf' target='_blank' class='text-emerald-600 underline'>Why Infrared Matters by Roman Muryn</a> - Science behind heating types",
-        "<a href='https://www.facebook.com/groups/ReptileLighting' target='_blank' class='text-emerald-600 underline'>Reptile Lighting Facebook Group</a> - UVB testing data and recommendations",
-        "<a href='https://www.youtube.com/watch?v=EhbDx11OMfM' target='_blank' class='text-emerald-600 underline'>SnakeDiscovery Thermostat Modes Video</a> - Visual explanation of dimming vs on-off",
-        "<a href='https://www.reptifiles.com/reptile-uvb-lighting/' target='_blank' class='text-emerald-600 underline'>Reptifiles UVB Guide</a> - Comprehensive UVB information"
       ]
     }
   ]

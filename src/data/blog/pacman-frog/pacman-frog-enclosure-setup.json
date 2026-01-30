@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "pacman-frog-enclosure-setup",
   "title": "Pacman Frog Enclosure Setup: Size Requirements, Types & Decorations",
   "description": "Complete guide to Pacman frog enclosure requirements including size by sex, enclosure types (glass/PVC/screen), bin modifications, decorations, and enrichment setup.",
@@ -542,21 +542,21 @@
     {
       "type": "list",
       "items": [
-        "✓ Enclosure minimum size met (20 gal males, 40 gal females)",
-        "✓ Substrate 4-6 inches deep (see substrate guide)",
-        "✓ Leaf litter on top of substrate",
-        "✓ Heat lamp on one side (see heating & lighting guide)",
-        "✓ UVB fixture installed (optional but recommended)",
-        "✓ Thermometer probes on warm and cool sides",
-        "✓ Hygrometer probes on warm and cool sides",
-        "✓ Water dish on cool side (treated water)",
-        "✓ Hide on warm side",
-        "✓ Hide on cool side",
-        "✓ Overhead foliage/vines (especially for albinos)",
-        "✓ Plants and decorations added",
-        "✓ Temperatures stable: warm 80-85°F, cool 70-75°F",
-        "✓ Humidity 65-85% (species dependent)",
-        "✓ Let enclosure stabilize 24-48 hours before adding frog"
+        " Enclosure minimum size met (20 gal males, 40 gal females)",
+        " Substrate 4-6 inches deep (see substrate guide)",
+        " Leaf litter on top of substrate",
+        " Heat lamp on one side (see heating & lighting guide)",
+        " UVB fixture installed (optional but recommended)",
+        " Thermometer probes on warm and cool sides",
+        " Hygrometer probes on warm and cool sides",
+        " Water dish on cool side (treated water)",
+        " Hide on warm side",
+        " Hide on cool side",
+        " Overhead foliage/vines (especially for albinos)",
+        " Plants and decorations added",
+        " Temperatures stable: warm 80-85°F, cool 70-75°F",
+        " Humidity 65-85% (species dependent)",
+        " Let enclosure stabilize 24-48 hours before adding frog"
       ]
     },
     {

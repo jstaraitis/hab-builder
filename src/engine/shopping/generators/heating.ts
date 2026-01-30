@@ -1,4 +1,4 @@
-import type { ShoppingItem, AnimalProfile, EnclosureInput } from '../../types';
+import type { ShoppingItem, AnimalProfile, EnclosureInput, EquipmentConfig } from '../../types';
 import { createShoppingItem, getEquipment, calculateVolume } from '../utils';
 import { matchesAnimalNeeds } from '../matching';
 
@@ -8,7 +8,7 @@ import { matchesAnimalNeeds } from '../matching';
 function addItemWithDependencies(
   items: ShoppingItem[],
   itemId: string,
-  config: any,
+  config: EquipmentConfig,
   quantity: number | string,
   sizing: string,
   profile: AnimalProfile,

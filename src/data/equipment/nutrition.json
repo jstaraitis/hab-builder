@@ -146,7 +146,7 @@
   "frozen-rodents": {
     "name": "Frozen Rodents (Mice/Rats)",
     "category": "nutrition",
-    "needsTags": ["diet:carnivore"],
+    "needsTags": ["diet:carnivore-rodents"],
     "importance": "required",
     "isRecurring": true,
     "recurringInterval": "weekly",
@@ -176,7 +176,7 @@
   "feeding-tongs-long": {
     "name": "Long Feeding Tongs (12-16\")",
     "category": "nutrition",
-    "needsTags": ["diet:carnivore"],
+    "needsTags": ["diet:carnivore-rodents"],
     "importance": "required",
     "tiers": {
       "minimum": {
@@ -197,10 +197,100 @@
     },
     "notes": "Essential for safe feeding of frozen prey. Long length protects hands from strikes. NEVER hand-feed snakes."
   },
+  "frozen-bloodworms": {
+    "name": "Frozen Bloodworms",
+    "category": "nutrition",
+    "needsTags": ["diet:carnivore-aquatic"],
+    "importance": "recommended",
+    "isRecurring": true,
+    "recurringInterval": "weekly",
+    "spec": {
+      "type": "frozen bloodworms (chironomid larvae)",
+      "feeding": "2-3 times per week for axolotls"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Frozen bloodworm cubes",
+        "searchQuery": "frozen bloodworms aquarium",
+        "priceRange": { "min": 5, "max": 11 }
+      },
+      "recommended": {
+        "description": "Premium frozen bloodworms",
+        "searchQuery": "hikari frozen bloodworms",
+        "priceRange": { "min": 8, "max": 15 }
+      },
+      "ideal": {
+        "description": "Premium freeze-dried bloodworms",
+        "searchQuery": "freeze dried bloodworms aquarium",
+        "priceRange": { "min": 11, "max": 23 }
+      }
+    },
+    "notes": "High protein treat for axolotls. Thaw before feeding. Not a complete diet - use with pellets and earthworms."
+  },
+  "earthworms": {
+    "name": "Live Earthworms",
+    "category": "nutrition",
+    "needsTags": ["diet:carnivore-aquatic"],
+    "importance": "required",
+    "isRecurring": true,
+    "recurringInterval": "weekly",
+    "spec": {
+      "type": "nightcrawlers, red wigglers",
+      "size": "cut into bite-sized pieces for juveniles"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Live earthworms (store-bought)",
+        "searchQuery": "live earthworms nightcrawlers",
+        "priceRange": { "min": 6, "max": 11 }
+      },
+      "recommended": {
+        "description": "Cultured nightcrawlers",
+        "searchQuery": "live nightcrawlers axolotl",
+        "priceRange": { "min": 9, "max": 17 }
+      },
+      "ideal": {
+        "description": "Organic cultured earthworms",
+        "searchQuery": "organic nightcrawlers axolotl",
+        "priceRange": { "min": 11, "max": 23 }
+      }
+    },
+    "notes": "Staple food for axolotls. Store in refrigerator in breathable container with moist soil. Cut large worms for juveniles. NEVER use bait shop worms (may contain pesticides)."
+  },
+  "axolotl-pellets": {
+    "name": "Axolotl Pellets",
+    "category": "nutrition",
+    "needsTags": ["diet:carnivore-aquatic"],
+    "importance": "required",
+    "isRecurring": true,
+    "recurringInterval": "monthly",
+    "spec": {
+      "type": "sinking carnivore pellets",
+      "feeding": "daily staple food"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Hikari sinking carnivore pellets",
+        "searchQuery": "hikari sinking carnivore pellets",
+        "priceRange": { "min": 6, "max": 11 }
+      },
+      "recommended": {
+        "description": "Rangen axolotl pellets",
+        "searchQuery": "rangen axolotl pellets",
+        "priceRange": { "min": 9, "max": 17 }
+      },
+      "ideal": {
+        "description": "Northfin carnivore formula",
+        "searchQuery": "northfin carnivore formula pellets",
+        "priceRange": { "min": 11, "max": 23 }
+      }
+    },
+    "notes": "Daily staple diet for adult axolotls. Soak pellets before feeding to juveniles. Feed amount they can consume in 5 minutes. Remove uneaten pellets after 30 minutes."
+  },
   "kitchen-scale": {
     "name": "Digital Kitchen Scale",
     "category": "nutrition",
-    "needsTags": ["diet:carnivore"],
+    "needsTags": ["diet:carnivore-rodents"],
     "importance": "recommended",
     "spec": {
       "accuracy": "1 gram increments",
@@ -316,7 +406,7 @@
   "gecko-fruit-diet": {
     "name": "Gecko Diet (Fruit-Based)",
     "category": "nutrition",
-    "needsTags": ["diet:frugivore", "diet:omnivore"],
+    "needsTags": ["diet:frugivore"],
     "importance": "required",
     "isRecurring": true,
     "recurringInterval": "monthly",

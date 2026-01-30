@@ -27,8 +27,15 @@
   },
   "careTargets": {
     "temperature": {
-      "min": 75,
-      "max": 80,
+      "thermalGradient": true,
+      "coolSide": {
+        "min": 75,
+        "max": 78
+      },
+      "warmSide": {
+        "min": 78,
+        "max": 80
+      },
       "basking": {
         "min": 88,
         "max": 92

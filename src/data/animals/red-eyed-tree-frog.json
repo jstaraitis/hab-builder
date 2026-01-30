@@ -43,8 +43,15 @@
   },
   "careTargets": {
     "temperature": {
-      "min": 70,
-      "max": 85,
+      "thermalGradient": false,
+      "coolSide": {
+        "min": 70,
+        "max": 85
+      },
+      "warmSide": {
+        "min": 70,
+        "max": 85
+      },
       "basking": {
         "min": 82,
         "max": 88
@@ -90,7 +97,7 @@
   "bioactiveCompatible": true,
   "equipmentNeeds": {
     "climbing": "vertical",
-    "substrate": ["bioactive", "paludarium"],
+    "substrate": ["bioactive", "soil", "paper", "foam"],
     "bioactiveSubstrate": "tropical",
     "humidity": "high",
     "heatSource": "basking",

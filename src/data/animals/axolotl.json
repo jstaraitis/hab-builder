@@ -6,7 +6,7 @@
   "careLevel": "intermediate",
   "emoji": "🦎",
   "imageUrl": "/animals/axolotl/axolotl-1.jpg",
-  "completionStatus": "in-progress",
+  "completionStatus": "validated",
   "gallery": [
     {
       "url": "/animals/axolotl/axolotl-1.jpg",
@@ -21,14 +21,21 @@
   },
   "quantityRules": {
     "baseGallons": 30,
-    "additionalGallons": 10,
+    "additionalGallons": 30,
     "maxRecommended": 1,
     "description": "Axolotls are solitary and do best when housed alone. A 30-40 gallon breeder tank is minimum for one adult. Tank length and width matter more than height since they are bottom-dwelling."
   },
   "careTargets": {
     "temperature": {
-      "min": 60,
-      "max": 68,
+      "thermalGradient": false,
+      "coolSide": {
+        "min": 60,
+        "max": 68
+      },
+      "warmSide": {
+        "min": 60,
+        "max": 68
+      },
       "basking": null,
       "nighttime": {
         "min": 60,
@@ -71,13 +78,13 @@
   "bioactiveCompatible": false,
   "equipmentNeeds": {
     "climbing": "aquatic",
-    "substrate": ["substrate-bare-bottom", "substrate-slate-tile", "substrate-fine-sand-aquatic"],
+    "substrate": ["substrate-bare-bottom", "substrate-slate-tile", "substrate-fine-sand-aquatic", "sand-aquatic"],
     "bioactiveSubstrate": null,
     "humidity": 100,
     "heatSource": "none",
     "waterFeature": "fully-aquatic",
     "lighting": "none",
-    "diet": ["carnivore"],
+    "diet": ["carnivore-aquatic"],
     "animalType": "amphibian",
     "decor": ["hides-aquatic", "plants"],
     "filtration": ["aquarium-filter-sponge", "air-pump", "filter-media-bio"],
@@ -106,10 +113,10 @@
   ],
   "notes": [
     "Can regenerate lost limbs, gills, tail, and even parts of brain and heart",
-    "Neotenic salamander that retains juvenile features for life (never undergoes metamorphosis)",
+    "Axolotls do not have a complete metamorphosis. Rare cases they can perform a full metamorphosis and become terrestrial. Called morphed Axolotls.",
     "Critically Endangered in wild - only found in Lake Xochimilco canals (Mexico City area), population declined 99.5% since 1998 due to urbanization and pollution",
     "Aztecs named them 'axolotl' meaning 'water dog' or 'water monster' - considered sacred and linked to god Xolotl who transformed into an axolotl to escape sacrifice",
-    "Wild axolotls are dark brown/black for camouflage - pink/white/golden colors only exist in captivity through selective breeding for albinism and leucism"
+    "Wild axolotls are dark brown/black for camouflage. In the 1800s a Leucistic Axolotl was found and sent to Paris for research! Stories say this is where modern day Leucistics originated from."
   ],
   "warnings": [
     {

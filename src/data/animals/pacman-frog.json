@@ -27,8 +27,15 @@
   },
   "careTargets": {
     "temperature": {
-      "min": 70,
-      "max": 85,
+      "thermalGradient": false,
+      "coolSide": {
+        "min": 70,
+        "max": 85
+      },
+      "warmSide": {
+        "min": 70,
+        "max": 85
+      },
       "basking": {
         "min": 80,
         "max": 85
@@ -74,7 +81,7 @@
   "bioactiveCompatible": true,
   "equipmentNeeds": {
     "climbing": "ground",
-    "substrate": ["bioactive", "soil", "coco-fiber"],
+    "substrate": ["bioactive", "soil"],
     "bioactiveSubstrate": "tropical",
     "humidity": "moderate-high",
     "heatSource": "basking",

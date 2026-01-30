@@ -63,7 +63,26 @@ function App() {
   const profileCareTargets = selectedProfile?.careTargets;
 
   const handleAnimalSelect = (animalId: string) => {
-    setInput({ ...input, animal: animalId });
+    const profile = animalProfiles[animalId as keyof typeof animalProfiles] as AnimalProfile | undefined;
+    const minSize = profile?.minEnclosureSize;
+    const isAquatic = profile?.equipmentNeeds?.waterFeature === 'fully-aquatic';
+    
+    setInput({ 
+      ...input, 
+      animal: animalId,
+      // Auto-populate dimensions from animal's minimum enclosure size
+      ...(minSize && {
+        width: minSize.width,
+        depth: minSize.depth,
+        height: minSize.height,
+        units: minSize.units,
+      }),
+      // Reset bioactive and substrate preference for aquatic animals
+      ...(isAquatic && {
+        bioactive: false,
+        substratePreference: undefined,
+      })
+    });
     setPlan(null); // reset plan when animal changes
   };
 
@@ -102,7 +121,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800 pb-20 lg:pb-0">
       {/* User Submission Banner */}
-      <div className="bg-gradient-to-br from-green-400 via-emerald-400 to-orange-400 text-white py-3 px-4 text-center">
+      <div className="bg-gradient-to-br from-green-400 to-emerald-500 text-white py-3 px-4 text-center">
         <p className="text-base md:text-lg flex items-center justify-center gap-2">
           <Camera className="w-5 h-5 flex-shrink-0" />
           <span><strong>Share Your Setup!</strong> Submit photos of your animals and enclosures to help others.{' '}
@@ -303,9 +322,15 @@ function App() {
       <FeedbackModal isOpen={isFeedbackOpen} onClose={() => setIsFeedbackOpen(false)} />
 
       <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-12 lg:mt-16">
-        <div className="max-w-7xl mx-auto px-4 py-6 text-center text-sm text-gray-600 dark:text-gray-400">
-          <p>Habitat Builder • 🐸 • Always research multiple sources for animal care</p>
-          <p className="mt-1">Plans are guidelines - adjust based on your specific animal's needs</p>
+        <div className="max-w-7xl mx-auto px-4 py-6 text-center text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+          <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+            <span>Habitat Builder</span>
+            <span className="hidden sm:inline">•</span>
+            <span>🐸</span>
+            <span className="hidden sm:inline">•</span>
+            <span>Always research multiple sources for animal care</span>
+          </p>
+          <p className="mt-2">Plans are guidelines - adjust based on your specific animal's needs</p>
         </div>
       </footer>
     </div>

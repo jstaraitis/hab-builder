@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "pacman-frog-temperature-humidity",
   "title": "Pacman Frog Temperature & Humidity Guide: Species Differences & Control",
   "description": "Complete environmental control guide for Pacman frogs including temperature ranges by species, humidity requirements, monitoring equipment, and troubleshooting.",
@@ -543,13 +543,13 @@
     {
       "type": "list",
       "items": [
-        "✓ Check warm side temperature (should be 80-85°F)",
-        "✓ Check cool side temperature (should be 70-75°F or species-appropriate)",
-        "✓ Check cool side humidity (should be in species range)",
-        "✓ Verify thermal gradient exists (10-15°F difference between sides)",
-        "✓ Check substrate moisture (still moist throughout, not just surface)",
-        "✓ Verify all equipment functioning (heat lamp, UVB, thermostats)",
-        "✓ Observe frog behavior (using both warm and cool sides = good)"
+        " Check warm side temperature (should be 80-85°F)",
+        " Check cool side temperature (should be 70-75°F or species-appropriate)",
+        " Check cool side humidity (should be in species range)",
+        " Verify thermal gradient exists (10-15°F difference between sides)",
+        " Check substrate moisture (still moist throughout, not just surface)",
+        " Verify all equipment functioning (heat lamp, UVB, thermostats)",
+        " Observe frog behavior (using both warm and cool sides = good)"
       ]
     },
     {

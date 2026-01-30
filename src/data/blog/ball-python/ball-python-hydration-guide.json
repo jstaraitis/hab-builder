@@ -1,4 +1,4 @@
-{
+ï»¿{
   "id": "ball-python-hydration-guide",
   "title": "Ball Python Hydration & Shedding Guide: Water Requirements for Semi-Arid Species",
   "description": "Complete hydration guide for ball pythons covering water bowl requirements (large enough for soaking), dehydration recognition, shedding cycle (every 4-8 weeks), humidity's role in hydration, and troubleshooting stuck sheds.",
@@ -12,7 +12,7 @@
     {
       "type": "intro",
       "title": "Hydration & Shedding for Ball Pythons",
-      "content": "Ball pythons originate from semi-arid West African savannas with seasonal rainfall, requiring moderate hydration (45-75% humidity) rather than tropical levels. Proper hydration depends on three factors: accessible water bowl (large enough for full-body soaking), adequate ambient humidity (measured in cool hide), and appropriate temperatures for metabolic hydration (95-104°F basking). Dehydration manifests through sunken eyes, wrinkled skin, and stuck sheds—all preventable with correct husbandry. This ReptiFiles®-based guide covers water bowl setup, recognizing dehydration, supporting healthy sheds (every 4-8 weeks for adults), troubleshooting stuck sheds, and understanding the humidity-hydration relationship critical for captive ball python health."
+      "content": "Ball pythons originate from semi-arid West African savannas with seasonal rainfall, requiring moderate to high hydration (70-80% humidity ideal). Proper hydration depends on three factors: accessible water bowl (large enough for full-body soaking), adequate ambient humidity, and appropriate temperatures for metabolic hydration. Dehydration manifests through sunken eyes, wrinkled skin, and stuck shedsâ€”all preventable with correct husbandry. This guide covers water bowl setup, recognizing dehydration, supporting healthy sheds (every 4-8 weeks for adults), troubleshooting stuck sheds, and understanding the humidity-hydration relationship critical for captive ball python health."
     },
     {
       "type": "section",
@@ -20,7 +20,7 @@
     },
     {
       "type": "text",
-      "content": "Ball pythons need constant access to clean water for drinking and occasional soaking (especially before sheds)."
+      "content": "Ball pythons need constant access to clean water for occasional soaking (especially before sheds)."
     },
     {
       "type": "text",
@@ -30,17 +30,17 @@
       "type": "table",
       "headers": ["Feature", "Requirement", "Rationale"],
       "rows": [
-        ["Size", "Large enough for snake to curl up completely inside", "Ball pythons soak before shedding and when dehydrated—small bowls prevent soaking"],
-        ["Depth", "2-3 inches deep minimum", "Allows partial submersion—snake should be able to submerge body but keep head above water"],
+        ["Size", "Large enough for snake to curl up completely inside", "Ball pythons soak before shedding and when dehydrated - small bowls prevent soaking"],
+        ["Depth", "2-3 inches deep minimum", "Allows partial submersion - snake should be able to submerge body but keep head above water"],
         ["Material", "Ceramic, heavy plastic, or stainless steel", "Durable, easy to clean, won't tip easily when snake climbs in"],
         ["Placement", "Cool side of enclosure", "Warm side placement causes excessive evaporation (lowers humidity, water goes stale faster)"],
-        ["Accessibility", "Easy entry/exit, no climbing required", "Ball pythons are terrestrial—shouldn't need to climb to access water"],
-        ["Stability", "Heavy enough that snake can't flip", "Spilled water creates mess, lowers humidity, and leaves snake without hydration"]
+        ["Accessibility", "Easy entry/exit, no climbing required", "Ball pythons are terrestrial - shouldn't need to climb to access water"],
+        ["Stability", "Heavy enough that snake can't flip", "Spilled water creates mess and leaves snake without hydration"]
       ]
     },
     {
       "type": "highlight",
-      "content": "Size guideline: For adult ball python (1000-2000g), use 8-10 inch diameter bowl minimum (similar to large dog water bowl). For juveniles (<500g), 5-6 inch diameter suffices. When in doubt, bigger is better—ball pythons appreciate large water bowls."
+      "content": "Size guideline: For adult ball python (1000-2000g), use 8-10 inch diameter bowl minimum (similar to large dog water bowl). For juveniles (<500g), 5-6 inch diameter suffices. When in doubt, bigger is better - ball pythons appreciate large water bowls."
     },
     {
       "type": "section",
@@ -61,22 +61,18 @@
         ["Water change", "Daily", "Dump old water, rinse bowl, refill with fresh room-temperature water"],
         ["Bowl scrubbing", "2-3x weekly", "Use reptile-safe disinfectant (F10SC or chlorhexidine diluted) + scrub brush"],
         ["Deep clean", "Monthly", "Soak bowl in 10% bleach solution for 10 minutes, rinse thoroughly, air dry completely"],
-        ["Check for cracks", "Monthly", "Replace cracked bowls—bacteria colonize cracks and can't be cleaned out"],
-        ["After defecation in bowl", "Immediately", "Full clean with disinfectant—fecal bacteria contaminate water quickly"]
+        ["Check for cracks", "Monthly", "Replace cracked bowls, bacteria colonize cracks and can't be cleaned out"],
+        ["After defecation in bowl", "Immediately", "Full clean with disinfectant, fecal bacteria contaminates water quickly"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Ball pythons frequently defecate in water bowls (normal behavior—wild snakes defecate in water to mask scent from predators). When this happens, clean bowl immediately with disinfectant. Never leave feces-contaminated water—causes bacterial overgrowth and potential infection."
+      "content": "Ball pythons frequently defecate in water bowls (normal behavior - wild snakes defecate in water to mask scent from predators). When this happens, clean bowl immediately with disinfectant. Never leave feces-contaminated water, causes bacterial overgrowth and potential infection."
     },
     {
       "type": "section",
       "title": "Drinking Behavior"
-    },
-    {
-      "type": "text",
-      "content": "Ball pythons drink by lapping water with their tongues. Drinking is often unobserved since they're crepuscular (active dawn/dusk)."
     },
     {
       "type": "text",
@@ -86,17 +82,12 @@
       "type": "table",
       "headers": ["Behavior", "What It Means", "Normal?"],
       "rows": [
-        ["Drinks 1-2x per week", "Adequate hydration from food + ambient humidity", "Yes—normal for healthy ball python"],
-        ["Rarely see snake drinking", "Crepuscular activity—drinks at dawn/dusk when keeper not observing", "Yes—doesn't mean snake isn't drinking"],
-        ["Drinks immediately after feeding", "Digestion requires hydration", "Yes—common behavior post-feeding"],
-        ["Prolonged soaking (1+ hours)", "Pre-shed behavior OR dehydration OR mites", "Pre-shed = normal; otherwise investigate humidity + check for mites"],
-        ["Never observed drinking", "Drinking at night OR getting hydration from prey + humidity", "Usually normal if body condition good + sheds clean"],
-        ["Excessive drinking (daily, long sessions)", "May indicate dehydration or kidney issues", "Investigate—verify 60-75% humidity in cool hide, check for stuck sheds"]
+        ["Prolonged soaking (1+ hours)", "Pre-shed behavior OR dehydration OR mites", "Pre-shed = normal; otherwise investigate humidity + check for mites"]
       ]
     },
     {
       "type": "highlight",
-      "content": "Hydration from prey: Whole prey animals are ~60-70% water. Ball pythons obtain significant hydration from food, reducing need to drink frequently. A well-fed ball python may only drink once per week."
+      "content": "Hydration from prey: Whole prey animals are ~60-70% water. Ball pythons obtain significant hydration from food, reducing need to soak frequently."
     },
     {
       "type": "section",
@@ -114,11 +105,11 @@
       "type": "table",
       "headers": ["Soaking Pattern", "Likely Cause", "Solution"],
       "rows": [
-        ["Occasional soaking (1-2 hours every few weeks)", "Normal behavior, especially pre-shed", "No action needed—ensure water bowl large enough"],
-        ["Soaking 3-5 days before shed", "Pre-shed hydration (eyes blue, skin dull)", "Normal—ensure humidity 60-70% to support shedding"],
-        ["Soaking frequently (daily or multiple times per day)", "Dehydration OR mites OR enclosure too hot", "Check humidity (should be 60-75% in cool hide), verify temps (cool side <80°F), inspect for mites (tiny black/red dots)"],
-        ["Soaking after feeding", "Normal—some ball pythons soak post-feeding", "No concern if temps + humidity correct"],
-        ["Prolonged soaking in juveniles", "Often humidity too low—juveniles more sensitive", "Increase misting frequency, add humid hide, verify 65-75% humidity"]
+        ["Occasional soaking (1-2 hours every few weeks)", "Normal behavior, especially pre-shed", "No action needed, ensure water bowl large enough"],
+        ["Soaking 3-5 days before shed", "Pre-shed hydration (eyes blue, skin dull)", "Normal, ensure proper humidity to support shedding"],
+        ["Soaking frequently (daily or multiple times per day)", "Dehydration OR mites OR enclosure too hot", "Check humidity, inspect for mites (tiny black/red dots)"],
+        ["Soaking after feeding", "Normal, some ball pythons soak post-feeding", "No concern if temps + humidity correct"],
+        ["Prolonged soaking in juveniles", "Often humidity too low, juveniles more sensitive", "Increase misting frequency, add humid hide, verify humidity"]
       ]
     },
     {
@@ -132,7 +123,7 @@
     },
     {
       "type": "text",
-      "content": "Humidity and hydration are interconnected—low humidity causes respiratory moisture loss, forcing snakes to drink more and soak frequently."
+      "content": "Humidity and hydration are interconnected: low humidity causes respiratory moisture loss, forcing snakes to soak frequently."
     },
     {
       "type": "text",
@@ -142,10 +133,10 @@
       "type": "table",
       "headers": ["Humidity Level", "Hydration Impact", "Observable Effects"],
       "rows": [
-        ["Too low (<40%)", "Excessive moisture loss via respiration", "Dehydration, stuck sheds, frequent soaking, wrinkled skin"],
-        ["Optimal (45-75%)", "Minimal moisture loss, hydration maintained", "Clean sheds, normal drinking, occasional soaking"],
-        ["Too high (>85% constantly)", "Respiratory infection risk", "Wheezing, mucus around mouth, open-mouth breathing"],
-        ["Gradient (cool side 65-75%, warm side 45-60%)", "Ideal—snake chooses preferred humidity", "Healthiest setup—allows snake to self-regulate hydration"]
+        ["Too low (<60%)", "Excessive moisture loss via respiration", "Dehydration, stuck sheds, frequent soaking, wrinkled skin"],
+        ["Minimum adequate (60-70%)", "Adequate moisture retention for many individuals", "Most ball pythons do okay, some may show dehydration"],
+        ["Ideal (70-80%)", "Optimal moisture balance, minimal respiratory loss", "Clean sheds, occasional soaking"],
+        ["Too high (>80% constantly)", "Respiratory infection risk if ventilation poor", "Scale rot risk if substrate constantly wet, possible respiratory issues"]
       ]
     },
     {
@@ -172,15 +163,15 @@
         ["Wrinkled/loose skin", "Moderate", "Skin doesn't snap back when gently pulled, appears saggy"],
         ["Stuck shed", "Mild to moderate", "Shed comes off in pieces, eye caps retained, tail tip retained"],
         ["Prolonged soaking", "Mild", "Snake spends hours in water bowl daily"],
-        ["Reduced skin elasticity", "Moderate", "Skin tenting test: gently pinch skin on back—should snap back immediately, not stay tented"],
+        ["Reduced skin elasticity", "Moderate", "Skin tenting test: gently pinch skin on back, should snap back immediately, not stay tented"],
         ["Lethargy", "Severe", "Snake barely moves, unresponsive"],
-        ["Sunken body", "Severe", "Spine prominent, body looks collapsed—VETERINARY EMERGENCY"]
+        ["Sunken body", "Severe", "Spine prominent, body looks collapsed, VETERINARY EMERGENCY"]
       ]
     },
     {
       "type": "warning",
       "severity": "critical",
-      "content": "Severe dehydration treatment: If snake shows sunken eyes + wrinkled skin + lethargy, provide shallow warm water soak (85-90°F water, 20-30 minutes, never leave unattended) + immediately fix humidity (65-75% minimum) + veterinary consultation. Severe dehydration can cause kidney failure."
+      "content": "Severe dehydration treatment: If snake shows sunken eyes + wrinkled skin + lethargy, provide shallow warm water soak (85-90F water, 20-30 minutes, never leave unattended) + immediately fix humidity  + veterinary consultation. Severe dehydration can cause kidney failure."
     },
     {
       "type": "section",
@@ -201,8 +192,7 @@
         ["Hatchlings (<6 months)", "Every 3-4 weeks", "Rapid growth requires frequent skin replacement"],
         ["Juveniles (6-18 months)", "Every 4-6 weeks", "Moderate growth rate"],
         ["Sub-adults/adults (18+ months)", "Every 4-8 weeks", "Slower growth, shed frequency decreases with age"],
-        ["Large adults (>5 years)", "Every 8-12 weeks", "Minimal growth, longer intervals between sheds"],
-        ["Breeding females (gravid)", "May shed 1-2x during gravid period", "Hormonal changes + egg development trigger sheds"]
+        ["Large adults (>5 years)", "Every 8-12 weeks", "Minimal growth, longer intervals between sheds"]
       ]
     },
     {
@@ -225,16 +215,17 @@
       "type": "table",
       "headers": ["Stage", "Timeline", "Observable Changes", "Husbandry Adjustments"],
       "rows": [
-        ["Pre-shed (opaque stage)", "Days 1-3", "Eyes turn cloudy blue, skin becomes dull gray/brown, snake hides more, may refuse food", "Increase humidity to 65-70%, avoid handling, offer food but don't worry if refused"],
-        ["Clear stage", "Days 4-6", "Eyes clear up, colors return—looks normal again", "Maintain 65-70% humidity, still avoid handling"],
-        ["Shedding", "Day 7-10", "Snake rubs snout on rough surfaces, shed comes off starting at snout, entire process takes 1-4 hours", "Ensure humidity 65-70%, provide rough surfaces (cork bark, rocks) for rubbing, snake may soak in water bowl"],
-        ["Post-shed", "Day 10+", "Fresh colors bright and vibrant, eye caps clear, appetite returns", "Return to normal humidity (60-75%), can handle 24 hours after shed, feed within 2-3 days"]
+        ["Pink phase", "Days 1-3", "Light areas (belly, white scales) take on pinkish hue as skin begins separating - often mistaken for burns or scale rot", "No special care needed if humidity already 70-80%, avoid handling"],
+        ["Blue phase (opaque)", "Days 4-7", "Eyes turn cloudy blue, entire body dull blue-grey as lymphatic fluid separates old skin, snake hides more, may refuse food", "No special care needed if humidity already 70-80%, avoid handling"],
+        ["Clear phase", "Days 8-12", "Eyes clear up, colors return to slightly dull but normal appearance - stays this way for several days before actual shed", "No special care needed, avoid handling, wait for actual shed"],
+        ["Actual shedding", "Day 12-14", "Shed comes off in MINUTES in one complete piece, usually inside a hide - no rough surfaces needed for ball pythons", "No intervention needed, clean hide after (often defecates during shed)"],
+        ["Post-shed", "Day 14+", "Fresh colors bright and vibrant, eye caps clear, appetite returns", "Can handle 24 hours after shed, feed within 2-3 days"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Never pull shedding skin off a ball python—this damages scales underneath and causes injuries. Let snake complete shed naturally. If shed is stuck, provide humidity soak AFTER shed attempt, never forcibly remove skin."
+      "content": "Never pull shedding skin off a ball pythonâ€”this damages scales underneath and causes injuries. Let snake complete shed naturally. DO NOT manually remove stuck shed. Raise humidity to 70-80% + add permanent humid hide. Stuck shed will fall off before or during next shed cycle. Only exception: tail tip stuck shed blocking blood flow = immediate vet visit."
     },
     {
       "type": "section",
@@ -242,26 +233,37 @@
     },
     {
       "type": "text",
-      "content": "Proper humidity, rough surfaces for rubbing, and soaking opportunity enable clean one-piece sheds."
+      "content": "If your ball python is healthy and well-hydrated from proper humidity (70-80%) maintained at all times, there is NO special care needed during shedding."
     },
     {
       "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Shed Support Requirements:</span>"
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>What NOT to Do During Shedding:</span>"
     },
     {
       "type": "list",
       "items": [
-        "Maintain 65-70% humidity during shed cycle (higher than normal 60-75% baseline)",
-        "Provide rough surfaces: cork bark, rocks, branches for snake to rub against",
-        "Ensure large water bowl for soaking—ball pythons often soak 1-3 hours before shedding",
-        "Avoid handling during shed cycle (opaque stage through completion)—stress can interrupt shedding",
-        "Mist enclosure 2-3x daily during shed cycle if humidity baseline is low",
-        "Add humid hide (optional but helpful): Hide box with damp sphagnum moss maintains 80-90% humidity microclimate"
+        "NO baths or soaking sessions (causes stress for terrestrial species)",
+        "NO 'shed aid' products or sprays",
+        "NO special misting schedule changes",
+        "NO handling during shed cycle (causes stress and discomfort)"
       ]
     },
     {
       "type": "highlight",
-      "content": "Humid hide setup: Take a plastic hide box, add 2-3 inches of damp (not soaking wet) sphagnum moss, place on cool side. Ball python can choose humid hide when needed (especially during sheds), then return to normal hides. Remoisten moss weekly."
+      "content": "Ball pythons shed INSIDE hides, in tight spaces - they do NOT need rough surfaces to rub against (this is a common misconception). If humidity is maintained at 70-80% year-round, shed skin comes off easily in one complete piece within minutes. The shed will often be bunched up rather than stretched out because they shed in confined spaces."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>What Your Snake DOES Need (Year-Round, Not Just During Sheds):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Maintain 70-80% humidity at ALL times (minimum 60%, but many individuals need 70%+)",
+        "Large water bowl for drinking and optional soaking (snake will soak if needed)",
+        "Appropriate hides on both warm and cool sides",
+        "No handling during entire shed cycle (pink phase through actual shed completion)"
+      ]
     },
     {
       "type": "section",
@@ -279,25 +281,38 @@
       "type": "table",
       "headers": ["Stuck Shed Location", "Risk Level", "Treatment"],
       "rows": [
-        ["Eye caps (spectacles)", "HIGH—can cause blindness if multiple layers accumulate", "Soak snake in shallow warm water (85-90°F) for 20-30 minutes, gently rub eye caps with damp cotton swab. If 2+ layers stuck, VET VISIT—may need manual removal by vet"],
-        ["Tail tip", "HIGH—can cause necrosis (tail tip dies and falls off)", "Soak tail in warm water, gently massage stuck skin. If constricting tail circulation, VET VISIT immediately"],
-        ["Body patches", "LOW—cosmetic issue", "Increase humidity to 70-75% for 2-3 days, snake will likely shed stuck pieces at next shed. Can gently remove with damp cloth if loose"],
-        ["Cloaca (vent area)", "MODERATE—can prevent defecation", "Warm water soak + gentle massage. If stuck shed blocking vent, VET VISIT"],
-        ["Toes/vent scales", "MODERATE—can constrict circulation", "Warm soak + gentle removal with damp cotton swab"]
+        ["Eye caps (spectacles)", "HIGH - can cause blindness if multiple layers accumulate", "DO NOT manually remove. Raise humidity to 80% + add humid hide. Stuck caps will come off in next shed. If 2+ layers stuck, VET VISIT for safe removal"],
+        ["Tail tip", "HIGH - can cause necrosis if constricting circulation", "DO NOT manually remove. If constricting tail and blocking blood flow, VET VISIT immediately. Otherwise, raise humidity to 80% + add humid hide, will come off in next shed"],
+        ["Body patches", "LOW - cosmetic issue", "DO NOT manually remove. Raise humidity to 80%, add humid hide. Stuck pieces will fall off before or during next shed. Takes patience but safest approach"],
+        ["Cloaca (vent area)", "MODERATE - can prevent defecation", "DO NOT manually remove. Raise humidity to 80% + add humid hide. If blocking defecation, VET VISIT for safe removal"],
+        ["All stuck shed", "NEVER use tools (cotton swabs, tweezers, tape) to remove stuck shed", "Risk of injury cannot be overstated. Slow approach is safest. Let humidity and time do their work"]
       ]
     },
     {
       "type": "warning",
       "severity": "critical",
-      "content": "Multiple stuck eye caps = emergency: If ball python has 2+ layers of stuck eye caps (looks like cloudy/opaque eyes that never cleared), this will cause blindness. Vet must remove under magnification. Prevention: maintain 65-70% humidity during all shed cycles."
+      "content": "Multiple stuck eye caps = emergency: If ball python has 2+ layers of stuck eye caps (looks like cloudy/opaque eyes that never cleared), this will cause blindness. Vet must remove under magnification. Prevention: maintain 70-80% humidity AT ALL TIMES year-round, not just during sheds."
+    },
+    {
+      "type": "highlight",
+      "content": "Myth: Humidity only needs to be high during shedding. Reality: This temporarily masks the problem but doesn't fix it - snake remains chronically dehydrated between sheds. Proper humidity (70-80%) must be maintained 24/7 year-round for optimal health."
     },
     {
       "type": "section",
-      "title": "Warm Water Soak Procedure"
+      "title": "Baths/Soaking: Generally NOT Recommended"
     },
     {
       "type": "text",
-      "content": "Used to treat stuck sheds or severe dehydration. Must be done safely to avoid drowning or thermal shock."
+      "content": "Ball pythons are NOT naturally inclined to spend time in water. Baths cause significant stress and are rarely necessary. Raising humidity + adding humid hide is the preferred treatment for stuck sheds and dehydration. The stress of a bath outweighs any possible benefits in the vast majority of cases."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Humid hide is superior to baths: Provides stress-free opportunity to 'soak' in damp microclimate whenever snake needs, for as long as needed. Place humid hide on cool side (more comfortable for extended use). Use damp sphagnum moss, moisture-friendly substrate, or damp paper towels. Ball python will use it when needed without forced handling."
+    },
+    {
+      "type": "text",
+      "content": "If you must give a bath for severe dehydration (rare emergency situations only), follow this protocol:"
     },
     {
       "type": "text",
@@ -306,19 +321,19 @@
     {
       "type": "list",
       "items": [
-        "Use shallow container (plastic storage tub works well)—water depth should only reach halfway up snake's body",
-        "Water temperature: 85-90°F (use thermometer to verify—NOT hotter, not cooler)",
+        "Use shallow container (plastic storage tub works well) water depth should only reach halfway up snake's body",
+        "Water temperature: 85-90F (use thermometer to verify,NOT hotter, not cooler)",
         "Soak duration: 20-30 minutes maximum",
-        "NEVER leave snake unattended—snakes can drown in water if stressed or unable to escape",
+        "NEVER leave snake unattended,nakes can drown in water if stressed or unable to escape",
         "Provide something for snake to grip (clean towel in bottom of container)",
         "After soak, gently pat snake dry with towel (don't rub roughly)",
-        "Return snake to warm hide (85-88°F) to dry off completely and warm up"
+        "Return snake to warm hide (85-88F) to dry off completely and warm up"
       ]
     },
     {
       "type": "warning",
       "severity": "critical",
-      "content": "Drowning risk: Ball pythons can drown if water is too deep or they become exhausted. ALWAYS supervise soaking sessions. Water should only reach halfway up snake's body—head and top of back should remain above water while snake is at rest."
+      "content": "Drowning risk: Ball pythons can drown if water is too deep or they become exhausted. ALWAYS supervise soaking sessions. Water should only reach halfway up snake's bodyÃ—head and top of back should remain above water while snake is at rest."
     },
     {
       "type": "section",
@@ -336,12 +351,12 @@
       "type": "table",
       "headers": ["Method", "Effectiveness", "Best For"],
       "rows": [
-        ["Moisture-retentive substrate (soil-based, 2-4\" deep)", "HIGH—maintains 60-75% baseline humidity", "All ball python enclosures—most important factor"],
-        ["Large water bowl on cool side", "MODERATE—provides 10-15% humidity increase", "Essential for all setups"],
-        ["Misting 1-2x daily", "MODERATE—temporary humidity spikes", "Dry climates OR during shed cycles"],
-        ["Humid hide (damp sphagnum moss)", "HIGH—provides 80-90% microclimate", "Juveniles OR snakes with recurring stuck sheds"],
-        ["Reduce ventilation (partially cover screen top)", "HIGH—reduces moisture escape", "Glass tank setups (PVC enclosures naturally hold humidity better)"],
-        ["PVC enclosure vs glass tank", "HIGH—PVC holds humidity 50% better than glass", "Best long-term solution if humidity chronically low"]
+        ["Moisture-retentive substrate (soil-based, 2-4\" deep)", "HIGH - maintains 70-80% baseline humidity", "ESSENTIAL for all ball python enclosures - most important factor"],
+        ["Large water bowl on cool side", "MODERATE - provides 10-15% humidity increase", "Essential for all setups - snake will soak if needed"],
+        ["Pour water into substrate (small amounts at a time)", "HIGH - gradual evaporation maintains stable humidity", "More effective than surface misting (which causes temporary spikes then drops)"],
+        ["Humid hide (damp sphagnum moss)", "HIGH - provides 80-90% microclimate", "Should be PERMANENT fixture for all ball pythons (not temporary during sheds)"],
+        ["Reduce ventilation (partially cover screen top)", "HIGH - reduces moisture escape", "Glass tank setups (PVC enclosures naturally hold humidity better)"],
+        ["PVC enclosure vs glass tank", "HIGH - PVC holds humidity 50% better than glass", "Best long-term solution - maintains 70-80% with minimal effort"]
       ]
     },
     {
@@ -364,16 +379,20 @@
       "type": "table",
       "headers": ["Hydration Status", "Shed Quality", "What Happens"],
       "rows": [
-        ["Well-hydrated + correct humidity (65-70%)", "Clean one-piece shed including eye caps", "Ideal—skin separates easily from new layer underneath"],
-        ["Well-hydrated + low humidity (40-50%)", "Stuck shed in patches, retained eye caps possible", "Hydration alone can't compensate for dry air"],
-        ["Dehydrated + correct humidity (65-70%)", "Shed may come off in pieces", "Humidity helps but dehydration causes skin to stick"],
-        ["Dehydrated + low humidity (40-50%)", "Severe stuck shed, multiple retained eye caps, tail tip retention", "Worst case—requires intervention + vet visit"]
+        ["Well-hydrated + correct humidity (70-80%)", "Clean one-piece shed including eye caps", "Idealâ€”lymphatic fluid lubricates skin properly, shed comes off easily in minutes"],
+        ["Well-hydrated + low humidity (40-50%)", "Stuck shed in patches, retained eye caps common", "Hydration alone can't compensate for dry airâ€”humidity is critical"],
+        ["Dehydrated + correct humidity (70-80%)", "Shed may come off in pieces or with difficulty", "Humidity helps but dehydration reduces lymphatic fluid that lubricates skin"],
+        ["Dehydrated + low humidity (40-50%)", "Severe stuck shed, multiple retained eye caps, tail tip retention", "Worst caseâ€”requires vet visit for eye cap removal + immediate husbandry fixes"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Fix both humidity AND hydration: If ball python has recurring stuck sheds, address both issues simultaneously: 1) Increase ambient humidity to 65-70%, 2) Provide large water bowl, 3) Verify temps support hydration (95-104°F basking helps metabolic hydration), 4) Consider adding humid hide."
+      "content": "Recovery timeline is LONG: Dehydration builds up over weeks or months, and recovery takes just as long. If your snake has had multiple bad sheds, it may take several shed cycles (months) before sheds are completely normal. Each shed should improve from the previous one. Be patient - maintain 70-80% humidity + humid hide continuously, not temporarily."
+    },
+    {
+      "type": "highlight",
+      "content": "Target humidity for recovery: If snake is showing dehydration signs or stuck sheds, aim for 80% humidity throughout enclosure until fully recovered (clean sheds + no dehydration signs). Then maintain 70-80% as standard practice permanently. Humid hide should become permanent fixture, not temporary treatment."
     },
     {
       "type": "section",
@@ -393,7 +412,7 @@
         ["Spray bottle for misting", "Increase humidity during dry periods or sheds", "$5-10 one-time"],
         ["Sphagnum moss (for humid hide)", "Optional humid hide substrate", "$8-12 per bag (lasts 6+ months)"],
         ["Shallow soaking container", "Warm water soaks for stuck sheds", "$5-10 (reuse plastic storage tub)"],
-        ["Thermometer for water temp", "Verify soak water 85-90°F", "$10-15 (can use infrared thermometer you already own)"]
+        ["Thermometer for water temp", "Verify soak water 85-90Ã—F", "$10-15 (can use infrared thermometer you already own)"]
       ]
     },
     {

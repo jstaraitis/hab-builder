@@ -14,7 +14,7 @@ Successfully migrated shopping list from budget-focused tiers (low/mid/premium) 
 
 ### 2. UI Components (`src/components/ShoppingList/ShoppingList.tsx`)
 - Updated tier display labels:
-  - `💰 Budget` → `✓ Minimum`
+  - `💰 Budget` → ` Minimum`
   - `💵 Mid-Range` → `⭐ Recommended`
   - `💎 Premium` → `💎 Ideal`
 - Changed info banner text to emphasize quality levels instead of budget ranges

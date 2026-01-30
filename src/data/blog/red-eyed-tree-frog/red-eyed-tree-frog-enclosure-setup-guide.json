@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "red-eyed-tree-frog-enclosure-setup-guide",
   "title": "Red-Eyed Tree Frog Enclosure Setup Guide",
   "species": "red-eyed-tree-frog",
@@ -58,10 +58,6 @@
     {
       "type": "highlight",
       "text": "The riparian zone is CRITICAL - frogs must easily transition between water and climbing areas without stress or risk of drowning."
-    },
-    {
-      "type": "highlight",
-      "text": "For complete guidance on creating vertical thermal gradients and selecting temperature monitoring equipment, see our <a href='/blog/thermal-gradient-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Understanding Thermal Gradients</a> and <a href='/blog/temperature-monitoring-equipment-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Temperature Monitoring Equipment</a> guides. Red-eyed tree frogs need a subtle vertical gradient with cooler water (72-76°F) and slightly warmer canopy (74-80°F)."
     },
     {
       "type": "section",

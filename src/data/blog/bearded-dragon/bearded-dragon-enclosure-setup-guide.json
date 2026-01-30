@@ -1,4 +1,4 @@
-{
+ï»¿{
   "id": "bearded-dragon-enclosure-setup-guide",
   "title": "Bearded Dragon Enclosure Setup: Size, Layout & Equipment Guide",
   "description": "Complete guide to setting up a bearded dragon enclosure including minimum size requirements, enclosure types, layout design, and essential equipment checklist.",
@@ -28,18 +28,18 @@
     },
     {
       "type": "table",
-      "headers": ["Life Stage", "Minimum Dimensions (L×W×H)", "Floor Space", "Notes"],
+      "headers": ["Life Stage", "Minimum Dimensions (LxWxH)", "Floor Space", "Notes"],
       "rows": [
-        ["Hatchling (0-6 months)", "36×18×18 inches", "4.5 sq ft", "Can start in 40-gallon breeder"],
-        ["Juvenile (6-12 months)", "48×24×24 inches", "8 sq ft", "Upgrade before reaching 12 inches"],
-        ["Adult (12+ months)", "72×24×24 inches", "12 sq ft", "Minimum 120-gallon equivalent"],
-        ["Large Adult (18+ inches)", "96×24×24 inches", "16 sq ft", "Recommended for males 20+ inches"]
+        ["Hatchling (0-6 months)", "36x18x18 inches", "4.5 sq ft", "Can start in 40-gallon breeder"],
+        ["Juvenile (6-12 months)", "48x24x24 inches", "8 sq ft", "Upgrade before reaching 12 inches"],
+        ["Adult (12+ months)", "72x24x24 inches", "12 sq ft", "Minimum 120-gallon equivalent"],
+        ["Large Adult (18+ inches)", "96x24x24 inches", "16 sq ft", "Recommended for males 20+ inches"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Critical Requirement: Adult bearded dragons require a MINIMUM 4×2×2 foot enclosure (120 gallons). Smaller enclosures cause chronic stress, obesity from reduced activity, and aggressive behaviors. Bigger is always better."
+      "content": "Critical Requirement: Adult bearded dragons require a MINIMUM 4x2x2 foot enclosure (120 gallons). Smaller enclosures cause chronic stress, obesity from reduced activity, and aggressive behaviors. Bigger is always better."
     },
     {
       "type": "section",
@@ -60,7 +60,7 @@
         ["Glass (front-opening)", "Good retention", "Low humidity (ideal)", "Standard choice, widely available"],
         ["PVC (custom enclosures)", "Excellent retention", "Very low humidity", "Premium option, best insulation"],
         ["Wood (custom builds)", "Good retention", "Moderate humidity", "DIY builds, requires sealing"],
-        ["Screen cages", "Poor retention", "Extremely low humidity", "NOT recommended for adults"]
+        ["Screen cages", "Poor retention", "Extremely low humidity", "NOT recommended"]
       ]
     },
     {
@@ -68,16 +68,12 @@
       "content": "Recommended Setup: Front-opening glass terrarium or PVC enclosure with mesh top (30-40% screen for ventilation). Side ventilation optional for air circulation."
     },
     {
-      "type": "highlight",
-      "content": "For complete guidance on creating thermal gradients, understanding temperature zones, and selecting temperature monitoring equipment, see our <a href='/blog/thermal-gradient-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Understanding Thermal Gradients</a> and <a href='/blog/temperature-monitoring-equipment-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Temperature Monitoring Equipment</a> guides. Below are the specific layout and enrichment requirements for bearded dragons."
-    },
-    {
       "type": "section",
       "title": "Bearded Dragon Specific Requirements"
     },
     {
       "type": "text",
-      "content": "Bearded dragons require a basking surface of 100-110°F at one end and a cool side of 75-80°F at the opposite end. They are diurnal baskers that spend significant time under UVB lighting."
+      "content": "Bearded dragons require a basking surface of 100-110F at one end and a cool side of 75-80F at the opposite end. They are diurnal baskers that spend significant time under UVB lighting."
     },
     {
       "type": "highlight",
@@ -103,7 +99,7 @@
         ["Natural stone (slate)", "Low (spot clean)", "Minimal (no digging)", "Heat retention, easy cleaning"],
         ["Topsoil/sand mix (4-6\\\")", "Moderate (spot clean)", "High (digging, burrowing)", "Natural behavior, bioactive"],
         ["Bioactive substrate", "Low (self-cleaning)", "High (natural ecosystem)", "Advanced keepers, enrichment"],
-        ["Reptile carpet", "High (launder weekly)", "None (suppresses behaviors)", "NOT recommended long-term"]
+        ["Reptile carpet", "High (launder weekly)", "None (suppresses behaviors)", "NOT recommended"]
       ]
     },
     {
@@ -117,13 +113,13 @@
     },
     {
       "type": "text",
-      "content": "Appropriate decor provides enrichment while maintaining clear sightlines and accessible floor space. Bearded dragons are ground-dwellers—prioritize horizontal structures."
+      "content": "Appropriate decor provides enrichment while maintaining clear sightlines and accessible floor space. Bearded dragons are ground-dwellers,prioritize horizontal structures."
     },
     {
       "type": "table",
       "headers": ["Decor Type", "Quantity", "Placement Guidelines"],
       "rows": [
-        ["Basking rock/platform", "1 primary", "Directly under heat + UVB, 8-10\\\" from bulb"],
+        ["Basking rock/platform", "1 primary", "Directly under heat + UVB, 8-10\" from bulb"],
         ["Hide caves", "2-3", "Distribute across thermal gradient"],
         ["Climbing branches", "2-4", "Horizontal orientation, stable anchoring"],
         ["Background ledges", "Optional", "Attached to back wall, wide platforms"],
@@ -147,9 +143,9 @@
       "type": "table",
       "headers": ["Error", "Consequence", "Correction"],
       "rows": [
-        ["Undersized enclosure (<4×2×2)", "Chronic stress, obesity, aggression", "Upgrade to minimum adult size"],
+        ["Undersized enclosure (<4x2x2)", "Chronic stress, obesity, aggression", "Upgrade to minimum adult size"],
         ["No thermal gradient", "Inability to thermoregulate", "Position heat source at one end only"],
-        ["Basking platform too low", "Insufficient heat exposure", "Raise platform 8-10\\\" from heat bulb"],
+        ["Basking platform too low", "Insufficient heat exposure", "Raise platform 8-10\" from heat bulb"],
         ["Overcrowded decor", "Restricted movement, stress", "Maintain 50%+ open floor space"],
         ["All hides on cool side", "Insufficient retreat options", "Place hides in each thermal zone"],
         ["Heat source centered", "No cool retreat available", "Position heat at one end exclusively"],
@@ -169,9 +165,9 @@
       "headers": ["Day", "Task", "Success Criteria"],
       "rows": [
         ["1-2", "Install equipment, test heating/lighting", "All fixtures operational, bulbs at correct distance"],
-        ["3-4", "Monitor temperatures across gradient", "Basking 100-110°F, cool side 75-80°F, stable nighttime drop"],
+        ["3-4", "Monitor temperatures across gradient", "Basking 100-110F, cool side 75-80F, stable nighttime drop"],
         ["5-6", "Verify UVB levels (if Solarmeter available)", "UVI 4.0-6.0 at basking surface"],
-        ["7", "Final checks: timer schedules, stability tests", "12-14hr photoperiod, all decor secure, no hot spots >115°F"]
+        ["7", "Final checks: timer schedules, stability tests", "12-14hr photoperiod, all decor secure, no hot spots >115F"]
       ]
     },
     {

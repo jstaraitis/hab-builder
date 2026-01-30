@@ -20,15 +20,22 @@
     "units": "in"
   },
   "quantityRules": {
-    "baseGallons": 120,
+    "baseGallons": 60,
     "additionalGallons": 0,
     "maxRecommended": 1,
-    "description": "Corn snakes are solitary and do NOT tolerate cohabitation. House individually only - minimum 120 gallons (48×24×24 inches). Cohabitation causes chronic stress, competition for resources, disease transmission, and feeding aggression."
+    "description": "Corn snakes are solitary and do NOT tolerate cohabitation. House individually only - minimum 60 gallons (48×24×24 inches). Cohabitation causes chronic stress, competition for resources, disease transmission, and feeding aggression."
   },
   "careTargets": {
     "temperature": {
-      "min": 75,
-      "max": 85,
+      "thermalGradient": true,
+      "coolSide": {
+        "min": 75,
+        "max": 78
+      },
+      "warmSide": {
+        "min": 82,
+        "max": 85
+      },
       "basking": {
         "min": 85,
         "max": 90
@@ -79,7 +86,7 @@
     "heatSource": "basking",
     "waterFeature": "shallow-dish",
     "lighting": "uvb-forest",
-    "diet": ["carnivore"],
+    "diet": ["carnivore-rodents"],
     "animalType": "reptile",
     "decor": ["branches", "hides", "plants", "moist-hide"],
     "water": ["water-dish-large"],
