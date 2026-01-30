@@ -1,0 +1,96 @@
+{
+  "id": "gargoyle-gecko",
+  "commonName": "Gargoyle Gecko",
+  "scientificName": "Rhacodactylus auriculatus",
+  "searchQuery": ["gargoyle gecko", "rhacodactylus auriculatus", "new caledonian gargoyle gecko"],
+  "careLevel": "beginner",
+  "emoji": "🦎",
+  "imageUrl": "/animals/gargoyle-gecko/gargoyle-gecko-1.jpg",
+  "completionStatus": "draft",
+  "gallery": [],
+  "minEnclosureSize": {
+    "width": 18,
+    "depth": 18,
+    "height": 24,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 20,
+    "additionalGallons": 10,
+    "maxRecommended": 1,
+    "description": "House individually. Males are territorial and will fight. Females can sometimes be housed together in larger enclosures (40+ gallons) but monitor for aggression."
+  },
+  "careTargets": {
+    "temperature": {
+      "thermalGradient": true,
+      "coolSide": {
+        "min": 72,
+        "max": 75
+      },
+      "warmSide": {
+        "min": 78,
+        "max": 82
+      },
+      "basking": null,
+      "nighttime": {
+        "min": 65,
+        "max": 72
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "day": {
+        "min": 50,
+        "max": 70
+      },
+      "night": {
+        "min": 60,
+        "max": 80
+      },
+      "shedding": {
+        "min": 70,
+        "max": 80
+      },
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": false,
+      "uvbRecommended": true,
+      "uvbStrength": "2-5%",
+      "coveragePercent": 50,
+      "photoperiod": "12 hours light, 12 hours dark"
+    },
+    "gradient": "Nocturnal species. Low UVB recommended for calcium metabolism. Temperature gradient allows thermoregulation."
+  },
+  "layoutRules": {
+    "preferVertical": true,
+    "verticalSpacePercent": 70,
+    "thermalGradient": "horizontal",
+    "requiredZones": ["climbing", "hide", "food-ledge"],
+    "optionalZones": ["basking", "plants"]
+  },
+  "bioactiveCompatible": true,
+  "equipmentNeeds": {
+    "climbing": "vertical",
+    "substrate": ["bioactive", "soil", "paper"],
+    "bioactiveSubstrate": "tropical",
+    "humidity": "moderate",
+    "heatSource": "ambient",
+    "waterFeature": "shallow-dish",
+    "lighting": "uvb-forest",
+    "diet": ["omnivore", "frugivore"],
+    "animalType": "reptile",
+    "decor": ["branches", "ledges", "hides", "plants"]
+  },
+  "lifespan": "15-20 years in captivity",
+  "dietType": "Omnivore (frugivorous/insectivorous)",
+  "adultSize": "7-9 inches total length",
+  "temperament": "Docile, handleable, can drop tail when stressed",
+  "activityPattern": "Nocturnal/Crepuscular",
+  "originRegion": "New Caledonia",
+  "setupTips": [],
+  "notes": [],
+  "warnings": [],
+  "relatedBlogs": [],
+  "careGuidance": {}
+}

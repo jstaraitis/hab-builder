@@ -7,7 +7,7 @@ interface AnimalPickerProps {
   onSelect: (animalId: string) => void;
 }
 
-type Category = 'all' | 'frogs' | 'geckos' | 'snakes' | 'lizards' | 'turtles';
+type Category = 'all' | 'frogs' | 'geckos' | 'snakes' | 'lizards' | 'turtles' | 'salamanders' | 'chameleons';
 
 // Category mapping based on animal ID patterns
 const getAnimalCategory = (animalId: string): Category => {
@@ -15,7 +15,9 @@ const getAnimalCategory = (animalId: string): Category => {
   if (animalId.includes('gecko')) return 'geckos';
   if (animalId.includes('snake') || animalId.includes('python')) return 'snakes';
   if (animalId.includes('slider') || animalId.includes('turtle')) return 'turtles';
-  if (animalId.includes('dragon') || animalId.includes('skink')) return 'lizards';
+  if (animalId.includes('axolotl') || animalId.includes('newt') || animalId.includes('salamander')) return 'salamanders';
+  if (animalId.includes('chameleon')) return 'chameleons';
+  if (animalId.includes('dragon') || animalId.includes('skink') || animalId.includes('uromastyx')) return 'lizards';
   return 'all';
 };
 
@@ -110,7 +112,9 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
           >
             <option value="all">All Animals</option>
             <option value="frogs">Frogs & Toads</option>
+            <option value="salamanders">Salamanders & Newts</option>
             <option value="geckos">Geckos</option>
+            <option value="chameleons">Chameleons</option>
             <option value="snakes">Snakes</option>
             <option value="lizards">Lizards</option>
             <option value="turtles">Turtles & Tortoises</option>
@@ -131,57 +135,72 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
           </button>
           <button
             onClick={() => setCategoryFilter('frogs')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-1.5 ${
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${
               categoryFilter === 'frogs'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
             }`}
           >
-            <Bug className="w-4 h-4" />
             Frogs & Toads
           </button>
           <button
+            onClick={() => setCategoryFilter('salamanders')}
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${
+              categoryFilter === 'salamanders'
+                ? 'bg-emerald-600 text-white shadow-md'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+            }`}
+          >
+            Salamanders & Newts
+          </button>
+          <button
             onClick={() => setCategoryFilter('geckos')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-1.5 ${
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
               categoryFilter === 'geckos'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
             }`}
           >
-            <Flame className="w-4 h-4" />
             Geckos
           </button>
           <button
+            onClick={() => setCategoryFilter('chameleons')}
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+              categoryFilter === 'chameleons'
+                ? 'bg-emerald-600 text-white shadow-md'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+            }`}
+          >
+            Chameleons
+          </button>
+          <button
             onClick={() => setCategoryFilter('snakes')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-1.5 ${
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
               categoryFilter === 'snakes'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
             }`}
           >
-            <Zap className="w-4 h-4" />
             Snakes
           </button>
           <button
             onClick={() => setCategoryFilter('lizards')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-1.5 ${
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
               categoryFilter === 'lizards'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
             }`}
           >
-            <Flame className="w-4 h-4" />
             Lizards
           </button>
           <button
             onClick={() => setCategoryFilter('turtles')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap flex items-center gap-1.5 ${
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${
               categoryFilter === 'turtles'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
             }`}
           >
-            <Fish className="w-4 h-4" />
             Turtles & Tortoises
           </button>
         </div>
@@ -273,7 +292,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
         )}
       </div>
 
-      <div className="grid grid-cols-1 min-[400px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4 justify-items-stretch">
+      <div className="grid grid-cols-1 min-[400px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-0 lg:gap-0 justify-items-stretch">
         {filteredAnimals.map((animal) => {
           // Determine border and accent colors based on care level
           const getCareLevelColors = () => {
@@ -316,13 +335,11 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
               className={`group relative overflow-hidden rounded-xl transition-all duration-300 text-left ${
                 selected === animal.id
                   ? `${colors.bg} ring-4 ${colors.border} shadow-xl scale-[1.02]`
-                  : isVerified
-                  ? 'bg-white dark:bg-gray-800 hover:shadow-2xl hover:scale-[1.02] shadow-lg ring-1 ring-emerald-500/20 dark:ring-emerald-400/20'
                   : 'bg-white dark:bg-gray-800 hover:shadow-lg hover:scale-[1.01]'
               } ${isDraft ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'}`}
             >
               {/* Image with colored border and text overlay */}
-              <div className="p-2 sm:p-3">
+              <div className="p-2 sm:p-2 md:p-2.5">
                 <div className={`relative w-full aspect-[4/3] rounded-lg overflow-hidden border-2 md:border-4 ${colors.border} transition-all duration-300`}>
                   {animal.imageUrl ? (
                     <img 

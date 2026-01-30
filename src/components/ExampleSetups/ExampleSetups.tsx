@@ -1,12 +1,13 @@
-import { Star, Award, Image, CheckCircle, Lightbulb, Bug } from 'lucide-react';
+import { Star, Award, Image, CheckCircle, Lightbulb, Bug, Upload } from 'lucide-react';
 
 interface ExampleSetupsProps {
   readonly animalType?: string;
   readonly layoutNotes?: string[];
   readonly speciesSetupTips?: string[];
+  readonly onOpenFeedback?: () => void;
 }
 
-export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTips = [] }: ExampleSetupsProps) {
+export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTips = [], onOpenFeedback }: ExampleSetupsProps) {
   const examples = [
     {
       id: 'minimalist',
@@ -51,7 +52,7 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
               <div className="relative">
                 <div className="flex items-center gap-2 mb-1.5">
                   <Award className="w-5 h-5 text-green-600 dark:text-green-400" />
-                  <span className="text-sm sm:text-base font-bold text-green-900 dark:text-green-200">Want to create custom layouts?</span>
+                  <span className="text-sm sm:text-base font-bold text-green-900 dark:text-green-200">Want to create or visualize custom layouts?</span>
                 </div>
                 <p className="text-xs sm:text-sm text-green-800 dark:text-green-300 leading-relaxed">
                   Interactive Enclosure Designer with drag-and-drop equipment, rotation, resizing, and more is in progress!
@@ -62,17 +63,35 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
         </div>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      {/* Mobile swipe indicator */}
+      <div className="md:hidden flex justify-center items-center gap-2 mt-3">
+        <div className="flex items-center gap-1.5">
+          <div className="w-2 h-2 rounded-full bg-purple-400"></div>
+          <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+          <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+        </div>
+        <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">Swipe to see more</span>
+      </div>
+
+      {/* Mobile: Horizontal scrollable cards, Desktop: Grid */}
+      <div className="md:grid md:grid-cols-3 md:gap-6 flex md:flex-none overflow-x-auto md:overflow-x-visible gap-4 snap-x snap-mandatory pb-2 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-hide">
         {examples.map((example) => (
           <div
             key={example.id}
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow"
+            className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow flex-shrink-0 w-[85%] md:w-auto snap-center"
           >
             {/* Image placeholder */}
             <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center relative">
-              <div className="text-center">
+              <div className="text-center px-4">
                 <Image className="w-12 h-12 mb-2 text-gray-600 dark:text-gray-400 mx-auto" />
-                <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">{example.name}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 font-medium mb-3">{example.name}</p>
+                <button 
+                  onClick={onOpenFeedback}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-emerald-600 hover:bg-emerald-700 rounded-md transition-colors"
+                >
+                  <Upload className="w-3.5 h-3.5" />
+                  Submit Your Setup
+                </button>
               </div>
               {/* Overlay for actual image when provided */}
               <img

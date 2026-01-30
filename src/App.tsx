@@ -281,7 +281,7 @@ function App() {
               )
             }
           />
-          <Route path="/plan" element={<PlanView plan={plan} input={input} />} />
+          <Route path="/plan" element={<PlanView plan={plan} input={input} onOpenFeedback={() => setIsFeedbackOpen(true)} />} />
           <Route
             path="/designer"
             element={

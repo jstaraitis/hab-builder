@@ -1,0 +1,100 @@
+{
+  "id": "african-clawed-frog",
+  "commonName": "African Clawed Frog",
+  "scientificName": "Xenopus laevis",
+  "searchQuery": ["african clawed frog", "xenopus laevis", "xenopus", "clawed frog"],
+  "careLevel": "beginner",
+  "emoji": "🐸",
+  "imageUrl": "/animals/african-clawed-frog/african-clawed-frog-1.jpg",
+  "completionStatus": "draft",
+  "gallery": [],
+  "minEnclosureSize": {
+    "width": 24,
+    "depth": 12,
+    "height": 12,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 10,
+    "additionalGallons": 5,
+    "maxRecommended": 3,
+    "description": "Can be housed in groups. 10 gallons per frog minimum. Peaceful with same-sized tank mates."
+  },
+  "careTargets": {
+    "temperature": {
+      "thermalGradient": false,
+      "coolSide": {
+        "min": 68,
+        "max": 78
+      },
+      "warmSide": {
+        "min": 68,
+        "max": 78
+      },
+      "basking": null,
+      "nighttime": {
+        "min": 68,
+        "max": 78
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "day": {
+        "min": 100,
+        "max": 100
+      },
+      "night": {
+        "min": 100,
+        "max": 100
+      },
+      "shedding": {
+        "min": 100,
+        "max": 100
+      },
+      "unit": "%",
+      "notes": "Fully aquatic - humidity not applicable"
+    },
+    "lighting": {
+      "uvbRequired": false,
+      "uvbRecommended": false,
+      "uvbStrength": null,
+      "coveragePercent": 0,
+      "photoperiod": "Natural room light sufficient"
+    },
+    "gradient": "Fully aquatic. No thermal gradient needed. Maintain stable water temperature."
+  },
+  "layoutRules": {
+    "preferVertical": false,
+    "verticalSpacePercent": 0,
+    "thermalGradient": "none",
+    "requiredZones": ["open-swimming", "hides"],
+    "optionalZones": ["plants"]
+  },
+  "bioactiveCompatible": false,
+  "equipmentNeeds": {
+    "climbing": "aquatic",
+    "substrate": ["substrate-bare-bottom", "sand-aquatic"],
+    "bioactiveSubstrate": null,
+    "humidity": 100,
+    "heatSource": "ambient",
+    "waterFeature": "fully-aquatic",
+    "lighting": "none",
+    "diet": ["carnivore-aquatic"],
+    "animalType": "amphibian",
+    "decor": ["hides-aquatic", "plants"],
+    "filtration": ["aquarium-filter-sponge"],
+    "waterTreatment": ["water-conditioner", "aquarium-test-kit"],
+    "maintenance": ["python-siphon"]
+  },
+  "lifespan": "10-15 years in captivity",
+  "dietType": "Carnivore",
+  "adultSize": "4-5 inches",
+  "temperament": "Peaceful, active, social",
+  "activityPattern": "Diurnal",
+  "originRegion": "Sub-Saharan Africa",
+  "setupTips": [],
+  "notes": [],
+  "warnings": [],
+  "relatedBlogs": [],
+  "careGuidance": {}
+}

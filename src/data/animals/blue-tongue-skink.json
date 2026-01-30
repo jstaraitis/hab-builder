@@ -1,0 +1,99 @@
+{
+  "id": "blue-tongue-skink",
+  "commonName": "Blue-Tongue Skink",
+  "scientificName": "Tiliqua scincoides",
+  "searchQuery": ["blue tongue skink", "blue tongued skink", "tiliqua scincoides", "northern blue tongue"],
+  "careLevel": "intermediate",
+  "emoji": "🦎",
+  "imageUrl": "/animals/blue-tongue-skink/blue-tongue-skink-1.jpg",
+  "completionStatus": "draft",
+  "gallery": [],
+  "minEnclosureSize": {
+    "width": 48,
+    "depth": 24,
+    "height": 18,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 55,
+    "additionalGallons": 0,
+    "maxRecommended": 1,
+    "description": "House individually. Territorial and will fight. Exception: Established breeding pairs in 6+ foot enclosures."
+  },
+  "careTargets": {
+    "temperature": {
+      "thermalGradient": true,
+      "coolSide": {
+        "min": 75,
+        "max": 80
+      },
+      "warmSide": {
+        "min": 85,
+        "max": 90
+      },
+      "basking": {
+        "min": 95,
+        "max": 105
+      },
+      "nighttime": {
+        "min": 70,
+        "max": 75
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "day": {
+        "min": 40,
+        "max": 60
+      },
+      "night": {
+        "min": 50,
+        "max": 70
+      },
+      "shedding": {
+        "min": 60,
+        "max": 70
+      },
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": true,
+      "uvbRecommended": true,
+      "uvbStrength": "5-10%",
+      "coveragePercent": 70,
+      "photoperiod": "12 hours light, 12 hours dark"
+    },
+    "gradient": "Ground-dwelling lizard. Requires strong basking area and UVB for calcium metabolism."
+  },
+  "layoutRules": {
+    "preferVertical": false,
+    "verticalSpacePercent": 10,
+    "thermalGradient": "horizontal",
+    "requiredZones": ["basking", "hide-cool", "hide-warm"],
+    "optionalZones": ["burrow"]
+  },
+  "bioactiveCompatible": true,
+  "equipmentNeeds": {
+    "climbing": "ground",
+    "substrate": ["bioactive", "soil", "sand"],
+    "bioactiveSubstrate": "arid",
+    "humidity": "moderate",
+    "heatSource": "basking",
+    "waterFeature": "shallow-dish",
+    "lighting": "uvb-desert",
+    "diet": ["omnivore"],
+    "animalType": "reptile",
+    "decor": ["hides", "branches", "plants"]
+  },
+  "lifespan": "15-20 years in captivity, up to 30 years possible",
+  "dietType": "Omnivore",
+  "adultSize": "18-24 inches",
+  "temperament": "Docile, intelligent, very handleable",
+  "activityPattern": "Diurnal",
+  "originRegion": "Australia and Indonesia",
+  "setupTips": [],
+  "notes": [],
+  "warnings": [],
+  "relatedBlogs": [],
+  "careGuidance": {}
+}

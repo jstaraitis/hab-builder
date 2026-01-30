@@ -1,0 +1,96 @@
+{
+  "id": "amazon-milk-frog",
+  "commonName": "Amazon Milk Frog",
+  "scientificName": "Trachycephalus resinifictrix",
+  "searchQuery": ["amazon milk frog", "mission golden eyed tree frog", "trachycephalus resinifictrix"],
+  "careLevel": "intermediate",
+  "emoji": "🐸",
+  "imageUrl": "/animals/amazon-milk-frog/amazon-milk-frog-1.jpg",
+  "completionStatus": "draft",
+  "gallery": [],
+  "minEnclosureSize": {
+    "width": 18,
+    "depth": 18,
+    "height": 24,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 20,
+    "additionalGallons": 10,
+    "maxRecommended": 3,
+    "description": "Can be housed in groups of 2-3 in 20+ gallon vertical enclosure. Monitor for bullying during feeding."
+  },
+  "careTargets": {
+    "temperature": {
+      "thermalGradient": true,
+      "coolSide": {
+        "min": 72,
+        "max": 75
+      },
+      "warmSide": {
+        "min": 75,
+        "max": 80
+      },
+      "basking": null,
+      "nighttime": {
+        "min": 65,
+        "max": 72
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "day": {
+        "min": 60,
+        "max": 80
+      },
+      "night": {
+        "min": 80,
+        "max": 100
+      },
+      "shedding": {
+        "min": 80,
+        "max": 90
+      },
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": false,
+      "uvbRecommended": false,
+      "uvbStrength": null,
+      "coveragePercent": 0,
+      "photoperiod": "Natural room light sufficient"
+    },
+    "gradient": "Arboreal frog. High humidity essential. Mist heavily at night."
+  },
+  "layoutRules": {
+    "preferVertical": true,
+    "verticalSpacePercent": 70,
+    "thermalGradient": "horizontal",
+    "requiredZones": ["climbing", "water-bowl", "plants"],
+    "optionalZones": ["hide"]
+  },
+  "bioactiveCompatible": true,
+  "equipmentNeeds": {
+    "climbing": "vertical",
+    "substrate": ["bioactive", "soil"],
+    "bioactiveSubstrate": "tropical",
+    "humidity": "high",
+    "heatSource": "ambient",
+    "waterFeature": "large-bowl",
+    "lighting": "none",
+    "diet": ["insectivore"],
+    "animalType": "amphibian",
+    "decor": ["branches", "plants", "hides"]
+  },
+  "lifespan": "8-10 years in captivity",
+  "dietType": "Insectivore",
+  "adultSize": "2.5-4 inches",
+  "temperament": "Docile, handleable with caution",
+  "activityPattern": "Nocturnal",
+  "originRegion": "Amazon Rainforest",
+  "setupTips": [],
+  "notes": [],
+  "warnings": [],
+  "relatedBlogs": [],
+  "careGuidance": {}
+}

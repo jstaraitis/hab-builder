@@ -3,7 +3,7 @@
   "commonName": "Axolotl",
   "scientificName": "Ambystoma mexicanum",
   "searchQuery": ["axolotl", "mexican walking fish", "water dragon", "ambystoma mexicanum"],
-  "careLevel": "intermediate",
+  "careLevel": "advanced",
   "emoji": "🦎",
   "imageUrl": "/animals/axolotl/axolotl-1.jpg",
   "completionStatus": "validated",

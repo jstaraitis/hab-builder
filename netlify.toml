@@ -1,4 +1,25 @@
 # Netlify configuration for SPA routing
+
+# Force HTTPS and redirect www to non-www
+[[redirects]]
+  from = "https://www.habitat-builder.com/*"
+  to = "https://habitat-builder.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://habitat-builder.com/*"
+  to = "https://habitat-builder.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.habitat-builder.com/*"
+  to = "https://habitat-builder.com/:splat"
+  status = 301
+  force = true
+
+# SPA routing - must be last
 [[redirects]]
   from = "/*"
   to = "/index.html"

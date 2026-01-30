@@ -1,0 +1,99 @@
+{
+  "id": "uromastyx",
+  "commonName": "Uromastyx",
+  "scientificName": "Uromastyx spp.",
+  "searchQuery": ["uromastyx", "spiny tailed lizard", "dabb lizard", "uromastyx ornata"],
+  "careLevel": "advanced",
+  "emoji": "🦎",
+  "imageUrl": "/animals/uromastyx/uromastyx-1.jpg",
+  "completionStatus": "draft",
+  "gallery": [],
+  "minEnclosureSize": {
+    "width": 48,
+    "depth": 24,
+    "height": 24,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 75,
+    "additionalGallons": 0,
+    "maxRecommended": 1,
+    "description": "House individually. Territorial and aggressive with conspecifics. Males especially aggressive."
+  },
+  "careTargets": {
+    "temperature": {
+      "thermalGradient": true,
+      "coolSide": {
+        "min": 80,
+        "max": 85
+      },
+      "warmSide": {
+        "min": 95,
+        "max": 100
+      },
+      "basking": {
+        "min": 110,
+        "max": 130
+      },
+      "nighttime": {
+        "min": 70,
+        "max": 75
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "day": {
+        "min": 10,
+        "max": 30
+      },
+      "night": {
+        "min": 20,
+        "max": 40
+      },
+      "shedding": {
+        "min": 30,
+        "max": 40
+      },
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": true,
+      "uvbRecommended": true,
+      "uvbStrength": "10-12%",
+      "coveragePercent": 70,
+      "photoperiod": "12-14 hours light in summer, 10-12 in winter"
+    },
+    "gradient": "Requires EXTREME heat. Basking temps 110-130°F essential for digestion. Very low humidity needed."
+  },
+  "layoutRules": {
+    "preferVertical": false,
+    "verticalSpacePercent": 20,
+    "thermalGradient": "horizontal",
+    "requiredZones": ["basking", "hide-cool", "hide-warm"],
+    "optionalZones": ["climbing"]
+  },
+  "bioactiveCompatible": true,
+  "equipmentNeeds": {
+    "climbing": "ground",
+    "substrate": ["bioactive", "sand"],
+    "bioactiveSubstrate": "arid",
+    "humidity": "low",
+    "heatSource": "basking",
+    "waterFeature": "shallow-dish",
+    "lighting": "uvb-desert",
+    "diet": ["herbivore"],
+    "animalType": "reptile",
+    "decor": ["hides", "rocks", "branches"]
+  },
+  "lifespan": "15-20 years in captivity",
+  "dietType": "Herbivore",
+  "adultSize": "10-18 inches depending on species",
+  "temperament": "Shy initially, can become handleable with patience",
+  "activityPattern": "Diurnal",
+  "originRegion": "North Africa and Middle East",
+  "setupTips": [],
+  "notes": [],
+  "warnings": [],
+  "relatedBlogs": [],
+  "careGuidance": {}
+}

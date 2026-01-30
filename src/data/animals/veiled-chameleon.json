@@ -1,0 +1,99 @@
+{
+  "id": "veiled-chameleon",
+  "commonName": "Veiled Chameleon",
+  "scientificName": "Chamaeleo calyptratus",
+  "searchQuery": ["veiled chameleon", "yemen chameleon", "chamaeleo calyptratus"],
+  "careLevel": "advanced",
+  "emoji": "🦎",
+  "imageUrl": "/animals/veiled-chameleon/veiled-chameleon-1.jpg",
+  "completionStatus": "draft",
+  "gallery": [],
+  "minEnclosureSize": {
+    "width": 24,
+    "depth": 24,
+    "height": 48,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 65,
+    "additionalGallons": 0,
+    "maxRecommended": 1,
+    "description": "House individually only. Highly territorial and solitary. Males and females should only be introduced for breeding under supervision."
+  },
+  "careTargets": {
+    "temperature": {
+      "thermalGradient": true,
+      "coolSide": {
+        "min": 72,
+        "max": 75
+      },
+      "warmSide": {
+        "min": 75,
+        "max": 80
+      },
+      "basking": {
+        "min": 85,
+        "max": 95
+      },
+      "nighttime": {
+        "min": 65,
+        "max": 72
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "day": {
+        "min": 40,
+        "max": 60
+      },
+      "night": {
+        "min": 70,
+        "max": 100
+      },
+      "shedding": {
+        "min": 70,
+        "max": 80
+      },
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": true,
+      "uvbRecommended": true,
+      "uvbStrength": "5-10%",
+      "coveragePercent": 70,
+      "photoperiod": "12 hours light, 12 hours dark"
+    },
+    "gradient": "Requires strong basking spot and vertical temperature gradient. UVB essential for calcium metabolism."
+  },
+  "layoutRules": {
+    "preferVertical": true,
+    "verticalSpacePercent": 80,
+    "thermalGradient": "vertical",
+    "requiredZones": ["basking-top", "climbing", "live-plants", "misting"],
+    "optionalZones": ["additional-branches"]
+  },
+  "bioactiveCompatible": true,
+  "equipmentNeeds": {
+    "climbing": "vertical",
+    "substrate": ["bioactive", "soil"],
+    "bioactiveSubstrate": "tropical",
+    "humidity": "high",
+    "heatSource": "basking",
+    "waterFeature": "none",
+    "lighting": "uvb-desert",
+    "diet": ["insectivore"],
+    "animalType": "reptile",
+    "decor": ["branches", "plants", "ledges"]
+  },
+  "lifespan": "5-8 years (males), 4-6 years (females)",
+  "dietType": "Insectivore",
+  "adultSize": "18-24 inches (males), 12-14 inches (females)",
+  "temperament": "Territorial, defensive, not handleable",
+  "activityPattern": "Diurnal",
+  "originRegion": "Yemen and Saudi Arabia",
+  "setupTips": [],
+  "notes": [],
+  "warnings": [],
+  "relatedBlogs": [],
+  "careGuidance": {}
+}

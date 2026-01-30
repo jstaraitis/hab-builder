@@ -9,9 +9,10 @@ import { animalProfiles } from '../../data/animals';
 interface PlanViewProps {
   readonly plan: BuildPlan | null;
   readonly input: EnclosureInput;
+  readonly onOpenFeedback?: () => void;
 }
 
-export function PlanView({ plan, input }: PlanViewProps) {
+export function PlanView({ plan, input, onOpenFeedback }: PlanViewProps) {
   const animalName = plan?.careTargets ? animalProfiles[input.animal]?.commonName || 'Reptile' : 'Reptile';
   const animalProfile = animalProfiles[input.animal];
   
@@ -47,7 +48,7 @@ export function PlanView({ plan, input }: PlanViewProps) {
 
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Example Enclosure Setups</h3>
-        <ExampleSetups animalType={input.animal} layoutNotes={plan.layout.notes} speciesSetupTips={animalProfile?.setupTips} />
+        <ExampleSetups animalType={input.animal} layoutNotes={plan.layout.notes} speciesSetupTips={animalProfile?.setupTips} onOpenFeedback={onOpenFeedback} />
       </div>
 
       <SubmitSetup />

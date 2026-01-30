@@ -116,7 +116,7 @@
   "fresh-vegetables-fruits": {
     "name": "Fresh Vegetables & Fruits",
     "category": "nutrition",
-    "needsTags": ["diet:omnivore"],
+    "needsTags": ["diet:omnivore", "diet:herbivore"],
     "importance": "required",
     "isRecurring": true,
     "recurringInterval": "weekly",

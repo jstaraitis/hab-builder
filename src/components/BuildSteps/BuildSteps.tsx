@@ -76,7 +76,7 @@ export function BuildSteps({ steps, showHeader = true, animalName = 'Enclosure' 
         {steps.map((step) => (
           <div
             key={step.id}
-            className={`border-l-4 pl-2.5 sm:pl-3 lg:pl-4 py-2.5 sm:py-3 rounded-r-lg ${
+            className={`border-l-4 pl-2.5 sm:pl-3 lg:pl-4 pr-2 sm:pr-0 py-2.5 sm:py-3 rounded-r-lg ${
               step.important
                 ? 'border-amber-400 dark:border-amber-500 bg-amber-50/50 dark:bg-amber-900/10'
                 : 'border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700/50'

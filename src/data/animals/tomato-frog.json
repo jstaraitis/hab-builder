@@ -1,0 +1,96 @@
+{
+  "id": "tomato-frog",
+  "commonName": "Tomato Frog",
+  "scientificName": "Dyscophus antongilii",
+  "searchQuery": ["tomato frog", "dyscophus antongilii", "red tomato frog", "madagascar tomato frog"],
+  "careLevel": "beginner",
+  "emoji": "🐸",
+  "imageUrl": "/animals/tomato-frog/tomato-frog-1.jpg",
+  "completionStatus": "draft",
+  "gallery": [],
+  "minEnclosureSize": {
+    "width": 24,
+    "depth": 12,
+    "height": 12,
+    "units": "in"
+  },
+  "quantityRules": {
+    "baseGallons": 10,
+    "additionalGallons": 5,
+    "maxRecommended": 2,
+    "description": "Can house 1-2 together in 10+ gallon enclosure. Females much larger than males."
+  },
+  "careTargets": {
+    "temperature": {
+      "thermalGradient": true,
+      "coolSide": {
+        "min": 70,
+        "max": 75
+      },
+      "warmSide": {
+        "min": 75,
+        "max": 80
+      },
+      "basking": null,
+      "nighttime": {
+        "min": 65,
+        "max": 72
+      },
+      "unit": "F"
+    },
+    "humidity": {
+      "day": {
+        "min": 60,
+        "max": 80
+      },
+      "night": {
+        "min": 70,
+        "max": 90
+      },
+      "shedding": {
+        "min": 80,
+        "max": 90
+      },
+      "unit": "%"
+    },
+    "lighting": {
+      "uvbRequired": false,
+      "uvbRecommended": false,
+      "uvbStrength": null,
+      "coveragePercent": 0,
+      "photoperiod": "Natural room light sufficient"
+    },
+    "gradient": "Terrestrial burrowing frog. High humidity essential. Provide deep substrate for burrowing."
+  },
+  "layoutRules": {
+    "preferVertical": false,
+    "verticalSpacePercent": 10,
+    "thermalGradient": "horizontal",
+    "requiredZones": ["burrow", "water-bowl", "hide"],
+    "optionalZones": ["plants"]
+  },
+  "bioactiveCompatible": true,
+  "equipmentNeeds": {
+    "climbing": "ground",
+    "substrate": ["bioactive", "soil"],
+    "bioactiveSubstrate": "tropical",
+    "humidity": "high",
+    "heatSource": "ambient",
+    "waterFeature": "shallow-dish",
+    "lighting": "none",
+    "diet": ["insectivore"],
+    "animalType": "amphibian",
+    "decor": ["hides", "plants"]
+  },
+  "lifespan": "6-8 years in captivity",
+  "dietType": "Insectivore",
+  "adultSize": "3-4 inches (females), 2-2.5 inches (males)",
+  "temperament": "Docile, secretive, handleable with caution",
+  "activityPattern": "Nocturnal",
+  "originRegion": "Madagascar",
+  "setupTips": [],
+  "notes": [],
+  "warnings": [],
+  "relatedBlogs": [],
+  "careGuidance": {}
+}
