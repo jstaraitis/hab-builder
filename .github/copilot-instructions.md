@@ -6,13 +6,18 @@ React web app that generates custom enclosure build plans for reptile/amphibian 
 ## Architecture Overview
 
 ### Multi-View Application Flow (React Router)
-The app uses client-side routing with 4 main views + supplemental pages:
-1. **Animal Select** (`/animal`, AnimalSelectView) → Pick species, see care preview
-2. **Design** (`/design`, DesignView) → Input dimensions, toggles (bioactive, setup quality)
-3. **Supplies** (`/supplies`, SuppliesView) → Shopping list with setup tier options
-4. **Plan** (`/plan`, PlanView) → Complete plan (steps, warnings, care targets)
-5. **Designer** (`/designer`, CanvasDesigner) → Premium drag-drop layout tool (Konva)
-6. **Blog** (`/blog/*`) → Educational guides rendered from JSON
+The app uses client-side routing with 5 main views + supplemental pages:
+1. **Find Your Animal** (`/find`, FindYourAnimalView) → Search/filter animals by dimensions, care level, or features
+2. **Animal Select** (`/animal`, AnimalSelectView) → Pick species, see care preview
+3. **Design** (`/design`, DesignView) → Input dimensions, toggles (bioactive, setup quality)
+4. **Supplies** (`/supplies`, SuppliesView) → Shopping list with setup tier options
+5. **Plan** (`/plan`, PlanView) → Complete plan (steps, warnings, care targets)
+6. **Designer** (`/designer`, CanvasDesigner) → Premium drag-drop layout tool (Konva)
+7. **Blog** (`/blog/*`) → Educational guides rendered from JSON
+8. **About** (`/about`) → Project information
+9. **Roadmap** (`/roadmap`) → Feature roadmap and development status
+10. **Submit Setup** (`/submit`) → User setup submission form
+11. **Animal Profile** (`/animal/:id`) → Detailed species information page
 
 Navigation is progressive: each view unlocks the next after required data is collected (`input.animal` → enable Design, `plan` → enable Supplies/Plan/Designer).
 
@@ -22,15 +27,19 @@ Navigation is progressive: each view unlocks the next after required data is col
 3. **Output Layers** → Views consume `BuildPlan` to render results
 
 ### Critical Data Files
-- **Animal Profiles** (`data/animals/*.json`): Species configs with care requirements, layout rules, warnings
+- **Animal Profiles** (`src/data/animals/*.json`): Species configs with care requirements, layout rules, warnings
   - Fields: `careTargets` (temp/humidity/lighting), `layoutRules` (vertical/horizontal emphasis), `quantityRules`, `bioactiveCompatible`, `notes`
-- **Equipment Catalog** (`data/equipment-catalog.json`): Reusable equipment specs with setup quality tiers, compatibility, purchase links
+  - Auto-discovered via `import.meta.glob` in `index.ts` - no manual imports needed
+  - Each profile has `completionStatus` field: `complete`, `in-progress`, or `draft`
+- **Equipment Catalog** (`src/data/equipment/*.json`): Reusable equipment specs organized by category
+  - Categories: `aquatic`, `cleanup-crew`, `decor`, `enclosures`, `heating`, `humidity`, `lighting`, `monitoring`, `nutrition`, `substrate`
   - Structure: `{ "item-id": { name, category, compatibleAnimals[], setupTiers{}, infoLinks{}, purchaseLinks{} } }`
   - Setup tiers: `minimum` (bare essentials), `recommended` (balanced quality), `ideal` (premium equipment)
   - Used by `shoppingList.ts` to generate shopping items with sizing calculations
-- **Blog Posts** (`data/blog/*.json`): Educational guides as structured JSON with ContentBlocks
+- **Blog Posts** (`src/data/blog/{species-name}/*.json`): Educational guides as structured JSON with ContentBlocks
   - Types: `intro`, `section`, `text`, `list`, `warning`, `highlight`, `table`
   - Rendered by `BlogPost.tsx` with type-specific formatting
+  - Also includes `general/` folder for non-species-specific guides
 
 ### Rule Engine Logic (Deterministic, NOT AI)
 `engine/generatePlan.ts` is a pure calculator:
@@ -43,12 +52,14 @@ Navigation is progressive: each view unlocks the next after required data is col
 ## Key Conventions
 
 ### Component Responsibilities
+- **FindYourAnimalView**: Search/filter interface to help users find suitable animals based on dimensions, care level, environmental needs
 - **AnimalSelectView**: Animal picker + care preview + related blog links. Shows warnings filtered by severity (`important`/`tip` only)
 - **DesignView**: Enclosure dimension inputs, type/bioactive toggles, ambient temp/humidity controls. Calls `generatePlan()` on submit
 - **SuppliesView**: Shopping list with category grouping, setup tier options (minimum/recommended/ideal), purchase links
 - **PlanView**: Complete build plan (steps, warnings, care targets, husbandry checklist)
 - **CanvasDesigner**: Interactive drag-drop editor using Konva. Equipment from shopping list → draggable shapes. Features: grid toggle, zone overlays, undo/redo, export
 - **BlogPost**: Renders JSON content blocks with type-specific components (lists, tables, warnings)
+- **AnimalProfilePreview**: Detailed species information page with care requirements, warnings, and quick facts
 
 ### View Component Patterns
 - All views receive `input`, `plan`, `selectedProfile` props from `App.tsx`
@@ -97,13 +108,14 @@ npm run import-catalog  # equipment-catalog.csv → equipment-catalog.json
 npm run export-animals  # Export all animal JSONs to animals-export.txt for review
 ```
 Use CSV for bulk edits by non-developers (e.g., updating purchase links). JSON is source of truth in repo.
-
-### Adding a New Animal
-1. Create `data/animals/{species-name}.json` following `animal-template.json` schema
-2. Add to `data/animals/index.ts` export: `import newAnimal from './new-animal.json'`
-3. Add to `animalProfiles` object in same file
-4. Provide `minEnclosureSize`, `quantityRules`, `careTargets`, `layoutRules`, `warnings`, `careGuidance`
+src/data/animals/{species-name}.json` following `animal-template.json` schema
+2. **NO MANUAL IMPORTS NEEDED** - `index.ts` auto-discovers all JSON files via `import.meta.glob`
+3. Provide `minEnclosureSize`, `quantityRules`, `careTargets`, `layoutRules`, `warnings`, `careGuidance`
+4. Set `completionStatus`: `complete` (fully documented), `in-progress` (partial), or `draft` (placeholder)
 5. Add `relatedBlogs` array with blog post IDs (see blog content section)
+6. Add `searchQuery` array with alternative terms (e.g., ["frog", "amphibian", "tree frog"])
+7. Test with small/medium/large enclosures to validate equipment sizing
+8. Add `relatedBlogs` array with blog post IDs (see blog content section)
 6. Test with small/medium/large enclosures to validate equipment sizing
 7. Add species images to `public/animals/{species-name}/` (referenced in `imageUrl` and `gallery` fields)
 
@@ -115,14 +127,15 @@ Each animal should have a complete set of blog posts following this structure:
 4. **Heating/Lighting OR Temperature/Water Quality** - For terrestrial: heating-lighting guide; For aquatics: temperature-water-quality guide covering nitrogen cycle
 5. **Feeding Guide** (`{species}-feeding-guide.json`) - Age-based schedules, staple foods, portion sizes, foods to avoid
 6. **Hydration OR Water Care** - For terrestrial: hydration-guide; For aquatics: water-care-guide (water changes, conditioning, acclimation)
-7. **Optional**: Temperature-Humidity guide for terrestrial species with complex environmental needs
-
-**Blog Content Rules:**
-- Create in `data/blog/{species-name}/` directory
-- Import in `data/blog/index.ts` and add to `blogPosts` object
+7. **Optionalsrc/data/blog/{species-name}/` directory (use kebab-case)
+- Import in `src/data/blog/index.ts` and add to `blogPosts` object
 - ContentBlock types: `intro` (hero), `section` (heading), `text`, `list`, `warning`, `highlight`, `table`
 - Use `warning` blocks for critical safety info (severity: `critical`, `important`, `tip`, `caution`)
 - Use `highlight` for key takeaways
+- Cross-link between guides using `/blog/{blog-id}` internal links
+- Author standardization: "Habitat Builder" or "Habitat Builder Team"
+- **NO external links** - all content should be self-contained to reduce duplicacy and maintain control
+- General guides (not species-specific) go in `src/data/blog/general/`
 - Cross-link between guides using `/blog/{blog-id}` internal links
 - Author standardization: "Habitat Builder" or "Habitat Builder Team"
 - **NO external links** - all content should be self-contained to reduce duplicacy and maintain control
@@ -140,25 +153,31 @@ Each animal should have a complete set of blog posts following this structure:
 - Color palette: Green primary (emerald-600), view-specific accents (purple=supplies, blue=plan, indigo=designer)
 - Dark mode via `useTheme()` hook - toggle stored in localStorage, applies `dark:` classes
 - Mobile-first responsive: `sm:` prefix for tablet+, forms stack vertically on mobile
-- Layout diagrams use HTML canvas (Konva) or SVG - never CSS absolute positioning for zone rendering
-
-## Domain-Specific Knowledge
-
-### Current Animal Roster (12 Species)
+- Layout diagrams use HTML c9 Species)
 **Arboreal Species:**
 - White's Tree Frog (user expert - gold standard reference)
 - Red-Eyed Tree Frog
+- Amazon Milk Frog
 - Crested Gecko
+- Gargoyle Gecko
 - Mourning Gecko
+- Veiled Chameleon
 
 **Terrestrial/Semi-Arboreal:**
 - Pacman Frog (ground-dwelling amphibian)
+- Tomato Frog
 - Leopard Gecko
 - Bearded Dragon
 - Blue-Tongue Skink
+- Uromastyx
 
 **Snakes:**
 - Ball Python
+- Corn Snake
+
+**Aquatic:**
+- Axolotl (fully aquatic amphibian - cold water, nitrogen cycle critical)
+- African Clawed Frog (fully aquatic frog
 - Corn Snake
 
 **Aquatic:**
@@ -201,15 +220,17 @@ Each animal should have a complete set of blog posts following this structure:
 
 ### Equipment Sizing Rules (Examples)
 - **UVB linear fixture**: 50-70% of enclosure length, positioned over basking zone
-- **Heat lamp wattage**: `(enclosure_volume_ft³ × 2)` as starting point, adjust for ambient temp
-- **Drainage layer**: bioactive only, 1-2" for enclosures < 18" tall, 2-3" for taller
-
+- **Heat lamp wat9 species (7 arboreal, 6 terrestrial, 2 snakes, 3 aquatic, 1 turtle), glass/PVC/screen types, deterministic rule engine, visual layouts, comprehensive blog content system (6-7 posts per species), interactive designer, animal search/filter system
+- **Out of scope for v1**: Saved builds, user accounts, PDF export, custom plant libraries, automated testing (vitest installed but unused)
+- **Phase 2**: Shareable URLs, Supabase integration, Stripe for premium exports, test coverage, user-submitted setups, community contribution
 ## MVP Scope Boundaries
 - **In scope**: 12 species (3 arboreal, 4 terrestrial, 2 snakes, 2 aquatic, 1 turtle), glass/PVC/screen types, deterministic rule engine, visual layouts, comprehensive blog content system (6-7 posts per species), interactive designer
-- **Out of scope for v1**: Saved builds, user accounts, PDF export, custom plant libraries, automated testing (vitest installed but unused)
-- **Phase 2**: Shareable URLs, Supabase integration, Stripe for premium exports, test coverage, user-submitted setups
-
-## File Organization Notes
+- **Out src/data/animals/*.json` flat - no nested profiles or inheritance (simplicity for MVP)
+- Animal discovery is automatic via `import.meta.glob` in `index.ts`
+- Equipment organized by category in `src/data/equipment/` directory (no longer single file)
+- `engine/rules.ts` can extract shared calculations (temp gradient, humidity zones) but keep tied to `generatePlan.ts`
+- Component folders follow feature slices: `ShoppingList/` contains `ShoppingList.tsx`, related components, no separate `types.ts` (use `engine/types.ts`)
+- Public assets: `/public/animals/{species-name}
 - Keep `data/animals/*.json` flat - no nested profiles or inheritance (simplicity for MVP)
 - `engine/rules.ts` can extract shared calculations (temp gradient, humidity zones) but keep tied to `generatePlan.ts`
 - Component folders follow feature slices: `ShoppingList/` contains `ShoppingList.tsx`, related components, no separate `types.ts` (use `engine/types.ts`)
