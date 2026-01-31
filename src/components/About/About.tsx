@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { SEO } from '../SEO/SEO';
-import { Calculator, AlertTriangle, MessageCircle, Heart, Squirrel, Ruler, Sparkles, CheckCircle2, XCircle, DollarSign, Box, Save, Share2, ArrowRight } from 'lucide-react';
+import { Calculator, AlertTriangle, MessageCircle, Squirrel, Ruler, Sparkles, CheckCircle2, XCircle, DollarSign, Box, Save, Share2, ArrowRight } from 'lucide-react';
 
 interface AboutProps {
   readonly onOpenFeedback: () => void;
@@ -17,73 +17,29 @@ export function About({ onOpenFeedback }: AboutProps) {
       
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg p-8 text-white">
-          <h1 className="text-4xl font-bold mb-4">About Habitat Builder</h1>
-          <p className="text-xl text-emerald-50">
-            Making reptile and amphibian care way less stressful (and way more fun)!
+        <div className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg p-6 text-white">
+          <h1 className="text-2xl md:text-3xl font-bold mb-2">About Habitat Builder</h1>
+          <p className="text-base md:text-lg text-emerald-50">
+            Science-backed enclosure planning for reptile and amphibian keepers who care about getting it right.
           </p>
-        </div>
-
-        {/* Origin Story */}
-        <div className="bg-gradient-to-br from-emerald-50 via-teal-50 to-green-50 dark:from-gray-800 dark:via-gray-800 dark:to-gray-800 border-2 border-emerald-200 dark:border-emerald-800 rounded-lg shadow-md p-8">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">How This Started</h2>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            So here's the real story: I was researching to get my whites tree frogs, and I thought "this'll be easy—just buy 
-            a tank and set it up, right?" Wrong. <em>So</em> wrong.
-          </p>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            I spent weeks down rabbit holes on Reddit, YouTube, Facebook groups, random care sheets that all said different things... 
-            One source said 10 gallons is fine, another said 20 minimum. Someone swore by screen enclosures, someone else 
-            said they'd kill your frogs from humidity loss. UVB? Maybe? Depends who you ask.
-          </p>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            I ended up with a massive spreadsheet comparing like 30 different setups, trying to figure out what was actually  
-            <em> right</em>. And I kept thinking: "Why doesn't something just... tell me what I need?"
-          </p>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            So I built it. <strong className="text-gray-900 dark:text-white">Habitat Builder</strong> is literally the tool 
-            I wished existed when I was drowning in conflicting advice. If it helps even one person skip the stress I went through, 
-            totally worth it.
-          </p>
-          
-          {/* Frog Photo */}
-          <div className="mt-6 overflow-hidden rounded-xl shadow-lg max-w-2xl mx-auto border-4 border-emerald-300 dark:border-emerald-700">
-            <img 
-              src="/animals/whites-tree-frog/whites-tree-frog-6.jpg" 
-              alt="Three White's Tree Frogs named Mango, Kiwi, and Fig"
-              className="w-full h-64 sm:h-80 object-cover"
-            />
-            <div className="bg-gradient-to-r from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/30 px-4 py-3 border-t-2 border-emerald-200 dark:border-emerald-800">
-              <p className="text-center text-sm text-gray-700 dark:text-gray-300 font-medium italic">
-                 Mango, Kiwi, and Fig 
-              </p>
-            </div>
-          </div>
         </div>
 
         {/* Mission */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">What We're All About</h2>
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+          <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-3">Our Mission</h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            Look, setting up a reptile enclosure shouldn't feel like solving a Rubik's cube blindfolded. But between 
-            conflicting forum advice, confusing equipment labels, and the fear of accidentally harming your new pet... 
-            it can be pretty overwhelming.
-          </p>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            That's why we built <strong className="text-gray-900 dark:text-white">Habitat Builder</strong>. We give you 
-            species-specific, science-backed plans that actually make sense—no more guessing, no more "wait, do I need that?"
+            Setting up a reptile or amphibian enclosure shouldn't require weeks of research and guesswork. We built Habitat Builder to give you species-specific, science-backed plans that actually make sense—no more conflicting advice, no more "wait, do I need that?"
           </p>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            Our goal? <strong className="text-emerald-600 dark:text-emerald-400">Make proper reptile care accessible to everyone</strong>—whether 
-            you're setting up your first gecko terrarium or upgrading your ball python's palace.
+            Our goal? <strong className="text-emerald-600 dark:text-emerald-400">Make proper care accessible to everyone</strong>—whether you're setting up your first gecko terrarium or upgrading your ball python's palace. Your animal deserves the best, and you deserve to feel confident you're providing it.
           </p>
         </div>
 
         {/* Why We Built This */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Why We Built This Thing</h2>
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+          <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-3">The Problem We're Solving</h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            More people are getting into reptiles (awesome!), but we kept seeing the same mistakes over and over:
+            More people are getting into reptiles and amphibians (awesome!), but we kept seeing the same mistakes over and over:
           </p>
           <ul className="space-y-3 mb-4">
             <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
@@ -110,8 +66,8 @@ export function About({ onOpenFeedback }: AboutProps) {
         </div>
 
         {/* How It Works */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">How It Works</h2>
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+          <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-3">How It Works</h2>
           <div className="space-y-4">
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-10 h-10 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center">
@@ -260,9 +216,6 @@ export function About({ onOpenFeedback }: AboutProps) {
 
         {/* Footer Note */}
         <div className="text-center text-gray-500 dark:text-gray-400 text-sm pb-8">
-          <p className="flex items-center justify-center gap-2">
-            Built with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> for the reptile and amphibian keeping community
-          </p>
           <p className="mt-2">Last updated: January 2026</p>
         </div>
       </div>

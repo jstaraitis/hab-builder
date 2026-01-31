@@ -565,8 +565,8 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
       </div>
       )}
 
-      {/* Humidity Control Method - Only show if needed and not fully aquatic */}
-      {animalProfile?.equipmentNeeds?.waterFeature !== 'fully-aquatic' && animalProfile && value.ambientHumidity < animalProfile.careTargets.humidity.day.min && (
+      {/* Humidity Control Method */}
+      {animalProfile?.equipmentNeeds?.waterFeature !== 'fully-aquatic' && (
       <div>
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
           Humidity Control Method
@@ -576,12 +576,15 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
           onChange={(e) => onChange({ ...value, humidityControl: e.target.value as HumidityControl })}
           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500"
         >
-          <option value="none">None</option>
+          <option value="none">None (Dry Species)</option>
           <option value="manual">Manual Misting</option>
-          <option value="misting-system">Misting System</option>
-          <option value="humidifier">Humidifier</option>
+          <option value="misting-system">Automatic Misting System</option>
+          <option value="humidifier">Room Humidifier</option>
           <option value="fogger">Fogger</option>
         </select>
+        <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">
+          How you plan to maintain humidity levels
+        </p>
       </div>
       )}
 

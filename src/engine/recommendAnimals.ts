@@ -16,6 +16,18 @@ export function recommendAnimals(input: EnclosureInput): AnimalRecommendation[] 
   const recommendations: AnimalRecommendation[] = [];
 
   for (const [animalId, profile] of Object.entries(animalProfiles)) {
+    // HARD FILTERS - Skip completely incompatible animals
+    
+    // Fully aquatic species require glass aquariums
+    if (profile.waterFeature === 'fully-aquatic' && input.type !== 'glass') {
+      continue; // Skip this animal entirely
+    }
+    
+    // Screen enclosures incompatible with amphibians (cannot maintain humidity)
+    if (input.type === 'screen' && profile.equipmentNeeds?.animalType === 'amphibian') {
+      continue; // Skip this animal entirely
+    }
+    
     // Filter by preferred care level if specified
     if (input.careLevelPreference && input.careLevelPreference !== 'any') {
       const allowedLevels: Record<string, string[]> = {
@@ -65,7 +77,33 @@ function evaluateCompatibility(
   const warnings: string[] = [];
 
   // 1. Enclosure type compatibility
-  reasons.push(`Compatible with ${input.type} enclosures`);
+  // Fully aquatic species REQUIRE aquariums (glass with water setup)
+  if (profile.waterFeature === 'fully-aquatic' && input.type !== 'glass') {
+    score = 0; // Complete incompatibility
+    warnings.push(
+      `${profile.commonName} is fully aquatic and requires an aquarium (glass tank with water). ${input.type} enclosures are not suitable.`
+    );
+    return { score, reasons, warnings }; // Exit early - no point evaluating further
+  }
+  
+  // Screen enclosures cannot maintain humidity for amphibians
+  if (input.type === 'screen' && profile.equipmentNeeds?.animalType === 'amphibian') {
+    score = 0; // Complete incompatibility
+    warnings.push(
+      `Screen enclosures cannot maintain the high humidity required for ${profile.commonName} (amphibian). Use glass or PVC enclosures instead.`
+    );
+    return { score, reasons, warnings }; // Exit early
+  }
+  
+  // Screen enclosures lose humidity too quickly for most high-humidity species
+  if (input.type === 'screen' && profile.careTargets?.humidity?.day?.min > 60) {
+    score -= 50; // Major penalty but not complete elimination
+    warnings.push(
+      `Screen enclosures lose moisture rapidly and may struggle to maintain ${profile.careTargets.humidity.day.min}%+ humidity for ${profile.commonName}. Glass or PVC recommended.`
+    );
+  } else {
+    reasons.push(`Compatible with ${input.type} enclosures`);
+  }
 
   // 2. Space requirements
   if (profile.minEnclosureSize) {
@@ -90,34 +128,35 @@ function evaluateCompatibility(
     const minHumidity = typeof humidity.day === 'object' ? humidity.day.min : humidity.day || 0;
 
     // Check if user can achieve required humidity
-    if (input.humidityControl === 'manual' && minHumidity > 60) {
+    if ((input.humidityControl === 'none' || input.humidityControl === 'manual') && minHumidity > 60) {
       score -= 20;
-      warnings.push(`${profile.commonName} needs ${minHumidity}%+ humidity (you selected no humidity control)`);
-    } else if (input.humidityControl && minHumidity > 40) {
-      reasons.push(`Your humidity setup supports ${profile.commonName}'s needs`);
+      warnings.push(`${profile.commonName} needs ${minHumidity}%+ humidity (you may need automated humidity control)`);
+    } else if (input.humidityControl && input.humidityControl !== 'none' && minHumidity > 40) {
+      reasons.push(`Your ${input.humidityControl} supports ${profile.commonName}'s humidity needs`);
     }
-
-    // Check if enclosure type supports humidity
-    if (input.type === 'screen' && minHumidity > 50) {
-      score -= 15;
-      warnings.push('Screen enclosures struggle to maintain the humidity this species needs');
-    }
+    // Note: Screen enclosure humidity penalty already handled in section 1
   }
 
   // 4. Temperature requirements
   if (profile.careTargets?.temperature) {
     const temp = profile.careTargets.temperature;
-    const minTemp = temp.min;
+    // Get the minimum and maximum required temperatures
+    const minTemp = temp.coolSide?.min || temp.warmSide?.min || 70;
+    const maxTemp = temp.coolSide?.max || temp.warmSide?.max || 80;
 
-    // Axolotl special case - needs chiller
-    if (minTemp < 70 && input.ambientTemp > 75) {
+    // Cold-water species (like axolotls) - check if ambient is above their max tolerance
+    if (input.ambientTemp > maxTemp + 2) {
       score -= 25;
-      warnings.push(`${profile.commonName} needs cold water (60-68°F) - your ambient is too warm without a chiller`);
-    } else if (minTemp >= 75 && input.ambientTemp < 65) {
+      warnings.push(`${profile.commonName} needs temperatures below ${maxTemp}°F - your ${input.ambientTemp}°F ambient requires cooling equipment (chiller or AC)`);
+    } 
+    // Warm-loving species - check if ambient is below their minimum
+    else if (input.ambientTemp < minTemp - 5) {
       score -= 20;
-      warnings.push(`${profile.commonName} needs warm temps (${minTemp}°F+) - you may struggle without heat`);
-    } else {
-      reasons.push('Temperature requirements are achievable');
+      warnings.push(`${profile.commonName} needs temps ${minTemp}°F+ - your ${input.ambientTemp}°F ambient requires significant heating`);
+    } 
+    // Temperature is within acceptable range (with some buffer)
+    else {
+      reasons.push('Temperature requirements achievable in your environment');
     }
   }
 
@@ -130,14 +169,14 @@ function evaluateCompatibility(
   }
 
   // 6. Quantity
-  if (profile.quantityRules && input.quantity > 1) {
-    if (profile.quantityRules.maxRecommended && input.quantity > profile.quantityRules.maxRecommended) {
+  if (profile.quantityRules) {
+    if (input.quantity > 1 && profile.quantityRules.maxRecommended && input.quantity > profile.quantityRules.maxRecommended) {
       score -= 30;
       warnings.push(
-        `Can only house ${profile.quantityRules.maxRecommended} in this size (you want ${input.quantity})`
+        `Recommended max ${profile.quantityRules.maxRecommended} animal(s) in this size (you want ${input.quantity})`
       );
     } else if (input.quantity === 1) {
-      reasons.push('Single animal - compatible');
+      reasons.push('Appropriate quantity for enclosure size');
     }
   }
 

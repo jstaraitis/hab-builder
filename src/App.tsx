@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from 'react';
-import { Routes, Route, Navigate, Link, useNavigate, useLocation } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Camera } from 'lucide-react';
+import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
+import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, Twitter } from 'lucide-react';
 import type { EnclosureInput, BuildPlan, AnimalProfile } from './engine/types';
 import { generatePlan } from './engine/generatePlan';
 import { AnimalSelectView } from './components/Views/AnimalSelectView';
@@ -8,6 +8,7 @@ import { DesignView } from './components/Views/DesignView';
 import { PlanView } from './components/Views/PlanView';
 import { SuppliesView } from './components/Views/SuppliesView';
 import { FindYourAnimalView } from './components/Views/FindYourAnimalView';
+import { FindYourAnimalResultsView } from './components/Views/FindYourAnimalResultsView';
 import CanvasDesigner from './components/EnclosureDesigner/CanvasDesigner';
 import { FeedbackModal } from './components/FeedbackModal/FeedbackModal';
 import { BlogList } from './components/Blog/BlogList';
@@ -15,6 +16,7 @@ import { BlogPost } from './components/Blog/BlogPost';
 import { AnimalProfilePreview } from './components/AnimalProfilePreview/AnimalProfilePreview';
 import { About } from './components/About/About';
 import { Roadmap } from './components/Roadmap/Roadmap';
+import { Home } from './components/Home/Home';
 import { animalProfiles } from './data/animals';
 import { useTheme } from './hooks/useTheme';
 import { MobileNav } from './components/Navigation/MobileNav';
@@ -28,7 +30,22 @@ function App() {
 
   // Scroll to top when route changes
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Multiple scroll methods to ensure it works on all devices/browsers
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      // For iOS Safari
+      window.pageYOffset = 0;
+    };
+    
+    // Immediate scroll
+    scrollToTop();
+    
+    // Delayed scroll to catch any late-rendering content
+    const timeoutId = setTimeout(scrollToTop, 100);
+    
+    return () => clearTimeout(timeoutId);
   }, [location.pathname]);
 
   const [input, setInput] = useState<EnclosureInput>({
@@ -120,48 +137,33 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800 pb-20 lg:pb-0">
-      {/* User Submission Banner */}
-      <div className="bg-gradient-to-br from-green-400 to-emerald-500 text-white py-3 px-4 text-center">
-        <p className="text-base md:text-lg flex items-center justify-center gap-2">
-          <Camera className="w-5 h-5 flex-shrink-0" />
-          <span><strong>Share Your Setup!</strong> Submit photos of your animals and enclosures to help others.{' '}
-          <button
-            onClick={() => setIsFeedbackOpen(true)}
-            className="underline font-semibold hover:text-green-100 transition-colors"
-          >
-            Click here to share
-          </button></span>
-        </p>
-      </div>
-
       {/* Mobile-optimized header */}
       <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 py-4 lg:py-6">
           {/* Mobile: Simple header with logo and theme toggle */}
-          <div className="lg:hidden flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-green-700 dark:text-green-400">🦎 Habitat Builder</h1>
+          <div className="lg:hidden flex flex-col items-center text-center">
+            <Link to="/" className="block">
+              <h1 className="text-3xl font-bold text-green-700 dark:text-green-400 hover:text-green-600 dark:hover:text-green-300 transition-colors cursor-pointer">🦎 Habitat Builder</h1>
               <p className="text-sm text-gray-600 dark:text-gray-400">Generate custom enclosure plans for your reptiles & amphibians</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setIsFeedbackOpen(true)}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 active:bg-gray-200 dark:active:bg-gray-600"
-                title="Feedback"
-              >
-                📝
-              </button>
-            </div>
+            </Link>
           </div>
 
           {/* Desktop: Full header with navigation */}
           <div className="hidden lg:block">
-            <div className="text-center sm:text-left mb-4">
-              <h1 className="text-4xl font-bold text-green-700 dark:text-green-400">🦎 Habitat Builder</h1>
+            <div className="text-center mb-4">
+              <Link to="/">
+                <h1 className="text-4xl font-bold text-green-700 dark:text-green-400 hover:text-green-600 dark:hover:text-green-300 transition-colors cursor-pointer">🦎 Habitat Builder</h1>
+              </Link>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Generate custom enclosure plans for your reptiles & amphibians</p>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Built with love - for better care and fewer setup mistakes</p>
             </div>
-            <nav className="flex flex-wrap justify-center sm:justify-start gap-2 text-sm font-medium">
+            <nav className="flex flex-wrap justify-center gap-2 text-sm font-medium">
+            <Link
+              to="/"
+              className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/') ? 'bg-gray-600 text-white border-gray-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-gray-400'}`}
+            >
+             <HomeIcon className="w-4 h-4 inline mr-1.5" /> Home
+            </Link>
             <Link
               to="/animal"
               className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/animal') ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-emerald-400'}`}
@@ -217,7 +219,7 @@ function App() {
             </Link>
             <button
               onClick={() => setIsFeedbackOpen(true)}
-              className="px-4 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-orange-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors whitespace-nowrap"
+              className="hidden sm:flex px-4 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-orange-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors whitespace-nowrap items-center"
               title="Send feedback or report issues"
             >
               <MessageSquare className="w-4 h-4 inline mr-1.5" /> Feedback
@@ -238,7 +240,7 @@ function App() {
 
       <main className="max-w-7xl mx-auto px-4 py-4 lg:py-8">
         <Routes>
-          <Route path="/" element={<Navigate to="/animal" replace />} />
+          <Route path="/" element={<Home />} />
           <Route
             path="/animal"
             element={
@@ -256,6 +258,14 @@ function App() {
             path="/find-animal"
             element={
               <FindYourAnimalView
+                onAnimalSelected={handleAnimalSelect}
+              />
+            }
+          />
+          <Route
+            path="/find-animal/results"
+            element={
+              <FindYourAnimalResultsView
                 onAnimalSelected={handleAnimalSelect}
               />
             }
@@ -322,15 +332,39 @@ function App() {
       <FeedbackModal isOpen={isFeedbackOpen} onClose={() => setIsFeedbackOpen(false)} />
 
       <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-12 lg:mt-16">
-        <div className="max-w-7xl mx-auto px-4 py-6 text-center text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-          <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
-            <span>Habitat Builder</span>
-            <span className="hidden sm:inline">•</span>
-            <span>🐸</span>
-            <span className="hidden sm:inline">•</span>
-            <span>Always research multiple sources for animal care</span>
-          </p>
-          <p className="mt-2">Plans are guidelines - adjust based on your specific animal's needs</p>
+        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 text-center">
+          <div className="flex items-center justify-center gap-2 mb-3 md:mb-4">
+            <span className="text-xl md:text-2xl">🦎</span>
+            <span className="text-base md:text-lg font-semibold text-gray-800 dark:text-gray-200">Habitat Builder</span>
+          </div>
+          
+          <div className="max-w-2xl mx-auto space-y-2 md:space-y-3 text-xs md:text-sm text-gray-600 dark:text-gray-400">
+            <p className="flex items-start justify-center gap-2">
+              <ShieldAlert className="w-3 h-3 md:w-4 md:h-4 text-orange-500 flex-shrink-0 mt-0.5" />
+              <span className="text-left"><strong className="text-gray-700 dark:text-gray-300">Always research multiple sources</strong> for animal care</span>
+            </p>
+            <p className="flex items-start justify-center gap-2">
+              <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+              <span className="text-left">Plans are <strong className="text-gray-700 dark:text-gray-300">guidelines</strong> - adjust based on your animal's needs</span>
+            </p>
+          </div>
+          
+          <div className="mt-4 md:mt-6 pt-4 md:pt-6 border-t border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-center gap-4 mb-3 md:mb-4">
+              <a
+                href="https://x.com/habitat_builder"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1.5 md:p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors"
+                title="Follow us on Twitter"
+              >
+                <Twitter className="w-4 h-4 md:w-5 md:h-5" />
+              </a>
+            </div>
+            <p className="text-xs text-gray-500 dark:text-gray-500">
+              Not a substitute for veterinary advice
+            </p>
+          </div>
         </div>
       </footer>
     </div>

@@ -1,6 +1,6 @@
 import { ArrowLeft, AlertCircle, CheckCircle, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { EnclosureInput } from '../../engine/types';
 import { recommendAnimals, categorizeRecommendations } from '../../engine/recommendAnimals';
 import { EnclosureForm } from '../EnclosureForm/EnclosureForm';
@@ -39,6 +39,11 @@ export function FindYourAnimalView({ onAnimalSelected }: FindYourAnimalViewProps
   const [recommendations, setRecommendations] = useState<ReturnType<typeof recommendAnimals> | null>(null);
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleFormChange = (newInput: EnclosureInput) => {
     setInput(newInput);
   };
@@ -47,6 +52,8 @@ export function FindYourAnimalView({ onAnimalSelected }: FindYourAnimalViewProps
     const results = recommendAnimals(input);
     setRecommendations(results);
     setHasSubmitted(true);
+    // Navigate to results page with state
+    navigate('/find-animal/results', { state: { input, recommendations: results } });
   };
 
   const handleSelectAnimal = (animalId: string) => {

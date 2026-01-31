@@ -1,6 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { ArrowUp, Lightbulb, X, Sparkles, Rocket, MessageCircle } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { X, Sparkles, Rocket, MessageCircle, Lightbulb } from 'lucide-react';
 import type { EnclosureInput, BuildPlan, AnimalProfile } from '../../engine/types';
 import { AnimalPicker } from '../AnimalPicker/AnimalPicker';
 import { ImageGallery } from '../ImageGallery/ImageGallery';
@@ -18,7 +17,7 @@ interface AnimalSelectViewProps {
 }
 
 export function AnimalSelectView({ input, selectedProfile, profileCareTargets, onSelect, onContinue }: AnimalSelectViewProps) {
-  const navigate = useNavigate();
+
   const animalDataRef = useRef<HTMLDivElement>(null);
   const [showContinueButton, setShowContinueButton] = useState(false);
   const [showTestingNotice, setShowTestingNotice] = useState(() => {
@@ -131,31 +130,8 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
           </div>
         </div>
       )}
-      
-      {/* Find Your Animal CTA */}
-      <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-4">
-        <div className="flex items-start gap-3">
-          <Lightbulb className="w-6 h-6 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-          <div className="flex-1">
-            <h3 className="font-bold text-blue-900 dark:text-blue-300 mb-1">Not sure which animal you want?</h3>
-            <p className="text-sm text-blue-800 dark:text-blue-400 mb-3">Answer some questions and we'll recommend animals that fit your setup!</p>
-            <button
-              onClick={() => navigate('/find-animal')}
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 dark:hover:bg-blue-600 text-white font-medium rounded-lg transition-colors text-sm"
-            >
-              Get Recommendations →
-            </button>
-          </div>
-        </div>
-      </div>
 
       <AnimalPicker selected={input.animal} onSelect={onSelect} />
-      
-      {!input.animal && (
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-4 text-center">
-          <p className="text-blue-800 dark:text-blue-300 font-medium"><ArrowUp className="inline-block w-5 h-5 mr-2"/> Please select an animal to begin</p>
-        </div>
-      )}
 
       {selectedProfile && (
         <div ref={animalDataRef} className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-3 sm:p-4 text-base text-gray-700 dark:text-gray-300">
