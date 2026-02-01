@@ -81,10 +81,7 @@
     "lighting": "none",
     "diet": ["carnivore-aquatic"],
     "animalType": "amphibian",
-    "decor": ["hides-aquatic", "plants"],
-    "filtration": ["aquarium-filter-sponge"],
-    "waterTreatment": ["water-conditioner", "aquarium-test-kit"],
-    "maintenance": ["python-siphon"]
+    "activity": "aquatic"
   },
   "lifespan": "10-15 years in captivity",
   "dietType": "Carnivore",

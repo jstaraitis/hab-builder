@@ -11,6 +11,12 @@ export function addHumidityControl(
   input: EnclosureInput
 ): void {
   const catalogDict = catalog as Record<string, EquipmentConfig>;
+  
+  // Skip humidity control for fully aquatic animals (humidity is inherent)
+  if (profile.equipmentNeeds?.activity === 'aquatic') {
+    return;
+  }
+  
   // Need humidity control if ambient is below the animal's max humidity requirement
   const needsHumidityControl = input.ambientHumidity < (profile.careTargets.humidity.day?.max ?? 80);
   const isScreenEnclosure = input.type === 'screen';

@@ -116,7 +116,8 @@
     "lighting": "uvb-forest",
     "diet": ["insectivore"],
     "animalType": "amphibian",
-    "decor": ["branches", "ledges", "hides", "plants", "leaf-litter"],
+    "climate": "semi-arid",
+    "activity": "arboreal",
     "water": ["water-dish-large"]
   },
   "lifespan": "12-16 years in captivity, up to 20+ years with excellent care",

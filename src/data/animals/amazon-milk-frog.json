@@ -80,7 +80,8 @@
     "lighting": "none",
     "diet": ["insectivore"],
     "animalType": "amphibian",
-    "decor": ["branches", "plants", "hides"]
+    "climate": "tropical",
+    "activity": "arboreal"
   },
   "lifespan": "8-10 years in captivity",
   "dietType": "Insectivore",

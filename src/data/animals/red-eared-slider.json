@@ -87,12 +87,7 @@
     "lighting": "uvb-desert",
     "diet": ["insectivore"],
     "animalType": "reptile",
-    "decor": ["basking-platform", "hides-aquatic"],
-    "filtration": ["aquarium-filter-canister", "filter-media-bio"],
-    "heating": ["aquarium-heater", "heater-guard"],
-    "waterTreatment": ["water-conditioner", "aquarium-test-kit"],
-    "maintenance": ["python-siphon"],
-    "safety": ["aquarium-lid"]
+    "activity": "aquatic"
   },
   "lifespan": "20-40 years in captivity, can live 50+ years",
   "setupTips": [

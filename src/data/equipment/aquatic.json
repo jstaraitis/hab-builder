@@ -3,6 +3,11 @@
     "name": "Aquarium Chiller",
     "category": "equipment",
     "needsTags": ["temperature:cold-water"],
+    "autoIncludeFor": {
+      "animalType": "amphibian",
+      "activity": "aquatic",
+      "waterFeature": "fully-aquatic"
+    },
     "importance": "required",
     "spec": {
       "type": "Active cooling system",
@@ -32,6 +37,10 @@
     "name": "Canister Filter (High-Flow)",
     "category": "equipment",
     "needsTags": ["filtration:high-flow"],
+    "autoIncludeFor": {
+      "animalType": "reptile",
+      "activity": "aquatic"
+    },
     "requiredWith": ["surge-protector"],
     "importance": "required",
     "spec": {
@@ -62,6 +71,10 @@
     "name": "Sponge Filter (Low-Flow)",
     "category": "equipment",
     "needsTags": ["filtration:low-flow"],
+    "autoIncludeFor": {
+      "animalType": "amphibian",
+      "activity": "aquatic"
+    },
     "requiredWith": ["air-pump", "surge-protector"],
     "importance": "required",
     "spec": {
@@ -121,6 +134,9 @@
     "name": "Liquid Test Kit (Master)",
     "category": "equipment",
     "needsTags": ["water-quality:testing"],
+    "autoIncludeFor": {
+      "activity": "aquatic"
+    },
     "importance": "required",
     "spec": {
       "tests": "Ammonia, Nitrite, Nitrate, pH",
@@ -149,6 +165,9 @@
     "name": "Water Conditioner (Dechlorinator)",
     "category": "equipment",
     "needsTags": ["water-treatment"],
+    "autoIncludeFor": {
+      "activity": "aquatic"
+    },
     "importance": "required",    "isRecurring": true,
     "recurringInterval": "monthly",    "spec": {
       "type": "Liquid dechlorinator",
@@ -235,6 +254,9 @@
     "name": "Aquarium Lid/Screen Cover",
     "category": "equipment",
     "needsTags": [],
+    "autoIncludeFor": {
+      "activity": "aquatic"
+    },
     "importance": "required",
     "spec": {
       "type": "Glass lid or screen top",
@@ -291,6 +313,9 @@
     "name": "Aquarium Water Changer/Siphon",
     "category": "equipment",
     "needsTags": ["maintenance:water-change"],
+    "autoIncludeFor": {
+      "activity": "aquatic"
+    },
     "importance": "recommended",
     "spec": {
       "type": "Gravel vacuum with hose",
@@ -347,6 +372,9 @@
     "name": "Biological Filter Media",
     "category": "equipment",
     "needsTags": ["filtration:biological"],
+    "autoIncludeFor": {
+      "activity": "aquatic"
+    },
     "importance": "recommended",    "isRecurring": true,
     "recurringInterval": "12 months",    "spec": {
       "type": "Ceramic rings, bio balls, or sponge",

@@ -80,7 +80,8 @@
     "lighting": "uvb-forest",
     "diet": ["omnivore", "frugivore"],
     "animalType": "reptile",
-    "decor": ["branches", "ledges", "hides", "plants"]
+    "climate": "tropical",
+    "activity": "arboreal"
   },
   "lifespan": "15-20 years in captivity",
   "dietType": "Omnivore (frugivorous/insectivorous)",

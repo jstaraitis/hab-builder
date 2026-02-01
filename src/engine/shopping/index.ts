@@ -8,7 +8,7 @@ import { addDecor, addStructuralDecor } from './generators/decor';
 import { addMonitoring } from './generators/monitoring';
 import { addWaterSupplies } from './generators/water';
 import { addFeedingSupplies } from './generators/feeding';
-import { addDirectEquipment } from './generators/specialized';
+import { addAquaticEquipment } from './generators/specialized';
 
 /**
  * Main shopping list generator - orchestrates all item additions
@@ -22,13 +22,13 @@ export function generateShoppingList(
 
   // Add items in order of importance/building sequence
   addEnclosure(items, input);
-  addDirectEquipment(items, profile, input); // Add aquatic/specialized equipment first
+  addAquaticEquipment(items, profile, input); // Add aquatic equipment using autoIncludeFor rules
   addUVBLighting(items, dims, profile, input);
   addHeatLamp(items, dims, profile, input);
   addSubstrate(items, dims, input, profile);
   
   // Only add bioactive items for non-aquatic animals
-  if (input.bioactive && profile.equipmentNeeds?.waterFeature !== 'fully-aquatic') {
+  if (input.bioactive && profile.equipmentNeeds?.activity !== 'aquatic') {
     addBioactiveItems(items, dims);
   }
   

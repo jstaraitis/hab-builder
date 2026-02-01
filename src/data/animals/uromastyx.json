@@ -83,7 +83,8 @@
     "lighting": "uvb-desert",
     "diet": ["herbivore"],
     "animalType": "reptile",
-    "decor": ["hides", "rocks", "branches"]
+    "climate": "arid",
+    "activity": "terrestrial"
   },
   "lifespan": "15-20 years in captivity",
   "dietType": "Herbivore",

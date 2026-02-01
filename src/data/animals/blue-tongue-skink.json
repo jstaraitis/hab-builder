@@ -83,7 +83,8 @@
     "lighting": "uvb-desert",
     "diet": ["omnivore"],
     "animalType": "reptile",
-    "decor": ["hides", "branches", "plants"]
+    "climate": "arid",
+    "activity": "terrestrial"
   },
   "lifespan": "15-20 years in captivity, up to 30 years possible",
   "dietType": "Omnivore",

@@ -246,21 +246,14 @@ export interface EquipmentNeeds {
   humidity?: 'high' | 'moderate' | 'low' | number; // Determines if misting/humidifier needed (number for aquatic = 100%)
   heatSource?: 'basking' | 'ambient' | 'none'; // Type of heat needed
   waterFeature?: 'large-bowl' | 'shallow-dish' | 'pool' | 'none' | 'fully-aquatic'; // Water needs
-  animalType?: AnimalType; // Taxonomic classification for equipment compatibility and enclosure validation
-  decor?: Array<'branches' | 'ledges' | 'hides' | 'plants' | 'background' | 'hides-aquatic'>; // Specific decor needed
   lighting?: string; // Lighting type needed (e.g., 'uvb-forest', 'uvb-desert', 'none')
   diet?: string[]; // Diet types for feeding supplies matching (e.g., 'insectivore', 'carnivore-rodents', 'carnivore-aquatic', 'omnivore')
   bioactiveSubstrate?: string | null; // Type of bioactive substrate (e.g., 'tropical', 'arid'), null for incompatible species
-  // Specialized equipment for aquatic species
-  filtration?: string[]; // Array of filtration equipment IDs
-  cooling?: string[]; // Array of cooling equipment IDs
-  waterTreatment?: string[]; // Array of water treatment equipment IDs
-  maintenance?: string[]; // Array of maintenance equipment IDs
-  safety?: string[]; // Array of safety equipment IDs
-  water?: string[]; // Array of water-related equipment IDs
-  'humidity-aids'?: string[]; // Array of humidity equipment IDs
-  // Allow other string array properties for future expansion
-  [key: string]: string | string[] | number | AnimalType | null | undefined;
+  animalType?: AnimalType; // Taxonomic classification for equipment compatibility and enclosure validation
+  climate?: 'tropical' | 'semi-arid' | 'arid' | 'temperate'; // Climate classification for equipment matching
+  activity?: 'arboreal' | 'terrestrial' | 'semi-arboreal' | 'aquatic'; // Activity pattern for equipment matching
+  requiredEquipment?: string[]; // Array of equipment IDs that must be included for this species (species-specific requirements)
+  incompatibleWith?: string[]; // Array of equipment IDs that should never be included for this species
 }
 
 export interface EquipmentConfig {
@@ -277,6 +270,17 @@ export interface EquipmentConfig {
   purchaseLinks?: Record<string, string>; // e.g., { "low": "url", "mid": "url" }
   isRecurring?: boolean; // true for items that need regular replacement
   recurringInterval?: string; // e.g., "monthly", "6 months", "yearly"
+  autoIncludeFor?: AutoIncludeRules; // NEW: Automatic inclusion rules based on animal/input characteristics
+}
+
+export interface AutoIncludeRules {
+  animalType?: string | string[]; // e.g., "amphibian", "reptile"
+  substrate?: string | string[]; // e.g., ["bioactive", "soil-based"]
+  climate?: string | string[]; // e.g., "semi-arid", "tropical"
+  activity?: string | string[]; // e.g., "arboreal", "terrestrial"
+  diet?: string | string[]; // e.g., ["insectivore"]
+  bioactive?: boolean; // true = only for bioactive setups
+  waterFeature?: string | string[]; // e.g., "shallow-dish", "fully-aquatic"
 }
 
 export interface AnimalProfile {

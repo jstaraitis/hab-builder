@@ -86,12 +86,7 @@
     "lighting": "none",
     "diet": ["carnivore-aquatic"],
     "animalType": "amphibian",
-    "decor": ["hides-aquatic", "plants"],
-    "filtration": ["aquarium-filter-sponge", "air-pump", "filter-media-bio"],
-    "cooling": ["aquarium-chiller"],
-    "waterTreatment": ["water-conditioner", "aquarium-test-kit"],
-    "maintenance": ["python-siphon"],
-    "safety": ["aquarium-lid"]
+    "activity": "aquatic"
   },
   "lifespan": "10-15 years in captivity with proper care",
   "dietType": "Carnivore",
@@ -116,7 +111,8 @@
     "Axolotls do not have a complete metamorphosis. Rare cases they can perform a full metamorphosis and become terrestrial. Called morphed Axolotls.",
     "Critically Endangered in wild - only found in Lake Xochimilco canals (Mexico City area), population declined 99.5% since 1998 due to urbanization and pollution",
     "Aztecs named them 'axolotl' meaning 'water dog' or 'water monster' - considered sacred and linked to god Xolotl who transformed into an axolotl to escape sacrifice",
-    "Wild axolotls are dark brown/black for camouflage. In the 1800s a Leucistic Axolotl was found and sent to Paris for research! Stories say this is where modern day Leucistics originated from."
+    "Wild axolotls are dark brown/black for camouflage. In the 1800s a Leucistic Axolotl was found and sent to Paris for research! Stories say this is where modern day Leucistics originated from.",
+    "Axolotls have a rare trait called Neoteny - they retain juvenile features (external gills, finned tail) into adulthood and remain fully aquatic"
   ],
   "warnings": [
     {

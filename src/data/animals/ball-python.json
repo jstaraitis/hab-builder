@@ -88,9 +88,9 @@
     "lighting": "uvb-forest",
     "diet": ["carnivore-rodents"],
     "animalType": "reptile",
-    "decor": ["branches", "hides", "plants", "moist-hide"],
-    "water": ["water-dish-large"],
-    "humidity-aids": ["sphagnum-moss"]
+    "climate": "tropical",
+    "activity": "semi-arboreal",
+    "requiredEquipment": ["moist-hide"]
   },
   "lifespan": "30+ years in captivity (commonly reach 40+ years with proper care)",
   "dietType": "Carnivore",

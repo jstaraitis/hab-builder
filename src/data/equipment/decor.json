@@ -4,6 +4,9 @@
     "category": "decor",
     "needsTags": ["climbing:vertical", "decor:branches"],
     "importance": "required",
+    "autoIncludeFor": {
+      "activity": ["arboreal", "semi-arboreal"]
+    },
     "tiers": {
       "minimum": {
         "description": "Collected branches (sanitized DIY - bake at 200°F for 1 hour)",
@@ -128,6 +131,9 @@
     "category": "decor",
     "needsTags": ["climbing:vertical", "decor:ledges"],
     "importance": "required",
+    "autoIncludeFor": {
+      "activity": ["arboreal", "semi-arboreal"]
+    },
     "spec": {
       "placement": "various heights",
       "material": "cork, wood, or suction cup"
@@ -156,6 +162,9 @@
     "category": "decor",
     "needsTags": ["climbing:ground"],
     "importance": "required",
+    "autoIncludeFor": {
+      "activity": "terrestrial"
+    },
     "spec": {
       "placement": "ground level",
       "material": "rocks, branches, or basking platforms"
@@ -184,6 +193,9 @@
     "category": "decor",
     "needsTags": ["decor:hides"],
     "importance": "required",
+    "autoIncludeFor": {
+      "activity": ["arboreal", "semi-arboreal", "terrestrial"]
+    },
     "spec": {
       "quantity": "2-3 per enclosure",
       "placement": "ground and elevated"
@@ -269,6 +281,9 @@
     "category": "decor",
     "needsTags": ["water:dish"],
     "importance": "required",
+    "autoIncludeFor": {
+      "waterFeature": ["shallow-dish", "large-bowl"]
+    },
     "spec": {
       "size": "Large enough for animal to soak",
       "depth": "Shallow - no drowning risk",
@@ -358,6 +373,10 @@
     "importance": "recommended",
     "isRecurring": true,
     "recurringInterval": "6 months",
+    "autoIncludeFor": {
+      "animalType": "amphibian",
+      "substrate": ["bioactive", "soil-based"]
+    },
     "spec": {
       "type": "Oak, magnolia, or terrarium-safe leaf litter",
       "purpose": "Protects sensitive skin, natural foraging, microfauna habitat"

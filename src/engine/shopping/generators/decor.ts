@@ -1,9 +1,9 @@
 import type { ShoppingItem, AnimalProfile, EnclosureInput, EquipmentConfig } from '../../types';
-import { catalog } from '../utils';
+import { catalog, shouldInclude } from '../utils';
 import { matchesAnimalNeeds } from '../matching';
 
 /**
- * Adds decor items (branches, plants)
+ * Adds decor items (branches, plants, leaf litter) using autoIncludeFor rules
  */
 export function addDecor(
   items: ShoppingItem[],
@@ -12,19 +12,21 @@ export function addDecor(
 ): void {
   const catalogDict = catalog as Record<string, EquipmentConfig>;
 
-  // Branches
+  // Branches - auto-include based on activity pattern
   const branchesConfig = catalogDict.branches;
-  items.push({
-    id: 'branches',
-    category: 'decor',
-    name: branchesConfig.name,
-    quantity: profile.layoutRules.preferVertical ? '3-5 pieces' : '2-3 pieces',
-    sizing: 'Various diameters, reaching from substrate to top third',
-    importance: branchesConfig.importance,
-    setupTierOptions: branchesConfig.tiers,
-    notes: branchesConfig.notes,
-    incompatibleAnimals: branchesConfig.incompatibleAnimals,
-  });
+  if (branchesConfig && shouldInclude(branchesConfig.autoIncludeFor, profile, input)) {
+    items.push({
+      id: 'branches',
+      category: 'decor',
+      name: branchesConfig.name,
+      quantity: profile.layoutRules.preferVertical ? '3-5 pieces' : '2-3 pieces',
+      sizing: 'Various diameters, reaching from substrate to top third',
+      importance: branchesConfig.importance,
+      setupTierOptions: branchesConfig.tiers,
+      notes: branchesConfig.notes,
+      incompatibleAnimals: branchesConfig.incompatibleAnimals,
+    });
+  }
 
   // Live plants if preferred
   if (input.plantPreference !== 'artificial') {
@@ -62,25 +64,44 @@ export function addDecor(
     }
   }
 
-  // Leaf litter - if animal needs it in decor array AND using natural substrate
-  if (profile.equipmentNeeds?.decor?.includes('leaf-litter') && 
-      (input.substratePreference === 'bioactive' || input.substratePreference === 'soil-based')) {
-    const leafLitterConfig = catalogDict['leaf-litter'];
-    if (leafLitterConfig) {
-      items.push({
-        id: 'leaf-litter',
-        category: leafLitterConfig.category,
-        name: leafLitterConfig.name,
-        quantity: '1 bag',
-        sizing: 'Thick layer over substrate for skin protection and natural foraging',
-        importance: leafLitterConfig.importance,
-        setupTierOptions: leafLitterConfig.tiers,
-        notes: leafLitterConfig.notes,
-        incompatibleAnimals: leafLitterConfig.incompatibleAnimals,
-        isRecurring: leafLitterConfig.isRecurring,
-        recurringInterval: leafLitterConfig.recurringInterval,
-      });
-    }
+  // Leaf litter - auto-include based on rules (amphibians with natural substrate)
+  const leafLitterConfig = catalogDict['leaf-litter'];
+  if (leafLitterConfig && shouldInclude(leafLitterConfig.autoIncludeFor, profile, input)) {
+    items.push({
+      id: 'leaf-litter',
+      category: leafLitterConfig.category,
+      name: leafLitterConfig.name,
+      quantity: '1 bag',
+      sizing: 'Thick layer over substrate for skin protection and natural foraging',
+      importance: leafLitterConfig.importance,
+      setupTierOptions: leafLitterConfig.tiers,
+      notes: leafLitterConfig.notes,
+      incompatibleAnimals: leafLitterConfig.incompatibleAnimals,
+      isRecurring: leafLitterConfig.isRecurring,
+      recurringInterval: leafLitterConfig.recurringInterval,
+    });
+  }
+
+  // Add any species-specific required equipment from profile
+  if (profile.equipmentNeeds?.requiredEquipment) {
+    profile.equipmentNeeds.requiredEquipment.forEach(equipmentId => {
+      const config = catalogDict[equipmentId];
+      if (config && !items.find(item => item.id === equipmentId)) {
+        items.push({
+          id: equipmentId,
+          category: config.category,
+          name: config.name,
+          quantity: '1',
+          sizing: 'Species-specific requirement',
+          importance: 'required',
+          setupTierOptions: config.tiers,
+          notes: config.notes,
+          incompatibleAnimals: config.incompatibleAnimals,
+          isRecurring: config.isRecurring,
+          recurringInterval: config.recurringInterval,
+        });
+      }
+    });
   }
 }
 
@@ -90,9 +111,9 @@ export function addDecor(
 export function addStructuralDecor(items: ShoppingItem[], input: EnclosureInput, profile: AnimalProfile): void {
   const catalogDict = catalog as Record<string, EquipmentConfig>;
   
-  // Hides (required) - use user's specified quantity
+  // Hides - auto-include based on activity pattern, use user's specified quantity
   const hidesConfig = catalogDict['hides'];
-  if (hidesConfig) {
+  if (hidesConfig && shouldInclude(hidesConfig.autoIncludeFor, profile, input)) {
     items.push({
       id: 'hides',
       category: hidesConfig.category,

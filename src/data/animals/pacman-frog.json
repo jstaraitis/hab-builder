@@ -89,8 +89,8 @@
     "lighting": "uvb-forest",
     "diet": ["insectivore"],
     "animalType": "amphibian",
-    "decor": ["hides", "leaf-litter", "plants"],
-    "water": ["water-dish-large"]
+    "climate": "tropical",
+    "activity": "terrestrial"
   },
   "lifespan": "5-10 years in captivity",
   "dietType": "Insectivor",

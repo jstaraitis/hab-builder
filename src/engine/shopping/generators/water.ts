@@ -7,6 +7,11 @@ import { catalog } from '../utils';
 export function addWaterSupplies(items: ShoppingItem[], profile: AnimalProfile, input: EnclosureInput): void {
   const catalogDict = catalog as Record<string, EquipmentConfig>;
   
+  // Skip water supplies for fully aquatic animals (they live in water)
+  if (profile.equipmentNeeds?.activity === 'aquatic') {
+    return;
+  }
+  
   // Water bowl
   const waterBowlConfig = catalogDict['water-bowl'];
   if (waterBowlConfig) {
@@ -21,25 +26,6 @@ export function addWaterSupplies(items: ShoppingItem[], profile: AnimalProfile, 
       notes: waterBowlConfig.notes,
       incompatibleAnimals: waterBowlConfig.incompatibleAnimals,
     });
-  }
-
-  // Spray bottle - only add when manual humidity control is selected AND humidity control is needed
-  const needsHumidityControl = input.ambientHumidity < (profile.careTargets.humidity.day?.min ?? profile.careTargets.humidity.min ?? 60);
-  if (input.humidityControl === 'manual' && needsHumidityControl) {
-    const sprayBottleConfig = catalogDict['spray-bottle'];
-    if (sprayBottleConfig) {
-      items.push({
-        id: 'spray-bottle',
-        category: sprayBottleConfig.category,
-        name: sprayBottleConfig.name,
-        quantity: 1,
-        sizing: 'For manual misting',
-        importance: 'required',
-        setupTierOptions: sprayBottleConfig.tiers,
-        notes: sprayBottleConfig.notes,
-        incompatibleAnimals: sprayBottleConfig.incompatibleAnimals,
-      });
-    }
   }
 
   // Dechlorinator

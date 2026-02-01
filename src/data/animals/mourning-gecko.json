@@ -88,9 +88,9 @@
     "lighting": "uvb-forest",
     "diet": ["omnivore", "frugivore"],
     "animalType": "reptile",
-    "decor": ["branches", "ledges", "hides", "plants", "vines", "moist-hide"],
-    "water": ["water-dish-large"],
-    "humidity-aids": ["sphagnum-moss"]
+    "climate": "tropical",
+    "activity": "arboreal",
+    "requiredEquipment": ["moist-hide"]
   },
   "lifespan": "10+ years in captivity",
   "dietType": "Omnivore",

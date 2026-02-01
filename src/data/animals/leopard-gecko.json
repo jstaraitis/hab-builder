@@ -92,8 +92,9 @@
     "lighting": "uvb-forest",
     "diet": ["insectivore"],
     "animalType": "reptile",
-    "decor": ["climbing-areas", "hides", "moist-hide"],
-    "water": ["water-dish-large"],
+    "climate": "arid",
+    "activity": "terrestrial",
+    "requiredEquipment": ["moist-hide"],
     "humidity-aids": ["sphagnum-moss"]
   },
   "lifespan": "10-20 years in captivity",

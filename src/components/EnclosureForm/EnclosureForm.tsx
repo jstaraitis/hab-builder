@@ -36,9 +36,30 @@ const commonSizes = [
   { name: 'Custom', width: 0, depth: 0, height: 0, units: 'in' as Units },
 ];
 
+const aquariumSizes = [
+  { name: '10 gallon', width: 20, depth: 10, height: 12, units: 'in' as Units },
+  { name: '15 gallon', width: 24, depth: 12, height: 12, units: 'in' as Units },
+  { name: '20 gallon Long', width: 30, depth: 12, height: 12, units: 'in' as Units },
+  { name: '20 gallon High', width: 24, depth: 12, height: 16, units: 'in' as Units },
+  { name: '29 gallon', width: 30, depth: 12, height: 18, units: 'in' as Units },
+  { name: '40 gallon Breeder', width: 36, depth: 18, height: 16, units: 'in' as Units },
+  { name: '40 gallon Long', width: 48, depth: 12, height: 16, units: 'in' as Units },
+  { name: '55 gallon', width: 48, depth: 13, height: 21, units: 'in' as Units },
+  { name: '75 gallon', width: 48, depth: 18, height: 21, units: 'in' as Units },
+  { name: '90 gallon', width: 48, depth: 18, height: 24, units: 'in' as Units },
+  { name: '125 gallon', width: 72, depth: 18, height: 23, units: 'in' as Units },
+  { name: '150 gallon', width: 72, depth: 18, height: 28, units: 'in' as Units },
+  { name: '180 gallon', width: 72, depth: 24, height: 25, units: 'in' as Units },
+  { name: 'Custom', width: 0, depth: 0, height: 0, units: 'in' as Units },
+];
+
 export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormProps) {
   const [usePreset, setUsePreset] = useState(true);
   const [showAllSizes, setShowAllSizes] = useState(false);
+
+  // Determine which size list to use based on animal type
+  const isAquatic = animalProfile?.equipmentNeeds?.activity === 'aquatic';
+  const sizeList = isAquatic ? aquariumSizes : commonSizes;
 
   // Calculate size validation if animal profile is provided
   const sizeValidation = animalProfile ? validateEnclosureSize(value, animalProfile) : null;
@@ -46,7 +67,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
   const bioactiveValidation = animalProfile ? validateBioactive(value, animalProfile) : null;
 
   // Helper function to get validation status for a preset
-  const getPresetValidation = (preset: typeof commonSizes[0]) => {
+  const getPresetValidation = (preset: typeof sizeList[0]) => {
     if (!animalProfile || preset.name === 'Custom') return 'neutral';
     
     const testInput: EnclosureInput = {
@@ -67,24 +88,24 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
   const categorizedPresets = useMemo(() => {
     if (!animalProfile) return null;
     return {
-      good: commonSizes.filter(p => getPresetValidation(p) === 'good'),
-      warning: commonSizes.filter(p => getPresetValidation(p) === 'warning'),
-      critical: commonSizes.filter(p => getPresetValidation(p) === 'critical'),
-      custom: commonSizes.filter(p => p.name === 'Custom')
+      good: sizeList.filter(p => getPresetValidation(p) === 'good'),
+      warning: sizeList.filter(p => getPresetValidation(p) === 'warning'),
+      critical: sizeList.filter(p => getPresetValidation(p) === 'critical'),
+      custom: sizeList.filter(p => p.name === 'Custom')
     };
-  }, [animalProfile, value]);
+  }, [animalProfile, value, sizeList]);
 
   // Memoize which presets to show
   const presetsToShow = useMemo(() => {
     return categorizedPresets && !showAllSizes
       ? [...categorizedPresets.good, ...categorizedPresets.custom]
-      : commonSizes;
+      : sizeList;
   }, [categorizedPresets, showAllSizes]);
 
   const hasHiddenSizes = categorizedPresets && 
     (categorizedPresets.warning.length > 0 || categorizedPresets.critical.length > 0);
 
-  const handlePresetChange = (preset: typeof commonSizes[0]) => {
+  const handlePresetChange = (preset: typeof sizeList[0]) => {
     if (preset.name === 'Custom') {
       setUsePreset(false);
       return;
@@ -359,50 +380,67 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
       )}
 
       {/* Enclosure Type */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
-          Enclosure Material
-        </label>
-        <div className="grid grid-cols-3 gap-2">
-          {(['glass', 'pvc', 'screen'] as EnclosureType[]).map((enclosureType) => (
-            <button
-              key={enclosureType}
-              onClick={() => onChange({ ...value, type: enclosureType })}
-              className={`px-4 py-2 rounded-md text-sm font-medium capitalize transition-colors ${
-                value.type === enclosureType
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
-              }`}
-              title={enclosureType === 'glass' ? 'Best for visibility' : enclosureType === 'pvc' ? 'Good all-around option' : 'Excellent airflow, lose humidity quickly'}
-            >
-              {enclosureType.charAt(0).toUpperCase() + enclosureType.slice(1)}
-            </button>
-          ))}
+      {animalProfile?.equipmentNeeds?.activity !== 'aquatic' && (
+        <div>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            Enclosure Material
+          </label>
+          <div className="grid grid-cols-3 gap-2">
+            {(['glass', 'pvc', 'screen'] as EnclosureType[]).map((enclosureType) => (
+              <button
+                key={enclosureType}
+                onClick={() => onChange({ ...value, type: enclosureType })}
+                className={`px-4 py-2 rounded-md text-sm font-medium capitalize transition-colors ${
+                  value.type === enclosureType
+                    ? 'bg-primary-600 text-white'
+                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
+                }`}
+                title={enclosureType === 'glass' ? 'Best for visibility' : enclosureType === 'pvc' ? 'Good all-around option' : 'Excellent airflow, lose humidity quickly'}
+              >
+                {enclosureType.charAt(0).toUpperCase() + enclosureType.slice(1)}
+              </button>
+            ))}
+          </div>
+          <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+            {value.type === 'glass' && (
+              <span className="inline-flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" />Best for visibility</span>
+            )}
+            {value.type === 'pvc' && (
+              <span className="inline-flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" />Versatile option</span>
+            )}
+            {value.type === 'screen' && (
+              <span className="inline-flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" />Maximum airflow, needs active humidity control</span>
+            )}
+          </p>
+          
+          {/* Enclosure Type Validation Feedback */}
+          {typeValidation && !typeValidation.compatible && (
+            <div className="mt-3 bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 dark:border-red-700 p-3 rounded-r">
+              <div className="flex items-start gap-2">
+                <span className="text-red-500 dark:text-red-400"><AlertTriangle className="w-6 h-6" /></span>
+                <p className="text-sm text-red-800 dark:text-red-200 font-medium">
+                  {typeValidation.warning}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
-        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
-          {value.type === 'glass' && (
-            <span className="inline-flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" />Best for visibility</span>
-          )}
-          {value.type === 'pvc' && (
-            <span className="inline-flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" />Versatile option</span>
-          )}
-          {value.type === 'screen' && (
-            <span className="inline-flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-600" />Maximum airflow, needs active humidity control</span>
-          )}
-        </p>
-        
-        {/* Enclosure Type Validation Feedback */}
-        {typeValidation && !typeValidation.compatible && (
-          <div className="mt-3 bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 dark:border-red-700 p-3 rounded-r">
-            <div className="flex items-start gap-2">
-              <span className="text-red-500 dark:text-red-400"><AlertTriangle className="w-6 h-6" /></span>
-              <p className="text-sm text-red-800 dark:text-red-200 font-medium">
-                {typeValidation.warning}
+      )}
+
+      {/* Aquatic Species Enclosure Note */}
+      {animalProfile?.equipmentNeeds?.activity === 'aquatic' && (
+        <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 dark:border-blue-700 p-4 rounded-r">
+          <div className="flex items-start gap-2">
+            <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+            <div>
+              <p className="text-sm font-medium text-blue-900 dark:text-blue-100">Glass Aquarium Required</p>
+              <p className="text-xs text-blue-800 dark:text-blue-200 mt-1">
+                Fully aquatic species require water-tight glass aquariums with proper filtration and water quality management.
               </p>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* Bioactive Setup - Hidden for fully aquatic animals */}
       {animalProfile?.equipmentNeeds?.waterFeature !== 'fully-aquatic' && (

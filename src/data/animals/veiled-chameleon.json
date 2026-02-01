@@ -83,7 +83,8 @@
     "lighting": "uvb-desert",
     "diet": ["insectivore"],
     "animalType": "reptile",
-    "decor": ["branches", "plants", "ledges"]
+    "climate": "tropical",
+    "activity": "arboreal"
   },
   "lifespan": "5-8 years (males), 4-6 years (females)",
   "dietType": "Insectivore",

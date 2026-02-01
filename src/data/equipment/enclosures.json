@@ -1,6 +1,33 @@
 {
+  "enclosure-aquarium": {
+    "name": "Glass Aquarium",
+    "category": "enclosure",
+    "importance": "required",
+    "needsTags": ["aquatic"],
+    "autoIncludeFor": {
+      "activity": "aquatic"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic glass aquarium with hood",
+        "searchQuery": "{size} gallon glass aquarium tank kit",
+        "priceRange": { "min": 100, "max": 180 }
+      },
+      "recommended": {
+        "description": "Quality aquarium with stand and filtration cutouts",
+        "searchQuery": "{size} gallon aquarium tank stand combo",
+        "priceRange": { "min": 180, "max": 300 }
+      },
+      "ideal": {
+        "description": "Premium aquarium with stand, low-iron glass, reinforced",
+        "searchQuery": "{size} gallon aquarium tank stand premium low iron",
+        "priceRange": { "min": 300, "max": 500 }
+      }
+    },
+    "notes": "Water-tight silicone sealing for fully aquatic setups. Must support weight of water (8.3 lbs/gallon). Stand required for tanks 20+ gallons. Low-iron glass provides better clarity."
+  },
   "enclosure-glass": {
-    "name": "Glass Enclosure",
+    "name": "Glass Terrarium",
     "category": "enclosure",
     "importance": "required",
     "needsTags": ["humidity:high", "humidity:moderate", "humidity:low"],
