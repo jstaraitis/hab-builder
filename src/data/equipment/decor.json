@@ -350,5 +350,35 @@
       }
     },
     "notes": "Essential for humid hides - helps snakes and geckos shed properly. Holds moisture well without being soggy. Place in enclosed hide and mist every 2-3 days. Also useful for egg-laying sites and bioactive layering."
+  },
+  "leaf-litter": {
+    "name": "Leaf Litter Layer",
+    "category": "substrate",
+    "needsTags": ["decor:natural", "substrate:bioactive"],
+    "importance": "recommended",
+    "isRecurring": true,
+    "recurringInterval": "6 months",
+    "spec": {
+      "type": "Oak, magnolia, or terrarium-safe leaf litter",
+      "purpose": "Protects sensitive skin, natural foraging, microfauna habitat"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Pre-packaged oak or magnolia leaf litter",
+        "searchQuery": "leaf litter reptile terrarium natural",
+        "priceRange": { "min": 0, "max": 8 }
+      },
+      "recommended": {
+        "description": "Pre-packaged oak or magnolia leaf litter",
+        "searchQuery": "oak leaf litter terrarium magnolia",
+        "priceRange": { "min": 8, "max": 15 }
+      },
+      "ideal": {
+        "description": "Premium mixed leaf litter blend",
+        "searchQuery": "premium leaf litter terrarium bioactive mix",
+        "priceRange": { "min": 14, "max": 26 }
+      }
+    },
+    "notes": "Creates natural layer over substrate - protects sensitive amphibian skin, encourages natural foraging behavior, provides hiding spots for cleanup crew. Oak and magnolia leaves are safe and break down slowly. Replace/refresh every 6 months or as leaves decompose."
   }
 }

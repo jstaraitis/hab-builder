@@ -11,12 +11,27 @@ export function addHumidityControl(
   input: EnclosureInput
 ): void {
   const catalogDict = catalog as Record<string, EquipmentConfig>;
-  const needsHumidityControl = input.ambientHumidity < (profile.careTargets.humidity.day?.min ?? 60);
+  // Need humidity control if ambient is below the animal's max humidity requirement
+  const needsHumidityControl = input.ambientHumidity < (profile.careTargets.humidity.day?.max ?? 80);
   const isScreenEnclosure = input.type === 'screen';
   const humidityWarning = isScreenEnclosure && needsHumidityControl ? ' (screen loses humidity - may need larger unit)' : '';
   const volume = dims.width * dims.depth * dims.height;
   
-  if (needsHumidityControl && input.humidityControl === 'misting-system') {
+  if (needsHumidityControl && input.humidityControl === 'manual') {
+    const misterConfig = catalogDict['spray-bottle'];
+    if (misterConfig) {
+      const mistingFrequency = isScreenEnclosure ? '4-6 times daily' : '2-3 times daily';
+      items.push({
+        id: 'spray-bottle',
+        category: misterConfig.category,
+        name: misterConfig.name,
+        quantity: '1 bottle',
+        sizing: `Manual misting ${mistingFrequency} to maintain ${profile.careTargets.humidity.day?.min ?? 60}-${profile.careTargets.humidity.day?.max ?? 80}% humidity${isScreenEnclosure ? ' (more frequent due to screen material)' : ''} (current room: ${input.ambientHumidity}%)`,
+        importance: 'required',
+        notes: misterConfig.notes,
+      });
+    }
+  } else if (needsHumidityControl && input.humidityControl === 'misting-system') {
     const mistingConfig = catalogDict['misting-system'];
     if (mistingConfig) {
       // Screen enclosures may need more frequent misting

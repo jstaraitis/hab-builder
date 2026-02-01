@@ -61,6 +61,27 @@ export function addDecor(
       });
     }
   }
+
+  // Leaf litter - if animal needs it in decor array AND using natural substrate
+  if (profile.equipmentNeeds?.decor?.includes('leaf-litter') && 
+      (input.substratePreference === 'bioactive' || input.substratePreference === 'soil-based')) {
+    const leafLitterConfig = catalogDict['leaf-litter'];
+    if (leafLitterConfig) {
+      items.push({
+        id: 'leaf-litter',
+        category: leafLitterConfig.category,
+        name: leafLitterConfig.name,
+        quantity: '1 bag',
+        sizing: 'Thick layer over substrate for skin protection and natural foraging',
+        importance: leafLitterConfig.importance,
+        setupTierOptions: leafLitterConfig.tiers,
+        notes: leafLitterConfig.notes,
+        incompatibleAnimals: leafLitterConfig.incompatibleAnimals,
+        isRecurring: leafLitterConfig.isRecurring,
+        recurringInterval: leafLitterConfig.recurringInterval,
+      });
+    }
+  }
 }
 
 /**

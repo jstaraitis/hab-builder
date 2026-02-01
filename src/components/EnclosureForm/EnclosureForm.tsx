@@ -565,8 +565,10 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
       </div>
       )}
 
-      {/* Humidity Control Method */}
-      {animalProfile?.equipmentNeeds?.waterFeature !== 'fully-aquatic' && (
+      {/* Humidity Control Method - Only show if animal needs humidity control */}
+      {animalProfile?.equipmentNeeds?.waterFeature !== 'fully-aquatic' && 
+       animalProfile?.careTargets?.humidity && 
+       value.ambientHumidity < animalProfile.careTargets.humidity.day.max && (
       <div>
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
           Humidity Control Method
