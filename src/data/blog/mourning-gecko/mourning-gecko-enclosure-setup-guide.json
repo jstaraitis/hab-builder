@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "mourning-gecko-enclosure-setup-guide",
   "title": "Mourning Gecko Enclosure Setup: Size, Layout & Equipment Guide",
   "description": "Complete guide to setting up a mourning gecko enclosure including minimum size requirements for social groups, vertical layout design, and essential equipment checklist.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["mourning gecko", "enclosure", "setup", "habitat", "lepidodactylus lugubris"],
   "image": "/animals/mourning-gecko/mourning-gecko-1.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -28,12 +29,12 @@
     },
     {
       "type": "table",
-      "headers": ["Group Size", "Minimum Dimensions (LÃ—WÃ—H)", "Volume", "Notes"],
+      "headers": ["Group Size", "Minimum Dimensions (L×W×H)", "Volume", "Notes"],
       "rows": [
-        ["2-4 geckos", "12Ã—12Ã—18 inches", "~10 gallons", "Standard minimum for small colony"],
-        ["5-6 geckos", "18Ã—18Ã—24 inches", "~20 gallons", "Better for breeding colonies"],
-        ["7-10 geckos", "18Ã—18Ã—36 inches", "~30 gallons", "Population growth accommodation"],
-        ["10+ geckos", "24Ã—18Ã—36+ inches", "40+ gallons", "Established colonies with offspring"]
+        ["2-4 geckos", "12×12×18 inches", "~10 gallons", "Standard minimum for small colony"],
+        ["5-6 geckos", "18×18×24 inches", "~20 gallons", "Better for breeding colonies"],
+        ["7-10 geckos", "18×18×36 inches", "~30 gallons", "Population growth accommodation"],
+        ["10+ geckos", "24×18×36+ inches", "40+ gallons", "Established colonies with offspring"]
       ]
     },
     {
@@ -58,7 +59,7 @@
       "headers": ["Material", "Temperature Control", "Humidity Management", "Best Application"],
       "rows": [
         ["Glass (front-opening)", "Excellent retention", "High retention (60-80% ideal)", "BEST for mourning geckos - maintains tropical conditions"],
-        ["PVC (custom)", "Excellent insulation", "Excellent retention", "Good alternative, harder to source in 12Ã—12Ã—18 size"],
+        ["PVC (custom)", "Excellent insulation", "Excellent retention", "Good alternative, harder to source in 12×12×18 size"],
         ["Screen/mesh", "Poor retention", "Too dry (30-40%)", "AVOID - cannot maintain humidity requirements"],
         ["Wood (sealed)", "Good insulation", "Good retention", "Possible but heavy, requires waterproofing"]
       ]
@@ -77,16 +78,16 @@
     },
     {
       "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Zone Layout Template (12Ã—12Ã—18 enclosure):</span>"
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Zone Layout Template (12×12×18 enclosure):</span>"
     },
     {
       "type": "table",
       "headers": ["Zone", "Location", "Temperature", "Features"],
       "rows": [
-        ["Basking/warm zone", "Top third (under heat lamp)", "80-85Â°F", "Horizontal branches, leaf canopy, feeding ledge"],
-        ["Mid-range zone", "Middle third", "75-78Â°F", "Diagonal branches, vines, cork bark hides"],
-        ["Cool zone", "Bottom third", "70-75Â°F", "Ground cover, leaf litter, humid hides"],
-        ["Nighttime", "All zones", "65-72Â°F", "No temperature drop below 65Â°F"]
+        ["Basking/warm zone", "Top third (under heat lamp)", "80-85°F", "Horizontal branches, leaf canopy, feeding ledge"],
+        ["Mid-range zone", "Middle third", "75-78°F", "Diagonal branches, vines, cork bark hides"],
+        ["Cool zone", "Bottom third", "70-75°F", "Ground cover, leaf litter, humid hides"],
+        ["Nighttime", "All zones", "65-72°F", "No temperature drop below 65°F"]
       ]
     },
     {
@@ -111,13 +112,13 @@
         "<strong>Foliage placement:</strong> Distribute plants evenly (top, middle, bottom) ensuring each level has cover",
         "<strong>Feeding stations:</strong> Attach magnetic ledges at different heights to reduce competition during feeding",
         "<strong>Equipment mounting:</strong> Place heat lamp over one upper corner (not center), UVB bulb on side of hood, probe placement mid-height",
-        "<strong>Testing phase:</strong> Run equipment for 24-48 hours before adding geckos, adjust heat dimmer to achieve 80-85Â°F basking spot"
+        "<strong>Testing phase:</strong> Run equipment for 24-48 hours before adding geckos, adjust heat dimmer to achieve 80-85°F basking spot"
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "CRITICAL: Basking temperature must NOT exceed 85Â°F. Temperatures above 85Â°F can cause heat stress and death. Use a dimmer to fine-tune wattage - do not rely on guessing bulb size!"
+      "content": "CRITICAL: Basking temperature must NOT exceed 85°F. Temperatures above 85°F can cause heat stress and death. Use a dimmer to fine-tune wattage - do not rely on guessing bulb size!"
     },
     {
       "type": "section",
@@ -133,7 +134,7 @@
       "rows": [
         ["Housing only 1 gecko", "Severe stress, abnormal behavior, shortened lifespan", "Always keep groups of 2+ (they're social!)"],
         ["All-screen enclosure", "Humidity drops to 30-40%, dehydration", "Use glass terrarium with screen top only"],
-        ["Excessive heat wattage", "Overheating above 85Â°F = lethal", "Start with 25w + dimmer, measure with temp gun"],
+        ["Excessive heat wattage", "Overheating above 85°F = lethal", "Start with 25w + dimmer, measure with temp gun"],
         ["No UVB", "Weak bones, egg binding, metabolic issues", "Provide 5.0 UVB even though they're nocturnal"],
         ["Insufficient climbing surfaces", "Limited territory, increased aggression", "Add branches/vines at all heights"],
         ["Only 1 feeding station", "Dominant geckos monopolize food", "Provide multiple feeding ledges"],
@@ -155,7 +156,7 @@
         ["Mist enclosure", "Morning + evening", "Use tap/spring water (not distilled)"],
         ["Remove old CGD", "Every 24-48 hours", "Prevent mold growth"],
         ["Spot clean waste", "Daily", "Remove visible feces/urates"],
-        ["Check temperatures", "Daily", "Basking 80-85Â°F, cool zone 70-75Â°F"],
+        ["Check temperatures", "Daily", "Basking 80-85°F, cool zone 70-75°F"],
         ["Rotate feeding ledges", "Every 3-4 days", "Prevent territorial guarding"],
         ["Full substrate change", "Every 1-3 months", "Or go bioactive for less maintenance"],
         ["Replace UVB bulb", "Every 6-12 months", "Even if still producing light"]

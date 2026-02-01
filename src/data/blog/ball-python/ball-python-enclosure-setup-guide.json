@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "ball-python-enclosure-setup-guide",
   "title": "Ball Python Enclosure Setup Guide: Complete Housing for Terrestrial Constrictors",
   "description": "Evidence-based enclosure setup guide for ball pythons covering minimum dimensions, terrestrial layout with climbing opportunities, thermal gradient zones, and enrichment for crepuscular behavior.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["ball-python", "enclosure", "housing", "terrestrial", "setup"],
   "image": "/animals/ball-python/ball-python-enclosure.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -30,17 +31,17 @@
       "type": "table",
       "headers": ["Snake Size/Age", "Minimum Enclosure Size", "Gallons", "Rationale"],
       "rows": [
-        ["Hatchlings (0-6 months)", "36Ã—18Ã—18 inches", "40 gallons", "Allows thermal gradient, not too large to find food"],
-        ["Juveniles (6-18 months)", "48Ã—24Ã—18 inches", "75 gallons", "Supports growth, increased activity, climbing"],
-        ["Sub-adults (18-36 months)", "48Ã—24Ã—24 inches", "120 gallons", "Standard adult minimum, proper thermoregulation"],
-        ["Adults (3+ years, all sizes)", "48Ã—24Ã—24 inches minimum", "120+ gallons", "Adequate thermoregulation, exercise, welfare"],
-        ["Large females (>2000g)", "60Ã—24Ã—24 inches or larger", "150+ gallons", "Larger snakes need proportionally more space"]
+        ["Hatchlings (0-6 months)", "36×18×18 inches", "40 gallons", "Allows thermal gradient, not too large to find food"],
+        ["Juveniles (6-18 months)", "48×24×18 inches", "75 gallons", "Supports growth, increased activity, climbing"],
+        ["Sub-adults (18-36 months)", "48×24×24 inches", "120 gallons", "Standard adult minimum, proper thermoregulation"],
+        ["Adults (3+ years, all sizes)", "48×24×24 inches minimum", "120+ gallons", "Adequate thermoregulation, exercise, welfare"],
+        ["Large females (>2000g)", "60×24×24 inches or larger", "150+ gallons", "Larger snakes need proportionally more space"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Outdated sources claim ball pythons 'prefer' small enclosures (40 gallon max) or even tub systems. This is NOT science-based. Research shows ball pythons utilize larger spaces, climb regularly, and demonstrate reduced stress in appropriately-sized enclosures (48Ã—24Ã—24 minimum for adults)."
+      "content": "Outdated sources claim ball pythons 'prefer' small enclosures (40 gallon max) or even tub systems. This is NOT science-based. Research shows ball pythons utilize larger spaces, climb regularly, and demonstrate reduced stress in appropriately-sized enclosures (48×24×24 minimum for adults)."
     },
     {
       "type": "section",
@@ -58,10 +59,10 @@
       "type": "table",
       "headers": ["Material", "Pros", "Cons", "Best For"],
       "rows": [
-        ["PVC/Composite (front-opening)", "Excellent humidity retention, insulated, lightweight, front access reduces stress", "$300-600 cost, fewer size options", "Ideal for ball pythonsÃ—best overall choice"],
+        ["PVC/Composite (front-opening)", "Excellent humidity retention, insulated, lightweight, front access reduces stress", "$300-600 cost, fewer size options", "Ideal for ball pythons×best overall choice"],
         ["Wood (front-opening)", "Good humidity, customizable, aesthetically pleasing", "Heavy, requires waterproof sealant, $250-500", "DIY enthusiasts, custom builds"],
         ["Glass aquarium (top-opening)", "Widely available, easy to find ($150-300), good visibility", "Poor humidity retention, top-opening stresses snake, heavy", "Not recommended but usable with modifications"],
-        ["Plastic tub (rack system)", "Very cheap ($20-50), maintains humidity well", "No climbing space, minimal enrichment, cramped", "Breeding operations onlyÃ—NOT recommended for pet keeping"]
+        ["Plastic tub (rack system)", "Very cheap ($20-50), maintains humidity well", "No climbing space, minimal enrichment, cramped", "Breeding operations only×NOT recommended for pet keeping"]
       ]
     },
     {
@@ -98,11 +99,11 @@
       "type": "table",
       "headers": ["Snake Length", "Hide Opening Diameter", "Hide Interior Dimensions"],
       "rows": [
-        ["Hatchling (12-18 inches)", "2-3 inches", "4Ã—4Ã—2 inches interior"],
-        ["Juvenile (18-30 inches)", "3-4 inches", "6Ã—6Ã—3 inches interior"],
-        ["Sub-adult (30-42 inches)", "4-5 inches", "8Ã—8Ã—4 inches interior"],
-        ["Adult female (42-60 inches)", "5-6 inches", "10Ã—10Ã—5 inches interior"],
-        ["Large adult (60+ inches)", "6-7 inches", "12Ã—12Ã—6 inches interior"]
+        ["Hatchling (12-18 inches)", "2-3 inches", "4×4×2 inches interior"],
+        ["Juvenile (18-30 inches)", "3-4 inches", "6×6×3 inches interior"],
+        ["Sub-adult (30-42 inches)", "4-5 inches", "8×8×4 inches interior"],
+        ["Adult female (42-60 inches)", "5-6 inches", "10×10×5 inches interior"],
+        ["Large adult (60+ inches)", "6-7 inches", "12×12×6 inches interior"]
       ]
     },
     {
@@ -111,7 +112,7 @@
     },
     {
       "type": "section",
-      "title": "Climbing Enrichment & DÃ—cor"
+      "title": "Climbing Enrichment & D×cor"
     },
     {
       "type": "text",
@@ -119,7 +120,7 @@
     },
     {
       "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Enrichment Items (Recommended for 48Ã—24Ã—24 Enclosure):</span>"
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Enrichment Items (Recommended for 48×24×24 Enclosure):</span>"
     },
     {
       "type": "table",
@@ -128,7 +129,7 @@
         ["Sturdy branches (2-3 inches diameter)", "Climbing, exercise, exploration", "Secure firmly (can support 2x snake's weight), angled or horizontal"],
         ["Cork bark tubes/half-logs", "Hiding, climbing, natural texture", "One as cool hide, one as center enrichment"],
         ["Live or artificial plants", "Cover, humidity retention, visual security", "Pothos, snake plants (live), silk plants (artificial)"],
-        ["Flagstone or slate tile basking surface", "Basking platform on warm hide, thermal mass", "8Ã—10 inch minimum, placed on top of warm hide box"],
+        ["Flagstone or slate tile basking surface", "Basking platform on warm hide, thermal mass", "8×10 inch minimum, placed on top of warm hide box"],
         ["Leaf litter", "Naturalistic appearance, humidity retention, burrowing", "Generous layer on top of substrate (magnolia, oak leaves)"],
         ["Sphagnum moss (in cool hide)", "Humidity boost for shedding", "Fill cool hide or create separate humid hide"]
       ]
@@ -136,7 +137,7 @@
     {
       "type": "warning",
       "severity": "tip",
-      "content": "Ball pythons are NOT 'pet rocks'Ã—they are intelligent animals that benefit from environmental complexity. Enrichment items reduce stress, encourage natural behaviors (climbing, exploration), and promote physical fitness. Snakes in enriched enclosures are more active and less prone to obesity."
+      "content": "Ball pythons are NOT 'pet rocks'×they are intelligent animals that benefit from environmental complexity. Enrichment items reduce stress, encourage natural behaviors (climbing, exploration), and promote physical fitness. Snakes in enriched enclosures are more active and less prone to obesity."
     },
     {
       "type": "section",
@@ -183,10 +184,10 @@
         ["2. Heating Installation", "Mount heat lamps, install dimmers, place basking rock", "Day 1 (1 hour)"],
         ["3. Temperature Testing", "Run heat lamps for 24-48 hours, measure all zones with thermometers", "Days 1-3 (monitoring)"],
         ["4. Substrate Addition", "Add 2-4 inches of substrate, layer leaf litter on top", "Day 3 (30 minutes)"],
-        ["5. DÃ—cor Placement", "Install hides, branches, plants, water bowl", "Day 3 (1 hour)"],
+        ["5. D×cor Placement", "Install hides, branches, plants, water bowl", "Day 3 (1 hour)"],
         ["6. UVB Installation", "Mount UVB fixture, verify placement (15-18 inches from basking if over mesh)", "Day 3 (30 minutes)"],
         ["7. Humidity Testing", "Mist substrate, monitor humidity for 24 hours with hygrometer", "Days 3-4 (monitoring)"],
-        ["8. Final Adjustments", "Adjust heat lamp wattage, reposition dÃ—cor for optimal temps", "Day 4 (as needed)"],
+        ["8. Final Adjustments", "Adjust heat lamp wattage, reposition d×cor for optimal temps", "Day 4 (as needed)"],
         ["9. Snake Introduction", "Place snake in cool hide, do not handle for 7 days", "Day 5 (acclimation begins)"],
         ["10. First Feeding", "Offer appropriately-sized prey after 7-day acclimation period", "Day 12 (post-acclimation)"]
       ]
@@ -207,14 +208,14 @@
       "type": "table",
       "headers": ["Mistake", "Why It's Harmful", "Solution"],
       "rows": [
-        ["Enclosure too small (40 gallon or tub)", "Prevents proper thermoregulation, limits exercise, causes stress", "Use 48Ã—24Ã—24 minimum (120 gallons) for adults"],
+        ["Enclosure too small (40 gallon or tub)", "Prevents proper thermoregulation, limits exercise, causes stress", "Use 48×24×24 minimum (120 gallons) for adults"],
         ["Only one hide provided", "Forces snake to choose between security and thermal comfort", "Provide warm hide AND cool hide minimum (2+ hides)"],
         ["Hides too large or too small", "Too large = exposed feeling, too small = won't use it", "Snug fit: snake touches 2-3 sides when coiled"],
         ["No climbing opportunities", "Limits natural behavior, reduces exercise", "Add sturdy branches, cork bark tubes"],
         ["Top-opening glass tank only", "Hand reaching from above mimics predator, causes stress", "Use front-opening enclosure OR add visual barriers"],
         ["Heat mat as primary heat source", "Doesn't warm air or basking surface adequately", "Use halogen flood bulbs for primary heat (heat mats supplemental only)"],
-        ["No temperature gradient", "Snake can't thermoregulate, leads to chronic stress", "Establish 95-104Ã—F basking, 72-80Ã—F cool zone"],
-        ["Using heat rocks", "Cause severe burnsÃ—ball pythons don't sense surface heat well", "NEVER use heat rocksÃ—use overhead halogen bulbs"],
+        ["No temperature gradient", "Snake can't thermoregulate, leads to chronic stress", "Establish 95-104×F basking, 72-80×F cool zone"],
+        ["Using heat rocks", "Cause severe burns×ball pythons don't sense surface heat well", "NEVER use heat rocks×use overhead halogen bulbs"],
         ["Empty enclosure ('minimalist' setup)", "Boredom, stress, unnatural environment", "Add enrichment: branches, plants, leaf litter, multiple hides"]
       ]
     },
@@ -224,18 +225,18 @@
     },
     {
       "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Essential Equipment (48Ã—24Ã—24 Setup):</span>"
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Essential Equipment (48×24×24 Setup):</span>"
     },
     {
       "type": "table",
       "headers": ["Equipment", "Specification", "Purpose"],
       "rows": [
-        ["Enclosure", "48Ã—24Ã—24 inches PVC or wood (front-opening)", "Housing, humidity retention"],
+        ["Enclosure", "48×24×24 inches PVC or wood (front-opening)", "Housing, humidity retention"],
         ["Dual dome heat lamp", "Ceramic sockets rated for 150w+", "Basking heat (holds 2 bulbs)"],
         ["Halogen flood bulbs", "90w PAR38 x2 (adjustable based on temps)", "Primary heating for basking zone"],
-        ["Basking surface", "Large flagstone or slate tile (8Ã—10 inches minimum)", "Thermal mass, prevents belly burns"],
+        ["Basking surface", "Large flagstone or slate tile (8×10 inches minimum)", "Thermal mass, prevents belly burns"],
         ["Plug-in dimmers", "x2 (one per heat lamp)", "Fine-tune basking temperatures"],
-        ["Infrared thermometer", "Temperature gun for spot checks", "Measure basking surface temp (95-104Ã—F target)"],
+        ["Infrared thermometer", "Temperature gun for spot checks", "Measure basking surface temp (95-104×F target)"],
         ["Digital thermometer/hygrometer", "With probes for warm hide and cool hide", "Monitor temperatures and humidity continuously"],
         ["UVB fixture + bulb", "22\" T5 HO Arcadia Forest 6% or Zoo Med 5.0", "UVB provision (2.0-3.0 UVI in basking)"],
         ["Timer", "Digital plug-in timer", "Automate lighting (12-14 hour photoperiod)"],
@@ -251,7 +252,7 @@
     },
     {
       "type": "highlight",
-      "content": "Total setup cost estimate: $500-800 for complete new setup (enclosure $300-450, heating $100, UVB $60, dÃ—cor/substrate $100-150, accessories $50). This is a one-time investment for 30+ year lifespan. Annual costs: $50-100 for substrate/bulb replacements."
+      "content": "Total setup cost estimate: $500-800 for complete new setup (enclosure $300-450, heating $100, UVB $60, d×cor/substrate $100-150, accessories $50). This is a one-time investment for 30+ year lifespan. Annual costs: $50-100 for substrate/bulb replacements."
     },
     {
       "type": "section",
@@ -280,7 +281,7 @@
     {
       "type": "warning",
       "severity": "tip",
-      "content": "Bioactive setups reduce maintenance (no full substrate changes) and provide enrichment, but require initial investment ($150-250 extra) and 4-6 weeks establishment time before adding snake. Not required for ball python healthÃ—standard setup works perfectly well."
+      "content": "Bioactive setups reduce maintenance (no full substrate changes) and provide enrichment, but require initial investment ($150-250 extra) and 4-6 weeks establishment time before adding snake. Not required for ball python health×standard setup works perfectly well."
     },
     {
       "type": "section",
@@ -294,14 +295,14 @@
       "type": "table",
       "headers": ["Problem", "Likely Cause", "Solution"],
       "rows": [
-        ["Basking surface too hot (>105Ã—F)", "Wattage too high or basking rock too close", "Use dimmer to reduce power OR raise heat lamp fixture"],
-        ["Basking surface too cool (<92Ã—F)", "Wattage too low or basking rock too far", "Increase to 100-150w bulbs OR lower heat lamp closer"],
-        ["Warm hide not reaching 86-90Ã—F", "Basking rock too thick (heat not transferring)", "Thinner rock OR add thermostat-controlled heat mat under hide"],
-        ["Cool side too warm (>82Ã—F)", "Enclosure too small or insufficient ventilation", "Increase ventilation, use fans, or move to cooler room"],
+        ["Basking surface too hot (>105×F)", "Wattage too high or basking rock too close", "Use dimmer to reduce power OR raise heat lamp fixture"],
+        ["Basking surface too cool (<92×F)", "Wattage too low or basking rock too far", "Increase to 100-150w bulbs OR lower heat lamp closer"],
+        ["Warm hide not reaching 86-90×F", "Basking rock too thick (heat not transferring)", "Thinner rock OR add thermostat-controlled heat mat under hide"],
+        ["Cool side too warm (>82×F)", "Enclosure too small or insufficient ventilation", "Increase ventilation, use fans, or move to cooler room"],
         ["Humidity too low (<45%)", "Insufficient substrate depth or too much ventilation", "Increase substrate to 4 inches, mist 2x daily, add sphagnum moss in cool hide"],
         ["Humidity too high (>80%)", "Over-misting or poor ventilation", "Reduce misting frequency, increase ventilation (add vents)"],
         ["Snake always hiding (won't come out)", "Normal behavior OR temps incorrect OR too much activity near enclosure", "Verify temps correct, reduce handling/activity, provide more cover"],
-        ["Snake always on cool side", "Warm side too hot (>110Ã—F), stressed, or digesting", "Verify basking temps, reduce wattage if needed, provide more warm-side hiding options"]
+        ["Snake always on cool side", "Warm side too hot (>110×F), stressed, or digesting", "Verify basking temps, reduce wattage if needed, provide more warm-side hiding options"]
       ]
     }
   ]

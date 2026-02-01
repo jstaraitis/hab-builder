@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "crested-gecko-substrate-guide",
   "title": "Crested Gecko Substrate Guide: Best Options for Humidity & Safety",
   "description": "Complete substrate guide for crested geckos covering humidity retention, naturalistic options, DIY tropical mixes, bioactive setups, and maintenance schedules.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["crested-gecko", "substrate", "bedding", "humidity", "bioactive"],
   "image": "/animals/crested-gecko/crested-gecko-substrate.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -39,7 +40,7 @@
     },
     {
       "type": "highlight",
-      "content": "Substrate depth of 2-4 inches allows for proper humidity bufferingÃ—shallow substrates (under 1 inch) dry out too quickly and require excessive misting."
+      "content": "Substrate depth of 2-4 inches allows for proper humidity buffering×shallow substrates (under 1 inch) dry out too quickly and require excessive misting."
     },
     {
       "type": "highlight",
@@ -90,7 +91,7 @@
       "type": "table",
       "headers": ["Ingredient", "Ratio", "Purpose", "Where to Source"],
       "rows": [
-        ["Organic topsoil (additive-free)", "60%", "Moisture retention, plant nutrients, structure", "Garden centers (check ingredientsÃ—no fertilizers/pesticides)"],
+        ["Organic topsoil (additive-free)", "60%", "Moisture retention, plant nutrients, structure", "Garden centers (check ingredients×no fertilizers/pesticides)"],
         ["Coconut fiber/coir", "40%", "Drainage, aeration, moisture buffering", "Reptile stores or garden centers (compressed bricks)"],
         ["Leaf litter (top layer)", "1-2\" layer", "Naturalistic appearance, microfauna habitat", "Collect from pesticide-free areas or purchase magnolia leaves"],
         ["Sphagnum moss (optional)", "10-15% mixed in", "Extra moisture retention, anti-microbial properties", "Craft stores or reptile suppliers"]
@@ -143,7 +144,7 @@
     },
     {
       "type": "table",
-      "headers": ["CUC Species", "Quantity (18Ã—18Ã—24 tank)", "Role"],
+      "headers": ["CUC Species", "Quantity (18×18×24 tank)", "Role"],
       "rows": [
         ["Dwarf white isopods", "20-30", "Consume feces, dead plant matter, mold"],
         ["Powder orange isopods", "10-20", "More aggressive decomposers, faster breeding"],
@@ -203,7 +204,7 @@
       "rows": [
         ["Spot clean feces/urates", "Daily", "Remove visible waste with scooper or paper towel, replace substrate in that area"],
         ["Remove uneaten food", "After 24 hours", "Discard any CGD or insects not consumed to prevent mold/odor"],
-        ["Substrate moisture check", "Every 2-3 days", "Squeeze testÃ—should hold shape but not drip. Mist if too dry."],
+        ["Substrate moisture check", "Every 2-3 days", "Squeeze test×should hold shape but not drip. Mist if too dry."],
         ["Leaf litter replacement", "Monthly", "Add fresh leaf litter, remove heavily decomposed leaves"],
         ["Partial substrate change", "Every 2-3 months", "Replace top 1-2 inches, stir remaining substrate"],
         ["Complete substrate change", "Every 6-12 months (non-bioactive)", "Remove all substrate, sanitize enclosure, add fresh mix"],

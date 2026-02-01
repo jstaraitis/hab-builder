@@ -7,6 +7,8 @@
   "category": "Care Guides",
   "tags": ["[species-common-name]", "substrate", "bioactive", "safety"],
   "image": "/animals/[species-folder]/[species-image].jpg",
+  "status": "draft",
+  "reviewedBy": "",
   "content": [
     {
       "type": "intro",

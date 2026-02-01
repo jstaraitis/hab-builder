@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "substrate-selection-guide",
   "title": "Substrate Guide: Selection, DIY Mixing & Safety",
   "species": "general",
@@ -7,11 +7,12 @@
   "description": "Comprehensive guide to reptile and amphibian substrate selection, covering DIY mixing formulas, commercial options, impaction myths, bioactive setups, and substrates to avoid.",
   "lastUpdated": "2026-01-28",
   "tags": ["substrate", "bedding", "bioactive", "impaction", "diy-substrate"],
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
       "heading": "Why Substrate Choice Matters",
-      "text": "Substrateâ€”the material covering the enclosure floorâ€”affects humidity, temperature retention, burrowing behavior, joint health, and overall enrichment. The right substrate supports natural behaviors like digging, foraging, and thermoregulation. The wrong substrate can cause impaction, respiratory issues, or simply fails to meet your animal's needs. This guide covers substrate types from arid desert mixes to tropical bioactive systems, with DIY recipes and safety guidelines."
+      "text": "Substrate—the material covering the enclosure floor—affects humidity, temperature retention, burrowing behavior, joint health, and overall enrichment. The right substrate supports natural behaviors like digging, foraging, and thermoregulation. The wrong substrate can cause impaction, respiratory issues, or simply fails to meet your animal's needs. This guide covers substrate types from arid desert mixes to tropical bioactive systems, with DIY recipes and safety guidelines."
     },
     {
       "type": "section",
@@ -19,7 +20,7 @@
     },
     {
       "type": "text",
-      "text": "Different species come from different habitatsâ€”deserts, rainforests, temperate forests, semi-aquatic zones. Substrate should match the animal's natural environment."
+      "text": "Different species come from different habitats—deserts, rainforests, temperate forests, semi-aquatic zones. Substrate should match the animal's natural environment."
     },
     {
       "type": "text",
@@ -38,7 +39,7 @@
     },
     {
       "type": "highlight",
-      "content": "Start by identifying your species' natural habitat, then choose substrate that mimics that environment's moisture level, drainage, and texture. A desert species needs dry, well-draining substrateâ€”tropical substrate would cause respiratory infections."
+      "content": "Start by identifying your species' natural habitat, then choose substrate that mimics that environment's moisture level, drainage, and texture. A desert species needs dry, well-draining substrate—tropical substrate would cause respiratory infections."
     },
     {
       "type": "section",
@@ -88,7 +89,7 @@
     {
       "type": "warning",
       "severity": "tip",
-      "content": "DIY substrate costs $15-30 for enough to fill a 36Ã—18\" enclosure 3-4\" deep. Commercial pre-mixed substrates cost $30-60 for the same volume. DIY saves money and allows customization for your specific species' needs."
+      "content": "DIY substrate costs $15-30 for enough to fill a 36×18\" enclosure 3-4\" deep. Commercial pre-mixed substrates cost $30-60 for the same volume. DIY saves money and allows customization for your specific species' needs."
     },
     {
       "type": "text",
@@ -114,7 +115,7 @@
     },
     {
       "type": "text",
-      "text": "Pre-mixed commercial substrates offer convenience and consistency. Quality varies widelyâ€”here's what's worth buying."
+      "text": "Pre-mixed commercial substrates offer convenience and consistency. Quality varies widely—here's what's worth buying."
     },
     {
       "type": "text",
@@ -132,7 +133,7 @@
         ["Zoo Med ReptiSand (natural)", "Arid", "$ ($15-25)", "Fair", "Arid species, needs mixing with topsoil"],
         ["Exo Terra Plantation Soil", "Tropical", "$ ($10-18)", "Good", "Compressed coco brick, economical"],
         ["Zoo Med Forest Floor (cypress mulch)", "Temperate", "$ ($10-20)", "Good", "Snakes, temperate species, odor control"],
-        ["Orchid bark chunks", "Drainage layer", "$ ($15-25)", "Good", "Bioactive drainage, tropical dÃ©cor"],
+        ["Orchid bark chunks", "Drainage layer", "$ ($15-25)", "Good", "Bioactive drainage, tropical décor"],
         ["Sphagnum moss (long fiber)", "Humid hides", "$$ ($10-20)", "Excellent", "Humid hides, moisture retention, plant bedding"]
       ]
     },
@@ -157,7 +158,7 @@
         ["Pine shavings (untreated)", "Aromatic oils irritate respiratory system", "Respiratory infections, chemical irritation", "Cypress mulch or coco coir"],
         ["Reptile carpet / Astroturf", "Toes/claws snag, harbors bacteria", "Toe injuries, poor hygiene, no enrichment", "Any naturalistic substrate"],
         ["Pure sand (no binder)", "Collapses burrows, ingestion risk if animal ill", "Impaction if animal sick/dehydrated", "Sand mixed 40/40/20 with soil and clay"],
-        ["Walnut shell bedding", "Sharp edges, dust, ingestion issues", "Impaction, respiratory irritation", "Ground walnut is particularly badâ€”avoid"],
+        ["Walnut shell bedding", "Sharp edges, dust, ingestion issues", "Impaction, respiratory irritation", "Ground walnut is particularly bad—avoid"],
         ["Corn cob bedding", "Molds easily, ingestion risk", "Mold toxicity, impaction", "Coco coir or soil-based substrates"],
         ["Gravel / aquarium pebbles", "Easily ingested during feeding", "Impaction, intestinal damage", "Fine-grained substrates or feeding dishes"],
         ["Potting soil with fertilizers", "Chemicals toxic to reptiles", "Poisoning, skin irritation", "Organic topsoil with NO additives"]
@@ -174,7 +175,7 @@
     },
     {
       "type": "text",
-      "text": "Impactionâ€”intestinal blockage from ingested substrateâ€”is often blamed on substrate type. In reality, substrate ingestion is usually a symptom of underlying husbandry problems, not a substrate issue."
+      "text": "Impaction—intestinal blockage from ingested substrate—is often blamed on substrate type. In reality, substrate ingestion is usually a symptom of underlying husbandry problems, not a substrate issue."
     },
     {
       "type": "text",
@@ -200,19 +201,19 @@
       "type": "table",
       "headers": ["Substrate", "Risk Level", "Reason", "Safe With Proper Husbandry?"],
       "rows": [
-        ["Calcium sand", "SEVERE", "Clumps into concrete, causes fatal blockages", "NOâ€”never safe"],
-        ["Pure gravel/pebbles", "SEVERE", "Large particles can't pass digestive tract", "NOâ€”avoid entirely"],
-        ["Walnut shell", "HIGH", "Sharp edges, binds when wet", "NOâ€”avoid"],
-        ["Pure sand (no binder)", "MODERATE", "Large volumes can accumulate if animal sick", "YESâ€”if temps correct, animal healthy"],
-        ["Topsoil + sand + clay mix", "LOW", "Natural texture passes through gut if ingested", "YESâ€”most natural choice"],
-        ["Coco coir / Eco Earth", "LOW", "Fiber passes through digestive system", "YESâ€”safe for most species"],
-        ["Cypress mulch", "LOW", "Soft wood, passes through in small amounts", "YESâ€”good for snakes"],
-        ["Paper towels", "NONE", "Not ingested (boring but safe)", "YESâ€”quarantine/medical use"]
+        ["Calcium sand", "SEVERE", "Clumps into concrete, causes fatal blockages", "NO—never safe"],
+        ["Pure gravel/pebbles", "SEVERE", "Large particles can't pass digestive tract", "NO—avoid entirely"],
+        ["Walnut shell", "HIGH", "Sharp edges, binds when wet", "NO—avoid"],
+        ["Pure sand (no binder)", "MODERATE", "Large volumes can accumulate if animal sick", "YES—if temps correct, animal healthy"],
+        ["Topsoil + sand + clay mix", "LOW", "Natural texture passes through gut if ingested", "YES—most natural choice"],
+        ["Coco coir / Eco Earth", "LOW", "Fiber passes through digestive system", "YES—safe for most species"],
+        ["Cypress mulch", "LOW", "Soft wood, passes through in small amounts", "YES—good for snakes"],
+        ["Paper towels", "NONE", "Not ingested (boring but safe)", "YES—quarantine/medical use"]
       ]
     },
     {
       "type": "highlight",
-      "content": "A healthy, properly heated, well-hydrated reptile can safely digest small amounts of naturalistic substrate (soil, sand, coco coir). The myth that 'any particle substrate causes impaction' is outdated. Focus on proper temperature, hydration, and healthâ€”these prevent impaction, not sterile substrates."
+      "content": "A healthy, properly heated, well-hydrated reptile can safely digest small amounts of naturalistic substrate (soil, sand, coco coir). The myth that 'any particle substrate causes impaction' is outdated. Focus on proper temperature, hydration, and health—these prevent impaction, not sterile substrates."
     },
     {
       "type": "section",
@@ -241,7 +242,7 @@
     {
       "type": "warning",
       "severity": "tip",
-      "content": "Deeper substrate (4-6\") is better for enrichment and naturalistic behaviorâ€”animals can dig, create burrows, and thermoregulate. Thin substrate (1\") is functional but offers no behavioral enrichment. If budget allows, go deeper."
+      "content": "Deeper substrate (4-6\") is better for enrichment and naturalistic behavior—animals can dig, create burrows, and thermoregulate. Thin substrate (1\") is functional but offers no behavioral enrichment. If budget allows, go deeper."
     },
     {
       "type": "section",
@@ -263,7 +264,7 @@
         ["2. Screen Barrier", "Mesh, landscape fabric, or weed barrier", "Single layer", "Separates drainage from substrate, allows water through"],
         ["3. Substrate Layer", "Soil, coco coir, sand mix (species-appropriate)", "3-6\"", "CUC habitat, plant roots, animal activity zone"],
         ["4. Leaf Litter", "Magnolia, oak, or live oak leaves", "1-2\" layer", "CUC food source, humidity retention, naturalistic appearance"],
-        ["5. DÃ©cor/Plants", "Cork bark, branches, live plants", "Throughout", "Hides, climbing, foliage, visual barriers"]
+        ["5. Décor/Plants", "Cork bark, branches, live plants", "Throughout", "Hides, climbing, foliage, visual barriers"]
       ]
     },
     {
@@ -274,12 +275,12 @@
       "type": "list",
       "items": [
         "1. Drainage: Add 1-2\" hydro balls or LECA (lightweight expanded clay aggregate) to enclosure bottom",
-        "2. Barrier: Lay mesh or landscape fabric over drainageâ€”trim to fit, prevent substrate falling through",
+        "2. Barrier: Lay mesh or landscape fabric over drainage—trim to fit, prevent substrate falling through",
         "3. Substrate: Add 3-6\" substrate appropriate for species (arid mix for desert, tropical mix for rainforest)",
-        "4. Plants: Plant live plants directly in substrateâ€”choose species matching habitat (succulents for arid, ferns/pothos for tropical)",
-        "5. Leaf Litter: Add 1-2\" layer of dried leaves on surfaceâ€”oak, magnolia, or live oak work well",
-        "6. CUC: Add cleanup crew (isopods + springtails)â€”they eat feces, mold, dead plant matter",
-        "7. Establish: Let enclosure run 2-4 weeks before adding animalâ€”CUC population establishes, plants root, mold cycle completes",
+        "4. Plants: Plant live plants directly in substrate—choose species matching habitat (succulents for arid, ferns/pothos for tropical)",
+        "5. Leaf Litter: Add 1-2\" layer of dried leaves on surface—oak, magnolia, or live oak work well",
+        "6. CUC: Add cleanup crew (isopods + springtails)—they eat feces, mold, dead plant matter",
+        "7. Establish: Let enclosure run 2-4 weeks before adding animal—CUC population establishes, plants root, mold cycle completes",
         "8. Maintain: Mist as needed for humidity, remove uneaten prey items, add leaf litter as it breaks down"
       ]
     },
@@ -321,13 +322,13 @@
         "Mold growing extensively (small spots normal, widespread mold means too wet/no CUC)",
         "Substrate becomes compacted, hard, or dusty (loses structure)",
         "Mites or parasites detected (full substrate disposal required)",
-        "Animal has been sickâ€”substrate may harbor pathogens"
+        "Animal has been sick—substrate may harbor pathogens"
       ]
     },
     {
       "type": "warning",
       "severity": "tip",
-      "content": "Bioactive substrates with healthy CUC populations may never need full replacementâ€”just top off substrate and add leaf litter over time. This saves money long-term and maintains ecosystem stability."
+      "content": "Bioactive substrates with healthy CUC populations may never need full replacement—just top off substrate and add leaf litter over time. This saves money long-term and maintains ecosystem stability."
     },
     {
       "type": "section",
@@ -359,10 +360,10 @@
     {
       "type": "list",
       "items": [
-        "Squeeze Test: Pick up handful of substrate, squeezeâ€”should hold shape but not drip water for tropical species",
-        "Touch Test: Press substrate with fingerâ€”should feel cool and slightly damp, not dry or soggy",
+        "Squeeze Test: Pick up handful of substrate, squeeze—should hold shape but not drip water for tropical species",
+        "Touch Test: Press substrate with finger—should feel cool and slightly damp, not dry or soggy",
         "Visual Check: Tropical substrate should look dark (moist), arid substrate should look light (dry)",
-        "Hygrometer: Place probe in substrate levelâ€”should match species' humidity requirements (50-80% tropical, 30-50% arid)"
+        "Hygrometer: Place probe in substrate level—should match species' humidity requirements (50-80% tropical, 30-50% arid)"
       ]
     },
     {
@@ -400,11 +401,11 @@
     },
     {
       "type": "text",
-      "text": "Budget matters. Here's the real cost to fill a standard 36Ã—18\" enclosure 3\" deep (approximately 1.5 cubic feet of substrate)."
+      "text": "Budget matters. Here's the real cost to fill a standard 36×18\" enclosure 3\" deep (approximately 1.5 cubic feet of substrate)."
     },
     {
       "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Cost Analysis (36Ã—18\" Enclosure):</span>"
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Cost Analysis (36×18\" Enclosure):</span>"
     },
     {
       "type": "table",
@@ -422,7 +423,7 @@
     },
     {
       "type": "highlight",
-      "content": "Bioactive setups have higher upfront costs ($100-150 with CUC, plants, and drainage) but lowest long-term costsâ€”you never fully replace substrate, just add leaf litter and occasional top-offs. Pays for itself within 1-2 years."
+      "content": "Bioactive setups have higher upfront costs ($100-150 with CUC, plants, and drainage) but lowest long-term costs—you never fully replace substrate, just add leaf litter and occasional top-offs. Pays for itself within 1-2 years."
     },
     {
       "type": "section",
@@ -445,9 +446,9 @@
         ["Oak (standard)", "Safe", "Moderate (3-6 months)", "All species, readily available"],
         ["Indian Almond (Catappa)", "Safe", "Moderate (3-6 months)", "Amphibians, beneficial tannins"],
         ["Beech", "Safe", "Fast (2-4 months)", "CUC loves it, breaks down quickly"],
-        ["Maple", "Moderate", "Fast (2-4 months)", "OK but some species release sapâ€”use cautiously"],
-        ["Eucalyptus", "AVOID", "N/A", "Toxic oilsâ€”never use"],
-        ["Treated/pesticide leaves", "AVOID", "N/A", "Chemicals toxicâ€”only use organic or wild-collected from safe areas"]
+        ["Maple", "Moderate", "Fast (2-4 months)", "OK but some species release sap—use cautiously"],
+        ["Eucalyptus", "AVOID", "N/A", "Toxic oils—never use"],
+        ["Treated/pesticide leaves", "AVOID", "N/A", "Chemicals toxic—only use organic or wild-collected from safe areas"]
       ]
     },
     {
@@ -460,15 +461,15 @@
         "Collect from areas with NO pesticides, herbicides, or road runoff",
         "Choose leaves that have naturally fallen (brown, dried)",
         "Rinse leaves with water to remove dirt/debris",
-        "Optional: Bake at 200Â°F for 20-30 minutes to sterilize (kills mites, parasites)",
+        "Optional: Bake at 200°F for 20-30 minutes to sterilize (kills mites, parasites)",
         "Let cool completely before adding to enclosure",
-        "Add 1-2\" layer on top of substrateâ€”replenish as CUC consumes it"
+        "Add 1-2\" layer on top of substrate—replenish as CUC consumes it"
       ]
     },
     {
       "type": "warning",
       "severity": "tip",
-      "content": "Leaf litter is FREE if collected from safe sources, or $10-15 per bag if purchased online. Adds significant naturalistic enrichment and supports bioactive ecosystems. Don't skip this stepâ€”it's highly beneficial for minimal cost."
+      "content": "Leaf litter is FREE if collected from safe sources, or $10-15 per bag if purchased online. Adds significant naturalistic enrichment and supports bioactive ecosystems. Don't skip this step—it's highly beneficial for minimal cost."
     },
     {
       "type": "section",
@@ -481,18 +482,18 @@
     {
       "type": "list",
       "items": [
-        "1. Is your animal sick or in quarantine? â†’ Use paper towels temporarily",
-        "2. Is your species desert/arid (leopard gecko, bearded dragon)? â†’ DIY arid mix (topsoil+sand+clay) or Lugarti Natural Bedding",
-        "3. Is your species tropical (tree frogs, crested geckos)? â†’ DIY tropical mix (soil+coco+moss) or Zoo Med ReptiSoil",
-        "4. Is your species semi-arid (ball pythons)? â†’ DIY semi-desert mix or Zoo Med Forest Floor (cypress)",
-        "5. Do you want bioactive? â†’ Bio Dude substrates OR DIY mix + drainage layer + CUC",
-        "6. Are you on tight budget? â†’ DIY mixes cost least, use organic topsoil from hardware stores",
-        "7. Want low maintenance? â†’ Bioactive (high upfront, low long-term) or cypress mulch for snakes"
+        "1. Is your animal sick or in quarantine? ? Use paper towels temporarily",
+        "2. Is your species desert/arid (leopard gecko, bearded dragon)? ? DIY arid mix (topsoil+sand+clay) or Lugarti Natural Bedding",
+        "3. Is your species tropical (tree frogs, crested geckos)? ? DIY tropical mix (soil+coco+moss) or Zoo Med ReptiSoil",
+        "4. Is your species semi-arid (ball pythons)? ? DIY semi-desert mix or Zoo Med Forest Floor (cypress)",
+        "5. Do you want bioactive? ? Bio Dude substrates OR DIY mix + drainage layer + CUC",
+        "6. Are you on tight budget? ? DIY mixes cost least, use organic topsoil from hardware stores",
+        "7. Want low maintenance? ? Bioactive (high upfront, low long-term) or cypress mulch for snakes"
       ]
     },
     {
       "type": "highlight",
-      "content": "There's no single 'best' substrateâ€”the right choice depends on your species' natural habitat, your budget, your willingness to do bioactive setup, and whether you prioritize enrichment vs ease of cleaning. Naturalistic substrates are almost always better than sterile options for enrichment."
+      "content": "There's no single 'best' substrate—the right choice depends on your species' natural habitat, your budget, your willingness to do bioactive setup, and whether you prioritize enrichment vs ease of cleaning. Naturalistic substrates are almost always better than sterile options for enrichment."
     }
   ]
 }

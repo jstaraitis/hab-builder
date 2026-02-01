@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "crested-gecko-hydration-guide",
   "title": "Crested Gecko Hydration Guide: Water Sources & Dehydration Prevention",
   "description": "Complete hydration guide for crested geckos covering natural water behaviors, misting protocols, drinking methods, dehydration recognition, and humidity-based hydration strategies.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["crested-gecko", "hydration", "water", "misting", "humidity"],
   "image": "/animals/crested-gecko/crested-gecko-hydration.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",

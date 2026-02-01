@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "whites-tree-frog-hydration-water-guide",
   "title": "Hydration & Water Quality for White's Tree Frogs",
   "author": "Habitat Builder Team",
@@ -7,6 +7,7 @@
   "excerpt": "Dechlorination, dish hygiene, and when to add humidity without over-misting hardy White's Tree Frogs.",
   "description": "Dechlorination, dish hygiene, and when to add humidity without over-misting hardy White's Tree Frogs.",
   "tags": ["hydration", "water", "sanitation", "whites-tree-frog"],
+  "status": "community-reviewed",
   "content": [
     {
       "type": "intro",
@@ -21,7 +22,7 @@
           "items": [
             "Use tap water treated with a reptile-safe dechlorinator (removes chlorine and chloramines).",
             "RO/DI water is fine if you remineralize lightly or mix 50/50 with treated tap to avoid electrolyte depletion.",
-            "Never use distilled water long-term—lacks minerals and can disrupt electrolyte balance."
+            "Never use distilled water long-term�lacks minerals and can disrupt electrolyte balance."
           ]
         }
       ]
@@ -36,13 +37,13 @@
             "Provide a wide, shallow dish they can soak in but not fully submerge (belly-depth = 1-2 inches deep).",
             "Dish dimensions: Minimum 4-6 inches diameter for juveniles, 6-8 inches for adults. Frog should be able to sit comfortably with all four feet touching the bottom.",
             "Place the dish on the cool side to avoid rapid evaporation and bacteria growth.",
-            "Change water daily; scrub with hot water and a dedicated brush—no soap residue.",
+            "Change water daily; scrub with hot water and a dedicated brush�no soap residue.",
             "If bioactive, place a flat stone ramp for easy entry/exit and to reduce substrate in the bowl."
           ]
         },
         {
           "type": "highlight",
-          "content": "Note: Keep a second identical dish on hand—swap daily while the other is sanitized."
+          "content": "Note: Keep a second identical dish on hand�swap daily while the other is sanitized."
         }
       ]
     },
@@ -66,11 +67,11 @@
         },
         {
           "type": "text",
-          "text": "<strong>Emergency Rehydration</strong>: If you suspect dehydration, offer a supervised shallow soak (belly-deep, 70-75°F treated water) for 15-20 minutes. Repeat daily until skin condition improves. If no improvement in 2-3 days, consult an exotic vet immediately."
+          "text": "<strong>Emergency Rehydration</strong>: If you suspect dehydration, offer a supervised shallow soak (belly-deep, 70-75�F treated water) for 15-20 minutes. Repeat daily until skin condition improves. If no improvement in 2-3 days, consult an exotic vet immediately."
         },
         {
           "type": "highlight",
-          "content": "Shedding Issues: If frog has difficulty shedding (stuck shed on toes or skin), offer a 10-15 minute supervised soak 2-3 times per week until resolved. DO NOT increase ambient humidity—this causes more problems than it solves."
+          "content": "Shedding Issues: If frog has difficulty shedding (stuck shed on toes or skin), offer a 10-15 minute supervised soak 2-3 times per week until resolved. DO NOT increase ambient humidity�this causes more problems than it solves."
         }
       ]
     },
@@ -82,22 +83,22 @@
           "type": "list",
           "items": [
             "Target ambient humidity: 30-40% day, 30-40% night (White's are semi-arid, NOT tropical). Humidity spikes at night is normal due to environmental processes.",
-            "DO NOT use misters or foggers—White's Tree Frogs need DRY conditions.",
+            "DO NOT use misters or foggers�White's Tree Frogs need DRY conditions.",
             "A large water dish for soaking provides all the humidity they need.",
             "High humidity (>50%) promotes bacterial blooms, respiratory infections, and mold.",
-            "Ensure strong ventilation with screen top—stagnant air causes skin and lung issues."
+            "Ensure strong ventilation with screen top�stagnant air causes skin and lung issues."
           ]
         },
         {
           "type": "warning",
           "severity": "important",
-          "content": "CRITICAL: White's Tree Frogs are semi-arid Australian species. Keeping humidity above 50% sustained will cause respiratory infections. If shedding issues occur, offer a 10-minute supervised soak in shallow treated water—do NOT increase ambient humidity."
+          "content": "CRITICAL: White's Tree Frogs are semi-arid Australian species. Keeping humidity above 50% sustained will cause respiratory infections. If shedding issues occur, offer a 10-minute supervised soak in shallow treated water�do NOT increase ambient humidity."
         }
       ]
     },
     {
       "type": "section",
-      "heading": "❗ Red Flags & Fixes",
+      "heading": "? Red Flags & Fixes",
       "content": [
         {
           "type": "list",
@@ -106,7 +107,7 @@
             "Persistent skin shedding issues: Offer a supervised shallow-water soak for 10-15 minutes; do NOT increase ambient humidity.",
             "Red, irritated skin or lethargy: Lower humidity if above 50%, increase ventilation, and consult an exotics vet immediately.",
             "White biofilm in the bowl: Sanitize more often; check that dechlorinator is fresh and dosed correctly.",
-            "Respiratory distress (gaping mouth, wheezing): Emergency—humidity likely too high; increase ventilation and vet ASAP."
+            "Respiratory distress (gaping mouth, wheezing): Emergency�humidity likely too high; increase ventilation and vet ASAP."
           ]
         }
       ]

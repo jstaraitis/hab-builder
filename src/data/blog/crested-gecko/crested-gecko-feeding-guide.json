@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "crested-gecko-feeding-guide",
   "title": "Crested Gecko Feeding Guide: Complete Nutrition by Life Stage",
   "description": "Comprehensive feeding guide for crested geckos covering age-based diets, crested gecko diet powder, feeder insects, supplementation schedules, and body condition assessment.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["crested-gecko", "feeding", "nutrition", "diet", "CGD"],
   "image": "/animals/crested-gecko/crested-gecko-feeding.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -47,7 +48,7 @@
     },
     {
       "type": "text",
-      "content": "CGD powder is a revolutionary product that transformed crested gecko keeping. It's nutritionally completeÃ—no fruits, vegetables, or vitamin dusting required when CGD is the primary diet."
+      "content": "CGD powder is a revolutionary product that transformed crested gecko keeping. It's nutritionally complete×no fruits, vegetables, or vitamin dusting required when CGD is the primary diet."
     },
     {
       "type": "text",
@@ -101,7 +102,7 @@
       "rows": [
         ["1. Prepare fresh CGD", "Mix powder + water in small cup or ledge", "Mix immediately before feeding (evening, around 7-9 PM)"],
         ["2. Place in enclosure", "Magnetic ledge, gecko feeding cup, or cork bark", "Mid to upper level, easily accessible from vines"],
-        ["3. Remove previous CGD", "Discard any uneaten CGD from prior feeding", "CGD spoils in 24 hoursÃ—never leave more than one night"],
+        ["3. Remove previous CGD", "Discard any uneaten CGD from prior feeding", "CGD spoils in 24 hours×never leave more than one night"],
         ["4. Offer for 24 hours", "Leave fresh CGD overnight", "Crested geckos are most active 8 PM-4 AM"],
         ["5. Monitor consumption", "Check if gecko licked cup clean or left residue", "Adjust portion size based on consumption patterns"]
       ]
@@ -319,7 +320,7 @@
     },
     {
       "type": "highlight",
-      "content": "Position feeding ledges mid to upper level of enclosureÃ—crested geckos feel safer eating off the ground. Have 2-3 ledges/cups so you can rotate (one in use, one being cleaned)."
+      "content": "Position feeding ledges mid to upper level of enclosure×crested geckos feel safer eating off the ground. Have 2-3 ledges/cups so you can rotate (one in use, one being cleaned)."
     },
     {
       "type": "section",

@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "leopard-gecko-lighting-guide",
   "title": "Leopard Gecko Lighting Guide: UVB & Photoperiod for Crepuscular Species",
   "description": "Complete lighting guide for leopard geckos covering low-level UVB requirements, albino morph considerations, photoperiod management, and the UVB vs dietary D3 debate.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["leopard-gecko", "UVB", "lighting", "photoperiod", "albino"],
   "image": "/animals/leopard-gecko/leopard-gecko-lighting.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -52,7 +53,7 @@
     },
     {
       "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Recommended UVB Bulbs (36Ã—18Ã—18 enclosure):</span>"
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Recommended UVB Bulbs (36×18×18 enclosure):</span>"
     },
     {
       "type": "table",
@@ -68,7 +69,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Do NOT use: Mercury vapor bulbs (too intense), desert-strength 10.0/12% linear bulbs for normal morphs (excessive UVB), or any UVB without measuring with Solarmeter 6.5. The compact 10.0 recommendation for albinos is ONLY at 11-14\" distanceÃ—closer causes burns."
+      "content": "Do NOT use: Mercury vapor bulbs (too intense), desert-strength 10.0/12% linear bulbs for normal morphs (excessive UVB), or any UVB without measuring with Solarmeter 6.5. The compact 10.0 recommendation for albinos is ONLY at 11-14\" distance×closer causes burns."
     },
     {
       "type": "section",
@@ -134,7 +135,7 @@
     {
       "type": "warning",
       "severity": "tip",
-      "content": "Leopard geckos don't need bright lightsÃ—they're adapted for twilight conditions. A heat lamp providing moderate visible light is sufficient. Avoid intense bright lights that cause stress and hiding behaviors."
+      "content": "Leopard geckos don't need bright lights×they're adapted for twilight conditions. A heat lamp providing moderate visible light is sufficient. Avoid intense bright lights that cause stress and hiding behaviors."
     },
     {
       "type": "section",
@@ -161,7 +162,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Do NOT use blue, red, or colored LED 'moonlights' at night. These disrupt circadian rhythms and suppress melatonin. Leopard geckos have excellent night visionÃ—they don't need light to navigate. Complete darkness at night is essential."
+      "content": "Do NOT use blue, red, or colored LED 'moonlights' at night. These disrupt circadian rhythms and suppress melatonin. Leopard geckos have excellent night vision×they don't need light to navigate. Complete darkness at night is essential."
     },
     {
       "type": "section",
@@ -180,7 +181,7 @@
       "headers": ["Factor", "With UVB Lighting", "Dietary D3 Only (No UVB)"],
       "rows": [
         ["D3 Source", "Synthesized in skin from UVB", "Pre-formed D3 in calcium supplement"],
-        ["Self-Regulation", "Gecko controls exposure (seeks/avoids UVB)", "Fixed doseÃ—risk of over/under supplementation"],
+        ["Self-Regulation", "Gecko controls exposure (seeks/avoids UVB)", "Fixed dose×risk of over/under supplementation"],
         ["Bone Density", "Higher bone density in studies", "Adequate for survival, some deficiencies seen long-term"],
         ["Behavioral Enrichment", "Natural basking behavior stimulated", "No behavioral benefit"],
         ["Cost", "$60-100 setup + $20/year bulbs", "No additional cost (just supplements)"],
@@ -208,8 +209,8 @@
       "type": "table",
       "headers": ["Equipment Type", "Replacement Interval", "Degradation Pattern"],
       "rows": [
-        ["T5 HO UVB (Arcadia, Zoo Med)", "12 months", "Gradual declineÃ—maintains 70% output at 12 months"],
-        ["T8 UVB (Zoo Med ReptiSun 5.0)", "6-8 months", "Faster degradationÃ—50-60% output by 9 months"],
+        ["T5 HO UVB (Arcadia, Zoo Med)", "12 months", "Gradual decline×maintains 70% output at 12 months"],
+        ["T8 UVB (Zoo Med ReptiSun 5.0)", "6-8 months", "Faster degradation×50-60% output by 9 months"],
         ["Compact coil UVB (if used for albinos)", "6 months", "Rapid degradation, inconsistent output over time"],
         ["Halogen heat bulb", "As needed (burns out)", "Stops working entirely when filament breaks"],
         ["LED grow lights (if used)", "3-5 years", "Gradual dimming, no UVB so less critical"]
@@ -217,7 +218,7 @@
     },
     {
       "type": "highlight",
-      "content": "Mark replacement dates on calendar or label bulbs with install date. UVB bulbs often look fine but have lost 40-50% output after 6-8 months (T8) or 12 months (T5). Don't wait for bulb to stop workingÃ—UVB degrades while visible light remains."
+      "content": "Mark replacement dates on calendar or label bulbs with install date. UVB bulbs often look fine but have lost 40-50% output after 6-8 months (T8) or 12 months (T5). Don't wait for bulb to stop working×UVB degrades while visible light remains."
     },
     {
       "type": "section",
@@ -235,7 +236,7 @@
         ["Placing UVB too close to albino gecko", "UV burns, blistering, avoidance of basking", "Maintain 11-14\" distance, aim for 0.5-0.7 UVI"],
         ["Glass or plastic between UVB and gecko", "Glass blocks 90-100% of UVB", "Mount inside enclosure OR ensure only mesh screen between"],
         ["No UVB at all", "Suboptimal bone health, reliance on dietary D3", "Add low-level UVB (1.0-2.0 for normal, 0.5-0.7 for albino)"],
-        ["Blue/red LED 'moonlight' at night", "Disrupts circadian rhythm, stress", "Complete darkness at nightÃ—leopard geckos don't need light"],
+        ["Blue/red LED 'moonlight' at night", "Disrupts circadian rhythm, stress", "Complete darkness at night×leopard geckos don't need light"],
         ["Not replacing UVB bulbs on schedule", "Gecko receives little/no UVB despite bulb still lighting", "Replace T8 every 6-8 months, T5 every 12 months"],
         ["Lights on 24/7 (no photoperiod)", "Chronic stress, disrupted circadian rhythm", "Use timers for 12-hour light/dark cycle"]
       ]
@@ -258,7 +259,7 @@
       "rows": [
         ["UVB Bulb", "26w compact 10.0 at 11-14\" OR T8 5.0 at 16-18\"", "Achieves 0.5-0.7 UVI with reduced intensity"],
         ["Distance from Basking", "Minimum 11\" (compact) or 16\" (linear)", "Prevents UV overexposure and burns"],
-        ["Monitoring", "Solarmeter 6.5 verification essential", "Albinos don't show redness until burnedÃ—measure UVI"],
+        ["Monitoring", "Solarmeter 6.5 verification essential", "Albinos don't show redness until burned×measure UVI"],
         ["Shade Options", "Provide hides in basking zone", "Allows gecko to avoid UVB while still accessing heat"],
         ["Observation", "Watch for avoidance behavior or redness", "If gecko hides constantly or skin looks red, reduce UVI"],
         ["Alternative", "Skip UVB entirely, use high-D3 supplements", "Safe option if unable to achieve low UVI reliably"]
@@ -267,7 +268,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Albino morphs showing any redness, swelling, or constant avoidance of basking area are receiving too much UVB. Increase distance immediately or remove UVB. Burns can occur within 2-3 days of overexposure. Some individual albinos may not tolerate any UVBÃ—monitor carefully."
+      "content": "Albino morphs showing any redness, swelling, or constant avoidance of basking area are receiving too much UVB. Increase distance immediately or remove UVB. Burns can occur within 2-3 days of overexposure. Some individual albinos may not tolerate any UVB×monitor carefully."
     },
     {
       "type": "section",
@@ -285,7 +286,7 @@
         ["UVB Bulb (Albino Morphs)", "26w Zoo Med ReptiSun 10.0 compact at 11-14\"", "Reduced intensity UVB (0.5-0.7 UVI)"],
         ["UVB Fixture", "14-18\" T8 hood with reflector OR compact socket", "Houses UVB bulb, reflector increases efficiency"],
         ["Heat Lamp (provides light + heat)", "75w halogen bulb + dome", "Visible light + basking heat (dual purpose)"],
-        ["Timer(s)", "Digital plug-in timer (2xÃ—one for UVB, one for heat)", "Automate 12-hour photoperiod"],
+        ["Timer(s)", "Digital plug-in timer (2x×one for UVB, one for heat)", "Automate 12-hour photoperiod"],
         ["Solarmeter 6.5 (highly recommended)", "UVI measurement device", "Verify UVB levels for albino safety and normal gecko optimization"]
       ]
     },
@@ -305,7 +306,7 @@
       "type": "table",
       "headers": ["Problem", "Possible Cause", "Solution"],
       "rows": [
-        ["Gecko avoids basking area entirely", "UVB too intense OR basking too hot", "Measure UVI (should be 1.0-2.0 normal, 0.5-0.7 albino), check basking temp 94-97Ã—F"],
+        ["Gecko avoids basking area entirely", "UVB too intense OR basking too hot", "Measure UVI (should be 1.0-2.0 normal, 0.5-0.7 albino), check basking temp 94-97×F"],
         ["Albino gecko has red/inflamed skin", "UV burn from excessive UVB", "Remove UVB immediately, increase distance to 14-16\", or skip UVB and use D3 supplements"],
         ["Gecko appears pale/washed out", "Insufficient visible light", "Heat lamp should provide moderate light, add low-intensity LED if needed"],
         ["Stuck shed despite humid hide", "Possible vitamin D deficiency", "Add UVB if not provided (improves calcium metabolism), verify calcium supplementation"],

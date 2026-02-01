@@ -1,15 +1,15 @@
-ï»¿{
+{
   "id": "red-eyed-tree-frog-temp-humidity-guide",
   "title": "Red-Eyed Tree Frog Temperature & Humidity Guide",
   "species": "red-eyed-tree-frog",
   "category": "temperature-humidity",
   "description": "Complete guide to maintaining proper temperature gradients and humidity levels for Red-Eyed Tree Frogs, including heating equipment, misting schedules, and seasonal adjustments.",
   "excerpt": "Complete guide to maintaining proper temperature gradients and humidity levels for Red-Eyed Tree Frogs, including heating equipment, misting schedules, and seasonal adjustments.",
-  "lastUpdated": "2026-01-28",  "tags": ["red-eyed-tree-frog", "temperature", "humidity", "heating", "misting"],  "content": [
+  "lastUpdated": "2026-01-28",  "tags": ["red-eyed-tree-frog", "temperature", "humidity", "heating", "misting"],  "status": "in-progress",  "content": [
     {
       "type": "intro",
       "heading": "Why Temperature & Humidity Are Critical",
-      "text": "Red-Eyed Tree Frogs (Agalychnis callidryas) come from tropical rainforests where temperature and humidity remain remarkably stable year-round. Their physiology is adapted to this narrow environmental range: daytime temps of 75-85Â°F (24-29Â°C), nighttime slight drop to 68-75Â°F (20-24Â°C), and average humidity of 70-75% with brief morning/evening peaks to 90% from rain/fog. Unlike some hardy species that tolerate wide fluctuations, Red-Eyed Tree Frogs are INTOLERANT of temperature extremes or prolonged low humidity. Overheating causes fatal metabolic stress within hours, while chronic low humidity leads to dehydration, failed sheds, and respiratory infections. Their highly permeable skin makes them especially vulnerable - they absorb moisture and regulate temperature through skin contact, not just respiration."
+      "text": "Red-Eyed Tree Frogs (Agalychnis callidryas) come from tropical rainforests where temperature and humidity remain remarkably stable year-round. Their physiology is adapted to this narrow environmental range: daytime temps of 75-85°F (24-29°C), nighttime slight drop to 68-75°F (20-24°C), and average humidity of 70-75% with brief morning/evening peaks to 90% from rain/fog. Unlike some hardy species that tolerate wide fluctuations, Red-Eyed Tree Frogs are INTOLERANT of temperature extremes or prolonged low humidity. Overheating causes fatal metabolic stress within hours, while chronic low humidity leads to dehydration, failed sheds, and respiratory infections. Their highly permeable skin makes them especially vulnerable - they absorb moisture and regulate temperature through skin contact, not just respiration."
     },
     {
       "type": "section",
@@ -19,11 +19,11 @@
       "type": "table",
       "headers": ["Zone/Time", "Temperature Range", "Purpose"],
       "rows": [
-        ["Basking Spot (daytime)", "82-85Â°F (28-29Â°C)", "Warm microclimate for thermoregulation, digestion boost"],
-        ["Ambient Air (daytime)", "78-80Â°F (25-27Â°C)", "General activity temperature throughout enclosure"],
-        ["Cool Zone (daytime)", "75-78Â°F (24-26Â°C)", "Retreat area if frogs overheat, near water section"],
-        ["Nighttime Drop (all zones)", "68-75Â°F (20-24Â°C)", "Natural temperature cycle, simulates rainforest nights"],
-        ["Water Temperature", "78-79Â°F (25-26Â°C)", "Constant - supports breeding, prevents thermal shock"]
+        ["Basking Spot (daytime)", "82-85°F (28-29°C)", "Warm microclimate for thermoregulation, digestion boost"],
+        ["Ambient Air (daytime)", "78-80°F (25-27°C)", "General activity temperature throughout enclosure"],
+        ["Cool Zone (daytime)", "75-78°F (24-26°C)", "Retreat area if frogs overheat, near water section"],
+        ["Nighttime Drop (all zones)", "68-75°F (20-24°C)", "Natural temperature cycle, simulates rainforest nights"],
+        ["Water Temperature", "78-79°F (25-26°C)", "Constant - supports breeding, prevents thermal shock"]
       ]
     },
     {
@@ -32,7 +32,7 @@
     },
     {
       "type": "warning",
-      "text": "NEVER exceed 85Â°F (29Â°C) anywhere in enclosure. Red-Eyed Tree Frogs overheat rapidly and can die within 2-4 hours of exposure to 90Â°F+."
+      "text": "NEVER exceed 85°F (29°C) anywhere in enclosure. Red-Eyed Tree Frogs overheat rapidly and can die within 2-4 hours of exposure to 90°F+."
     },
     {
       "type": "section",
@@ -62,7 +62,7 @@
     },
     {
       "type": "table",
-      "headers": ["Bulb Type", "Wattage (18Ã—18Ã—36â€³)", "Pros", "Cons"],
+      "headers": ["Bulb Type", "Wattage (18×18×36?)", "Pros", "Cons"],
       "rows": [
         ["Daylight Basking Spot", "25-40W", "Natural white light, good gradient", "Visible light may disturb at night"],
         ["Halogen Basking Spot", "25-50W", "Tight beam, intense basking spot", "Small heat zone, more expensive"],
@@ -77,11 +77,11 @@
     {
       "type": "list",
       "items": [
-        "18Ã—18Ã—24â€³ enclosure: Start with 25W, increase to 40W if needed",
-        "18Ã—18Ã—36â€³ enclosure: Start with 40W, increase to 60W in cold rooms",
-        "24Ã—18Ã—36â€³ enclosure: Start with 50W, increase to 75W in cold rooms",
-        "36Ã—18Ã—36â€³ enclosure: Start with 60-75W, may need two bulbs in opposite corners",
-        "Room Temperature Adjustment: Add 15-25W if room temps consistently under 70Â°F"
+        "18×18×24? enclosure: Start with 25W, increase to 40W if needed",
+        "18×18×36? enclosure: Start with 40W, increase to 60W in cold rooms",
+        "24×18×36? enclosure: Start with 50W, increase to 75W in cold rooms",
+        "36×18×36? enclosure: Start with 60-75W, may need two bulbs in opposite corners",
+        "Room Temperature Adjustment: Add 15-25W if room temps consistently under 70°F"
       ]
     },
     {
@@ -95,7 +95,7 @@
     {
       "type": "list",
       "items": [
-        "Recommended: Exo Terra Turtle Heaters - preset to 78-79Â°F (25-26Â°C), submersible, safe for frogs",
+        "Recommended: Exo Terra Turtle Heaters - preset to 78-79°F (25-26°C), submersible, safe for frogs",
         "Wattage: 25W for small paludariums (under 5 gallons water), 50W for medium (5-10 gallons), 75W for large (10+ gallons)",
         "Placement: Fully submerge in water section, hide behind rocks/driftwood for aesthetics",
         "Safety: Use heater guard or position where frogs can't directly contact heating element",
@@ -117,11 +117,11 @@
     {
       "type": "list",
       "items": [
-        "Target Drop: 5-10Â°F (3-6Â°C) cooler than daytime - ideal nighttime range 68-75Â°F (20-24Â°C)",
+        "Target Drop: 5-10°F (3-6°C) cooler than daytime - ideal nighttime range 68-75°F (20-24°C)",
         "How to Achieve: Turn OFF basking lamp at night (use light timer). Ambient room temperature provides nighttime cooling.",
-        "If Room Too Cold: Use Ceramic Heat Emitter (CHE) on thermostat set to 70Â°F minimum. CHE emits no light, won't disturb nocturnal activity.",
+        "If Room Too Cold: Use Ceramic Heat Emitter (CHE) on thermostat set to 70°F minimum. CHE emits no light, won't disturb nocturnal activity.",
         "If Room Too Warm: Increase nighttime ventilation (small fan near screen top), reduce insulation. May need air conditioning in hot climates.",
-        "Water Section: Keep water heater running 24/7 - maintains stable 78Â°F water temp regardless of air temp."
+        "Water Section: Keep water heater running 24/7 - maintains stable 78°F water temp regardless of air temp."
       ]
     },
     {
@@ -257,7 +257,7 @@
     },
     {
       "type": "warning",
-      "text": "Analog dial thermometers/hygrometers are often inaccurate by 5-10Â°F or 10-20% humidity. Invest in digital equipment with remote probes."
+      "text": "Analog dial thermometers/hygrometers are often inaccurate by 5-10°F or 10-20% humidity. Invest in digital equipment with remote probes."
     },
     {
       "type": "section",
@@ -275,9 +275,9 @@
       "type": "list",
       "items": [
         "Reduce photoperiod from 12 hours to 10 hours daily",
-        "Lower temperature to 72Â°F (22Â°C) daytime, 65-68Â°F nighttime",
+        "Lower temperature to 72°F (22°C) daytime, 65-68°F nighttime",
         "Reduce humidity to 60-65% by cutting misting to 2-3 times WEEKLY (not daily)",
-        "Lower water temperature to 70-72Â°F (21-22Â°C)",
+        "Lower water temperature to 70-72°F (21-22°C)",
         "Feed sparingly - 2x weekly instead of every other day",
         "Purpose: Simulates cooler, drier winter period frogs experience in wild"
       ]
@@ -290,9 +290,9 @@
       "type": "list",
       "items": [
         "Increase photoperiod back to 12 hours daily",
-        "Restore temperatures to 75-85Â°F daytime, 70-75Â°F nighttime",
+        "Restore temperatures to 75-85°F daytime, 70-75°F nighttime",
         "Increase humidity to 80-85% sustained by misting 3-4x daily for 60-90 seconds",
-        "Restore water temperature to 78Â°F (25-26Â°C)",
+        "Restore water temperature to 78°F (25-26°C)",
         "Resume normal feeding (every 2-3 days)",
         "Simulate 'heavy summer rains' with 2-3 minute misting sessions for 1-2 weeks",
         "Males will respond with mating calls and amplexus attempts"
@@ -332,10 +332,10 @@
       "type": "table",
       "headers": ["Problem", "Cause", "Solution"],
       "rows": [
-        ["Basking spot over 90Â°F", "Bulb wattage too high, no thermostat", "Decrease wattage, add dimming thermostat, increase basking perch distance"],
+        ["Basking spot over 90°F", "Bulb wattage too high, no thermostat", "Decrease wattage, add dimming thermostat, increase basking perch distance"],
         ["No temperature gradient", "Heat source centered, enclosure too small", "Move heat to one corner, upgrade to larger enclosure"],
-        ["Nighttime too cold (under 65Â°F)", "Room unheated, winter conditions", "Add CHE on thermostat set to 68Â°F minimum"],
-        ["Nighttime too warm (over 78Â°F)", "No temp drop, heat lamp left on", "Use timer to turn off heat at night, improve room ventilation"],
+        ["Nighttime too cold (under 65°F)", "Room unheated, winter conditions", "Add CHE on thermostat set to 68°F minimum"],
+        ["Nighttime too warm (over 78°F)", "No temp drop, heat lamp left on", "Use timer to turn off heat at night, improve room ventilation"],
         ["Water temperature fluctuating", "Heater malfunction or undersized", "Replace heater, increase wattage, check thermostat accuracy"],
         ["Frogs always at bottom (cool zone)", "Entire enclosure too hot", "Reduce heat lamp wattage, add ventilation, check room AC"],
         ["Frogs lethargic, dark color", "Overheating stress response", "IMMEDIATELY reduce temps, mist heavily, move to cooler room"],
@@ -366,7 +366,7 @@
     },
     {
       "type": "text",
-      "text": "If Enclosure Overheats (over 88Â°F):"
+      "text": "If Enclosure Overheats (over 88°F):"
     },
     {
       "type": "list",
@@ -381,7 +381,7 @@
     },
     {
       "type": "text",
-      "text": "If Enclosure Too Cold (under 65Â°F):"
+      "text": "If Enclosure Too Cold (under 65°F):"
     },
     {
       "type": "list",

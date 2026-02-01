@@ -1,12 +1,13 @@
-ï»¿{
+{
   "id": "red-eyed-tree-frog-enclosure-setup-guide",
   "title": "Red-Eyed Tree Frog Enclosure Setup Guide",
   "species": "red-eyed-tree-frog",
   "category": "enclosure",
-  "description": "Complete guide to setting up a proper paludarium habitat for Red-Eyed Tree Frogs, including size requirements, vertical layout design, water section, and naturalistic dÃ©cor.",
-  "excerpt": "Complete guide to setting up a proper paludarium habitat for Red-Eyed Tree Frogs, including size requirements, vertical layout design, water section, and naturalistic dÃ©cor.",
+  "description": "Complete guide to setting up a proper paludarium habitat for Red-Eyed Tree Frogs, including size requirements, vertical layout design, water section, and naturalistic décor.",
+  "excerpt": "Complete guide to setting up a proper paludarium habitat for Red-Eyed Tree Frogs, including size requirements, vertical layout design, water section, and naturalistic décor.",
   "lastUpdated": "2026-01-28",
   "tags": ["red-eyed-tree-frog", "enclosure", "paludarium", "arboreal", "semi-aquatic"],
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -23,17 +24,17 @@
     },
     {
       "type": "table",
-      "headers": ["Group Size", "Minimum Dimensions (WÃ—DÃ—H)", "Gallons", "Notes"],
+      "headers": ["Group Size", "Minimum Dimensions (W×D×H)", "Gallons", "Notes"],
       "rows": [
-        ["2-3 frogs", "18Ã—18Ã—24 inches", "~20 gal", "Minimum viable paludarium"],
-        ["3-4 frogs", "18Ã—18Ã—36 inches", "~30 gal", "Recommended for breeding groups"],
-        ["4-5 frogs", "24Ã—18Ã—36 inches", "~40 gal", "Better space for social dynamics"],
-        ["5-8 frogs", "36Ã—18Ã—36 inches", "~60 gal", "Ideal for colony breeding"]
+        ["2-3 frogs", "18×18×24 inches", "~20 gal", "Minimum viable paludarium"],
+        ["3-4 frogs", "18×18×36 inches", "~30 gal", "Recommended for breeding groups"],
+        ["4-5 frogs", "24×18×36 inches", "~40 gal", "Better space for social dynamics"],
+        ["5-8 frogs", "36×18×36 inches", "~60 gal", "Ideal for colony breeding"]
       ]
     },
     {
       "type": "highlight",
-      "text": "Prioritize HEIGHT over floor space. An 18Ã—18Ã—36â€³ enclosure is better than a 24Ã—24Ã—24â€³ cube for arboreal species."
+      "text": "Prioritize HEIGHT over floor space. An 18×18×36? enclosure is better than a 24×24×24? cube for arboreal species."
     },
     {
       "type": "warning",
@@ -50,7 +51,7 @@
     {
       "type": "list",
       "items": [
-        "Aquatic Zone (bottom 2-6 inches): Open water section for soaking, hydration, and breeding. Minimum 2â€³ depth for juveniles, 4-6â€³ for adults planning to breed. Water should be 25-30% of total enclosure volume.",
+        "Aquatic Zone (bottom 2-6 inches): Open water section for soaking, hydration, and breeding. Minimum 2? depth for juveniles, 4-6? for adults planning to breed. Water should be 25-30% of total enclosure volume.",
         "Riparian Zone (land-water interface): Gently sloped transition area with easy access points. Use flat stones, driftwood ramps, or Cork Bark positioned to allow frogs to enter/exit water safely. Partially submerged plants like Anubias or Java Fern work well here.",
         "Terrestrial/Arboreal Zone (upper 60-80%): Dense climbing network of branches, vines, cork bark positioned diagonally from bottom to top. Must include foliage layers at multiple heights with sturdy leaves (Pothos, Philodendron, Monstera) for daytime sleeping spots."
       ]
@@ -72,9 +73,9 @@
       "ordered": true,
       "items": [
         "Layer 1 - Aquatic Bottom: Use large Turtle Pebbles (too large to swallow) or leave bare glass in the water section for easy cleaning.",
-        "Layer 2 - Bio Drain Substrate: Lightweight volcanic drainage media (1-2â€³ layer) in terrestrial zone only. Supports land area and houses beneficial bacteria for biological filtration.",
+        "Layer 2 - Bio Drain Substrate: Lightweight volcanic drainage media (1-2? layer) in terrestrial zone only. Supports land area and houses beneficial bacteria for biological filtration.",
         "Layer 3 - Bio Drain Mesh: Separates drainage layer from planting substrate. Prevents soil contamination of water while allowing drainage.",
-        "Layer 4 - Planting Mix: 2-3â€³ of Sub Stratum + Plantation Soil (60:40 ratio) for live plants. Holds moisture without waterlogging.",
+        "Layer 4 - Planting Mix: 2-3? of Sub Stratum + Plantation Soil (60:40 ratio) for live plants. Holds moisture without waterlogging.",
         "Layer 5 - Leaf Litter/Moss: Top with Equatorial Forest Floor or Forest Moss for moisture retention, hiding spots, and microfauna habitat."
       ]
     },
@@ -93,7 +94,7 @@
     {
       "type": "list",
       "items": [
-        "Diagonal Branches: Position branches at 30-60Â° angles from bottom to top, creating highways to climb. Use natural hardwood branches (avoid resinous woods) or cork bark tubes.",
+        "Diagonal Branches: Position branches at 30-60° angles from bottom to top, creating highways to climb. Use natural hardwood branches (avoid resinous woods) or cork bark tubes.",
         "Vines & Lianas: Add bendable Jungle Vines or Moss Vines to fill gaps and create 3D climbing networks. Twist multiple vines together for structural complexity.",
         "Cork Bark Panels: Attach flat Cork Bark pieces to back and side walls to expand climbable surface area. Also creates hiding spaces behind bark.",
         "Live Plant Vines: Pothos (Epipremnum), Philodendron, and Scindapsus provide natural climbing routes and large leaves for sleeping spots. Train vines to grow across entire enclosure."
@@ -136,10 +137,10 @@
     {
       "type": "list",
       "items": [
-        "Water Depth: 2-3â€³ for juveniles/non-breeding setups, 4-6â€³ for adults planning breeding (females need depth to absorb water into bladder for egg jelly).",
+        "Water Depth: 2-3? for juveniles/non-breeding setups, 4-6? for adults planning breeding (females need depth to absorb water into bladder for egg jelly).",
         "Water Volume: Aim for 25-30% of total enclosure volume in water. Larger volume = more stable parameters and less frequent changes.",
         "Circulation: Use a small submersible filter or waterfall pump for gentle circulation. Prevents stagnation and supports beneficial bacteria colonies.",
-        "Temperature: Maintain water at 78-79Â°F (25-26Â°C) using preset Turtle Heaters. Slightly cooler than ambient air temp is ideal.",
+        "Temperature: Maintain water at 78-79°F (25-26°C) using preset Turtle Heaters. Slightly cooler than ambient air temp is ideal.",
         "Treatment: ALWAYS treat tap water with Aquatize to remove chlorine, chloramines, and heavy metals. Add Turtle Clean to boost beneficial organisms.",
         "Access Points: Ensure 2-3 easy entry/exit locations using sloped stones, driftwood ramps, or partially submerged Cork Bark."
       ]
@@ -172,7 +173,7 @@
     },
     {
       "type": "section",
-      "heading": "Additional DÃ©cor & Enrichment"
+      "heading": "Additional Décor & Enrichment"
     },
     {
       "type": "text",
@@ -196,11 +197,11 @@
       "type": "table",
       "headers": ["Equipment", "Purpose", "Notes"],
       "rows": [
-        ["Exo Terra X-Tall Terrarium", "Vertical paludarium enclosure", "18Ã—18Ã—36â€³ minimum for 3-4 frogs"],
+        ["Exo Terra X-Tall Terrarium", "Vertical paludarium enclosure", "18×18×36? minimum for 3-4 frogs"],
         ["Bio Drain Substrate + Mesh", "False bottom drainage system", "Mandatory for paludarium"],
-        ["Sub Stratum + Plantation Soil", "Bioactive planting substrate", "60:40 ratio, 2-3â€³ depth"],
+        ["Sub Stratum + Plantation Soil", "Bioactive planting substrate", "60:40 ratio, 2-3? depth"],
         ["Large Turtle Pebbles", "Aquatic zone substrate", "Too large to swallow"],
-        ["Preset Turtle Heater (78Â°F)", "Water temperature regulation", "25-50W depending on water volume"],
+        ["Preset Turtle Heater (78°F)", "Water temperature regulation", "25-50W depending on water volume"],
         ["Small Submersible Filter/Pump", "Water circulation & filtration", "Low flow rate (under 100 GPH)"],
         ["Hardwood Branches + Cork Bark", "Climbing structure framework", "Boil/bake before use"],
         ["Jungle Vines + Moss Vines", "3D climbing network", "Bendable, waterproof"],
@@ -218,16 +219,16 @@
       "ordered": true,
       "items": [
         "Plan Layout: Sketch where water section, land section, and climbing branches will go before adding substrate.",
-        "Install Drainage: Add 1-2â€³ Bio Drain Substrate to terrestrial zone only (not under water). Lay Bio Drain Mesh over top, cutting around water section.",
+        "Install Drainage: Add 1-2? Bio Drain Substrate to terrestrial zone only (not under water). Lay Bio Drain Mesh over top, cutting around water section.",
         "Add Aquatic Substrate: Place Turtle Pebbles or leave bare glass in water section for easy cleaning.",
         "Position Hardscape: Arrange large branches, Cork Bark panels, and stones to create climbing framework and riparian access points. Use silicone to secure if needed.",
-        "Add Planting Substrate: Top terrestrial zone with 2-3â€³ Sub Stratum + Plantation Soil mix. Slope away from water section.",
+        "Add Planting Substrate: Top terrestrial zone with 2-3? Sub Stratum + Plantation Soil mix. Slope away from water section.",
         "Install Water Equipment: Position heater and filter/pump in water section. Hide with stones or driftwood. Connect drainage system if using drain valve.",
         "Plant Live Plants: Install plants in substrate or in concealed pots. Create foliage density at multiple heights (low, mid, canopy).",
         "Add Vines & Finishing: Weave Jungle Vines through branches. Add top layer of Forest Moss or leaf litter. Install floating plants in water.",
-        "Fill Water Section: Add dechlorinated water to desired depth (2-6â€³). Add Aquatize and Turtle Clean.",
+        "Fill Water Section: Add dechlorinated water to desired depth (2-6?). Add Aquatize and Turtle Clean.",
         "Cycle Setup: Run filtration and heating for 1-2 weeks before adding frogs to establish beneficial bacteria colonies.",
-        "Test Parameters: Use thermometers and hygrometer to verify temperature gradient (75-85Â°F) and humidity (70-75%) are within range."
+        "Test Parameters: Use thermometers and hygrometer to verify temperature gradient (75-85°F) and humidity (70-75%) are within range."
       ]
     },
     {
@@ -285,7 +286,7 @@
       "type": "table",
       "headers": ["Priority Level", "Essential Items", "Can Upgrade Later"],
       "rows": [
-        ["MUST HAVE", "18Ã—18Ã—36â€³ terrarium, Bio Drain system, branches, Pothos plants, spray bottle, thermometer/hygrometer", "Automated misting, waterfalls, expensive live plants"],
+        ["MUST HAVE", "18×18×36? terrarium, Bio Drain system, branches, Pothos plants, spray bottle, thermometer/hygrometer", "Automated misting, waterfalls, expensive live plants"],
         ["STRONGLY RECOMMENDED", "Turtle heater, small filter, Aquatize, Cork Bark, additional live plants", "High-end filtration, elaborate rockwork"],
         ["NICE TO HAVE", "Monsoon misting system, decorative water features, rare plant species, background texturing", "These add aesthetics/convenience but aren't mandatory for frog health"]
       ]

@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "crested-gecko-enclosure-setup-guide",
   "title": "Crested Gecko Enclosure Setup Guide: Complete Housing Requirements",
   "description": "Complete enclosure setup guide for crested geckos covering dimensions, materials, vertical layout design, equipment checklist, and arboreal habitat creation.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["crested-gecko", "enclosure", "housing", "arboreal", "terrarium"],
   "image": "/animals/crested-gecko/crested-gecko-enclosure.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",

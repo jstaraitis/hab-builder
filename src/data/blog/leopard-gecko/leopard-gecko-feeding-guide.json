@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "leopard-gecko-feeding-guide",
   "title": "Leopard Gecko Feeding Guide: Complete Insectivore Diet & Supplementation",
   "description": "Evidence-based feeding guide for leopard geckos covering live insect diet, age-based feeding schedules, portion sizing, calcium/multivitamin supplementation, gut-loading, and body condition assessment.",
@@ -8,11 +8,12 @@
   "category": "Care Guides",
   "tags": ["leopard-gecko", "feeding", "diet", "insects", "supplementation"],
   "image": "/animals/leopard-gecko/leopard-gecko-feeding.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
       "title": "Complete Insectivore Diet for Leopard Geckos",
-      "content": "Leopard geckos are obligate insectivores, requiring a diet of live, moving insects to trigger hunting behaviors and provide complete nutrition. Unlike crested geckos, they cannot survive on prepared powdered dietsÃ—they must eat whole insects. Proper feeding encompasses more than just offering bugs: it requires age-appropriate schedules, calcium supplementation to prevent metabolic bone disease, gut-loading feeder insects for optimal nutrition, and portion control to maintain healthy body condition. This guide provides evidence-based feeding protocols for all life stages."
+      "content": "Leopard geckos are obligate insectivores, requiring a diet of live, moving insects to trigger hunting behaviors and provide complete nutrition. Unlike crested geckos, they cannot survive on prepared powdered diets×they must eat whole insects. Proper feeding encompasses more than just offering bugs: it requires age-appropriate schedules, calcium supplementation to prevent metabolic bone disease, gut-loading feeder insects for optimal nutrition, and portion control to maintain healthy body condition. This guide provides evidence-based feeding protocols for all life stages."
     },
     {
       "type": "section",
@@ -30,19 +31,19 @@
       "type": "table",
       "headers": ["Insect", "Calcium:Phosphorus", "Protein", "Fat", "Best Use"],
       "rows": [
-        ["Dubia Roaches", "1:3", "High (36%)", "Moderate (7%)", "Staple feederÃ—best Ca:P ratio, low chitin, nutrient-dense"],
-        ["Crickets (Acheta domesticus)", "1:9", "Moderate (21%)", "Low (6%)", "Staple feederÃ—readily available, good activity level"],
-        ["Black Soldier Fly Larvae (BSFL)", "1.5:1", "High (40%)", "Moderate (29%)", "SupplementalÃ—excellent calcium source, soft-bodied"],
-        ["Mealworms (Tenebrio molitor)", "1:18", "Moderate (20%)", "High (13%)", "SupplementalÃ—poor Ca:P, high chitin, use sparingly"],
-        ["Superworms (Zophobas morio)", "1:18", "High (20%)", "Very High (17%)", "Treats onlyÃ—high fat, aggressive (can bite gecko)"],
-        ["Hornworms (Manduca sexta)", "1:3", "Low (9%)", "Low (3%)", "Treats/hydrationÃ—85% moisture, rapid growth requires frequent feeding"],
-        ["Silkworms (Bombyx mori)", "1:2", "High (64%)", "Low (10%)", "SupplementalÃ—excellent nutrition, expensive, limited availability"]
+        ["Dubia Roaches", "1:3", "High (36%)", "Moderate (7%)", "Staple feeder×best Ca:P ratio, low chitin, nutrient-dense"],
+        ["Crickets (Acheta domesticus)", "1:9", "Moderate (21%)", "Low (6%)", "Staple feeder×readily available, good activity level"],
+        ["Black Soldier Fly Larvae (BSFL)", "1.5:1", "High (40%)", "Moderate (29%)", "Supplemental×excellent calcium source, soft-bodied"],
+        ["Mealworms (Tenebrio molitor)", "1:18", "Moderate (20%)", "High (13%)", "Supplemental×poor Ca:P, high chitin, use sparingly"],
+        ["Superworms (Zophobas morio)", "1:18", "High (20%)", "Very High (17%)", "Treats only×high fat, aggressive (can bite gecko)"],
+        ["Hornworms (Manduca sexta)", "1:3", "Low (9%)", "Low (3%)", "Treats/hydration×85% moisture, rapid growth requires frequent feeding"],
+        ["Silkworms (Bombyx mori)", "1:2", "High (64%)", "Low (10%)", "Supplemental×excellent nutrition, expensive, limited availability"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Do NOT feed: Wild-caught insects (pesticide risk), fireflies/lightning bugs (FATALÃ—contain lucibufagin toxin), king mealworms (aggressive), waxworms as staple (extremely high fat 22%), or freeze-dried insects as sole diet (leopard geckos rarely recognize non-moving food)."
+      "content": "Do NOT feed: Wild-caught insects (pesticide risk), fireflies/lightning bugs (FATAL×contain lucibufagin toxin), king mealworms (aggressive), waxworms as staple (extremely high fat 22%), or freeze-dried insects as sole diet (leopard geckos rarely recognize non-moving food)."
     },
     {
       "type": "section",
@@ -69,7 +70,7 @@
     },
     {
       "type": "highlight",
-      "content": "The '2 insects per inch of length' rule is a reliable guideline: a 7\" adult receives 14 insects per feeding (every 3-4 days). Alternatively, offer insects for 15 minutes, removing leftovers. Adjust based on body conditionÃ—ribs visible = underfed, fat bulges at tail base/armpits = overfed."
+      "content": "The '2 insects per inch of length' rule is a reliable guideline: a 7\" adult receives 14 insects per feeding (every 3-4 days). Alternatively, offer insects for 15 minutes, removing leftovers. Adjust based on body condition×ribs visible = underfed, fat bulges at tail base/armpits = overfed."
     },
     {
       "type": "section",
@@ -96,7 +97,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Insects wider than the space between the gecko's eyes can cause choking or impaction. When in doubt, size down. Smaller insects = safer, even if you need to offer more. Superworms can biteÃ—remove head or use only for large adults."
+      "content": "Insects wider than the space between the gecko's eyes can cause choking or impaction. When in doubt, size down. Smaller insects = safer, even if you need to offer more. Superworms can bite×remove head or use only for large adults."
     },
     {
       "type": "section",
@@ -130,7 +131,7 @@
       "rows": [
         ["Calcium WITH D3", "Every feeding (juveniles), 2-3x per week (adults)", "Primary calcium + dietary D3 source"],
         ["Multivitamin", "1x per week", "Vitamin A, E, B-complex"],
-        ["All-in-One (alternative)", "Repashy Calcium Plus (regular strength)", "Every other feeding", "Simplifies scheduleÃ—contains higher D3 for non-UVB setups"]
+        ["All-in-One (alternative)", "Repashy Calcium Plus (regular strength)", "Every other feeding", "Simplifies schedule×contains higher D3 for non-UVB setups"]
       ]
     },
     {
@@ -217,7 +218,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Tail loss resets body conditionÃ—regrown tails store less fat and look different (bulbous, shorter). Assess body condition using torso thickness, not just tail. Breeding females lose weight rapidly during egg productionÃ—score 2-3 is normal after laying."
+      "content": "Tail loss resets body condition×regrown tails store less fat and look different (bulbous, shorter). Assess body condition using torso thickness, not just tail. Breeding females lose weight rapidly during egg production×score 2-3 is normal after laying."
     },
     {
       "type": "section",
@@ -233,11 +234,11 @@
       "rows": [
         ["Breeding Female (pre-lay)", "Unlimited food, calcium + D3 at every feeding", "2 weeks before laying through egg-laying"],
         ["Post-Lay Recovery", "High-fat insects (hornworms, waxworms), extra calcium", "1-2 weeks after laying"],
-        ["Shedding", "Normal diet, ensure hydration (humid hide access)", "No changeÃ—appetite may decrease 1-2 days before shed"],
+        ["Shedding", "Normal diet, ensure hydration (humid hide access)", "No change×appetite may decrease 1-2 days before shed"],
         ["Brumation (winter cooling)", "Gradually reduce feeding to weekly, then stop", "2-3 months (December-February)"],
-        ["Post-Brumation", "Resume feeding slowlyÃ—every 3-4 days for 1 week, then normal", "2 weeks transition period"],
+        ["Post-Brumation", "Resume feeding slowly×every 3-4 days for 1 week, then normal", "2 weeks transition period"],
         ["Sick/Recovering from MBD", "Liquid calcium (oral), slurry diet via syringe if not eating, vet guidance", "Until recovery (weeks to months)"],
-        ["Picky Eater (refusing food)", "Offer variety (try dubia instead of crickets), tong-feed, ensure temps 94-97Ã—F", "Adjust as neededÃ—rule out illness first"]
+        ["Picky Eater (refusing food)", "Offer variety (try dubia instead of crickets), tong-feed, ensure temps 94-97×F", "Adjust as needed×rule out illness first"]
       ]
     },
     {
@@ -252,19 +253,19 @@
       "type": "table",
       "headers": ["Problem", "Possible Causes", "Solutions"],
       "rows": [
-        ["Refuses to eat (>1 week)", "Temps too low (<85Ã—F), stress, impaction, parasites, brumation", "Check basking 94-97Ã—F, reduce handling, palpate for impaction, fecal test, allow brumation if winter"],
-        ["Regurgitation after feeding", "Insects too large, temps too low, handling after feeding", "Size down insects, ensure basking 94-97Ã—F, wait 24 hrs after feeding to handle"],
+        ["Refuses to eat (>1 week)", "Temps too low (<85×F), stress, impaction, parasites, brumation", "Check basking 94-97×F, reduce handling, palpate for impaction, fecal test, allow brumation if winter"],
+        ["Regurgitation after feeding", "Insects too large, temps too low, handling after feeding", "Size down insects, ensure basking 94-97×F, wait 24 hrs after feeding to handle"],
         ["Dropping tail during feeding", "Stress, overly aggressive prey (superworm biting gecko)", "Use feeding tongs, avoid superworms, reduce handling, ensure gecko feels secure"],
         ["MBD symptoms (tremors, jaw deformity)", "Insufficient calcium supplementation, no UVB, all-mealworm diet", "Vet visit immediately, increase calcium + D3 to every feeding, add UVB, switch to dubia/crickets"],
         ["Obesity (score 4-5)", "Overfeeding frequency, too many high-fat insects (superworms, waxworms)", "Reduce to weekly feeding, crickets/dubia only, increase enclosure size for exercise"],
-        ["Impaction", "Substrate ingestion (loose substrate + low temps), insect too large", "Vet visit, warm soaks, switch to tile substrate temporarily, ensure 94-97Ã—F basking"],
+        ["Impaction", "Substrate ingestion (loose substrate + low temps), insect too large", "Vet visit, warm soaks, switch to tile substrate temporarily, ensure 94-97×F basking"],
         ["Insects escaping dish", "Dish too shallow, crickets jumping", "Use 2-3\" high dish, smooth interior (glass/ceramic), remove escapees to prevent night biting"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Loss of appetite >2 weeks is NEVER normal (except during brumation). Rule out: low temperatures (<85Ã—F basking), impaction (palpate abdomen), parasites (fecal test), husbandry stress (insufficient hides, no humid hide). If temps and husbandry are correct, vet visit required."
+      "content": "Loss of appetite >2 weeks is NEVER normal (except during brumation). Rule out: low temperatures (<85×F basking), impaction (palpate abdomen), parasites (fecal test), husbandry stress (insufficient hides, no humid hide). If temps and husbandry are correct, vet visit required."
     },
     {
       "type": "section",
@@ -282,7 +283,7 @@
         ["Calcium WITHOUT D3", "Rep-Cal or Zoo Med (phosphorus-free)", "Primary calcium source with UVB (2-3x/week adults)"],
         ["Calcium WITH D3", "Rep-Cal with D3 or Zoo Med with D3", "Backup D3 source with UVB (1x/week) OR primary without UVB (2-3x/week)"],
         ["Multivitamin", "Zoo Med Reptivite without D3 OR Arcadia EarthPro-A", "Vitamin A/E/B-complex (1x/week)"],
-        ["All-in-One (alternative)", "Repashy Calcium Plus LoD (with UVB) OR Calcium Plus (no UVB)", "Simplifies scheduleÃ—contains calcium + D3 + vitamins"],
+        ["All-in-One (alternative)", "Repashy Calcium Plus LoD (with UVB) OR Calcium Plus (no UVB)", "Simplifies schedule×contains calcium + D3 + vitamins"],
         ["Gut-Load Powder", "Repashy Superload or Cricket Crack", "Nutrient boost for insects 24-48 hrs before feeding"],
         ["Feeding Dish", "2-3\" diameter shallow ceramic dish", "Contains less active insects (dubia, mealworms)"],
         ["Feeding Tongs", "8-10\" stainless steel", "Hand-feeding, training, prevents finger bites"],
@@ -307,11 +308,11 @@
       "headers": ["Day", "Action", "Supplements"],
       "rows": [
         ["Monday", "Feed 6-10 adult dubia OR crickets", "Calcium WITHOUT D3"],
-        ["Tuesday", "No feeding (digestion day)", "Ã—"],
-        ["Wednesday", "No feeding", "Ã—"],
+        ["Tuesday", "No feeding (digestion day)", "×"],
+        ["Wednesday", "No feeding", "×"],
         ["Thursday", "Feed 6-10 insects", "Plain calcium WITHOUT D3"],
-        ["Friday", "No feeding", "Ã—"],
-        ["Saturday", "No feeding", "Ã—"],
+        ["Friday", "No feeding", "×"],
+        ["Saturday", "No feeding", "×"],
         ["Sunday", "Feed 6-10 insects", "Multivitamin (Zoo Med Reptivite) OR Calcium WITH D3 (alternate weekly)"]
       ]
     },

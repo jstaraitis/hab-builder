@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "red-eyed-tree-frog-feeding-guide",
   "title": "Red-Eyed Tree Frog Feeding Guide",
   "species": "red-eyed-tree-frog",
@@ -7,6 +7,7 @@
   "excerpt": "Comprehensive feeding guide for Red-Eyed Tree Frogs covering insect selection, gut-loading, supplementation, feeding schedules, and troubleshooting picky eaters.",
   "lastUpdated": "2026-01-28",
   "tags": ["red-eyed-tree-frog", "feeding", "diet", "insects", "supplementation"],
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -312,12 +313,12 @@
       "type": "table",
       "headers": ["Insect", "Housing", "Temperature", "Food/Water", "Lifespan"],
       "rows": [
-        ["Crickets", "Ventilated container, egg cartons", "70-75Â°F", "Gut-load diet, water crystals", "2-3 weeks"],
-        ["Dubia Roaches", "Plastic tub, egg cartons", "75-90Â°F", "Roach chow, vegetables", "Several months"],
-        ["Mealworms", "Wheat bran bedding", "60-70Â°F (cooler = longer life)", "Bedding is food, carrot slices", "2-3 months"],
-        ["Waxworms", "Wood shavings or paper bedding", "55-60Â°F (refrigerate)", "Honey/wax moth diet (won't eat much)", "4-6 weeks refrigerated"],
-        ["Hornworms", "Ventilated cups with food", "75-80Â°F", "Hornworm chow (provided)", "1-2 weeks before pupating"],
-        ["Black Soldier Fly Larvae", "Dry container, no bedding", "60-75Â°F", "No food needed", "2-3 weeks before pupating"]
+        ["Crickets", "Ventilated container, egg cartons", "70-75°F", "Gut-load diet, water crystals", "2-3 weeks"],
+        ["Dubia Roaches", "Plastic tub, egg cartons", "75-90°F", "Roach chow, vegetables", "Several months"],
+        ["Mealworms", "Wheat bran bedding", "60-70°F (cooler = longer life)", "Bedding is food, carrot slices", "2-3 months"],
+        ["Waxworms", "Wood shavings or paper bedding", "55-60°F (refrigerate)", "Honey/wax moth diet (won't eat much)", "4-6 weeks refrigerated"],
+        ["Hornworms", "Ventilated cups with food", "75-80°F", "Hornworm chow (provided)", "1-2 weeks before pupating"],
+        ["Black Soldier Fly Larvae", "Dry container, no bedding", "60-75°F", "No food needed", "2-3 weeks before pupating"]
       ]
     },
     {
@@ -397,13 +398,13 @@
       "type": "table",
       "headers": ["Problem", "Possible Causes", "Solutions"],
       "rows": [
-        ["Refusing all food", "Stress, improper temps, impaction, illness", "Check temps (75-85Â°F), reduce stress, observe for 1 week, vet if continues"],
+        ["Refusing all food", "Stress, improper temps, impaction, illness", "Check temps (75-85°F), reduce stress, observe for 1 week, vet if continues"],
         ["Only eats one insect type", "Neophobia, learned preference, stubbornness", "Offer new feeders when very hungry, tong-train with familiar food first, mix new/old insects"],
         ["Spits out food after catching", "Insect too large, bad taste, calcium dust too thick", "Offer smaller prey, lighter dusting, remove any dead/spoiled feeders"],
         ["Weight loss despite eating", "Parasites, metabolic disease, insufficient supplementation", "Fecal exam by vet, verify supplement schedule, increase feeding frequency"],
         ["Obesity (bulging sides)", "Overfeeding, too many waxworms, insufficient exercise", "Reduce to every 3-4 days, eliminate high-fat feeders, add climbing enrichment"],
         ["Difficulty catching prey", "Vision problems, MBD (weak jaw), improper lighting", "Tong-feed directly, check for MBD signs, verify UVB if used, slow-moving prey"],
-        ["Regurgitation after feeding", "Overfed, temps too cool, prey too large, stress", "Smaller portions, verify 75-85Â°F basking available, reduce handling around feeding time"],
+        ["Regurgitation after feeding", "Overfed, temps too cool, prey too large, stress", "Smaller portions, verify 75-85°F basking available, reduce handling around feeding time"],
         ["Ignoring food at bottom", "Arboreal species won't ground-feed", "Feed near foliage/perches, use tongs, never rely on floor-level feeding"],
         ["Crickets biting frog", "Left overnight, frog sleeping vulnerable", "Remove all feeders after 2 hours, never feed crickets before daytime rest period"]
       ]

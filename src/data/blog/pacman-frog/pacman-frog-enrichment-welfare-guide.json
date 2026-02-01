@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "pacman-frog-enrichment-welfare-guide",
   "title": "Pacman Frog Enrichment & Welfare Guide: Complete Care Overview",
   "description": "Comprehensive enrichment and welfare guide for all Ceratophrys species including C. cranwelli, C. cornuta, and C. ornata. Learn proper housing, heating, lighting, and care requirements.",
@@ -7,6 +7,7 @@
   "category": "Care Guides",
   "excerpt": "Complete care guide for Pacman frogs (Ceratophrys spp.) with evidence-based recommendations for housing, heating, lighting, and long-term health.",
   "tags": ["pacman-frog", "horned-frog", "ceratophrys", "beginner", "enrichment", "welfare"],
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -33,7 +34,7 @@
         "C. cornuta (Surinam) - Amazon rainforest, needs higher humidity (75-85%) and warmer temperatures",
         "C. ornata (Ornate) - Temperate South America, standard tropical care, most common in pet trade",
         "C. aurita (Brazilian) - Atlantic rainforest, similar to C. cornuta",
-        "Hybrids (Fantasy) - C. cranwelli Ã— C. cornuta crosses, standard tropical care with various color morphs"
+        "Hybrids (Fantasy) - C. cranwelli × C. cornuta crosses, standard tropical care with various color morphs"
       ]
     },
     {
@@ -97,12 +98,12 @@
       "type": "table",
       "headers": ["Requirement", "Specification"],
       "rows": [
-        ["Enclosure - Juveniles", "20Ã—10Ã—12\" (10 gal) until 6-7 months old"],
-        ["Enclosure - Males", "30Ã—12Ã—12\" (20 gal long) minimum"],
-        ["Enclosure - Females", "36Ã—18Ã—18\" (40 breeder) minimum"],
-        ["Temperature Warm Side", "80-85Â°F (27-29Â°C)"],
-        ["Temperature Cool Side", "70-75Â°F (21-24Â°C)"],
-        ["Nighttime Temperature", "65-75Â°F (18-24Â°C) - most don't need night heat"],
+        ["Enclosure - Juveniles", "20×10×12\" (10 gal) until 6-7 months old"],
+        ["Enclosure - Males", "30×12×12\" (20 gal long) minimum"],
+        ["Enclosure - Females", "36×18×18\" (40 breeder) minimum"],
+        ["Temperature Warm Side", "80-85°F (27-29°C)"],
+        ["Temperature Cool Side", "70-75°F (21-24°C)"],
+        ["Nighttime Temperature", "65-75°F (18-24°C) - most don't need night heat"],
         ["Humidity Range", "65-85% (species-dependent)"],
         ["Substrate Depth", "2-3\" juveniles, 4-6\" adults (must fully burrow)"],
         ["Water Quality", "ALL water must be treated with reptile/amphibian dechlorinator"],
@@ -252,7 +253,7 @@
     },
     {
       "type": "text",
-      "text": "FALSE. While frogs can survive in 10 gallons, they cannot thrive. Females need minimum 36Ã—18Ã—18\" (40 breeder), males need minimum 30Ã—12Ã—12\" (20 long). Proper thermal gradients and enrichment require adequate space."
+      "text": "FALSE. While frogs can survive in 10 gallons, they cannot thrive. Females need minimum 36×18×18\" (40 breeder), males need minimum 30×12×12\" (20 long). Proper thermal gradients and enrichment require adequate space."
     },
     {
       "type": "text",

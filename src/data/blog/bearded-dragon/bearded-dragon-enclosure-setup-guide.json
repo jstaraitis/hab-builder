@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "bearded-dragon-enclosure-setup-guide",
   "title": "Bearded Dragon Enclosure Setup: Size, Layout & Equipment Guide",
   "description": "Complete guide to setting up a bearded dragon enclosure including minimum size requirements, enclosure types, layout design, and essential equipment checklist.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["bearded dragon", "enclosure", "setup", "habitat", "pogona vitticeps"],
   "image": "/animals/bearded-dragon/bearded-dragon-1.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",

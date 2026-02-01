@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "ball-python-substrate-guide",
   "title": "Ball Python Substrate Guide: Moisture-Retentive Options for Humidity Control",
   "description": "Complete substrate guide for ball pythons covering soil-based naturalistic options, humidity retention, DIY substrate mixes, and maintenance schedules for semi-arid African species.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["ball-python", "substrate", "bedding", "humidity", "soil"],
   "image": "/animals/ball-python/ball-python-substrate.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -78,18 +79,18 @@
       "type": "table",
       "headers": ["Substrate", "Why Avoid"],
       "rows": [
-        ["Aspen shavings", "Molds easily when humid, does NOT hold humidity, dustyÃ—causes respiratory issues"],
-        ["Pine or cedar shavings", "Aromatic oils toxic to reptilesÃ—respiratory damage and liver toxicity"],
-        ["Sand alone", "Does not hold humidity, abrasive, dustyÃ—respiratory risk"],
+        ["Aspen shavings", "Molds easily when humid, does NOT hold humidity, dusty×causes respiratory issues"],
+        ["Pine or cedar shavings", "Aromatic oils toxic to reptiles×respiratory damage and liver toxicity"],
+        ["Sand alone", "Does not hold humidity, abrasive, dusty×respiratory risk"],
         ["Reptile carpet", "Traps feces/shed in fibers (unsanitary), claws catch in loops, doesn't facilitate humidity"],
-        ["Paper towels/newspaper", "Acceptable for quarantine onlyÃ—does NOT hold humidity, unnatural, must mist constantly"],
+        ["Paper towels/newspaper", "Acceptable for quarantine only×does NOT hold humidity, unnatural, must mist constantly"],
         ["Gravel or rocks", "No humidity retention, uncomfortable, unnatural"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Aspen shavings are commonly recommended for ball pythons by outdated sources. However, aspen MOLDS quickly in the 70-80% humidity ball pythons require (60% absolute minimum), and it does NOT retain humidity well. Use soil-based substrates insteadâ€”they're specifically designed for moderate to high humidity environments."
+      "content": "Aspen shavings are commonly recommended for ball pythons by outdated sources. However, aspen MOLDS quickly in the 70-80% humidity ball pythons require (60% absolute minimum), and it does NOT retain humidity well. Use soil-based substrates instead—they're specifically designed for moderate to high humidity environments."
     },
     {
       "type": "section",
@@ -119,7 +120,7 @@
     {
       "type": "list",
       "items": [
-        "Use large plastic bin or tarp for mixing (48Ã—24Ã—24 enclosure needs ~40 lbs total substrate for 3-4 inch depth)",
+        "Use large plastic bin or tarp for mixing (48×24×24 enclosure needs ~40 lbs total substrate for 3-4 inch depth)",
         "Verify topsoil contains NO fertilizers, pesticides, perlite, or vermiculite (check label carefully)",
         "Rehydrate Eco Earth brick per package instructions (usually 4-5 gallons water per brick)",
         "Combine: 16 lbs topsoil + 16 lbs rehydrated Eco Earth + 8 lbs play sand",
@@ -130,7 +131,7 @@
     },
     {
       "type": "highlight",
-      "content": "Cost comparison: DIY mix costs $15-20 for full 48Ã—24Ã—24 enclosure substrate (3-4 inch depth). Commercial ReptiSoil alone costs $60-80 for same coverage. DIY mix provides superior humidity control and naturalistic appearance at fraction of cost."
+      "content": "Cost comparison: DIY mix costs $15-20 for full 48×24×24 enclosure substrate (3-4 inch depth). Commercial ReptiSoil alone costs $60-80 for same coverage. DIY mix provides superior humidity control and naturalistic appearance at fraction of cost."
     },
     {
       "type": "section",
@@ -180,7 +181,7 @@
         ["Live oak leaves", "Medium size, durable, common", "Collect yourself (pesticide-free yards only) or buy online", "Free or $10-15 per lb"],
         ["Indian almond leaves", "Small to medium, releases tannins (antimicrobial)", "Pet stores ($10-15 for 10-20 leaves)", "Good option"],
         ["Mixed hardwood leaves (oak, beech, maple)", "Various sizes, natural appearance", "Collect yourself in fall (pesticide-free)", "Free"],
-        ["Avoid: Pine needles", "Aromatic oils potentially irritating", "Ã—", "Not recommended"]
+        ["Avoid: Pine needles", "Aromatic oils potentially irritating", "×", "Not recommended"]
       ]
     },
     {
@@ -193,14 +194,14 @@
         "Collect from pesticide-free areas only (your yard, not public parks with lawn treatment)",
         "Avoid leaves near roads (car exhaust contaminants)",
         "Rinse leaves thoroughly with water to remove dirt and debris",
-        "Bake at 200Ã—F for 30 minutes to sterilize (kills insects, mold spores)",
+        "Bake at 200×F for 30 minutes to sterilize (kills insects, mold spores)",
         "Allow to cool completely before adding to enclosure",
         "Layer 1-2 inches deep on top of substrate"
       ]
     },
     {
       "type": "highlight",
-      "content": "Leaf litter is not just decorativeÃ—it serves critical functions: Slows moisture evaporation from substrate (reduces misting frequency), provides hiding spots for natural behavior, breaks down slowly to enrich substrate (bioactive), and looks beautiful."
+      "content": "Leaf litter is not just decorative×it serves critical functions: Slows moisture evaporation from substrate (reduces misting frequency), provides hiding spots for natural behavior, breaks down slowly to enrich substrate (bioactive), and looks beautiful."
     },
     {
       "type": "section",
@@ -220,7 +221,7 @@
       "rows": [
         ["Entire substrate (initial setup)", "Damp but not dripping", "Squeeze test: clumps in hand but no water drips", "60-75%"],
         ["Top 1 inch (cool side)", "Slightly moist to touch", "Visual inspection: darker color than dry substrate", "65-75% (measured in cool hide)"],
-        ["Top 1 inch (warm side)", "Dry to slightly moist", "Warm side dries fasterÃ—normal and desirable", "45-60%"],
+        ["Top 1 inch (warm side)", "Dry to slightly moist", "Warm side dries faster×normal and desirable", "45-60%"],
         ["Bottom layers (all sides)", "Consistently moist", "Not visible (buried), retains moisture long-term", "Provides humidity buffer"]
       ]
     },
@@ -235,7 +236,7 @@
         ["Humid climate (>60% room humidity)", "Every 2-3 days or as needed", "Substrate retains moisture naturally, monitor closely to avoid over-humidification"],
         ["Moderate climate (40-60% room humidity)", "1-2x daily (morning + evening)", "Standard schedule for most keepers"],
         ["Dry climate (<40% room humidity)", "2-3x daily", "May need larger water bowl or additional sphagnum moss in cool hide"],
-        ["Winter (indoor heating season)", "2-3x daily", "Indoor heating drastically lowers humidityÃ—increase misting"],
+        ["Winter (indoor heating season)", "2-3x daily", "Indoor heating drastically lowers humidity×increase misting"],
         ["Bioactive setup", "1x daily or less", "Live plants and microfauna help stabilize humidity"]
       ]
     },
@@ -281,7 +282,7 @@
         ["Stir substrate", "Monthly", "Gently turn substrate to aerate, avoid disturbing plant roots"],
         ["Refresh leaf litter", "Every 4-6 weeks", "Add new leaves as old ones decompose"],
         ["Add CUC", "Every 6 months", "Supplement isopod/springtail population"],
-        ["Complete substrate replacement", "Never (unless contamination)", "Bioactive substrate matures over timeÃ—no full changes needed"]
+        ["Complete substrate replacement", "Never (unless contamination)", "Bioactive substrate matures over time×no full changes needed"]
       ]
     },
     {
@@ -327,7 +328,7 @@
       "headers": ["Application", "Method", "Maintenance"],
       "rows": [
         ["Inside cool hide", "Fill hide 50-75% with damp (not wet) sphagnum moss", "Re-moisten every 2-3 days by spraying, replace weekly to prevent mold"],
-        ["Humid hide (separate container)", "Plastic box with entry hole, filled with moss", "Same as aboveÃ—re-moisten regularly, replace weekly"],
+        ["Humid hide (separate container)", "Plastic box with entry hole, filled with moss", "Same as above×re-moisten regularly, replace weekly"],
         ["Layered on substrate (optional)", "Thin layer on top of substrate in cool zone", "Helps retain moisture, adds naturalistic texture"]
       ]
     },
@@ -342,7 +343,7 @@
     },
     {
       "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Cost Comparison (48Ã—24Ã—24 Enclosure, 3-4 Inch Depth):</span>"
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Cost Comparison (48×24×24 Enclosure, 3-4 Inch Depth):</span>"
     },
     {
       "type": "table",
@@ -357,7 +358,7 @@
     },
     {
       "type": "highlight",
-      "content": "Long-term winner: Bioactive setup has highest initial cost but lowest annual maintenance cost ($20-30/year). DIY mix is best for non-bioactive setupsÃ—same performance as commercial ReptiSoil at 1/3 the cost."
+      "content": "Long-term winner: Bioactive setup has highest initial cost but lowest annual maintenance cost ($20-30/year). DIY mix is best for non-bioactive setups×same performance as commercial ReptiSoil at 1/3 the cost."
     },
     {
       "type": "section",
@@ -375,17 +376,17 @@
       "type": "table",
       "headers": ["Risk Factor", "Impact on Impaction Risk", "Mitigation"],
       "rows": [
-        ["Low temperatures (<80Ã—F)", "HIGH RISKÃ—prevents proper digestion", "Ensure 95-104Ã—F basking, 86-90Ã—F warm hide"],
-        ["Dehydration", "HIGH RISKÃ—digestive system can't move material", "Maintain 45-75% humidity, provide large water bowl"],
-        ["Prey too large", "MODERATE RISKÃ—large meals harder to digest", "Follow 10% body weight rule, prey <1.5x snake width"],
-        ["Substrate type", "LOW RISK with soilÃ—naturalistic substrates pass through safely", "Avoid sand alone, gravel, or walnut shells"],
-        ["Feeding on substrate", "VERY LOW RISKÃ—incidental ingestion normal", "Optional: Feed in separate container if concerned"]
+        ["Low temperatures (<80×F)", "HIGH RISK×prevents proper digestion", "Ensure 95-104×F basking, 86-90×F warm hide"],
+        ["Dehydration", "HIGH RISK×digestive system can't move material", "Maintain 45-75% humidity, provide large water bowl"],
+        ["Prey too large", "MODERATE RISK×large meals harder to digest", "Follow 10% body weight rule, prey <1.5x snake width"],
+        ["Substrate type", "LOW RISK with soil×naturalistic substrates pass through safely", "Avoid sand alone, gravel, or walnut shells"],
+        ["Feeding on substrate", "VERY LOW RISK×incidental ingestion normal", "Optional: Feed in separate container if concerned"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Myth debunked: 'Ball pythons should never be on loose substrate because of impaction risk.' Reality: Impaction is caused by low temperatures + dehydration, NOT substrate choice. Ball pythons on soil-based substrate with proper temps (95-104Ã—F basking) and humidity (45-75%) have no impaction issues."
+      "content": "Myth debunked: 'Ball pythons should never be on loose substrate because of impaction risk.' Reality: Impaction is caused by low temperatures + dehydration, NOT substrate choice. Ball pythons on soil-based substrate with proper temps (95-104×F basking) and humidity (45-75%) have no impaction issues."
     }
   ]
 }

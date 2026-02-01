@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "whites-tree-frog-enrichment-welfare-guide",
   "title": "Enrichment & Welfare for White's Tree Frogs",
   "author": "Habitat Builder Team",
@@ -7,6 +7,7 @@
   "excerpt": "Safe decor, hunting enrichment, and welfare checks to keep White's Tree Frogs active and stress-free.",
   "description": "Safe decor, hunting enrichment, and welfare checks to keep White's Tree Frogs active and stress-free.",
   "tags": ["enrichment", "welfare", "behavior", "whites-tree-frog"],
+  "status": "community-reviewed",
   "content": [
     {
       "type": "intro",
@@ -97,7 +98,7 @@
           "type": "warning",
           "severity": "important",
           "icon": "AlertTriangle",
-          "content": "Red Flag Behaviors: Gaping mouth, wheezing sounds, red/irritated skin, refusal to eat for 7+ days (adults) require immediate exotic vet consultation. Don't wait—amphibians decline rapidly once symptoms appear."
+          "content": "Red Flag Behaviors: Gaping mouth, wheezing sounds, red/irritated skin, refusal to eat for 7+ days (adults) require immediate exotic vet consultation. Don't wait�amphibians decline rapidly once symptoms appear."
         }
       ]
     },
@@ -113,7 +114,7 @@
           "type": "list",
           "items": [
             "Male vocalizations: Loud, rhythmic 'barking' calls at night (can be heard across the house)",
-            "Amplexus: Male gripping female from behind—normal breeding behavior, not aggression",
+            "Amplexus: Male gripping female from behind�normal breeding behavior, not aggression",
             "Increased water dish activity: Both sexes spend more time near/in water",
             "Female weight gain: Gravid females develop rounded abdomen filled with eggs",
             "Males develop dark nuptial pads on thumbs for gripping during amplexus"
@@ -135,7 +136,7 @@
             "Decor rearrangement: Every 2-3 months to provide novelty WITHOUT causing excessive stress. Move 1-2 items, not the entire setup.",
             "New perches/plants: Introduce one new item every 6-8 weeks to maintain interest.",
             "Feeding enrichment: Vary feeder types weekly (crickets Monday, dubia Wednesday, BSFL Friday) to prevent boredom.",
-            "Avoid: Daily rearrangement or constant changes—this stresses frogs and disrupts established territories."
+            "Avoid: Daily rearrangement or constant changes�this stresses frogs and disrupts established territories."
           ]
         },
         {

@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "red-eyed-tree-frog-enrichment-welfare-guide",
   "title": "Red-Eyed Tree Frog Enrichment & Welfare Guide",
   "species": "red-eyed-tree-frog",
@@ -7,6 +7,7 @@
   "excerpt": "Comprehensive guide to behavioral enrichment, social welfare, and quality of life indicators for Red-Eyed Tree Frogs, including habitat complexity, social dynamics, and recognizing thriving vs struggling frogs.",
   "lastUpdated": "2026-01-28",
   "tags": ["red-eyed-tree-frog", "enrichment", "welfare", "behavior", "social"],
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -28,7 +29,7 @@
     {
       "type": "list",
       "items": [
-        "Diagonal Pathways: Branches positioned at 30-60Â° angles create natural climbing routes from bottom to top. Avoid purely vertical or horizontal - frogs prefer angled surfaces.",
+        "Diagonal Pathways: Branches positioned at 30-60° angles create natural climbing routes from bottom to top. Avoid purely vertical or horizontal - frogs prefer angled surfaces.",
         "Multiple Routes: Frogs should have 3-4 different pathways to reach any given perch. This mimics forest canopy complexity and allows subordinate frogs to avoid dominant individuals.",
         "Varied Diameters: Mix thin branches (0.5\" for toe-gripping), medium branches (1-2\" for full-foot perching), and wide Cork Bark panels (hand-sized surfaces for resting).",
         "Interconnections: Use vines to connect separate branches, creating a web of options. Frogs love navigating complex networks.",
@@ -50,7 +51,7 @@
         "Add new Cork Bark piece or vine cluster quarterly",
         "Rotate plant positions (potted plants only) to change foliage layout",
         "Novelty stimulates exploration behavior - frogs will actively investigate changes",
-        "Never change ALL dÃ©cor at once - causes stress. Incremental changes only."
+        "Never change ALL décor at once - causes stress. Incremental changes only."
       ]
     },
     {
@@ -366,7 +367,7 @@
       "items": [
         "Skin Sensitivity: Oils, lotions, soap residue from human hands burn amphibian skin",
         "Stress Response: Frogs interpret handling as predation - triggers acute stress response",
-        "Temperature Shock: Human hands (98Â°F) much warmer than frog body temp (75-80Â°F)",
+        "Temperature Shock: Human hands (98°F) much warmer than frog body temp (75-80°F)",
         "Escape Attempts: Frogs leap unpredictably when restrained - risk injury from falls",
         "Toxic Secretions: While mild, frogs secrete defensive compounds that can irritate human eyes if touched"
       ]
@@ -437,10 +438,10 @@
       "headers": ["Frequency", "Enrichment Activity"],
       "rows": [
         ["Daily", "Observe evening activity, varied feeding locations, misting schedule"],
-        ["Weekly", "Introduce new feeder insect type, rearrange small dÃ©cor piece"],
+        ["Weekly", "Introduce new feeder insect type, rearrange small décor piece"],
         ["Monthly", "Health inspection, add new plant or vine, rotate artificial plants"],
-        ["Quarterly (every 3 months)", "Rearrange 20-30% of branches, add new Cork Bark hide, introduce novel dÃ©cor item"],
-        ["Seasonally (every 6 months)", "Dry season â†’ rainy season cycle, major plant trimming/replacement, deep clean with partial dÃ©cor refresh"],
+        ["Quarterly (every 3 months)", "Rearrange 20-30% of branches, add new Cork Bark hide, introduce novel décor item"],
+        ["Seasonally (every 6 months)", "Dry season ? rainy season cycle, major plant trimming/replacement, deep clean with partial décor refresh"],
         ["Annually", "Evaluate group dynamics (add/remove frogs if needed), upgrade equipment, consider enclosure size increase"]
       ]
     },
@@ -457,18 +458,18 @@
       "headers": ["Free/Cheap Enrichment", "Cost", "Implementation"],
       "rows": [
         ["Rearrange existing branches", "Free", "Every 2-3 months, move perches to new positions"],
-        ["Collect hardwood branches", "Free", "Bake at 200Â°F for 2 hours to sterilize, add to enclosure"],
+        ["Collect hardwood branches", "Free", "Bake at 200°F for 2 hours to sterilize, add to enclosure"],
         ["Rotate feeding times", "Free", "Feed at different evening hours each session"],
         ["Pothos plant cuttings", "Free if you have plant", "Propagate vines in water, add to enclosure"],
         ["Cork Bark pieces", "$10-20", "Single investment, lasts forever, can rearrange"],
         ["Additional vines", "$5-15 each", "Add 1-2 new vines quarterly for climbing variety"],
         ["Bromeliad from garden center", "$8-15", "Non-pesticide plants, quarantine before adding"],
-        ["Vary feeder insects", "$0 (bulk order)", "Rotate crickets â†’ roaches â†’ waxworms weekly"]
+        ["Vary feeder insects", "$0 (bulk order)", "Rotate crickets ? roaches ? waxworms weekly"]
       ]
     },
     {
       "type": "highlight",
-      "text": "The BEST enrichment is often free - rearranging dÃ©cor, varying routines, and observing your frogs' responses to changes."
+      "text": "The BEST enrichment is often free - rearranging décor, varying routines, and observing your frogs' responses to changes."
     },
     {
       "type": "section",

@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "mourning-gecko-enrichment-welfare-guide",
   "title": "Mourning Gecko Enrichment & Welfare Guide",
   "description": "Complete guide to environmental enrichment, behavioral welfare, and health monitoring for mourning gecko colonies including social dynamics and breeding behaviors.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["mourning gecko", "enrichment", "welfare", "behavior", "social"],
   "image": "/animals/mourning-gecko/mourning-gecko-1.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -28,12 +29,12 @@
     },
     {
       "type": "table",
-      "headers": ["Feature Type", "Quantity (12Ã—12Ã—18)", "Purpose", "Placement"],
+      "headers": ["Feature Type", "Quantity (12×12×18)", "Purpose", "Placement"],
       "rows": [
         ["Diagonal branches (3-6mm diameter)", "4-6 pieces", "Primary climbing highways between levels", "Zigzag from bottom to top at various angles"],
         ["Horizontal perches (near-vertical)", "3-4 pieces", "Resting spots, basking surfaces", "Top third near heat source, various heights"],
         ["Bendable vines (artificial/natural)", "3-5 strands", "Create climbing pathways, connect zones", "Weave throughout all levels"],
-        ["Cork bark (flat or rounds)", "2-3 pieces", "Vertical climbing surfaces, hides", "Lean against walls at 45-70Â° angles"],
+        ["Cork bark (flat or rounds)", "2-3 pieces", "Vertical climbing surfaces, hides", "Lean against walls at 45-70° angles"],
         ["Live/artificial plants", "4-6 plants", "Leaf surface coverage, security", "Distributed at top, middle, bottom"],
         ["Bamboo sections (optional)", "1-2 pieces", "Novel texture, hollow hides", "Mid-level, angled or vertical"]
       ]
@@ -167,7 +168,7 @@
     },
     {
       "type": "text",
-      "content": "<strong>Optimal Colony Size:</strong> 3-4 geckos in 12Ã—12Ã—18 enclosure is ideal. 2 geckos (minimum) may lack full social dynamics. 5+ geckos requires larger enclosure (18Ã—18Ã—24+) to prevent overcrowding stress."
+      "content": "<strong>Optimal Colony Size:</strong> 3-4 geckos in 12×12×18 enclosure is ideal. 2 geckos (minimum) may lack full social dynamics. 5+ geckos requires larger enclosure (18×18×24+) to prevent overcrowding stress."
     },
     {
       "type": "section",
@@ -187,7 +188,7 @@
       "rows": [
         ["Feeding station relocation", "Every 3-4 days", "Move magnetic ledges to different positions", "MINIMAL - quick adaptation"],
         ["Add new branch/vine", "Every 4-6 weeks", "Introduce one new climbing element", "LOW - curious exploration"],
-        ["Rearrange existing dÃ©cor", "Every 2-3 months", "Move 2-3 items to new positions (not entire setup)", "MODERATE - brief disorientation"],
+        ["Rearrange existing décor", "Every 2-3 months", "Move 2-3 items to new positions (not entire setup)", "MODERATE - brief disorientation"],
         ["Replace worn foliage", "Every 2-4 months", "Swap out damaged artificial plants or trim live plants", "MINIMAL - gradual change"],
         ["Substrate refresh (top layer)", "Every 1-2 months", "Add new leaf litter, freshen top inch", "LOW - familiar base remains"],
         ["Complete enclosure overhaul", "AVOID", "Never do total redesign - too stressful", "SEVERE - destroys territories"]
@@ -213,11 +214,11 @@
       "type": "table",
       "headers": ["Zone Type", "Location", "Gecko Choice Benefit"],
       "rows": [
-        ["Warm-dry basking (80-85Â°F, 60% humidity)", "Top corner under heat lamp", "Active warming, digestion boost, breeding motivation"],
-        ["Warm-humid canopy (78-80Â°F, 70% humidity)", "Top opposite corner with dense foliage", "Warm without extreme dryness, shedding support"],
-        ["Mid-level moderate (75-78Â°F, 65-70% humidity)", "Middle branches/vines", "Activity zone - hunting, exploring, socializing"],
-        ["Cool-humid retreat (70-75Â°F, 75-80% humidity)", "Lower third near substrate", "Thermoregulation downshift, high-humidity refuge"],
-        ["Ground-level moisture (70-72Â°F, 80% humidity)", "Substrate surface in corners", "Maximum moisture if dehydrated, rarely used"]
+        ["Warm-dry basking (80-85°F, 60% humidity)", "Top corner under heat lamp", "Active warming, digestion boost, breeding motivation"],
+        ["Warm-humid canopy (78-80°F, 70% humidity)", "Top opposite corner with dense foliage", "Warm without extreme dryness, shedding support"],
+        ["Mid-level moderate (75-78°F, 65-70% humidity)", "Middle branches/vines", "Activity zone - hunting, exploring, socializing"],
+        ["Cool-humid retreat (70-75°F, 75-80% humidity)", "Lower third near substrate", "Thermoregulation downshift, high-humidity refuge"],
+        ["Ground-level moisture (70-72°F, 80% humidity)", "Substrate surface in corners", "Maximum moisture if dehydrated, rarely used"]
       ]
     },
     {
@@ -429,14 +430,14 @@
         ["Founding colony (2-4 adults)", "Months 0-3", "Establish territories, bonding time", "Provide multiple feeding stations, minimize changes"],
         ["First breeding cycle", "Months 3-6", "Egg-laying sites, nesting privacy", "Add cork hollows, dense foliage for laying"],
         ["Hatchling integration", "Months 6-12", "Separate hatchling zones, size-appropriate climbing", "Add small-diameter branches, finer foliage"],
-        ["Growing population (8-12 geckos)", "Months 12-18", "Increased space requirements", "UPGRADE to 18Ã—18Ã—24 or larger enclosure"],
-        ["Mature colony (10-20 geckos)", "Months 18+", "Complex social dynamics, multiple territories", "Large enclosure (24Ã—18Ã—36+), extensive dÃ©cor"],
+        ["Growing population (8-12 geckos)", "Months 12-18", "Increased space requirements", "UPGRADE to 18×18×24 or larger enclosure"],
+        ["Mature colony (10-20 geckos)", "Months 18+", "Complex social dynamics, multiple territories", "Large enclosure (24×18×36+), extensive décor"],
         ["Population control phase", "Ongoing", "Remove eggs or separate offspring", "Decide breeding goals, manage population actively"]
       ]
     },
     {
       "type": "highlight",
-      "content": "Enrichment scales with population: More geckos = more vertical space, more feeding stations, more climbing pathways, more hiding spots. Don't try to house 15 geckos in a 12Ã—12Ã—18 - this eliminates enrichment through overcrowding."
+      "content": "Enrichment scales with population: More geckos = more vertical space, more feeding stations, more climbing pathways, more hiding spots. Don't try to house 15 geckos in a 12×12×18 - this eliminates enrichment through overcrowding."
     },
     {
       "type": "section",
@@ -460,14 +461,14 @@
         ["Live plants", "MEDIUM ($30-60)", "HIGH", "HIGHLY RECOMMENDED - superior to artificial"],
         ["Automatic misting system", "HIGH ($80-200)", "HIGH", "RECOMMENDED - consistency is key enrichment"],
         ["UVB lighting", "MEDIUM ($30-60)", "MEDIUM-HIGH", "RECOMMENDED - especially for breeders"],
-        ["Larger enclosure (18Ã—18Ã—24+)", "HIGH ($100-200)", "VERY HIGH (for 5+ geckos)", "REQUIRED for population growth"],
-        ["Cork bark & natural dÃ©cor", "LOW-MEDIUM ($20-50)", "MEDIUM-HIGH", "RECOMMENDED - aesthetic + functional"],
+        ["Larger enclosure (18×18×24+)", "HIGH ($100-200)", "VERY HIGH (for 5+ geckos)", "REQUIRED for population growth"],
+        ["Cork bark & natural décor", "LOW-MEDIUM ($20-50)", "MEDIUM-HIGH", "RECOMMENDED - aesthetic + functional"],
         ["Decorative elements (aesthetic only)", "LOW ($10-30)", "LOW", "OPTIONAL - minimal behavioral benefit"]
       ]
     },
     {
       "type": "highlight",
-      "content": "Budget enrichment tip: Natural branches from your yard (baked 200Â°F for 30 min to sterilize), DIY substrate mix, and cuttings from your houseplants provide excellent enrichment at near-zero cost."
+      "content": "Budget enrichment tip: Natural branches from your yard (baked 200°F for 30 min to sterilize), DIY substrate mix, and cuttings from your houseplants provide excellent enrichment at near-zero cost."
     },
     {
       "type": "section",
@@ -483,7 +484,7 @@
         " Morning misting (30-60 seconds) - provides drinking enrichment and humidity variation",
         " Check all feeding stations have fresh CGD - rotate station locations every 3-4 days",
         " Observe colony for 2-3 minutes during evening active period - note social interactions",
-        " Verify temperature gradient (80-85Â°F basking, 70-75Â°F cool zone) - choice is enrichment",
+        " Verify temperature gradient (80-85°F basking, 70-75°F cool zone) - choice is enrichment",
         " Spot clean visible waste from branches and substrate - maintain clean environment",
         " Evening misting (30-60 seconds) - second drinking opportunity before active period",
         " Offer live insects 1-2x weekly - hunting enrichment stimulates natural behavior",

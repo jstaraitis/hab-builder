@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "crested-gecko-temp-humidity-guide",
   "title": "Crested Gecko Temperature & Humidity Guide: Complete Climate Control",
   "description": "Complete temperature and humidity management guide for crested geckos covering thermal gradients, heating equipment, humidity maintenance, and troubleshooting climate issues.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["crested-gecko", "temperature", "humidity", "heating", "climate"],
   "image": "/animals/crested-gecko/crested-gecko-temperature.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",

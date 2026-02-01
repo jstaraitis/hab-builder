@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "whites-tree-frog-substrate-guide",
   "title": "Substrate Guide for White's Tree Frogs",
   "author": "Habitat Builder Team",
@@ -7,6 +7,7 @@
   "excerpt": "Species-specific substrate recommendations for White's Tree Frogs: safe substrate types, depth requirements, moisture management, and maintenance schedules.",
   "description": "Substrate selection guide for White's Tree Frogs covering safe options, proper depth, moisture levels, and cleaning schedules for both simple and bioactive setups.",
   "tags": ["substrate", "whites-tree-frog", "enclosure-setup"],
+  "status": "community-reviewed",
   "content": [
     {
       "type": "intro",
@@ -52,11 +53,11 @@
         },
         {
           "type": "text",
-          "text": "<strong>Paper Towels (Bare Minimum Setup)</strong><br/>Easy to clean, monitor for parasites/illness, zero impaction risk. Ideal for new frogs during 30-day quarantine, sick frogs, or emergency budget setups. Can be used long-term if changed daily and enclosure is misted 2-3x daily. Use white, unscented towels—avoid colored/patterned varieties."
+          "text": "<strong>Paper Towels (Bare Minimum Setup)</strong><br/>Easy to clean, monitor for parasites/illness, zero impaction risk. Ideal for new frogs during 30-day quarantine, sick frogs, or emergency budget setups. Can be used long-term if changed daily and enclosure is misted 2-3x daily. Use white, unscented towels�avoid colored/patterned varieties."
         },
         {
           "type": "text",
-          "text": "<strong>Frog Foam (Low-Maintenance Alternative)</strong><br/>Reusable foam pad designed for amphibians. Cushioned surface prevents injury from falls, easy to rinse and reuse weekly. Does NOT retain humidity—requires frequent misting (2-3x daily). Lasts 1-2 years before needing replacement. Popular brands: Frog Foam, Exo Terra Forest Foam."
+          "text": "<strong>Frog Foam (Low-Maintenance Alternative)</strong><br/>Reusable foam pad designed for amphibians. Cushioned surface prevents injury from falls, easy to rinse and reuse weekly. Does NOT retain humidity�requires frequent misting (2-3x daily). Lasts 1-2 years before needing replacement. Popular brands: Frog Foam, Exo Terra Forest Foam."
         },
         {
           "type": "warning",
@@ -84,7 +85,7 @@
           "headers": ["Setup Type", "Substrate Depth", "Notes"],
           "rows": [
             ["Paper Towels", "3-4 layers", "No benefit beyond 5 layers"],
-            ["Frog Foam", "½-inch thick pad", "Single solid pad, no layering needed"],
+            ["Frog Foam", "�-inch thick pad", "Single solid pad, no layering needed"],
             ["Simple (Coco Fiber)", "1-2 inches", "Shallow for easy cleaning, prevents stagnant pockets"],
             ["Bioactive", "3-4 inches substrate + 1-2 inches leaf litter", "Deeper substrate needed for cleanup crew and plant roots"]
           ]
@@ -102,7 +103,7 @@
       "content": [
         {
           "type": "text",
-          "text": "White's Tree Frogs need DRY substrate, not wet. These are semi-arid frogs—excessive moisture causes bacterial infections and respiratory issues."
+          "text": "White's Tree Frogs need DRY substrate, not wet. These are semi-arid frogs�excessive moisture causes bacterial infections and respiratory issues."
         },
         {
           "type": "text",
@@ -114,7 +115,7 @@
             "Mist lightly every 2-3 days (simple setup) or weekly (bioactive)",
             "NEVER have standing water pooling on substrate surface",
             "If substrate stays wet 24/7, increase ventilation or reduce misting frequency",
-            "Water dish provides primary humidity—substrate should be mostly dry",
+            "Water dish provides primary humidity�substrate should be mostly dry",
             "Paper towels and frog foam require more frequent misting (2-3x daily) since they don't retain moisture"
           ]
         },
@@ -187,7 +188,7 @@
             "Add 1-2 inches coconut fiber (soak brick, squeeze out excess water)",
             "Spread evenly across enclosure floor",
             "Add 1-inch leaf litter layer on top for natural appearance and impaction prevention",
-            "Mist lightly every 2-3 days—substrate should be damp, not wet",
+            "Mist lightly every 2-3 days�substrate should be damp, not wet",
             "Replace completely every 4-6 weeks"
           ]
         },

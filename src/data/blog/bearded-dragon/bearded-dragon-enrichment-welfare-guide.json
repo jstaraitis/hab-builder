@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "bearded-dragon-enrichment-welfare-guide",
   "title": "Bearded Dragon Enrichment & Welfare Guide: Mental Stimulation & Natural Behaviors",
   "description": "Complete guide to providing enrichment for bearded dragons. Learn how to promote natural behaviors, prevent boredom, and improve your dragon's quality of life through environmental and behavioral enrichment.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["bearded dragon", "enrichment", "welfare", "mental stimulation", "pogona vitticeps"],
   "image": "/animals/bearded-dragon/bearded-dragon-2.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -24,7 +25,7 @@
     },
     {
       "type": "highlight",
-      "content": "Key Principle: Enrichment isn't optionalâ€”it's a welfare requirement. Animals have the ability to become bored, which can lead to behavioral changes, stress, and even illness."
+      "content": "Key Principle: Enrichment isn't optional—it's a welfare requirement. Animals have the ability to become bored, which can lead to behavioral changes, stress, and even illness."
     },
     {
       "type": "section",
@@ -37,7 +38,7 @@
     {
       "type": "list",
       "items": [
-        "<strong>Environmental Enrichment:</strong> Changes to the habitat that improve quality of life (climbing structures, substrate depth, dÃ©cor arrangement)",
+        "<strong>Environmental Enrichment:</strong> Changes to the habitat that improve quality of life (climbing structures, substrate depth, décor arrangement)",
         "<strong>Behavioral/Cognitive Enrichment:</strong> Activities that provide mental stimulation (puzzle feeders, foraging opportunities, training)",
         "<strong>Sensory Enrichment:</strong> New sights, sounds, and experiences (enclosure rearrangement, supervised outdoor time)",
         "<strong>Physical Enrichment:</strong> Opportunities for exercise and muscle development (climbing branches, vertical space)"
@@ -57,11 +58,11 @@
     },
     {
       "type": "text",
-      "content": "Periodically rearranging dÃ©cor, hides, and climbing structures provides both visual and environmental enrichment. This forces your dragon to relearn their environment, providing mental stimulation and encouraging exploration."
+      "content": "Periodically rearranging décor, hides, and climbing structures provides both visual and environmental enrichment. This forces your dragon to relearn their environment, providing mental stimulation and encouraging exploration."
     },
     {
       "type": "highlight",
-      "content": "<strong>Frequency:</strong> Rearrange dÃ©cor every 4-6 weeks. More frequent changes may cause stress; less frequent changes reduce enrichment value."
+      "content": "<strong>Frequency:</strong> Rearrange décor every 4-6 weeks. More frequent changes may cause stress; less frequent changes reduce enrichment value."
     },
     {
       "type": "text",
@@ -107,7 +108,7 @@
     {
       "type": "warning",
       "severity": "tip",
-      "content": "Mist substrate lightly once per week to maintain compactability and reduce dust. Avoid making substrate soggyâ€”bearded dragons are arid species."
+      "content": "Mist substrate lightly once per week to maintain compactability and reduce dust. Avoid making substrate soggy—bearded dragons are arid species."
     },
     {
       "type": "section",
@@ -133,7 +134,7 @@
     },
     {
       "type": "highlight",
-      "content": "<strong>Safety Note:</strong> Secure all climbing structures firmly to prevent collapses. Bearded dragons are heavier than they appear and can injure themselves if dÃ©cor shifts unexpectedly."
+      "content": "<strong>Safety Note:</strong> Secure all climbing structures firmly to prevent collapses. Bearded dragons are heavier than they appear and can injure themselves if décor shifts unexpectedly."
     },
     {
       "type": "section",
@@ -141,7 +142,7 @@
     },
     {
       "type": "text",
-      "content": "Providing multiple options for basking, hiding, and resting allows your dragon to choose their preferred temperature and security levelâ€”reducing stress and promoting natural decision-making."
+      "content": "Providing multiple options for basking, hiding, and resting allows your dragon to choose their preferred temperature and security level—reducing stress and promoting natural decision-making."
     },
     {
       "type": "text",
@@ -219,7 +220,7 @@
       "type": "list",
       "items": [
         "<strong>Insects:</strong> Place live feeders on different surfaces (branches, rocks, substrate) throughout enclosure. Dubia roaches work better than crickets (won't hide as easily).",
-        "<strong>Greens:</strong> Clip leafy greens to branches with reptile-safe clips or wedge between dÃ©cor pieces at different heights.",
+        "<strong>Greens:</strong> Clip leafy greens to branches with reptile-safe clips or wedge between décor pieces at different heights.",
         "<strong>Variation:</strong> Change scatter locations each feeding to maintain novelty.",
         "<strong>Difficulty Levels:</strong> Start with obvious placements, gradually hide food in more challenging spots as dragon improves."
       ]
@@ -256,8 +257,8 @@
     {
       "type": "list",
       "items": [
-        "<strong>Temperature:</strong> Only allow outdoor time when ambient temperature is 75-85Â°F",
-        "<strong>Supervision:</strong> NEVER leave your dragon unattendedâ€”predators (birds, cats, dogs) pose serious threats",
+        "<strong>Temperature:</strong> Only allow outdoor time when ambient temperature is 75-85°F",
+        "<strong>Supervision:</strong> NEVER leave your dragon unattended—predators (birds, cats, dogs) pose serious threats",
         "<strong>Duration:</strong> Start with 15-20 minutes, gradually increase to 1-2 hours",
         "<strong>Shade Access:</strong> Provide shaded retreat area to prevent overheating",
         "<strong>Secure Boundaries:</strong> Use playpen or harness to prevent escape"
@@ -312,7 +313,7 @@
         "Remove hazards: electrical cords, toxic plants, small objects",
         "Block hiding spots where dragon could become trapped",
         "Close doors and windows",
-        "Supervise other petsâ€”dogs and cats may view dragons as prey",
+        "Supervise other pets—dogs and cats may view dragons as prey",
         "Provide basking lamp if session exceeds 30 minutes"
       ]
     },
@@ -348,7 +349,7 @@
         "Keep sessions short (5-10 minutes)",
         "Train when dragon is alert and hungry",
         "End on a successful behavior",
-        "Be patientâ€”progress may be slow initially"
+        "Be patient—progress may be slow initially"
       ]
     },
     {
@@ -404,7 +405,7 @@
         ["2-3x per week", "Puzzle feeders or bug balls", "Cognitive"],
         ["Weekly", "Supervised floor/outdoor time", "Environmental"],
         ["Every 4-6 weeks", "Full enclosure rearrangement", "Environmental"],
-        ["Monthly", "New dÃ©cor or climbing structure", "Environmental"]
+        ["Monthly", "New décor or climbing structure", "Environmental"]
       ]
     },
     {
@@ -418,10 +419,10 @@
     {
       "type": "list",
       "items": [
-        "Collect safe branches from pesticide-free areas (bake at 200Â°F for 1 hour to sterilize)",
+        "Collect safe branches from pesticide-free areas (bake at 200°F for 1 hour to sterilize)",
         "Use cardboard boxes as temporary hides (replace when soiled)",
         "Create foraging areas with substrate and scattered food",
-        "Rotate existing dÃ©cor instead of buying new items",
+        "Rotate existing décor instead of buying new items",
         "Use household items as puzzle feeders (cleaned thoroughly)"
       ]
     },
@@ -436,18 +437,18 @@
     {
       "type": "list",
       "items": [
-        "Provide minimum 4'Ã—2'Ã—2' enclosure with 6+ inches of digging substrate",
+        "Provide minimum 4'×2'×2' enclosure with 6+ inches of digging substrate",
         "Include multiple basking platforms, hides, and climbing structures",
         "Rearrange enclosure every 4-6 weeks",
         "Use puzzle feeders and scatter feeding 2-3x weekly",
         "Allow supervised outdoor time when weather permits",
         "Monitor behavior for signs of boredom or stress",
-        "Remember: Enrichment is not optionalâ€”it's a welfare requirement"
+        "Remember: Enrichment is not optional—it's a welfare requirement"
       ]
     },
     {
       "type": "highlight",
-      "content": "Enrichment isn't just about preventing boredomâ€”it's about giving your bearded dragon opportunities to make choices, express natural behaviors, and live a fulfilling life. A well-enriched dragon is a healthy, happy dragon."
+      "content": "Enrichment isn't just about preventing boredom—it's about giving your bearded dragon opportunities to make choices, express natural behaviors, and live a fulfilling life. A well-enriched dragon is a healthy, happy dragon."
     }
   ]
 }

@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "red-eyed-tree-frog-substrate-guide",
   "title": "Red-Eyed Tree Frog Substrate Guide",
   "species": "red-eyed-tree-frog",
@@ -7,6 +7,7 @@
   "excerpt": "Comprehensive guide to substrate layering for Red-Eyed Tree Frog paludariums, including drainage systems, planting mixes, aquatic substrates, and bioactive options.",
   "lastUpdated": "2026-01-28",
   "tags": ["red-eyed-tree-frog", "substrate", "bioactive", "paludarium", "drainage"],
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -114,7 +115,7 @@
     },
     {
       "type": "text",
-      "text": "Depth Guidelines: 2-3 inches across terrestrial zone. Thicker (3-4″) if planning heavy planting or burrowing cleanup crew species."
+      "text": "Depth Guidelines: 2-3 inches across terrestrial zone. Thicker (3-4?) if planning heavy planting or burrowing cleanup crew species."
     },
     {
       "type": "warning",
@@ -220,7 +221,7 @@
     },
     {
       "type": "warning",
-      "text": "NEVER use small gravel, sand, or aquarium substrate under 0.5″ - frogs may accidentally ingest during feeding and suffer impaction."
+      "text": "NEVER use small gravel, sand, or aquarium substrate under 0.5? - frogs may accidentally ingest during feeding and suffer impaction."
     },
     {
       "type": "section",
@@ -237,10 +238,10 @@
     {
       "type": "list",
       "items": [
-        "Layer 1: Bio Drain Substrate (1-2″) - houses bacteria, supports drainage",
+        "Layer 1: Bio Drain Substrate (1-2?) - houses bacteria, supports drainage",
         "Layer 2: Bio Drain Mesh - prevents mixing",
-        "Layer 3: Sub Stratum + Plantation Soil (3-4″) - thicker for CUC burrowing",
-        "Layer 4: Leaf litter (1″) - food source for CUC, hiding spots",
+        "Layer 3: Sub Stratum + Plantation Soil (3-4?) - thicker for CUC burrowing",
+        "Layer 4: Leaf litter (1?) - food source for CUC, hiding spots",
         "Optional: Add handful of rotted hardwood pieces (not softwood) for springtails to colonize"
       ]
     },
@@ -279,7 +280,7 @@
       "items": [
         "Target: Substrate should be consistently MOIST but not waterlogged. When squeezed, substrate should clump but release minimal water.",
         "Gradient: Create moisture zones - area near water section stays wetter, area away from water slightly drier. Frogs choose preference.",
-        "Testing: Stick finger 1″ into substrate away from water. Should feel damp/cool but not soggy.",
+        "Testing: Stick finger 1? into substrate away from water. Should feel damp/cool but not soggy.",
         "Adjustment: If too dry, increase misting frequency or add drip system. If too wet, improve ventilation and reduce misting.",
         "Seasonal Variation: Keep slightly drier during cooler months, increase moisture during summer/breeding season to simulate rainy season."
       ]
@@ -297,12 +298,12 @@
       "ordered": true,
       "items": [
         "Plan Water Section: Mark off 25-30% of enclosure floor for aquatic zone. No substrate layers go here.",
-        "Add Bio Drain Substrate: Pour 1-2″ evenly across terrestrial zone ONLY. Slope gently toward water section for drainage.",
+        "Add Bio Drain Substrate: Pour 1-2? evenly across terrestrial zone ONLY. Slope gently toward water section for drainage.",
         "Cut and Lay Mesh: Trim Bio Drain Mesh to terrestrial zone shape. Cut notches around hardscape. Lay flat, ensure no gaps at edges.",
         "Mix Planting Substrate: Combine 60% Sub Stratum + 40% Plantation Soil in bucket. Add water gradually, mix until evenly moist (not soaking).",
-        "Add Planting Layer: Pour 2-3″ of substrate mix over mesh. Create slight mounding for visual interest and drainage variety.",
+        "Add Planting Layer: Pour 2-3? of substrate mix over mesh. Create slight mounding for visual interest and drainage variety.",
         "Plant Live Plants: Install plants by creating holes, inserting roots, firming substrate around base. Water lightly.",
-        "Add Top Layer: Spread 0.5-1″ Forest Floor or moss across all exposed substrate. Cover evenly, avoid thick piles (anaerobic pockets).",
+        "Add Top Layer: Spread 0.5-1? Forest Floor or moss across all exposed substrate. Cover evenly, avoid thick piles (anaerobic pockets).",
         "Add Aquatic Substrate: Place Turtle Pebbles in water section, or leave bare. Rinse pebbles first to remove dust.",
         "Initial Misting: Thoroughly mist entire terrestrial zone until substrate is evenly moist. Check drainage - water should drain to false bottom, not pool on surface.",
         "Cycling: Run setup for 1-2 weeks before adding frogs. Monitor for mold (normal in new setups - springtails will control), substrate settling, drainage issues."
@@ -352,7 +353,7 @@
     },
     {
       "type": "text",
-      "text": "Approximate costs for 18×18×36″ paludarium substrate:"
+      "text": "Approximate costs for 18�18�36? paludarium substrate:"
     },
     {
       "type": "table",

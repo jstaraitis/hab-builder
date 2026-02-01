@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "ball-python-hydration-guide",
   "title": "Ball Python Hydration & Shedding Guide: Water Requirements for Semi-Arid Species",
   "description": "Complete hydration guide for ball pythons covering water bowl requirements (large enough for soaking), dehydration recognition, shedding cycle (every 4-8 weeks), humidity's role in hydration, and troubleshooting stuck sheds.",
@@ -8,11 +8,12 @@
   "category": "Care Guides",
   "tags": ["ball-python", "hydration", "shedding", "water", "humidity"],
   "image": "/animals/ball-python/ball-python-water.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
       "title": "Hydration & Shedding for Ball Pythons",
-      "content": "Ball pythons originate from semi-arid West African savannas with seasonal rainfall, requiring moderate to high hydration (70-80% humidity ideal). Proper hydration depends on three factors: accessible water bowl (large enough for full-body soaking), adequate ambient humidity, and appropriate temperatures for metabolic hydration. Dehydration manifests through sunken eyes, wrinkled skin, and stuck shedsâ€”all preventable with correct husbandry. This guide covers water bowl setup, recognizing dehydration, supporting healthy sheds (every 4-8 weeks for adults), troubleshooting stuck sheds, and understanding the humidity-hydration relationship critical for captive ball python health."
+      "content": "Ball pythons originate from semi-arid West African savannas with seasonal rainfall, requiring moderate to high hydration (70-80% humidity ideal). Proper hydration depends on three factors: accessible water bowl (large enough for full-body soaking), adequate ambient humidity, and appropriate temperatures for metabolic hydration. Dehydration manifests through sunken eyes, wrinkled skin, and stuck sheds—all preventable with correct husbandry. This guide covers water bowl setup, recognizing dehydration, supporting healthy sheds (every 4-8 weeks for adults), troubleshooting stuck sheds, and understanding the humidity-hydration relationship critical for captive ball python health."
     },
     {
       "type": "section",
@@ -225,7 +226,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Never pull shedding skin off a ball pythonâ€”this damages scales underneath and causes injuries. Let snake complete shed naturally. DO NOT manually remove stuck shed. Raise humidity to 70-80% + add permanent humid hide. Stuck shed will fall off before or during next shed cycle. Only exception: tail tip stuck shed blocking blood flow = immediate vet visit."
+      "content": "Never pull shedding skin off a ball python—this damages scales underneath and causes injuries. Let snake complete shed naturally. DO NOT manually remove stuck shed. Raise humidity to 70-80% + add permanent humid hide. Stuck shed will fall off before or during next shed cycle. Only exception: tail tip stuck shed blocking blood flow = immediate vet visit."
     },
     {
       "type": "section",
@@ -333,7 +334,7 @@
     {
       "type": "warning",
       "severity": "critical",
-      "content": "Drowning risk: Ball pythons can drown if water is too deep or they become exhausted. ALWAYS supervise soaking sessions. Water should only reach halfway up snake's bodyÃ—head and top of back should remain above water while snake is at rest."
+      "content": "Drowning risk: Ball pythons can drown if water is too deep or they become exhausted. ALWAYS supervise soaking sessions. Water should only reach halfway up snake's body×head and top of back should remain above water while snake is at rest."
     },
     {
       "type": "section",
@@ -379,10 +380,10 @@
       "type": "table",
       "headers": ["Hydration Status", "Shed Quality", "What Happens"],
       "rows": [
-        ["Well-hydrated + correct humidity (70-80%)", "Clean one-piece shed including eye caps", "Idealâ€”lymphatic fluid lubricates skin properly, shed comes off easily in minutes"],
-        ["Well-hydrated + low humidity (40-50%)", "Stuck shed in patches, retained eye caps common", "Hydration alone can't compensate for dry airâ€”humidity is critical"],
+        ["Well-hydrated + correct humidity (70-80%)", "Clean one-piece shed including eye caps", "Ideal—lymphatic fluid lubricates skin properly, shed comes off easily in minutes"],
+        ["Well-hydrated + low humidity (40-50%)", "Stuck shed in patches, retained eye caps common", "Hydration alone can't compensate for dry air—humidity is critical"],
         ["Dehydrated + correct humidity (70-80%)", "Shed may come off in pieces or with difficulty", "Humidity helps but dehydration reduces lymphatic fluid that lubricates skin"],
-        ["Dehydrated + low humidity (40-50%)", "Severe stuck shed, multiple retained eye caps, tail tip retention", "Worst caseâ€”requires vet visit for eye cap removal + immediate husbandry fixes"]
+        ["Dehydrated + low humidity (40-50%)", "Severe stuck shed, multiple retained eye caps, tail tip retention", "Worst case—requires vet visit for eye cap removal + immediate husbandry fixes"]
       ]
     },
     {
@@ -412,7 +413,7 @@
         ["Spray bottle for misting", "Increase humidity during dry periods or sheds", "$5-10 one-time"],
         ["Sphagnum moss (for humid hide)", "Optional humid hide substrate", "$8-12 per bag (lasts 6+ months)"],
         ["Shallow soaking container", "Warm water soaks for stuck sheds", "$5-10 (reuse plastic storage tub)"],
-        ["Thermometer for water temp", "Verify soak water 85-90Ã—F", "$10-15 (can use infrared thermometer you already own)"]
+        ["Thermometer for water temp", "Verify soak water 85-90×F", "$10-15 (can use infrared thermometer you already own)"]
       ]
     },
     {

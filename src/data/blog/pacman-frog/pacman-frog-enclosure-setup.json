@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "pacman-frog-enclosure-setup",
   "title": "Pacman Frog Enclosure Setup: Size Requirements, Types & Decorations",
   "description": "Complete guide to Pacman frog enclosure requirements including size by sex, enclosure types (glass/PVC/screen), bin modifications, decorations, and enrichment setup.",
@@ -7,6 +7,7 @@
   "category": "Care Guides",
   "excerpt": "Learn proper enclosure sizing for male and female Pacman frogs, enclosure type selection, bin modifications, and enrichment setup for thriving frogs.",
   "tags": ["pacman-frog", "enclosure", "setup", "housing", "enrichment"],
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -59,7 +60,7 @@
     },
     {
       "type": "text",
-      "text": "<span class='font-semibold'>Minimum Size:</span> 20Ã—10Ã—12\" (50Ã—25Ã—30cm) or 200 sq in floor space"
+      "text": "<span class='font-semibold'>Minimum Size:</span> 20×10×12\" (50×25×30cm) or 200 sq in floor space"
     },
     {
       "type": "text",
@@ -72,14 +73,14 @@
     {
       "type": "list",
       "items": [
-        "10 gallon aquarium (20Ã—10Ã—12\")",
-        "Exo Terra Small Low (18Ã—18Ã—12\")",
-        "Exo Terra Small Wide (18Ã—18Ã—18\")",
-        "Zoo Med 10 Gallon ReptiHabitat (20Ã—10Ã—12\")",
-        "Zoo Med Natural Terrarium NT-3 (18Ã—18Ã—12\")",
-        "Zilla 10 Gallon Critter Cage (20Ã—10Ã—12\")",
-        "Zilla 15 Gallon Critter Cage (24Ã—12Ã—12\")",
-        "Zilla QuickBuild Terrarium (20Ã—12Ã—10\")",
+        "10 gallon aquarium (20×10×12\")",
+        "Exo Terra Small Low (18×18×12\")",
+        "Exo Terra Small Wide (18×18×18\")",
+        "Zoo Med 10 Gallon ReptiHabitat (20×10×12\")",
+        "Zoo Med Natural Terrarium NT-3 (18×18×12\")",
+        "Zilla 10 Gallon Critter Cage (20×10×12\")",
+        "Zilla 15 Gallon Critter Cage (24×12×12\")",
+        "Zilla QuickBuild Terrarium (20×12×10\")",
         "Modified plastic bins of appropriate size (check interior dimensions)"
       ]
     },
@@ -94,7 +95,7 @@
     },
     {
       "type": "text",
-      "text": "<span class='font-semibold'>Minimum Size:</span> 30Ã—12Ã—12\" (75Ã—30Ã—30cm) or 360 sq in floor space (20 gallon long equivalent)"
+      "text": "<span class='font-semibold'>Minimum Size:</span> 30×12×12\" (75×30×30cm) or 360 sq in floor space (20 gallon long equivalent)"
     },
     {
       "type": "text",
@@ -107,13 +108,13 @@
     {
       "type": "list",
       "items": [
-        "Exo Terra Medium Low (24Ã—18Ã—12\")",
-        "Exo Terra Medium Wide (24Ã—18Ã—18\")",
-        "Zoo Med 25 Gallon Naturalistic Terrarium (30Ã—12Ã—16\")",
-        "Zilla 20 Long Critter Cage (30Ã—12Ã—12\")",
-        "Zilla 20 Long Deluxe Critter Cage (30Ã—12Ã—12\")",
-        "Zilla Front Opening Enclosure (30Ã—12Ã—16\")",
-        "Zilla QuickBuild Terrarium (30Ã—12Ã—12\")",
+        "Exo Terra Medium Low (24×18×12\")",
+        "Exo Terra Medium Wide (24×18×18\")",
+        "Zoo Med 25 Gallon Naturalistic Terrarium (30×12×16\")",
+        "Zilla 20 Long Critter Cage (30×12×12\")",
+        "Zilla 20 Long Deluxe Critter Cage (30×12×12\")",
+        "Zilla Front Opening Enclosure (30×12×16\")",
+        "Zilla QuickBuild Terrarium (30×12×12\")",
         "Modified plastic bins of appropriate size (check interior dimensions)"
       ]
     },
@@ -123,7 +124,7 @@
     },
     {
       "type": "text",
-      "text": "<span class='font-semibold'>Minimum Size:</span> 36Ã—18Ã—18\" (90Ã—45Ã—45cm) or 648 sq in floor space (40 gallon breeder equivalent)"
+      "text": "<span class='font-semibold'>Minimum Size:</span> 36×18×18\" (90×45×45cm) or 648 sq in floor space (40 gallon breeder equivalent)"
     },
     {
       "type": "text",
@@ -136,17 +137,17 @@
     {
       "type": "list",
       "items": [
-        "Zilla 30 Breeder Critter Cage (36Ã—18Ã—12\")",
-        "Zilla 40 Breeder Critter Cage (36Ã—18Ã—16\")",
-        "Zilla 40 Breeder Deluxe Critter Cage (36Ã—18Ã—12\")",
-        "Zilla Front Opening Enclosure (36Ã—18Ã—20\")",
-        "Zilla QuickBuild Terrarium (36Ã—18Ã—18\")",
-        "Zilla QuickBuild Terrarium (48Ã—18Ã—18\") - extra large option",
-        "Zoo Med Naturalistic Terrarium 40g (36Ã—18Ã—18\")",
-        "Zoo Med Naturalistic Terrarium 32g (36Ã—18Ã—12\")",
-        "Exo Terra Large Low (36Ã—18Ã—12\")",
-        "Exo Terra Large Wide (36Ã—18Ã—18\")",
-        "Dubia 50 Gallon PVC Enclosure (36Ã—18Ã—18\")",
+        "Zilla 30 Breeder Critter Cage (36×18×12\")",
+        "Zilla 40 Breeder Critter Cage (36×18×16\")",
+        "Zilla 40 Breeder Deluxe Critter Cage (36×18×12\")",
+        "Zilla Front Opening Enclosure (36×18×20\")",
+        "Zilla QuickBuild Terrarium (36×18×18\")",
+        "Zilla QuickBuild Terrarium (48×18×18\") - extra large option",
+        "Zoo Med Naturalistic Terrarium 40g (36×18×18\")",
+        "Zoo Med Naturalistic Terrarium 32g (36×18×12\")",
+        "Exo Terra Large Low (36×18×12\")",
+        "Exo Terra Large Wide (36×18×18\")",
+        "Dubia 50 Gallon PVC Enclosure (36×18×18\")",
         "Modified plastic bins of appropriate size (check interior dimensions)"
       ]
     },
@@ -554,7 +555,7 @@
         " Hide on cool side",
         " Overhead foliage/vines (especially for albinos)",
         " Plants and decorations added",
-        " Temperatures stable: warm 80-85Â°F, cool 70-75Â°F",
+        " Temperatures stable: warm 80-85°F, cool 70-75°F",
         " Humidity 65-85% (species dependent)",
         " Let enclosure stabilize 24-48 hours before adding frog"
       ]
@@ -602,7 +603,7 @@
       "items": [
         "Buy used aquariums (check Craigslist, Facebook Marketplace, local reptile groups)",
         "Use organic topsoil instead of pet store substrate ($2-5 vs $8-15)",
-        "Collect natural decor (branches, stones) - bake at 200Â°F for 30 min to sterilize",
+        "Collect natural decor (branches, stones) - bake at 200°F for 30 min to sterilize",
         "Use terra cotta pots as hides (break off rim, $1-3 each)",
         "Buy feeder insects in bulk online (much cheaper than pet stores)",
         "DIY background with foam and silicone",

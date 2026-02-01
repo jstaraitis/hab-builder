@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "crested-gecko-enrichment-welfare-guide",
   "title": "Crested Gecko Enrichment & Welfare Guide: Creating Stimulating Arboreal Habitats",
   "description": "Complete guide to providing enrichment for crested geckos. Learn how to design climbing-focused environments, promote natural behaviors, and improve your gecko's quality of life through environmental enrichment.",
@@ -8,11 +8,12 @@
   "category": "Care Guides",
   "tags": ["crested gecko", "enrichment", "welfare", "arboreal", "correlophus ciliatus"],
   "image": "/animals/crested-gecko/crested-gecko-1.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
       "title": "Providing Enrichment for Crested Geckos",
-      "content": "Enrichment is essential for maintaining your crested gecko's physical health and mental well-being. As arboreal tropical reptiles, crested geckos require specialized environmental enrichment that emphasizes vertical space, climbing opportunities, and naturalistic dÃ©cor. This guide covers evidence-based strategies to create stimulating habitats that promote natural behaviors."
+      "content": "Enrichment is essential for maintaining your crested gecko's physical health and mental well-being. As arboreal tropical reptiles, crested geckos require specialized environmental enrichment that emphasizes vertical space, climbing opportunities, and naturalistic décor. This guide covers evidence-based strategies to create stimulating habitats that promote natural behaviors."
     },
     {
       "type": "section",
@@ -24,7 +25,7 @@
     },
     {
       "type": "highlight",
-      "content": "Key Principle: A common misconception is that reptiles are simple creatures that don't need mental stimulation. Research consistently disproves thisâ€”reptiles benefit significantly from enriched environments."
+      "content": "Key Principle: A common misconception is that reptiles are simple creatures that don't need mental stimulation. Research consistently disproves this—reptiles benefit significantly from enriched environments."
     },
     {
       "type": "section",
@@ -52,7 +53,7 @@
     },
     {
       "type": "highlight",
-      "content": "<strong>Thin Branch Preference:</strong> Crested geckos spend significant time on thin, flexible branchesâ€”not just thick limbs. This behavior serves two purposes: evading larger predators (like leachianus geckos) and accessing sunlight exposure."
+      "content": "<strong>Thin Branch Preference:</strong> Crested geckos spend significant time on thin, flexible branches—not just thick limbs. This behavior serves two purposes: evading larger predators (like leachianus geckos) and accessing sunlight exposure."
     },
     {
       "type": "text",
@@ -68,7 +69,7 @@
     },
     {
       "type": "section",
-      "title": "Essential DÃ©cor Items"
+      "title": "Essential Décor Items"
     },
     {
       "type": "text",
@@ -94,7 +95,7 @@
     },
     {
       "type": "text",
-      "content": "Arboreal enrichment requires intentional pathway designâ€”not just random dÃ©cor placement."
+      "content": "Arboreal enrichment requires intentional pathway design—not just random décor placement."
     },
     {
       "type": "text",
@@ -105,7 +106,7 @@
       "items": [
         "<strong>Connectivity:</strong> Geckos should be able to reach every level of the enclosure via multiple routes",
         "<strong>Varied Heights:</strong> Create resting spots at ground level, mid-height (12-18\"), and canopy level (24\"+)",
-        "<strong>Horizontal Options:</strong> Include lateral movement opportunitiesâ€”not just vertical climbing",
+        "<strong>Horizontal Options:</strong> Include lateral movement opportunities—not just vertical climbing",
         "<strong>Jump Distances:</strong> Position branches/vines 4-8\" apart to encourage natural jumping behavior (crested geckos can jump 6-12\")",
         "<strong>Varied Angles:</strong> Diagonal, horizontal, and vertical branches create more interesting climbing challenges than purely vertical structures"
       ]
@@ -120,7 +121,7 @@
     },
     {
       "type": "text",
-      "content": "Both live and artificial plants offer enrichment valueâ€”your choice depends on maintenance preferences and lighting availability."
+      "content": "Both live and artificial plants offer enrichment value—your choice depends on maintenance preferences and lighting availability."
     },
     {
       "type": "section",
@@ -202,7 +203,7 @@
     },
     {
       "type": "highlight",
-      "content": "<strong>Critical Behavior:</strong> Crested geckos naturally drink from water droplets on leaves and surfacesâ€”NOT from standing water dishes. Design your enclosure to maximize droplet availability for natural hydration."
+      "content": "<strong>Critical Behavior:</strong> Crested geckos naturally drink from water droplets on leaves and surfaces—NOT from standing water dishes. Design your enclosure to maximize droplet availability for natural hydration."
     },
     {
       "type": "section",
@@ -225,7 +226,7 @@
       "type": "list",
       "items": [
         "<strong>Timing:</strong> Mist enclosure in evening (8-10pm) when geckos are most active and ready to drink",
-        "<strong>Target Zones:</strong> Focus on plant leaves and upper surfaces where geckos spend timeâ€”avoid over-saturating substrate",
+        "<strong>Target Zones:</strong> Focus on plant leaves and upper surfaces where geckos spend time—avoid over-saturating substrate",
         "<strong>Duration:</strong> 30-60 seconds for adequate coverage (enclosure walls should have visible droplets)",
         "<strong>Observation:</strong> Watch your gecko's drinking behavior and adjust misting locations based on preferred zones"
       ]
@@ -241,7 +242,7 @@
     },
     {
       "type": "text",
-      "content": "Periodic enclosure changes prevent habituation (boredom with familiar environments) and provide cognitive stimulation. However, crested geckos are more sensitive to change than many reptilesâ€”thoughtful rearrangement is key."
+      "content": "Periodic enclosure changes prevent habituation (boredom with familiar environments) and provide cognitive stimulation. However, crested geckos are more sensitive to change than many reptiles—thoughtful rearrangement is key."
     },
     {
       "type": "highlight",
@@ -257,7 +258,7 @@
       "rows": [
         ["Every 6-8 weeks", "Branch angles and positions, vine routing, plant locations", "One primary hide location, general layout theme"],
         ["Every 2-3 months", "Magnetic ledge placement, hide positions (maintain height options)", "Food ledge accessibility, safe zone retreat"],
-        ["Every 4-6 months", "Add new plant or branch, remove old/worn dÃ©cor", "Core climbing pathways, 2+ familiar structures"]
+        ["Every 4-6 months", "Add new plant or branch, remove old/worn décor", "Core climbing pathways, 2+ familiar structures"]
       ]
     },
     {
@@ -293,7 +294,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "<strong>Handling Caution:</strong> Crested geckos can drop their tails when stressed or grabbed. Tail loss is permanentâ€”tails do NOT regenerate. Handle gently and avoid chasing or grabbing."
+      "content": "<strong>Handling Caution:</strong> Crested geckos can drop their tails when stressed or grabbed. Tail loss is permanent—tails do NOT regenerate. Handle gently and avoid chasing or grabbing."
     },
     {
       "type": "text",
@@ -303,10 +304,10 @@
       "type": "list",
       "items": [
         "<strong>Room Preparation:</strong> Remove hazards (other pets, open containers, small gaps where gecko could become trapped)",
-        "<strong>Vertical Surfaces:</strong> Crested geckos will climb walls, curtains, and furnitureâ€”use a reptile playpen or closed bathroom",
-        "<strong>Temperature:</strong> Room must be 70-78Â°Fâ€”crested geckos are cold-sensitive",
+        "<strong>Vertical Surfaces:</strong> Crested geckos will climb walls, curtains, and furniture—use a reptile playpen or closed bathroom",
+        "<strong>Temperature:</strong> Room must be 70-78°F—crested geckos are cold-sensitive",
         "<strong>Duration:</strong> Limit to 15-30 minutes to prevent stress",
-        "<strong>Supervision:</strong> NEVER leave unattendedâ€”geckos can jump unexpectedly or squeeze into tight spaces"
+        "<strong>Supervision:</strong> NEVER leave unattended—geckos can jump unexpectedly or squeeze into tight spaces"
       ]
     },
     {
@@ -340,7 +341,7 @@
     },
     {
       "type": "highlight",
-      "content": "<strong>Pro Tip:</strong> Crested geckos have excellent spatial memory. If you move the food dish, observe how quickly your gecko locates itâ€”this demonstrates their cognitive abilities."
+      "content": "<strong>Pro Tip:</strong> Crested geckos have excellent spatial memory. If you move the food dish, observe how quickly your gecko locates it—this demonstrates their cognitive abilities."
     },
     {
       "type": "section",
@@ -354,7 +355,7 @@
       "type": "list",
       "items": [
         "Rotate between 3-4 CGD flavors on a schedule (e.g., weekly rotation)",
-        "Offer fruit purÃ©es occasionally (mashed fig, apricot, mango) as novel textures",
+        "Offer fruit purées occasionally (mashed fig, apricot, mango) as novel textures",
         "Provide live insects 1-2x weekly for hunting enrichment"
       ]
     },
@@ -407,10 +408,10 @@
       "type": "list",
       "items": [
         "<strong>DIY Vines:</strong> Create artificial vines from rope and artificial plant garlands (tutorial available online)",
-        "<strong>Natural Branches:</strong> Collect pesticide-free branches from outdoors (bake at 200Â°F for 2 hours to sterilize)",
+        "<strong>Natural Branches:</strong> Collect pesticide-free branches from outdoors (bake at 200°F for 2 hours to sterilize)",
         "<strong>Cork Bark:</strong> Purchase in bulk from reptile shows or online wholesalers (significantly cheaper than pet stores)",
-        "<strong>PVC Hides:</strong> Cut PVC pipes at 45Â° angles to create elevated hide tubes",
-        "<strong>Bamboo Stakes:</strong> Garden centers sell bamboo stakes for $1-2 eachâ€”excellent climbing structures",
+        "<strong>PVC Hides:</strong> Cut PVC pipes at 45° angles to create elevated hide tubes",
+        "<strong>Bamboo Stakes:</strong> Garden centers sell bamboo stakes for $1-2 each—excellent climbing structures",
         "<strong>Plant Propagation:</strong> Start with 1-2 pothos plants, propagate cuttings to fill enclosure (free after initial purchase)"
       ]
     },
@@ -444,13 +445,13 @@
     {
       "type": "list",
       "items": [
-        "Provide minimum 18Ã—18Ã—24\" enclosure with vertical emphasis (taller is better)",
+        "Provide minimum 18×18×24\" enclosure with vertical emphasis (taller is better)",
         "Incorporate live or high-quality artificial plants",
         "Create 3D climbing pathways with multiple routes and varied branch diameters",
-        "Rearrange dÃ©cor every 6-8 weeks while maintaining 50% familiarity",
+        "Rearrange décor every 6-8 weeks while maintaining 50% familiarity",
         "Rotate feeding locations and flavors for cognitive enrichment",
         "Monitor behavior for signs of boredom or stress",
-        "Remember: Everything in the terrarium will eventually need cleaningâ€”design accordingly"
+        "Remember: Everything in the terrarium will eventually need cleaning—design accordingly"
       ]
     },
     {

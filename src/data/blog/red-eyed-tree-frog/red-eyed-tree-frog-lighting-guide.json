@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "red-eyed-tree-frog-lighting-guide",
   "title": "Red-Eyed Tree Frog Lighting Guide",
   "species": "red-eyed-tree-frog",
@@ -7,6 +7,7 @@
   "excerpt": "Complete guide to lighting requirements for Red-Eyed Tree Frogs, including UVB benefits, photoperiod cycles, plant growth lighting, and avoiding common mistakes.",
   "lastUpdated": "2026-01-28",
   "tags": ["red-eyed-tree-frog", "lighting", "UVB", "photoperiod", "plant-lighting"],
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -165,7 +166,7 @@
       "type": "list",
       "items": [
         "Spectrum: 6500K color temperature - ideal for plant photosynthesis",
-        "Intensity: High output with 120Â° dispersion - reaches all layers of enclosure",
+        "Intensity: High output with 120° dispersion - reaches all layers of enclosure",
         "Penetration: Strong enough to support plants even in 36\" tall paludariums",
         "Supports: Orchids, Bromeliads, Pothos, Philodendron, ferns, mosses, air plants, carnivorous plants",
         "Bonus: Also provides adequate daytime illumination for viewing frogs",
@@ -359,10 +360,10 @@
       "type": "table",
       "headers": ["Enclosure Size", "Recommended Lighting", "Notes"],
       "rows": [
-        ["18Ã—18Ã—24â€³", "Single 18\" TerraSky UV OR 18\" UVB 5.0 + 18\" plant light", "Small footprint, single fixture adequate"],
-        ["18Ã—18Ã—36â€³", "Single 18\" TerraSky UV OR 18\" UVB 5.0 + 24\" plant light", "Taller = need stronger plant light penetration"],
-        ["24Ã—18Ã—36â€³", "24\" TerraSky UV + optional 18\" supplemental plant light", "Medium size, may need dual lights for full plant coverage"],
-        ["36Ã—18Ã—36â€³", "36\" TerraSky Planted + 24\" UVB 5.0 (dual fixture)", "Large - definitely needs dual fixture for coverage"]
+        ["18×18×24?", "Single 18\" TerraSky UV OR 18\" UVB 5.0 + 18\" plant light", "Small footprint, single fixture adequate"],
+        ["18×18×36?", "Single 18\" TerraSky UV OR 18\" UVB 5.0 + 24\" plant light", "Taller = need stronger plant light penetration"],
+        ["24×18×36?", "24\" TerraSky UV + optional 18\" supplemental plant light", "Medium size, may need dual lights for full plant coverage"],
+        ["36×18×36?", "36\" TerraSky Planted + 24\" UVB 5.0 (dual fixture)", "Large - definitely needs dual fixture for coverage"]
       ]
     },
     {
@@ -377,7 +378,7 @@
       "type": "list",
       "items": [
         "Solarmeter 6.5 UVB Meter: Measures UVI at basking spot - verify you're achieving UVI 1.0-2.0. One-time $200-250 investment.",
-        "PAR Meter: Measures plant-usable light intensity. Verify plants receiving adequate PAR (50-100 Î¼mol/mÂ²/s minimum for low-light plants). $150-300.",
+        "PAR Meter: Measures plant-usable light intensity. Verify plants receiving adequate PAR (50-100 µmol/m²/s minimum for low-light plants). $150-300.",
         "Lux Meter (Budget): Measures visible light intensity. Not perfect for UVB/PAR but gives rough idea. Smartphone apps available for free.",
         "Visual Assessment: If plants grow vigorously and frogs show normal behavior, lighting is adequate - meters are nice-to-have, not essential."
       ]

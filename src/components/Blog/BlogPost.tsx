@@ -1,8 +1,70 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { SEO } from '../SEO/SEO';
-import { blogPosts, ContentBlock } from '../../data/blog';
+import { blogPosts, ContentBlock, BlogStatus } from '../../data/blog';
 import { generateArticleStructuredData } from '../../utils/structuredData';
+import { CheckCircle, Eye, Users, Award, FileText } from 'lucide-react';
+
+function getStatusConfig(status?: BlogStatus) {
+  switch (status) {
+    case 'draft':
+      return {
+        label: 'Draft',
+        icon: FileText,
+        bgColor: 'bg-gray-100 dark:bg-gray-800',
+        textColor: 'text-gray-700 dark:text-gray-300',
+        borderColor: 'border-gray-300 dark:border-gray-600',
+        message: 'This article is in draft form and has not been reviewed. Information may be incomplete or unverified.'
+      };
+    case 'in-progress':
+      return {
+        label: 'In Progress',
+        icon: FileText,
+        bgColor: 'bg-blue-50 dark:bg-blue-900/20',
+        textColor: 'text-blue-800 dark:text-blue-200',
+        borderColor: 'border-blue-300 dark:border-blue-700',
+        message: 'This article is actively being written and edited. Content may change significantly.'
+      };
+    case 'review-needed':
+      return {
+        label: 'Review Needed',
+        icon: Eye,
+        bgColor: 'bg-amber-50 dark:bg-amber-900/20',
+        textColor: 'text-amber-800 dark:text-amber-200',
+        borderColor: 'border-amber-400 dark:border-amber-600',
+        message: 'This article is awaiting expert review. Information should be verified with additional sources.'
+      };
+    case 'community-reviewed':
+      return {
+        label: 'Community Reviewed',
+        icon: Users,
+        bgColor: 'bg-purple-50 dark:bg-purple-900/20',
+        textColor: 'text-purple-800 dark:text-purple-200',
+        borderColor: 'border-purple-400 dark:border-purple-600',
+        message: 'This article has been reviewed by experienced keepers in the community.'
+      };
+    case 'expert-verified':
+      return {
+        label: 'Expert Verified',
+        icon: Award,
+        bgColor: 'bg-green-50 dark:bg-green-900/20',
+        textColor: 'text-green-800 dark:text-green-200',
+        borderColor: 'border-green-500 dark:border-green-600',
+        message: 'This article has been verified by a reptile veterinarian or certified expert.'
+      };
+    case 'published':
+      return {
+        label: 'Published',
+        icon: CheckCircle,
+        bgColor: 'bg-emerald-50 dark:bg-emerald-900/20',
+        textColor: 'text-emerald-800 dark:text-emerald-200',
+        borderColor: 'border-emerald-500 dark:border-emerald-600',
+        message: 'This article has been reviewed and approved for general guidance.'
+      };
+    default:
+      return null;
+  }
+}
 
 function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
   switch (block.type) {
@@ -242,6 +304,32 @@ export function BlogPost() {
       </Link>
 
       <article className="rounded-2xl shadow-lg p-4 md:p-10 border border-gray-200 dark:border-gray-700">
+        {/* Status Banner */}
+        {post.status && post.status !== 'published' && (() => {
+          const statusConfig = getStatusConfig(post.status);
+          if (!statusConfig) return null;
+          const StatusIcon = statusConfig.icon;
+          
+          return (
+            <div className={`${statusConfig.bgColor} border-l-4 ${statusConfig.borderColor} p-4 mb-6 rounded-r-lg`}>
+              <div className="flex items-start gap-3">
+                <StatusIcon className={`w-5 h-5 ${statusConfig.textColor} flex-shrink-0 mt-0.5`} />
+                <div>
+                  <p className={`font-semibold ${statusConfig.textColor} mb-1`}>
+                    {statusConfig.label}
+                    {post.reviewedBy && (post.status === 'community-reviewed' || post.status === 'expert-verified') && (
+                      <span className="font-normal"> by {post.reviewedBy}</span>
+                    )}
+                  </p>
+                  <p className={`text-sm ${statusConfig.textColor} opacity-90`}>
+                    {statusConfig.message}
+                  </p>
+                </div>
+              </div>
+            </div>
+          );
+        })()}
+
         <header className="mb-10 pb-8 border-b-2 border-gray-200 dark:border-gray-700">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
             {post.title}

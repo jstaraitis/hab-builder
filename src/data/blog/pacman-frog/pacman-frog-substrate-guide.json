@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "pacman-frog-substrate-guide",
   "title": "Pacman Frog Substrate Guide: Depth, Mixing, and Bioactive Options",
   "description": "Complete substrate guide for Pacman frogs including appropriate types, depth requirements, species-specific mixing ratios (especially C. cranwelli), and bioactive setup options.",
@@ -7,6 +7,7 @@
   "category": "Care Guides",
   "excerpt": "Learn proper substrate selection, mixing ratios, depth requirements, and maintenance for all Pacman frog species including C. cranwelli's special sandy substrate needs.",
   "tags": ["pacman-frog", "substrate", "bioactive", "ceratophrys", "cranwelli"],
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -304,7 +305,7 @@
     },
     {
       "type": "section",
-      "heading": "❌ Paper Towels"
+      "heading": "? Paper Towels"
     },
     {
       "type": "list",
@@ -317,7 +318,7 @@
     },
     {
       "type": "section",
-      "heading": "❌ Sphagnum or Peat Moss (as sole substrate)"
+      "heading": "? Sphagnum or Peat Moss (as sole substrate)"
     },
     {
       "type": "list",
@@ -330,7 +331,7 @@
     },
     {
       "type": "section",
-      "heading": "❌ Any Bark-Based Substrate"
+      "heading": "? Any Bark-Based Substrate"
     },
     {
       "type": "list",
@@ -343,7 +344,7 @@
     },
     {
       "type": "section",
-      "heading": "❌ Aquarium Gravel or Stones"
+      "heading": "? Aquarium Gravel or Stones"
     },
     {
       "type": "list",
@@ -355,7 +356,7 @@
     },
     {
       "type": "section",
-      "heading": "❌ Frog Foam or Aquarium Foam"
+      "heading": "? Frog Foam or Aquarium Foam"
     },
     {
       "type": "list",
@@ -367,7 +368,7 @@
     },
     {
       "type": "section",
-      "heading": "❌ Sand Only (No soil)"
+      "heading": "? Sand Only (No soil)"
     },
     {
       "type": "list",

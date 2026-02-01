@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "bearded-dragon-temp-humidity-guide",
   "title": "Bearded Dragon Temperature & Humidity Control Guide",
   "description": "Complete guide to maintaining proper temperature gradients and humidity levels for bearded dragons, including equipment selection, measurement protocols, and troubleshooting common issues.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["bearded dragon", "temperature", "humidity", "heating", "thermoregulation"],
   "image": "/animals/bearded-dragon/bearded-dragon-2.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -20,7 +21,7 @@
     },
     {
       "type": "text",
-      "content": "Proper thermal gradients enable behavioral thermoregulationÃ—the ability to move between zones to maintain optimal body temperature. Multiple temperature zones are required, not a single ambient temperature."
+      "content": "Proper thermal gradients enable behavioral thermoregulation×the ability to move between zones to maintain optimal body temperature. Multiple temperature zones are required, not a single ambient temperature."
     },
     {
       "type": "text",
@@ -93,7 +94,7 @@
     },
     {
       "type": "text",
-      "content": "<strong>Probe Placement:</strong> Position thermostat probe at basking surface level, 2-3 inches from center of basking spot. Set target temperature 5-10Ã—F below desired surface temp to account for radiant heat. Verify with infrared thermometer."
+      "content": "<strong>Probe Placement:</strong> Position thermostat probe at basking surface level, 2-3 inches from center of basking spot. Set target temperature 5-10×F below desired surface temp to account for radiant heat. Verify with infrared thermometer."
     },
     {
       "type": "warning",
@@ -119,7 +120,7 @@
         ["Infrared temperature gun", "Surface temperature verification", "Measure basking rock, substrate, decor surfaces"],
         ["Digital probe thermometer", "Ambient air temperature", "Place at basking height on warm side"],
         ["Second digital probe", "Cool side monitoring", "Place at mid-height on cool end"],
-        ["Analog stick-on thermometers", "General reference only", "Notoriously inaccurateÃ—do not rely on these"]
+        ["Analog stick-on thermometers", "General reference only", "Notoriously inaccurate×do not rely on these"]
       ]
     },
     {

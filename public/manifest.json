@@ -1,0 +1,63 @@
+{
+  "name": "Habitat Builder",
+  "short_name": "Habitat Builder",
+  "description": "Generate custom enclosure build plans for reptiles and amphibians",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#10b981",
+  "background_color": "#ffffff",
+  "orientation": "any",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "lifestyle", "utilities"],
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Find Your Animal",
+      "short_name": "Find",
+      "description": "Search for suitable animals",
+      "url": "/find",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Animal Select",
+      "short_name": "Select",
+      "description": "Choose your species",
+      "url": "/animal",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Blog Guides",
+      "short_name": "Guides",
+      "description": "Care guides and articles",
+      "url": "/blog",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

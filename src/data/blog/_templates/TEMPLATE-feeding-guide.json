@@ -7,6 +7,8 @@
   "category": "Care Guides",
   "tags": ["[species-common-name]", "feeding", "nutrition", "diet", "supplements"],
   "image": "/animals/[species-folder]/[species-image].jpg",
+  "status": "draft",
+  "reviewedBy": "",
   "content": [
     {
       "type": "intro",

@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "bearded-dragon-substrate-guide",
   "title": "Bearded Dragon Substrate Guide: Sand, Soil & Safe Options",
   "description": "Everything you need to know about choosing and maintaining substrate for bearded dragons, including sand safety, DIY mixes, and when to avoid loose substrate.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["bearded dragon", "substrate", "sand", "bedding", "pogona vitticeps"],
   "image": "/animals/bearded-dragon/bearded-dragon-2.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",

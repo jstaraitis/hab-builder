@@ -1,4 +1,4 @@
-Ôªø{
+{
   "id": "bioactive-setup-guide",
   "title": "Complete Bioactive Enclosure Setup Guide",
   "author": "Habitat Builder Team",
@@ -7,6 +7,7 @@
   "excerpt": "Comprehensive guide to creating self-sustaining bioactive enclosures: layering systems, cleanup crew selection, plant choices, troubleshooting, and long-term maintenance.",
   "description": "Complete bioactive setup guide for reptile and amphibian enclosures covering substrate layering, cleanup crew (CUC) selection, live plants, establishment period, troubleshooting, and cost analysis.",
   "tags": ["bioactive", "substrate", "enclosure-setup", "cleanup-crew", "live-plants"],
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -80,11 +81,11 @@
           "type": "table",
           "headers": ["Species", "Climate", "Function", "Population (18x18 enclosure)", "Notes"],
           "rows": [
-            ["Dwarf White Isopods", "Tropical (70-80¬∞F)", "All-purpose waste processors, mold eaters", "20-30", "Hardy, fast breeding, good starter species"],
-            ["Powder Orange Isopods", "Tropical (70-80¬∞F)", "Feces and plant matter decomposition", "15-25", "Larger than Dwarf Whites, more visible"],
-            ["Dairy Cow Isopods", "Tropical-Temperate (65-80¬∞F)", "Generalist decomposers", "20-30", "Attractive coloration, moderate size"],
-            ["Springtails (Tropical)", "Tropical (70-80¬∞F)", "Mold specialists, consume fungus", "50-100", "Reproduce rapidly, essential for mold control"],
-            ["Desert Isopods", "Arid (75-90¬∞F)", "Dry waste processing", "15-20", "For bearded dragons, leopard geckos, arid setups"],
+            ["Dwarf White Isopods", "Tropical (70-80∞F)", "All-purpose waste processors, mold eaters", "20-30", "Hardy, fast breeding, good starter species"],
+            ["Powder Orange Isopods", "Tropical (70-80∞F)", "Feces and plant matter decomposition", "15-25", "Larger than Dwarf Whites, more visible"],
+            ["Dairy Cow Isopods", "Tropical-Temperate (65-80∞F)", "Generalist decomposers", "20-30", "Attractive coloration, moderate size"],
+            ["Springtails (Tropical)", "Tropical (70-80∞F)", "Mold specialists, consume fungus", "50-100", "Reproduce rapidly, essential for mold control"],
+            ["Desert Isopods", "Arid (75-90∞F)", "Dry waste processing", "15-20", "For bearded dragons, leopard geckos, arid setups"],
             ["Buffalo Beetles", "All climates", "Rapid feces breakdown", "5-10", "Advanced option, very efficient but can escape"]
           ]
         },
@@ -99,7 +100,7 @@
         },
         {
           "type": "text",
-          "text": "<strong>Feeding Your CUC</strong><br/>CUC feeds primarily on animal waste, but supplement during establishment or low-waste periods:<br/>‚Ä¢ Fish flakes (small pinch weekly)<br/>‚Ä¢ Vegetable scraps (carrot, zucchini, cucumber‚Äîremove after 24 hours)<br/>‚Ä¢ Leaf litter (primary food source)<br/>‚Ä¢ Calcium powder (dusted on food or cuttlebone in corner)"
+          "text": "<strong>Feeding Your CUC</strong><br/>CUC feeds primarily on animal waste, but supplement during establishment or low-waste periods:<br/>ï Fish flakes (small pinch weekly)<br/>ï Vegetable scraps (carrot, zucchini, cucumberóremove after 24 hours)<br/>ï Leaf litter (primary food source)<br/>ï Calcium powder (dusted on food or cuttlebone in corner)"
         }
       ]
     },
@@ -132,11 +133,11 @@
         },
         {
           "type": "text",
-          "text": "<strong>Planting Methods</strong><br/>‚Ä¢ <strong>Direct planting:</strong> Bury roots in substrate, best for long-term setups<br/>‚Ä¢ <strong>Potted plants:</strong> Bury pot under substrate, easy to replace but limits root growth<br/>‚Ä¢ <strong>Epiphytic mounting:</strong> Attach air plants, bromeliads to cork bark with fishing line"
+          "text": "<strong>Planting Methods</strong><br/>ï <strong>Direct planting:</strong> Bury roots in substrate, best for long-term setups<br/>ï <strong>Potted plants:</strong> Bury pot under substrate, easy to replace but limits root growth<br/>ï <strong>Epiphytic mounting:</strong> Attach air plants, bromeliads to cork bark with fishing line"
         },
         {
           "type": "text",
-          "text": "<strong>Lighting for Plants</strong><br/>Most bioactive plants need 8-12 hours of light daily. Options:<br/>‚Ä¢ Natural indirect sunlight (avoid direct sun = temperature spikes)<br/>‚Ä¢ LED grow lights (6500K spectrum, 15-25 watts for 18x18 enclosure)<br/>‚Ä¢ UVB lighting (if required for animal) provides enough for low-light plants"
+          "text": "<strong>Lighting for Plants</strong><br/>Most bioactive plants need 8-12 hours of light daily. Options:<br/>ï Natural indirect sunlight (avoid direct sun = temperature spikes)<br/>ï LED grow lights (6500K spectrum, 15-25 watts for 18x18 enclosure)<br/>ï UVB lighting (if required for animal) provides enough for low-light plants"
         }
       ]
     },
@@ -182,8 +183,8 @@
         {
           "type": "list",
           "items": [
-            "Monitor CUC population‚Äîadd 10-20 isopods if you see <5 on surface at night",
-            "Check leaf litter depth‚Äîadd 1-2 inches when existing leaves mostly decomposed",
+            "Monitor CUC populationóadd 10-20 isopods if you see <5 on surface at night",
+            "Check leaf litter depthóadd 1-2 inches when existing leaves mostly decomposed",
             "Trim overgrown plants to prevent light blocking",
             "Check for standing water in drainage layer (use drainage tube if installed)",
             "Supplement CUC with fish flakes if waste output is low"
@@ -199,7 +200,7 @@
             "Top off substrate if compaction occurs (add 1-2 inches fresh mix)",
             "Replace plants that died or outgrew enclosure",
             "Check drainage layer for clogs or excessive water",
-            "Assess CUC diversity‚Äîadd new species if population looks inbred (genetic diversity)"
+            "Assess CUC diversityóadd new species if population looks inbred (genetic diversity)"
           ]
         },
         {
@@ -280,7 +281,7 @@
             ["Terrestrial Frogs", "Excellent", "Deep substrate (4-6\"), burrowing-tolerant CUC"],
             ["Crested Geckos", "Excellent", "Moderate humidity, vertical surfaces, live plants for climbing"],
             ["Leopard Geckos", "Good", "Arid mix, desert isopods, low moisture, avoid excessive plants"],
-            ["Bearded Dragons", "Moderate", "Arid setup, high temps (CUC may struggle >95¬∞F), large enclosure needed"],
+            ["Bearded Dragons", "Moderate", "Arid setup, high temps (CUC may struggle >95∞F), large enclosure needed"],
             ["Ball Pythons", "Moderate", "Humid hides required, CUC may be eaten (restock regularly)"],
             ["Aquatic Turtles", "Poor", "Waterlogged substrate = CUC death, better suited for filtered water systems"]
           ]
@@ -294,15 +295,15 @@
         {
           "type": "list",
           "items": [
-            "‚òê Research species-specific humidity and temperature needs",
-            "‚òê Gather materials: drainage (LECA), mesh barrier, substrate mix, leaf litter",
-            "‚òê Layer substrate: 1-2\" drainage ‚Üí mesh ‚Üí 3-6\" substrate ‚Üí 1-2\" leaf litter",
-            "‚òê Install plants (direct or potted), water lightly",
-            "‚òê Wait 24-48 hours, then add cleanup crew (20-30 isopods, 50-100 springtails)",
-            "‚òê Wait 1-2 weeks for CUC to establish, monitor for mold (normal in first month)",
-            "‚òê Add animal after mold subsides or at week 3-4",
-            "‚òê Spot-clean uneaten feeders daily, observe feces breakdown speed",
-            "‚òê Month 2-3: Transition to full bioactive maintenance (minimal intervention)"
+            "? Research species-specific humidity and temperature needs",
+            "? Gather materials: drainage (LECA), mesh barrier, substrate mix, leaf litter",
+            "? Layer substrate: 1-2\" drainage ? mesh ? 3-6\" substrate ? 1-2\" leaf litter",
+            "? Install plants (direct or potted), water lightly",
+            "? Wait 24-48 hours, then add cleanup crew (20-30 isopods, 50-100 springtails)",
+            "? Wait 1-2 weeks for CUC to establish, monitor for mold (normal in first month)",
+            "? Add animal after mold subsides or at week 3-4",
+            "? Spot-clean uneaten feeders daily, observe feces breakdown speed",
+            "? Month 2-3: Transition to full bioactive maintenance (minimal intervention)"
           ]
         },
         {

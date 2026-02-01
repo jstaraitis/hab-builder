@@ -1,3 +1,5 @@
+export type BlogStatus = 'draft' | 'in-progress' | 'review-needed' | 'community-reviewed' | 'expert-verified' | 'published';
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -7,6 +9,8 @@ export interface BlogPost {
   excerpt: string;
   description: string;
   tags: string[];
+  status?: BlogStatus; // Optional for backward compatibility
+  reviewedBy?: string; // Who reviewed it (for community-reviewed or expert-verified)
   content: ContentBlock[];
 }
 

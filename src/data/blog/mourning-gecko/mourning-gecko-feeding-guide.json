@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "mourning-gecko-feeding-guide",
   "title": "Mourning Gecko Feeding Guide: Complete Nutrition Protocol",
   "description": "Comprehensive feeding guide for mourning geckos covering crested gecko diet (CGD), insect variety, supplementation, feeding schedules, and nutrition for breeding colonies.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["mourning gecko", "feeding", "nutrition", "diet", "supplements"],
   "image": "/animals/mourning-gecko/mourning-gecko-1.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",

@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "bearded-dragon-feeding-guide",
   "title": "Bearded Dragon Feeding Guide: Diet, Schedule & Nutrition",
   "description": "Complete feeding guide for bearded dragons covering insects, vegetables, feeding frequency by age, supplements, and common nutritional mistakes.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["bearded dragon", "feeding", "diet", "nutrition", "insects", "vegetables"],
   "image": "/animals/bearded-dragon/bearded-dragon-3.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",

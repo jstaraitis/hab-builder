@@ -1,16 +1,17 @@
-﻿{
+{
   "id": "whites-tree-frog-temp-humidity-guide",
   "title": "Temperature & Humidity Control for White's Tree Frogs",
   "author": "Habitat Builder Team",
   "date": "2026-01-20",
   "category": "Care Guides",
-  "excerpt": "White's Tree Frog–specific temperature targets, humidity management, probe placement, and why you probably don't need misters. Keep these Australian frogs in warm, DRY conditions.",
-  "description": "White's Tree Frog–specific temperature targets, humidity management, probe placement, and why you probably don't need misters. Keep these Australian frogs in warm, DRY conditions.",
+  "excerpt": "White's Tree Frog�specific temperature targets, humidity management, probe placement, and why you probably don't need misters. Keep these Australian frogs in warm, DRY conditions.",
+  "description": "White's Tree Frog�specific temperature targets, humidity management, probe placement, and why you probably don't need misters. Keep these Australian frogs in warm, DRY conditions.",
   "tags": ["temperature", "humidity", "whites-tree-frog", "environment", "humidity-control"],
+  "status": "community-reviewed",
   "content": [
     {
       "type": "intro",
-      "text": "White's Tree Frogs are Australian semi-arid species adapted to warm, DRY conditions—not high humidity like many keepers assume. Proper temperature control and LOW humidity (30–40%) are the two pillars of their care. Avoid misters and foggers; a large water dish and ventilation are all you need."
+      "text": "White's Tree Frogs are Australian semi-arid species adapted to warm, DRY conditions�not high humidity like many keepers assume. Proper temperature control and LOW humidity (30�40%) are the two pillars of their care. Avoid misters and foggers; a large water dish and ventilation are all you need."
     },
     {
       "type": "section",
@@ -20,8 +21,8 @@
           "type": "table",
           "headers": ["Parameter", "Day", "Night", "Notes"],
           "rows": [
-            ["Ambient temp", "75-88°F", "70-75°F", "Warm zone at top (85-88°F), cooler below. Critical nighttime drop mimics wild fluctuations."],
-            ["Basking spot", "88°F", "—", "Warm zone at top for basking and digestion. Essential for metabolic health."],
+            ["Ambient temp", "75-88�F", "70-75�F", "Warm zone at top (85-88�F), cooler below. Critical nighttime drop mimics wild fluctuations."],
+            ["Basking spot", "88�F", "�", "Warm zone at top for basking and digestion. Essential for metabolic health."],
             ["Humidity", "30-40%", "30-40%", "CRITICAL: Semi-arid species. Stay DRY. Never exceed 50% sustained."],
             ["Surface moisture", "Mostly dry", "Lightly damp", "Substrate should not be soggy; top layer must dry out by morning"]
           ]
@@ -29,7 +30,7 @@
         {
           "type": "warning",
           "severity": "important",
-          "content": "⚠️ COMMON MISTAKE: Keeping humidity above 50% promotes bacterial blooms, respiratory infections, and mold. White's Tree Frogs thrive in warm, DRY Australian conditions. Do NOT use misters, foggers, manual misting unless required."
+          "content": "?? COMMON MISTAKE: Keeping humidity above 50% promotes bacterial blooms, respiratory infections, and mold. White's Tree Frogs thrive in warm, DRY Australian conditions. Do NOT use misters, foggers, manual misting unless required."
         }
       ]
     },
@@ -41,10 +42,10 @@
           "type": "list",
           "items": [
             "Place the main thermometer probe at mid-height on the warm side of the enclosure (where the heat lamp is).",
-            "Place a second probe at the top of the enclosure to monitor the warm basking zone (aim for 85-88°F).",
+            "Place a second probe at the top of the enclosure to monitor the warm basking zone (aim for 85-88�F).",
             "Position the hygrometer probe at mid-height as well, away from direct heat sources and water dishes.",
-            "Monitor for one week after setup; adjust heat lamp height or wattage to hit 75-88°F ambient and 88°F basking.",
-            "The nighttime drop to 70-75°F is CRITICAL for metabolism and digestion—use a thermostat-controlled heat lamp or lower the temperature at night."
+            "Monitor for one week after setup; adjust heat lamp height or wattage to hit 75-88�F ambient and 88�F basking.",
+            "The nighttime drop to 70-75�F is CRITICAL for metabolism and digestion�use a thermostat-controlled heat lamp or lower the temperature at night."
           ]
         }
       ]
@@ -55,21 +56,21 @@
       "content": [
         {
           "type": "text",
-          "text": "White's Tree Frogs are NOT tropical rainforest frogs—they are Australian semi-arid frogs that need LOW humidity (30–40%). Many keepers make the mistake of over-humidifying. A large water dish and natural room ventilation are all you need."
+          "text": "White's Tree Frogs are NOT tropical rainforest frogs�they are Australian semi-arid frogs that need LOW humidity (30�40%). Many keepers make the mistake of over-humidifying. A large water dish and natural room ventilation are all you need."
         },
         {
           "type": "list",
           "items": [
-            "Primary moisture source: A large, shallow water dish (minimum 4–6 inches diameter). Change water every 2–3 days.",
+            "Primary moisture source: A large, shallow water dish (minimum 4�6 inches diameter). Change water every 2�3 days.",
             "NO misters or foggers: Absolutely avoid them. They raise humidity too high, promote bacterial growth, and cause respiratory infections.",
-            "Ventilation is key: Use a mesh top or partial screen to allow air exchange. This naturally keeps humidity in the 30–40% range.",
+            "Ventilation is key: Use a mesh top or partial screen to allow air exchange. This naturally keeps humidity in the 30�40% range.",
             "Substrate: Keep the top layer mostly dry; substrate should never be soggy or waterlogged.",
             "If humidity creeps above 50%: Increase airflow by opening vents, removing obstacles, or upgrading to a fully screened top."
           ]
         },
         {
           "type": "highlight",
-          "content": "The Golden Rule: If your room has 40–50% humidity and the enclosure has a screen top with a water dish, you're done. No misting needed. Your frogs are happier in a dry setup than a humid one."
+          "content": "The Golden Rule: If your room has 40�50% humidity and the enclosure has a screen top with a water dish, you're done. No misting needed. Your frogs are happier in a dry setup than a humid one."
         }
       ]
     },
@@ -79,35 +80,35 @@
       "content": [
         {
           "type": "text",
-          "text": "<strong>Hot Summers (Room Temp >85°F)</strong>"
+          "text": "<strong>Hot Summers (Room Temp >85�F)</strong>"
         },
         {
           "type": "list",
           "items": [
             "Move enclosure to coolest room in the house (basement ideal).",
-            "Use portable AC unit or fan to cool the room—NEVER blow air directly on the enclosure.",
+            "Use portable AC unit or fan to cool the room�NEVER blow air directly on the enclosure.",
             "Emergency cooling: Place frozen water bottles wrapped in towels OUTSIDE the enclosure to radiate cool air. Replace every 4-6 hours.",
             "Reduce heat lamp wattage or raise fixture higher to lower basking temp.",
-            "Monitor closely: If ambient exceeds 90°F for extended periods, frogs can overheat. Signs include gaping mouth, lethargy, seeking water constantly."
+            "Monitor closely: If ambient exceeds 90�F for extended periods, frogs can overheat. Signs include gaping mouth, lethargy, seeking water constantly."
           ]
         },
         {
           "type": "text",
-          "text": "<strong>Cold Winters (Room Temp <65°F)</strong>"
+          "text": "<strong>Cold Winters (Room Temp <65�F)</strong>"
         },
         {
           "type": "list",
           "items": [
-            "Increase heat lamp wattage (75-100W) to maintain 75-88°F ambient.",
-            "Use ceramic heat emitter (CHE) at night to maintain nighttime temps at 70-75°F minimum.",
-            "Add insulation: Place foam board or reflective insulation on back/sides of enclosure (NOT front or top—blocks ventilation).",
-            "Use thermostat to prevent overheating—critical when boosting heat sources.",
-            "Check water dish more frequently—heat sources will increase evaporation."
+            "Increase heat lamp wattage (75-100W) to maintain 75-88�F ambient.",
+            "Use ceramic heat emitter (CHE) at night to maintain nighttime temps at 70-75�F minimum.",
+            "Add insulation: Place foam board or reflective insulation on back/sides of enclosure (NOT front or top�blocks ventilation).",
+            "Use thermostat to prevent overheating�critical when boosting heat sources.",
+            "Check water dish more frequently�heat sources will increase evaporation."
           ]
         },
         {
           "type": "highlight",
-          "content": "Thermostat Recommendations: Use a proportional thermostat (not on/off). Recommended models: Herpstat, Vivarium Electronics VE-200, or Inkbird ITC-308. Set to target 82-85°F daytime, 70-72°F nighttime."
+          "content": "Thermostat Recommendations: Use a proportional thermostat (not on/off). Recommended models: Herpstat, Vivarium Electronics VE-200, or Inkbird ITC-308. Set to target 82-85�F daytime, 70-72�F nighttime."
         }
       ]
     },
@@ -121,10 +122,10 @@
           "rows": [
             ["Humidity above 50% (too wet)", "Poor ventilation, excess misting, standing water, overly moist substrate", "Open vents wider, remove standing water, stop all misting, reduce substrate moisture. High humidity = respiratory infections."],
             ["Humidity below 25% (too dry)", "Small water dish, room too dry, excessive ventilation", "Add larger water dish (6-8\" diameter), ensure it's clean and accessible. Partially cover 25% of mesh top with acrylic to trap moisture from dish."],
-            ["Temperature below 75°F (too cold)", "Insufficient heat source, low room temp, heat lamp too far from enclosure", "Upgrade heat lamp wattage (60-100W depending on size), lower fixture closer to basking spot, use thermostat for consistency. Ambient must stay 75-88°F."],
-            ["No warm zone above 85°F (basking too cool)", "Heat lamp too far away, insufficient wattage, blocked by decor", "Move heat lamp closer to top of enclosure, increase wattage slightly (75-100W), position directly over basking perch. Aim for 88°F at top."],
-            ["No nighttime drop below 75°F", "Heat lamp running 24/7, no thermostat control", "Use thermostat-controlled heat lamp that dims/turns off at night. The 70-75°F nighttime drop is essential for digestion and metabolic health."],
-            ["Frogs hiding constantly, not basking", "High humidity causing stress, temperature instability, inadequate temp gradient", "Verify daytime ambient 75-88°F, basking zone 88°F, nighttime drop to 70-75°F. Lower humidity to 30-40%. Increase ventilation."]
+            ["Temperature below 75�F (too cold)", "Insufficient heat source, low room temp, heat lamp too far from enclosure", "Upgrade heat lamp wattage (60-100W depending on size), lower fixture closer to basking spot, use thermostat for consistency. Ambient must stay 75-88�F."],
+            ["No warm zone above 85�F (basking too cool)", "Heat lamp too far away, insufficient wattage, blocked by decor", "Move heat lamp closer to top of enclosure, increase wattage slightly (75-100W), position directly over basking perch. Aim for 88�F at top."],
+            ["No nighttime drop below 75�F", "Heat lamp running 24/7, no thermostat control", "Use thermostat-controlled heat lamp that dims/turns off at night. The 70-75�F nighttime drop is essential for digestion and metabolic health."],
+            ["Frogs hiding constantly, not basking", "High humidity causing stress, temperature instability, inadequate temp gradient", "Verify daytime ambient 75-88�F, basking zone 88�F, nighttime drop to 70-75�F. Lower humidity to 30-40%. Increase ventilation."]
           ]
         }
       ]

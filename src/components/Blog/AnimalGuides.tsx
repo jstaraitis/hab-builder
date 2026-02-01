@@ -1,11 +1,60 @@
 import { useState } from 'react';
 import { animalProfiles } from '../../data/animals';
-import { blogPosts, blogPostsList } from '../../data/blog';
+import { blogPosts, blogPostsList, BlogStatus } from '../../data/blog';
 import { Link } from 'react-router-dom';
-import { Book, ChevronDown } from 'lucide-react';
+import { Book, ChevronDown, FileText, AlertTriangle, Eye, Users, Award } from 'lucide-react';
 
 interface AnimalGuidesProps {
   initialAnimal?: string;
+}
+
+function getStatusBadge(status?: BlogStatus) {
+  if (!status || status === 'published') return null;
+
+  const configs = {
+    'draft': { 
+      icon: FileText, 
+      bgColor: 'bg-gray-100 dark:bg-gray-700', 
+      textColor: 'text-gray-700 dark:text-gray-300',
+      label: 'Draft'
+    },
+    'in-progress': { 
+      icon: AlertTriangle, 
+      bgColor: 'bg-blue-100 dark:bg-blue-900/50', 
+      textColor: 'text-blue-700 dark:text-blue-300',
+      label: 'In Progress'
+    },
+    'review-needed': { 
+      icon: Eye, 
+      bgColor: 'bg-amber-100 dark:bg-amber-900/50', 
+      textColor: 'text-amber-700 dark:text-amber-300',
+      label: 'Needs Review'
+    },
+    'community-reviewed': { 
+      icon: Users, 
+      bgColor: 'bg-purple-100 dark:bg-purple-900/50', 
+      textColor: 'text-purple-700 dark:text-purple-300',
+      label: 'Community Reviewed'
+    },
+    'expert-verified': { 
+      icon: Award, 
+      bgColor: 'bg-green-100 dark:bg-green-900/50', 
+      textColor: 'text-green-700 dark:text-green-300',
+      label: 'Expert Verified'
+    }
+  };
+
+  const config = configs[status];
+  if (!config) return null;
+
+  const Icon = config.icon;
+
+  return (
+    <div className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-xs font-medium ${config.bgColor} ${config.textColor}`}>
+      <Icon className="w-3 h-3" />
+      <span>{config.label}</span>
+    </div>
+  );
 }
 
 export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
@@ -39,6 +88,11 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
                 to={`/blog/${blog.id}`}
                 className="group bg-white dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-blue-900/30 border border-blue-200 dark:border-blue-700 hover:border-blue-400 dark:hover:border-blue-600 rounded-lg p-3 sm:p-4 transition-all shadow-sm hover:shadow-md"
               >
+                {getStatusBadge(blog.status) && (
+                  <div className="mb-2">
+                    {getStatusBadge(blog.status)}
+                  </div>
+                )}
                 <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-blue-700 dark:group-hover:text-blue-300 mb-1">
                   {blog.title}
                 </h4>
@@ -112,6 +166,11 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
                   to={`/blog/${blogId}`}
                   className="group bg-white dark:bg-gray-800 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-700 hover:border-emerald-400 dark:hover:border-emerald-600 rounded-lg p-3 sm:p-4 transition-all shadow-sm hover:shadow-md"
                 >
+                  {getStatusBadge(blog.status) && (
+                    <div className="mb-2">
+                      {getStatusBadge(blog.status)}
+                    </div>
+                  )}
                   <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-300 mb-1">
                     {blog.title}
                   </h4>

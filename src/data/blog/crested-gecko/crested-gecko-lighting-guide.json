@@ -1,4 +1,4 @@
-ï»¿{
+{
   "id": "crested-gecko-lighting-guide",
   "title": "Crested Gecko Lighting Guide: UVB & Photoperiod Requirements",
   "description": "Complete lighting guide for crested geckos covering UVB benefits, bulb selection, placement guidelines, photoperiod management, and equipment maintenance for optimal health.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["crested-gecko", "UVB", "lighting", "photoperiod", "vitamin-d3"],
   "image": "/animals/crested-gecko/crested-gecko-lighting.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
@@ -32,7 +33,7 @@
       "rows": [
         ["UVI (UV Index)", "1.0-2.0", "At highest basking perch (top 6-8\" of enclosure)"],
         ["Ferguson Zone", "Zone 2 (Shade Dweller)", "Low UVB, filtered/indirect exposure"],
-        ["Coverage Area", "50-70% of enclosure length", "Allows self-regulationÃ—gecko can choose UVB or shade"]
+        ["Coverage Area", "50-70% of enclosure length", "Allows self-regulation×gecko can choose UVB or shade"]
       ]
     },
     {
@@ -217,7 +218,7 @@
         ["Glass or plastic between UVB and gecko", "Glass blocks 90-100% of UVB", "Ensure only mesh screen between bulb and gecko"],
         ["Desert-strength UVB (10.0/12%)", "Excessive UVB for shade-dwelling species", "Use 5.0-6% \"tropical\" strength bulbs only"],
         ["No photoperiod (lights on 24/7)", "Disrupts circadian rhythm, chronic stress", "Use timers for consistent 12-hour light/dark cycle"],
-        ["Blue/moonlight LEDs at night", "Suppresses melatonin, stress, sleep deprivation", "Complete darkness at nightÃ—no LEDs or viewing lights"],
+        ["Blue/moonlight LEDs at night", "Suppresses melatonin, stress, sleep deprivation", "Complete darkness at night×no LEDs or viewing lights"],
         ["Not replacing UVB bulbs on schedule", "Gecko receives little/no UVB despite bulb still lighting", "Replace T8 every 6-8 months, T5 every 12 months"]
       ]
     },

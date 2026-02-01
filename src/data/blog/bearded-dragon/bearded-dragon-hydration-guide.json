@@ -1,4 +1,4 @@
-﻿{
+{
   "id": "bearded-dragon-hydration-guide",
   "title": "Bearded Dragon Hydration & Water Management Guide",
   "description": "Complete guide to hydration strategies for bearded dragons including water dish setup, misting protocols, hydrating foods, and recognizing dehydration signs.",
@@ -8,6 +8,7 @@
   "category": "Care Guides",
   "tags": ["bearded dragon", "hydration", "water", "dehydration", "care"],
   "image": "/animals/bearded-dragon/bearded-dragon-3.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",

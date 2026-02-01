@@ -1,18 +1,19 @@
-ï»¿{
+{
   "id": "ball-python-temp-humidity-guide",
   "title": "Ball Python Temperature & Humidity Guide: Complete Climate Control",
-  "description": "Evidence-based temperature and humidity guide for ball pythons covering basking requirements (95-104Ã—F), thermal gradient setup, humidity ranges (45-75%), and seasonal adjustments for African species.",
-  "excerpt": "Evidence-based temperature and humidity guide for ball pythons covering basking requirements (95-104Ã—F), thermal gradient setup, humidity ranges (45-75%), and seasonal adjustments for African species.",
+  "description": "Evidence-based temperature and humidity guide for ball pythons covering basking requirements (95-104×F), thermal gradient setup, humidity ranges (45-75%), and seasonal adjustments for African species.",
+  "excerpt": "Evidence-based temperature and humidity guide for ball pythons covering basking requirements (95-104×F), thermal gradient setup, humidity ranges (45-75%), and seasonal adjustments for African species.",
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
   "tags": ["ball-python", "temperature", "humidity", "climate", "heating"],
   "image": "/animals/ball-python/ball-python-temperature.jpg",
+  "status": "in-progress",
   "content": [
     {
       "type": "intro",
       "title": "Climate Requirements for Ball Pythons",
-      "content": "Ball pythons are ectothermic (cold-blooded) constrictors from western and central Africa's semi-arid to subtropical regions, where they experience warm days (85-95Â°F ambient), moderate nights, and humidity ranging 50-70% with seasonal variation. As ectotherms, they cannot internally regulate body temperatureâ€”they must move between thermal zones to warm up for digestion, cool down to prevent overheating, and seek humid microclimates for shedding. This guide covers proper temperature gradients (88-92Â°F warm side, 76-80Â°F cool side), heating equipment selection, humidity management (70-80% ideal), and troubleshooting for optimal ball python health."
+      "content": "Ball pythons are ectothermic (cold-blooded) constrictors from western and central Africa's semi-arid to subtropical regions, where they experience warm days (85-95°F ambient), moderate nights, and humidity ranging 50-70% with seasonal variation. As ectotherms, they cannot internally regulate body temperature—they must move between thermal zones to warm up for digestion, cool down to prevent overheating, and seek humid microclimates for shedding. This guide covers proper temperature gradients (88-92°F warm side, 76-80°F cool side), heating equipment selection, humidity management (70-80% ideal), and troubleshooting for optimal ball python health."
     },
     {
       "type": "section",
@@ -20,27 +21,27 @@
     },
     {
       "type": "text",
-      "content": "Ball pythons require precise temperature zones for thermoregulation. Both warm and cool zones are criticalÃ—inadequate gradient causes stress and health issues."
+      "content": "Ball pythons require precise temperature zones for thermoregulation. Both warm and cool zones are critical×inadequate gradient causes stress and health issues."
     },
     {
       "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Temperature Zones (48Ã—24Ã—24 Enclosure):</span>"
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Temperature Zones (48×24×24 Enclosure):</span>"
     },
     {
       "type": "table",
       "headers": ["Zone", "Temperature Range", "Measurement Method", "Purpose"],
       "rows": [
-        ["Warm Side (ambient)", "88-92Â°F (31-33Â°C)", "Digital thermometer mid-air on warm end", "Proper digestion, metabolic function"],
-        ["Cool Side (ambient)", "76-80Â°F (24-27Â°C)", "Digital thermometer mid-air on cool end", "Prevents overheating, comfortable activity"],
-        ["Warm Hide Interior", "Approximately 88-92Â°F", "Digital probe thermometer inside hide", "Security + warmth for post-feeding rest"],
-        ["Cool Hide Interior", "Approximately 76-80Â°F", "Digital probe thermometer inside hide", "Security + cooling, primary shedding location"],
-        ["Nighttime (entire enclosure)", "Can drop naturally to low 70sÂ°F", "Natural ambient after lights off", "Ball pythons tolerate nighttime drops well"]
+        ["Warm Side (ambient)", "88-92°F (31-33°C)", "Digital thermometer mid-air on warm end", "Proper digestion, metabolic function"],
+        ["Cool Side (ambient)", "76-80°F (24-27°C)", "Digital thermometer mid-air on cool end", "Prevents overheating, comfortable activity"],
+        ["Warm Hide Interior", "Approximately 88-92°F", "Digital probe thermometer inside hide", "Security + warmth for post-feeding rest"],
+        ["Cool Hide Interior", "Approximately 76-80°F", "Digital probe thermometer inside hide", "Security + cooling, primary shedding location"],
+        ["Nighttime (entire enclosure)", "Can drop naturally to low 70s°F", "Natural ambient after lights off", "Ball pythons tolerate nighttime drops well"]
       ]
     },
     {
       "type": "warning",
       "severity": "critical",
-      "content": "Warm side temperature of 88-92Â°F is CRITICAL for digestion. If warm side drops below 88Â°F, ball pythons cannot properly digest food. Temperatures above 95Â°F can cause injuries with prolonged exposure. Cool side below 75Â°F can compromise immune system. Always verify temperatures with reliable thermometers."
+      "content": "Warm side temperature of 88-92°F is CRITICAL for digestion. If warm side drops below 88°F, ball pythons cannot properly digest food. Temperatures above 95°F can cause injuries with prolonged exposure. Cool side below 75°F can compromise immune system. Always verify temperatures with reliable thermometers."
     },
     {
       "type": "highlight",
@@ -52,7 +53,7 @@
     },
     {
       "type": "text",
-      "content": "Ball pythons require halogen flood bulbs as primary heat sources to achieve 95-104Ã—F basking surfaces. Use TWO 90w PAR38 halogen flood bulbs in a dual dome fixture with plug-in dimmers."
+      "content": "Ball pythons require halogen flood bulbs as primary heat sources to achieve 95-104×F basking surfaces. Use TWO 90w PAR38 halogen flood bulbs in a dual dome fixture with plug-in dimmers."
     },
     {
       "type": "section",
@@ -60,7 +61,7 @@
     },
     {
       "type": "text",
-      "content": "Ball pythons benefit from a nighttime temperature drop (72-78Ã—F), mimicking natural conditions. Constant high temps cause stress and metabolic issues."
+      "content": "Ball pythons benefit from a nighttime temperature drop (72-78×F), mimicking natural conditions. Constant high temps cause stress and metabolic issues."
     },
     {
       "type": "text",
@@ -70,16 +71,16 @@
       "type": "table",
       "headers": ["Scenario", "Nighttime Setup", "Rationale"],
       "rows": [
-        ["Room temp drops to 65-72Ã—F at night", "Turn off all heat lamps (natural temp drop)", "IdealÃ—mimics natural nighttime cooling"],
-        ["Room temp stays 70-75Ã—F at night", "Turn off heat lamps OR run at 25% power", "No supplemental heat needed if >70Ã—F"],
-        ["Room temp drops below 65Ã—F at night", "Use ceramic heat emitter (CHE) on thermostat OR run one halogen at 25% power", "Prevents excessive cooling (<65Ã—F can suppress immune system)"],
-        ["Very cold room (<60Ã—F at night)", "Use deep heat projector (DHP) 24/7 OR CHE on thermostat", "Maintains minimum 70Ã—F without light"]
+        ["Room temp drops to 65-72×F at night", "Turn off all heat lamps (natural temp drop)", "Ideal×mimics natural nighttime cooling"],
+        ["Room temp stays 70-75×F at night", "Turn off heat lamps OR run at 25% power", "No supplemental heat needed if >70×F"],
+        ["Room temp drops below 65×F at night", "Use ceramic heat emitter (CHE) on thermostat OR run one halogen at 25% power", "Prevents excessive cooling (<65×F can suppress immune system)"],
+        ["Very cold room (<60×F at night)", "Use deep heat projector (DHP) 24/7 OR CHE on thermostat", "Maintains minimum 70×F without light"]
       ]
     },
     {
       "type": "warning",
       "severity": "tip",
-      "content": "Ball pythons are crepuscular (active dawn/dusk), NOT nocturnal. They benefit from nighttime temperature drops (72-78Ã—F). Keeping temps at 85Ã—F+ 24/7 causes chronic stressÃ—they need cooler periods for rest and natural hormone cycles."
+      "content": "Ball pythons are crepuscular (active dawn/dusk), NOT nocturnal. They benefit from nighttime temperature drops (72-78×F). Keeping temps at 85×F+ 24/7 causes chronic stress×they need cooler periods for rest and natural hormone cycles."
     },
     {
       "type": "section",
@@ -107,7 +108,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Humidity measurement location matters: Measure humidity inside the cool hide (where snake spends most time), NOT at the top of the enclosure. A hygrometer at the enclosure top measures the driest spotÃ—useless for assessing snake's actual humidity exposure."
+      "content": "Humidity measurement location matters: Measure humidity inside the cool hide (where snake spends most time), NOT at the top of the enclosure. A hygrometer at the enclosure top measures the driest spot×useless for assessing snake's actual humidity exposure."
     },
     {
       "type": "section",
@@ -156,9 +157,9 @@
       "rows": [
         ["Standard setup (PVC, 3-4 inch substrate)", "1-2x daily (morning + evening)", "Light spray over substrate surface, focus on cool side"],
         ["Dry climate (<40% room humidity)", "2-3x daily", "More frequent misting needed, consider adding sphagnum moss"],
-        ["Humid climate (>60% room humidity)", "Every 2-3 days or as needed", "Monitor closelyÃ—over-humidification risk"],
+        ["Humid climate (>60% room humidity)", "Every 2-3 days or as needed", "Monitor closely×over-humidification risk"],
         ["Winter (indoor heating season)", "2-3x daily", "Indoor heating drastically lowers humidity"],
-        ["Glass tank (poor humidity retention)", "2-4x daily", "Glass requires much more mistingÃ—consider switching to PVC"],
+        ["Glass tank (poor humidity retention)", "2-4x daily", "Glass requires much more misting×consider switching to PVC"],
         ["Bioactive setup", "1x daily or less", "Plants and CUC help stabilize humidity"],
         ["During shedding", "3x daily (if humidity <65%)", "Increase frequency temporarily until shed completes"]
       ]
@@ -184,10 +185,10 @@
       "type": "table",
       "headers": ["Season", "Temperature Adjustment", "Humidity Adjustment", "Purpose"],
       "rows": [
-        ["Spring (March-May)", "Standard temps (95-104Ã—F basking)", "Increase to 60-75%", "Breeding season, higher humidity triggers breeding behavior"],
+        ["Spring (March-May)", "Standard temps (95-104×F basking)", "Increase to 60-75%", "Breeding season, higher humidity triggers breeding behavior"],
         ["Summer (June-August)", "Standard temps", "Maintain 50-70%", "Active season, normal feeding"],
-        ["Fall (September-November)", "Reduce basking to 90-95Ã—F", "Maintain 50-70%", "Gradual cooling prepares for winter"],
-        ["Winter (December-February)", "Reduce basking to 85-92Ã—F, cool side to 70-75Ã—F", "Reduce to 45-60%", "Optional cooling period (not required but beneficial for breeding)"]
+        ["Fall (September-November)", "Reduce basking to 90-95×F", "Maintain 50-70%", "Gradual cooling prepares for winter"],
+        ["Winter (December-February)", "Reduce basking to 85-92×F, cool side to 70-75×F", "Reduce to 45-60%", "Optional cooling period (not required but beneficial for breeding)"]
       ]
     },
     {
@@ -207,14 +208,14 @@
       "type": "table",
       "headers": ["Problem", "Likely Cause", "Solution"],
       "rows": [
-        ["Basking surface too hot (>110Ã—F)", "Wattage too high, rock too close to bulbs", "Use dimmer to reduce power OR raise heat lamp fixture OR use lower wattage bulbs (75w)"],
-        ["Basking surface too cool (<92Ã—F)", "Wattage too low, rock too far from bulbs", "Increase dimmer setting OR lower fixture OR use higher wattage (100-150w)"],
-        ["Warm hide not reaching 86-90Ã—F", "Basking rock too thick (heat not conducting)", "Use thinner basking rock (1 inch max) OR add thermostat-controlled heat mat under hide"],
-        ["Cool side too warm (>82Ã—F)", "Enclosure too small, inadequate thermal gradient", "Ensure 48Ã—24Ã—24 minimum, increase ventilation, move to cooler room"],
-        ["Nighttime temps too low (<65Ã—F)", "Room too cold", "Add ceramic heat emitter on thermostat OR run one halogen at 25% power overnight"],
-        ["Snake constantly on cool side", "Warm side too hot (basking >110Ã—F)", "Reduce heat lamp wattage with dimmer, verify temps with infrared thermometer"],
-        ["Snake constantly on warm side", "Cool side too cold (<70Ã—F) OR post-feeding digestion", "Ensure cool side 72-80Ã—F, check if recently fed (normal to bask for 24-48 hrs post-meal)"],
-        ["Regurgitation after feeding", "Temps too low (<85Ã—F warm hide) OR handling too soon", "Verify warm hide 86-90Ã—F, wait 48 hours after feeding before handling"]
+        ["Basking surface too hot (>110×F)", "Wattage too high, rock too close to bulbs", "Use dimmer to reduce power OR raise heat lamp fixture OR use lower wattage bulbs (75w)"],
+        ["Basking surface too cool (<92×F)", "Wattage too low, rock too far from bulbs", "Increase dimmer setting OR lower fixture OR use higher wattage (100-150w)"],
+        ["Warm hide not reaching 86-90×F", "Basking rock too thick (heat not conducting)", "Use thinner basking rock (1 inch max) OR add thermostat-controlled heat mat under hide"],
+        ["Cool side too warm (>82×F)", "Enclosure too small, inadequate thermal gradient", "Ensure 48×24×24 minimum, increase ventilation, move to cooler room"],
+        ["Nighttime temps too low (<65×F)", "Room too cold", "Add ceramic heat emitter on thermostat OR run one halogen at 25% power overnight"],
+        ["Snake constantly on cool side", "Warm side too hot (basking >110×F)", "Reduce heat lamp wattage with dimmer, verify temps with infrared thermometer"],
+        ["Snake constantly on warm side", "Cool side too cold (<70×F) OR post-feeding digestion", "Ensure cool side 72-80×F, check if recently fed (normal to bask for 24-48 hrs post-meal)"],
+        ["Regurgitation after feeding", "Temps too low (<85×F warm hide) OR handling too soon", "Verify warm hide 86-90×F, wait 48 hours after feeding before handling"]
       ]
     },
     {
@@ -235,7 +236,7 @@
         ["Respiratory infection (wheezing, mucus)", "Humidity too HIGH (>85%) + poor ventilation", "Reduce humidity to 45-75%, increase ventilation, vet visit for antibiotics"],
         ["Substrate molding", "Excessive moisture + poor air circulation", "Increase ventilation, reduce misting, add springtails (consume mold)"],
         ["Hygrometer reads 30% but substrate is wet", "Hygrometer placed in dry location (top of enclosure)", "Move hygrometer probe to cool hide (where snake actually is)"],
-        ["Humidity perfect (60-70%) but stuck shed", "Low temps (<86Ã—F warm hide) OR dehydration", "Verify temps, provide water bowl, ensure snake drinks"]
+        ["Humidity perfect (60-70%) but stuck shed", "Low temps (<86×F warm hide) OR dehydration", "Verify temps, provide water bowl, ensure snake drinks"]
       ]
     },
     {
@@ -254,17 +255,17 @@
       "type": "table",
       "headers": ["Emergency", "Immediate Action", "Duration Ball Python Can Tolerate"],
       "rows": [
-        ["Power outage (temps dropping)", "Hand warmers in ziplock bags near (not touching) snake, wrap enclosure with blankets", "24-48 hours at 65-70Ã—F (monitor closely)"],
-        ["Heat lamp failure", "Replace bulb immediately OR use heat mat on thermostat temporarily", "12-24 hours at 70-75Ã—F (digestion slows)"],
-        ["Extreme heat (room >95Ã—F)", "Move enclosure to coolest room, add frozen water bottles near (not in) enclosure, increase ventilation", "Ball pythons tolerate heat better than cold but >95Ã—F ambient is dangerous"],
-        ["Thermostat failure (overheating)", "Unplug heat source immediately, provide cool water bowl, monitor for heat stress", "Temps >110Ã—F for >1 hour can be fatal"],
-        ["Equipment fire risk", "Never leave heat lamps unattended, use ceramic sockets rated for wattage, inspect cords monthly", "Prevention is criticalÃ—equipment fires are rare but devastating"]
+        ["Power outage (temps dropping)", "Hand warmers in ziplock bags near (not touching) snake, wrap enclosure with blankets", "24-48 hours at 65-70×F (monitor closely)"],
+        ["Heat lamp failure", "Replace bulb immediately OR use heat mat on thermostat temporarily", "12-24 hours at 70-75×F (digestion slows)"],
+        ["Extreme heat (room >95×F)", "Move enclosure to coolest room, add frozen water bottles near (not in) enclosure, increase ventilation", "Ball pythons tolerate heat better than cold but >95×F ambient is dangerous"],
+        ["Thermostat failure (overheating)", "Unplug heat source immediately, provide cool water bowl, monitor for heat stress", "Temps >110×F for >1 hour can be fatal"],
+        ["Equipment fire risk", "Never leave heat lamps unattended, use ceramic sockets rated for wattage, inspect cords monthly", "Prevention is critical×equipment fires are rare but devastating"]
       ]
     },
     {
       "type": "warning",
       "severity": "critical",
-      "content": "Heat stress is MORE dangerous than cold stress in ball pythons. Temps >105Ã—F can cause organ failure within hours. If heat lamp malfunctions and overheats enclosure, immediately unplug all heat, open enclosure, provide cool water. Vet visit required if snake shows heat stress: gaping mouth, excessive salivation, convulsions."
+      "content": "Heat stress is MORE dangerous than cold stress in ball pythons. Temps >105×F can cause organ failure within hours. If heat lamp malfunctions and overheats enclosure, immediately unplug all heat, open enclosure, provide cool water. Vet visit required if snake shows heat stress: gaping mouth, excessive salivation, convulsions."
     },
     {
       "type": "section",
@@ -279,16 +280,16 @@
       "headers": ["Equipment", "Specification", "Purpose"],
       "rows": [
         ["Dual dome heat lamp", "Ceramic sockets rated 150w+", "Holds 2 halogen bulbs for basking heat"],
-        ["Halogen flood bulbs", "90w PAR38 x2", "Primary heating (adjust wattage to achieve 95-104Ã—F basking)"],
+        ["Halogen flood bulbs", "90w PAR38 x2", "Primary heating (adjust wattage to achieve 95-104×F basking)"],
         ["Plug-in dimmers", "x2 (one per heat lamp)", "Fine-tune basking temperatures"],
         ["Infrared thermometer", "Etekcity 774 or similar ($15-20)", "Measure basking surface temp daily"],
         ["Digital probe thermometers", "x2-3 ($10-15 each)", "Monitor warm hide, cool hide, ambient temps"],
         ["Digital hygrometer", "With probe for cool hide ($10-15)", "Monitor humidity continuously"],
-        ["Basking rock", "Flagstone or slate tile, 8Ã—10 inches", "Thermal mass for basking surface"],
+        ["Basking rock", "Flagstone or slate tile, 8×10 inches", "Thermal mass for basking surface"],
         ["Timer", "Digital plug-in timer ($10)", "Automate lighting (12-14 hour photoperiod)"],
         ["Pressure sprayer", "For misting substrate ($10-15)", "Humidity management"],
         ["Sphagnum moss", "Long-fiber moss for cool hide ($10-15)", "Shedding aid, humidity boost"],
-        ["Optional: Ceramic heat emitter", "50-100w CHE + thermostat ($40-60)", "Nighttime supplemental heat if room <65Ã—F"],
+        ["Optional: Ceramic heat emitter", "50-100w CHE + thermostat ($40-60)", "Nighttime supplemental heat if room <65×F"],
         ["Optional: Heat mat", "Thermostat-controlled UTH ($40-60)", "Supplemental heat under warm hide if needed"]
       ]
     },
