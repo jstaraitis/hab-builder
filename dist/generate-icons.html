@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate PWA Icons</title>
+</head>
+<body>
+  <h1>PWA Icon Generator</h1>
+  <canvas id="canvas192" width="192" height="192" style="border:1px solid #ccc; margin:10px;"></canvas>
+  <canvas id="canvas512" width="512" height="512" style="border:1px solid #ccc; margin:10px;"></canvas>
+  <br>
+  <button onclick="downloadIcons()">Download Icons</button>
+  
+  <script>
+    // Draw 192x192 icon
+    const canvas192 = document.getElementById('canvas192');
+    const ctx192 = canvas192.getContext('2d');
+    
+    // Background
+    ctx192.fillStyle = '#10b981';
+    ctx192.fillRect(0, 0, 192, 192);
+    
+    // White terrarium shape
+    ctx192.fillStyle = '#ffffff';
+    ctx192.fillRect(40, 60, 112, 90);
+    ctx192.strokeStyle = '#ffffff';
+    ctx192.lineWidth = 6;
+    ctx192.strokeRect(40, 60, 112, 90);
+    
+    // Leaves/plant
+    ctx192.fillStyle = '#34d399';
+    ctx192.beginPath();
+    ctx192.arc(70, 100, 20, 0, Math.PI * 2);
+    ctx192.arc(90, 90, 18, 0, Math.PI * 2);
+    ctx192.arc(110, 95, 22, 0, Math.PI * 2);
+    ctx192.fill();
+    
+    // Text
+    ctx192.fillStyle = '#ffffff';
+    ctx192.font = 'bold 32px Arial';
+    ctx192.textAlign = 'center';
+    ctx192.fillText('HB', 96, 180);
+    
+    // Draw 512x512 icon (scaled up)
+    const canvas512 = document.getElementById('canvas512');
+    const ctx512 = canvas512.getContext('2d');
+    
+    // Background
+    ctx512.fillStyle = '#10b981';
+    ctx512.fillRect(0, 0, 512, 512);
+    
+    // White terrarium shape
+    ctx512.fillStyle = '#ffffff';
+    ctx512.fillRect(106, 160, 300, 240);
+    ctx512.strokeStyle = '#ffffff';
+    ctx512.lineWidth = 16;
+    ctx512.strokeRect(106, 160, 300, 240);
+    
+    // Leaves/plant
+    ctx512.fillStyle = '#34d399';
+    ctx512.beginPath();
+    ctx512.arc(186, 267, 53, 0, Math.PI * 2);
+    ctx512.arc(240, 240, 48, 0, Math.PI * 2);
+    ctx512.arc(293, 253, 59, 0, Math.PI * 2);
+    ctx512.fill();
+    
+    // Text
+    ctx512.fillStyle = '#ffffff';
+    ctx512.font = 'bold 85px Arial';
+    ctx512.textAlign = 'center';
+    ctx512.fillText('HB', 256, 480);
+    
+    function downloadIcons() {
+      // Download 192x192
+      canvas192.toBlob(function(blob) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'icon-192.png';
+        a.click();
+      });
+      
+      // Download 512x512
+      setTimeout(() => {
+        canvas512.toBlob(function(blob) {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'icon-512.png';
+          a.click();
+        });
+      }, 500);
+      
+      alert('Icons will download. Save them to the /public folder.');
+    }
+  </script>
+</body>
+</html>

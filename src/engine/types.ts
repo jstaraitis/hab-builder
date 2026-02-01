@@ -258,6 +258,7 @@ export interface EquipmentNeeds {
   climate?: 'tropical' | 'semi-arid' | 'arid' | 'temperate'; // Climate classification for equipment matching
   activity?: 'arboreal' | 'terrestrial' | 'semi-arboreal' | 'aquatic'; // Activity pattern for equipment matching
   requiredEquipment?: string[]; // Array of equipment IDs that must be included for this species (species-specific requirements)
+  decor?: Array<'branches' | 'ledges' | 'hides' | 'plants' | 'background'>; // Decor type preferences for matching equipment
   incompatibleWith?: string[]; // Array of equipment IDs that should never be included for this species
 }
 

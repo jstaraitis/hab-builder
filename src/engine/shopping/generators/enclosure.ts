@@ -1,4 +1,4 @@
-import type { ShoppingItem, EnclosureInput, AnimalProfile } from '../../types';
+import type { ShoppingItem, EnclosureInput } from '../../types';
 import { createShoppingItem, getEquipment } from '../utils';
 import { animalProfiles } from '../../../data/animals';
 import { calculateGallons } from '../../dimensionUtils';

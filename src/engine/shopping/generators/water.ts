@@ -1,10 +1,10 @@
-import type { ShoppingItem, AnimalProfile, EnclosureInput, EquipmentConfig } from '../../types';
+import type { ShoppingItem, AnimalProfile, EquipmentConfig } from '../../types';
 import { catalog } from '../utils';
 
 /**
  * Adds water and maintenance supplies
  */
-export function addWaterSupplies(items: ShoppingItem[], profile: AnimalProfile, input: EnclosureInput): void {
+export function addWaterSupplies(items: ShoppingItem[], profile: AnimalProfile): void {
   const catalogDict = catalog as Record<string, EquipmentConfig>;
   
   // Skip water supplies for fully aquatic animals (they live in water)

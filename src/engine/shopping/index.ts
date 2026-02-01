@@ -37,7 +37,7 @@ export function generateShoppingList(
   addPlantLighting(items, input);
   addStructuralDecor(items, input, profile);
   addMonitoring(items, profile, input);
-  addWaterSupplies(items, profile, input);
+  addWaterSupplies(items, profile);
   addFeedingSupplies(items, input, profile);
 
   return items;

@@ -30,6 +30,9 @@ const defaultInput: EnclosureInput = {
   numberOfHides: 3,
   numberOfLedges: 3,
   numberOfClimbingAreas: 2,
+  hideStylePreference: 'both',
+  doorOrientation: 'front',
+  automatedLighting: false,
   setupTier: 'recommended',
 };
 
