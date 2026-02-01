@@ -8,6 +8,8 @@ export type SetupTier = 'minimum' | 'recommended' | 'ideal';
 export type HumidityControl = 'none' | 'manual' | 'misting-system' | 'humidifier' | 'fogger';
 export type SubstrateType = 'bioactive' | 'soil-based' | 'paper-based' | 'foam' | 'sand-based' | 'sand-aquatic';
 export type BackgroundType = 'none' | 'prebuilt' | 'custom';
+export type HideStylePreference = 'natural' | 'commercial' | 'both';
+export type DoorOrientation = 'front' | 'top';
 export type AnimalType = 'reptile' | 'amphibian'; // Taxonomic classification for equipment/enclosure compatibility
 
 export interface EnclosureInput {
@@ -31,6 +33,9 @@ export interface EnclosureInput {
   numberOfHides: number; // 2-4 typical
   numberOfLedges: number; // 0-6 typical (for arboreal/vertical species)
   numberOfClimbingAreas: number; // 0-4 typical (for terrestrial/horizontal species)
+  hideStylePreference: HideStylePreference; // natural cork/wood, commercial plastic, or both
+  doorOrientation: DoorOrientation; // front opening or top opening enclosure
+  automatedLighting: boolean; // include timer for automated light cycles
 }
 
 export interface TemperatureRange {

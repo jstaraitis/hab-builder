@@ -675,6 +675,58 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
         </p>
       </div>
 
+      {/* Door Orientation - Hidden for fully aquatic species */}
+      {animalProfile?.equipmentNeeds?.waterFeature !== 'fully-aquatic' && (
+        <div>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+            Enclosure Access
+          </label>
+          <div className="grid grid-cols-2 gap-2">
+            <button
+              onClick={() => onChange({ ...value, doorOrientation: 'front' })}
+              className={`px-4 py-3 rounded-md text-sm font-medium transition-colors ${
+                value.doorOrientation === 'front'
+                  ? 'bg-primary-600 text-white'
+                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
+              }`}
+            >
+              Front Opening
+            </button>
+            <button
+              onClick={() => onChange({ ...value, doorOrientation: 'top' })}
+              className={`px-4 py-3 rounded-md text-sm font-medium transition-colors ${
+                value.doorOrientation === 'top'
+                  ? 'bg-primary-600 text-white'
+                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
+              }`}
+            >
+              Top Opening
+            </button>
+          </div>
+          <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+            {value.doorOrientation === 'front' ? 'Easier access, less stress for animal' : 'More secure, better for climbers'}
+          </p>
+        </div>
+      )}
+
+      {/* Automated Lighting */}
+      <div>
+        <label className="flex items-center gap-3 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={value.automatedLighting}
+            onChange={(e) => onChange({ ...value, automatedLighting: e.target.checked })}
+            className="w-5 h-5 text-primary-600 border-gray-300 dark:border-gray-600 rounded focus:ring-primary-500"
+          />
+          <div>
+            <span className="font-medium text-gray-800 dark:text-white">Automated Lighting Schedule</span>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              Include timer for automated day/night cycles (type depends on setup tier)
+            </p>
+          </div>
+        </label>
+      </div>
+
       {/* Number of Hides */}
       <div>
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
@@ -710,6 +762,50 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
             Shelters for security (1-6)
           </span>
         </div>
+      </div>
+
+      {/* Hide Style Preference */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+          Hide Style
+        </label>
+        <div className="grid grid-cols-3 gap-2">
+          <button
+            onClick={() => onChange({ ...value, hideStylePreference: 'natural' })}
+            className={`px-3 py-3 rounded-md text-sm font-medium transition-colors ${
+              value.hideStylePreference === 'natural'
+                ? 'bg-primary-600 text-white'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
+            }`}
+          >
+            Natural
+          </button>
+          <button
+            onClick={() => onChange({ ...value, hideStylePreference: 'commercial' })}
+            className={`px-3 py-3 rounded-md text-sm font-medium transition-colors ${
+              value.hideStylePreference === 'commercial'
+                ? 'bg-primary-600 text-white'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
+            }`}
+          >
+            Commercial
+          </button>
+          <button
+            onClick={() => onChange({ ...value, hideStylePreference: 'both' })}
+            className={`px-3 py-3 rounded-md text-sm font-medium transition-colors ${
+              value.hideStylePreference === 'both'
+                ? 'bg-primary-600 text-white'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
+            }`}
+          >
+            Both
+          </button>
+        </div>
+        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+          {value.hideStylePreference === 'natural' && 'Cork bark, wood, natural materials'}
+          {value.hideStylePreference === 'commercial' && 'Plastic caves, manufactured hides'}
+          {value.hideStylePreference === 'both' && 'Mix of natural and commercial options'}
+        </p>
       </div>
 
       {/* Number of Ledges (for vertical/arboreal species) OR Climbing Areas (for horizontal/terrestrial species) */}

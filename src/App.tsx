@@ -67,6 +67,9 @@ function App() {
     numberOfLedges: 3,
     numberOfClimbingAreas: 2,
     setupTier: 'recommended',
+    hideStylePreference: 'both',
+    doorOrientation: 'front',
+    automatedLighting: true,
   });
 
   const [plan, setPlan] = useState<BuildPlan | null>(null);

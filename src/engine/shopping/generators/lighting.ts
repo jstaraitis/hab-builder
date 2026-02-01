@@ -24,6 +24,25 @@ export function addUVBLighting(
   const sizing = `${fixtureLength}" fixture (${profile.careTargets.lighting.coveragePercent}% of ${Math.round(dims.width)}" width)`;
   
   items.push(createShoppingItem(fixtureId, config, 1, sizing));
+
+  // Add timer if user wants automated lighting
+  if (input.automatedLighting) {
+    const catalogDict = catalog as Record<string, EquipmentConfig>;
+    const timerConfig = catalogDict['timer'];
+    if (timerConfig) {
+      items.push({
+        id: 'timer',
+        category: timerConfig.category,
+        name: timerConfig.name,
+        quantity: 1,
+        sizing: 'For automated day/night cycles',
+        importance: 'recommended',
+        setupTierOptions: timerConfig.tiers,
+        notes: timerConfig.notes,
+        incompatibleAnimals: timerConfig.incompatibleAnimals,
+      });
+    }
+  }
 }
 
 /**

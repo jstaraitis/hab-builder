@@ -27,15 +27,17 @@ export function addEnclosure(
       : `${input.width}cm × ${input.depth}cm × ${input.height}cm`;
     dimensionsDisplay = `${gallons} gallon (${dims})`;
   } else {
-    dimensionsDisplay = input.units === 'in' 
+    const dims = input.units === 'in' 
       ? `${input.width}" × ${input.depth}" × ${input.height}"`
       : `${input.width}cm × ${input.depth}cm × ${input.height}cm`;
+    const doorNote = input.doorOrientation === 'front' ? ' - Front opening doors' : ' - Top opening access';
+    dimensionsDisplay = dims + doorNote;
   }
   
   items.push(createShoppingItem(
     `enclosure-${enclosureType}`,
     config,
-    input.quantity,
+    1, // Always 1 enclosure (sized to fit all animals)
     dimensionsDisplay
   ));
 }

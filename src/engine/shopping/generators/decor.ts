@@ -111,15 +111,21 @@ export function addDecor(
 export function addStructuralDecor(items: ShoppingItem[], input: EnclosureInput, profile: AnimalProfile): void {
   const catalogDict = catalog as Record<string, EquipmentConfig>;
   
-  // Hides - auto-include based on activity pattern, use user's specified quantity
+  // Hides - auto-include based on activity pattern, use user's specified quantity and style preference
   const hidesConfig = catalogDict['hides'];
   if (hidesConfig && shouldInclude(hidesConfig.autoIncludeFor, profile, input)) {
+    const hideStyleNote = input.hideStylePreference === 'natural' 
+      ? ' (Natural materials: cork bark, wood logs, natural caves)'
+      : input.hideStylePreference === 'commercial'
+      ? ' (Commercial products: plastic caves, resin hides)'
+      : ' (Mix of natural cork/wood and commercial plastic hides)';
+    
     items.push({
       id: 'hides',
       category: hidesConfig.category,
       name: hidesConfig.name,
       quantity: input.numberOfHides,
-      sizing: 'Ground and elevated placements as appropriate',
+      sizing: 'Ground and elevated placements as appropriate' + hideStyleNote,
       importance: hidesConfig.importance,
       setupTierOptions: hidesConfig.tiers,
       notes: hidesConfig.notes,

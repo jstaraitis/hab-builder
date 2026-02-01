@@ -134,7 +134,7 @@ export function validateEnclosureType(
   if (input.type === 'screen' && profile.layoutRules.preferVertical) {
     return {
       compatible: false,
-      warning: `Screen enclosures are not recommended for ${profile.commonName}. They lose humidity too quickly and frogs can damage their noses on the screen. Use glass or PVC instead.`,
+      warning: `Screen enclosures are not recommended for ${profile.commonName}. They lose humidity too quickly. Use glass or PVC instead.`,
     };
   }
 
