@@ -30,10 +30,11 @@ export function SuppliesView({ plan, input }: SuppliesViewProps) {
         keywords={['reptile supplies', 'vivarium shopping list', 'enclosure equipment', 'bioactive supplies', 'reptile decor']}
       />
       <div className="space-y-6">
+      {/* Header Section */}
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Shopping List</h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400">Equipment and supplies for your enclosure</p>
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Shopping List & Supplies</h2>
+          <p className="text-sm text-gray-600 dark:text-gray-400">Everything you need to build and maintain your enclosure</p>
         </div>
         <Link to="/plan" className="text-blue-700 dark:text-blue-400 font-medium underline">View Plan</Link>
       </div>
@@ -61,8 +62,12 @@ export function SuppliesView({ plan, input }: SuppliesViewProps) {
         <RecurringCosts costEstimate={plan.costEstimate} />
       )}
 
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Shopping List</h3>
+      {/* Shopping List Section */}
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="border-l-4 border-purple-500 pl-4 mb-4">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white">Equipment & Supplies</h3>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Complete list of items needed for your build</p>
+        </div>
         <ShoppingList items={plan.shoppingList} selectedTier={input.setupTier || 'recommended'} input={input} showHeader={false} affiliateTag="habitatbuil08-20" />
       </div>
 

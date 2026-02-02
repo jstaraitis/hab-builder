@@ -1,5 +1,5 @@
 ﻿import { Link, useLocation } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Info } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Calendar } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 interface MobileNavProps {
@@ -27,15 +27,15 @@ export function MobileNav({ hasAnimal, hasPlan }: MobileNavProps) {
     { path: '/design', icon: Pencil, label: 'Design', enabled: hasAnimal },
     { path: '/supplies', icon: ShoppingCart, label: 'Shop', enabled: hasPlan },
     { path: '/plan', icon: ClipboardList, label: 'Plan', enabled: hasPlan },
+    { path: '/care-calendar', icon: Calendar, label: 'Care', enabled: true },
     { path: '/blog', icon: BookOpen, label: 'Guides', enabled: true },
-    { path: '/about', icon: Info, label: 'About', enabled: true },
   ];
 
   return (
     <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-gradient-to-t from-white/95 to-gray-50/90 dark:from-gray-800/95 dark:to-gray-900/90 backdrop-blur-md border-t-2 border-gray-200/50 dark:border-gray-700/50 shadow-2xl z-50 safe-area-inset-bottom">
-      <div className="grid grid-cols-6 gap-1 px-2 py-3">
+      <div className="grid grid-cols-6 gap-0.5 px-1 py-2">
         {navItems.map((item) => {
-          const active = isActive(item.path);
+          const active = isActive(item.path) || (item.path === '/blog' && location.pathname.startsWith('/blog'));
           const enabled = item.enabled;
           const isAnimating = animatingPath === item.path;
           const Icon = item.icon;
@@ -44,7 +44,7 @@ export function MobileNav({ hasAnimal, hasPlan }: MobileNavProps) {
             <Link
               key={item.path}
               to={enabled ? item.path : '#'}
-              className={`group relative flex flex-col items-center justify-center py-3 px-1 rounded-xl transition-all duration-200 ${
+              className={`group relative flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-200 ${
                 active
                   ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-lg scale-105 -translate-y-1'
                   : enabled
@@ -53,10 +53,10 @@ export function MobileNav({ hasAnimal, hasPlan }: MobileNavProps) {
               }`}
               onClick={(e) => !enabled && e.preventDefault()}
             >
-              <Icon className={`w-6 h-6 ${active ? 'stroke-[2.5]' : 'stroke-2'} transition-all duration-300 ${
+              <Icon className={`w-5 h-5 ${active ? 'stroke-[2.5]' : 'stroke-2'} transition-all duration-300 ${
                 enabled ? 'group-hover:scale-110 group-active:scale-95 group-active:rotate-6' : ''
               } ${isAnimating ? 'scale-125 rotate-12' : ''}`} />
-              <span className={`text-xs font-bold tracking-tight leading-none mt-1 ${active ? 'text-white' : ''}`}>
+              <span className={`text-[10px] font-bold tracking-tight leading-none mt-0.5 ${active ? 'text-white' : ''}`}>
                 {item.label}
               </span>
             </Link>

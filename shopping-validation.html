@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping List Validation Tool - Habitat Builder</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      color: #059669;
+      margin-bottom: 10px;
+    }
+    
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+    }
+    
+    .progress {
+      background: #e5e7eb;
+      height: 30px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
+    
+    .progress-bar {
+      background: linear-gradient(90deg, #059669, #10b981);
+      height: 100%;
+      transition: width 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    
+    .animal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .animal-card {
+      border: 2px solid #e5e7eb;
+      border-radius: 6px;
+      padding: 15px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .animal-card:hover {
+      border-color: #059669;
+      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.1);
+    }
+    
+    .animal-card.validated {
+      border-color: #10b981;
+      background: #f0fdf4;
+    }
+    
+    .animal-card.in-progress {
+      border-color: #f59e0b;
+      background: #fffbeb;
+    }
+    
+    .animal-card.active {
+      border-color: #3b82f6;
+      background: #eff6ff;
+    }
+    
+    .animal-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #1f2937;
+    }
+    
+    .animal-type {
+      font-size: 12px;
+      color: #6b7280;
+      text-transform: capitalize;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-top: 5px;
+    }
+    
+    .status-validated {
+      background: #d1fae5;
+      color: #065f46;
+    }
+    
+    .status-in-progress {
+      background: #fef3c7;
+      color: #92400e;
+    }
+    
+    .status-draft {
+      background: #e5e7eb;
+      color: #374151;
+    }
+    
+    .validation-panel {
+      border-top: 2px solid #e5e7eb;
+      padding-top: 30px;
+      display: none;
+    }
+    
+    .validation-panel.active {
+      display: block;
+    }
+    
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .panel-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #1f2937;
+    }
+    
+    .test-sizes {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .size-btn {
+      padding: 10px 20px;
+      border: 2px solid #e5e7eb;
+      background: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    
+    .size-btn:hover {
+      border-color: #059669;
+    }
+    
+    .size-btn.active {
+      background: #059669;
+      color: white;
+      border-color: #059669;
+    }
+    
+    .checklist {
+      background: #f9fafb;
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .checklist h3 {
+      margin-bottom: 15px;
+      color: #1f2937;
+    }
+    
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    
+    .checklist-item input[type="checkbox"] {
+      margin-right: 10px;
+      margin-top: 3px;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+    
+    .checklist-item label {
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    .checklist-item.checked label {
+      text-decoration: line-through;
+      color: #9ca3af;
+    }
+    
+    .quick-links {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .link-btn {
+      padding: 10px 20px;
+      background: #3b82f6;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    
+    .link-btn:hover {
+      background: #2563eb;
+    }
+    
+    .link-btn.secondary {
+      background: #6b7280;
+    }
+    
+    .link-btn.secondary:hover {
+      background: #4b5563;
+    }
+    
+    .notes-area {
+      width: 100%;
+      min-height: 100px;
+      padding: 15px;
+      border: 2px solid #e5e7eb;
+      border-radius: 6px;
+      font-family: inherit;
+      resize: vertical;
+    }
+    
+    .notes-area:focus {
+      outline: none;
+      border-color: #059669;
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: #10b981;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #059669;
+    }
+    
+    .btn-secondary {
+      background: #e5e7eb;
+      color: #374151;
+    }
+    
+    .btn-secondary:hover {
+      background: #d1d5db;
+    }
+    
+    .summary {
+      background: #eff6ff;
+      border: 2px solid #3b82f6;
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .summary h3 {
+      color: #1e40af;
+      margin-bottom: 10px;
+    }
+    
+    .summary-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .stat {
+      background: white;
+      padding: 15px;
+      border-radius: 6px;
+    }
+    
+    .stat-value {
+      font-size: 28px;
+      font-weight: bold;
+      color: #1f2937;
+    }
+    
+    .stat-label {
+      font-size: 14px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🦎 Shopping List Validation Tool</h1>
+    <p class="subtitle">Systematically validate shopping list generation for all animals</p>
+    
+    <div class="progress">
+      <div class="progress-bar" id="progressBar">0% Complete (0/18)</div>
+    </div>
+    
+    <div class="summary">
+      <h3>Validation Progress</h3>
+      <div class="summary-stats">
+        <div class="stat">
+          <div class="stat-value" id="validatedCount">0</div>
+          <div class="stat-label">Validated</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="issuesCount">0</div>
+          <div class="stat-label">Issues Found</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="remainingCount">18</div>
+          <div class="stat-label">Remaining</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="animal-grid" id="animalGrid"></div>
+    
+    <div class="validation-panel" id="validationPanel">
+      <div class="panel-header">
+        <div class="panel-title" id="panelTitle">Select an animal to begin validation</div>
+      </div>
+      
+      <div class="quick-links" id="quickLinks" style="display: none;">
+        <a class="link-btn" id="appLink" href="http://localhost:5173" target="_blank">Open in App →</a>
+        <a class="link-btn secondary" id="profileLink" href="#" target="_blank">View Profile JSON</a>
+      </div>
+      
+      <div class="test-sizes" id="testSizes" style="display: none;"></div>
+      
+      <div class="checklist" id="checklist" style="display: none;">
+        <h3>Validation Checklist</h3>
+        <div id="checklistItems"></div>
+      </div>
+      
+      <div id="notesSection" style="display: none;">
+        <h3 style="margin-bottom: 10px;">Notes & Issues</h3>
+        <textarea class="notes-area" id="notesArea" placeholder="Document any issues, missing items, or improvements needed..."></textarea>
+      </div>
+      
+      <div class="action-buttons" id="actionButtons" style="display: none;">
+        <button class="btn btn-primary" id="markValidated">✓ Mark as Validated</button>
+        <button class="btn btn-secondary" id="markIssues">⚠ Mark as Has Issues</button>
+        <button class="btn btn-secondary" id="skipAnimal">Skip for Now</button>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const animals = [
+      { id: 'whites-tree-frog', name: "White's Tree Frog", type: 'arboreal', status: 'validated', sizes: ['18×18×24', '24×18×36', '36×18×48', '48×24×48'] },
+      { id: 'crested-gecko', name: 'Crested Gecko', type: 'arboreal', status: 'validated', sizes: ['18×18×24', '24×18×36', '36×18×48'] },
+      { id: 'bearded-dragon', name: 'Bearded Dragon', type: 'terrestrial', status: 'validated', sizes: ['48×24×24', '48×24×48'] },
+      { id: 'axolotl', name: 'Axolotl', type: 'aquatic', status: 'validated', sizes: ['36×18×16', '48×24×18'] },
+      { id: 'red-eyed-tree-frog', name: 'Red-Eyed Tree Frog', type: 'arboreal', status: 'in-progress', sizes: ['18×18×24', '24×18×36'] },
+      { id: 'leopard-gecko', name: 'Leopard Gecko', type: 'terrestrial', status: 'in-progress', sizes: ['36×18×18', '48×24×24'] },
+      { id: 'pacman-frog', name: 'Pacman Frog', type: 'terrestrial', status: 'in-progress', sizes: ['36×18×18'] },
+      { id: 'red-eared-slider', name: 'Red-Eared Slider', type: 'aquatic', status: 'in-progress', sizes: ['48×24×18', '55×24×20'] },
+      { id: 'mourning-gecko', name: 'Mourning Gecko', type: 'arboreal', status: 'in-progress', sizes: ['12×12×18', '18×18×24'] },
+      { id: 'amazon-milk-frog', name: 'Amazon Milk Frog', type: 'arboreal', status: 'draft', sizes: ['18×18×24', '24×18×36'] },
+      { id: 'gargoyle-gecko', name: 'Gargoyle Gecko', type: 'arboreal', status: 'draft', sizes: ['18×18×24', '24×18×36'] },
+      { id: 'veiled-chameleon', name: 'Veiled Chameleon', type: 'arboreal', status: 'draft', sizes: ['24×24×48'] },
+      { id: 'ball-python', name: 'Ball Python', type: 'semi-arboreal', status: 'draft', sizes: ['48×24×24', '48×24×30'] },
+      { id: 'corn-snake', name: 'Corn Snake', type: 'semi-arboreal', status: 'draft', sizes: ['48×24×24'] },
+      { id: 'blue-tongue-skink', name: 'Blue-Tongue Skink', type: 'terrestrial', status: 'draft', sizes: ['48×24×18'] },
+      { id: 'tomato-frog', name: 'Tomato Frog', type: 'terrestrial', status: 'draft', sizes: ['24×12×12', '36×18×18'] },
+      { id: 'uromastyx', name: 'Uromastyx', type: 'terrestrial', status: 'draft', sizes: ['48×24×24'] },
+      { id: 'african-clawed-frog', name: 'African Clawed Frog', type: 'aquatic', status: 'draft', sizes: ['24×12×12', '36×18×16'] }
+    ];
+    
+    const checklistItems = [
+      'Enclosure recommendation matches animal size requirements',
+      'UVB lighting included if required by species',
+      'Heating equipment appropriate for temperature needs',
+      'Substrate type and depth correct (bioactive vs standard)',
+      'Humidity control equipment included if needed (>60% requirement)',
+      'Water features (bowls/pools) included and sized correctly',
+      'Decor quantity appropriate for enclosure size',
+      'Climbing structures for arboreal species',
+      'All 3 setup tiers (minimum/recommended/ideal) have equipment options',
+      'Prices are reasonable and within expected ranges',
+      'Purchase links are valid and point to correct products',
+      'Bioactive toggle adds drainage layer + cleanup crew',
+      'Aquatic setups include filter, heater, water conditioner',
+      'Equipment quantities scale with enclosure size',
+      'No missing critical equipment for species needs'
+    ];
+    
+    let currentAnimal = null;
+    let validationData = JSON.parse(localStorage.getItem('habBuilderValidation') || '{}');
+    
+    function renderAnimalGrid() {
+      const grid = document.getElementById('animalGrid');
+      grid.innerHTML = animals.map(animal => {
+        const validation = validationData[animal.id] || {};
+        let statusClass = animal.status;
+        if (validation.validated) statusClass = 'validated';
+        if (validation.hasIssues) statusClass = 'in-progress';
+        
+        return `
+          <div class="animal-card ${statusClass} ${currentAnimal?.id === animal.id ? 'active' : ''}" 
+               data-id="${animal.id}"
+               onclick="selectAnimal('${animal.id}')">
+            <div class="animal-name">${animal.name}</div>
+            <div class="animal-type">${animal.type}</div>
+            <span class="status-badge status-${statusClass}">
+              ${validation.validated ? '✓ Validated' : validation.hasIssues ? '⚠ Issues' : animal.status}
+            </span>
+          </div>
+        `;
+      }).join('');
+      
+      updateProgress();
+    }
+    
+    function updateProgress() {
+      const validated = Object.values(validationData).filter(v => v.validated).length;
+      const withIssues = Object.values(validationData).filter(v => v.hasIssues).length;
+      const remaining = animals.length - validated;
+      const percent = Math.round((validated / animals.length) * 100);
+      
+      document.getElementById('progressBar').textContent = `${percent}% Complete (${validated}/${animals.length})`;
+      document.getElementById('progressBar').style.width = `${percent}%`;
+      document.getElementById('validatedCount').textContent = validated;
+      document.getElementById('issuesCount').textContent = withIssues;
+      document.getElementById('remainingCount').textContent = remaining;
+    }
+    
+    function selectAnimal(animalId) {
+      currentAnimal = animals.find(a => a.id === animalId);
+      if (!currentAnimal) return;
+      
+      const validation = validationData[animalId] || { notes: '', checklist: {}, validated: false, hasIssues: false };
+      
+      document.getElementById('panelTitle').textContent = currentAnimal.name;
+      document.getElementById('validationPanel').classList.add('active');
+      document.getElementById('quickLinks').style.display = 'flex';
+      document.getElementById('testSizes').style.display = 'flex';
+      document.getElementById('checklist').style.display = 'block';
+      document.getElementById('notesSection').style.display = 'block';
+      document.getElementById('actionButtons').style.display = 'flex';
+      
+      // Update links
+      document.getElementById('appLink').href = `http://localhost:5173/animal?selected=${animalId}`;
+      document.getElementById('profileLink').href = `vscode://file/c:/Users/jstaraitis/OneDrive%20-%20Wolff%20Bros.%20Supply,%20Inc/Desktop/HabBuild/src/data/animals/${animalId}.json`;
+      
+      // Render test sizes
+      const sizesHtml = currentAnimal.sizes.map((size, idx) => 
+        `<button class="size-btn" onclick="testSize('${size}', ${idx})">${size}"</button>`
+      ).join('');
+      document.getElementById('testSizes').innerHTML = sizesHtml;
+      
+      // Render checklist
+      const checklistHtml = checklistItems.map((item, idx) => {
+        const checked = validation.checklist[idx] || false;
+        return `
+          <div class="checklist-item ${checked ? 'checked' : ''}">
+            <input type="checkbox" id="check${idx}" ${checked ? 'checked' : ''} 
+                   onchange="updateChecklist(${idx})">
+            <label for="check${idx}">${item}</label>
+          </div>
+        `;
+      }).join('');
+      document.getElementById('checklistItems').innerHTML = checklistHtml;
+      
+      // Load notes
+      document.getElementById('notesArea').value = validation.notes || '';
+      
+      renderAnimalGrid();
+    }
+    
+    function testSize(size, idx) {
+      const buttons = document.querySelectorAll('.size-btn');
+      buttons.forEach((btn, i) => {
+        if (i === idx) btn.classList.add('active');
+        else btn.classList.remove('active');
+      });
+      
+      // Update app link with size
+      const [w, d, h] = size.split('×');
+      document.getElementById('appLink').href = 
+        `http://localhost:5173/design?animal=${currentAnimal.id}&width=${w}&depth=${d}&height=${h}`;
+    }
+    
+    function updateChecklist(idx) {
+      if (!currentAnimal) return;
+      
+      if (!validationData[currentAnimal.id]) {
+        validationData[currentAnimal.id] = { notes: '', checklist: {}, validated: false, hasIssues: false };
+      }
+      
+      const checkbox = document.getElementById(`check${idx}`);
+      validationData[currentAnimal.id].checklist[idx] = checkbox.checked;
+      
+      saveValidation();
+      renderAnimalGrid();
+    }
+    
+    document.getElementById('notesArea').addEventListener('input', (e) => {
+      if (!currentAnimal) return;
+      
+      if (!validationData[currentAnimal.id]) {
+        validationData[currentAnimal.id] = { notes: '', checklist: {}, validated: false, hasIssues: false };
+      }
+      
+      validationData[currentAnimal.id].notes = e.target.value;
+      saveValidation();
+    });
+    
+    document.getElementById('markValidated').addEventListener('click', () => {
+      if (!currentAnimal) return;
+      
+      if (!validationData[currentAnimal.id]) {
+        validationData[currentAnimal.id] = { notes: '', checklist: {}, validated: false, hasIssues: false };
+      }
+      
+      validationData[currentAnimal.id].validated = true;
+      validationData[currentAnimal.id].hasIssues = false;
+      validationData[currentAnimal.id].validatedAt = new Date().toISOString();
+      
+      saveValidation();
+      selectNextAnimal();
+    });
+    
+    document.getElementById('markIssues').addEventListener('click', () => {
+      if (!currentAnimal) return;
+      
+      if (!validationData[currentAnimal.id]) {
+        validationData[currentAnimal.id] = { notes: '', checklist: {}, validated: false, hasIssues: false };
+      }
+      
+      validationData[currentAnimal.id].hasIssues = true;
+      validationData[currentAnimal.id].validated = false;
+      
+      saveValidation();
+      selectNextAnimal();
+    });
+    
+    document.getElementById('skipAnimal').addEventListener('click', () => {
+      selectNextAnimal();
+    });
+    
+    function selectNextAnimal() {
+      const currentIdx = animals.findIndex(a => a.id === currentAnimal.id);
+      const nextAnimal = animals[currentIdx + 1];
+      
+      if (nextAnimal) {
+        selectAnimal(nextAnimal.id);
+      } else {
+        alert('All animals reviewed! Check the progress summary above.');
+      }
+    }
+    
+    function saveValidation() {
+      localStorage.setItem('habBuilderValidation', JSON.stringify(validationData));
+      renderAnimalGrid();
+    }
+    
+    // Initialize
+    renderAnimalGrid();
+    
+    // Auto-select first non-validated animal
+    const firstUnvalidated = animals.find(a => !validationData[a.id]?.validated);
+    if (firstUnvalidated) {
+      selectAnimal(firstUnvalidated.id);
+    }
+  </script>
+</body>
+</html>

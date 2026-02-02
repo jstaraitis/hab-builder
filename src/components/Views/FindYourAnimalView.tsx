@@ -251,20 +251,32 @@ function AnimalRecommendationCard({ recommendation, onSelect }: AnimalRecommenda
   };
 
   return (
-    <div className={`rounded-lg border-2 p-4 ${getScoreColor(compatibilityScore)}`}>
-      {/* Header */}
-      <div className="flex items-start justify-between gap-3 mb-3">
-        <div>
+    <div className={`rounded-lg border-2 overflow-hidden flex flex-col ${getScoreColor(compatibilityScore)}`}>
+      {/* Image */}
+      {profile.imageUrl && (
+        <div className="relative h-48 bg-gray-200 dark:bg-gray-700">
+          <img
+            src={profile.imageUrl}
+            alt={profile.commonName}
+            className="w-full h-full object-cover"
+          />
+          {/* Score Badge Overlay */}
+          <div className="absolute top-3 right-3 bg-white dark:bg-gray-800 rounded-lg px-3 py-1 shadow-lg">
+            <div className={`text-xl font-bold ${getScoreTextColor(compatibilityScore)}`}>
+              {compatibilityScore}%
+            </div>
+            <p className="text-xs text-gray-600 dark:text-gray-400 text-center">Match</p>
+          </div>
+        </div>
+      )}
+      
+      {/* Content */}
+      <div className="p-4 flex-1 flex flex-col">
+        {/* Header */}
+        <div className="mb-3">
           <h3 className="text-lg font-bold text-gray-900 dark:text-white">{profile.commonName}</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 italic">{profile.scientificName}</p>
         </div>
-        <div className="text-right">
-          <div className={`text-2xl font-bold ${getScoreTextColor(compatibilityScore)}`}>
-            {compatibilityScore}%
-          </div>
-          <p className="text-xs text-gray-600 dark:text-gray-400">Match</p>
-        </div>
-      </div>
 
       {/* Reasons */}
       {reasons.length > 0 && (
@@ -293,10 +305,11 @@ function AnimalRecommendationCard({ recommendation, onSelect }: AnimalRecommenda
       {/* Action Button */}
       <button
         onClick={() => onSelect(recommendation.animalId)}
-        className="w-full mt-4 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 dark:hover:bg-emerald-600 text-white font-medium rounded-lg transition-colors"
+        className="w-full px-4 py-2 bg-emerald-600 hover:bg-emerald-700 dark:hover:bg-emerald-600 text-white font-medium rounded-lg transition-colors mt-auto"
       >
         Choose {profile.commonName}
       </button>
+      </div>
     </div>
   );
 }

@@ -23,11 +23,21 @@ export default {
       },
       animation: {
         'shimmer': 'shimmer 2s ease-in-out infinite',
+        'fade-in': 'fade-in 0.3s ease-out',
+        'scale-up': 'scale-up 0.3s ease-out',
       },
       keyframes: {
         shimmer: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
+        },
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        'scale-up': {
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
         },
       },
     },

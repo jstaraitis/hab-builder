@@ -98,7 +98,7 @@ function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
         <div key={index} className="mb-5">
           <p
             className="text-gray-700 dark:text-gray-300 leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: block.text || block.content || '' }}
+            dangerouslySetInnerHTML={{ __html: (block.text || block.content || '') as string }}
           />
         </div>
       );
@@ -154,7 +154,7 @@ function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
           className={`${warningBg} border-l-4 ${warningBorder} p-5 rounded-xl mb-6 shadow-sm`}
         >
           <p className={`${warningText} font-medium leading-relaxed`}>
-            <span dangerouslySetInnerHTML={{ __html: block.text || block.content || '' }} />
+            <span dangerouslySetInnerHTML={{ __html: (block.text || block.content || '') as string }} />
           </p>
         </div>
       );

@@ -1,6 +1,7 @@
 import { useMemo, useState, useEffect } from 'react';
 import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, Twitter } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, Twitter, Calendar, LogOut, User } from 'lucide-react';
+import { useAuth } from './contexts/AuthContext';
 import type { EnclosureInput, BuildPlan, AnimalProfile } from './engine/types';
 import { generatePlan } from './engine/generatePlan';
 import { AnimalSelectView } from './components/Views/AnimalSelectView';
@@ -9,6 +10,7 @@ import { PlanView } from './components/Views/PlanView';
 import { SuppliesView } from './components/Views/SuppliesView';
 import { FindYourAnimalView } from './components/Views/FindYourAnimalView';
 import { FindYourAnimalResultsView } from './components/Views/FindYourAnimalResultsView';
+import { CareCalendarView } from './components/Views/CareCalendarView';
 import CanvasDesigner from './components/EnclosureDesigner/CanvasDesigner';
 import { FeedbackModal } from './components/FeedbackModal/FeedbackModal';
 import { BlogList } from './components/Blog/BlogList';
@@ -25,6 +27,7 @@ import { ProgressIndicator } from './components/Navigation/ProgressIndicator';
 function App() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { user, signOut } = useAuth();
   useTheme(); // Apply dark mode
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
 
@@ -215,6 +218,12 @@ function App() {
               <BookOpen className="w-4 h-4 inline mr-1.5" /> Guides
             </Link>
             <Link
+              to="/care-calendar"
+              className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/care-calendar') ? 'bg-rose-600 text-white border-rose-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-rose-400'}`}
+            >
+              <Calendar className="w-4 h-4 inline mr-1.5" /> Care Calendar
+            </Link>
+            <Link
               to="/about"
               className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/about') ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-teal-400'}`}
             >
@@ -227,6 +236,23 @@ function App() {
             >
               <MessageSquare className="w-4 h-4 inline mr-1.5" /> Feedback
             </button>
+            
+            {/* User Menu */}
+            {user && (
+              <div className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600">
+                <User className="w-4 h-4 text-gray-600 dark:text-gray-400" />
+                <span className="text-sm text-gray-700 dark:text-gray-200 hidden lg:inline">
+                  {user.email?.split('@')[0]}
+                </span>
+                <button
+                  onClick={signOut}
+                  className="p-1 hover:bg-gray-100 dark:hover:bg-gray-600 rounded transition-colors"
+                  title="Sign out"
+                >
+                  <LogOut className="w-4 h-4 text-gray-600 dark:text-gray-400" />
+                </button>
+              </div>
+            )}
           </nav>
           </div>
         </div>
@@ -321,6 +347,7 @@ function App() {
             }
           />
           <Route path="/supplies" element={<SuppliesView plan={plan} input={input} />} />
+          <Route path="/care-calendar" element={<CareCalendarView />} />
           <Route path="/about" element={<About onOpenFeedback={() => setIsFeedbackOpen(true)} />} />
           <Route path="/roadmap" element={<Roadmap onOpenFeedback={() => setIsFeedbackOpen(true)} />} />
           <Route path="/blog" element={<BlogList selectedAnimal={input.animal} />} />
