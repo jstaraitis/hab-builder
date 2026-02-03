@@ -332,6 +332,8 @@ export class SupabaseCareService implements ICareTaskService {
       nextDueAt: new Date(row.next_due_at),
       notes: row.notes,
       isActive: row.is_active,
+      notificationEnabled: row.notification_enabled,
+      notificationMinutesBefore: row.notification_minutes_before,
       createdAt: new Date(row.created_at),
       updatedAt: new Date(row.updated_at),
     };
@@ -357,6 +359,8 @@ export class SupabaseCareService implements ICareTaskService {
     if (task.nextDueAt !== undefined) mapped.next_due_at = task.nextDueAt.toISOString();
     if (task.notes !== undefined) mapped.notes = task.notes;
     if (task.isActive !== undefined) mapped.is_active = task.isActive;
+    if (task.notificationEnabled !== undefined) mapped.notification_enabled = task.notificationEnabled;
+    if (task.notificationMinutesBefore !== undefined) mapped.notification_minutes_before = task.notificationMinutesBefore;
     if (task.createdAt !== undefined) mapped.created_at = task.createdAt.toISOString();
     if (task.updatedAt !== undefined) mapped.updated_at = task.updatedAt.toISOString();
     

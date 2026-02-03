@@ -141,6 +141,33 @@ export function CareCalendar() {
     return `Due in ${days} days`;
   };
 
+  const formatFrequency = (frequency: string, customDays?: number): string => {
+    const frequencyMap: Record<string, string> = {
+      'daily': 'Daily',
+      'every-other-day': 'Every other day',
+      'twice-weekly': 'Twice weekly',
+      'weekly': 'Weekly',
+      'bi-weekly': 'Every 2 weeks',
+      'monthly': 'Monthly',
+    };
+    
+    if (frequency === 'custom' && customDays) {
+      return `Every ${customDays} day${customDays > 1 ? 's' : ''}`;
+    }
+    
+    return frequencyMap[frequency] || frequency;
+  };
+
+  const formatTime = (time?: string): string | null => {
+    if (!time) return null;
+    
+    const [hours, minutes] = time.split(':').map(Number);
+    const period = hours >= 12 ? 'PM' : 'AM';
+    const displayHours = hours % 12 || 12;
+    
+    return `${displayHours}:${minutes.toString().padStart(2, '0')} ${period}`;
+  };
+
   // Filter tasks based on selected enclosure
   const filteredTasks = filterEnclosureId === ''
     ? tasks // Show all
@@ -160,7 +187,7 @@ export function CareCalendar() {
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 dark:text-gray-400">Loading care calendar...</p>
+          <p className="text-gray-600 dark:text-gray-400">Loading care tasks...</p>
         </div>
       </div>
     );
@@ -171,30 +198,11 @@ export function CareCalendar() {
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-          Care Calendar
+          Care Tasks
         </h1>
         <p className="text-gray-600 dark:text-gray-400">
           Manage your pets and their care tasks
         </p>
-        {/* Temporary debug button */}
-        <button
-          onClick={async () => {
-            try {
-              const { notificationService } = await import('../../services/notificationService');
-              await notificationService.subscribe();
-              alert('✅ Subscription saved! Check database.');
-            } catch (error) {
-              const errorMsg = error instanceof Error 
-                ? `${error.message}\n\nStack: ${error.stack}` 
-                : JSON.stringify(error, null, 2);
-              alert(`❌ Error:\n${errorMsg}`);
-              console.error('Subscription error:', error);
-            }
-          }}
-          className="mt-4 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm"
-        >
-          🔔 Test Push Subscription
-        </button>
       </div>
 
       {/* Getting Started Guide (shown when no enclosures) */}
@@ -202,7 +210,7 @@ export function CareCalendar() {
         <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-6 mb-6">
           <h2 className="text-lg font-semibold text-emerald-900 dark:text-emerald-100 mb-3 flex items-center gap-2">
             <Hand className="w-5 h-5" />
-            Welcome to Care Calendar!
+            Welcome to Care Tasks!
           </h2>
           <div className="space-y-2 text-emerald-800 dark:text-emerald-200">
             <p>
@@ -268,9 +276,10 @@ export function CareCalendar() {
             </p>
           </div>
         )}
+        
         {/* Tasks List */}
         {enclosures.length > 0 && filteredTasks.length > 0 && (
-          <div className="space-y-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
             {filteredTasks.map(task => {
               const isOverdue = task.nextDueAt < new Date();
               const isDueToday = task.nextDueAt.toDateString() === new Date().toDateString();
@@ -279,131 +288,148 @@ export function CareCalendar() {
               return (
                 <div
                   key={task.id}
-                  className={`relative overflow-hidden rounded-lg sm:rounded-xl border-2 transition-all hover:shadow-lg ${
+                  className={`relative overflow-hidden rounded-xl border-2 transition-all ${
                     isOverdue 
-                      ? 'bg-red-50 dark:bg-red-900/10 border-red-200 dark:border-red-800' 
+                      ? 'bg-white dark:bg-gray-800 border-red-400 dark:border-red-700' 
                       : isDueToday
-                      ? 'bg-emerald-50 dark:bg-emerald-900/10 border-emerald-200 dark:border-emerald-800'
+                      ? 'bg-white dark:bg-gray-800 border-emerald-400 dark:border-emerald-700'
                       : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700'
                   }`}
                 >
-                  {/* Status Bar */}
-                  <div className={`h-1 ${
-                    isOverdue ? 'bg-red-500' : isDueToday ? 'bg-emerald-500' : 'bg-gray-300 dark:bg-gray-600'
-                  }`} />
-                  
-                  <div className="p-2.5 sm:p-3.5">
-                    {/* Header Row - Clickable to expand/collapse */}
-                    <div 
-                      onClick={() => toggleTaskExpanded(task.id)}
-                      className="flex items-start justify-between gap-1.5 sm:gap-2 mb-2 cursor-pointer"
-                    >
-                      <div className="flex items-start gap-1.5 sm:gap-2 flex-1 min-w-0">
-                        <div className={`p-1.5 sm:p-2 rounded-lg shrink-0 ${
+                  <div className="p-3">
+                    {/* Compact Header */}
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2 flex-1 min-w-0">
+                        <div className={`p-2 rounded-lg ${
                           isOverdue 
                             ? 'bg-red-100 dark:bg-red-900/30' 
-                            : 'bg-emerald-100 dark:bg-emerald-900/30'
+                            : isDueToday
+                            ? 'bg-emerald-100 dark:bg-emerald-900/30'
+                            : 'bg-gray-100 dark:bg-gray-700'
                         }`}>
                           {React.createElement(getTaskIcon(task.type), { 
-                            className: `w-4 h-4 sm:w-5 sm:h-5 ${
+                            className: `w-5 h-5 ${
                               isOverdue 
                                 ? 'text-red-600 dark:text-red-400' 
-                                : 'text-emerald-600 dark:text-emerald-400'
+                                : isDueToday
+                                ? 'text-emerald-600 dark:text-emerald-400'
+                                : 'text-gray-600 dark:text-gray-400'
                             }` 
                           })}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white mb-0.5">
-                            {task.title}
-                          </h3>
-                          {task.enclosureId && (
-                            <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-xs font-medium rounded-full">
-                               {getEnclosureName(task.enclosureId)}
-                            </span>
-                          )}
+                          <div className="flex items-center gap-1.5 flex-wrap">
+                            <h3 className="text-sm font-bold text-gray-900 dark:text-white">
+                              {task.title || 'Untitled Task'}
+                            </h3>
+                            {task.enclosureId && (
+                              <>
+                                <span className="text-xs text-gray-400">•</span>
+                                <span className="text-xs text-gray-600 dark:text-gray-400">
+                                  {getEnclosureName(task.enclosureId)}
+                                </span>
+                              </>
+                            )}
+                            {task.scheduledTime && (
+                              <>
+                                <span className="text-xs text-gray-400">•</span>
+                                <span className="text-xs text-gray-600 dark:text-gray-400">
+                                  {formatTime(task.scheduledTime)}
+                                </span>
+                              </>
+                            )}
+                          </div>
                         </div>
                       </div>
                       
-                      <div className="flex flex-col sm:flex-row items-end sm:items-center gap-1 sm:gap-2">
-                        {/* Due Status Badge */}
-                        <div className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-xs font-bold whitespace-nowrap ${
-                          isOverdue 
-                            ? 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300' 
-                            : isDueToday
-                            ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300'
-                            : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
-                        }`}>
-                          {formatDueDate(task.nextDueAt)}
-                        </div>
-                        
-                        {/* Expand/Collapse Icon */}
-                        <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 text-gray-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
-                      </div>
+                      <button
+                        onClick={() => setEditingTask(task)}
+                        className="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                      >
+                        <Pencil className="w-4 h-4 text-gray-400" />
+                      </button>
                     </div>
+
+                    {/* Status & Action Row */}
+                    <div className="flex items-center gap-2">
+                      <div className={`flex-1 px-2 py-1.5 rounded-lg text-xs font-bold text-center ${
+                        isOverdue 
+                          ? 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300' 
+                          : isDueToday
+                          ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300'
+                          : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                      }`}>
+                        {formatDueDate(task.nextDueAt)}
+                      </div>
+                      
+                      <button
+                        onClick={() => handleCompleteTask(task.id)}
+                        className="px-4 py-1.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg font-semibold text-sm transition-colors flex items-center gap-1.5 shadow-sm"
+                      >
+                        <Check className="w-4 h-4" />
+                        Done
+                      </button>
+                    </div>
+
+                    {/* Expandable Details */}
+                    {(task.description || task.notes || task.streak || task.lastCompleted) && (
+                      <button
+                        onClick={() => toggleTaskExpanded(task.id)}
+                        className="w-full mt-2 pt-2 border-t border-gray-200 dark:border-gray-700 flex items-center justify-center gap-1 text-xs text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+                      >
+                        <span>{isExpanded ? 'Less' : 'More'} info</span>
+                        <ChevronDown className={`w-3 h-3 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+                      </button>
+                    )}
 
                     {/* Collapsible Content */}
                     {isExpanded && (
-                      <>
+                      <div className="mt-2 pt-2 border-t border-gray-200 dark:border-gray-700 space-y-2">
                         {/* Description */}
                         {task.description && (
-                          <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                          <p className="text-xs text-gray-600 dark:text-gray-400">
                             {task.description}
                           </p>
                         )}
 
-                        {/* Stats Row */}
-                        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2 text-xs sm:text-sm">
-                          {task.lastCompleted && (
-                            <div className="flex items-center gap-1.5">
-                              <Check className="w-4 h-4 text-gray-400" />
-                              <span className="text-gray-600 dark:text-gray-400">Last:</span>
-                              <span className="font-semibold text-gray-900 dark:text-white">
-                                {task.lastCompleted.toLocaleDateString()}
-                              </span>
-                            </div>
-                          )}
-
-                          {task.streak && task.streak > 0 && (
-                            <div className="flex items-center gap-1.5 px-2 py-1 bg-orange-100 dark:bg-orange-900/30 rounded-full border-2 border-orange-300 dark:border-orange-700">
-                              <Flame className="w-4 h-4 text-orange-500" />
-                              <span className="font-bold text-orange-700 dark:text-orange-400">
-                                {task.streak} day streak
-                              </span>
-                            </div>
-                          )}
+                        {/* Frequency & Schedule */}
+                        <div className="flex flex-wrap items-center gap-1.5 text-xs">
+                          <div className="inline-flex items-center gap-1 px-2 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full">
+                            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                            {formatFrequency(task.frequency, task.customFrequencyDays)}
+                          </div>
                         </div>
-                      </>
-                    )}
 
-                    {/* Action Buttons */}
-                    <div className="flex gap-1.5 sm:gap-2">
-                      <button
-                        onClick={() => handleCompleteTask(task.id)}
-                        aria-label="Complete task"
-                        className="flex-1 sm:flex-none sm:px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-colors shadow-sm flex items-center justify-center border-2 border-emerald-700 dark:border-emerald-500"
-                      >
-                        <Check className="w-5 h-5" />
-                      </button>
-                      <button
-                        onClick={() => setEditingTask(task)}
-                        aria-label="Edit task"
-                        className="px-3 py-2 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/40 dark:hover:bg-blue-900/60 text-blue-700 dark:text-blue-300 font-medium rounded-lg transition-colors flex items-center justify-center border-2 border-blue-300 dark:border-blue-700"
-                      >
-                        <Pencil className="w-5 h-5" />
-                      </button>
-                    </div>
-                  </div>
+                        {/* Stats */}
+                        {(task.lastCompleted || task.streak) && (
+                          <div className="flex flex-wrap items-center gap-2 text-xs">
+                            {task.lastCompleted && (
+                              <span className="text-gray-600 dark:text-gray-400">
+                                Last: {task.lastCompleted.toLocaleDateString()}
+                              </span>
+                            )}
+                            {task.streak && task.streak > 0 && (
+                              <div className="inline-flex items-center gap-1 px-2 py-0.5 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 rounded-full">
+                                <Flame className="w-3 h-3" />
+                                {task.streak} day streak
+                              </div>
+                            )}
+                          </div>
+                        )}
 
-                  {/* Notes (if any) - Only show when expanded */}
-                  {isExpanded && task.notes && (
-                    <div className="px-3 sm:px-3.5 pb-3 pt-0">
-                      <div className="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-3 border-l-4 border-blue-500">
-                        <p className="text-sm text-gray-700 dark:text-gray-300">
-                          <span className="font-semibold">Note: </span>{task.notes}
-                        </p>
+                        {/* Notes */}
+                        {task.notes && (
+                          <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-2 border-l-2 border-blue-400">
+                            <p className="text-xs text-gray-700 dark:text-gray-300">
+                              <span className="font-medium">Note: </span>{task.notes}
+                            </p>
+                          </div>
+                        )}
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
               );
             })}

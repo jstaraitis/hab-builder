@@ -43,16 +43,13 @@ class WebNotificationService implements INotificationService {
       }
     }
 
-    // Register service worker if not already registered
     const registration = await navigator.serviceWorker.ready;
 
-    // Subscribe to push notifications
     const subscription = await registration.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey: this.urlBase64ToUint8Array(this.vapidPublicKey) as BufferSource
     });
 
-    // Save subscription to database
     await this.saveSubscription(subscription);
   }
 
@@ -87,10 +84,16 @@ class WebNotificationService implements INotificationService {
   private async saveSubscription(subscription: globalThis.PushSubscription): Promise<void> {
     const subscriptionData = subscription.toJSON();
     
+    const { data: userData } = await supabase.auth.getUser();
+    
+    if (!userData.user?.id) {
+      throw new Error('User not authenticated');
+    }
+
     const { error } = await supabase
       .from('push_subscriptions')
       .upsert({
-        user_id: (await supabase.auth.getUser()).data.user?.id,
+        user_id: userData.user.id,
         endpoint: subscriptionData.endpoint!,
         p256dh: subscriptionData.keys!.p256dh,
         auth: subscriptionData.keys!.auth,

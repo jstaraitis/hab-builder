@@ -221,7 +221,7 @@ function App() {
               to="/care-calendar"
               className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/care-calendar') ? 'bg-rose-600 text-white border-rose-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-rose-400'}`}
             >
-              <Calendar className="w-4 h-4 inline mr-1.5" /> Care Calendar
+              <Calendar className="w-4 h-4 inline mr-1.5" /> Care Tasks
             </Link>
             <Link
               to="/about"

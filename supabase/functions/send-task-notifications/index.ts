@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.3';
+import webpush from 'npm:web-push@3.6.7';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -22,22 +23,15 @@ interface Task {
   next_due_at: string;
   notification_enabled: boolean;
   notification_minutes_before: number;
+  enclosure_id: string | null;
 }
 
-// Base64 URL-safe encoding
-function base64UrlEncode(buffer: ArrayBuffer): string {
-  const bytes = new Uint8Array(buffer);
-  let binary = '';
-  for (let i = 0; i < bytes.length; i++) {
-    binary += String.fromCharCode(bytes[i]);
-  }
-  return btoa(binary)
-    .replace(/\+/g, '-')
-    .replace(/\//g, '_')
-    .replace(/=/g, '');
+interface Enclosure {
+  id: string;
+  name: string;
 }
 
-// Send web push notification
+// Send web push notification using npm web-push via Deno npm: specifier
 async function sendWebPush(
   subscription: PushSubscription,
   payload: string,
@@ -46,80 +40,36 @@ async function sendWebPush(
   vapidEmail: string
 ): Promise<boolean> {
   try {
-    const url = new URL(subscription.endpoint);
-    
-    // Create JWT for VAPID
-    const header = { typ: 'JWT', alg: 'ES256' };
-    const payload_jwt = {
-      aud: `${url.protocol}//${url.host}`,
-      exp: Math.floor(Date.now() / 1000) + 12 * 60 * 60, // 12 hours
-      sub: vapidEmail
+    console.log('Configuring VAPID details...');
+    webpush.setVapidDetails(
+      vapidEmail,
+      vapidPublicKey,
+      vapidPrivateKey
+    );
+
+    const pushSubscription = {
+      endpoint: subscription.endpoint,
+      keys: {
+        p256dh: subscription.p256dh,
+        auth: subscription.auth
+      }
     };
 
-    // Import VAPID private key
-    const privateKeyBytes = Uint8Array.from(
-      atob(vapidPrivateKey.replace(/-/g, '+').replace(/_/g, '/')),
-      c => c.charCodeAt(0)
-    );
-
-    const key = await crypto.subtle.importKey(
-      'raw',
-      privateKeyBytes,
-      { name: 'ECDSA', namedCurve: 'P-256' },
-      false,
-      ['sign']
-    );
-
-    // Create JWT token
-    const headerB64 = base64UrlEncode(new TextEncoder().encode(JSON.stringify(header)));
-    const payloadB64 = base64UrlEncode(new TextEncoder().encode(JSON.stringify(payload_jwt)));
-    const unsignedToken = `${headerB64}.${payloadB64}`;
+    console.log('Sending push notification to:', subscription.endpoint);
     
-    const signature = await crypto.subtle.sign(
-      { name: 'ECDSA', hash: 'SHA-256' },
-      key,
-      new TextEncoder().encode(unsignedToken)
-    );
+    await webpush.sendNotification(pushSubscription, payload);
     
-    const signatureB64 = base64UrlEncode(signature);
-    const jwt = `${unsignedToken}.${signatureB64}`;
-
-    // Encrypt payload
-    const encoder = new TextEncoder();
-    const payloadBytes = encoder.encode(payload);
+    console.log('Push notification sent successfully!');
+    return true;
+  } catch (error: any) {
+    console.error('Error sending web push:', error);
     
-    // Generate random salt and key
-    const salt = crypto.getRandomValues(new Uint8Array(16));
-    const localKeyPair = await crypto.subtle.generateKey(
-      { name: 'ECDH', namedCurve: 'P-256' },
-      true,
-      ['deriveBits']
-    );
-
-    // Send notification
-    const response = await fetch(subscription.endpoint, {
-      method: 'POST',
-      headers: {
-        'TTL': '86400', // 24 hours
-        'Content-Encoding': 'aes128gcm',
-        'Authorization': `vapid t=${jwt}, k=${vapidPublicKey}`,
-        'Content-Type': 'application/octet-stream'
-      },
-      body: payloadBytes
-    });
-
-    if (response.status === 201) {
-      return true;
-    } else if (response.status === 404 || response.status === 410) {
-      // Subscription expired, should be removed
+    if (error.statusCode === 404 || error.statusCode === 410) {
       console.log(`Subscription expired: ${subscription.endpoint}`);
       return false;
-    } else {
-      console.error(`Failed to send notification: ${response.status} ${response.statusText}`);
-      return false;
     }
-  } catch (error) {
-    console.error('Error sending web push:', error);
+    
+    console.error('Push error details:', error.body || error.message);
     return false;
   }
 }
@@ -148,15 +98,17 @@ serve(async (req) => {
     const now = new Date();
     
     // Query for tasks that are:
-    // 1. Due within their notification window
-    // 2. Have notifications enabled
-    // 3. Are active
+    // 1. Have notifications enabled
+    // 2. Are active
+    // 3. Due time is recent (within last 24 hours to catch any we might have missed)
+    const twentyFourHoursAgo = new Date(now.getTime() - (24 * 60 * 60 * 1000));
+    
     const { data: dueTasks, error: tasksError } = await supabaseClient
       .from('care_tasks')
-      .select('id, user_id, title, description, next_due_at, notification_enabled, notification_minutes_before')
+      .select('id, user_id, title, description, next_due_at, notification_enabled, notification_minutes_before, enclosure_id')
       .eq('notification_enabled', true)
       .eq('is_active', true)
-      .gte('next_due_at', now.toISOString());
+      .gte('next_due_at', twentyFourHoursAgo.toISOString());
 
     if (tasksError) throw tasksError;
 
@@ -165,6 +117,25 @@ serve(async (req) => {
         JSON.stringify({ message: 'No tasks with notifications enabled', count: 0 }),
         { headers: { ...corsHeaders, 'Content-Type': 'application/json' }, status: 200 }
       );
+    }
+
+    // Get all unique enclosure IDs from tasks
+    const enclosureIds = [...new Set(dueTasks.map(t => t.enclosure_id).filter(Boolean))];
+    
+    // Fetch enclosure names if there are any
+    let enclosuresMap: Record<string, string> = {};
+    if (enclosureIds.length > 0) {
+      const { data: enclosures, error: encError } = await supabaseClient
+        .from('enclosures')
+        .select('id, name')
+        .in('id', enclosureIds);
+      
+      if (!encError && enclosures) {
+        enclosuresMap = enclosures.reduce((acc, enc) => {
+          acc[enc.id] = enc.name;
+          return acc;
+        }, {} as Record<string, string>);
+      }
     }
 
     // Filter tasks that should be notified now
@@ -219,20 +190,33 @@ serve(async (req) => {
 
       // Send notification to each subscription
       for (const subscription of subscriptions) {
+        console.log(`Processing subscription for user ${userId}:`, subscription.endpoint);
+        
         // Group multiple tasks into one notification if there are many
+        const firstTask = tasks[0];
+        const enclosureName = firstTask.enclosure_id 
+          ? (enclosuresMap[firstTask.enclosure_id] || 'Your Enclosure')
+          : 'Your Pet';
         const taskTitles = tasks.map(t => t.title);
+        
+        const notificationTitle = tasks.length === 1
+          ? enclosureName
+          : `${enclosureName} (${tasks.length} tasks)`;
+        
         const notificationBody = tasks.length === 1
-          ? `${tasks[0].title} is due soon!`
-          : `${tasks.length} tasks due soon: ${taskTitles.slice(0, 3).join(', ')}${tasks.length > 3 ? '...' : ''}`;
+          ? `${tasks[0].title}`
+          : taskTitles.slice(0, 3).join(', ') + (tasks.length > 3 ? '...' : '');
 
         const payload = JSON.stringify({
-          title: 'Care Task Reminder',
+          title: notificationTitle,
           body: notificationBody,
           tag: tasks.length === 1 ? `task-${tasks[0].id}` : 'multiple-tasks',
           url: '/care-calendar',
           taskId: tasks.length === 1 ? tasks[0].id : null,
           taskCount: tasks.length
         });
+
+        console.log('Sending push with payload:', payload);
 
         const success = await sendWebPush(
           subscription,
@@ -241,6 +225,8 @@ serve(async (req) => {
           vapidPrivateKey,
           vapidEmail
         );
+
+        console.log(`Push notification result for ${subscription.endpoint}: ${success ? 'SUCCESS' : 'FAILED'}`);
 
         if (success) {
           notificationsSent++;

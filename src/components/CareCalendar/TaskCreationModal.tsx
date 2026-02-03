@@ -62,7 +62,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated }: TaskCreati
       
       if (animalTemplate) {
         // Convert template tasks to form data
-        setTasks(animalTemplate.tasks.map(t => ({
+        const templateTasks = animalTemplate.tasks.map(t => ({
           animalId: selectedAnimal,
           title: t.title,
           description: t.description,
@@ -71,7 +71,9 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated }: TaskCreati
           scheduledTime: t.scheduledTime,
           notificationEnabled: true,
           notificationMinutesBefore: 15,
-        })));
+        }));
+        console.log('Loading template tasks:', templateTasks);
+        setTasks(templateTasks);
       }
     }
   }, [selectedAnimal]);
@@ -88,6 +90,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated }: TaskCreati
     try {
       // Create all tasks
       for (const taskData of tasks) {
+        const now = new Date();
         const nextDueAt = new Date();
         nextDueAt.setHours(0, 0, 0, 0); // Start from today
         
@@ -95,6 +98,15 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated }: TaskCreati
         if (taskData.scheduledTime) {
           const [hours, minutes] = taskData.scheduledTime.split(':').map(Number);
           nextDueAt.setHours(hours, minutes, 0, 0);
+          
+          // If the scheduled time has already passed today, move to tomorrow
+          if (nextDueAt <= now) {
+            nextDueAt.setDate(nextDueAt.getDate() + 1);
+          }
+        } else {
+          // No scheduled time - default to tomorrow at 9 AM
+          nextDueAt.setDate(nextDueAt.getDate() + 1);
+          nextDueAt.setHours(9, 0, 0, 0);
         }
 
         const newTask: Omit<CareTask, 'id' | 'createdAt' | 'updatedAt'> = {
@@ -112,6 +124,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated }: TaskCreati
           notificationMinutesBefore: taskData.notificationMinutesBefore,
         };
 
+        console.log('Creating task with title:', taskData.title, 'Full task data:', newTask);
         await careTaskService.createTask(newTask);
       }
 
@@ -144,7 +157,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated }: TaskCreati
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-4xl w-full max-h-[85vh] sm:max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 dark:border-gray-700">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
@@ -159,7 +172,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated }: TaskCreati
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 pb-24 sm:pb-6">
           {/* Step 1: Enclosure Selection */}
           {!selectedEnclosure ? (
             <div className="space-y-3 sm:space-y-4">
@@ -377,7 +390,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated }: TaskCreati
                         value={task.title}
                         onChange={(e) => updateTask(index, 'title', e.target.value)}
                         placeholder="Task name (e.g., 'Feed', 'Clean tank')"
-                        className="flex-1 text-base sm:text-lg font-medium bg-transparent border-none focus:outline-none focus:ring-0 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 px-0"
+                        className="flex-1 text-base sm:text-lg font-medium px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
                       />
                       <button
                         onClick={() => removeTask(index)}
@@ -506,7 +519,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated }: TaskCreati
 
         {/* Footer */}
         {(selectedAnimal || (taskMode === 'custom' && tasks.length > 0)) && (
-          <div className="border-t border-gray-200 dark:border-gray-700 p-3 sm:p-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:justify-between bg-gray-50 dark:bg-gray-900">
+          <div className="border-t border-gray-200 dark:border-gray-700 p-3 sm:p-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 sm:justify-between bg-gray-50 dark:bg-gray-900 shrink-0">
             <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 text-center sm:text-left">
               {tasks.length} task{tasks.length !== 1 ? 's' : ''} ready
             </div>
