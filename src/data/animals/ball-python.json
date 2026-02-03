@@ -159,6 +159,13 @@
     "ball-python-feeding-guide",
     "ball-python-hydration-guide"
   ],
+  "lifestyle": {
+    "lifespan": "long",
+    "handling": "occasional",
+    "noiseLevel": "quiet",
+    "feedingFrequency": "weekly",
+    "travelCompatibility": "high"
+  },
   "careGuidance": {
     "feedingRequirements": [
       "Obligate carnivore - whole prey animals ONLY (rats, mice, ASF rats, quail, chicks)",

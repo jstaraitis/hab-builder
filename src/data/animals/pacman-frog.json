@@ -187,6 +187,13 @@
     "pacman-frog-hydration-guide"
   ],
 
+  "lifestyle": {
+    "lifespan": "medium",
+    "handling": "minimal",
+    "noiseLevel": "quiet",
+    "feedingFrequency": "every-few-days",
+    "travelCompatibility": "medium"
+  },
   "careGuidance": {
     "feedingRequirements": [
       "Obligate carnivores - whole prey items only (insects, worms, occasional rodents/fish)",

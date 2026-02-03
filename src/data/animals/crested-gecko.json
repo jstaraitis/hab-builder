@@ -141,6 +141,13 @@
     "crested-gecko-hydration-guide",
     "crested-gecko-enrichment-welfare-guide"
   ],
+  "lifestyle": {
+    "lifespan": "long",
+    "handling": "occasional",
+    "noiseLevel": "quiet",
+    "feedingFrequency": "every-few-days",
+    "travelCompatibility": "medium"
+  },
   "careGuidance": {
     "feedingRequirements": [
       "Omnivorous - primary diet is commercial crested gecko diet (CGD powder mixed with water)",

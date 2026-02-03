@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
-import { Worm, Search, BookOpen, CheckCircle, ShieldAlert, ShoppingCart, ClipboardList, DollarSign, Sparkles, Quote, Star } from 'lucide-react';
+import { Worm, Search, BookOpen, CheckCircle, ShieldAlert, ShoppingCart, ClipboardList, DollarSign, Sparkles, Quote, Star, Bell, GraduationCap, Palette } from 'lucide-react';
 
 export function Home() {
   const [activeBenefitCard, setActiveBenefitCard] = useState(0);
+  const [activeFeatureCard, setActiveFeatureCard] = useState(0);
   const benefitScrollRef = useRef<HTMLDivElement>(null);
+  const featureScrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const scrollContainer = benefitScrollRef.current;
@@ -25,6 +27,31 @@ export function Home() {
       
       const activeIndex = Math.round(scrollLeft / cardWidth);
       setActiveBenefitCard(Math.min(activeIndex, 5)); // Clamp to max 5
+    };
+
+    scrollContainer.addEventListener('scroll', handleScroll);
+    return () => scrollContainer.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const scrollContainer = featureScrollRef.current;
+    if (!scrollContainer) return;
+
+    const handleScroll = () => {
+      const scrollLeft = scrollContainer.scrollLeft;
+      const containerWidth = scrollContainer.offsetWidth;
+      const scrollWidth = scrollContainer.scrollWidth;
+      const cardWidth = containerWidth * 0.90 + 16; // 90% width + gap
+      
+      // Handle last card edge case
+      const isAtEnd = scrollLeft + containerWidth >= scrollWidth - 10;
+      if (isAtEnd) {
+        setActiveFeatureCard(3);
+        return;
+      }
+      
+      const activeIndex = Math.round(scrollLeft / cardWidth);
+      setActiveFeatureCard(Math.min(activeIndex, 3)); // Clamp to max 3
     };
 
     scrollContainer.addEventListener('scroll', handleScroll);
@@ -192,7 +219,7 @@ export function Home() {
                 Science, Not AI Guesswork
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-300">
-                Deterministic calculations based on verified care requirements and enclosure physics. Same inputs = same results, every time.
+                Deterministic calculations based on verified care requirements and enclosure physics. Same inputs equals same results, every time.
               </p>
             </div>
           </div>
@@ -287,42 +314,368 @@ export function Home() {
               Science, Not AI Guesswork
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-300">
-              Deterministic calculations based on verified care requirements and enclosure physics. Same inputs = same results, every time.
+              Deterministic calculations based on verified care requirements and enclosure physics. Same inputs equals same results, every time.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Expert Review Section */}
-      <section className="bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 dark:from-amber-900/20 dark:via-yellow-900/20 dark:to-amber-800/20 border-2 border-amber-200 dark:border-amber-800 rounded-2xl shadow-lg p-6 md:p-8 max-w-4xl mx-auto">
-        <div className="flex items-start gap-3 mb-4">
-          <div className="w-10 h-10 bg-amber-500 dark:bg-amber-600 rounded-full flex items-center justify-center flex-shrink-0">
-            <ShieldAlert className="w-5 h-5 text-white" />
+      {/* Beyond Setup: Complete Care Tools */}
+      <section className="space-y-8">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-2">
+          Beyond Setup: Complete Care Tools
+        </h2>
+        <p className="text-center text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto text-lg">
+          Building the enclosure is just the start. We help you maintain proper care for years to come.
+        </p>
+
+        {/* Mobile: Swipeable cards */}
+        <div className="md:hidden">
+          <div ref={featureScrollRef} className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 px-4 -mx-4">
+            {/* Care Tasks Feature */}
+            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl shadow-lg p-6 border-2 border-blue-200 dark:border-blue-800">
+              <div className="w-16 h-16 bg-blue-600 dark:bg-blue-500 rounded-2xl flex items-center justify-center mb-4">
+                <Bell className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                Care Task Reminders
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                Never miss a feeding, misting, or health check. Set up recurring care tasks with push notifications so your pet gets consistent, reliable care—even during busy weeks.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-4">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                  <span>Daily, weekly, or custom schedules</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                  <span>Push notifications to your phone</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                  <span>Track completion history</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                  <span>Manage multiple enclosures</span>
+                </li>
+              </ul>
+              <div className="mt-4 pt-4 border-t border-blue-200 dark:border-blue-800">
+                <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                  Premium feature in TESTING - requires paid subscription. Push notifications require browser permission and work best on mobile devices.
+                </p>
+              </div>
+            </div>
+
+            {/* Blog/Guides Feature */}
+            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl shadow-lg p-6 border-2 border-amber-200 dark:border-amber-800">
+              <div className="w-16 h-16 bg-amber-600 dark:bg-amber-500 rounded-2xl flex items-center justify-center mb-4">
+                <GraduationCap className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                77+ Free Care Guides
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                Comprehensive, species-specific guides covering everything from substrate choices to feeding schedules. Validated by keepers who actually care about your animal's wellbeing.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-4">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
+                  <span>Complete enrichment & welfare guides</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
+                  <span>Substrate, heating, lighting, feeding guides</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
+                  <span>Safety warnings for common mistakes</span>
+                </li>
+              </ul>
+              <Link
+                to="/blog"
+                className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-semibold transition-colors text-sm mb-4"
+              >
+                Browse all guides
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+              <div className="mt-4 pt-4 border-t border-amber-200 dark:border-amber-800">
+                <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                  Guides are educational resources. Always consult with an exotic veterinarian for health concerns and verify information against multiple sources.
+                </p>
+              </div>
+            </div>
+
+            {/* Visual Designer Feature */}
+            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl shadow-lg p-6 border-2 border-purple-200 dark:border-purple-800">
+              <div className="w-16 h-16 bg-purple-600 dark:bg-purple-500 rounded-2xl flex items-center justify-center mb-4">
+                <Palette className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                Visual Layout Designer
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                Drag-and-drop designer to plan your enclosure layout before you build. Visualize equipment placement, ensure proper thermal gradients, and avoid placement mistakes.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-4">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
+                  <span>Interactive drag-and-drop canvas</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
+                  <span>Pre-sized equipment from your shopping list</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
+                  <span>Zone overlays (basking, cooling, hides)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
+                  <span>Export as image to reference while building</span>
+                </li>
+              </ul>
+              <div className="mt-4 pt-4 border-t border-purple-200 dark:border-purple-800">
+                <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                  Available after generating your plan. Works best on larger screens (tablets/desktops). Still in development—verify all equipment fits and meets safety requirements before purchasing.
+                </p>
+              </div>
+            </div>
+
+            {/* Animal Search Feature */}
+            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-2xl shadow-lg p-6 border-2 border-emerald-200 dark:border-emerald-800">
+              <div className="w-16 h-16 bg-emerald-600 dark:bg-emerald-500 rounded-2xl flex items-center justify-center mb-4">
+                <Search className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                Find Your Perfect Pet
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                Not sure which animal to get? Use our smart search to find species that match your available space, experience level, and care preferences.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-4">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <span>Filter by enclosure size you have available</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <span>Match care level to your experience</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <span>See handling frequency, noise level, lifespan</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <span>View detailed care requirements before committing</span>
+                </li>
+              </ul>
+              <Link
+                to="/find-animal"
+                className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-semibold transition-colors text-sm mb-4"
+              >
+                Find your match
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+              <div className="mt-4 pt-4 border-t border-emerald-200 dark:border-emerald-800">
+                <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                  Research thoroughly before getting any pet. Consider long-term costs, space requirements, and lifespan. Adopt from reputable breeders or rescues only.
+                </p>
+              </div>
+            </div>
           </div>
-          <div>
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-1">
-              Help Us Improve
-            </h2>
-            <p className="text-sm text-amber-800 dark:text-amber-300">
-              We're actively seeking expert review to make these guides even better
-            </p>
+
+          {/* Swipe indicators */}
+          <div className="flex justify-center gap-1.5 mt-4">
+            {[0, 1, 2, 3].map((index) => (
+              <div 
+                key={index}
+                className={`w-2 h-2 rounded-full transition-colors ${ 
+                  activeFeatureCard === index 
+                    ? index === 0 ? 'bg-blue-500' 
+                      : index === 1 ? 'bg-amber-500'
+                      : index === 2 ? 'bg-purple-500'
+                      : 'bg-emerald-500'
+                    : 'bg-gray-300 dark:bg-gray-600'
+                }`}
+              />
+            ))}
           </div>
         </div>
 
-        <div className="bg-amber-100 dark:bg-amber-900/40 border-l-4 border-amber-500 rounded-lg p-4">
-          <p className="font-semibold text-amber-900 dark:text-amber-200 mb-2">Are you a reptile/amphibian expert?</p>
-          <p className="text-sm text-amber-800 dark:text-amber-300 mb-3">
-            We're looking for veterinarians, experienced breeders, and researchers to review our care guides. You'll be credited prominently with a link to your practice or website.
-          </p>
-          <Link
-            to="/about"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-amber-600 hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors text-sm"
-          >
-            Learn How to Help
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
+        {/* Desktop: Grid */}
+        <div className="hidden md:grid md:grid-cols-2 gap-6 lg:gap-8">
+          {/* Care Tasks Feature */}
+          <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl shadow-lg p-8 border-2 border-blue-200 dark:border-blue-800">
+            <div className="w-16 h-16 bg-blue-600 dark:bg-blue-500 rounded-2xl flex items-center justify-center mb-4">
+              <Bell className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+              Care Task Reminders
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              Never miss a feeding, misting, or health check. Set up recurring care tasks with push notifications so your pet gets consistent, reliable care—even during busy weeks.
+            </p>
+            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                <span>Daily, weekly, or custom schedules</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                <span>Push notifications to your phone</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                <span>Track completion history</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                <span>Manage multiple enclosures</span>
+              </li>
+            </ul>
+            <div className="mt-4 pt-4 border-t border-blue-200 dark:border-blue-800">
+              <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                Premium feature in TESTING - requires paid subscription. Push notifications require browser permission and work best on mobile devices.
+              </p>
+            </div>
+          </div>
+
+          {/* Blog/Guides Feature */}
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl shadow-lg p-8 border-2 border-amber-200 dark:border-amber-800">
+            <div className="w-16 h-16 bg-amber-600 dark:bg-amber-500 rounded-2xl flex items-center justify-center mb-4">
+              <GraduationCap className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+              77+ Free Care Guides
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              Comprehensive, species-specific guides covering everything from substrate choices to feeding schedules. Validated by keepers who actually care about your animal's wellbeing.
+            </p>
+            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
+                <span>Complete enrichment & welfare guides</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
+                <span>Substrate, heating, lighting, feeding guides</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
+                <span>Safety warnings for common mistakes</span>
+              </li>
+            </ul>
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-semibold transition-colors mb-4"
+            >
+              Browse all guides
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+            <div className="mt-4 pt-4 border-t border-amber-200 dark:border-amber-800">
+              <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                Guides are educational resources. Always consult with an exotic veterinarian for health concerns and verify information against multiple sources.
+              </p>
+            </div>
+          </div>
+
+          {/* Visual Designer Feature */}
+          <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl shadow-lg p-8 border-2 border-purple-200 dark:border-purple-800">
+            <div className="w-16 h-16 bg-purple-600 dark:bg-purple-500 rounded-2xl flex items-center justify-center mb-4">
+              <Palette className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+              Visual Layout Designer
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              Drag-and-drop designer to plan your enclosure layout before you build. Visualize equipment placement, ensure proper thermal gradients, and avoid placement mistakes.
+            </p>
+            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
+                <span>Interactive drag-and-drop canvas</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
+                <span>Pre-sized equipment from your shopping list</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
+                <span>Zone overlays (basking, cooling, hides)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
+                <span>Export as image to reference while building</span>
+              </li>
+            </ul>
+            <div className="mt-4 pt-4 border-t border-purple-200 dark:border-purple-800">
+              <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                Available after generating your plan. Works best on larger screens (tablets/desktops). Still in development—verify all equipment fits and meets safety requirements before purchasing.
+              </p>
+            </div>
+          </div>
+
+          {/* Animal Search Feature */}
+          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-2xl shadow-lg p-8 border-2 border-emerald-200 dark:border-emerald-800">
+            <div className="w-16 h-16 bg-emerald-600 dark:bg-emerald-500 rounded-2xl flex items-center justify-center mb-4">
+              <Search className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+              Find Your Perfect Pet
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              Not sure which animal to get? Use our smart search to find species that match your available space, experience level, and care preferences.
+            </p>
+            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+                <span>Filter by enclosure size you have available</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+                <span>Match care level to your experience</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+                <span>See handling frequency, noise level, lifespan</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+                <span>View detailed care requirements before committing</span>
+              </li>
+            </ul>
+            <Link
+              to="/find-animal"
+              className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-semibold transition-colors mb-4"
+            >
+              Find your match
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+            <div className="mt-4 pt-4 border-t border-emerald-200 dark:border-emerald-800">
+              <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                Research thoroughly before getting any pet. Consider long-term costs, space requirements, and lifespan. Adopt from reputable breeders or rescues only.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Color indicators for desktop */}
+        <div className="hidden md:flex justify-center gap-2 mt-6">
+          <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+          <div className="w-2 h-2 rounded-full bg-amber-500"></div>
+          <div className="w-2 h-2 rounded-full bg-purple-500"></div>
+          <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
         </div>
       </section>
 
@@ -574,3 +927,4 @@ export function Home() {
     </div>
   );
 }
+

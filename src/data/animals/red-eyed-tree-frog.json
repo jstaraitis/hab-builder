@@ -186,6 +186,13 @@
     "red-eyed-tree-frog-hydration-guide",
     "red-eyed-tree-frog-enrichment-welfare-guide"
   ],
+  "lifestyle": {
+    "lifespan": "short",
+    "handling": "minimal",
+    "noiseLevel": "quiet",
+    "feedingFrequency": "every-few-days",
+    "travelCompatibility": "medium"
+  },
   "careGuidance": {
     "feedingRequirements": [
       "Feed variety of live insects: crickets, roaches, fruit flies, waxworms",

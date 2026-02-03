@@ -34,6 +34,15 @@ const defaultInput: EnclosureInput = {
   doorOrientation: 'front',
   automatedLighting: false,
   setupTier: 'recommended',
+  // New lifestyle preference defaults
+  experienceLevel: 'any',
+  lifespanPreference: 'any',
+  handlingPreference: 'any',
+  activityPreference: 'any',
+  noiseTolerance: 'any',
+  foodTypePreference: 'any',
+  feedingFrequency: 'any',
+  travelFrequency: 'any',
 };
 
 export function FindYourAnimalView({ onAnimalSelected }: FindYourAnimalViewProps) {

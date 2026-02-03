@@ -201,6 +201,13 @@
     "whites-tree-frog-enrichment-welfare-guide",
     "whites-tree-frog-substrate-guide"
   ],
+  "lifestyle": {
+    "lifespan": "medium",
+    "handling": "occasional",
+    "noiseLevel": "moderate",
+    "feedingFrequency": "every-few-days",
+    "travelCompatibility": "medium"
+  },
   "careGuidance": {
     "feedingRequirements": [
       "Crickets and dubias are excellent staples - vary feeders for nutrition",

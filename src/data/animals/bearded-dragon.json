@@ -132,6 +132,13 @@
     "bearded-dragon-temp-humidity-guide",
     "bearded-dragon-enrichment-welfare-guide"
   ],
+  "lifestyle": {
+    "lifespan": "medium",
+    "handling": "frequent",
+    "noiseLevel": "quiet",
+    "feedingFrequency": "daily",
+    "travelCompatibility": "low"
+  },
   "careGuidance": {
     "feedingRequirements": [
       "Insects: crickets, dubia roaches, discus roaches, black soldier fly larvae, mealworms, hornworms, silkworms are all good options",

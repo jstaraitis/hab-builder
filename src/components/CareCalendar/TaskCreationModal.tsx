@@ -3,6 +3,7 @@ import { X } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { careTaskService } from '../../services/careTaskService';
 import { enclosureService } from '../../services/enclosureService';
+import { notificationService } from '../../services/notificationService';
 import { getTemplateForAnimal, type CareTemplate } from '../../data/care-templates';
 import type { TaskType, TaskFrequency, CareTask, Enclosure } from '../../types/careCalendar';
 
@@ -10,6 +11,7 @@ interface TaskCreationModalProps {
   isOpen: boolean;
   onClose: () => void;
   onTaskCreated: () => void;
+  onNotificationPromptNeeded?: () => void;
 }
 
 interface TaskFormData {
@@ -23,7 +25,7 @@ interface TaskFormData {
   notificationMinutesBefore: number;
 }
 
-export function TaskCreationModal({ isOpen, onClose, onTaskCreated }: TaskCreationModalProps) {
+export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificationPromptNeeded }: TaskCreationModalProps) {
   const { user } = useAuth();
   const [enclosures, setEnclosures] = useState<Enclosure[]>([]);
   const [selectedEnclosure, setSelectedEnclosure] = useState<string>('');
@@ -126,6 +128,18 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated }: TaskCreati
 
         console.log('Creating task with title:', taskData.title, 'Full task data:', newTask);
         await careTaskService.createTask(newTask);
+      }
+
+      // Check if any tasks had notifications enabled and prompt user if notifications not set up
+      const hasNotifications = tasks.some(t => t.notificationEnabled);
+      const notificationPermission = notificationService.getPermissionStatus();
+      const hasSeenPrompt = sessionStorage.getItem('notification-prompt-dismissed');
+      
+      if (hasNotifications && notificationPermission === 'default' && !hasSeenPrompt && onNotificationPromptNeeded) {
+        // Trigger notification prompt after a brief delay so modal closes first
+        setTimeout(() => {
+          onNotificationPromptNeeded();
+        }, 500);
       }
 
       onTaskCreated();

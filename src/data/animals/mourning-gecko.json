@@ -153,6 +153,13 @@
     "mourning-gecko-enrichment-welfare-guide",
     "mourning-gecko-hydration-guide"
   ],
+  "lifestyle": {
+    "lifespan": "medium",
+    "handling": "none",
+    "noiseLevel": "quiet",
+    "feedingFrequency": "every-few-days",
+    "travelCompatibility": "high"
+  },
   "careGuidance": {
     "feedingRequirements": [
       "Omnivorous - primary diet is commercial crested gecko diet (CGD powder mixed with water)",

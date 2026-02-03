@@ -483,24 +483,178 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
 
       {/* Care Level Preference (for Find Your Animal feature) */}
       {!animalProfile && (
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
-            Preferred Care Level
-          </label>
-          <select
-            value={value.careLevelPreference || 'any'}
-            onChange={(e) => onChange({ ...value, careLevelPreference: e.target.value as 'beginner' | 'intermediate' | 'advanced' | 'any' })}
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-          >
-            <option value="any">Any (show all animals)</option>
-            <option value="beginner">Beginner - Easy to care for</option>
-            <option value="intermediate">Intermediate - Some experience needed</option>
-            <option value="advanced">Advanced - Requires expertise</option>
-          </select>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-            Filter recommendations by experience level
-          </p>
-        </div>
+        <>
+          {/* Section Header */}
+          <div className="col-span-full">
+            <div className="border-t-2 border-emerald-300 dark:border-emerald-600 pt-6 mt-2">
+              <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-1">Your Lifestyle & Preferences</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Help us find animals that match your experience and lifestyle</p>
+            </div>
+          </div>
+
+          {/* Experience Level */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+              Your Experience Level
+            </label>
+            <select
+              value={value.experienceLevel || 'any'}
+              onChange={(e) => onChange({ ...value, experienceLevel: e.target.value as 'beginner' | 'intermediate' | 'advanced' | 'any' })}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            >
+              <option value="any">Any Level</option>
+              <option value="beginner">Beginner - First exotic pet</option>
+              <option value="intermediate">Intermediate - Some experience</option>
+              <option value="advanced">Advanced - Experienced keeper</option>
+            </select>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              Filter by care difficulty
+            </p>
+          </div>
+
+          {/* Lifespan Preference */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+              Lifespan Preference
+            </label>
+            <select
+              value={value.lifespanPreference || 'any'}
+              onChange={(e) => onChange({ ...value, lifespanPreference: e.target.value as 'short' | 'medium' | 'long' | 'any' })}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            >
+              <option value="any">Any Lifespan</option>
+              <option value="short">Short (1-5 years)</option>
+              <option value="medium">Medium (5-15 years)</option>
+              <option value="long">Long (15+ years)</option>
+            </select>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              Consider your long-term commitment
+            </p>
+          </div>
+
+          {/* Handling Preference */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+              Handling Preference
+            </label>
+            <select
+              value={value.handlingPreference || 'any'}
+              onChange={(e) => onChange({ ...value, handlingPreference: e.target.value as 'frequent' | 'occasional' | 'minimal' | 'none' | 'any' })}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            >
+              <option value="any">Any</option>
+              <option value="frequent">Frequent - Daily interaction</option>
+              <option value="occasional">Occasional - Weekly handling</option>
+              <option value="minimal">Minimal - Rare handling</option>
+              <option value="none">None - Observation only</option>
+            </select>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              How often you want to interact
+            </p>
+          </div>
+
+          {/* Activity Preference */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+              Activity Time Preference
+            </label>
+            <select
+              value={value.activityPreference || 'any'}
+              onChange={(e) => onChange({ ...value, activityPreference: e.target.value as 'diurnal' | 'nocturnal' | 'crepuscular' | 'any' })}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            >
+              <option value="any">Any Activity Pattern</option>
+              <option value="diurnal">Diurnal - Active during day</option>
+              <option value="nocturnal">Nocturnal - Active at night</option>
+              <option value="crepuscular">Crepuscular - Active dawn/dusk</option>
+            </select>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              When you want to see your pet active
+            </p>
+          </div>
+
+          {/* Noise Tolerance */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+              Noise Tolerance
+            </label>
+            <select
+              value={value.noiseTolerance || 'any'}
+              onChange={(e) => onChange({ ...value, noiseTolerance: e.target.value as 'quiet' | 'moderate' | 'loud' | 'any' })}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            >
+              <option value="any">Any Noise Level</option>
+              <option value="quiet">Quiet - Silent/minimal sound</option>
+              <option value="moderate">Moderate - Some vocalizations</option>
+              <option value="loud">Loud - Frequent vocalizations OK</option>
+            </select>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              Tolerance for animal vocalizations
+            </p>
+          </div>
+
+          {/* Food Type Preference */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+              Food Type Comfort
+            </label>
+            <select
+              value={value.foodTypePreference || 'any'}
+              onChange={(e) => onChange({ ...value, foodTypePreference: e.target.value as 'insects' | 'plants' | 'both' | 'rodents' | 'any' })}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            >
+              <option value="any">Any Food Type</option>
+              <option value="insects">Insects Only</option>
+              <option value="plants">Plants/Vegetables Only</option>
+              <option value="both">Insects & Plants</option>
+              <option value="rodents">Rodents OK</option>
+            </select>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              What you're comfortable feeding
+            </p>
+          </div>
+
+          {/* Feeding Frequency */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+              Feeding Frequency Preference
+            </label>
+            <select
+              value={value.feedingFrequency || 'any'}
+              onChange={(e) => onChange({ ...value, feedingFrequency: e.target.value as 'daily' | 'every-few-days' | 'weekly' | 'bi-weekly' | 'any' })}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            >
+              <option value="any">Any Frequency</option>
+              <option value="daily">Daily - Every day</option>
+              <option value="every-few-days">Every Few Days</option>
+              <option value="weekly">Weekly</option>
+              <option value="bi-weekly">Bi-Weekly or less</option>
+            </select>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              How often you want to feed
+            </p>
+          </div>
+
+          {/* Travel Frequency */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+              Travel Frequency
+            </label>
+            <select
+              value={value.travelFrequency || 'any'}
+              onChange={(e) => onChange({ ...value, travelFrequency: e.target.value as 'never' | 'occasionally' | 'frequently' | 'any' })}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            >
+              <option value="any">Any</option>
+              <option value="never">Never - Always home</option>
+              <option value="occasionally">Occasionally - Few trips/year</option>
+              <option value="frequently">Frequently - Regular travel</option>
+            </select>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              How often you're away from home
+            </p>
+          </div>
+        </>
       )}
 
       {/* Substrate Preference */}

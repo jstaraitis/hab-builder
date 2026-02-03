@@ -93,5 +93,12 @@
   "notes": [],
   "warnings": [],
   "relatedBlogs": [],
+  "lifestyle": {
+    "lifespan": "short",
+    "handling": "minimal",
+    "noiseLevel": "quiet",
+    "feedingFrequency": "every-few-days",
+    "travelCompatibility": "medium"
+  },
   "careGuidance": {}
 }

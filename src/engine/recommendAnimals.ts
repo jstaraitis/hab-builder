@@ -28,7 +28,23 @@ export function recommendAnimals(input: EnclosureInput): AnimalRecommendation[] 
       continue; // Skip this animal entirely
     }
     
-    // Filter by preferred care level if specified
+    // Filter by experience level
+    if (input.experienceLevel && input.experienceLevel !== 'any') {
+      const allowedLevels: Record<string, string[]> = {
+        beginner: ['beginner'],
+        intermediate: ['beginner', 'intermediate'],
+        advanced: ['beginner', 'intermediate', 'advanced'],
+      };
+      
+      const allowed = allowedLevels[input.experienceLevel] || [];
+      
+      // Skip animals not in the allowed list
+      if (!allowed.includes(profile.careLevel)) {
+        continue;
+      }
+    }
+    
+    // Legacy filter support (careLevelPreference is deprecated in favor of experienceLevel)
     if (input.careLevelPreference && input.careLevelPreference !== 'any') {
       const allowedLevels: Record<string, string[]> = {
         beginner: ['beginner'],
@@ -40,6 +56,89 @@ export function recommendAnimals(input: EnclosureInput): AnimalRecommendation[] 
       
       // Skip animals not in the allowed list
       if (!allowed.includes(profile.careLevel)) {
+        continue;
+      }
+    }
+
+    // Filter by lifespan preference
+    if (input.lifespanPreference && input.lifespanPreference !== 'any' && profile.lifestyle?.lifespan) {
+      if (input.lifespanPreference !== profile.lifestyle.lifespan) {
+        continue;
+      }
+    }
+
+    // Filter by handling preference
+    if (input.handlingPreference && input.handlingPreference !== 'any' && profile.lifestyle?.handling) {
+      // User wants frequent handling, but animal needs minimal/none
+      if (input.handlingPreference === 'frequent' && (profile.lifestyle.handling === 'minimal' || profile.lifestyle.handling === 'none')) {
+        continue;
+      }
+      // User wants no handling, but animal needs frequent/occasional
+      if (input.handlingPreference === 'none' && (profile.lifestyle.handling === 'frequent' || profile.lifestyle.handling === 'occasional')) {
+        continue;
+      }
+      // Exact match or user accepts more handling than animal needs
+      const handlingOrder = ['none', 'minimal', 'occasional', 'frequent'];
+      const userIdx = handlingOrder.indexOf(input.handlingPreference);
+      const animalIdx = handlingOrder.indexOf(profile.lifestyle.handling);
+      if (userIdx < animalIdx) {
+        continue; // User wants less handling than animal tolerates
+      }
+    }
+
+    // Filter by activity preference (use existing activityPattern field)
+    if (input.activityPreference && input.activityPreference !== 'any' && profile.activityPattern) {
+      const normalizedActivity = profile.activityPattern.toLowerCase();
+      if (input.activityPreference !== normalizedActivity && profile.activityPattern !== 'Varied') {
+        continue;
+      }
+    }
+
+    // Filter by noise tolerance
+    if (input.noiseTolerance && input.noiseTolerance !== 'any' && profile.lifestyle?.noiseLevel) {
+      const noiseOrder = ['quiet', 'moderate', 'loud'];
+      const userIdx = noiseOrder.indexOf(input.noiseTolerance);
+      const animalIdx = noiseOrder.indexOf(profile.lifestyle.noiseLevel);
+      if (userIdx < animalIdx) {
+        continue; // Animal is too loud for user
+      }
+    }
+
+    // Filter by food type preference (use existing dietType field)
+    if (input.foodTypePreference && input.foodTypePreference !== 'any' && profile.dietType) {
+      // Map dietType to food preference
+      const dietTypeMap: Record<string, string[]> = {
+        'Insectivore': ['insects', 'both'],
+        'Herbivore': ['plants', 'both'],
+        'Omnivore': ['insects', 'plants', 'both'],
+        'Carnivore': ['rodents']
+      };
+      
+      const compatiblePreferences = dietTypeMap[profile.dietType] || [];
+      if (!compatiblePreferences.includes(input.foodTypePreference)) {
+        continue;
+      }
+    }
+
+    // Filter by feeding frequency
+    if (input.feedingFrequency && input.feedingFrequency !== 'any' && profile.lifestyle?.feedingFrequency) {
+      const freqOrder = ['bi-weekly', 'weekly', 'every-few-days', 'daily'];
+      const userIdx = freqOrder.indexOf(input.feedingFrequency);
+      const animalIdx = freqOrder.indexOf(profile.lifestyle.feedingFrequency);
+      if (userIdx < animalIdx) {
+        continue; // Animal needs more frequent feeding than user wants
+      }
+    }
+
+    // Filter by travel frequency
+    if (input.travelFrequency && input.travelFrequency !== 'any' && profile.lifestyle?.travelCompatibility) {
+      // User travels frequently but animal has low travel compatibility
+      if (input.travelFrequency === 'frequently' && profile.lifestyle.travelCompatibility === 'low') {
+        continue;
+      }
+      // User never travels - all animals compatible
+      // User occasionally travels - medium and high compatibility OK
+      if (input.travelFrequency === 'occasionally' && profile.lifestyle.travelCompatibility === 'low') {
         continue;
       }
     }

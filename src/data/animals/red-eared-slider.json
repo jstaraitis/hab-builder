@@ -122,6 +122,13 @@
   "relatedBlogs": [
     ""
   ],
+  "lifestyle": {
+    "lifespan": "long",
+    "handling": "occasional",
+    "noiseLevel": "quiet",
+    "feedingFrequency": "daily",
+    "travelCompatibility": "low"
+  },
   "careGuidance": {
     "feedingRequirements": [
       "Omnivorous - commercial turtle pellets as staple",

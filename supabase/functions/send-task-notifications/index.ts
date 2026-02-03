@@ -194,25 +194,27 @@ serve(async (req) => {
         
         // Group multiple tasks into one notification if there are many
         const firstTask = tasks[0];
-        const enclosureName = firstTask.enclosure_id 
-          ? (enclosuresMap[firstTask.enclosure_id] || 'Your Enclosure')
-          : 'Your Pet';
+        if (!firstTask) continue; // Skip if no tasks (shouldn't happen)
+        
+        const enclosureName = firstTask.enclosure_id && enclosuresMap[firstTask.enclosure_id]
+          ? enclosuresMap[firstTask.enclosure_id]
+          : (firstTask.enclosure_id ? 'Your Enclosure' : 'Your Pet');
         const taskTitles = tasks.map(t => t.title);
         
         const notificationTitle = tasks.length === 1
-          ? enclosureName
-          : `${enclosureName} (${tasks.length} tasks)`;
+          ? `🪱 ${enclosureName}`
+          : `🪱 ${enclosureName} (${tasks.length} tasks)`;
         
         const notificationBody = tasks.length === 1
-          ? `${tasks[0].title}`
+          ? `${firstTask.title}`
           : taskTitles.slice(0, 3).join(', ') + (tasks.length > 3 ? '...' : '');
 
         const payload = JSON.stringify({
           title: notificationTitle,
           body: notificationBody,
-          tag: tasks.length === 1 ? `task-${tasks[0].id}` : 'multiple-tasks',
+          tag: tasks.length === 1 ? `task-${firstTask.id}` : 'multiple-tasks',
           url: '/care-calendar',
-          taskId: tasks.length === 1 ? tasks[0].id : null,
+          taskId: tasks.length === 1 ? firstTask.id : null,
           taskCount: tasks.length
         });
 

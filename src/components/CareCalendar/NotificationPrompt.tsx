@@ -1,52 +1,51 @@
 import { useState, useEffect } from 'react';
-import { Bell, X } from 'lucide-react';
+import { X, Lightbulb } from 'lucide-react';
 import { notificationService } from '../../services/notificationService';
+import { useToast } from '../../contexts/ToastContext';
 
-export function NotificationPrompt() {
-  const [show, setShow] = useState(false);
+interface NotificationPromptProps {
+  show: boolean;
+  onClose: () => void;
+}
+
+export function NotificationPrompt({ show, onClose }: NotificationPromptProps) {
+  const { success, error } = useToast();
   const [permission, setPermission] = useState<NotificationPermission>('default');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Check if notifications are supported
     if (!notificationService.isSupported()) return;
-
     const currentPermission = notificationService.getPermissionStatus();
     setPermission(currentPermission);
-
-    // Show prompt if permission is default (not yet asked)
-    const hasSeenPrompt = localStorage.getItem('notification-prompt-seen');
-    if (currentPermission === 'default' && !hasSeenPrompt) {
-      // Delay showing prompt to not overwhelm user immediately
-      setTimeout(() => setShow(true), 5000);
-    }
-  }, []);
+  }, [show]);
 
   const handleEnable = async () => {
     setLoading(true);
     try {
       await notificationService.subscribe();
       setPermission('granted');
-      setShow(false);
+      onClose();
       localStorage.setItem('notification-prompt-seen', 'true');
-    } catch (error) {
-      console.error('Failed to enable notifications:', error);
-      alert('Failed to enable notifications. Please try again.');
+      success('🔔 Notifications enabled! You\'ll receive reminders for your care tasks.', 5000);
+    } catch (err) {
+      console.error('Failed to enable notifications:', err);
+      const errorMessage = err instanceof Error ? err.message : 'Failed to enable notifications';
+      error(errorMessage, 5000);
     } finally {
       setLoading(false);
     }
   };
 
   const handleDismiss = () => {
-    setShow(false);
-    localStorage.setItem('notification-prompt-seen', 'true');
+    onClose();
+    sessionStorage.setItem('notification-prompt-dismissed', 'true');
   };
 
   if (!show || permission !== 'default') return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 animate-fade-in">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl border-2 border-emerald-500 dark:border-emerald-600 p-4 w-full max-w-md relative animate-scale-up">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl border-2 border-blue-500 dark:border-blue-600 p-4 w-full max-w-md relative animate-scale-up">
         <button
           onClick={handleDismiss}
           className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
@@ -56,15 +55,15 @@ export function NotificationPrompt() {
         </button>
 
         <div className="flex items-start gap-3 mb-4">
-          <div className="p-2 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg">
-            <Bell className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+          <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+            <Lightbulb className="w-6 h-6 text-blue-600 dark:text-blue-400" />
           </div>
           <div className="flex-1">
             <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
-              Enable Task Reminders
+               Enable notifications to get reminders
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Get notified when your care tasks are due so you never miss feeding, misting, or health checks.
+              You enabled a notification for this task, but push notifications aren't set up yet. Enable now to receive reminders when your care tasks are due.
             </p>
           </div>
         </div>
@@ -73,7 +72,7 @@ export function NotificationPrompt() {
           <button
             onClick={handleEnable}
             disabled={loading}
-            className="flex-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-400 text-white font-medium rounded-lg transition-colors text-sm"
+            className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-medium rounded-lg transition-colors text-sm"
           >
             {loading ? 'Enabling...' : 'Enable Notifications'}
           </button>

@@ -36,6 +36,15 @@ export interface EnclosureInput {
   hideStylePreference: HideStylePreference; // natural cork/wood, commercial plastic, or both
   doorOrientation: DoorOrientation; // front opening or top opening enclosure
   automatedLighting: boolean; // include timer for automated light cycles
+  // Lifestyle & preference filters (for animal recommendation)
+  lifespanPreference?: 'short' | 'medium' | 'long' | 'any'; // Short: 1-5 years, Medium: 5-15 years, Long: 15+ years
+  handlingPreference?: 'frequent' | 'occasional' | 'minimal' | 'none' | 'any'; // How often user wants to handle the animal
+  experienceLevel?: 'beginner' | 'intermediate' | 'advanced' | 'any'; // User's experience level with exotic pets
+  activityPreference?: 'diurnal' | 'nocturnal' | 'crepuscular' | 'any'; // When user prefers animal to be active
+  noiseTolerance?: 'quiet' | 'moderate' | 'loud' | 'any'; // User's tolerance for animal vocalizations
+  foodTypePreference?: 'insects' | 'plants' | 'both' | 'rodents' | 'any'; // What user is comfortable feeding
+  feedingFrequency?: 'daily' | 'every-few-days' | 'weekly' | 'bi-weekly' | 'any'; // How often user wants to feed
+  travelFrequency?: 'never' | 'occasionally' | 'frequently' | 'any'; // How often user travels (affects care needs)
 }
 
 export interface TemperatureRange {
@@ -289,6 +298,17 @@ export interface AutoIncludeRules {
   waterFeature?: string | string[]; // e.g., "shallow-dish", "fully-aquatic"
 }
 
+// Lifestyle metadata for animal recommendation filtering
+export interface LifestyleMetadata {
+  lifespan?: 'short' | 'medium' | 'long'; // Short: 1-5 years, Medium: 5-15 years, Long: 15+ years
+  handling?: 'frequent' | 'occasional' | 'minimal' | 'none'; // How tolerant of handling
+  activity?: 'diurnal' | 'nocturnal' | 'crepuscular'; // Activity pattern
+  noiseLevel?: 'quiet' | 'moderate' | 'loud'; // Vocalization/noise level
+  foodType?: 'insects' | 'plants' | 'both' | 'rodents'; // Primary food type
+  feedingFrequency?: 'daily' | 'every-few-days' | 'weekly' | 'bi-weekly'; // How often to feed
+  travelCompatibility?: 'low' | 'medium' | 'high'; // Low: needs daily care, Medium: can skip few days, High: independent for week+
+}
+
 export interface AnimalProfile {
   id: string;
   commonName: string;
@@ -323,4 +343,5 @@ export interface AnimalProfile {
   careGuidance?: CareGuidance; // Optional: species-specific care guidance
   imageUrl?: string; // Optional: main profile image URL
   gallery?: Array<{ url: string; caption?: string }>; // Optional: image gallery with captions
+  lifestyle?: LifestyleMetadata; // Optional: lifestyle metadata for recommendation filtering
 }

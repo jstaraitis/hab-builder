@@ -152,6 +152,13 @@
     "leopard-gecko-feeding-guide",
     "leopard-gecko-hydration-guide"
   ],
+  "lifestyle": {
+    "lifespan": "medium",
+    "handling": "occasional",
+    "noiseLevel": "quiet",
+    "feedingFrequency": "every-few-days",
+    "travelCompatibility": "high"
+  },
   "careGuidance": {
     "feedingRequirements": [
       "Obligate insectivore - MUST eat live insects (crickets, dubia roaches, mealworms, BSFL)",

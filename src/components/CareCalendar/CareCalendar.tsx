@@ -37,6 +37,7 @@ export function CareCalendar() {
   const [showModal, setShowModal] = useState(false);
   const [editingTask, setEditingTask] = useState<CareTask | null>(null);
   const [expandedTasks, setExpandedTasks] = useState<Set<string>>(new Set());
+  const [showNotificationPrompt, setShowNotificationPrompt] = useState(false);
 
   // ALL HOOKS MUST BE CALLED BEFORE ANY RETURNS
   useEffect(() => {
@@ -454,7 +455,10 @@ export function CareCalendar() {
       )}
 
       {/* Notification Permission Prompt */}
-      <NotificationPrompt />
+      <NotificationPrompt 
+        show={showNotificationPrompt} 
+        onClose={() => setShowNotificationPrompt(false)} 
+      />
 
       {/* Task Creation Modal */}
       <TaskCreationModal
@@ -464,6 +468,7 @@ export function CareCalendar() {
           loadTasks();
           setShowModal(false);
         }}
+        onNotificationPromptNeeded={() => setShowNotificationPrompt(true)}
       />
 
       {/* Task Edit Modal */}

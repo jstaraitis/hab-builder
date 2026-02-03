@@ -159,6 +159,13 @@
     "corn-snake-feeding-guide",
     "corn-snake-hydration-guide"
   ],
+  "lifestyle": {
+    "lifespan": "long",
+    "handling": "frequent",
+    "noiseLevel": "quiet",
+    "feedingFrequency": "weekly",
+    "travelCompatibility": "high"
+  },
   "careGuidance": {
     "feedingRequirements": [
       "Obligate carnivore - whole prey animals ONLY (mice, young rats, young quail, quail eggs, chicks, green anoles)",
