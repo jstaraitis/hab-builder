@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { X, ClipboardList, Edit3 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { careTaskService } from '../../services/careTaskService';
 import { enclosureService } from '../../services/enclosureService';
+import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { notificationService } from '../../services/notificationService';
 import { getTemplateForAnimal, type CareTemplate } from '../../data/care-templates';
-import type { TaskType, TaskFrequency, CareTask, Enclosure } from '../../types/careCalendar';
+import type { TaskType, TaskFrequency, CareTask, Enclosure, EnclosureAnimal } from '../../types/careCalendar';
 
 interface TaskCreationModalProps {
   isOpen: boolean;
@@ -29,6 +30,8 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
   const { user } = useAuth();
   const [enclosures, setEnclosures] = useState<Enclosure[]>([]);
   const [selectedEnclosure, setSelectedEnclosure] = useState<string>('');
+  const [animals, setAnimals] = useState<EnclosureAnimal[]>([]);
+  const [selectedAnimalId, setSelectedAnimalId] = useState<string>(''); // enclosureAnimalId (empty = whole enclosure)
   const [taskMode, setTaskMode] = useState<'choose' | 'template' | 'custom'>('choose');
   const [selectedAnimal, setSelectedAnimal] = useState<string>('');
   const [template, setTemplate] = useState<CareTemplate | null>(null);
@@ -52,6 +55,25 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
     }
   };
 
+  // Load animals when enclosure is selected
+  useEffect(() => {
+    if (selectedEnclosure) {
+      loadAnimals();
+    } else {
+      setAnimals([]);
+      setSelectedAnimalId('');
+    }
+  }, [selectedEnclosure]);
+
+  const loadAnimals = async () => {
+    try {
+      const data = await enclosureAnimalService.getAnimalsByEnclosure(selectedEnclosure);
+      setAnimals(data);
+    } catch (err) {
+      console.error('Failed to load animals:', err);
+    }
+  };
+
   // Available animals (expand this as more templates are added)
   const availableAnimals = [
     { id: 'whites-tree-frog', name: "White's Tree Frog" },
@@ -61,7 +83,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
     if (selectedAnimal) {
       const animalTemplate = getTemplateForAnimal(selectedAnimal);
       setTemplate(animalTemplate);
-      
+
       if (animalTemplate) {
         // Convert template tasks to form data
         const templateTasks = animalTemplate.tasks.map(t => ({
@@ -95,12 +117,12 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
         const now = new Date();
         const nextDueAt = new Date();
         nextDueAt.setHours(0, 0, 0, 0); // Start from today
-        
+
         // Parse scheduled time and apply it to nextDueAt
         if (taskData.scheduledTime) {
           const [hours, minutes] = taskData.scheduledTime.split(':').map(Number);
           nextDueAt.setHours(hours, minutes, 0, 0);
-          
+
           // If the scheduled time has already passed today, move to tomorrow
           if (nextDueAt <= now) {
             nextDueAt.setDate(nextDueAt.getDate() + 1);
@@ -114,6 +136,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
         const newTask: Omit<CareTask, 'id' | 'createdAt' | 'updatedAt'> = {
           userId: user.id,
           enclosureId: selectedEnclosure || undefined,
+          enclosureAnimalId: selectedAnimalId || undefined, // Add animal selection
           animalId: taskData.animalId,
           title: taskData.title,
           description: taskData.description,
@@ -126,7 +149,6 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
           notificationMinutesBefore: taskData.notificationMinutesBefore,
         };
 
-        console.log('Creating task with title:', taskData.title, 'Full task data:', newTask);
         await careTaskService.createTask(newTask);
       }
 
@@ -134,7 +156,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
       const hasNotifications = tasks.some(t => t.notificationEnabled);
       const notificationPermission = notificationService.getPermissionStatus();
       const hasSeenPrompt = sessionStorage.getItem('notification-prompt-dismissed');
-      
+
       if (hasNotifications && notificationPermission === 'default' && !hasSeenPrompt && onNotificationPromptNeeded) {
         // Trigger notification prompt after a brief delay so modal closes first
         setTimeout(() => {
@@ -221,8 +243,34 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                     ))}
                   </select>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                    Tasks will be linked to this pet
+                    Tasks will be linked to this enclosure
                   </p>
+
+                  {/* Animal Selection - shown if enclosure is selected */}
+                  {selectedEnclosure && (
+                    <div className="mt-4">
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        For Specific Animal (optional)
+                      </label>
+                      <select
+                        value={selectedAnimalId}
+                        onChange={(e) => setSelectedAnimalId(e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+                      >
+                        <option value="">Whole Enclosure (all animals)</option>
+                        {animals.map(animal => (
+                          <option key={animal.id} value={animal.id}>
+                            {animal.name || `Animal #${animal.animalNumber || '?'}`}
+                          </option>
+                        ))}
+                      </select>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        {selectedAnimalId
+                          ? 'Task will be specific to this animal'
+                          : 'Task will apply to the whole enclosure'}
+                      </p>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -237,29 +285,24 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                   ← Change enclosure
                 </button>
               </div>
-              
+
               <p className="text-base text-gray-700 dark:text-gray-300 font-medium mb-4">
                 How would you like to create tasks?
               </p>
-              
-              <div className="grid gap-4">
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {/* Recommended Tasks Option */}
                 <button
                   onClick={() => setTaskMode('template')}
-                  className="p-6 border-2 border-gray-200 dark:border-gray-700 rounded-lg hover:border-emerald-500 dark:hover:border-emerald-500 transition-colors text-left"
+                  className="group relative p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md border border-gray-200 dark:border-gray-700 hover:border-emerald-500 dark:hover:border-emerald-500 transition-all text-center"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
-                      <span className="text-2xl">📋</span>
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="p-2 bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/20 dark:to-emerald-800/20 rounded-lg group-hover:scale-110 transition-transform">
+                      <ClipboardList className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                        Use Recommended Tasks
-                      </h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        Choose from pre-made care schedules for different species with recommended frequencies and descriptions
-                      </p>
-                    </div>
+                    <h3 className="text-base font-bold text-gray-900 dark:text-white">
+                      Recommended Tasks
+                    </h3>
                   </div>
                 </button>
 
@@ -279,20 +322,15 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                       notificationMinutesBefore: 15,
                     }]);
                   }}
-                  className="p-6 border-2 border-gray-200 dark:border-gray-700 rounded-lg hover:border-emerald-500 dark:hover:border-emerald-500 transition-colors text-left"
+                  className="group relative p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 transition-all text-center"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                      <span className="text-2xl">✏️</span>
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="p-2 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-lg group-hover:scale-110 transition-transform">
+                      <Edit3 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                        Create Custom Tasks
-                      </h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        Build your own care tasks from scratch with custom names, types, and schedules
-                      </p>
-                    </div>
+                    <h3 className="text-base font-bold text-gray-900 dark:text-white">
+                      Custom Tasks
+                    </h3>
                   </div>
                 </button>
               </div>
@@ -311,7 +349,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                   ← Back
                 </button>
               </div>
-              
+
               <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
                 Select an animal to load recommended care tasks:
               </p>
@@ -389,6 +427,30 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                     Change
                   </button>
                 )}
+              </div>
+
+              {/* Animal Selection for all tasks */}
+              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  {taskMode === 'custom' ? 'These tasks are for:' : 'Tasks will be for:'}
+                </label>
+                <select
+                  value={selectedAnimalId}
+                  onChange={(e) => setSelectedAnimalId(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+                >
+                  <option value="">Whole Enclosure (all animals)</option>
+                  {animals.map(animal => (
+                    <option key={animal.id} value={animal.id}>
+                      {animal.name || `Animal #${animal.animalNumber || '?'}`}
+                    </option>
+                  ))}
+                </select>
+                <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                  {selectedAnimalId
+                    ? `Tasks will be specific to ${animals.find(a => a.id === selectedAnimalId)?.name || 'this animal'}`
+                    : 'Tasks will apply to the whole enclosure'}
+                </p>
               </div>
 
               {/* Task List */}

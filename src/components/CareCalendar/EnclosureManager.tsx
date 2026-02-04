@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Plus, X, Pencil, Trash2 } from 'lucide-react';
+import { Plus, X, Pencil, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureService } from '../../services/enclosureService';
 import { animalList } from '../../data/animals';
+import { AnimalList } from './AnimalList';
 import type { Enclosure } from '../../types/careCalendar';
 
 interface EnclosureManagerProps {
@@ -16,11 +17,13 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
   const [showModal, setShowModal] = useState(false);
   const [editingEnclosure, setEditingEnclosure] = useState<Enclosure | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [expandedEnclosureId, setExpandedEnclosureId] = useState<string | null>(null); // Track expanded enclosure for animals list
 
   const [formData, setFormData] = useState({
     name: '',
     animalId: '',
     description: '',
+    substrateType: '' as '' | 'bioactive' | 'soil' | 'paper' | 'sand' | 'reptile-carpet' | 'tile' | 'other',
   });
 
   useEffect(() => {
@@ -56,6 +59,7 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
           animalId: formData.animalId,
           animalName: selectedAnimal.name,
           description: formData.description,
+          substrateType: formData.substrateType || undefined,
         });
       } else {
         await enclosureService.createEnclosure({
@@ -64,6 +68,7 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
           animalId: formData.animalId,
           animalName: selectedAnimal.name,
           description: formData.description,
+          substrateType: formData.substrateType || undefined,
           isActive: true,
         });
       }
@@ -99,10 +104,16 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
         name: enclosure.name,
         animalId: enclosure.animalId,
         description: enclosure.description || '',
+        substrateType: enclosure.substrateType || '',
       });
     } else {
       setEditingEnclosure(null);
-      setFormData({ name: '', animalId: '', description: '' });
+      setFormData({ 
+        name: '', 
+        animalId: '', 
+        description: '', 
+        substrateType: '',
+      });
     }
     setShowModal(true);
   };
@@ -110,7 +121,12 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
   const closeModal = () => {
     setShowModal(false);
     setEditingEnclosure(null);
-    setFormData({ name: '', animalId: '', description: '' });
+    setFormData({ 
+      name: '', 
+      animalId: '', 
+      description: '', 
+      substrateType: '',
+    });
     setError(null);
   };
 
@@ -144,37 +160,77 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
           {enclosures.map(enclosure => (
             <div
               key={enclosure.id}
-              className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 flex items-start justify-between gap-3"
+              className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden"
             >
-              <div className="flex-1 min-w-0">
-                <h4 className="font-semibold text-gray-900 dark:text-white truncate">
-                  {enclosure.name}
-                </h4>
-                <p className="text-sm text-emerald-600 dark:text-emerald-400">
-                  {enclosure.animalName}
-                </p>
-                {enclosure.description && (
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">
-                    {enclosure.description}
+              {/* Enclosure Header */}
+              <div className="p-3 flex items-start justify-between gap-3">
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-sm font-semibold text-gray-900 dark:text-white truncate">
+                    {enclosure.name}
+                  </h4>
+                  <p className="text-xs text-emerald-600 dark:text-emerald-400">
+                    {enclosure.animalName}
                   </p>
-                )}
+                  <div className="flex flex-wrap gap-1.5 mt-1">
+                    {enclosure.substrateType && (
+                      <span className="text-xs px-1.5 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded capitalize">
+                        {enclosure.substrateType}
+                      </span>
+                    )}
+                  </div>
+                  {enclosure.description && (
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-1">
+                      {enclosure.description}
+                    </p>
+                  )}
+                  
+                  {/* Animals Toggle Button */}
+                  <button
+                    onClick={() => setExpandedEnclosureId(expandedEnclosureId === enclosure.id ? null : enclosure.id)}
+                    className="mt-2 inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 rounded-md transition-colors"
+                  >
+                    {expandedEnclosureId === enclosure.id ? (
+                      <>
+                        <ChevronUp className="w-3.5 h-3.5" />
+                        Hide Animals
+                      </>
+                    ) : (
+                      <>
+                        <ChevronDown className="w-3.5 h-3.5" />
+                        Manage Animals
+                      </>
+                    )}
+                  </button>
+                </div>
+                <div className="flex gap-1 shrink-0">
+                  <button
+                    onClick={() => openModal(enclosure)}
+                    className="p-1.5 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                    title="Edit"
+                  >
+                    <Pencil className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => handleDelete(enclosure.id, enclosure.name)}
+                    className="p-1.5 text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 transition-colors"
+                    title="Delete"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
-              <div className="flex gap-1 shrink-0">
-                <button
-                  onClick={() => openModal(enclosure)}
-                  className="p-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
-                  title="Edit"
-                >
-                  <Pencil className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={() => handleDelete(enclosure.id, enclosure.name)}
-                  className="p-2 text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 transition-colors"
-                  title="Delete"
-                >
-                  <Trash2 className="w-4 h-4" />
-                </button>
-              </div>
+
+              {/* AnimalList - Expandable */}
+              {expandedEnclosureId === enclosure.id && (
+                <div className="border-t border-gray-200 dark:border-gray-700 p-3 bg-gray-50 dark:bg-gray-900/30">
+                  <AnimalList 
+                    enclosureId={enclosure.id}
+                    enclosureName={enclosure.name}
+                    speciesName={enclosure.animalName}
+                    onAnimalsChanged={loadEnclosures}
+                  />
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -224,6 +280,26 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
                       {animal.name}
                     </option>
                   ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Substrate Type
+                </label>
+                <select
+                  value={formData.substrateType}
+                  onChange={(e) => setFormData(prev => ({ ...prev, substrateType: e.target.value as any }))}
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                >
+                  <option value="">Select...</option>
+                  <option value="bioactive">Bioactive</option>
+                  <option value="soil">Soil</option>
+                  <option value="paper">Paper</option>
+                  <option value="sand">Sand</option>
+                  <option value="reptile-carpet">Reptile Carpet</option>
+                  <option value="tile">Tile</option>
+                  <option value="other">Other</option>
                 </select>
               </div>
 

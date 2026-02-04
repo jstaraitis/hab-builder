@@ -30,6 +30,33 @@ function App() {
   const { user, signOut } = useAuth();
   useTheme(); // Apply dark mode
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  // Header visibility control based on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Always show header at top of page
+      if (currentScrollY < 10) {
+        setIsHeaderVisible(true);
+      }
+      // Show header when scrolling up
+      else if (currentScrollY < lastScrollY) {
+        setIsHeaderVisible(true);
+      }
+      // Hide header when scrolling down (but only after scrolling past 100px)
+      else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsHeaderVisible(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   // Scroll to top when route changes
   useEffect(() => {
@@ -44,6 +71,9 @@ function App() {
     
     // Immediate scroll
     scrollToTop();
+    // Show header when changing routes
+    setIsHeaderVisible(true);
+    setLastScrollY(0);
     
     // Delayed scroll to catch any late-rendering content
     const timeoutId = setTimeout(scrollToTop, 100);
@@ -144,7 +174,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800 pb-20 lg:pb-0">
       {/* Mobile-optimized header */}
-      <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-30">
+      <header className={`bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-30 transition-transform duration-300 ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="max-w-7xl mx-auto px-4 py-4 lg:py-6">
           {/* Mobile: Simple header with logo and theme toggle */}
           <div className="lg:hidden flex flex-col items-center text-center">

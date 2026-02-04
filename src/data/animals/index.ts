@@ -24,3 +24,8 @@ export const animalList = Object.values(animalProfiles).map(profile => ({
   searchQuery: profile.searchQuery || [],
   scientificName: profile.scientificName || ''
 }));
+
+// Helper to get animal by ID
+export function getAnimalById(id: string): AnimalProfile | null {
+  return animalProfiles[id] || null;
+}

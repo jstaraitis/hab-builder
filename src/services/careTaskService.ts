@@ -322,6 +322,7 @@ export class SupabaseCareService implements ICareTaskService {
       id: row.id,
       userId: row.user_id,
       enclosureId: row.enclosure_id,
+      enclosureAnimalId: row.enclosure_animal_id,
       animalId: row.animal_id,
       title: row.title,
       description: row.description,
@@ -349,6 +350,7 @@ export class SupabaseCareService implements ICareTaskService {
     if (task.id !== undefined) mapped.id = task.id;
     if (task.userId !== undefined) mapped.user_id = task.userId;
     if (task.enclosureId !== undefined) mapped.enclosure_id = task.enclosureId;
+    if (task.enclosureAnimalId !== undefined) mapped.enclosure_animal_id = task.enclosureAnimalId;
     if (task.animalId !== undefined) mapped.animal_id = task.animalId;
     if (task.title !== undefined) mapped.title = task.title;
     if (task.description !== undefined) mapped.description = task.description;

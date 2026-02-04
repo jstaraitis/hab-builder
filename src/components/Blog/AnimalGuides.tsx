@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { animalProfiles } from '../../data/animals';
 import { blogPosts, blogPostsList, BlogStatus } from '../../data/blog';
 import { Link } from 'react-router-dom';
-import { Book, ChevronDown, FileText, AlertTriangle, Eye, Users, Award } from 'lucide-react';
+import { Book, ChevronDown, FileText, AlertTriangle, Eye, Users, Award, Star } from 'lucide-react';
 
 interface AnimalGuidesProps {
   initialAnimal?: string;
@@ -68,6 +68,10 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
 
   // Filter for general guides (not in any animal's relatedBlogs)
   const generalGuides = blogPostsList.filter(blog => !animalSpecificBlogIds.has(blog.id));
+  
+  // Separate featured and non-featured guides
+  const featuredGuides = generalGuides.filter((blog: any) => blog.featured);
+  const regularGuides = generalGuides.filter((blog: any) => !blog.featured);
 
   return (
     <div className="space-y-6">
@@ -81,34 +85,86 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-3 sm:mb-4">
             Universal guides applicable to multiple species
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3 lg:gap-4">
-            {generalGuides.map((blog) => (
-              <Link
-                key={blog.id}
-                to={`/blog/${blog.id}`}
-                className="group bg-white dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-blue-900/30 border border-blue-200 dark:border-blue-700 hover:border-blue-400 dark:hover:border-blue-600 rounded-lg p-3 sm:p-4 transition-all shadow-sm hover:shadow-md"
-              >
-                {getStatusBadge(blog.status) && (
-                  <div className="mb-2">
-                    {getStatusBadge(blog.status)}
-                  </div>
-                )}
-                <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-blue-700 dark:group-hover:text-blue-300 mb-1">
-                  {blog.title}
-                </h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 line-clamp-2">
-                  {blog.excerpt}
-                </p>
-                <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-500">
-                  {blog.tags?.slice(0, 3).map((tag: string) => (
-                    <span key={tag} className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 rounded">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </Link>
-            ))}
-          </div>
+          
+          {/* Featured Guides */}
+          {featuredGuides.length > 0 && (
+            <div className="mb-4">
+              <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+                <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+                Featured
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3 lg:gap-4 mb-4">
+                {featuredGuides.map((blog) => (
+                  <Link
+                    key={blog.id}
+                    to={`/blog/${blog.id}`}
+                    className="group relative bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-900/30 dark:to-yellow-900/20 hover:from-amber-100 hover:to-yellow-100 dark:hover:from-amber-900/50 dark:hover:to-yellow-900/30 border-2 border-amber-300 dark:border-amber-700 hover:border-amber-400 dark:hover:border-amber-600 rounded-lg p-3 sm:p-4 transition-all shadow-md hover:shadow-lg"
+                  >
+                    <div className="absolute -top-2 -right-2">
+                      <span className="inline-flex items-center justify-center w-6 h-6 bg-amber-500 text-white rounded-full">
+                        <Star className="w-3 h-3 fill-current" />
+                      </span>
+                    </div>
+                    {getStatusBadge(blog.status) && (
+                      <div className="mb-2">
+                        {getStatusBadge(blog.status)}
+                      </div>
+                    )}
+                    <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-amber-700 dark:group-hover:text-amber-300 mb-1">
+                      {blog.title}
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 line-clamp-2">
+                      {blog.excerpt}
+                    </p>
+                    <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-500">
+                      {blog.tags?.slice(0, 3).map((tag: string) => (
+                        <span key={tag} className="px-2 py-0.5 bg-amber-200 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 rounded">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Regular Guides */}
+          {regularGuides.length > 0 && (
+            <div>
+              {featuredGuides.length > 0 && (
+                <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">All Guides</h3>
+              )}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3 lg:gap-4">
+                {regularGuides.map((blog) => (
+                  <Link
+                    key={blog.id}
+                    to={`/blog/${blog.id}`}
+                    className="group bg-white dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-blue-900/30 border border-blue-200 dark:border-blue-700 hover:border-blue-400 dark:hover:border-blue-600 rounded-lg p-3 sm:p-4 transition-all shadow-sm hover:shadow-md"
+                  >
+                    {getStatusBadge(blog.status) && (
+                      <div className="mb-2">
+                        {getStatusBadge(blog.status)}
+                      </div>
+                    )}
+                    <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-blue-700 dark:group-hover:text-blue-300 mb-1">
+                      {blog.title}
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 line-clamp-2">
+                      {blog.excerpt}
+                    </p>
+                    <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-500">
+                      {blog.tags?.slice(0, 3).map((tag: string) => (
+                        <span key={tag} className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 rounded">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
 

@@ -1,0 +1,224 @@
+{
+  "id": "care-reminders-guide",
+  "title": "Smart Care Reminders: Never Miss a Feeding Again",
+  "author": "Habitat Builder Team",
+  "category": "care-management",
+  "excerpt": "Learn how Habitat Builder's smart care reminders help you maintain a consistent care schedule for all your enclosures with push notifications and a reliability score.",
+  "description": "Complete guide to setting up and using care reminders in Habitat Builder, including push notifications, care reliability scoring, and tips for building sustainable care habits.",
+  "date": "2026-02-04",
+  "tags": ["care-reminders", "notifications", "care-schedule", "time-management", "reliability-score"],
+  "status": "published",
+  "featured": true,
+  "content": [
+    {
+      "type": "intro",
+      "heading": "Never Miss a Care Task Again",
+      "text": "Keeping reptiles and amphibians healthy requires consistent, species-specific care routines—feeding, misting, temperature adjustments, cleaning, and health checks. But with busy schedules and multiple enclosures, it's easy to lose track of what needs to be done when. Habitat Builder's Smart Care Reminders system makes it easy to stay on top of your animal care with notifications, and a reliability score that tracks how well you're meeting your animals' needs."
+    },
+    {
+      "type": "section",
+      "heading": "How Care Reminders Work"
+    },
+    {
+      "type": "text",
+      "text": "Care reminders are automated tasks tied to your specific enclosures and animals. When you create a new enclosure in Habitat Builder, the system recommends species-specific care tasks based on the animal's requirements. You can customize the frequency (daily, every 2 days, weekly, etc.) and preferred time of day for each task."
+    },
+    {
+      "type": "text",
+      "text": "Once you enable notifications in your browser settings, you'll receive automatic reminders when tasks are due. These notifications appear directly in your browser and on your device on supported browsers like Chrome, Firefox, and Edge on desktop, and native browsers on mobile when installed as a Progressive Web Application."
+    },
+    {
+      "type": "section",
+      "heading": "What's a Progressive Web Application (PWA)?"
+    },
+    {
+      "type": "text",
+      "text": "A Progressive Web Application (PWA) is a web app that works like a native app on your phone or computer. Habitat Builder is a PWA, which means you can install it directly on your home screen just like you would a native app from an app store."
+    },
+    {
+      "type": "text",
+      "text": "Benefits of installing Habitat Builder as a PWA:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Add to Home Screen: Open Habitat Builder in your browser, tap the menu icon, and select 'Add to Home Screen' (exact wording varies by browser).",
+        "Offline Access: The app works even if your internet connection drops, so you can still check tasks and mark them complete.",
+        "Native-Like Experience: Get an app-like interface without needing to download from an app store.",
+        "Better Notifications: Installed PWAs receive richer notifications with better formatting and more reliable delivery."
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Installing the PWA is optional—you can use Habitat Builder just fine in your regular browser. But if you want the best notification experience and offline access, installing it is highly recommended."
+    },
+    {
+      "type": "section",
+      "heading": "Setting Up Care Reminders"
+    },
+    {
+      "type": "text",
+      "text": "Getting started with care reminders takes just a few minutes. Follow these five simple steps:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Create Your Enclosure: Start by adding your enclosure to Habitat Builder with animal species, and setup type. This tells the system what care tasks your animal needs.",
+        "Enable Notifications (One-Time Setup): When you first visit the Care Calendar, you'll see a prompt to enable notifications. Click 'Enable Notifications' and approve browser permissions. This only needs to be done once.",
+        "Add Tasks or Use Recommended Tasks: The system can automatically create care tasks based on your animal's species requirements. You can also manually add custom tasks like 'Change water heater batteries' or 'Check for health issues.'",
+        "Set Frequency and Time: For each task, choose how often it needs to be done (daily, weekly, every X days) and what time you'd prefer to be reminded. The system will notify you at that time on the due date.",
+        "Receive and Complete Reminders: When a task is due, you'll get a browser notification. Click on it to jump to your Care Calendar, or simply mark the task complete from the notification if your browser supports it."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Types of Care Tasks"
+    },
+    {
+      "type": "text",
+      "text": "The Care Calendar supports several types of tasks, each with its own icon and color coding:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Feeding: How often and what to feed. Critical for maintaining proper nutrition and preventing overfeeding.",
+        "Misting: For species requiring high humidity. Reminders help maintain proper moisture levels for amphibians and tropical species.",
+        "Water Changes: For aquatic and semi-aquatic animals. Maintains water quality and prevents ammonia/nitrite buildup.",
+        "Cleaning: Spot cleaning and full enclosure maintenance. Prevents waste buildup and maintains a healthy environment.",
+        "Maintenance: Equipment checks, filter changes, heat source verification. Ensures all gear is functioning properly.",
+        "Health Check: Visual inspections for signs of illness, injury, or stress. Early detection can prevent serious health issues."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Understanding Your Care Reliability Score"
+    },
+    {
+      "type": "text",
+      "text": "At the top of your Care Calendar, you'll see a 'Reliability' score with a percentage and the timeframe (usually 30 days). This metric shows how well you've been keeping up with your scheduled care tasks."
+    },
+    {
+      "type": "highlight",
+      "content": "The system tracks how many care tasks you completed versus how many were expected over the past 30 days. If you were supposed to feed your frog 30 times and completed 30 feedings, that's 100% reliability. If you completed 23 out of 30, that's 77%."
+    },
+    {
+      "type": "text",
+      "text": "This score helps you identify patterns—maybe you're great at daily feeding but sometimes miss weekly water changes. Use it as a tool to improve, not as judgment. Life happens! The goal is to trend upward over time."
+    },
+    {
+      "type": "section",
+      "heading": "Managing Multiple Enclosures"
+    },
+    {
+      "type": "text",
+      "text": "If you have multiple enclosures, the Care Calendar can show all tasks or filter by enclosure. Use the enclosure dropdown to focus on one habitat at a time, or view all tasks together to see your full workload."
+    },
+    {
+      "type": "text",
+      "text": "The reliability score automatically adjusts based on your filter. View all enclosures to see your overall reliability, or filter by enclosure to see how you're doing with a specific animal."
+    },
+    {
+      "type": "section",
+      "heading": "Task Completion Options"
+    },
+    {
+      "type": "text",
+      "text": "You can mark tasks complete in multiple ways:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Click the Checkmark: In the Care Calendar task list or card view, click the green checkmark to mark a task complete immediately.",
+        "Click the Notification: When a reminder pops up, click it to mark the task complete (if your browser supports it).",
+        "Swipe on Mobile: On mobile devices, swipe left on a task card to reveal the complete button, then tap it.",
+        "Bulk Complete: Select multiple tasks with the checkboxes, then click 'Complete Selected' at the bottom of the screen to mark them all done at once."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Customizing Your Reminders"
+    },
+    {
+      "type": "text",
+      "text": "Every task can be customized to fit your schedule and preferences:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Frequency: Change how often a task repeats (daily, every 2 days, weekly, monthly, custom).",
+        "Time of Day: Set the preferred notification time. Morning feedings? Evening misting? You control it.",
+        "Notes: Add task-specific notes like 'Feed 3-4 crickets' or 'Check substrate moisture' to help you remember details.",
+        "Task Type: Change the category to keep your tasks organized and easily recognizable."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Privacy & Data"
+    },
+    {
+      "type": "text",
+      "text": "Your care tasks and completion history are stored securely in your Habitat Builder account. Only you can see your tasks. The system uses this data to generate your reliability score and send timely reminders."
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "If you use multiple devices (phone, tablet, computer), your tasks sync automatically across all of them. Changes made on one device appear on all others within a few seconds."
+    },
+    {
+      "type": "section",
+      "heading": "Troubleshooting Notifications"
+    },
+    {
+      "type": "text",
+      "text": "Common issues and solutions:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Not getting notifications? Check that notifications are enabled in your browser settings. Look for the Habitat Builder site in your browser's notification permissions and make sure it's set to 'Allow.'",
+        "Notifications turned off? You can re-enable them at any time by clicking the bell icon in the Care Calendar header.",
+        "Wrong time notifications? Verify that your device timezone is set correctly. Reminders are sent based on your local time.",
+        "Task not showing as due? Make sure the task is enabled (toggle next to task name). Disabled tasks won't generate reminders until re-enabled."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Pro Tips for Success"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Start Simple: Begin with your most critical tasks (feeding, temperature checks) and add others once you have a routine.",
+        "Match Your Schedule: Set reminder times that fit your actual routine. An 8 AM feeding reminder is only helpful if you're awake at 8 AM!",
+        "Review Weekly: Once a week, check your reliability score. If it's dropping, consider simplifying tasks or adjusting frequencies to match your capacity.",
+        "Log Notes: Add quick notes when completing tasks ('Ate 3 crickets,' 'Used Exo Terra substrate'). These help track patterns over time.",
+        "Adjust as Needed: Animals' needs change with seasons and age. Review and update your care plan every 3-6 months."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "What's Coming Next"
+    },
+    {
+      "type": "text",
+      "text": "We're constantly improving the care reminders system. Future features we're exploring include:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Intelligent Scheduling: The system will learn your patterns and suggest optimal times for care tasks based on when you typically complete them.",
+        "Task Templates by Species: Pre-built, expert-reviewed care schedules for each species to make setup even faster.",
+        "Care Analytics: Detailed charts showing your care patterns over time, seasonal trends, and health correlations.",
+        "Shared Care Responsibilities: Invite family members or caregivers to share responsibility for your animals and receive their own reminders."
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Have questions or ideas for improving care reminders? We'd love to hear from you! Reach out through our contact form or community channels."
+    },
+    {
+      "type": "highlight",
+      "content": "The best care schedule is the one you'll actually stick to. Start small, track your reliability score, and gradually build habits that keep your reptiles and amphibians healthy and thriving."
+    }
+  ]
+}

@@ -103,6 +103,8 @@ class SupabaseEnclosureService implements IEnclosureService {
       animalName: row.animal_name,
       description: row.description,
       setupDate: row.setup_date ? new Date(row.setup_date) : undefined,
+      animalBirthday: row.animal_birthday ? new Date(row.animal_birthday) : undefined,
+      substrateType: row.substrate_type,
       isActive: row.is_active,
       createdAt: new Date(row.created_at),
       updatedAt: new Date(row.updated_at),
@@ -123,6 +125,8 @@ class SupabaseEnclosureService implements IEnclosureService {
     if (enclosure.animalName !== undefined) mapped.animal_name = enclosure.animalName;
     if (enclosure.description !== undefined) mapped.description = enclosure.description;
     if (enclosure.setupDate !== undefined) mapped.setup_date = enclosure.setupDate?.toISOString().split('T')[0];
+    if (enclosure.animalBirthday !== undefined) mapped.animal_birthday = enclosure.animalBirthday?.toISOString().split('T')[0];
+    if (enclosure.substrateType !== undefined) mapped.substrate_type = enclosure.substrateType;
     if (enclosure.isActive !== undefined) mapped.is_active = enclosure.isActive;
     if (enclosure.createdAt !== undefined) mapped.created_at = enclosure.createdAt.toISOString();
     if (enclosure.updatedAt !== undefined) mapped.updated_at = enclosure.updatedAt.toISOString();

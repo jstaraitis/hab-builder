@@ -360,7 +360,20 @@ export function Home() {
                   <CheckCircle className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
                   <span>Manage multiple enclosures</span>
                 </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                  <span>Reliability score tracks your care consistency</span>
+                </li>
               </ul>
+              <Link
+                to="/blog/care-reminders-guide"
+                className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold transition-colors text-sm mb-4"
+              >
+                Learn more
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
               <div className="mt-4 pt-4 border-t border-blue-200 dark:border-blue-800">
                 <p className="text-xs text-gray-500 dark:text-gray-400 italic">
                   Premium feature in TESTING - requires paid subscription. Push notifications require browser permission and work best on mobile devices.
@@ -539,7 +552,20 @@ export function Home() {
                 <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
                 <span>Manage multiple enclosures</span>
               </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                <span>Reliability score tracks your care consistency</span>
+              </li>
             </ul>
+            <Link
+              to="/blog/care-reminders-guide"
+              className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold transition-colors text-sm mb-6"
+            >
+              Learn more
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
             <div className="mt-4 pt-4 border-t border-blue-200 dark:border-blue-800">
               <p className="text-xs text-gray-500 dark:text-gray-400 italic">
                 Premium feature in TESTING - requires paid subscription. Push notifications require browser permission and work best on mobile devices.

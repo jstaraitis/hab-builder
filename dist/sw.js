@@ -97,9 +97,9 @@ self.addEventListener('message', (event) => {
 // Push notification event
 self.addEventListener('push', (event) => {
   const data = event.data ? event.data.json() : {};
-  const title = data.title || 'Care Calendar';
+  const title = data.title || '🦎 Habitat Builder - Care Reminder';
   const options = {
-    body: data.body || 'You have a task reminder',
+    body: data.body || 'You have a care task due',
     icon: '/icon-192x192.png',
     badge: '/icon-192x192.png',
     tag: data.tag || 'task-reminder',

@@ -202,12 +202,12 @@ serve(async (req) => {
         const taskTitles = tasks.map(t => t.title);
         
         const notificationTitle = tasks.length === 1
-          ? `🪱 ${enclosureName}`
-          : `🪱 ${enclosureName} (${tasks.length} tasks)`;
+          ? `� Habitat Builder - Care Reminder`
+          : `🦎 Habitat Builder - ${tasks.length} Care Reminders`;
         
         const notificationBody = tasks.length === 1
-          ? `${firstTask.title}`
-          : taskTitles.slice(0, 3).join(', ') + (tasks.length > 3 ? '...' : '');
+          ? `${enclosureName}: ${firstTask.title}`
+          : `${enclosureName}: ` + taskTitles.slice(0, 3).join(', ') + (tasks.length > 3 ? '...' : '');
 
         const payload = JSON.stringify({
           title: notificationTitle,

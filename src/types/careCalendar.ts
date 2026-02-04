@@ -28,6 +28,7 @@ export interface CareTask {
   id: string;
   userId?: string; // Optional for now, required when auth is added
   enclosureId?: string; // Optional - for multi-enclosure support later
+  enclosureAnimalId?: string; // If set, task is for specific animal. If null, task is for whole enclosure
   animalId: string; // Animal profile ID (e.g., 'whites-tree-frog')
   
   // Task details
@@ -95,16 +96,35 @@ export interface SpeciesCareProfile {
 }
 
 /**
- * Enclosure/Pet - represents a habitat with specific animal(s)
+ * Enclosure - represents a habitat for a specific species
  */
 export interface Enclosure {
   id: string;
   userId: string;
   name: string; // e.g., "Main Frog Tank", "Gecko Enclosure #1"
-  animalId: string; // e.g., 'whites-tree-frog'
-  animalName: string; // e.g., "White's Tree Frog"
+  animalId: string; // Species ID (e.g., 'whites-tree-frog')
+  animalName: string; // Species name (e.g., "White's Tree Frog")
   description?: string;
   setupDate?: Date;
+  animalBirthday?: Date; // Birth date of the animal in the enclosure
+  substrateType?: 'bioactive' | 'soil' | 'paper' | 'sand' | 'reptile-carpet' | 'tile' | 'other';
+  isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+/**
+ * EnclosureAnimal - represents an individual animal within an enclosure
+ * Supports multiple animals of the same species in one enclosure
+ */
+export interface EnclosureAnimal {
+  id: string;
+  enclosureId: string;
+  userId: string;
+  name?: string; // Optional name (e.g., "Kermit", "Lily")
+  animalNumber?: number; // Optional numbering for unnamed animals (#1, #2, etc.)
+  birthday?: Date; // Birthday/acquisition date for age calculation
+  notes?: string; // Notes about this specific animal
   isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
