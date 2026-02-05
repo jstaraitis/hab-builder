@@ -1,8 +1,8 @@
 import { useMemo, useState, useEffect } from 'react';
 import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, Twitter, Calendar, LogOut, User } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, X as XIcon, Calendar, LogOut, User, Package } from 'lucide-react';
 import { useAuth } from './contexts/AuthContext';
-import type { EnclosureInput, BuildPlan, AnimalProfile } from './engine/types';
+import type { EnclosureInput, BuildPlan } from './engine/types';
 import { generatePlan } from './engine/generatePlan';
 import { AnimalSelectView } from './components/Views/AnimalSelectView';
 import { DesignView } from './components/Views/DesignView';
@@ -11,6 +11,7 @@ import { SuppliesView } from './components/Views/SuppliesView';
 import { FindYourAnimalView } from './components/Views/FindYourAnimalView';
 import { FindYourAnimalResultsView } from './components/Views/FindYourAnimalResultsView';
 import { CareCalendarView } from './components/Views/CareCalendarView';
+import { InventoryView } from './components/Views/InventoryView';
 import CanvasDesigner from './components/EnclosureDesigner/CanvasDesigner';
 import { FeedbackModal } from './components/FeedbackModal/FeedbackModal';
 import { BlogList } from './components/Blog/BlogList';
@@ -110,13 +111,13 @@ function App() {
 
   const selectedProfile = useMemo(() => {
     const profile = animalProfiles[input.animal as keyof typeof animalProfiles];
-    return profile as AnimalProfile | undefined;
+    return profile;
   }, [input.animal]);
 
   const profileCareTargets = selectedProfile?.careTargets;
 
   const handleAnimalSelect = (animalId: string) => {
-    const profile = animalProfiles[animalId as keyof typeof animalProfiles] as AnimalProfile | undefined;
+    const profile = animalProfiles[animalId as keyof typeof animalProfiles];
     const minSize = profile?.minEnclosureSize;
     const isAquatic = profile?.equipmentNeeds?.waterFeature === 'fully-aquatic';
     
@@ -254,6 +255,12 @@ function App() {
               <Calendar className="w-4 h-4 inline mr-1.5" /> Care Tasks
             </Link>
             <Link
+              to="/inventory"
+              className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/inventory') ? 'bg-amber-600 text-white border-amber-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-amber-400'}`}
+            >
+              <Package className="w-4 h-4 inline mr-1.5" /> Inventory
+            </Link>
+            <Link
               to="/about"
               className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/about') ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-teal-400'}`}
             >
@@ -378,6 +385,7 @@ function App() {
           />
           <Route path="/supplies" element={<SuppliesView plan={plan} input={input} />} />
           <Route path="/care-calendar" element={<CareCalendarView />} />
+          <Route path="/inventory" element={<InventoryView />} />
           <Route path="/about" element={<About onOpenFeedback={() => setIsFeedbackOpen(true)} />} />
           <Route path="/roadmap" element={<Roadmap onOpenFeedback={() => setIsFeedbackOpen(true)} />} />
           <Route path="/blog" element={<BlogList selectedAnimal={input.animal} />} />
@@ -387,7 +395,7 @@ function App() {
       </main>
 
       {/* Mobile bottom navigation */}
-      <MobileNav hasAnimal={!!input.animal} hasPlan={!!plan} />
+      <MobileNav hasAnimal={!!input.animal} hasPlan={!!plan} onOpenFeedback={() => setIsFeedbackOpen(true)} />
 
       <FeedbackModal isOpen={isFeedbackOpen} onClose={() => setIsFeedbackOpen(false)} />
 
@@ -418,7 +426,7 @@ function App() {
                 className="p-1.5 md:p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors"
                 title="Follow us on Twitter"
               >
-                <Twitter className="w-4 h-4 md:w-5 md:h-5" />
+                <XIcon className="w-4 h-4 md:w-5 md:h-5" />
               </a>
             </div>
             <p className="text-xs text-gray-500 dark:text-gray-500">

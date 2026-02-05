@@ -138,7 +138,35 @@ const DEFAULT_SEO = {
     'ball python vs corn snake',
     'bioactive vs non-bioactive',
     'glass vs pvc enclosure',
-    'screen vs glass terrarium'
+    'screen vs glass terrarium',
+    
+    // Community & User Content keywords
+    'user submitted reptile setups',
+    'real enclosure builds',
+    'community reptile setups',
+    'real life reptile habitats',
+    'reptile keeper community',
+    'share your reptile setup',
+    'enclosure inspiration',
+    
+    // Care Scheduling & Reminders keywords
+    'reptile care calendar',
+    'feeding schedule tracker',
+    'reptile maintenance checklist',
+    'care reminders for reptiles',
+    'reptile feeding schedule',
+    'humidity monitoring schedule',
+    'UVB replacement schedule',
+    'tank cleaning calendar',
+    'water change schedule',
+    'misting system schedule',
+    
+    // Roadmap & Development keywords
+    'habitat builder features',
+    'enclosure planner updates',
+    'new reptile species coming',
+    'upcoming features reptile planner',
+    'feature roadmap'
   ],
   ogImage: '/og-image.jpg',
   canonical: 'https://habitat-builder.com'
@@ -283,8 +311,12 @@ export function SEO({
           'Budget-friendly equipment tier options (minimum/recommended/ideal)',
           'UVB coverage and substrate depth calculators',
           'Color-coded care difficulty levels',
+          'Care calendar with customizable reminders for feeding, maintenance, and monitoring',
+          'Community setup submissions and gallery of real user builds',
+          'Complete species profiles with detailed care guidance',
+          'Interactive animal finder based on enclosure dimensions and care level',
           'Dark mode support',
-          'Mobile-responsive design'
+          'Mobile-responsive design with full PWA installability'
         ]
       };
 

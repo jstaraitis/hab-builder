@@ -57,3 +57,36 @@ export function generateAmazonLink(
   
   return `${baseUrl}?${params.toString()}`;
 }
+
+/**
+ * Generate a basic Amazon search URL (no enclosure dimensions needed).
+ */
+export function generateAmazonSearchLink(
+  searchQuery: string,
+  affiliateTag?: string
+): string {
+  const baseUrl = 'https://www.amazon.com/s';
+  const params = new URLSearchParams({
+    k: searchQuery,
+    ...(affiliateTag && { tag: affiliateTag })
+  });
+
+  return `${baseUrl}?${params.toString()}`;
+}
+
+/**
+ * Append an Amazon affiliate tag to a product or search URL if not present.
+ */
+export function appendAmazonAffiliateTag(url: string, affiliateTag?: string): string {
+  if (!affiliateTag) return url;
+
+  try {
+    const parsed = new URL(url);
+    if (!parsed.searchParams.get('tag')) {
+      parsed.searchParams.set('tag', affiliateTag);
+    }
+    return parsed.toString();
+  } catch {
+    return url;
+  }
+}
