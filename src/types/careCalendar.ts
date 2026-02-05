@@ -40,6 +40,7 @@ export interface CareTask {
   
   // Scheduling
   scheduledTime?: string; // HH:MM format (e.g., "09:00")
+  startDate?: Date; // Optional start date for the task (useful for scheduling future tasks like 2 weeks out)
   nextDueAt: Date;
   
   // Optional fields

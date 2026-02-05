@@ -21,6 +21,7 @@ interface TaskFormData {
   description: string;
   type: TaskType;
   frequency: TaskFrequency;
+  startDate?: string; // ISO date string (YYYY-MM-DD)
   scheduledTime: string;
   notificationEnabled: boolean;
   notificationMinutesBefore: number;
@@ -92,6 +93,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
           description: t.description,
           type: t.type as TaskType,
           frequency: t.frequency as TaskFrequency,
+          startDate: undefined,
           scheduledTime: t.scheduledTime,
           notificationEnabled: true,
           notificationMinutesBefore: 15,
@@ -115,21 +117,29 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
       // Create all tasks
       for (const taskData of tasks) {
         const now = new Date();
-        const nextDueAt = new Date();
-        nextDueAt.setHours(0, 0, 0, 0); // Start from today
+        let nextDueAt = new Date();
+
+        // Use start date if provided, otherwise use today
+        if (taskData.startDate) {
+          nextDueAt = new Date(taskData.startDate);
+        } else {
+          nextDueAt.setHours(0, 0, 0, 0); // Start from today
+        }
 
         // Parse scheduled time and apply it to nextDueAt
         if (taskData.scheduledTime) {
           const [hours, minutes] = taskData.scheduledTime.split(':').map(Number);
           nextDueAt.setHours(hours, minutes, 0, 0);
 
-          // If the scheduled time has already passed today, move to tomorrow
-          if (nextDueAt <= now) {
+          // If no start date was provided and the scheduled time has already passed today, move to tomorrow
+          if (!taskData.startDate && nextDueAt <= now) {
             nextDueAt.setDate(nextDueAt.getDate() + 1);
           }
         } else {
-          // No scheduled time - default to tomorrow at 9 AM
-          nextDueAt.setDate(nextDueAt.getDate() + 1);
+          // No scheduled time - default to tomorrow at 9 AM if no start date
+          if (!taskData.startDate) {
+            nextDueAt.setDate(nextDueAt.getDate() + 1);
+          }
           nextDueAt.setHours(9, 0, 0, 0);
         }
 
@@ -143,6 +153,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
           type: taskData.type,
           frequency: taskData.frequency,
           scheduledTime: taskData.scheduledTime,
+          startDate: taskData.startDate ? new Date(taskData.startDate) : undefined,
           nextDueAt,
           isActive: true,
           notificationEnabled: taskData.notificationEnabled,
@@ -317,6 +328,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                       description: '',
                       type: 'custom',
                       frequency: 'daily',
+                      startDate: undefined,
                       scheduledTime: '09:00',
                       notificationEnabled: true,
                       notificationMinutesBefore: 15,
@@ -406,6 +418,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                         description: '',
                         type: 'custom',
                         frequency: 'daily',
+                        startDate: undefined,
                         scheduledTime: '09:00',
                         notificationEnabled: true,
                         notificationMinutesBefore: 15,
@@ -525,7 +538,22 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                         </select>
                       </div>
 
-                      <div className="col-span-2">
+                      <div>
+                        <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                          Start Date (optional)
+                        </label>
+                        <input
+                          type="date"
+                          value={task.startDate || ''}
+                          onChange={(e) => updateTask(index, 'startDate', e.target.value)}
+                          className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
+                        />
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                          Schedule a future task (e.g., feeding in 2 weeks)
+                        </p>
+                      </div>
+
+                      <div>
                         <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
                           Time
                         </label>

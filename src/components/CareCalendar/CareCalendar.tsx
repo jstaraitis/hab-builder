@@ -40,7 +40,7 @@ import type { CareTaskWithLogs, TaskType, CareTask, Enclosure, EnclosureAnimal }
 
 type ViewMode = 'all' | 'today' | 'week';
 type LayoutMode = 'cards' | 'list';
-type TimeBlock = 'overdue' | 'morning' | 'afternoon' | 'evening' | 'night' | 'tomorrow' | 'week';
+type TimeBlock = 'overdue' | 'morning' | 'afternoon' | 'evening' | 'night' | 'tomorrow' | 'week' | 'future';
 
 export function CareCalendar() {
   const { user, loading: authLoading } = useAuth();
@@ -225,8 +225,13 @@ export function CareCalendar() {
     tomorrow.setDate(tomorrow.getDate() + 1);
     if (date.toDateString() === tomorrow.toDateString()) return 'tomorrow';
     
-    // This week
-    return 'week';
+    // This week (next 7 days from now)
+    const weekEnd = new Date(now);
+    weekEnd.setDate(weekEnd.getDate() + 7);
+    if (date < weekEnd) return 'week';
+    
+    // Future (more than 7 days away)
+    return 'future';
   };
 
   const getTimeBlockLabel = (block: TimeBlock): string => {
@@ -238,6 +243,7 @@ export function CareCalendar() {
       night: 'Night (after 9pm)',
       tomorrow: 'Tomorrow',
       week: 'This Week',
+      future: 'Future',
     };
     return labels[block];
   };
@@ -251,6 +257,7 @@ export function CareCalendar() {
       night: Moon,
       tomorrow: CalendarDays,
       week: CalendarClock,
+      future: Calendar,
     };
     return icons[block];
   };
@@ -428,7 +435,7 @@ export function CareCalendar() {
   }, {} as Record<TimeBlock, CareTaskWithLogs[]>);
 
   // Define display order for time blocks
-  const blockOrder: TimeBlock[] = ['overdue', 'morning', 'afternoon', 'evening', 'night', 'tomorrow', 'week'];
+  const blockOrder: TimeBlock[] = ['overdue', 'morning', 'afternoon', 'evening', 'night', 'tomorrow', 'week', 'future'];
   const visibleBlocks = blockOrder.filter(block => groupedTasks[block]?.length > 0);
 
   // Helper to get enclosure name

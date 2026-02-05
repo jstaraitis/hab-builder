@@ -25,6 +25,7 @@ export function TaskEditModal({ task, isOpen, onClose, onTaskUpdated }: TaskEdit
         type: task.type,
         frequency: task.frequency,
         scheduledTime: task.scheduledTime,
+        startDate: task.startDate,
         notes: task.notes,
         enclosureId: task.enclosureId,
         notificationEnabled: task.notificationEnabled,
@@ -217,6 +218,28 @@ export function TaskEditModal({ task, isOpen, onClose, onTaskUpdated }: TaskEdit
                 onChange={(e) => updateField('scheduledTime', e.target.value)}
                 className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base"
               />
+            </div>
+
+            <div className="col-span-2 sm:col-span-1">
+              <label htmlFor="startDate" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Start Date (optional)
+              </label>
+              <input
+                id="startDate"
+                type="date"
+                value={
+                  formData.startDate
+                    ? formData.startDate instanceof Date
+                      ? formData.startDate.toISOString().split('T')[0]
+                      : formData.startDate
+                    : ''
+                }
+                onChange={(e) => setFormData(prev => ({ ...prev, startDate: e.target.value ? new Date(e.target.value) : undefined }))}
+                className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base"
+              />
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                Schedule a future task (e.g., feeding in 2 weeks)
+              </p>
             </div>
           </div>
 
