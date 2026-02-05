@@ -1,5 +1,5 @@
 ﻿import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Calendar, MoreHorizontal, X, Info, MessageCircle, Package, ChevronUp, ChevronDown, SlidersHorizontal, type LucideIcon } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Calendar, MoreHorizontal, X, Info, MessageCircle, Package, ChevronUp, ChevronDown, SlidersHorizontal, User, type LucideIcon } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { profileService } from '../../services/profileService';
@@ -30,6 +30,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'inventory', path: '/inventory', icon: Package, label: 'Inventory', description: 'Consumables & buy again' },
   { id: 'blog', path: '/blog', icon: BookOpen, label: 'Guides', description: 'Care guides & tips' },
   { id: 'about', path: '/about', icon: Info, label: 'About', description: 'About Habitat Builder' },
+  { id: 'profile', path: '/profile', icon: User, label: 'Profile', description: 'Name & subscription' },
 ];
 
 const DEFAULT_ORDER = NAV_ITEMS.map((item) => item.id);

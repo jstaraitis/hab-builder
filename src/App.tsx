@@ -12,6 +12,7 @@ import { FindYourAnimalView } from './components/Views/FindYourAnimalView';
 import { FindYourAnimalResultsView } from './components/Views/FindYourAnimalResultsView';
 import { CareCalendarView } from './components/Views/CareCalendarView';
 import { InventoryView } from './components/Views/InventoryView';
+import { ProfileView } from './components/Views/ProfileView';
 import CanvasDesigner from './components/EnclosureDesigner/CanvasDesigner';
 import { FeedbackModal } from './components/FeedbackModal/FeedbackModal';
 import { BlogList } from './components/Blog/BlogList';
@@ -266,6 +267,12 @@ function App() {
             >
               <Info className="w-4 h-4 inline mr-1.5" /> About
             </Link>
+            <Link
+              to="/profile"
+              className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/profile') ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-indigo-400'}`}
+            >
+              <User className="w-4 h-4 inline mr-1.5" /> Profile
+            </Link>
             <button
               onClick={() => setIsFeedbackOpen(true)}
               className="hidden sm:flex px-4 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-orange-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors whitespace-nowrap items-center"
@@ -387,6 +394,7 @@ function App() {
           <Route path="/care-calendar" element={<CareCalendarView />} />
           <Route path="/inventory" element={<InventoryView />} />
           <Route path="/about" element={<About onOpenFeedback={() => setIsFeedbackOpen(true)} />} />
+          <Route path="/profile" element={<ProfileView />} />
           <Route path="/roadmap" element={<Roadmap onOpenFeedback={() => setIsFeedbackOpen(true)} />} />
           <Route path="/blog" element={<BlogList selectedAnimal={input.animal} />} />
           <Route path="/blog/:postId" element={<BlogPost />} />

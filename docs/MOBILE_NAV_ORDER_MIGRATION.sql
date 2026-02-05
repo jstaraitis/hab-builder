@@ -3,6 +3,8 @@
 -- Create minimal profiles table if it doesn't exist
 create table if not exists profiles (
 	id uuid primary key references auth.users(id) on delete cascade,
+	display_name text,
+	is_premium boolean default false,
 	mobile_nav_order jsonb,
 	created_at timestamptz default now(),
 	updated_at timestamptz default now()
@@ -10,6 +12,12 @@ create table if not exists profiles (
 
 alter table profiles
 add column if not exists mobile_nav_order jsonb;
+
+alter table profiles
+add column if not exists display_name text;
+
+alter table profiles
+add column if not exists is_premium boolean default false;
 
 -- Ensure RLS is enabled (if not already)
 alter table profiles enable row level security;
