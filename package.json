@@ -24,6 +24,7 @@
     "react-dom": "^18.2.0",
     "react-konva": "^18.2.14",
     "react-router-dom": "^6.23.1",
+    "recharts": "^3.7.0",
     "yet-another-react-lightbox": "^3.28.0"
   },
   "devDependencies": {

@@ -5,10 +5,11 @@
  */
 
 import { useState, useEffect } from 'react';
-import { Plus, X, Pencil, Trash2, Calendar } from 'lucide-react';
+import { Plus, X, Pencil, Trash2, Calendar, Scale } from 'lucide-react';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { EnclosureAnimal } from '../../types/careCalendar';
 import { useAuth } from '../../contexts/AuthContext';
+import { WeightTracker } from '../WeightTracking';
 
 interface AnimalListProps {
   enclosureId: string;
@@ -32,6 +33,7 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
   const [showModal, setShowModal] = useState(false);
   const [editingAnimal, setEditingAnimal] = useState<EnclosureAnimal | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [trackingWeightForAnimal, setTrackingWeightForAnimal] = useState<EnclosureAnimal | null>(null);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -209,6 +211,13 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
 
                 <div className="flex items-center gap-1 ml-3">
                   <button
+                    onClick={() => setTrackingWeightForAnimal(animal)}
+                    className="p-1.5 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                    title="Track weight"
+                  >
+                    <Scale className="w-4 h-4" />
+                  </button>
+                  <button
                     onClick={() => openModal(animal)}
                     className="p-1.5 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
                     title="Edit animal"
@@ -320,6 +329,30 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* Weight Tracker Modal */}
+      {trackingWeightForAnimal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4 overflow-y-auto">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-6xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto">
+            <div className="sticky top-0 bg-white dark:bg-gray-800 flex items-center justify-between p-3 sm:p-4 border-b border-gray-200 dark:border-gray-700 z-10">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white truncate pr-2">
+                Weight Tracker - {trackingWeightForAnimal.name || `Animal #${trackingWeightForAnimal.animalNumber}`}
+              </h3>
+              <button 
+                onClick={() => setTrackingWeightForAnimal(null)} 
+                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 flex-shrink-0"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-2 sm:p-4">
+              <WeightTracker 
+                animal={trackingWeightForAnimal}
+              />
+            </div>
           </div>
         </div>
       )}

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
-import { Worm, Search, BookOpen, CheckCircle, ShieldAlert, ShoppingCart, ClipboardList, DollarSign, Sparkles, Quote, Star, Bell, GraduationCap, Palette } from 'lucide-react';
+import { Worm, Search, BookOpen, CheckCircle, ShieldAlert, ShoppingCart, ClipboardList, DollarSign, Sparkles, Quote, Star, Bell, GraduationCap, Palette, Package, BarChart3 } from 'lucide-react';
 
 export function Home() {
   const [activeBenefitCard, setActiveBenefitCard] = useState(0);
@@ -46,12 +46,12 @@ export function Home() {
       // Handle last card edge case
       const isAtEnd = scrollLeft + containerWidth >= scrollWidth - 10;
       if (isAtEnd) {
-        setActiveFeatureCard(3);
+        setActiveFeatureCard(5);
         return;
       }
       
       const activeIndex = Math.round(scrollLeft / cardWidth);
-      setActiveFeatureCard(Math.min(activeIndex, 3)); // Clamp to max 3
+      setActiveFeatureCard(Math.min(activeIndex, 5)); // Clamp to max 5
     };
 
     scrollContainer.addEventListener('scroll', handleScroll);
@@ -458,6 +458,78 @@ export function Home() {
               </div>
             </div>
 
+            {/* Equipment Reminders Feature */}
+            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 rounded-2xl shadow-lg p-6 border-2 border-teal-200 dark:border-teal-800">
+              <div className="w-16 h-16 bg-teal-600 dark:bg-teal-500 rounded-2xl flex items-center justify-center mb-4">
+                <Package className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                Equipment & Inventory
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                Track your equipment, get maintenance reminders, and never run out of critical supplies. Monitor UVB bulb age, substrate levels, and supplement expiration dates.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-4">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
+                  <span>Track UVB bulb replacement dates</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
+                  <span>Monitor substrate and supplement levels</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
+                  <span>Set custom replacement reminders</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
+                  <span>Track equipment across multiple enclosures</span>
+                </li>
+              </ul>
+              <div className="mt-4 pt-4 border-t border-teal-200 dark:border-teal-800">
+                <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                  Premium feature in TESTING - requires paid subscription. Helps prevent expensive equipment failures and health issues from outdated supplies.
+                </p>
+              </div>
+            </div>
+
+            {/* Care Analytics Feature */}
+            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-900/20 dark:to-violet-900/20 rounded-2xl shadow-lg p-6 border-2 border-indigo-200 dark:border-indigo-800">
+              <div className="w-16 h-16 bg-indigo-600 dark:bg-indigo-500 rounded-2xl flex items-center justify-center mb-4">
+                <BarChart3 className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                Care Analytics & Insights
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                Visualize your care patterns, track streaks, and identify gaps in your routine. See completion rates, activity heatmaps, and task breakdowns to ensure consistent care.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-4">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
+                  <span>Track current & longest care streaks</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
+                  <span>90-day activity heatmap visualization</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
+                  <span>Task type breakdown (feeding, misting, etc.)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
+                  <span>Completion rate percentage tracking</span>
+                </li>
+              </ul>
+              <div className="mt-4 pt-4 border-t border-indigo-200 dark:border-indigo-800">
+                <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                  Premium feature in TESTING - requires paid subscription. Analytics automatically derive from your completed care tasks.
+                </p>
+              </div>
+            </div>
+
             {/* Animal Search Feature */}
             <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-2xl shadow-lg p-6 border-2 border-emerald-200 dark:border-emerald-800">
               <div className="w-16 h-16 bg-emerald-600 dark:bg-emerald-500 rounded-2xl flex items-center justify-center mb-4">
@@ -506,7 +578,7 @@ export function Home() {
 
           {/* Swipe indicators */}
           <div className="flex justify-center gap-1.5 mt-4">
-            {[0, 1, 2, 3].map((index) => (
+            {[0, 1, 2, 3, 4, 5].map((index) => (
               <div 
                 key={index}
                 className={`w-2 h-2 rounded-full transition-colors ${ 
@@ -514,6 +586,8 @@ export function Home() {
                     ? index === 0 ? 'bg-blue-500' 
                       : index === 1 ? 'bg-amber-500'
                       : index === 2 ? 'bg-purple-500'
+                      : index === 3 ? 'bg-teal-500'
+                      : index === 4 ? 'bg-indigo-500'
                       : 'bg-emerald-500'
                     : 'bg-gray-300 dark:bg-gray-600'
                 }`}
@@ -646,6 +720,78 @@ export function Home() {
             <div className="mt-4 pt-4 border-t border-purple-200 dark:border-purple-800">
               <p className="text-xs text-gray-500 dark:text-gray-400 italic">
                 Available after generating your plan. Works best on larger screens (tablets/desktops). Still in development—verify all equipment fits and meets safety requirements before purchasing.
+              </p>
+            </div>
+          </div>
+
+          {/* Equipment Reminders Feature */}
+          <div className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 rounded-2xl shadow-lg p-8 border-2 border-teal-200 dark:border-teal-800">
+            <div className="w-16 h-16 bg-teal-600 dark:bg-teal-500 rounded-2xl flex items-center justify-center mb-4">
+              <Package className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+              Equipment & Inventory
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              Track your equipment, get maintenance reminders, and never run out of critical supplies. Monitor UVB bulb age, substrate levels, and supplement expiration dates.
+            </p>
+            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
+                <span>Track UVB bulb replacement dates</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
+                <span>Monitor substrate and supplement levels</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
+                <span>Set custom replacement reminders</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
+                <span>Track equipment across multiple enclosures</span>
+              </li>
+            </ul>
+            <div className="mt-4 pt-4 border-t border-teal-200 dark:border-teal-800">
+              <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                Premium feature in TESTING - requires paid subscription. Helps prevent expensive equipment failures and health issues from outdated supplies.
+              </p>
+            </div>
+          </div>
+
+          {/* Care Analytics Feature */}
+          <div className="bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-900/20 dark:to-violet-900/20 rounded-2xl shadow-lg p-8 border-2 border-indigo-200 dark:border-indigo-800">
+            <div className="w-16 h-16 bg-indigo-600 dark:bg-indigo-500 rounded-2xl flex items-center justify-center mb-4">
+              <BarChart3 className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+              Care Analytics & Insights
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              Visualize your care patterns, track streaks, and identify gaps in your routine. See completion rates, activity heatmaps, and task breakdowns to ensure consistent care.
+            </p>
+            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
+                <span>Track current & longest care streaks</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
+                <span>90-day activity heatmap visualization</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
+                <span>Task type breakdown (feeding, misting, etc.)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
+                <span>Completion rate percentage tracking</span>
+              </li>
+            </ul>
+            <div className="mt-4 pt-4 border-t border-indigo-200 dark:border-indigo-800">
+              <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                Premium feature in TESTING - requires paid subscription. Analytics automatically derive from your completed care tasks.
               </p>
             </div>
           </div>
@@ -947,7 +1093,7 @@ export function Home() {
         </div>
         
         <p className="text-sm text-gray-500 dark:text-gray-400 flex items-center justify-center gap-2">
-          <Sparkles className="w-4 h-4" /> Always free  • 18 species (and growing!)
+          <Sparkles className="w-4 h-4" />
         </p>
       </section>
     </div>

@@ -23,6 +23,7 @@ import { Roadmap } from './components/Roadmap/Roadmap';
 import { Home } from './components/Home/Home';
 import { animalProfiles } from './data/animals';
 import { useTheme } from './hooks/useTheme';
+import { usePWAUpdate } from './hooks/usePWAUpdate';
 import { MobileNav } from './components/Navigation/MobileNav';
 import { ProgressIndicator } from './components/Navigation/ProgressIndicator';
 
@@ -31,6 +32,7 @@ function App() {
   const location = useLocation();
   const { user, signOut } = useAuth();
   useTheme(); // Apply dark mode
+  usePWAUpdate(); // Check for PWA updates
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);

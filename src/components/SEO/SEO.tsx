@@ -20,8 +20,8 @@ interface SEOProps {
 }
 
 const DEFAULT_SEO = {
-  title: 'Habitat Builder - Free Reptile & Amphibian Enclosure Planner with Visual Designer',
-  description: 'Design the perfect enclosure for your reptile or amphibian with our free interactive planner. Find animals that fit your space, get custom shopping lists, species-specific care parameters, drag-and-drop visual designer with 70+ equipment items, and detailed step-by-step build instructions. Supports 19 species: tree frogs, geckos, bearded dragons, snakes, salamanders, chameleons, and more.',
+  title: 'Habitat Builder - Free Reptile & Amphibian Enclosure Planner with Care Tracking & Analytics',
+  description: 'Design the perfect enclosure for your reptile or amphibian with our free interactive planner. Find animals that fit your space, get custom shopping lists, species-specific care parameters, drag-and-drop visual designer with 70+ equipment items, detailed step-by-step build instructions, care task reminders with push notifications, equipment maintenance tracking, and care analytics with completion rates and activity heatmaps. Supports 19 species: tree frogs, geckos, bearded dragons, snakes, salamanders, chameleons, and more.',
   keywords: [
     // Core tool keywords
     'reptile enclosure planner',
@@ -160,6 +160,18 @@ const DEFAULT_SEO = {
     'tank cleaning calendar',
     'water change schedule',
     'misting system schedule',
+    'care task notifications',
+    'push notification reminders',
+    'reptile care streak tracker',
+    'care completion rates',
+    'care activity heatmap',
+    'equipment maintenance tracker',
+    'UVB bulb replacement reminders',
+    'substrate level monitoring',
+    'supplement expiration tracker',
+    'reptile care analytics',
+    'care consistency tracking',
+    'care pattern analysis',
     
     // Roadmap & Development keywords
     'habitat builder features',
@@ -312,6 +324,10 @@ export function SEO({
           'UVB coverage and substrate depth calculators',
           'Color-coded care difficulty levels',
           'Care calendar with customizable reminders for feeding, maintenance, and monitoring',
+          'Care analytics dashboard with streaks, completion rates, and activity heatmaps',
+          'Equipment inventory tracking and maintenance reminders',
+          'UVB bulb replacement scheduling and substrate level monitoring',
+          'Push notifications for care tasks and equipment maintenance',
           'Community setup submissions and gallery of real user builds',
           'Complete species profiles with detailed care guidance',
           'Interactive animal finder based on enclosure dimensions and care level',

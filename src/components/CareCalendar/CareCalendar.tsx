@@ -25,6 +25,7 @@ import {
   Moon,
   CalendarDays,
   CalendarClock,
+  BarChart3,
   type LucideIcon
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
@@ -36,9 +37,10 @@ import { TaskCreationModal } from './TaskCreationModal';
 import { TaskEditModal } from './TaskEditModal';
 import { EnclosureManager } from './EnclosureManager';
 import { NotificationPrompt } from './NotificationPrompt';
+import { CareAnalyticsDashboard } from '../CareAnalytics';
 import type { CareTaskWithLogs, TaskType, CareTask, Enclosure, EnclosureAnimal } from '../../types/careCalendar';
 
-type ViewMode = 'all' | 'today' | 'week';
+type ViewMode = 'all' | 'today' | 'week' | 'analytics';
 type LayoutMode = 'cards' | 'list';
 type TimeBlock = 'overdue' | 'morning' | 'afternoon' | 'evening' | 'night' | 'tomorrow' | 'week' | 'future';
 
@@ -475,26 +477,40 @@ export function CareCalendar() {
         </p>
       </div>
 
-      {/* Getting Started Guide (shown when no enclosures) */}
-      {enclosures.length === 0 && !error && (
-        <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-6 mb-8">
-          <h2 className="text-lg font-semibold text-emerald-900 dark:text-emerald-100 mb-4 flex items-center gap-2">
-            <Hand className="w-5 h-5" />
-            Welcome to Care Tasks!
-          </h2>
-          <div className="space-y-3 text-emerald-800 dark:text-emerald-200">
-            <p>
-              <strong>Step 1:</strong> Create your first pet enclosure below
-            </p>
-            <p>
-              <strong>Step 2:</strong> Add care tasks for that pet
-            </p>
-            <p>
-              <strong>Step 3:</strong> Track completions and build your care streak!
-            </p>
-          </div>
+      {/* Show Analytics if selected */}
+      {viewMode === 'analytics' ? (
+        <div>
+          {/* Back Button */}
+          <button
+            onClick={() => setViewMode('today')}
+            className="mb-4 text-sm text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"
+          >
+            ← Back to Tasks
+          </button>
+          <CareAnalyticsDashboard />
         </div>
-      )}
+      ) : (
+        <>
+          {/* Getting Started Guide (shown when no enclosures) */}
+          {enclosures.length === 0 && !error && (
+            <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-6 mb-8">
+              <h2 className="text-lg font-semibold text-emerald-900 dark:text-emerald-100 mb-4 flex items-center gap-2">
+                <Hand className="w-5 h-5" />
+                Welcome to Care Tasks!
+              </h2>
+              <div className="space-y-3 text-emerald-800 dark:text-emerald-200">
+                <p>
+                  <strong>Step 1:</strong> Create your first pet enclosure below
+                </p>
+                <p>
+                  <strong>Step 2:</strong> Add care tasks for that pet
+                </p>
+                <p>
+                  <strong>Step 3:</strong> Track completions and build your care streak!
+                </p>
+              </div>
+            </div>
+          )}
 
       {/* Enclosure Manager Section */}
       <div className="mb-12">
@@ -543,6 +559,17 @@ export function CareCalendar() {
                 >
                   <List className="w-3.5 h-3.5" />
                   All Tasks
+                </button>
+                <button
+                  onClick={() => setViewMode('analytics')}
+                  className={`px-3 py-1.5 rounded-lg font-medium text-xs transition-colors whitespace-nowrap flex items-center gap-1.5 ${
+                    (viewMode as ViewMode) === 'analytics'
+                      ? 'bg-emerald-600 text-white'
+                      : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                  }`}
+                >
+                  <BarChart3 className="w-3.5 h-3.5" />
+                  Analytics
                 </button>
               </div>
 
@@ -1147,6 +1174,8 @@ export function CareCalendar() {
             </button>
           </div>
         </div>
+      )}
+      </>
       )}
 
       {/* Notification Permission Prompt */}

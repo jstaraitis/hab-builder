@@ -1,4 +1,4 @@
-const CACHE_NAME = 'habitat-builder-v1';
+const CACHE_NAME = 'habitat-builder-v2';
 const OFFLINE_URL = '/offline.html';
 
 // Assets to cache on install
@@ -142,4 +142,13 @@ self.addEventListener('notificationclick', (event) => {
       }
     })
   );
+});
+
+// Message handler for update prompts
+self.addEventListener('message', (event) => {
+  if (event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+    // Notify client that update is proceeding
+    event.ports[0].postMessage({ type: 'SKIP_WAITING_SUCCESS' });
+  }
 });
