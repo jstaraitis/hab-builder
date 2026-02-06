@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
-import { Worm, Search, BookOpen, CheckCircle, ShieldAlert, ShoppingCart, ClipboardList, DollarSign, Sparkles, Quote, Star, Bell, GraduationCap, Palette, Package, BarChart3 } from 'lucide-react';
+import { Worm, Search, BookOpen, CheckCircle, ShieldAlert, ShoppingCart, ClipboardList, DollarSign, Sparkles, Quote, Star, Bell, GraduationCap, Palette, Package, BarChart3, Mail, ArrowRight } from 'lucide-react';
 
 export function Home() {
   const [activeBenefitCard, setActiveBenefitCard] = useState(0);
@@ -374,9 +374,27 @@ export function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
-              <div className="mt-4 pt-4 border-t border-blue-200 dark:border-blue-800">
+              <div className="mt-4 pt-4 border-t border-blue-200 dark:border-blue-800 space-y-3">
+                <div className="bg-blue-100 dark:bg-blue-900/30 rounded-lg p-3 border border-blue-300 dark:border-blue-700">
+                  <p className="text-sm font-semibold text-blue-900 dark:text-blue-100 mb-2">
+                    <Sparkles className="w-4 h-4" />
+                     Join the Beta Test
+                  </p>
+                  <p className="text-xs text-blue-800 dark:text-blue-200 mb-2">
+                    Be among the first to try care reminders! Email us to get early access.
+                  </p>
+                  <a
+                    href="mailto:josh.habitat.builder@gmail.com?subject=Care Reminders Beta Access&body=Hi! I'd like to beta test the care reminders feature."
+                    className="inline-flex items-center gap-2 text-xs font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
+                  >
+                    josh.habitat.builder@gmail.com
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
                 <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-                  Premium feature in TESTING - requires paid subscription. Push notifications require browser permission and work best on mobile devices.
+                  Premium feature. Push notifications require browser permission and work best on mobile devices.
                 </p>
               </div>
             </div>
@@ -487,9 +505,26 @@ export function Home() {
                   <span>Track equipment across multiple enclosures</span>
                 </li>
               </ul>
-              <div className="mt-4 pt-4 border-t border-teal-200 dark:border-teal-800">
+              <div className="mt-4 pt-4 border-t border-teal-200 dark:border-teal-800 space-y-3">
+                <div className="bg-teal-100 dark:bg-teal-900/30 rounded-lg p-3 border border-teal-300 dark:border-teal-700">
+                  <p className="text-sm font-semibold text-teal-900 dark:text-teal-100 mb-2 flex items-center gap-2">
+                    <Sparkles className="w-4 h-4" />
+                    Join the Beta Test
+                  </p>
+                  <p className="text-xs text-teal-800 dark:text-teal-200 mb-2">
+                    Be among the first to try equipment tracking! Email us to get early access.
+                  </p>
+                  <a
+                    href="mailto:josh.habitat.builder@gmail.com?subject=Equipment Tracking Beta Access&body=Hi! I'd like to beta test the equipment tracking feature."
+                    className="inline-flex items-center gap-2 text-xs font-semibold text-teal-700 dark:text-teal-300 hover:text-teal-800 dark:hover:text-teal-200 transition-colors"
+                  >
+                    <Mail className="w-3 h-3" />
+                    josh.habitat.builder@gmail.com
+                    <ArrowRight className="w-3 h-3" />
+                  </a>
+                </div>
                 <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-                  Premium feature in TESTING - requires paid subscription. Helps prevent expensive equipment failures and health issues from outdated supplies.
+                  Premium feature. Helps prevent expensive equipment failures and health issues.
                 </p>
               </div>
             </div>
@@ -523,9 +558,26 @@ export function Home() {
                   <span>Completion rate percentage tracking</span>
                 </li>
               </ul>
-              <div className="mt-4 pt-4 border-t border-indigo-200 dark:border-indigo-800">
+              <div className="mt-4 pt-4 border-t border-indigo-200 dark:border-indigo-800 space-y-3">
+                <div className="bg-indigo-100 dark:bg-indigo-900/30 rounded-lg p-3 border border-indigo-300 dark:border-indigo-700">
+                  <p className="text-sm font-semibold text-indigo-900 dark:text-indigo-100 mb-2 flex items-center gap-2">
+                    <Sparkles className="w-4 h-4" />
+                    Join the Beta Test
+                  </p>
+                  <p className="text-xs text-indigo-800 dark:text-indigo-200 mb-2">
+                    Be among the first to try care analytics! Email us to get early access.
+                  </p>
+                  <a
+                    href="mailto:josh.habitat.builder@gmail.com?subject=Care Analytics Beta Access&body=Hi! I'd like to beta test the care analytics feature."
+                    className="inline-flex items-center gap-2 text-xs font-semibold text-indigo-700 dark:text-indigo-300 hover:text-indigo-800 dark:hover:text-indigo-200 transition-colors"
+                  >
+                    <Mail className="w-3 h-3" />
+                    josh.habitat.builder@gmail.com
+                    <ArrowRight className="w-3 h-3" />
+                  </a>
+                </div>
                 <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-                  Premium feature in TESTING - requires paid subscription. Analytics automatically derive from your completed care tasks.
+                  Premium feature. Analytics automatically derive from your completed care tasks.
                 </p>
               </div>
             </div>
@@ -640,9 +692,27 @@ export function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
-            <div className="mt-4 pt-4 border-t border-blue-200 dark:border-blue-800">
+            <div className="mt-4 pt-4 border-t border-blue-200 dark:border-blue-800 space-y-3">
+              <div className="bg-blue-100 dark:bg-blue-900/30 rounded-lg p-4 border border-blue-300 dark:border-blue-700">
+                <p className="text-sm font-semibold text-indigo-900 dark:text-indigo-100 mb-2 flex items-center gap-2">
+                  <Sparkles className="w-4 h-4" />
+                  Join the Beta Test
+                </p>
+                <p className="text-sm text-blue-800 dark:text-blue-200 mb-3">
+                  Be among the first to try care reminders! Email us to get early access.
+                </p>
+                <a
+                  href="mailto:josh.habitat.builder@gmail.com?subject=Care Reminders Beta Access&body=Hi! I'd like to beta test the care reminders feature."
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
+                >
+                  josh.habitat.builder@gmail.com
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
               <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-                Premium feature in TESTING - requires paid subscription. Push notifications require browser permission and work best on mobile devices.
+                Premium feature. Push notifications require browser permission and work best on mobile devices.
               </p>
             </div>
           </div>
@@ -753,9 +823,26 @@ export function Home() {
                 <span>Track equipment across multiple enclosures</span>
               </li>
             </ul>
-            <div className="mt-4 pt-4 border-t border-teal-200 dark:border-teal-800">
+            <div className="mt-4 pt-4 border-t border-teal-200 dark:border-teal-800 space-y-3">
+              <div className="bg-teal-100 dark:bg-teal-900/30 rounded-lg p-4 border border-teal-300 dark:border-teal-700">
+                <p className="text-sm font-semibold text-teal-900 dark:text-teal-100 mb-2 flex items-center gap-2">
+                  <Sparkles className="w-4 h-4" />
+                  Join the Beta Test
+                </p>
+                <p className="text-sm text-teal-800 dark:text-teal-200 mb-3">
+                  Be among the first to try equipment tracking! Email us to get early access.
+                </p>
+                <a
+                  href="mailto:josh.habitat.builder@gmail.com?subject=Equipment Tracking Beta Access&body=Hi! I'd like to beta test the equipment tracking feature."
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-teal-700 dark:text-teal-300 hover:text-teal-800 dark:hover:text-teal-200 transition-colors"
+                >
+                  <Mail className="w-4 h-4" />
+                  josh.habitat.builder@gmail.com
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
               <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-                Premium feature in TESTING - requires paid subscription. Helps prevent expensive equipment failures and health issues from outdated supplies.
+                Premium feature. Helps prevent expensive equipment failures and health issues.
               </p>
             </div>
           </div>
@@ -789,9 +876,26 @@ export function Home() {
                 <span>Completion rate percentage tracking</span>
               </li>
             </ul>
-            <div className="mt-4 pt-4 border-t border-indigo-200 dark:border-indigo-800">
+            <div className="mt-4 pt-4 border-t border-indigo-200 dark:border-indigo-800 space-y-3">
+              <div className="bg-indigo-100 dark:bg-indigo-900/30 rounded-lg p-4 border border-indigo-300 dark:border-indigo-700">
+                <p className="text-sm font-semibold text-indigo-900 dark:text-indigo-100 mb-2 flex items-center gap-2">
+                  <Sparkles className="w-4 h-4" />
+                  Join the Beta Test
+                </p>
+                <p className="text-sm text-indigo-800 dark:text-indigo-200 mb-3">
+                  Be among the first to try care analytics! Email us to get early access.
+                </p>
+                <a
+                  href="mailto:josh.habitat.builder@gmail.com?subject=Care Analytics Beta Access&body=Hi! I'd like to beta test the care analytics feature."
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-indigo-700 dark:text-indigo-300 hover:text-indigo-800 dark:hover:text-indigo-200 transition-colors"
+                >
+                  <Mail className="w-4 h-4" />
+                  josh.habitat.builder@gmail.com
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
               <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-                Premium feature in TESTING - requires paid subscription. Analytics automatically derive from your completed care tasks.
+                Premium feature. Analytics automatically derive from your completed care tasks.
               </p>
             </div>
           </div>

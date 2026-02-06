@@ -82,7 +82,7 @@ export function generateBuildPlanPDF(
   });
 
   // Build steps content
-  const stepsContent: Content[] = plan.steps.map((step, index) => ({
+  const stepsContent = plan.steps.map((step, index) => ({
     columns: [
       {
         width: 25,
@@ -118,9 +118,9 @@ export function generateBuildPlanPDF(
     pageSize: 'LETTER',
     pageMargins: [40, 60, 40, 50],
     
-    header: (currentPage) => {
+    header: ((currentPage: number) => {
       if (currentPage === 1) {
-        return {}; // No header on first page - hero is in content
+        return null; // No header on first page - hero is in content
       } else {
         return {
           stack: [
@@ -156,7 +156,7 @@ export function generateBuildPlanPDF(
           ]
         };
       }
-    },
+    }) as any,
 
     footer: (currentPage, pageCount) => ({
       columns: [
@@ -279,7 +279,7 @@ export function generateBuildPlanPDF(
         canvas: [{ type: 'line', x1: 0, y1: 0, x2: 120, y2: 0, lineWidth: 2, lineColor: '#16a34a' }],
         margin: [0, 0, 0, 12]
       },
-      ...equipmentContent,
+      ...(equipmentContent as any),
 
       // Build Instructions Section
       {
@@ -292,15 +292,14 @@ export function generateBuildPlanPDF(
         canvas: [{ type: 'line', x1: 0, y1: 0, x2: 100, y2: 0, lineWidth: 2, lineColor: '#16a34a' }],
         margin: [0, 0, 0, 16]
       },
-      ...stepsContent
+      ...(stepsContent as any)
     ],
 
     styles: {
       companyName: {
         fontSize: 11,
         bold: true,
-        color: '#FFFFFF',
-        letterSpacing: 1
+        color: '#FFFFFF'
       },
       heroTitle: {
         fontSize: 24,

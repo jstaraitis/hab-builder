@@ -16,7 +16,8 @@
     "format-for-word": "node scripts/format-for-word.js"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.93.3",
+    "@supabase/supabase-js": "^2.95.3",
+    "@types/pdfmake": "^0.3.0",
     "konva": "^10.2.0",
     "lucide-react": "^0.563.0",
     "pdfmake": "^0.3.3",

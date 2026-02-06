@@ -251,13 +251,12 @@ export function generateOrganizationStructuredData(): StructuredData {
     url: 'https://habitat-builder.com',
     logo: 'https://habitat-builder.com/logo.png',
     sameAs: [
-      'https://twitter.com/habitatbuilder',
-      'https://instagram.com/habitatbuilder'
+      'https://www.instagram.com/habitat_builder'
     ],
     contact: {
       '@type': 'ContactPoint',
       contactType: 'Support',
-      url: 'https://habitatbuilder.com'
+      url: 'https://habitat-builder.com'
     }
   };
 }

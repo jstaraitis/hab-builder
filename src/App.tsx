@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from 'react';
 import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, X as XIcon, Calendar, LogOut, User, Package } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, Instagram, Calendar, LogOut, User, Package } from 'lucide-react';
 import { useAuth } from './contexts/AuthContext';
 import type { EnclosureInput, BuildPlan } from './engine/types';
 import { generatePlan } from './engine/generatePlan';
@@ -430,13 +430,13 @@ function App() {
           <div className="mt-4 md:mt-6 pt-4 md:pt-6 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-center gap-4 mb-3 md:mb-4">
               <a
-                href="https://x.com/habitat_builder"
+                href="https://www.instagram.com/habitat_builder"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-1.5 md:p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors"
-                title="Follow us on Twitter"
+                className="p-1.5 md:p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-pink-100 hover:text-pink-600 dark:hover:bg-pink-900/30 dark:hover:text-pink-400 transition-colors"
+                title="Follow us on Instagram"
               >
-                <XIcon className="w-4 h-4 md:w-5 md:h-5" />
+                <Instagram className="w-4 h-4 md:w-5 md:h-5" />
               </a>
             </div>
             <p className="text-xs text-gray-500 dark:text-gray-500">
