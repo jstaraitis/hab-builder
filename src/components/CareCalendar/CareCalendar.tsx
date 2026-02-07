@@ -15,7 +15,6 @@ import {
   Plus,
   ChevronDown,
   Hand,
-  Zap,
   Calendar,
   List,
   AlertCircle,
@@ -26,6 +25,8 @@ import {
   CalendarDays,
   CalendarClock,
   BarChart3,
+  MoreVertical,
+  LayoutGrid,
   type LucideIcon
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
@@ -63,6 +64,7 @@ export function CareCalendar() {
   const [selectionMode, setSelectionMode] = useState(false);
   const [swipedTask, setSwipedTask] = useState<string | null>(null);
   const [swipeOffset, setSwipeOffset] = useState(0);
+  const [showMenu, setShowMenu] = useState(false);
 
   // ALL HOOKS MUST BE CALLED BEFORE ANY RETURNS
   useEffect(() => {
@@ -72,6 +74,19 @@ export function CareCalendar() {
       loadAnimals();
     }
   }, [user]);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (showMenu && !target.closest('.menu-container')) {
+        setShowMenu(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [showMenu]);
 
   // Show auth screen if not logged in
   if (authLoading) {
@@ -525,137 +540,100 @@ export function CareCalendar() {
           </h2>
           {enclosures.length > 0 && (
             <div className="space-y-4">
-              {/* Top Row: View Mode Toggle */}
-              <div className="flex items-center gap-2 overflow-x-auto pb-2">
-                <button
-                  onClick={() => setViewMode('today')}
-                  className={`px-3 py-1.5 rounded-lg font-medium text-xs transition-colors whitespace-nowrap flex items-center gap-1.5 ${
-                    viewMode === 'today'
-                      ? 'bg-emerald-600 text-white'
-                      : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-                  }`}
+              {/* Compact Single Row Filter */}
+              <div className="flex items-center gap-2">
+                {/* View Mode Dropdown */}
+                <select
+                  value={viewMode}
+                  onChange={(e) => setViewMode(e.target.value as ViewMode)}
+                  className="px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm font-medium shadow-sm focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-400"
                 >
-                  <Zap className="w-3.5 h-3.5" />
-                  Today
-                </button>
-                <button
-                  onClick={() => setViewMode('week')}
-                  className={`px-3 py-1.5 rounded-lg font-medium text-xs transition-colors whitespace-nowrap flex items-center gap-1.5 ${
-                    viewMode === 'week'
-                      ? 'bg-emerald-600 text-white'
-                      : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-                  }`}
+                  <option value="today">Today</option>
+                  <option value="week">This Week</option>
+                  <option value="all">All Tasks</option>
+                </select>
+
+                {/* Pet Filter */}
+                <select
+                  value={filterEnclosureId}
+                  onChange={(e) => setFilterEnclosureId(e.target.value)}
+                  className="flex-1 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm shadow-sm focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-400"
                 >
-                  <Calendar className="w-3.5 h-3.5" />
-                  This Week
-                </button>
+                  <option value="">All Pets</option>
+                  {enclosures.map(enc => (
+                    <option key={enc.id} value={enc.id}>
+                      {enc.name}
+                    </option>
+                  ))}
+                </select>
+
+                {/* Layout Toggle - Icon Only */}
                 <button
-                  onClick={() => setViewMode('all')}
-                  className={`px-3 py-1.5 rounded-lg font-medium text-xs transition-colors whitespace-nowrap flex items-center gap-1.5 ${
-                    viewMode === 'all'
-                      ? 'bg-emerald-600 text-white'
-                      : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-                  }`}
+                  onClick={() => setLayoutMode(layoutMode === 'cards' ? 'list' : 'cards')}
+                  className="p-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                  title={layoutMode === 'cards' ? 'Switch to list view' : 'Switch to card view'}
                 >
-                  <List className="w-3.5 h-3.5" />
-                  All Tasks
+                  {layoutMode === 'cards' ? (
+                    <List className="w-5 h-5" />
+                  ) : (
+                    <LayoutGrid className="w-5 h-5" />
+                  )}
                 </button>
-                <button
-                  onClick={() => setViewMode('analytics')}
-                  className={`px-3 py-1.5 rounded-lg font-medium text-xs transition-colors whitespace-nowrap flex items-center gap-1.5 ${
-                    (viewMode as ViewMode) === 'analytics'
-                      ? 'bg-emerald-600 text-white'
-                      : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-                  }`}
-                >
-                  <BarChart3 className="w-3.5 h-3.5" />
-                  Analytics
-                </button>
+
+                {/* Menu Button */}
+                <div className="relative menu-container">
+                  <button
+                    onClick={() => setShowMenu(!showMenu)}
+                    className="p-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                    title="More options"
+                  >
+                    <MoreVertical className="w-5 h-5" />
+                  </button>
+                  
+                  {/* Dropdown Menu */}
+                  {showMenu && (
+                    <div className="absolute right-0 mt-2 w-48 rounded-lg shadow-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 z-50">
+                      <div className="py-1">
+                        {filteredTasks.length > 0 && (
+                          <button
+                            onClick={() => {
+                              setSelectionMode(!selectionMode);
+                              if (selectionMode) {
+                                setSelectedTasks(new Set());
+                              }
+                              setShowMenu(false);
+                            }}
+                            className="w-full px-4 py-2 text-left text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2"
+                          >
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                            </svg>
+                            {selectionMode ? 'Cancel Selection' : 'Select Tasks'}
+                          </button>
+                        )}
+                        <button
+                          onClick={() => {
+                            setViewMode('analytics');
+                            setShowMenu(false);
+                          }}
+                          className="w-full px-4 py-2 text-left text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2"
+                        >
+                          <BarChart3 className="w-4 h-4" />
+                          Analytics
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
 
-              {/* Second Row: Filters & Layout Toggle */}
+              {/* Reliability Badge (if exists) */}
               <div className="flex flex-col gap-3">
-                <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2 sm:gap-3 rounded-xl border border-gray-200/70 dark:border-gray-700/70 bg-white/70 dark:bg-gray-800/70 px-3 py-2 shadow-sm">
-                  {/* Enclosure Filter */}
-                  <div className="flex items-center gap-2 w-full sm:w-auto">
-                    <label htmlFor="enclosure-filter" className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                      Pet
-                    </label>
-                    <select
-                      id="enclosure-filter"
-                      value={filterEnclosureId}
-                      onChange={(e) => setFilterEnclosureId(e.target.value)}
-                      className="w-full sm:w-auto px-3 py-2.5 sm:py-2 rounded-lg border border-gray-200/80 dark:border-gray-700/80 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm shadow-sm focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-400"
-                    >
-                      <option value="">All Pets</option>
-                      {enclosures.map(enc => (
-                        <option key={enc.id} value={enc.id}>
-                          {enc.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Layout Toggle */}
-                  <div className="flex w-full items-center gap-1 rounded-lg bg-gray-100/80 dark:bg-gray-700/80 p-1">
-                    <button
-                      onClick={() => setLayoutMode('cards')}
-                      className={`flex-1 px-4 py-2.5 rounded-md text-sm font-semibold transition-colors flex items-center justify-center gap-2 ${
-                        layoutMode === 'cards'
-                          ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm'
-                          : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-                      }`}
-                      title="Card view"
-                    >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                      </svg>
-                      <span className="hidden sm:inline">Cards</span>
-                    </button>
-                    <button
-                      onClick={() => setLayoutMode('list')}
-                      className={`flex-1 px-4 py-2.5 rounded-md text-sm font-semibold transition-colors flex items-center justify-center gap-2 ${
-                        layoutMode === 'list'
-                          ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm'
-                          : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-                      }`}
-                      title="List view"
-                    >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                      </svg>
-                      <span className="hidden sm:inline">List</span>
-                    </button>
-                  </div>
-
-                  {/* Selection Mode Toggle */}
-                  {filteredTasks.length > 0 && (
-                    <button
-                      onClick={() => {
-                        setSelectionMode(!selectionMode);
-                        if (selectionMode) {
-                          setSelectedTasks(new Set());
-                        }
-                      }}
-                      className={`w-full sm:w-auto px-3 py-2 sm:py-1.5 rounded-lg text-xs font-semibold transition-colors flex items-center justify-center sm:justify-start gap-1.5 ${
-                        selectionMode
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-gray-100/80 dark:bg-gray-700/80 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-                      }`}
-                    >
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                      </svg>
-                      {selectionMode ? 'Cancel' : 'Select'}
-                    </button>
-                  )}
-
+                <div className="flex items-center gap-2">
                   {reliabilityTotals.expected > 0 && (
-                    <div className="w-full sm:w-auto px-3 py-2 rounded-lg border border-emerald-200/70 dark:border-emerald-900/50 bg-emerald-50/70 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 text-xs font-semibold flex items-center justify-between sm:justify-start gap-2">
-                      <div className="flex items-center gap-1.5">
-                        <Check className="w-3.5 h-3.5" />
-                        <span>Reliability {reliabilityScore}%</span>
-                      </div>
+                    <div className="px-3 py-2 rounded-lg border border-emerald-200/70 dark:border-emerald-900/50 bg-emerald-50/70 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 text-xs font-semibold flex items-center gap-2">
+                      <Check className="w-3.5 h-3.5" />
+                      <span>Reliability {reliabilityScore}%</span>
                       <span className="text-emerald-600/80 dark:text-emerald-300/80">30d</span>
                     </div>
                   )}

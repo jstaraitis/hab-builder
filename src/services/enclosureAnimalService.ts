@@ -145,10 +145,12 @@ class EnclosureAnimalService {
   private mapAnimalFromDb(row: any): EnclosureAnimal {
     return {
       id: row.id,
-      enclosureId: row.enclosure_id,
+      enclosureId: row.enclosure_id || undefined,
       userId: row.user_id,
       name: row.name,
       animalNumber: row.animal_number,
+      gender: row.gender,
+      morph: row.morph,
       birthday: row.birthday ? new Date(row.birthday) : undefined,
       notes: row.notes,
       isActive: row.is_active,
@@ -167,6 +169,8 @@ class EnclosureAnimalService {
     if (animal.userId !== undefined) mapped.user_id = animal.userId;
     if (animal.name !== undefined) mapped.name = animal.name;
     if (animal.animalNumber !== undefined) mapped.animal_number = animal.animalNumber;
+    if (animal.gender !== undefined) mapped.gender = animal.gender;
+    if (animal.morph !== undefined) mapped.morph = animal.morph;
     if (animal.birthday !== undefined) {
       mapped.birthday = animal.birthday ? animal.birthday.toISOString().split('T')[0] : null;
     }

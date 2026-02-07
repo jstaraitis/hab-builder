@@ -1,5 +1,5 @@
 ﻿import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Calendar, MoreHorizontal, X, Info, MessageCircle, Package, ChevronUp, ChevronDown, SlidersHorizontal, User, type LucideIcon } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Calendar, MoreHorizontal, X, Info, MessageCircle, Package, ChevronUp, ChevronDown, SlidersHorizontal, User, Turtle, type LucideIcon } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { profileService } from '../../services/profileService';
@@ -27,6 +27,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'supplies', path: '/supplies', icon: ShoppingCart, label: 'Shop', requires: 'plan' },
   { id: 'plan', path: '/plan', icon: ClipboardList, label: 'Plan', requires: 'plan' },
   { id: 'care-calendar', path: '/care-calendar', icon: Calendar, label: 'Care Tasks', description: 'Track pet care tasks' },
+  { id: 'my-animals', path: '/my-animals', icon: Turtle, label: 'My Animals', description: 'View all your animals' },
   { id: 'inventory', path: '/inventory', icon: Package, label: 'Inventory', description: 'Consumables & buy again' },
   { id: 'blog', path: '/blog', icon: BookOpen, label: 'Guides', description: 'Care guides & tips' },
   { id: 'about', path: '/about', icon: Info, label: 'About', description: 'About Habitat Builder' },
@@ -45,6 +46,9 @@ export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<Mobil
   const [navOrder, setNavOrder] = useState<string[]>(DEFAULT_ORDER);
   const [savingOrder, setSavingOrder] = useState(false);
   const [orderError, setOrderError] = useState<string | null>(null);
+  const [dragY, setDragY] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startY, setStartY] = useState(0);
   const isActive = (path: string) => location.pathname === path;
 
   const normalizeOrder = (order: string[]) => {
@@ -142,6 +146,32 @@ export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<Mobil
     setNavOrder(DEFAULT_ORDER);
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setStartY(e.touches[0].clientY);
+    setIsDragging(true);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    const currentY = e.touches[0].clientY;
+    const diff = currentY - startY;
+    // Only allow dragging down
+    if (diff > 0) {
+      setDragY(diff);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (dragY > 100) {
+      // Threshold to close
+      setShowMoreMenu(false);
+      setShowCustomizeMenu(false);
+    }
+    setDragY(0);
+    setIsDragging(false);
+    setStartY(0);
+  };
+
   return (
     <>
       {/* Bottom Sheet Overlay */}
@@ -166,7 +196,16 @@ export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<Mobil
       {/* Bottom Sheet Menu */}
       {showMoreMenu && (
         <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden animate-in slide-in-from-bottom duration-300">
-          <div className="bg-white dark:bg-gray-800 rounded-t-3xl shadow-2xl border-t-2 border-gray-200 dark:border-gray-700 pb-20">
+          <div 
+            className="bg-white dark:bg-gray-800 rounded-t-3xl shadow-2xl border-t-2 border-gray-200 dark:border-gray-700 pb-20 transition-transform"
+            style={{ 
+              transform: `translateY(${dragY}px)`,
+              transition: isDragging ? 'none' : 'transform 0.3s ease-out'
+            }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             {/* Handle bar */}
             <div className="flex justify-center pt-3 pb-2">
               <div className="w-12 h-1 bg-gray-300 dark:bg-gray-600 rounded-full" />
@@ -261,7 +300,16 @@ export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<Mobil
 
       {showCustomizeMenu && (
         <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden animate-in slide-in-from-bottom duration-300">
-          <div className="bg-white dark:bg-gray-800 rounded-t-3xl shadow-2xl border-t-2 border-gray-200 dark:border-gray-700 pb-20">
+          <div 
+            className="bg-white dark:bg-gray-800 rounded-t-3xl shadow-2xl border-t-2 border-gray-200 dark:border-gray-700 pb-20 transition-transform"
+            style={{ 
+              transform: `translateY(${dragY}px)`,
+              transition: isDragging ? 'none' : 'transform 0.3s ease-out'
+            }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div className="flex justify-center pt-3 pb-2">
               <div className="w-12 h-1 bg-gray-300 dark:bg-gray-600 rounded-full" />
             </div>

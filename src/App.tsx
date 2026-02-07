@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from 'react';
 import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, Instagram, Calendar, LogOut, User, Package } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, Instagram, Calendar, LogOut, User, Package, Turtle } from 'lucide-react';
 import { useAuth } from './contexts/AuthContext';
 import type { EnclosureInput, BuildPlan } from './engine/types';
 import { generatePlan } from './engine/generatePlan';
@@ -11,6 +11,7 @@ import { SuppliesView } from './components/Views/SuppliesView';
 import { FindYourAnimalView } from './components/Views/FindYourAnimalView';
 import { FindYourAnimalResultsView } from './components/Views/FindYourAnimalResultsView';
 import { CareCalendarView } from './components/Views/CareCalendarView';
+import { MyAnimalsView } from './components/Views/MyAnimalsView';
 import { InventoryView } from './components/Views/InventoryView';
 import { ProfileView } from './components/Views/ProfileView';
 import CanvasDesigner from './components/EnclosureDesigner/CanvasDesigner';
@@ -179,12 +180,12 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800 pb-20 lg:pb-0">
       {/* Mobile-optimized header */}
       <header className={`bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-30 transition-transform duration-300 ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
-        <div className="max-w-7xl mx-auto px-4 py-4 lg:py-6">
+        <div className="max-w-7xl mx-auto px-4 py-2 lg:py-6">
           {/* Mobile: Simple header with logo and theme toggle */}
           <div className="lg:hidden flex flex-col items-center text-center">
             <Link to="/" className="block">
-              <h1 className="text-3xl font-bold text-green-700 dark:text-green-400 hover:text-green-600 dark:hover:text-green-300 transition-colors cursor-pointer">🦎 Habitat Builder</h1>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Generate custom enclosure plans for your reptiles & amphibians</p>
+              <h1 className="text-2xl font-bold text-green-700 dark:text-green-400 hover:text-green-600 dark:hover:text-green-300 transition-colors cursor-pointer">🦎 Habitat Builder</h1>
+              <p className="text-xs text-gray-600 dark:text-gray-400">Custom enclosure plans for reptiles & amphibians</p>
             </Link>
           </div>
 
@@ -256,6 +257,12 @@ function App() {
               className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/care-calendar') ? 'bg-rose-600 text-white border-rose-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-rose-400'}`}
             >
               <Calendar className="w-4 h-4 inline mr-1.5" /> Care Tasks
+            </Link>
+            <Link
+              to="/my-animals"
+              className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/my-animals') ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-emerald-400'}`}
+            >
+              <Turtle className="w-4 h-4 inline mr-1.5" /> My Animals
             </Link>
             <Link
               to="/inventory"
@@ -394,6 +401,7 @@ function App() {
           />
           <Route path="/supplies" element={<SuppliesView plan={plan} input={input} />} />
           <Route path="/care-calendar" element={<CareCalendarView />} />
+          <Route path="/my-animals" element={<MyAnimalsView />} />
           <Route path="/inventory" element={<InventoryView />} />
           <Route path="/about" element={<About onOpenFeedback={() => setIsFeedbackOpen(true)} />} />
           <Route path="/profile" element={<ProfileView />} />

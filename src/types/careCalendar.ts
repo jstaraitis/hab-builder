@@ -120,10 +120,12 @@ export interface Enclosure {
  */
 export interface EnclosureAnimal {
   id: string;
-  enclosureId: string;
+  enclosureId?: string; // Optional - animals can exist without an enclosure
   userId: string;
   name?: string; // Optional name (e.g., "Kermit", "Lily")
   animalNumber?: number; // Optional numbering for unnamed animals (#1, #2, etc.)
+  gender?: 'male' | 'female' | 'unknown'; // Gender of the animal
+  morph?: string; // Color morph/mutation (e.g., "Albino", "Leucistic", "Normal")
   birthday?: Date; // Birthday/acquisition date for age calculation
   notes?: string; // Notes about this specific animal
   isActive: boolean;

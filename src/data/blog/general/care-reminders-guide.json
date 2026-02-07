@@ -3,17 +3,17 @@
   "title": "Smart Care Reminders: Never Miss a Feeding Again",
   "author": "Habitat Builder Team",
   "category": "care-management",
-  "excerpt": "Learn how Habitat Builder's smart care reminders help you maintain a consistent care schedule for all your enclosures with push notifications and a reliability score.",
-  "description": "Complete guide to setting up and using care reminders in Habitat Builder, including push notifications, care reliability scoring, and tips for building sustainable care habits.",
-  "date": "2026-02-04",
-  "tags": ["care-reminders", "notifications", "care-schedule", "time-management", "reliability-score"],
+  "excerpt": "Learn how Habitat Builder's Care Tasks & My Animals system helps you maintain a consistent care schedule with push notifications, detailed animal profiles, and a reliability score.",
+  "description": "Complete guide to setting up and using care tasks and animal management in Habitat Builder, including notifications, animal tracking (gender, morph, weight), reliability scoring, and mobile-optimized features.",
+  "date": "2026-02-07",
+  "tags": ["care-reminders", "notifications", "care-schedule", "time-management", "reliability-score", "animal-tracking"],
   "status": "published",
   "featured": true,
   "content": [
     {
       "type": "intro",
       "heading": "Never Miss a Care Task Again",
-      "text": "Keeping reptiles and amphibians healthy requires consistent, species-specific care routines—feeding, misting, temperature adjustments, cleaning, and health checks. But with busy schedules and multiple enclosures, it's easy to lose track of what needs to be done when. Habitat Builder's Smart Care Reminders system makes it easy to stay on top of your animal care with notifications, and a reliability score that tracks how well you're meeting your animals' needs."
+      "text": "Keeping reptiles and amphibians healthy requires consistent, species-specific care routines—feeding, misting, temperature adjustments, cleaning, and health checks. But with busy schedules and multiple enclosures, it's easy to lose track of what needs to be done when. Habitat Builder's Care Tasks & My Animals system makes it easy to stay on top of your animal care with automated notifications, detailed animal profiles, and a reliability score that tracks how well you're meeting your animals' needs."
     },
     {
       "type": "section",
@@ -21,7 +21,7 @@
     },
     {
       "type": "text",
-      "text": "Care reminders are automated tasks tied to your specific enclosures and animals. When you create a new enclosure in Habitat Builder, the system recommends species-specific care tasks based on the animal's requirements. You can customize the frequency (daily, every 2 days, weekly, etc.) and preferred time of day for each task."
+      "text": "Care reminders are automated tasks tied to your specific enclosures and animals. When you create a new enclosure in Habitat Builder, the system recommends species-specific care tasks based on the animal's requirements. You can customize the frequency (daily, every 2 days, weekly, etc.) and preferred time of day for each task. Additionally, you can track detailed information about each animal including gender, morph (color variant), birthday, and weight history—all accessible from the My Animals page."
     },
     {
       "type": "text",
@@ -54,21 +54,67 @@
     },
     {
       "type": "section",
-      "heading": "Setting Up Care Reminders"
+      "heading": "My Animals: Centralized Animal Management"
     },
     {
       "type": "text",
-      "text": "Getting started with care reminders takes just a few minutes. Follow these five simple steps:"
+      "text": "The My Animals page gives you a centralized view of all your animals across all enclosures in one place. Each animal profile can track:"
     },
     {
       "type": "list",
       "items": [
-        "Create Your Enclosure: Start by adding your enclosure to Habitat Builder with animal species, and setup type. This tells the system what care tasks your animal needs.",
-        "Enable Notifications (One-Time Setup): When you first visit the Care Calendar, you'll see a prompt to enable notifications. Click 'Enable Notifications' and approve browser permissions. This only needs to be done once.",
-        "Add Tasks or Use Recommended Tasks: The system can automatically create care tasks based on your animal's species requirements. You can also manually add custom tasks like 'Change water heater batteries' or 'Check for health issues.'",
-        "Set Frequency and Time: For each task, choose how often it needs to be done (daily, weekly, every X days) and what time you'd prefer to be reminded. The system will notify you at that time on the due date.",
-        "Receive and Complete Reminders: When a task is due, you'll get a browser notification. Click on it to jump to your Care Calendar, or simply mark the task complete from the notification if your browser supports it."
+        "Name and/or Number: Identify each animal uniquely",
+        "Gender: Track male, female, or unknown with color-coded purple badges",
+        "Morph: Document color variants and mutations with orange badges",
+        "Birthday: Automatic age calculation displayed in blue badges",
+        "Weight History: Integrated weight tracking charts to monitor growth",
+        "Notes: Record health info, temperament, or special needs",
+        "Enclosure Assignment: Animals can be assigned to enclosures or left unassigned for flexibility"
       ]
+    },
+    {
+      "type": "text",
+      "text": "Animals can exist without an enclosure and be moved between enclosures at any time. This is perfect for quarantine periods, temporary housing, or when reorganizing your collection. The mobile interface uses compact cards with quick-access buttons for weighing, editing, and removing animals."
+    },
+    {
+      "type": "image",
+      "src": "/examples/features/animal_1.png",
+      "srcMobile": "/examples/features/animal_1_mobile.png",
+      "alt": "Animal profile page showing detailed information including name, gender, morph, birthday, and weight tracking chart",
+      "caption": "My Animals page: Track detailed information for each pet with profiles showing gender, morph, weight history, and notes"
+    },
+    {
+      "type": "image",
+      "src": "/examples/features/animal_2.png",
+      "srcMobile": "/examples/features/animal_2_mobile.png",
+      "alt": "Multiple animal profile cards displayed together showing quick stats and enclosure assignments",
+      "caption": "Centralized view: See all your animals across enclosures in one organized dashboard"
+    },
+    {
+      "type": "section",
+      "heading": "Setting Up Care Reminders"
+    },
+    {
+      "type": "text",
+      "text": "Getting started with care reminders takes just a few minutes. Follow these steps:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Create Your Enclosure: Start by adding your enclosure to Habitat Builder with animal species and setup type. This tells the system what care tasks your animal needs.",
+        "Add Animal Profiles: From Care Tasks, expand your enclosure and add animals with their details (name, gender, morph, birthday). Or use My Animals to create animals that aren't yet assigned to an enclosure.",
+        "Enable Notifications (One-Time Setup): When you first visit the Care Calendar, you'll see a prompt to enable notifications. Click 'Enable Notifications' and approve browser permissions. This only needs to be done once.",
+        "Add Tasks or Use Recommended Tasks: The system can automatically create care tasks based on your animal's species requirements. Assign tasks to the whole enclosure or specific animals.",
+        "Set Frequency and Time: For each task, choose how often it needs to be done (daily, weekly, every X days) and what time you'd prefer to be reminded. The system will notify you at that time on the due date.",
+        "Receive and Complete Reminders: When a task is due, you'll get a browser notification. Use Selection Mode to bulk complete multiple tasks at once, or tap the checkmark on individual task cards."
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/examples/features/care_tasks_1.png",
+      "srcMobile": "/examples/features/care_tasks_1_mobile.png",
+      "alt": "Care Tasks dashboard showing today's tasks with checkmarks for completion and task details",
+      "caption": "Care Tasks: Your daily care schedule with visual task cards and easy completion tracking"
     },
     {
       "type": "section",
@@ -111,11 +157,20 @@
     },
     {
       "type": "text",
-      "text": "If you have multiple enclosures, the Care Calendar can show all tasks or filter by enclosure. Use the enclosure dropdown to focus on one habitat at a time, or view all tasks together to see your full workload."
+      "text": "If you have multiple enclosures, the Care Calendar features a compact single-row filter system optimized for mobile:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "View Mode Dropdown: Switch between Today, This Week, or All Tasks",
+        "Pet Filter: Quick enclosure/animal selection with a dropdown menu",
+        "Layout Toggle: Icon-only button to switch between card and list views",
+        "Menu Button: Access Analytics and Selection Mode for bulk task completion"
+      ]
     },
     {
       "type": "text",
-      "text": "The reliability score automatically adjusts based on your filter. View all enclosures to see your overall reliability, or filter by enclosure to see how you're doing with a specific animal."
+      "text": "The reliability score automatically adjusts based on your filter. View all enclosures to see your overall reliability, or filter by enclosure to see how you're doing with a specific animal. The mobile interface auto-hides the header when scrolling down to maximize screen space, and shows it again when scrolling up."
     },
     {
       "type": "section",
@@ -129,10 +184,17 @@
       "type": "list",
       "items": [
         "Click the Checkmark: In the Care Calendar task list or card view, click the green checkmark to mark a task complete immediately.",
+        "Selection Mode (Bulk Complete): Access from the menu button to select multiple tasks with checkboxes, then click 'Complete Selected' at the bottom to mark them all done at once. Perfect for completing morning routines.",
         "Click the Notification: When a reminder pops up, click it to mark the task complete (if your browser supports it).",
-        "Swipe on Mobile: On mobile devices, swipe left on a task card to reveal the complete button, then tap it.",
-        "Bulk Complete: Select multiple tasks with the checkboxes, then click 'Complete Selected' at the bottom of the screen to mark them all done at once."
+        "Swipe on Mobile: On mobile devices, swipe left on a task card to reveal the complete button, then tap it."
       ]
+    },
+    {
+      "type": "image",
+      "src": "/examples/features/care_tasks_2.png",
+      "srcMobile": "/examples/features/care_tasks_2_mobile.png",
+      "alt": "Selection Mode showing multiple tasks with checkboxes for bulk completion",
+      "caption": "Task Creation: Create care tasks tied to specific enclosures and animals with customizable frequencies and notes"
     },
     {
       "type": "section",
@@ -201,15 +263,17 @@
     },
     {
       "type": "text",
-      "text": "We're constantly improving the care reminders system. Future features we're exploring include:"
+      "text": "We're constantly improving the care system. Future features we're exploring include:"
     },
     {
       "type": "list",
       "items": [
-        "Intelligent Scheduling: The system will learn your patterns and suggest optimal times for care tasks based on when you typically complete them.",
-        "Task Templates by Species: Pre-built, expert-reviewed care schedules for each species to make setup even faster.",
-        "Care Analytics: Detailed charts showing your care patterns over time, seasonal trends, and health correlations.",
-        "Shared Care Responsibilities: Invite family members or caregivers to share responsibility for your animals and receive their own reminders."
+        "Push Notifications: Browser and PWA push notifications for reminders even when the app isn't open",
+        "Feeding Logs: Track what food types you offer and monitor feeding responses",
+        "Shed Tracking: Calendar-based shed tracking to monitor health patterns",
+        "Photo Gallery: Upload and organize photos for each animal to document growth and color changes",
+        "Export Care Logs: Download your care history to CSV for record-keeping or vet visits",
+        "Shared Care Responsibilities: Invite family members or caregivers to share responsibility for your animals"
       ]
     },
     {

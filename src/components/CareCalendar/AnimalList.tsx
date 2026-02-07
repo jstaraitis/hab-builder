@@ -38,6 +38,8 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
   const [formData, setFormData] = useState({
     name: '',
     animalNumber: '',
+    gender: '' as '' | 'male' | 'female' | 'unknown',
+    morph: '',
     birthday: '',
     notes: '',
   });
@@ -68,12 +70,14 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
       setFormData({
         name: animal.name || '',
         animalNumber: animal.animalNumber?.toString() || '',
+        gender: animal.gender || '',
+        morph: animal.morph || '',
         birthday: animal.birthday ? animal.birthday.toISOString().split('T')[0] : '',
         notes: animal.notes || '',
       });
     } else {
       setEditingAnimal(null);
-      setFormData({ name: '', animalNumber: '', birthday: '', notes: '' });
+      setFormData({ name: '', animalNumber: '', gender: '', morph: '', birthday: '', notes: '' });
     }
     setShowModal(true);
     setError(null);
@@ -82,7 +86,7 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
   const closeModal = () => {
     setShowModal(false);
     setEditingAnimal(null);
-    setFormData({ name: '', animalNumber: '', birthday: '', notes: '' });
+    setFormData({ name: '', animalNumber: '', gender: '', morph: '', birthday: '', notes: '' });
     setError(null);
   };
 
@@ -98,6 +102,8 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
         userId: user.id,
         name: formData.name || undefined,
         animalNumber: formData.animalNumber ? parseInt(formData.animalNumber) : undefined,
+        gender: formData.gender || undefined,
+        morph: formData.morph || undefined,
         birthday: formData.birthday ? new Date(formData.birthday) : undefined,
         notes: formData.notes || undefined,
         isActive: true,
@@ -169,70 +175,84 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
           {animals.map(animal => (
             <div
               key={animal.id}
-              className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3"
+              className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-2.5"
             >
-              <div className="flex items-start justify-between">
-                <div className="flex-1">
-                  <div className="flex items-center gap-1.5 mb-1.5">
-                    <h4 className="text-sm font-medium text-gray-900 dark:text-white">
-                      {animal.name || `Animal #${animal.animalNumber || '?'}`}
-                    </h4>
-                    {animal.birthday && (
-                      <span className="text-xs px-1.5 py-0.5 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded">
-                        {(() => {
-                          const ageMonths = calculateAgeInMonths(animal.birthday);
-                          if (ageMonths < 12) {
-                            return `${ageMonths} ${ageMonths === 1 ? 'month' : 'months'} old`;
-                          } else {
-                            const years = Math.floor(ageMonths / 12);
-                            const months = ageMonths % 12;
-                            return months > 0 
-                              ? `${years}y ${months}m old`
-                              : `${years} ${years === 1 ? 'year' : 'years'} old`;
-                          }
-                        })()}
-                      </span>
-                    )}
-                  </div>
-
-                  {animal.notes && (
-                    <p className="text-xs text-gray-600 dark:text-gray-400 mb-1.5">
-                      {animal.notes}
-                    </p>
-                  )}
-
-                  {animal.birthday && (
-                    <div className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400">
-                      <Calendar className="w-3 h-3" />
-                      Birthday: {animal.birthday.toLocaleDateString()}
-                    </div>
-                  )}
-                </div>
-
-                <div className="flex items-center gap-1 ml-3">
+              {/* Header: Name + Action Buttons */}
+              <div className="flex items-center justify-between gap-2 mb-1">
+                <h4 className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                  {animal.name || `Animal #${animal.animalNumber || '?'}`}
+                </h4>
+                
+                {/* Action Buttons */}
+                <div className="flex items-center gap-0.5 shrink-0">
                   <button
                     onClick={() => setTrackingWeightForAnimal(animal)}
-                    className="p-1.5 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                    className="p-1 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
                     title="Track weight"
                   >
                     <Scale className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => openModal(animal)}
-                    className="p-1.5 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                    className="p-1 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
                     title="Edit animal"
                   >
                     <Pencil className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => handleDelete(animal)}
-                    className="p-1.5 text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors"
+                    className="p-1 text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors"
                     title="Remove animal"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
               </div>
+
+              {/* Badges: Age, Gender, Morph */}
+              <div className="flex flex-wrap items-center gap-1 mb-1">
+                {animal.birthday && (
+                  <span className="text-xs px-1.5 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded inline-flex items-center gap-0.5">
+                    {(() => {
+                      const ageMonths = calculateAgeInMonths(animal.birthday);
+                      if (ageMonths < 12) {
+                        return `${ageMonths} ${ageMonths === 1 ? 'mo' : 'mos'}`;
+                      } else {
+                        const years = Math.floor(ageMonths / 12);
+                        const months = ageMonths % 12;
+                        return months > 0 
+                          ? `${years}y ${months}m`
+                          : `${years}y`;
+                      }
+                    })()}
+                  </span>
+                )}
+                {animal.gender && (
+                  <span className="text-xs px-1.5 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded capitalize">
+                    {animal.gender === 'male' ? '♂' : animal.gender === 'female' ? '♀' : '?'} {animal.gender}
+                  </span>
+                )}
+                {animal.morph && (
+                  <span className="text-xs px-1.5 py-0.5 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded">
+                    {animal.morph}
+                  </span>
+                )}
+              </div>
+
+              {/* Birthday Date */}
+              {animal.birthday && (
+                <div className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-500 mb-1">
+                  <Calendar className="w-3 h-3 shrink-0" />
+                  <span>{animal.birthday.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' })}</span>
+                </div>
+              )}
+
+              {/* Notes */}
+              {animal.notes && (
+                <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-1 pt-1 border-t border-gray-200 dark:border-gray-700">
+                  {animal.notes}
+                </p>
+              )}
             </div>
           ))}
         </div>
@@ -281,15 +301,46 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
                 </div>
               </div>
 
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Gender (optional)
+                  </label>
+                  <select
+                    value={formData.gender}
+                    onChange={(e) => setFormData(prev => ({ ...prev, gender: e.target.value as '' | 'male' | 'female' | 'unknown' }))}
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                  >
+                    <option value="">Select...</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="unknown">Unknown</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Birthday/Hatch Date
+                  </label>
+                  <input
+                    type="date"
+                    value={formData.birthday}
+                    onChange={(e) => setFormData(prev => ({ ...prev, birthday: e.target.value }))}
+                    max={new Date().toISOString().split('T')[0]}
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                  />
+                </div>
+              </div>
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Birthday/Hatch Date (optional)
+                  Morph (optional)
                 </label>
                 <input
-                  type="date"
-                  value={formData.birthday}
-                  onChange={(e) => setFormData(prev => ({ ...prev, birthday: e.target.value }))}
-                  max={new Date().toISOString().split('T')[0]}
+                  type="text"
+                  value={formData.morph}
+                  onChange={(e) => setFormData(prev => ({ ...prev, morph: e.target.value }))}
+                  placeholder="e.g., Albino, Leucistic"
                   className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                 />
               </div>

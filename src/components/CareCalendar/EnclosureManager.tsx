@@ -22,6 +22,7 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
   const [formData, setFormData] = useState({
     name: '',
     animalId: '',
+    customSpeciesName: '', // For custom species input
     description: '',
     substrateType: '' as '' | 'bioactive' | 'soil' | 'paper' | 'sand' | 'reptile-carpet' | 'tile' | 'other',
   });
@@ -49,15 +50,25 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
     e.preventDefault();
     if (!user) return;
 
+    // Handle custom species
+    const isCustomSpecies = formData.animalId === 'custom';
+    if (isCustomSpecies && !formData.customSpeciesName.trim()) {
+      setError('Please enter a custom species name');
+      return;
+    }
+
     const selectedAnimal = animalList.find(a => a.id === formData.animalId);
-    if (!selectedAnimal) return;
+    if (!selectedAnimal && !isCustomSpecies) return;
+
+    const animalId = isCustomSpecies ? 'custom' : formData.animalId;
+    const animalName = isCustomSpecies ? formData.customSpeciesName.trim() : selectedAnimal!.name;
 
     try {
       if (editingEnclosure) {
         await enclosureService.updateEnclosure(editingEnclosure.id, {
           name: formData.name,
-          animalId: formData.animalId,
-          animalName: selectedAnimal.name,
+          animalId: animalId,
+          animalName: animalName,
           description: formData.description,
           substrateType: formData.substrateType || undefined,
         });
@@ -65,8 +76,8 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
         await enclosureService.createEnclosure({
           userId: user.id,
           name: formData.name,
-          animalId: formData.animalId,
-          animalName: selectedAnimal.name,
+          animalId: animalId,
+          animalName: animalName,
           description: formData.description,
           substrateType: formData.substrateType || undefined,
           isActive: true,
@@ -83,7 +94,7 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
   };
 
   const handleDelete = async (id: string, name: string) => {
-    if (!confirm(`Delete "${name}"? Associated tasks will remain but won't show enclosure info.`)) {
+    if (!confirm(`Delete "${name}"? All associated care tasks will also be permanently deleted.`)) {
       return;
     }
 
@@ -100,9 +111,12 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
   const openModal = (enclosure?: Enclosure) => {
     if (enclosure) {
       setEditingEnclosure(enclosure);
+      // Check if this is a custom species (animalId is 'custom')
+      const isCustom = enclosure.animalId === 'custom';
       setFormData({
         name: enclosure.name,
         animalId: enclosure.animalId,
+        customSpeciesName: isCustom ? enclosure.animalName : '',
         description: enclosure.description || '',
         substrateType: enclosure.substrateType || '',
       });
@@ -111,6 +125,7 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
       setFormData({ 
         name: '', 
         animalId: '', 
+        customSpeciesName: '',
         description: '', 
         substrateType: '',
       });
@@ -124,6 +139,7 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
     setFormData({ 
       name: '', 
       animalId: '', 
+      customSpeciesName: '',
       description: '', 
       substrateType: '',
     });
@@ -270,7 +286,7 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
                 </label>
                 <select
                   value={formData.animalId}
-                  onChange={(e) => setFormData(prev => ({ ...prev, animalId: e.target.value }))}
+                  onChange={(e) => setFormData(prev => ({ ...prev, animalId: e.target.value, customSpeciesName: '' }))}
                   className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                   required
                 >
@@ -280,8 +296,26 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
                       {animal.name}
                     </option>
                   ))}
+                  <option value="custom">Other/Custom Species</option>
                 </select>
               </div>
+
+              {/* Custom Species Name Input - shown when "custom" is selected */}
+              {formData.animalId === 'custom' && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Custom Species Name *
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.customSpeciesName}
+                    onChange={(e) => setFormData(prev => ({ ...prev, customSpeciesName: e.target.value }))}
+                    placeholder="e.g., Ball Python, Red-Eared Slider"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                    required
+                  />
+                </div>
+              )}
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">

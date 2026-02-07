@@ -15,7 +15,7 @@ export interface BlogPost {
 }
 
 export interface ContentBlock {
-  type: 'intro' | 'section' | 'text' | 'list' | 'warning' | 'highlight' | 'table';
+  type: 'intro' | 'section' | 'text' | 'list' | 'warning' | 'highlight' | 'table' | 'image';
   text?: string;
   heading?: string;
   content?: ContentBlock[] | string;
@@ -24,6 +24,11 @@ export interface ContentBlock {
   rows?: string[][];
   severity?: 'critical' | 'important' | 'tip' | 'caution';
   icon?: string;
+  // Image-specific fields
+  src?: string;
+  srcMobile?: string; // Optional mobile-specific image source
+  alt?: string;
+  caption?: string;
 }
 
 // Automatically import all blog post JSON files from subdirectories (excluding templates)

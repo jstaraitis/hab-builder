@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
-import { Worm, Search, BookOpen, CheckCircle, ShieldAlert, ShoppingCart, ClipboardList, DollarSign, Sparkles, Quote, Star, Bell, GraduationCap, Palette, Package, BarChart3, Mail, ArrowRight } from 'lucide-react';
+import { Worm, Search, BookOpen, CheckCircle, ShieldAlert, ShoppingCart, ClipboardList, DollarSign, Sparkles, Quote, Star, Bell, GraduationCap, Palette, Package, BarChart3, Mail, ArrowRight, Turtle } from 'lucide-react';
 
 export function Home() {
   const [activeBenefitCard, setActiveBenefitCard] = useState(0);
@@ -332,59 +332,64 @@ export function Home() {
         {/* Mobile: Swipeable cards */}
         <div className="md:hidden">
           <div ref={featureScrollRef} className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 px-4 -mx-4">
-            {/* Care Tasks Feature */}
-            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl shadow-lg p-6 border-2 border-blue-200 dark:border-blue-800">
-              <div className="w-16 h-16 bg-blue-600 dark:bg-blue-500 rounded-2xl flex items-center justify-center mb-4">
-                <Bell className="w-8 h-8 text-white" />
+            {/* Care Tasks & Equipment Feature */}
+            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-blue-50 via-teal-50 to-cyan-50 dark:from-blue-900/20 dark:via-teal-900/20 dark:to-cyan-900/20 rounded-2xl shadow-lg p-5 border-2 border-blue-200 dark:border-blue-800">
+              <div className="flex gap-2 mb-4">
+                <div className="w-12 h-12 bg-blue-600 dark:bg-blue-500 rounded-xl flex items-center justify-center">
+                  <Bell className="w-6 h-6 text-white" />
+                </div>
+                <div className="w-12 h-12 bg-teal-600 dark:bg-teal-500 rounded-xl flex items-center justify-center">
+                  <Package className="w-6 h-6 text-white" />
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                Care Task Reminders
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                Care Tasks & Inventory
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                Never miss a feeding, misting, or health check. Set up recurring care tasks with push notifications so your pet gets consistent, reliable care—even during busy weeks.
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                Never miss a feeding or health check with recurring care task reminders. Track equipment maintenance, UVB bulb age, and consumable inventory levels—all in one place.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-4">
+              <ul className="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 mb-3">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span>Daily, weekly, or custom schedules</span>
+                  <span>Daily, weekly, or custom care schedules with push notifications</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
+                  <span>Track UVB bulb replacement dates automatically</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span>Push notifications to your phone</span>
+                  <span>Track completion history & reliability score</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
+                  <span>Monitor substrate and supplement inventory levels</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span>Track completion history</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span>Manage multiple enclosures</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span>Reliability score tracks your care consistency</span>
+                  <span>Manage multiple enclosures in one dashboard</span>
                 </li>
               </ul>
               <Link
                 to="/blog/care-reminders-guide"
-                className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold transition-colors text-sm mb-4"
+                className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold transition-colors text-sm mb-3"
               >
                 Learn more
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
-              <div className="mt-4 pt-4 border-t border-blue-200 dark:border-blue-800 space-y-3">
-                <div className="bg-blue-100 dark:bg-blue-900/30 rounded-lg p-3 border border-blue-300 dark:border-blue-700">
-                  <p className="text-sm font-semibold text-blue-900 dark:text-blue-100 mb-2">
+              <div className="mt-3 pt-3 border-t border-blue-200 dark:border-blue-800 space-y-2">
+                <div className="bg-gradient-to-r from-blue-100 to-teal-100 dark:from-blue-900/30 dark:to-teal-900/30 rounded-lg p-2.5 border border-blue-300 dark:border-blue-700">
+                  <p className="text-sm font-semibold text-blue-900 dark:text-blue-100 mb-1.5 flex items-center gap-2">
                     <Sparkles className="w-4 h-4" />
-                     Join the Beta Test
+                    Join the Beta Test
                   </p>
-                  <p className="text-xs text-blue-800 dark:text-blue-200 mb-2">
-                    Be among the first to try care reminders! Email us to get early access.
+                  <p className="text-xs text-blue-800 dark:text-blue-200 mb-1.5">
+                    Be among the first to try care tracking! Email us to get early access.
                   </p>
                   <a
-                    href="mailto:josh.habitat.builder@gmail.com?subject=Care Reminders Beta Access&body=Hi! I'd like to beta test the care reminders feature."
+                    href="mailto:josh.habitat.builder@gmail.com?subject=Care & Inventory Beta Access&body=Hi! I'd like to beta test the care and inventory feature."
                     className="inline-flex items-center gap-2 text-xs font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
                   >
                     josh.habitat.builder@gmail.com
@@ -393,24 +398,24 @@ export function Home() {
                     </svg>
                   </a>
                 </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-                  Premium feature. Push notifications require browser permission and work best on mobile devices.
+                <p className="text-xs text-gray-500 dark:text-gray-400 italic leading-tight">
+                  Premium feature. Push notifications require browser permission.
                 </p>
               </div>
             </div>
 
             {/* Blog/Guides Feature */}
-            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl shadow-lg p-6 border-2 border-amber-200 dark:border-amber-800">
+            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl shadow-lg p-5 border-2 border-amber-200 dark:border-amber-800">
               <div className="w-16 h-16 bg-amber-600 dark:bg-amber-500 rounded-2xl flex items-center justify-center mb-4">
                 <GraduationCap className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                 77+ Free Care Guides
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
                 Comprehensive, species-specific guides covering everything from substrate choices to feeding schedules. Validated by keepers who actually care about your animal's wellbeing.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-4">
+              <ul className="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 mb-3">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
                   <span>Complete enrichment & welfare guides</span>
@@ -426,32 +431,81 @@ export function Home() {
               </ul>
               <Link
                 to="/blog"
-                className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-semibold transition-colors text-sm mb-4"
+                className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-semibold transition-colors text-sm mb-3"
               >
                 Browse all guides
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
-              <div className="mt-4 pt-4 border-t border-amber-200 dark:border-amber-800">
-                <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+              <div className="mt-3 pt-3 border-t border-amber-200 dark:border-amber-800">
+                <p className="text-xs text-gray-500 dark:text-gray-400 italic leading-tight">
                   Guides are educational resources. Always consult with an exotic veterinarian for health concerns and verify information against multiple sources.
                 </p>
               </div>
             </div>
 
+            {/* Animal Profiles Feature */}
+            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-900/20 dark:to-pink-900/20 rounded-2xl shadow-lg p-5 border-2 border-rose-200 dark:border-rose-800">
+              <div className="w-16 h-16 bg-rose-600 dark:bg-rose-500 rounded-2xl flex items-center justify-center mb-4">
+                <Turtle className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                Animal Profiles & Tracking
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                Track detailed information for each of your animals across all enclosures. Monitor health, growth, and care history to ensure every pet thrives.
+              </p>
+              <ul className="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 mb-3">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-rose-600 dark:text-rose-400 flex-shrink-0 mt-0.5" />
+                  <span>Track names, gender, morph, and birthday for each animal</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-rose-600 dark:text-rose-400 flex-shrink-0 mt-0.5" />
+                  <span>Weight tracking with history charts</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-rose-600 dark:text-rose-400 flex-shrink-0 mt-0.5" />
+                  <span>Store notes about health, temperament, and special needs</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-rose-600 dark:text-rose-400 flex-shrink-0 mt-0.5" />
+                  <span>Centralized view of all animals across enclosures</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-rose-600 dark:text-rose-400 flex-shrink-0 mt-0.5" />
+                  <span>Flexible enclosure assignments (quarantine support)</span>
+                </li>
+              </ul>
+              <Link
+                to="/my-animals"
+                className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-400 hover:text-rose-700 dark:hover:text-rose-300 font-semibold transition-colors text-sm mb-3"
+              >
+                View My Animals
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+              <div className="mt-3 pt-3 border-t border-rose-200 dark:border-rose-800">
+                <p className="text-xs text-gray-500 dark:text-gray-400 italic leading-tight">
+                  Account required. Animal profiles sync across all your devices automatically.
+                </p>
+              </div>
+            </div>
+
             {/* Visual Designer Feature */}
-            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl shadow-lg p-6 border-2 border-purple-200 dark:border-purple-800">
+            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl shadow-lg p-5 border-2 border-purple-200 dark:border-purple-800">
               <div className="w-16 h-16 bg-purple-600 dark:bg-purple-500 rounded-2xl flex items-center justify-center mb-4">
                 <Palette className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                 Visual Layout Designer
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
                 Drag-and-drop designer to plan your enclosure layout before you build. Visualize equipment placement, ensure proper thermal gradients, and avoid placement mistakes.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-4">
+              <ul className="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 mb-3">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-0.5" />
                   <span>Interactive drag-and-drop canvas</span>
@@ -469,78 +523,25 @@ export function Home() {
                   <span>Export as image to reference while building</span>
                 </li>
               </ul>
-              <div className="mt-4 pt-4 border-t border-purple-200 dark:border-purple-800">
-                <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+              <div className="mt-3 pt-3 border-t border-purple-200 dark:border-purple-800">
+                <p className="text-xs text-gray-500 dark:text-gray-400 italic leading-tight">
                   Available after generating your plan. Works best on larger screens (tablets/desktops). Still in development—verify all equipment fits and meets safety requirements before purchasing.
                 </p>
               </div>
             </div>
 
-            {/* Equipment Reminders Feature */}
-            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 rounded-2xl shadow-lg p-6 border-2 border-teal-200 dark:border-teal-800">
-              <div className="w-16 h-16 bg-teal-600 dark:bg-teal-500 rounded-2xl flex items-center justify-center mb-4">
-                <Package className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                Equipment & Inventory
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                Track your equipment, get maintenance reminders, and never run out of critical supplies. Monitor UVB bulb age, substrate levels, and supplement expiration dates.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-4">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
-                  <span>Track UVB bulb replacement dates</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
-                  <span>Monitor substrate and supplement levels</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
-                  <span>Set custom replacement reminders</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
-                  <span>Track equipment across multiple enclosures</span>
-                </li>
-              </ul>
-              <div className="mt-4 pt-4 border-t border-teal-200 dark:border-teal-800 space-y-3">
-                <div className="bg-teal-100 dark:bg-teal-900/30 rounded-lg p-3 border border-teal-300 dark:border-teal-700">
-                  <p className="text-sm font-semibold text-teal-900 dark:text-teal-100 mb-2 flex items-center gap-2">
-                    <Sparkles className="w-4 h-4" />
-                    Join the Beta Test
-                  </p>
-                  <p className="text-xs text-teal-800 dark:text-teal-200 mb-2">
-                    Be among the first to try equipment tracking! Email us to get early access.
-                  </p>
-                  <a
-                    href="mailto:josh.habitat.builder@gmail.com?subject=Equipment Tracking Beta Access&body=Hi! I'd like to beta test the equipment tracking feature."
-                    className="inline-flex items-center gap-2 text-xs font-semibold text-teal-700 dark:text-teal-300 hover:text-teal-800 dark:hover:text-teal-200 transition-colors"
-                  >
-                    <Mail className="w-3 h-3" />
-                    josh.habitat.builder@gmail.com
-                    <ArrowRight className="w-3 h-3" />
-                  </a>
-                </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-                  Premium feature. Helps prevent expensive equipment failures and health issues.
-                </p>
-              </div>
-            </div>
-
             {/* Care Analytics Feature */}
-            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-900/20 dark:to-violet-900/20 rounded-2xl shadow-lg p-6 border-2 border-indigo-200 dark:border-indigo-800">
+            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-900/20 dark:to-violet-900/20 rounded-2xl shadow-lg p-5 border-2 border-indigo-200 dark:border-indigo-800">
               <div className="w-16 h-16 bg-indigo-600 dark:bg-indigo-500 rounded-2xl flex items-center justify-center mb-4">
                 <BarChart3 className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                 Care Analytics & Insights
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
                 Visualize your care patterns, track streaks, and identify gaps in your routine. See completion rates, activity heatmaps, and task breakdowns to ensure consistent care.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-4">
+              <ul className="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 mb-3">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
                   <span>Track current & longest care streaks</span>
@@ -558,13 +559,13 @@ export function Home() {
                   <span>Completion rate percentage tracking</span>
                 </li>
               </ul>
-              <div className="mt-4 pt-4 border-t border-indigo-200 dark:border-indigo-800 space-y-3">
-                <div className="bg-indigo-100 dark:bg-indigo-900/30 rounded-lg p-3 border border-indigo-300 dark:border-indigo-700">
-                  <p className="text-sm font-semibold text-indigo-900 dark:text-indigo-100 mb-2 flex items-center gap-2">
+              <div className="mt-3 pt-3 border-t border-indigo-200 dark:border-indigo-800 space-y-2">
+                <div className="bg-indigo-100 dark:bg-indigo-900/30 rounded-lg p-2.5 border border-indigo-300 dark:border-indigo-700">
+                  <p className="text-sm font-semibold text-indigo-900 dark:text-indigo-100 mb-1.5 flex items-center gap-2">
                     <Sparkles className="w-4 h-4" />
                     Join the Beta Test
                   </p>
-                  <p className="text-xs text-indigo-800 dark:text-indigo-200 mb-2">
+                  <p className="text-xs text-indigo-800 dark:text-indigo-200 mb-1.5">
                     Be among the first to try care analytics! Email us to get early access.
                   </p>
                   <a
@@ -576,24 +577,24 @@ export function Home() {
                     <ArrowRight className="w-3 h-3" />
                   </a>
                 </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-                  Premium feature. Analytics automatically derive from your completed care tasks.
+                <p className="text-xs text-gray-500 dark:text-gray-400 italic leading-tight">
+                  Premium feature. Analytics derive from completed care tasks.
                 </p>
               </div>
             </div>
 
             {/* Animal Search Feature */}
-            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-2xl shadow-lg p-6 border-2 border-emerald-200 dark:border-emerald-800">
+            <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-2xl shadow-lg p-5 border-2 border-emerald-200 dark:border-emerald-800">
               <div className="w-16 h-16 bg-emerald-600 dark:bg-emerald-500 rounded-2xl flex items-center justify-center mb-4">
                 <Search className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                 Find Your Perfect Pet
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
                 Not sure which animal to get? Use our smart search to find species that match your available space, experience level, and care preferences.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-4">
+              <ul className="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 mb-3">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
                   <span>Filter by enclosure size you have available</span>
@@ -613,15 +614,15 @@ export function Home() {
               </ul>
               <Link
                 to="/find-animal"
-                className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-semibold transition-colors text-sm mb-4"
+                className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-semibold transition-colors text-sm mb-3"
               >
                 Find your match
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
-              <div className="mt-4 pt-4 border-t border-emerald-200 dark:border-emerald-800">
-                <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+              <div className="mt-3 pt-3 border-t border-emerald-200 dark:border-emerald-800">
+                <p className="text-xs text-gray-500 dark:text-gray-400 italic leading-tight">
                   Research thoroughly before getting any pet. Consider long-term costs, space requirements, and lifespan. Adopt from reputable breeders or rescues only.
                 </p>
               </div>
@@ -637,8 +638,8 @@ export function Home() {
                   activeFeatureCard === index 
                     ? index === 0 ? 'bg-blue-500' 
                       : index === 1 ? 'bg-amber-500'
-                      : index === 2 ? 'bg-purple-500'
-                      : index === 3 ? 'bg-teal-500'
+                      : index === 2 ? 'bg-rose-500'
+                      : index === 3 ? 'bg-purple-500'
                       : index === 4 ? 'bg-indigo-500'
                       : 'bg-emerald-500'
                     : 'bg-gray-300 dark:bg-gray-600'
@@ -650,37 +651,42 @@ export function Home() {
 
         {/* Desktop: Grid */}
         <div className="hidden md:grid md:grid-cols-2 gap-6 lg:gap-8">
-          {/* Care Tasks Feature */}
-          <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl shadow-lg p-8 border-2 border-blue-200 dark:border-blue-800">
-            <div className="w-16 h-16 bg-blue-600 dark:bg-blue-500 rounded-2xl flex items-center justify-center mb-4">
-              <Bell className="w-8 h-8 text-white" />
+          {/* Care Tasks & Equipment Feature */}
+          <div className="bg-gradient-to-br from-blue-50 via-teal-50 to-cyan-50 dark:from-blue-900/20 dark:via-teal-900/20 dark:to-cyan-900/20 rounded-2xl shadow-lg p-8 border-2 border-blue-200 dark:border-blue-800">
+            <div className="flex gap-3 mb-4">
+              <div className="w-14 h-14 bg-blue-600 dark:bg-blue-500 rounded-xl flex items-center justify-center">
+                <Bell className="w-7 h-7 text-white" />
+              </div>
+              <div className="w-14 h-14 bg-teal-600 dark:bg-teal-500 rounded-xl flex items-center justify-center">
+                <Package className="w-7 h-7 text-white" />
+              </div>
             </div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-              Care Task Reminders
+              Care Tasks & Inventory
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Never miss a feeding, misting, or health check. Set up recurring care tasks with push notifications so your pet gets consistent, reliable care—even during busy weeks.
+              Never miss a feeding or health check with recurring care task reminders. Track equipment maintenance, UVB bulb age, and consumable inventory levels—all in one place.
             </p>
             <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                <span>Daily, weekly, or custom schedules</span>
+                <span>Daily, weekly, or custom care schedules with push notifications</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
+                <span>Track UVB bulb replacement dates automatically</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                <span>Push notifications to your phone</span>
+                <span>Track completion history & reliability score</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
+                <span>Monitor substrate and supplement inventory levels</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                <span>Track completion history</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                <span>Manage multiple enclosures</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                <span>Reliability score tracks your care consistency</span>
+                <span>Manage multiple enclosures in one dashboard</span>
               </li>
             </ul>
             <Link
@@ -693,16 +699,16 @@ export function Home() {
               </svg>
             </Link>
             <div className="mt-4 pt-4 border-t border-blue-200 dark:border-blue-800 space-y-3">
-              <div className="bg-blue-100 dark:bg-blue-900/30 rounded-lg p-4 border border-blue-300 dark:border-blue-700">
-                <p className="text-sm font-semibold text-indigo-900 dark:text-indigo-100 mb-2 flex items-center gap-2">
+              <div className="bg-gradient-to-r from-blue-100 to-teal-100 dark:from-blue-900/30 dark:to-teal-900/30 rounded-lg p-4 border border-blue-300 dark:border-blue-700">
+                <p className="text-sm font-semibold text-blue-900 dark:text-blue-100 mb-2 flex items-center gap-2">
                   <Sparkles className="w-4 h-4" />
                   Join the Beta Test
                 </p>
                 <p className="text-sm text-blue-800 dark:text-blue-200 mb-3">
-                  Be among the first to try care reminders! Email us to get early access.
+                  Be among the first to try care tracking! Email us to get early access.
                 </p>
                 <a
-                  href="mailto:josh.habitat.builder@gmail.com?subject=Care Reminders Beta Access&body=Hi! I'd like to beta test the care reminders feature."
+                  href="mailto:josh.habitat.builder@gmail.com?subject=Care & Inventory Beta Access&body=Hi! I'd like to beta test the care and inventory feature."
                   className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
                 >
                   josh.habitat.builder@gmail.com
@@ -758,6 +764,55 @@ export function Home() {
             </div>
           </div>
 
+          {/* Animal Profiles Feature */}
+          <div className="bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-900/20 dark:to-pink-900/20 rounded-2xl shadow-lg p-8 border-2 border-rose-200 dark:border-rose-800">
+            <div className="w-16 h-16 bg-rose-600 dark:bg-rose-500 rounded-2xl flex items-center justify-center mb-4">
+              <Turtle className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+              Animal Profiles & Tracking
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              Track detailed information for each of your animals across all enclosures. Monitor health, growth, and care history to ensure every pet thrives.
+            </p>
+            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-rose-600 dark:text-rose-400 flex-shrink-0 mt-0.5" />
+                <span>Track names, gender, morph, and birthday for each animal</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-rose-600 dark:text-rose-400 flex-shrink-0 mt-0.5" />
+                <span>Weight tracking with history charts</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-rose-600 dark:text-rose-400 flex-shrink-0 mt-0.5" />
+                <span>Store notes about health, temperament, and special needs</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-rose-600 dark:text-rose-400 flex-shrink-0 mt-0.5" />
+                <span>Centralized view of all animals across enclosures</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-rose-600 dark:text-rose-400 flex-shrink-0 mt-0.5" />
+                <span>Flexible enclosure assignments (quarantine support)</span>
+              </li>
+            </ul>
+            <Link
+              to="/my-animals"
+              className="inline-flex items-center gap-2 text-rose-600 dark:text-rose-400 hover:text-rose-700 dark:hover:text-rose-300 font-semibold transition-colors mb-4"
+            >
+              View My Animals
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+            <div className="mt-4 pt-4 border-t border-rose-200 dark:border-rose-800">
+              <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                Account required. Animal profiles sync across all your devices automatically.
+              </p>
+            </div>
+          </div>
+
           {/* Visual Designer Feature */}
           <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl shadow-lg p-8 border-2 border-purple-200 dark:border-purple-800">
             <div className="w-16 h-16 bg-purple-600 dark:bg-purple-500 rounded-2xl flex items-center justify-center mb-4">
@@ -790,59 +845,6 @@ export function Home() {
             <div className="mt-4 pt-4 border-t border-purple-200 dark:border-purple-800">
               <p className="text-xs text-gray-500 dark:text-gray-400 italic">
                 Available after generating your plan. Works best on larger screens (tablets/desktops). Still in development—verify all equipment fits and meets safety requirements before purchasing.
-              </p>
-            </div>
-          </div>
-
-          {/* Equipment Reminders Feature */}
-          <div className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 rounded-2xl shadow-lg p-8 border-2 border-teal-200 dark:border-teal-800">
-            <div className="w-16 h-16 bg-teal-600 dark:bg-teal-500 rounded-2xl flex items-center justify-center mb-4">
-              <Package className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-              Equipment & Inventory
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Track your equipment, get maintenance reminders, and never run out of critical supplies. Monitor UVB bulb age, substrate levels, and supplement expiration dates.
-            </p>
-            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
-              <li className="flex items-start gap-2">
-                <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
-                <span>Track UVB bulb replacement dates</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
-                <span>Monitor substrate and supplement levels</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
-                <span>Set custom replacement reminders</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle className="w-5 h-5 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
-                <span>Track equipment across multiple enclosures</span>
-              </li>
-            </ul>
-            <div className="mt-4 pt-4 border-t border-teal-200 dark:border-teal-800 space-y-3">
-              <div className="bg-teal-100 dark:bg-teal-900/30 rounded-lg p-4 border border-teal-300 dark:border-teal-700">
-                <p className="text-sm font-semibold text-teal-900 dark:text-teal-100 mb-2 flex items-center gap-2">
-                  <Sparkles className="w-4 h-4" />
-                  Join the Beta Test
-                </p>
-                <p className="text-sm text-teal-800 dark:text-teal-200 mb-3">
-                  Be among the first to try equipment tracking! Email us to get early access.
-                </p>
-                <a
-                  href="mailto:josh.habitat.builder@gmail.com?subject=Equipment Tracking Beta Access&body=Hi! I'd like to beta test the equipment tracking feature."
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-teal-700 dark:text-teal-300 hover:text-teal-800 dark:hover:text-teal-200 transition-colors"
-                >
-                  <Mail className="w-4 h-4" />
-                  josh.habitat.builder@gmail.com
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-              <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-                Premium feature. Helps prevent expensive equipment failures and health issues.
               </p>
             </div>
           </div>
@@ -950,7 +952,9 @@ export function Home() {
         <div className="hidden md:flex justify-center gap-2 mt-6">
           <div className="w-2 h-2 rounded-full bg-blue-500"></div>
           <div className="w-2 h-2 rounded-full bg-amber-500"></div>
+          <div className="w-2 h-2 rounded-full bg-rose-500"></div>
           <div className="w-2 h-2 rounded-full bg-purple-500"></div>
+          <div className="w-2 h-2 rounded-full bg-indigo-500"></div>
           <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
         </div>
       </section>
