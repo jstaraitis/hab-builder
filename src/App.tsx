@@ -1,34 +1,46 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, Instagram, Calendar, LogOut, User, Package, Turtle, Ruler, ChevronDown, ZoomIn, ZoomOut } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, Instagram, Calendar, LogOut, User, Package, Turtle, Ruler, ChevronDown, ZoomIn, ZoomOut, Loader2 } from 'lucide-react';
 import { useAuth } from './contexts/AuthContext';
 import type { EnclosureInput, BuildPlan } from './engine/types';
 import { generatePlan } from './engine/generatePlan';
-import { AnimalSelectView } from './components/Views/AnimalSelectView';
-import { DesignView } from './components/Views/DesignView';
-import { PlanView } from './components/Views/PlanView';
-import { SuppliesView } from './components/Views/SuppliesView';
-import { FindYourAnimalView } from './components/Views/FindYourAnimalView';
-import { FindYourAnimalResultsView } from './components/Views/FindYourAnimalResultsView';
-import { CareCalendarView } from './components/Views/CareCalendarView';
-import { MyAnimalsView } from './components/Views/MyAnimalsView';
-import { InventoryView } from './components/Views/InventoryView';
-import { ProfileView } from './components/Views/ProfileView';
-import CanvasDesigner from './components/EnclosureDesigner/CanvasDesigner';
 import { FeedbackModal } from './components/FeedbackModal/FeedbackModal';
-import { BlogList } from './components/Blog/BlogList';
-import { BlogPost } from './components/Blog/BlogPost';
-import { AnimalProfilePreview } from './components/AnimalProfilePreview/AnimalProfilePreview';
-import { About } from './components/About/About';
-import { Roadmap } from './components/Roadmap/Roadmap';
-import { Home } from './components/Home/Home';
-import EquipmentTagsBuilder from './components/Admin/EquipmentTagsBuilder';
+
+// Lazy load route components for better performance
+const AnimalSelectView = lazy(() => import('./components/Views/AnimalSelectView').then(m => ({ default: m.AnimalSelectView })));
+const DesignView = lazy(() => import('./components/Views/DesignView').then(m => ({ default: m.DesignView })));
+const PlanView = lazy(() => import('./components/Views/PlanView').then(m => ({ default: m.PlanView })));
+const SuppliesView = lazy(() => import('./components/Views/SuppliesView').then(m => ({ default: m.SuppliesView })));
+const FindYourAnimalView = lazy(() => import('./components/Views/FindYourAnimalView').then(m => ({ default: m.FindYourAnimalView })));
+const FindYourAnimalResultsView = lazy(() => import('./components/Views/FindYourAnimalResultsView').then(m => ({ default: m.FindYourAnimalResultsView })));
+const CareCalendarView = lazy(() => import('./components/Views/CareCalendarView').then(m => ({ default: m.CareCalendarView })));
+const MyAnimalsView = lazy(() => import('./components/Views/MyAnimalsView').then(m => ({ default: m.MyAnimalsView })));
+const InventoryView = lazy(() => import('./components/Views/InventoryView').then(m => ({ default: m.InventoryView })));
+const ProfileView = lazy(() => import('./components/Views/ProfileView').then(m => ({ default: m.ProfileView })));
+const CanvasDesigner = lazy(() => import('./components/EnclosureDesigner/CanvasDesigner'));
+const BlogList = lazy(() => import('./components/Blog/BlogList').then(m => ({ default: m.BlogList })));
+const BlogPost = lazy(() => import('./components/Blog/BlogPost').then(m => ({ default: m.BlogPost })));
+const AnimalProfilePreview = lazy(() => import('./components/AnimalProfilePreview/AnimalProfilePreview').then(m => ({ default: m.AnimalProfilePreview })));
+const About = lazy(() => import('./components/About/About').then(m => ({ default: m.About })));
+const Roadmap = lazy(() => import('./components/Roadmap/Roadmap').then(m => ({ default: m.Roadmap })));
+const Home = lazy(() => import('./components/Home/Home').then(m => ({ default: m.Home })));
+const EquipmentTagsBuilder = lazy(() => import('./components/Admin/EquipmentTagsBuilder'));
 import { animalProfiles } from './data/animals';
 import { useTheme } from './hooks/useTheme';
 import { useUnits } from './contexts/UnitsContext';
 import { usePWAUpdate } from './hooks/usePWAUpdate';
 import { MobileNav } from './components/Navigation/MobileNav';
 import { ProgressIndicator } from './components/Navigation/ProgressIndicator';
+
+// Loading component for lazy-loaded routes
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center min-h-[400px]">
+    <div className="text-center space-y-3">
+      <Loader2 className="w-8 h-8 text-emerald-600 dark:text-emerald-400 animate-spin mx-auto" />
+      <p className="text-sm text-gray-600 dark:text-gray-400">Loading...</p>
+    </div>
+  </div>
+);
 
 function App() {
   const navigate = useNavigate();
@@ -469,6 +481,7 @@ function App() {
       )}
 
       <main className="max-w-7xl mx-auto px-4 py-4 lg:py-8" style={{ transform: `scale(${zoom / 100})`, transformOrigin: 'top center' }}>
+        <Suspense fallback={<LoadingFallback />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
@@ -559,6 +572,7 @@ function App() {
           <Route path="/dev/animals" element={<AnimalProfilePreview />} />
           <Route path="/dev/equipment-tags" element={<EquipmentTagsBuilder />} />
         </Routes>
+        </Suspense>
       </main>
 
       {/* Mobile bottom navigation */}
@@ -587,7 +601,7 @@ function App() {
           <div className="mt-4 md:mt-6 pt-4 md:pt-6 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-center gap-4 mb-3 md:mb-4">
               <a
-                href="https://www.instagram.com/habitat_builder"
+                href="https://www.instagram.com/joshs_frog"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-1.5 md:p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-pink-100 hover:text-pink-600 dark:hover:bg-pink-900/30 dark:hover:text-pink-400 transition-colors"

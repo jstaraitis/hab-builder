@@ -40,6 +40,8 @@ function AnimalRecommendationCard({ recommendation, onSelect, onToggleComparison
             src={profile.imageUrl}
             alt={profile.commonName}
             className="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
           {/* Comparison Checkbox */}
           {comparisonMode && onToggleComparison && (
@@ -275,6 +277,8 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                           src={rec.profile.imageUrl}
                           alt={rec.profile.commonName}
                           className="w-full h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
                         />
                       )}
                       <div className="absolute top-2 right-2 bg-white dark:bg-gray-800 rounded-lg px-2 py-1">
@@ -370,6 +374,8 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                                 src={rec.profile.imageUrl}
                                 alt={rec.profile.commonName}
                                 className="w-full h-32 object-cover rounded-lg"
+                                loading="lazy"
+                                decoding="async"
                               />
                             )}
                             <div className="font-bold text-gray-900 dark:text-white">{rec?.profile.commonName}</div>

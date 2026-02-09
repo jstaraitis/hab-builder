@@ -251,7 +251,7 @@ export function generateOrganizationStructuredData(): StructuredData {
     url: 'https://habitat-builder.com',
     logo: 'https://habitat-builder.com/logo.png',
     sameAs: [
-      'https://www.instagram.com/habitat_builder'
+      'https://www.instagram.com/joshs_frog'
     ],
     contact: {
       '@type': 'ContactPoint',

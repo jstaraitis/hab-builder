@@ -6,6 +6,7 @@ import { AnalyticsOverview } from './AnalyticsOverview';
 import { TaskTypeBreakdown } from './TaskTypeBreakdown';
 import { ActivityHeatmap } from './ActivityHeatmap';
 import { RecentActivity } from './RecentActivity';
+import { FeedingAnalytics } from './FeedingAnalytics';
 import type { CareLogAnalytics } from '../../types/careAnalytics';
 
 export function CareAnalyticsDashboard() {
@@ -126,6 +127,9 @@ export function CareAnalyticsDashboard() {
 
       {/* Task Type Breakdown */}
       <TaskTypeBreakdown taskTypeStats={analytics.taskTypeStats} />
+
+      {/* Feeding Analytics */}
+      <FeedingAnalytics userId={user.id} />
 
       {/* Recent Activity */}
       <RecentActivity recentLogs={analytics.recentLogs} />

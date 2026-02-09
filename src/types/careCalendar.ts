@@ -13,6 +13,7 @@ export type TaskType =
   | 'health-check'
   | 'supplement'
   | 'maintenance'
+  | 'gut-load'
   | 'custom';
 
 export type TaskFrequency = 
@@ -68,6 +69,13 @@ export interface CareLog {
   // Optional tracking
   skipped?: boolean;
   skipReason?: string;
+  
+  // Feeding-specific fields
+  feederType?: string; // e.g., "Crickets", "Dubia Roaches", "Hornworms", "Fruit Mix"
+  quantityOffered?: number; // How many feeders offered
+  quantityEaten?: number; // How many actually consumed
+  refusalNoted?: boolean; // Did the animal refuse food?
+  supplementUsed?: string; // e.g., "Calcium + D3", "Multivitamin", "None"
 }
 
 export interface CareTaskWithLogs extends CareTask {

@@ -83,6 +83,11 @@ export const TASK_TYPE_CONFIG: Record<TaskType, { label: string; icon: string; c
     icon: 'UtensilsCrossed',
     color: 'emerald',
   },
+  'gut-load': {
+    label: 'Gut-Load',
+    icon: 'Flame',
+    color: 'amber',
+  },
   misting: {
     label: 'Misting',
     icon: 'Droplets',

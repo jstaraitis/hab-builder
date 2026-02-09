@@ -268,6 +268,8 @@ function AnimalRecommendationCard({ recommendation, onSelect }: AnimalRecommenda
             src={profile.imageUrl}
             alt={profile.commonName}
             className="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
           {/* Score Badge Overlay */}
           <div className="absolute top-3 right-3 bg-white dark:bg-gray-800 rounded-lg px-3 py-1 shadow-lg">

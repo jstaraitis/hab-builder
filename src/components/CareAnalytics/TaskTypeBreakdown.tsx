@@ -57,9 +57,7 @@ export function TaskTypeBreakdown({ taskTypeStats }: TaskTypeBreakdownProps) {
               dataKey="name" 
               className="text-xs fill-gray-600 dark:fill-gray-400"
               tick={{ fontSize: 11 }}
-              angle={-45}
-              textAnchor="end"
-              height={60}
+              height={50}
             />
             <YAxis 
               className="text-xs fill-gray-600 dark:fill-gray-400"

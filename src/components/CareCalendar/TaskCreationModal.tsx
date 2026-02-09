@@ -509,6 +509,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                           className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
                         >
                           <option value="feeding">Feeding</option>
+                          <option value="gut-load">Gut-Load Feeders</option>
                           <option value="misting">Misting</option>
                           <option value="water-change">Water Change</option>
                           <option value="spot-clean">Spot Clean</option>

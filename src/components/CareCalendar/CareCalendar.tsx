@@ -36,10 +36,11 @@ import { enclosureService } from '../../services/enclosureService';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { TaskCreationModal } from './TaskCreationModal';
 import { TaskEditModal } from './TaskEditModal';
+import { FeedingLogModal } from './FeedingLogModal';
 import { EnclosureManager } from './EnclosureManager';
 import { NotificationPrompt } from './NotificationPrompt';
 import { CareAnalyticsDashboard } from '../CareAnalytics';
-import type { CareTaskWithLogs, TaskType, CareTask, Enclosure, EnclosureAnimal } from '../../types/careCalendar';
+import type { CareTaskWithLogs, TaskType, CareTask, CareLog, Enclosure, EnclosureAnimal } from '../../types/careCalendar';
 
 type ViewMode = 'all' | 'today' | 'week' | 'analytics';
 type LayoutMode = 'cards' | 'list';
@@ -55,6 +56,8 @@ export function CareCalendar() {
   const [error, setError] = useState<string | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [editingTask, setEditingTask] = useState<CareTask | null>(null);
+  const [feedingTask, setFeedingTask] = useState<CareTask | null>(null);
+  const [showFeedingModal, setShowFeedingModal] = useState(false);
   const [expandedTasks, setExpandedTasks] = useState<Set<string>>(new Set());
   const [showNotificationPrompt, setShowNotificationPrompt] = useState(false);
   const [viewMode, setViewMode] = useState<ViewMode>('today');
@@ -144,11 +147,36 @@ export function CareCalendar() {
 
   const handleCompleteTask = async (taskId: string) => {
     try {
+      const task = tasks.find(t => t.id === taskId);
+      
+      // If it's a feeding or gut-load task, show the detailed feeding modal
+      if (task && (task.type === 'feeding' || task.type === 'gut-load')) {
+        setFeedingTask(task);
+        setShowFeedingModal(true);
+        return;
+      }
+      
+      // For other tasks, complete directly
       await careTaskService.completeTask(taskId);
       await loadTasks(); // Refresh list
     } catch (err) {
       console.error('Failed to complete task:', err);
       setError('Failed to complete task.');
+    }
+  };
+
+  const handleFeedingLogSubmit = async (logData: Partial<CareLog>) => {
+    if (!feedingTask) return;
+    
+    try {
+      await careTaskService.completeTask(feedingTask.id, logData);
+      await loadTasks(); // Refresh list
+      setShowFeedingModal(false);
+      setFeedingTask(null);
+    } catch (err) {
+      console.error('Failed to log feeding:', err);
+      setError('Failed to log feeding.');
+      throw err; // Re-throw to let modal handle it
     }
   };
 
@@ -169,6 +197,7 @@ export function CareCalendar() {
   const getTaskIcon = (type: TaskType): LucideIcon => {
     const icons: Record<TaskType, LucideIcon> = {
       feeding: UtensilsCrossed,
+      'gut-load': Flame, // Using flame icon for gut-loading
       misting: Droplets,
       'water-change': Waves,
       'spot-clean': Brush,
@@ -1182,6 +1211,17 @@ export function CareCalendar() {
           loadTasks();
           setEditingTask(null);
         }}
+      />
+
+      {/* Feeding Log Modal */}
+      <FeedingLogModal
+        isOpen={showFeedingModal}
+        taskTitle={feedingTask?.title || ''}
+        onClose={() => {
+          setShowFeedingModal(false);
+          setFeedingTask(null);
+        }}
+        onSubmit={handleFeedingLogSubmit}
       />
     </div>
   );

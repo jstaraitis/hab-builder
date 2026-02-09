@@ -17,7 +17,7 @@ export interface ICareTaskService {
   deleteTask(id: string): Promise<void>;
   
   // Logs
-  completeTask(taskId: string, notes?: string): Promise<CareLog>;
+  completeTask(taskId: string, additionalLogData?: Partial<CareLog>): Promise<CareLog>;
   skipTask(taskId: string, reason: string): Promise<CareLog>;
   getTaskLogs(taskId: string): Promise<CareLog[]>;
 }
@@ -198,7 +198,7 @@ export class SupabaseCareService implements ICareTaskService {
     if (error) throw error;
   }
 
-  async completeTask(taskId: string, notes?: string): Promise<CareLog> {
+  async completeTask(taskId: string, additionalLogData?: Partial<CareLog>): Promise<CareLog> {
     // Get current task to calculate next due date
     const task = await this.getTaskById(taskId);
     if (!task) throw new Error('Task not found');
@@ -206,13 +206,13 @@ export class SupabaseCareService implements ICareTaskService {
     const completedAt = new Date();
     const nextDueAt = this.calculateNextDueDate(task, completedAt);
 
-    // Create log entry
+    // Create log entry with optional feeding data
     const log: Omit<CareLog, 'id'> = {
       taskId,
       userId: task.userId,
       completedAt,
-      notes,
       skipped: false,
+      ...additionalLogData, // Merge in any additional log data (feeder type, quantities, etc.)
     };
 
     const dbLog = this.mapLogToDb({ ...log, id: crypto.randomUUID() });
@@ -400,6 +400,11 @@ export class SupabaseCareService implements ICareTaskService {
       notes: row.notes,
       skipped: row.skipped,
       skipReason: row.skip_reason,
+      feederType: row.feeder_type,
+      quantityOffered: row.quantity_offered,
+      quantityEaten: row.quantity_eaten,
+      refusalNoted: row.refusal_noted,
+      supplementUsed: row.supplement_used,
     };
   }
 
@@ -412,6 +417,11 @@ export class SupabaseCareService implements ICareTaskService {
       notes: log.notes,
       skipped: log.skipped,
       skip_reason: log.skipReason,
+      feeder_type: log.feederType,
+      quantity_offered: log.quantityOffered,
+      quantity_eaten: log.quantityEaten,
+      refusal_noted: log.refusalNoted,
+      supplement_used: log.supplementUsed,
     };
   }
 }

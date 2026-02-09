@@ -98,6 +98,8 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
                 src={example.image}
                 alt={example.name}
                 className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                 }}

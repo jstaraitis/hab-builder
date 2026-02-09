@@ -82,6 +82,8 @@ export function Home() {
             src="/examples/whites-tree-frog/display-setup.jpg" 
             alt="Example White's Tree Frog bioactive enclosure setup"
             className="w-full h-64 md:h-96 object-cover"
+            loading="eager"
+            decoding="async"
             onError={(e) => {
               // Fallback to placeholder if image doesn't load
               e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="400"%3E%3Crect width="800" height="400" fill="%2322c55e"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="24" fill="white"%3EBeautiful Bioactive Setup%3C/text%3E%3C/svg%3E';
@@ -126,6 +128,8 @@ export function Home() {
               src="/animals/whites-tree-frog/whites-tree-frog-6.jpg" 
               alt="Three White's Tree Frogs named Mango, Kiwi, and Fig"
               className="w-full h-64 sm:h-80 object-cover"
+              loading="lazy"
+              decoding="async"
               onError={(e) => {
                 e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="400"%3E%3Crect width="800" height="400" fill="%2322c55e"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="24" fill="white"%3EMango, Kiwi, and Fig%3C/text%3E%3C/svg%3E';
               }}
