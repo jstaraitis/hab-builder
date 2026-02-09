@@ -1,5 +1,7 @@
 import type { SizeValidation } from '../../engine/validateEnclosure';
 import { CheckCircle, XCircle, AlertTriangle } from 'lucide-react';
+import { useUnits } from '../../contexts/UnitsContext';
+import { formatDimensions } from '../../utils/unitConversion';
 
 interface SizeFeedbackProps {
   validation: SizeValidation;
@@ -7,6 +9,8 @@ interface SizeFeedbackProps {
 }
 
 export function SizeFeedback({ validation, animalName }: SizeFeedbackProps) {
+  const { isMetric } = useUnits();
+  
   if (validation.isValid && validation.warnings.length === 0) {
     return (
       <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/30 dark:to-emerald-900/30 border-2 border-green-300 dark:border-green-700 rounded-xl p-4 shadow-sm">
@@ -77,7 +81,7 @@ export function SizeFeedback({ validation, animalName }: SizeFeedbackProps) {
                 Minimum recommended dimensions:
               </p>
               <div className="bg-white dark:bg-gray-800 border border-blue-200 dark:border-blue-700 rounded-lg p-2 text-sm font-mono text-blue-900 dark:text-blue-100">
-                {validation.suggestions.minWidth}" W × {validation.suggestions.minDepth}" D × {validation.suggestions.minHeight}" H
+                {formatDimensions(validation.suggestions.minWidth, validation.suggestions.minDepth, validation.suggestions.minHeight, isMetric)}
               </div>
             </div>
           </div>

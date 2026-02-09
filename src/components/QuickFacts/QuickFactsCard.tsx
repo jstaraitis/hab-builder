@@ -1,6 +1,8 @@
 ﻿import React from 'react';
 import { Ruler, Clock, Moon, Droplets, Thermometer, Sun, Bug, Beef, Leaf } from 'lucide-react';
 import { AnimalProfile } from '../../engine/types';
+import { useUnits } from '../../contexts/UnitsContext';
+import { formatDimensions, formatTemp, formatVolume } from '../../utils/unitConversion';
 
 interface QuickFactsCardProps {
   profile: AnimalProfile;
@@ -14,7 +16,9 @@ interface QuickFact {
 }
 
 export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
-  // Calculate gallons from dimensions
+  const { isMetric } = useUnits();
+  
+  // Calculate volume from dimensions
   const gallons = Math.round(
     (profile.minEnclosureSize.width * profile.minEnclosureSize.depth * profile.minEnclosureSize.height) / 231
   );
@@ -119,21 +123,21 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
       const coolMax = profile.careTargets.temperature.coolSide?.max ?? profile.careTargets.temperature.max;
       const warmMin = profile.careTargets.temperature.warmSide?.min ?? profile.careTargets.temperature.min;
       const warmMax = profile.careTargets.temperature.warmSide?.max ?? profile.careTargets.temperature.max;
-      parts.push(`Cool: ${coolMin}-${coolMax}°F`);
-      parts.push(`Warm: ${warmMin}-${warmMax}°F`);
+      parts.push(`Cool: ${formatTemp(coolMin, isMetric)}-${formatTemp(coolMax, isMetric)}`);
+      parts.push(`Warm: ${formatTemp(warmMin, isMetric)}-${formatTemp(warmMax, isMetric)}`);
     } else {
       // No gradient - show single temperature
       const coolMin = profile.careTargets.temperature.coolSide?.min ?? profile.careTargets.temperature.min;
       const coolMax = profile.careTargets.temperature.coolSide?.max ?? profile.careTargets.temperature.max;
-      parts.push(`${coolMin}-${coolMax}°F`);
+      parts.push(`${formatTemp(coolMin, isMetric)}-${formatTemp(coolMax, isMetric)}`);
     }
     
     // Add basking if present
     const basking = profile.careTargets.temperature.basking;
     if (basking !== null && basking !== undefined) {
       const baskingTemp = typeof basking === 'number' 
-        ? `${basking}°F` 
-        : `${basking.min}-${basking.max}°F`;
+        ? formatTemp(basking, isMetric)
+        : `${formatTemp(basking.min, isMetric)}-${formatTemp(basking.max, isMetric)}`;
       parts.push(`Basking: ${baskingTemp}`);
     }
     
@@ -153,7 +157,7 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
         icon: <Thermometer className="w-6 h-6" />,
         label: 'Temperature',
         value: 'Gradient',
-        description: `${minTemp}-${maxTemp}°F`
+        description: `${formatTemp(minTemp, isMetric)}-${formatTemp(maxTemp, isMetric)}`
       };
     } else {
       return {
@@ -172,8 +176,13 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
     {
       icon: <Ruler className="w-6 h-6" />,
       label: 'Minimum Size',
-      value: `${profile.minEnclosureSize.width}×${profile.minEnclosureSize.depth}×${profile.minEnclosureSize.height}"`,
-      description: `${gallons} gallons`
+      value: formatDimensions(
+        profile.minEnclosureSize.width,
+        profile.minEnclosureSize.depth,
+        profile.minEnclosureSize.height,
+        isMetric
+      ),
+      description: formatVolume(gallons, isMetric)
     },
     {
       icon: <Clock className="w-6 h-6" />,

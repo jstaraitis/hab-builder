@@ -27,7 +27,7 @@
   },
   "careTargets": {
     "temperature": {
-      "thermalGradient": false,
+      "thermalGradient": true,
       "coolSide": {
         "min": 70,
         "max": 85

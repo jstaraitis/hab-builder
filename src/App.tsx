@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from 'react';
 import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, Instagram, Calendar, LogOut, User, Package, Turtle } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, Instagram, Calendar, LogOut, User, Package, Turtle, Ruler, ChevronDown, ZoomIn, ZoomOut } from 'lucide-react';
 import { useAuth } from './contexts/AuthContext';
 import type { EnclosureInput, BuildPlan } from './engine/types';
 import { generatePlan } from './engine/generatePlan';
@@ -25,6 +25,7 @@ import { Home } from './components/Home/Home';
 import EquipmentTagsBuilder from './components/Admin/EquipmentTagsBuilder';
 import { animalProfiles } from './data/animals';
 import { useTheme } from './hooks/useTheme';
+import { useUnits } from './contexts/UnitsContext';
 import { usePWAUpdate } from './hooks/usePWAUpdate';
 import { MobileNav } from './components/Navigation/MobileNav';
 import { ProgressIndicator } from './components/Navigation/ProgressIndicator';
@@ -34,10 +35,46 @@ function App() {
   const location = useLocation();
   const { user, signOut } = useAuth();
   useTheme(); // Apply dark mode
+  const { toggleUnits, isMetric } = useUnits(); // Unit system toggle
   usePWAUpdate(); // Check for PWA updates
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  
+  // Zoom level management (stored in localStorage)
+  const [zoom, setZoom] = useState<number>(() => {
+    const savedZoom = localStorage.getItem('zoom-level');
+    return savedZoom ? parseFloat(savedZoom) : 100;
+  });
+
+  // Persist zoom to localStorage and dispatch event
+  useEffect(() => {
+    localStorage.setItem('zoom-level', zoom.toString());
+    window.dispatchEvent(new CustomEvent('zoom-change', { detail: zoom }));
+  }, [zoom]);
+
+  // Listen for zoom changes from other components (e.g., MobileNav)
+  useEffect(() => {
+    const handleZoomChange = (e: Event) => {
+      const customEvent = e as CustomEvent<number>;
+      setZoom(customEvent.detail);
+    };
+    window.addEventListener('zoom-change', handleZoomChange);
+    return () => window.removeEventListener('zoom-change', handleZoomChange);
+  }, []);
+
+  const handleZoomIn = () => {
+    setZoom(prev => Math.min(prev + 10, 150)); // Max 150%
+  };
+
+  const handleZoomOut = () => {
+    setZoom(prev => Math.max(prev - 10, 75)); // Min 75%
+  };
+
+  const handleResetZoom = () => {
+    setZoom(100);
+  };
 
   // Header visibility control based on scroll
   useEffect(() => {
@@ -80,12 +117,30 @@ function App() {
     // Show header when changing routes
     setIsHeaderVisible(true);
     setLastScrollY(0);
+    // Close dropdowns when route changes
+    setOpenDropdown(null);
     
     // Delayed scroll to catch any late-rendering content
     const timeoutId = setTimeout(scrollToTop, 100);
     
     return () => clearTimeout(timeoutId);
   }, [location.pathname]);
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      // Check if click is outside dropdown menus
+      if (!target.closest('.relative')) {
+        setOpenDropdown(null);
+      }
+    };
+
+    if (openDropdown) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [openDropdown]);
 
   const [input, setInput] = useState<EnclosureInput>({
     width: 18,
@@ -200,6 +255,7 @@ function App() {
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Built with love - for better care and fewer setup mistakes</p>
             </div>
             <nav className="flex flex-wrap justify-center gap-2 text-sm font-medium">
+            {/* Main Workflow */}
             <Link
               to="/"
               className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/') ? 'bg-gray-600 text-white border-gray-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-gray-400'}`}
@@ -247,66 +303,157 @@ function App() {
                 </Link>
               </>
             )}
-            <Link
-              to="/blog"
-              className={`px-4 py-2 rounded-lg border whitespace-nowrap ${location.pathname.startsWith('/blog') ? 'bg-amber-600 text-white border-amber-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-amber-400'}`}
-            >
-              <BookOpen className="w-4 h-4 inline mr-1.5" /> Guides
-            </Link>
-            <Link
-              to="/care-calendar"
-              className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/care-calendar') ? 'bg-rose-600 text-white border-rose-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-rose-400'}`}
-            >
-              <Calendar className="w-4 h-4 inline mr-1.5" /> Care Tasks
-            </Link>
-            <Link
-              to="/my-animals"
-              className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/my-animals') ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-emerald-400'}`}
-            >
-              <Turtle className="w-4 h-4 inline mr-1.5" /> My Animals
-            </Link>
-            <Link
-              to="/inventory"
-              className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/inventory') ? 'bg-amber-600 text-white border-amber-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-amber-400'}`}
-            >
-              <Package className="w-4 h-4 inline mr-1.5" /> Inventory
-            </Link>
-            <Link
-              to="/about"
-              className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/about') ? 'bg-teal-600 text-white border-teal-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-teal-400'}`}
-            >
-              <Info className="w-4 h-4 inline mr-1.5" /> About
-            </Link>
-            <Link
-              to="/profile"
-              className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/profile') ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-indigo-400'}`}
-            >
-              <User className="w-4 h-4 inline mr-1.5" /> Profile
-            </Link>
-            <button
-              onClick={() => setIsFeedbackOpen(true)}
-              className="hidden sm:flex px-4 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-orange-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors whitespace-nowrap items-center"
-              title="Send feedback or report issues"
-            >
-              <MessageSquare className="w-4 h-4 inline mr-1.5" /> Feedback
-            </button>
-            
-            {/* User Menu */}
-            {user && (
-              <div className="flex items-center gap-2 px-4 py-2 rounded-lg border bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600">
-                <User className="w-4 h-4 text-gray-600 dark:text-gray-400" />
-                <span className="text-sm text-gray-700 dark:text-gray-200 hidden lg:inline">
-                  {user.email?.split('@')[0]}
-                </span>
-                <button
-                  onClick={signOut}
-                  className="p-1 hover:bg-gray-100 dark:hover:bg-gray-600 rounded transition-colors"
-                  title="Sign out"
-                >
-                  <LogOut className="w-4 h-4 text-gray-600 dark:text-gray-400" />
-                </button>
-              </div>
-            )}
+
+            {/* Resources Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setOpenDropdown(openDropdown === 'resources' ? null : 'resources')}
+                className={`px-4 py-2 rounded-lg border whitespace-nowrap flex items-center ${location.pathname.startsWith('/blog') ? 'bg-amber-600 text-white border-amber-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-amber-400'}`}
+              >
+                <BookOpen className="w-4 h-4 inline mr-1.5" /> Resources
+                <ChevronDown className="w-3 h-3 ml-1" />
+              </button>
+              {openDropdown === 'resources' && (
+                <div className="absolute top-full mt-1 left-0 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg py-1 min-w-[160px] z-50">
+                  <Link
+                    to="/blog"
+                    onClick={() => setOpenDropdown(null)}
+                    className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    <BookOpen className="w-4 h-4 inline mr-2" /> Care Guides
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* My Care Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setOpenDropdown(openDropdown === 'collection' ? null : 'collection')}
+                className={`px-4 py-2 rounded-lg border whitespace-nowrap flex items-center ${['/my-animals', '/inventory', '/care-calendar'].includes(location.pathname) ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-emerald-400'}`}
+              >
+                <Turtle className="w-4 h-4 inline mr-1.5" /> My Care
+                <ChevronDown className="w-3 h-3 ml-1" />
+              </button>
+              {openDropdown === 'collection' && (
+                <div className="absolute top-full mt-1 left-0 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg py-1 min-w-[160px] z-50">
+                  <Link
+                    to="/my-animals"
+                    onClick={() => setOpenDropdown(null)}
+                    className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    <Turtle className="w-4 h-4 inline mr-2" /> My Animals
+                  </Link>
+                  <Link
+                    to="/care-calendar"
+                    onClick={() => setOpenDropdown(null)}
+                    className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    <Calendar className="w-4 h-4 inline mr-2" /> Care Tasks
+                  </Link>
+                  <Link
+                    to="/inventory"
+                    onClick={() => setOpenDropdown(null)}
+                    className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    <Package className="w-4 h-4 inline mr-2" /> Inventory
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Settings/Account Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setOpenDropdown(openDropdown === 'settings' ? null : 'settings')}
+                className={`px-4 py-2 rounded-lg border whitespace-nowrap flex items-center ${['/profile', '/about'].includes(location.pathname) ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-indigo-400'}`}
+              >
+                <User className="w-4 h-4 inline mr-1.5" /> Account
+                <ChevronDown className="w-3 h-3 ml-1" />
+              </button>
+              {openDropdown === 'settings' && (
+                <div className="absolute top-full mt-1 right-0 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg py-1 min-w-[180px] z-50">
+                  {user && (
+                    <div className="px-4 py-2 border-b border-gray-200 dark:border-gray-700">
+                      <p className="text-xs text-gray-500 dark:text-gray-400">Signed in as</p>
+                      <p className="text-sm font-medium text-gray-700 dark:text-gray-200 truncate">{user.email}</p>
+                    </div>
+                  )}
+                  <Link
+                    to="/profile"
+                    onClick={() => setOpenDropdown(null)}
+                    className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    <User className="w-4 h-4 inline mr-2" /> Profile
+                  </Link>
+                  <Link
+                    to="/about"
+                    onClick={() => setOpenDropdown(null)}
+                    className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    <Info className="w-4 h-4 inline mr-2" /> About
+                  </Link>
+                  <button
+                    onClick={() => {
+                      setIsFeedbackOpen(true);
+                      setOpenDropdown(null);
+                    }}
+                    className="block w-full text-left px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    <MessageSquare className="w-4 h-4 inline mr-2" /> Feedback
+                  </button>
+                  <button
+                    onClick={toggleUnits}
+                    className="block w-full text-left px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    <Ruler className="w-4 h-4 inline mr-2" /> {isMetric ? 'Metric' : 'Imperial'} Units
+                  </button>
+                  
+                  {/* Zoom controls */}
+                  <div className="border-t border-gray-200 dark:border-gray-700 my-1"></div>
+                  <div className="px-4 py-2">
+                    <div className="text-xs text-gray-500 dark:text-gray-400 mb-2">Zoom: {zoom}%</div>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={handleZoomOut}
+                        disabled={zoom <= 75}
+                        className="flex-1 px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        <ZoomOut className="w-3 h-3 inline mr-1" /> -
+                      </button>
+                      <button
+                        onClick={handleResetZoom}
+                        className="flex-1 px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                      >
+                        Reset
+                      </button>
+                      <button
+                        onClick={handleZoomIn}
+                        disabled={zoom >= 150}
+                        className="flex-1 px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        <ZoomIn className="w-3 h-3 inline mr-1" /> +
+                      </button>
+                    </div>
+                  </div>
+                  
+                  {user && (
+                    <>
+                      <div className="border-t border-gray-200 dark:border-gray-700 my-1"></div>
+                      <button
+                        onClick={() => {
+                          signOut();
+                          setOpenDropdown(null);
+                        }}
+                        className="block w-full text-left px-4 py-2 text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                      >
+                        <LogOut className="w-4 h-4 inline mr-2" /> Sign Out
+                      </button>
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
           </nav>
           </div>
         </div>
@@ -321,7 +468,7 @@ function App() {
         />
       )}
 
-      <main className="max-w-7xl mx-auto px-4 py-4 lg:py-8">
+      <main className="max-w-7xl mx-auto px-4 py-4 lg:py-8" style={{ transform: `scale(${zoom / 100})`, transformOrigin: 'top center' }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route

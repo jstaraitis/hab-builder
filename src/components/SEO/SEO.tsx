@@ -20,8 +20,8 @@ interface SEOProps {
 }
 
 const DEFAULT_SEO = {
-  title: 'Habitat Builder - Free Reptile & Amphibian Enclosure Planner with Care Tracking & Analytics',
-  description: 'Design the perfect enclosure for your reptile or amphibian with our free interactive planner. Find animals that fit your space, get custom shopping lists, species-specific care parameters, drag-and-drop visual designer with 70+ equipment items, detailed step-by-step build instructions, care task reminders with push notifications, equipment maintenance tracking, and care analytics with completion rates and activity heatmaps. Supports 19 species: tree frogs, geckos, bearded dragons, snakes, salamanders, chameleons, and more.',
+  title: 'Habitat Builder - Free Reptile & Amphibian Enclosure Planner with Care Tracking',
+  description: 'Design the perfect enclosure for your reptile or amphibian with our free interactive planner. Get custom shopping lists, species-specific care parameters, drag-and-drop designer with 70+ equipment items, step-by-step build instructions, and care task reminders with push notifications. Track feeding, cleaning, and maintenance schedules. Monitor equipment lifecycle with UVB bulb replacement alerts and substrate level tracking. View care analytics with completion rates, activity heatmaps, and streak tracking. Find animals that fit your space with our interactive search tool. Supports 18+ species: tree frogs (Whites, Red-Eyed, Amazon Milk), geckos (Crested, Gargoyle, Leopard, Mourning), bearded dragons, ball pythons, corn snakes, axolotls, pacman frogs, and more.',
   keywords: [
     // Core tool keywords
     'reptile enclosure planner',
@@ -172,6 +172,14 @@ const DEFAULT_SEO = {
     'reptile care analytics',
     'care consistency tracking',
     'care pattern analysis',
+    'reptile weight tracking',
+    'amphibian weight log',
+    'growth tracking for reptiles',
+    'health monitoring dashboard',
+    'care task automation',
+    'reptile inventory management',
+    'consumables tracking',
+    'equipment lifecycle management',
     
     // Roadmap & Development keywords
     'habitat builder features',

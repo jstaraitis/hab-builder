@@ -1,12 +1,16 @@
 ﻿import { Link } from 'react-router-dom';
 import { ExternalLink, Home, Thermometer, Sun, Utensils, Droplets, Heart } from 'lucide-react';
 import type { AnimalProfile } from '../../engine/types';
+import { useUnits } from '../../contexts/UnitsContext';
+import { formatTemp, formatDimensions } from '../../utils/unitConversion';
 
 interface CareGuideCardsProps {
   profile: AnimalProfile;
 }
 
 export function CareGuideCards({ profile }: CareGuideCardsProps) {
+  const { isMetric } = useUnits();
+  
   // Helper to find specific blog IDs
   const getBlogId = (keyword: string): string | undefined => {
     return profile.relatedBlogs?.find(id => id.includes(keyword));
@@ -24,7 +28,7 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
       iconColor: 'text-purple-600 dark:text-purple-400',
       linkColor: 'text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300',
       info: [
-        `Minimum: ${profile.minEnclosureSize.width}×${profile.minEnclosureSize.depth}×${profile.minEnclosureSize.height}"`,
+        `Minimum: ${formatDimensions(profile.minEnclosureSize.width, profile.minEnclosureSize.depth, profile.minEnclosureSize.height, isMetric)}`,
         profile.layoutRules.preferVertical ? 'Vertical/Arboreal' : 'Horizontal/Terrestrial',
         profile.bioactiveCompatible ? 'Bioactive compatible' : 'Traditional substrate'
       ]
@@ -43,7 +47,7 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
         
         if (isAquatic) {
           return [
-            `Temp: ${profile.careTargets.temperature.coolSide?.min ?? profile.careTargets.temperature.min}-${profile.careTargets.temperature.coolSide?.max ?? profile.careTargets.temperature.max}°F`,
+            `Temp: ${formatTemp(profile.careTargets.temperature.coolSide?.min ?? profile.careTargets.temperature.min, isMetric)}-${formatTemp(profile.careTargets.temperature.coolSide?.max ?? profile.careTargets.temperature.max, isMetric)}`,
             'Fully aquatic species',
             'Humidity not applicable'
           ];
@@ -53,19 +57,19 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
         
         if (profile.careTargets.temperature.thermalGradient) {
           // Show cool and warm sides
-          result.push(`Cool Side: ${profile.careTargets.temperature.coolSide?.min ?? profile.careTargets.temperature.min}-${profile.careTargets.temperature.coolSide?.max ?? profile.careTargets.temperature.max}°F`);
-          result.push(`Warm Side: ${profile.careTargets.temperature.warmSide?.min ?? profile.careTargets.temperature.min}-${profile.careTargets.temperature.warmSide?.max ?? profile.careTargets.temperature.max}°F`);
+          result.push(`Cool Side: ${formatTemp(profile.careTargets.temperature.coolSide?.min ?? profile.careTargets.temperature.min, isMetric)}-${formatTemp(profile.careTargets.temperature.coolSide?.max ?? profile.careTargets.temperature.max, isMetric)}`);
+          result.push(`Warm Side: ${formatTemp(profile.careTargets.temperature.warmSide?.min ?? profile.careTargets.temperature.min, isMetric)}-${formatTemp(profile.careTargets.temperature.warmSide?.max ?? profile.careTargets.temperature.max, isMetric)}`);
         } else {
           // No gradient - show single temperature
-          result.push(`Temp: ${profile.careTargets.temperature.coolSide?.min ?? profile.careTargets.temperature.min}-${profile.careTargets.temperature.coolSide?.max ?? profile.careTargets.temperature.max}°F`);
+          result.push(`Temp: ${formatTemp(profile.careTargets.temperature.coolSide?.min ?? profile.careTargets.temperature.min, isMetric)}-${formatTemp(profile.careTargets.temperature.coolSide?.max ?? profile.careTargets.temperature.max, isMetric)}`);
         }
         
         // Add basking if present
         const basking = profile.careTargets.temperature.basking;
         if (basking !== null && basking !== undefined) {
           const baskingTemp = typeof basking === 'number' 
-            ? `${basking}°F` 
-            : `${basking.min}-${basking.max}°F`;
+            ? formatTemp(basking, isMetric)
+            : `${formatTemp(basking.min, isMetric)}-${formatTemp(basking.max, isMetric)}`;
           result.push(`Basking: ${baskingTemp}`);
         }
         
@@ -74,7 +78,7 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
         const coolMin = profile.careTargets.temperature.coolSide?.min ?? profile.careTargets.temperature.min;
         const coolMax = profile.careTargets.temperature.coolSide?.max ?? profile.careTargets.temperature.max;
         if (nighttime && (nighttime.min !== coolMin || nighttime.max !== coolMax)) {
-          result.push(`Night: ${nighttime.min}-${nighttime.max}°F`);
+          result.push(`Night: ${formatTemp(nighttime.min, isMetric)}-${formatTemp(nighttime.max, isMetric)}`);
         }
         
         // Add humidity

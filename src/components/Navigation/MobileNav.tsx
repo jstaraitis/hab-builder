@@ -1,7 +1,8 @@
 ﻿import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Calendar, MoreHorizontal, X, Info, MessageCircle, Package, ChevronUp, ChevronDown, SlidersHorizontal, User, Turtle, type LucideIcon } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Calendar, MoreHorizontal, X, Info, MessageCircle, Package, ChevronUp, ChevronDown, SlidersHorizontal, User, Turtle, Ruler, ZoomIn, ZoomOut, type LucideIcon } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
+import { useUnits } from '../../contexts/UnitsContext';
 import { profileService } from '../../services/profileService';
 
 interface MobileNavProps {
@@ -38,6 +39,7 @@ const DEFAULT_ORDER = NAV_ITEMS.map((item) => item.id);
 
 export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<MobileNavProps>) {
   const { user } = useAuth();
+  const { toggleUnits, isMetric } = useUnits();
   const location = useLocation();
   const navigate = useNavigate();
   const [animatingPath, setAnimatingPath] = useState<string | null>(null);
@@ -46,6 +48,40 @@ export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<Mobil
   const [navOrder, setNavOrder] = useState<string[]>(DEFAULT_ORDER);
   const [savingOrder, setSavingOrder] = useState(false);
   const [orderError, setOrderError] = useState<string | null>(null);
+  
+  // Zoom level management (stored in localStorage)
+  const [zoom, setZoom] = useState<number>(() => {
+    const savedZoom = localStorage.getItem('zoom-level');
+    return savedZoom ? parseFloat(savedZoom) : 100;
+  });
+
+  // Persist zoom to localStorage and dispatch event
+  useEffect(() => {
+    localStorage.setItem('zoom-level', zoom.toString());
+    window.dispatchEvent(new CustomEvent('zoom-change', { detail: zoom }));
+  }, [zoom]);
+
+  // Listen for zoom changes from other components (e.g., App.tsx)
+  useEffect(() => {
+    const handleZoomChange = (e: Event) => {
+      const customEvent = e as CustomEvent<number>;
+      setZoom(customEvent.detail);
+    };
+    window.addEventListener('zoom-change', handleZoomChange);
+    return () => window.removeEventListener('zoom-change', handleZoomChange);
+  }, []);
+
+  const handleZoomIn = () => {
+    setZoom(prev => Math.min(prev + 10, 150)); // Max 150%
+  };
+
+  const handleZoomOut = () => {
+    setZoom(prev => Math.max(prev - 10, 75)); // Min 75%
+  };
+
+  const handleResetZoom = () => {
+    setZoom(100);
+  };
   const [dragY, setDragY] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startY, setStartY] = useState(0);
@@ -293,6 +329,62 @@ export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<Mobil
                   <div className="text-sm text-gray-500 dark:text-gray-400">Share your thoughts</div>
                 </div>
               </button>
+
+              {/* Units Toggle */}
+              <button
+                onClick={() => {
+                  toggleUnits();
+                  setShowMoreMenu(false);
+                }}
+                className="w-full flex items-center gap-4 p-4 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-gray-700/50 border-2 border-transparent"
+              >
+                <div className="p-3 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
+                  <Ruler className="w-6 h-6" />
+                </div>
+                <div className="flex-1 text-left">
+                  <div className="font-semibold text-gray-900 dark:text-white">
+                    {isMetric ? 'Metric Units' : 'Imperial Units'}
+                  </div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400">
+                    Currently: {isMetric ? 'cm, °C, L' : 'in, °F, gal'}
+                  </div>
+                </div>
+              </button>
+
+              {/* Zoom Controls */}
+              <div className="w-full p-4 rounded-xl bg-gray-50 dark:bg-gray-700/30 border-2 border-gray-200 dark:border-gray-600">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400">
+                    <ZoomIn className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-semibold text-gray-900 dark:text-white">Zoom Level</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">Currently: {zoom}%</div>
+                  </div>
+                </div>
+                <div className="flex gap-2">
+                  <button
+                    onClick={handleZoomOut}
+                    disabled={zoom <= 75}
+                    className="flex-1 px-3 py-2 text-sm font-medium bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed border border-gray-200 dark:border-gray-600"
+                  >
+                    <ZoomOut className="w-4 h-4 inline mr-1" /> Smaller
+                  </button>
+                  <button
+                    onClick={handleResetZoom}
+                    className="flex-1 px-3 py-2 text-sm font-medium bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-600"
+                  >
+                    Reset
+                  </button>
+                  <button
+                    onClick={handleZoomIn}
+                    disabled={zoom >= 150}
+                    className="flex-1 px-3 py-2 text-sm font-medium bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed border border-gray-200 dark:border-gray-600"
+                  >
+                    <ZoomIn className="w-4 h-4 inline mr-1" /> Larger
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

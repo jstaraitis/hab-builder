@@ -63,7 +63,7 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
   // SEO metadata for animal-specific pages
   const animalSEO = selectedProfile ? {
     title: `${selectedProfile.commonName} Enclosure Setup Guide`,
-    description: `Complete ${selectedProfile.commonName} (${selectedProfile.scientificName}) care guide. Learn proper enclosure size, temperature (${profileCareTargets?.temperature.min}-${profileCareTargets?.temperature.max}°F), humidity (${profileCareTargets?.humidity.min}-${profileCareTargets?.humidity.max}%), and lighting requirements.`,
+    description: `Complete ${selectedProfile.commonName} (${selectedProfile.scientificName}) care guide. Learn proper enclosure size, temperature (${profileCareTargets?.temperature.min}-${profileCareTargets?.temperature.max}°F / ${Math.round((profileCareTargets?.temperature.min - 32) * 5/9)}-${Math.round((profileCareTargets?.temperature.max - 32) * 5/9)}°C), humidity (${profileCareTargets?.humidity.min}-${profileCareTargets?.humidity.max}%), and lighting requirements.`,
     keywords: [
       `${selectedProfile.commonName.toLowerCase()} enclosure`,
       `${selectedProfile.commonName.toLowerCase()} habitat`,

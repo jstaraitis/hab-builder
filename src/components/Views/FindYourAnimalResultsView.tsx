@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import { recommendAnimals, categorizeRecommendations } from '../../engine/recommendAnimals';
 import { AnimalGuides } from '../Blog/AnimalGuides';
 import { SEO } from '../SEO/SEO';
+import { useUnits } from '../../contexts/UnitsContext';
+import { formatDimensions, formatTemp } from '../../utils/unitConversion';
 
 interface AnimalRecommendationCardProps {
   recommendation: ReturnType<typeof recommendAnimals>[0];
@@ -114,6 +116,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
   const { input, recommendations } = location.state || {};
   const [selectedForComparison, setSelectedForComparison] = useState<string[]>([]);
   const [showComparison, setShowComparison] = useState(false);
+  const { isMetric } = useUnits();
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -306,7 +309,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                         
                         <div>
                           <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Min Size</div>
-                          <div className="text-gray-900 dark:text-gray-100 mt-1">{size?.width}×{size?.depth}×{size?.height}"</div>
+                          <div className="text-gray-900 dark:text-gray-100 mt-1">{formatDimensions(size?.width || 0, size?.depth || 0, size?.height || 0, isMetric)}</div>
                         </div>
                         
                         <div>
@@ -314,11 +317,11 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                           <div className="text-gray-900 dark:text-gray-100 mt-1">
                             {temp?.thermalGradient ? (
                               <div className="text-xs">
-                                <div>{temp.coolSide?.min}-{temp.coolSide?.max}°F (cool)</div>
-                                <div>{temp.warmSide?.min}-{temp.warmSide?.max}°F (warm)</div>
+                                <div>{formatTemp(temp.coolSide?.min || 0, isMetric)}-{formatTemp(temp.coolSide?.max || 0, isMetric)} (cool)</div>
+                                <div>{formatTemp(temp.warmSide?.min || 0, isMetric)}-{formatTemp(temp.warmSide?.max || 0, isMetric)} (warm)</div>
                               </div>
                             ) : (
-                              <div>{temp?.min}-{temp?.max}°F</div>
+                              <div>{formatTemp(temp?.min || 0, isMetric)}-{formatTemp(temp?.max || 0, isMetric)}</div>
                             )}
                           </div>
                         </div>
@@ -424,7 +427,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                       const size = rec?.profile.minEnclosureSize;
                       return (
                         <td key={animalId} className="p-3 text-center text-gray-900 dark:text-gray-100">
-                          {size?.width}×{size?.depth}×{size?.height}"
+                          {size && formatDimensions(size.width, size.depth, size.height, isMetric)}
                         </td>
                       );
                     })}
@@ -440,11 +443,11 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                         <td key={animalId} className="p-3 text-center text-sm text-gray-900 dark:text-gray-100">
                           {temp?.thermalGradient ? (
                             <div>
-                              <div>Cool: {temp.coolSide?.min}-{temp.coolSide?.max}°F</div>
-                              <div>Warm: {temp.warmSide?.min}-{temp.warmSide?.max}°F</div>
+                              <div>Cool: {formatTemp(temp.coolSide?.min || 0, isMetric)}-{formatTemp(temp.coolSide?.max || 0, isMetric)}</div>
+                              <div>Warm: {formatTemp(temp.warmSide?.min || 0, isMetric)}-{formatTemp(temp.warmSide?.max || 0, isMetric)}</div>
                             </div>
                           ) : (
-                            <div>{temp?.min}-{temp?.max}°F</div>
+                            <div>{formatTemp(temp?.min || 0, isMetric)}-{formatTemp(temp?.max || 0, isMetric)}</div>
                           )}
                         </td>
                       );

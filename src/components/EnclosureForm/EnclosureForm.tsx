@@ -3,6 +3,8 @@ import type { EnclosureInput, Units, AnimalProfile, HumidityControl, SubstrateTy
 import { CheckCircle, Star, Award, AlertTriangle, Thermometer, Droplet } from 'lucide-react';
 import { validateEnclosureSize, validateEnclosureType, validateBioactive } from '../../engine/validateEnclosure';
 import { SizeFeedback } from '../Validation/SizeFeedback';
+import { useUnits } from '../../contexts/UnitsContext';
+import { inchesToCm, cmToInches, getLengthUnit, fahrenheitToCelsius, getTempUnit } from '../../utils/unitConversion';
 
 interface EnclosureFormProps {
   value: EnclosureInput;
@@ -56,6 +58,7 @@ const aquariumSizes = [
 export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormProps) {
   const [usePreset, setUsePreset] = useState(true);
   const [showAllSizes, setShowAllSizes] = useState(false);
+  const { isMetric } = useUnits();
 
   // Determine which size list to use based on animal type
   const isAquatic = animalProfile?.equipmentNeeds?.activity === 'aquatic';
@@ -121,7 +124,29 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
 
   const handleDimensionChange = (field: 'width' | 'depth' | 'height', val: string) => {
     const num = parseFloat(val) || 0;
-    onChange({ ...value, [field]: num });
+    // Convert to inches if user is entering metric values
+    const valueInInches = isMetric ? cmToInches(num) : num;
+    onChange({ ...value, [field]: valueInInches });
+  };
+
+  // Format preset button label to show metric when selected
+  const getPresetLabel = (preset: typeof sizeList[0]) => {
+    if (preset.name === 'Custom') return preset.name;
+    
+    // Always show the product name (in inches)
+    if (!isMetric) return preset.name;
+    
+    // When metric is selected, show metric dimensions in a smaller font
+    const metricW = Math.round(inchesToCm(preset.width));
+    const metricD = Math.round(inchesToCm(preset.depth));
+    const metricH = Math.round(inchesToCm(preset.height));
+    
+    return (
+      <div className="flex flex-col">
+        <span>{preset.name}</span>
+        <span className="text-[10px] opacity-75">({metricW}×{metricD}×{metricH} cm)</span>
+      </div>
+    );
   };
 
   return (
@@ -287,7 +312,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
                     : ''
                 }
               >
-                {preset.name}
+                {getPresetLabel(preset)}
               </button>
             );
           })}
@@ -317,64 +342,43 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
           <div className="grid grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
-                Width
+                Width ({getLengthUnit(isMetric)})
               </label>
               <input
                 type="number"
-                value={value.width || ''}
+                value={isMetric && value.width ? Math.round(inchesToCm(value.width)) : value.width || ''}
                 onChange={(e) => handleDimensionChange('width', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 min="0"
+                step={isMetric ? '1' : '0.1'}
               />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
-                Depth
+                Depth ({getLengthUnit(isMetric)})
               </label>
               <input
                 type="number"
-                value={value.depth || ''}
+                value={isMetric && value.depth ? Math.round(inchesToCm(value.depth)) : value.depth || ''}
                 onChange={(e) => handleDimensionChange('depth', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 min="0"
+                step={isMetric ? '1' : '0.1'}
               />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
-                Height
+                Height ({getLengthUnit(isMetric)})
               </label>
               <input
                 type="number"
-                value={value.height || ''}
+                value={isMetric && value.height ? Math.round(inchesToCm(value.height)) : value.height || ''}
                 onChange={(e) => handleDimensionChange('height', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 min="0"
+                step={isMetric ? '1' : '0.1'}
               />
             </div>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <label className="text-sm font-medium text-gray-700 dark:text-gray-200">Units:</label>
-            <button
-              onClick={() => onChange({ ...value, units: 'in' })}
-              className={`px-4 py-1 rounded-md text-sm ${
-                value.units === 'in'
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200'
-              }`}
-            >
-              Inches
-            </button>
-            <button
-              onClick={() => onChange({ ...value, units: 'cm' })}
-              className={`px-4 py-1 rounded-md text-sm ${
-                value.units === 'cm'
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200'
-              }`}
-            >
-              Centimeters
-            </button>
           </div>
         </div>
       )}
@@ -706,7 +710,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
               color: `rgb(${Math.round(59 + (239 - 59) * ((value.ambientTemp - 60) / 20))}, ${Math.round(130 - 62 * ((value.ambientTemp - 60) / 20))}, ${Math.round(246 - 178 * ((value.ambientTemp - 60) / 20))})`
             }}
           >
-            {value.ambientTemp}°F
+            {isMetric ? Math.round(fahrenheitToCelsius(value.ambientTemp)) : value.ambientTemp}{getTempUnit(isMetric)}
           </span>
         </div>
         <input
