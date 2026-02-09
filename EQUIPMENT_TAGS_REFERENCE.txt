@@ -1,0 +1,450 @@
+﻿================================================================================
+EQUIPMENT TAGS REFERENCE GUIDE
+================================================================================
+Complete list of all equipment tags used in data/equipment/*.json files
+and their purposes for the Habitat Builder shopping list generator.
+================================================================================
+
+═══════════════════════════════════════════════════════════════════════════════
+🔥 HEATING & TEMPERATURE TAGS
+═══════════════════════════════════════════════════════════════════════════════
+
+heatSource:basking
+  Purpose: For basking species that need a focused hot spot
+  Triggers: Ceramic heat emitters, basking bulbs, dome fixtures
+  Used by: Bearded dragons, leopard geckos, most diurnal reptiles
+  Example equipment: CHE, basking bulbs, dome fixtures, thermostats
+
+heatSource:ambient
+  Purpose: For general enclosure heating (not focused spot)
+  Triggers: CHEs, radiant heat panels, ambient heaters
+  Used by: Species needing overall warmth but no hot basking spot
+  Example equipment: Ambient heat sources, ceramic heaters
+
+heating:aquatic
+  Purpose: For aquarium heaters (submerged)
+  Triggers: Submersible aquarium heaters
+  Used by: Axolotls, turtles, aquatic frogs
+  Example equipment: Submersible aquarium heaters (adjustable)
+
+temperature:cold-water
+  Purpose: For cold-water aquatic species (60-68°F)
+  Triggers: Aquarium chillers (CRITICAL equipment)
+  Used by: Axolotls exclusively (above 74°F = fatal)
+  Example equipment: Aquarium chillers (1/10 HP to 1/4 HP)
+
+═══════════════════════════════════════════════════════════════════════════════
+💧 HUMIDITY TAGS
+═══════════════════════════════════════════════════════════════════════════════
+
+humidity:high
+  Purpose: For species needing 70-90%+ humidity
+  Triggers: Misting systems, foggers, humidifiers, substrate moisture boxes
+  Used by: Tropical frogs, many geckos, chameleons
+  Example equipment: MistKing, foggers, humidifiers
+
+humidity:moderate
+  Purpose: For species needing 50-70% humidity
+  Triggers: Misting systems, spray bottles, moisture retention substrates
+  Used by: Many temperate reptiles
+  Example equipment: Basic misters, spray bottles
+
+humidity:low
+  Purpose: For arid/desert species (30-50% humidity)
+  Triggers: Minimal misting, dry substrates, screen enclosures
+  Used by: Bearded dragons, leopard geckos, uromastyx
+  Example equipment: Screen enclosures, dry substrates
+
+humidity:moss
+  Purpose: For moss boxes or humid hides
+  Triggers: Sphagnum moss, humid hide boxes
+  Used by: Shedding reptiles, moisture-seeking species
+  Example equipment: Sphagnum moss, humid hide boxes
+
+═══════════════════════════════════════════════════════════════════════════════
+☀️ LIGHTING TAGS
+═══════════════════════════════════════════════════════════════════════════════
+
+lighting:uvb-forest
+  Purpose: For tropical/forest species (5.0/6% UVB)
+  Triggers: T5 HO 5.0 or Arcadia Forest 6% fixtures
+  Used by: Crested geckos, White's tree frogs, tropical species
+  Example equipment: ReptiSun 5.0, Arcadia Forest 6% T5 HO
+
+lighting:uvb-desert
+  Purpose: For desert species (10.0/12% UVB - stronger)
+  Triggers: T5 HO 10.0 or Arcadia Desert 12% fixtures
+  Used by: Bearded dragons, uromastyx, desert lizards
+  Example equipment: ReptiSun 10.0, Arcadia Desert 12% T5 HO
+
+═══════════════════════════════════════════════════════════════════════════════
+🌱 SUBSTRATE TAGS
+═══════════════════════════════════════════════════════════════════════════════
+
+substrate:bioactive
+  Purpose: For living substrate with cleanup crew
+  Triggers: ABG mix, drainage layer, springtails, isopods, leaf litter
+  Used by: Naturalistic setups, bioactive enclosures
+  Example equipment: ABG mix, Bio Dude Terra Firma, drainage layer
+
+substrate:soil
+  Purpose: For soil-based substrates (non-bioactive)
+  Triggers: Coco fiber, organic topsoil, potting mix
+  Used by: Burrowing species, general terrestrial setups
+  Example equipment: Coco fiber, organic topsoil
+
+substrate:paper
+  Purpose: For paper towel/newspaper substrates
+  Triggers: Paper towels, newspaper
+  Used by: Quarantine, sick animals, easy cleanup
+  Example equipment: Paper towels, reptile liner paper
+
+substrate:foam
+  Purpose: For foam mat substrates
+  Triggers: Foam mats, rubber substrates
+  Used by: Easy-clean setups, temporary housing
+  Example equipment: Foam substrate mats
+
+substrate:sand
+  Purpose: For sand substrates (terrestrial)
+  Triggers: Play sand, calcium sand alternatives
+  Used by: Some desert species (controversial for some)
+  Example equipment: Play sand, excavator clay mixes
+
+substrate:sand-aquatic
+  Purpose: For fine aquarium sand (6+ inches minimum for axolotls)
+  Triggers: Fine aquarium sand
+  Used by: Axolotls (only if 6+ inches deep), some aquatic setups
+  Example equipment: Fine aquarium sand (<1mm grain)
+
+substrate:carpet
+  Purpose: For reptile carpet
+  Triggers: Reptile carpet liners
+  Used by: Easy-clean setups, non-bioactive
+  Example equipment: Reptile carpet, washable liners
+
+substrate:bare
+  Purpose: For bare-bottom (no substrate)
+  Triggers: Tile, slate, bare glass
+  Used by: Axolotls (safest option), easy-clean aquatic setups
+  Example equipment: None (bare glass/acrylic)
+
+substrate:slate
+  Purpose: For slate tile substrate
+  Triggers: Slate tiles
+  Used by: Aquatic setups (especially axolotls), terrestrial easy-clean
+  Example equipment: Slate tiles, ceramic tiles
+
+substrate:moss
+  Purpose: For sphagnum moss substrate/accents
+  Triggers: Sphagnum moss
+  Used by: Humid hides, moisture retention
+  Example equipment: Live or dried sphagnum moss
+
+═══════════════════════════════════════════════════════════════════════════════
+🍽️ DIET & NUTRITION TAGS
+═══════════════════════════════════════════════════════════════════════════════
+
+diet:insectivore
+  Purpose: Eats primarily insects
+  Triggers: Calcium powder, multivitamins, gut load, feeding dishes
+  Used by: Geckos, many lizards, insect-eating frogs
+  Example equipment: Calcium powder, multivitamin, feeding tongs
+
+diet:omnivore
+  Purpose: Eats both insects and plants
+  Triggers: Calcium, multivitamins, salad greens, insects
+  Used by: Bearded dragons, some skinks
+  Example equipment: Calcium, multivitamin, feeding dishes, salad bowls
+
+diet:herbivore
+  Purpose: Eats primarily plants/vegetables
+  Triggers: Greens, vegetables, salad feeders
+  Used by: Uromastyx, tortoises, adult iguanas
+  Example equipment: Salad bowls, feeding dishes
+
+diet:carnivore-rodents
+  Purpose: Eats rodents (frozen/thawed)
+  Triggers: Frozen mice/rats, feeding tongs, thawing dishes
+  Used by: Snakes (ball pythons, corn snakes)
+  Example equipment: Feeding tongs, thawing containers
+
+diet:carnivore-aquatic
+  Purpose: Eats aquatic proteins (fish, pellets, bloodworms)
+  Triggers: Pellets, earthworms, bloodworms, brine shrimp
+  Used by: Axolotls, aquatic frogs, turtles
+  Example equipment: Pellets, frozen bloodworms, earthworms
+
+diet:frugivore
+  Purpose: Eats fruit-based diets
+  Triggers: Crested gecko diet (CGD), fruit mixes
+  Used by: Crested geckos, day geckos, some omnivorous species
+  Example equipment: Pangea/Repashy CGD, feeding ledges
+
+═══════════════════════════════════════════════════════════════════════════════
+🏊 AQUATIC & WATER TAGS
+═══════════════════════════════════════════════════════════════════════════════
+
+aquatic
+  Purpose: Fully aquatic species
+  Triggers: Aquarium enclosures, filters, heaters
+  Used by: Axolotls, aquatic frogs, turtles
+  Example equipment: Aquariums, filters, heaters, water conditioner
+
+filtration:high-flow
+  Purpose: For messy aquatic animals needing strong filtration
+  Triggers: Canister filters (4-6x tank volume/hour)
+  Used by: Turtles, aquatic amphibians that produce lots of waste
+  Example equipment: Canister filters, high-flow HOB filters
+
+filtration:low-flow
+  Purpose: For delicate aquatics needing gentle filtration
+  Triggers: Sponge filters, hang-on-back filters
+  Used by: Axolotls (gills damaged by strong current)
+  Example equipment: Sponge filters, air-driven filters
+
+filtration:biological
+  Purpose: For biological filtration media
+  Triggers: Bio balls, ceramic rings, filter media
+  Used by: All aquatic setups (beneficial bacteria)
+  Example equipment: Bio balls, ceramic rings, sponge media
+
+filtration:chemical
+  Purpose: For chemical filtration
+  Triggers: Activated carbon, chemical media
+  Used by: Water polishing, medication removal
+  Example equipment: Activated carbon, Purigen, chemical filter pads
+
+water-quality:testing
+  Purpose: For water parameter testing
+  Triggers: API Master Test Kit, ammonia/nitrite/nitrate tests
+  Used by: All aquatic setups (nitrogen cycle monitoring)
+  Example equipment: API Master Test Kit, individual test kits
+
+water-treatment
+  Purpose: For water conditioners
+  Triggers: Seachem Prime, water conditioners (NO aloe for axolotls)
+  Used by: All aquatic setups (chlorine/chloramine removal)
+  Example equipment: Seachem Prime, Fritz Complete
+
+waterFeature:shallow-dish
+  Purpose: For shallow water dishes
+  Triggers: Water dishes, shallow bowls
+  Used by: Terrestrial species needing drinking water
+  Example equipment: Shallow water bowls, dishes
+
+water:dish
+  Purpose: For water dishes/bowls
+  Triggers: Water bowls, dishes
+  Used by: All terrestrial species
+  Example equipment: Water bowls, ceramic dishes
+
+basking:aquatic
+  Purpose: For aquatic basking platforms
+  Triggers: Turtle docks, basking platforms
+  Used by: Turtles, semi-aquatic species
+  Example equipment: Floating docks, suction cup platforms
+
+maintenance:water-change
+  Purpose: For water change equipment
+  Triggers: Gravel vacuums, siphons, buckets
+  Used by: All aquatic setups (weekly/monthly maintenance)
+  Example equipment: Gravel vacuum, siphon, water change buckets
+
+═══════════════════════════════════════════════════════════════════════════════
+🎨 DECOR & ENRICHMENT TAGS
+═══════════════════════════════════════════════════════════════════════════════
+
+decor:branches
+  Purpose: For climbing branches
+  Triggers: Cork bark, manzanita, ghostwood, collected branches
+  Used by: Arboreal species, climbers
+  Example equipment: Manzanita branches, cork bark rounds
+
+decor:plants
+  Purpose: For plants (live or artificial)
+  Triggers: Any plant type
+  Used by: All naturalistic setups
+  Example equipment: Mixed plants (live/artificial)
+
+plants:live
+  Purpose: Specifically live plants
+  Triggers: Live plants, plant growth lights
+  Used by: Bioactive setups, naturalistic enclosures
+  Example equipment: Pothos, ficus, bromeliads, plant lights
+
+plants:artificial
+  Purpose: Specifically fake plants
+  Triggers: Silk/plastic plants
+  Used by: Beginner setups, easy maintenance
+  Example equipment: Silk plants, plastic vines
+
+plants:mixed
+  Purpose: Combination of live and artificial
+  Triggers: Mixed plant assortments
+  Used by: Balanced naturalistic setups
+  Example equipment: Combination packs
+
+decor:background
+  Purpose: For background panels
+  Triggers: Cork backgrounds, foam backgrounds, 3D panels
+  Used by: Visual appeal, climbing surfaces
+  Example equipment: Cork flats, foam backgrounds, 3D backgrounds
+
+decor:ledges
+  Purpose: For ledges/platforms
+  Triggers: Magnetic ledges, suction cup platforms, cork flats
+  Used by: Arboreal species needing perches
+  Example equipment: Magnetic ledges, suction platforms
+
+decor:hides
+  Purpose: For terrestrial hides
+  Triggers: Hide caves, half logs, cork rounds
+  Used by: All terrestrial species (security)
+  Example equipment: Cork rounds, half logs, resin caves
+
+decor:hides-aquatic
+  Purpose: For aquatic hides
+  Triggers: Underwater caves, PVC pipes, aquatic decorations
+  Used by: Axolotls, aquatic frogs, turtles
+  Example equipment: Ceramic caves, PVC pipes, aquatic decorations
+
+decor:humid-hide
+  Purpose: For humid hide boxes
+  Triggers: Humid hides, sphagnum-filled hides
+  Used by: Shedding reptiles, moisture-seeking species
+  Example equipment: Humid hide boxes with moss
+
+decor:natural
+  Purpose: For natural decorations
+  Triggers: Leaf litter, natural wood, stones
+  Used by: Bioactive setups, naturalistic designs
+  Example equipment: Leaf litter, natural stones, seed pods
+
+feeding:dish
+  Purpose: For feeding dishes
+  Triggers: Feeding bowls, salad dishes
+  Used by: Omnivores, herbivores
+  Example equipment: Ceramic feeding bowls, salad dishes
+
+═══════════════════════════════════════════════════════════════════════════════
+🦎 ACTIVITY & BEHAVIOR TAGS
+═══════════════════════════════════════════════════════════════════════════════
+
+climbing:vertical
+  Purpose: For vertical climbers
+  Triggers: Vertical branches, backgrounds, ledges
+  Used by: Arboreal species (tree frogs, crested geckos, chameleons)
+  Example equipment: Vertical branches, backgrounds, magnetic ledges
+
+climbing:ground
+  Purpose: For ground-level enrichment
+  Triggers: Rocks, horizontal branches, ground-level hides
+  Used by: Terrestrial species (leopard geckos, bearded dragons)
+  Example equipment: Flat rocks, horizontal branches, ground hides
+
+animalType:amphibian
+  Purpose: Specifically for amphibians
+  Triggers: Vitamin A supplements, specialized equipment
+  Used by: All frogs, salamanders, axolotls
+  Example equipment: Vitamin A supplements, amphibian-safe equipment
+
+═══════════════════════════════════════════════════════════════════════════════
+⚡ UTILITY TAGS
+═══════════════════════════════════════════════════════════════════════════════
+
+[] (empty array)
+  Purpose: No specific trigger tags needed
+  Triggers: Equipment always shown or conditionally shown by other logic
+  Used by: Universal equipment
+  Example equipment: Basic monitoring, thermometers, general tools
+
+═══════════════════════════════════════════════════════════════════════════════
+📋 HOW THE TAG SYSTEM WORKS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. ANIMAL PROFILES ASSIGN TAGS
+   Animal profiles in data/animals/*.json assign tags based on care requirements
+   Example: Bearded Dragon might have:
+   ["heatSource:basking", "lighting:uvb-desert", "humidity:low"]
+
+2. EQUIPMENT DECLARES NEEDED TAGS
+   Equipment in data/equipment/*.json declares which tags it needs
+   Example: UVB Desert fixture has:
+   needsTags: ["lighting:uvb-desert"]
+
+3. SHOPPING LIST GENERATOR MATCHES THEM
+   If animal has tag → Include equipment with that tag
+   If animal has "lighting:uvb-desert" → Include UVB Desert fixture
+
+4. MULTIPLE TAGS = OR LOGIC
+   Equipment included if ANY tag matches
+   Example: Misting system → needsTags: ["humidity:high", "humidity:moderate"]
+   Included if animal needs high OR moderate humidity
+
+5. EMPTY ARRAY = UNIVERSAL EQUIPMENT
+   Example: Thermometer/hygrometer → needsTags: []
+   Always included regardless of species
+
+═══════════════════════════════════════════════════════════════════════════════
+💡 BEST PRACTICES FOR ADDING EQUIPMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ BE SPECIFIC WITH TAGS
+  Don't use ["heating"], use ["heating:aquatic"] or ["heatSource:basking"]
+
+✓ USE MULTIPLE TAGS FOR FLEXIBILITY
+  Equipment that works for multiple scenarios should list all applicable tags
+
+✓ EMPTY TAGS = ALWAYS SHOWN
+  Only use [] for truly universal equipment (monitoring, general tools)
+
+✓ TAGS MIRROR NATURAL REQUIREMENTS
+  Tag structure follows how keepers think about care requirements
+
+✓ CONSISTENCY IS KEY
+  Use existing tags when possible, only create new tags when necessary
+
+✓ DOCUMENT NEW TAGS
+  Add new tags to this reference when creating them
+
+═══════════════════════════════════════════════════════════════════════════════
+📊 TAG USAGE BY CATEGORY
+═══════════════════════════════════════════════════════════════════════════════
+
+HEATING:        heatSource:basking, heatSource:ambient, heating:aquatic,
+                temperature:cold-water
+
+HUMIDITY:       humidity:high, humidity:moderate, humidity:low, humidity:moss
+
+LIGHTING:       lighting:uvb-forest, lighting:uvb-desert
+
+SUBSTRATE:      substrate:bioactive, substrate:soil, substrate:paper,
+                substrate:foam, substrate:sand, substrate:sand-aquatic,
+                substrate:carpet, substrate:bare, substrate:slate,
+                substrate:moss
+
+DIET:           diet:insectivore, diet:omnivore, diet:herbivore,
+                diet:carnivore-rodents, diet:carnivore-aquatic,
+                diet:frugivore
+
+AQUATIC:        aquatic, filtration:high-flow, filtration:low-flow,
+                filtration:biological, filtration:chemical,
+                water-quality:testing, water-treatment,
+                waterFeature:shallow-dish, water:dish, basking:aquatic,
+                maintenance:water-change
+
+DECOR:          decor:branches, decor:plants, plants:live, plants:artificial,
+                plants:mixed, decor:background, decor:ledges, decor:hides,
+                decor:hides-aquatic, decor:humid-hide, decor:natural,
+                feeding:dish
+
+ACTIVITY:       climbing:vertical, climbing:ground
+
+ANIMAL TYPE:    animalType:amphibian
+
+═══════════════════════════════════════════════════════════════════════════════
+END OF EQUIPMENT TAGS REFERENCE
+═══════════════════════════════════════════════════════════════════════════════
+Last updated: February 9, 2026
+Total unique tags: 70+

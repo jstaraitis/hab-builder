@@ -22,6 +22,7 @@ import { AnimalProfilePreview } from './components/AnimalProfilePreview/AnimalPr
 import { About } from './components/About/About';
 import { Roadmap } from './components/Roadmap/Roadmap';
 import { Home } from './components/Home/Home';
+import EquipmentTagsBuilder from './components/Admin/EquipmentTagsBuilder';
 import { animalProfiles } from './data/animals';
 import { useTheme } from './hooks/useTheme';
 import { usePWAUpdate } from './hooks/usePWAUpdate';
@@ -409,6 +410,7 @@ function App() {
           <Route path="/blog" element={<BlogList selectedAnimal={input.animal} />} />
           <Route path="/blog/:postId" element={<BlogPost />} />
           <Route path="/dev/animals" element={<AnimalProfilePreview />} />
+          <Route path="/dev/equipment-tags" element={<EquipmentTagsBuilder />} />
         </Routes>
       </main>
 

@@ -204,20 +204,49 @@ function evaluateCompatibility(
     reasons.push(`Compatible with ${input.type} enclosures`);
   }
 
-  // 2. Space requirements
+  // 2. Space requirements (HARD FILTER + WEIGHTED PENALTY)
   if (profile.minEnclosureSize) {
-    const tooSmall = 
-      input.width < profile.minEnclosureSize.width ||
-      input.depth < profile.minEnclosureSize.depth ||
-      input.height < profile.minEnclosureSize.height;
+    // Calculate volumes to get true size comparison
+    const requiredVolume = profile.minEnclosureSize.width * 
+                          profile.minEnclosureSize.depth * 
+                          profile.minEnclosureSize.height;
+    const providedVolume = input.width * input.depth * input.height;
+    const volumeRatio = providedVolume / requiredVolume;
 
-    if (tooSmall) {
-      score -= 30;
+    // HARD FILTER: <40% of required volume = completely unsuitable
+    if (volumeRatio < 0.4) {
+      score = 0;
       warnings.push(
-        `Space may be tight (minimum recommended: ${profile.minEnclosureSize.width}" × ${profile.minEnclosureSize.depth}" × ${profile.minEnclosureSize.height}")`
+        `Your ${input.width}×${input.depth}×${input.height}" enclosure is only ${Math.round(volumeRatio * 100)}% of the minimum size needed. ` +
+        `${profile.commonName} requires at least ${profile.minEnclosureSize.width}×${profile.minEnclosureSize.depth}×${profile.minEnclosureSize.height}" (${Math.round(requiredVolume)} cubic inches).`
+      );
+      return { score, reasons, warnings }; // Exit early - too small to consider
+    }
+
+    // WEIGHTED PENALTY: 40-99% of required space = graduated penalty
+    if (volumeRatio < 1.0) {
+      // Graduated penalty scale based on volume deficit
+      let penalty = 10;
+      if (volumeRatio <= 0.40) penalty = 70;      // 40% = -70 points (barely passes hard filter)
+      else if (volumeRatio <= 0.60) penalty = 50; // 60% = -50 points (significantly undersized)
+      else if (volumeRatio <= 0.75) penalty = 35; // 75% = -35 points (noticeably undersized)
+      else if (volumeRatio <= 0.85) penalty = 20; // 85% = -20 points (slightly undersized)
+      else if (volumeRatio <= 0.95) penalty = 10; // 95% = -10 points (barely too small)
+      
+      score -= penalty;
+      warnings.push(
+        `Enclosure is ${Math.round(volumeRatio * 100)}% of the recommended minimum size. ` +
+        `${profile.commonName} thrives best in ${profile.minEnclosureSize.width}×${profile.minEnclosureSize.depth}×${profile.minEnclosureSize.height}" or larger.`
       );
     } else {
-      reasons.push('Fits minimum space requirements');
+      // Meets or exceeds minimum space - give appropriate reason
+      if (volumeRatio >= 1.5) {
+        reasons.push('Generous space - plenty of room for enrichment');
+      } else if (volumeRatio >= 1.2) {
+        reasons.push('Great space - exceeds minimum requirements');
+      } else {
+        reasons.push('Meets minimum space requirements');
+      }
     }
   }
 

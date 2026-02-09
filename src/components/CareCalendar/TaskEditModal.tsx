@@ -28,7 +28,8 @@ export function TaskEditModal({ task, isOpen, onClose, onTaskUpdated }: TaskEdit
         startDate: task.startDate,
         notes: task.notes,
         enclosureId: task.enclosureId,
-        notificationEnabled: task.notificationEnabled,
+        // Explicitly set to false if undefined to ensure updates work correctly
+        notificationEnabled: task.notificationEnabled ?? false,
         notificationMinutesBefore: task.notificationMinutesBefore || 15,
       });
     }
@@ -52,6 +53,16 @@ export function TaskEditModal({ task, isOpen, onClose, onTaskUpdated }: TaskEdit
 
     setLoading(true);
     setError(null);
+
+    // Debug logging for notification settings
+    console.log('[TaskEditModal] Submitting form data:', {
+      taskId: task.id,
+      formData: {
+        notificationEnabled: formData.notificationEnabled,
+        notificationMinutesBefore: formData.notificationMinutesBefore,
+        ...formData
+      }
+    });
 
     try {
       await careTaskService.updateTask(task.id, formData);
@@ -267,7 +278,13 @@ export function TaskEditModal({ task, isOpen, onClose, onTaskUpdated }: TaskEdit
                 <input
                   type="checkbox"
                   checked={formData.notificationEnabled || false}
-                  onChange={(e) => setFormData(prev => ({ ...prev, notificationEnabled: e.target.checked }))}
+                  onChange={(e) => {
+                    console.log('[TaskEditModal] Notification checkbox changed:', {
+                      checked: e.target.checked,
+                      previousValue: formData.notificationEnabled,
+                    });
+                    setFormData(prev => ({ ...prev, notificationEnabled: e.target.checked }));
+                  }}
                   className="w-5 h-5 text-emerald-600 border-gray-300 rounded focus:ring-emerald-500"
                 />
                 <span className="text-sm text-gray-700 dark:text-gray-300">

@@ -3,7 +3,7 @@
   "commonName": "Amazon Milk Frog",
   "scientificName": "Trachycephalus resinifictrix",
   "searchQuery": ["amazon milk frog", "mission golden eyed tree frog", "trachycephalus resinifictrix"],
-  "careLevel": "intermediate",
+  "careLevel": "beginner",
   "emoji": "🐸",
   "imageUrl": "/animals/amazon-milk-frog/amazon-milk-frog-1.jpg",
   "completionStatus": "draft",
@@ -15,10 +15,10 @@
     "units": "in"
   },
   "quantityRules": {
-    "baseGallons": 20,
-    "additionalGallons": 10,
-    "maxRecommended": 3,
-    "description": "Can be housed in groups of 2-3 in 20+ gallon vertical enclosure. Monitor for bullying during feeding."
+    "baseGallons": 29,
+    "additionalGallons": 5,
+    "maxRecommended": 5,
+    "description": "Can be housed in groups in 29+ gallon vertical enclosure. Monitor for bullying during feeding."
   },
   "careTargets": {
     "temperature": {
@@ -28,24 +28,24 @@
         "max": 75
       },
       "warmSide": {
-        "min": 75,
-        "max": 80
+        "min": 80,
+        "max": 85
       },
       "basking": null,
       "nighttime": {
-        "min": 65,
-        "max": 72
+        "min": 70,
+        "max": 75
       },
       "unit": "F"
     },
     "humidity": {
       "day": {
-        "min": 60,
+        "min": 70,
         "max": 80
       },
       "night": {
-        "min": 80,
-        "max": 100
+        "min": 70,
+        "max": 90
       },
       "shedding": {
         "min": 80,
@@ -55,40 +55,41 @@
     },
     "lighting": {
       "uvbRequired": false,
-      "uvbRecommended": false,
-      "uvbStrength": null,
-      "coveragePercent": 0,
-      "photoperiod": "Natural room light sufficient"
+      "uvbRecommended": true,
+      "uvbStrength": "5.0",
+      "coveragePercent": 65,
+      "photoperiod": "12h day / 12h night"
     },
-    "gradient": "Arboreal frog. High humidity essential. Mist heavily at night."
+    "gradient": "Warm zone at top (80-85°F) with cooler areas below. Nighttime drop to 70-75°F mimics wild temperature fluctuations."
   },
   "layoutRules": {
     "preferVertical": true,
     "verticalSpacePercent": 70,
     "thermalGradient": "horizontal",
-    "requiredZones": ["climbing", "water-bowl", "plants"],
-    "optionalZones": ["hide"]
+    "requiredZones": ["climbing", "water-bowl", "plants", "hide"],
+    "optionalZones": ["feeding", "secondary-hide"]
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
     "climbing": "vertical",
-    "substrate": ["bioactive", "soil"],
+    "substrate": ["bioactive", "soil", "paper", "foam"],
     "bioactiveSubstrate": "tropical",
     "humidity": "high",
-    "heatSource": "ambient",
-    "waterFeature": "large-bowl",
-    "lighting": "none",
+    "heatSource": "basking",
+    "waterFeature": "shallow-dish",
+    "lighting": "uvb-forest",
     "diet": ["insectivore"],
     "animalType": "amphibian",
     "climate": "tropical",
-    "activity": "arboreal"
+    "activity": "arboreal",
+    "water": ["water-dish-large"]
   },
-  "lifespan": "8-10 years in captivity",
+  "lifespan": "6-8+ years in captivity",
   "dietType": "Insectivore",
   "adultSize": "2.5-4 inches",
   "temperament": "Docile, handleable with caution",
-  "activityPattern": "Nocturnal",
-  "originRegion": "Amazon Rainforest",
+  "activityPattern": "Crepuscular",
+  "originRegion": "Colombia, Ecuador, Peru, Brazil",
   "setupTips": [],
   "notes": [],
   "warnings": [],

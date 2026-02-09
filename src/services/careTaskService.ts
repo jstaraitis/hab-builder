@@ -155,6 +155,19 @@ export class SupabaseCareService implements ICareTaskService {
       updated_at: new Date().toISOString(),
     };
 
+    // Debug logging for notification updates
+    if ('notificationEnabled' in updates) {
+      console.log('[careTaskService] Updating notification settings:', {
+        taskId: id,
+        notificationEnabled: updates.notificationEnabled,
+        notificationMinutesBefore: updates.notificationMinutesBefore,
+        dbUpdates: {
+          notification_enabled: dbUpdates.notification_enabled,
+          notification_minutes_before: dbUpdates.notification_minutes_before,
+        }
+      });
+    }
+
     const { data, error } = await supabase
       .from('care_tasks')
       .update(dbUpdates)
@@ -162,7 +175,16 @@ export class SupabaseCareService implements ICareTaskService {
       .select()
       .single();
 
-    if (error) throw error;
+    if (error) {
+      console.error('[careTaskService] Update failed:', error);
+      throw error;
+    }
+
+    console.log('[careTaskService] Update successful, returned data:', {
+      id: data.id,
+      notification_enabled: data.notification_enabled,
+      notification_minutes_before: data.notification_minutes_before,
+    });
 
     return this.mapTaskFromDb(data);
   }
