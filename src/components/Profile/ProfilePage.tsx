@@ -1,20 +1,36 @@
 import { useEffect, useState } from 'react';
-import { User } from 'lucide-react';
+import { User, CreditCard, Lock } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Auth } from '../Auth';
 import { profileService } from '../../services/profileService';
+import { stripeService } from '../../services/stripeService';
+import { supabase } from '../../lib/supabase';
 
 interface ProfileFormState {
   displayName: string;
+}
+
+interface PasswordFormState {
+  newPassword: string;
+  confirmPassword: string;
 }
 
 export function ProfilePage() {
   const { user, loading: authLoading, signOut } = useAuth();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [changingPassword, setChangingPassword] = useState(false);
+  const [managingSubscription, setManagingSubscription] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [passwordError, setPasswordError] = useState<string | null>(null);
+  const [passwordSuccess, setPasswordSuccess] = useState<string | null>(null);
   const [status, setStatus] = useState<'free' | 'premium'>('free');
+  const [cancelDate, setCancelDate] = useState<string | null>(null);
   const [form, setForm] = useState<ProfileFormState>({ displayName: '' });
+  const [passwordForm, setPasswordForm] = useState<PasswordFormState>({
+    newPassword: '',
+    confirmPassword: '',
+  });
 
   useEffect(() => {
     if (!user) return;
@@ -26,6 +42,7 @@ export function ProfilePage() {
         const profile = await profileService.getProfile(user.id);
         setForm({ displayName: profile?.displayName || '' });
         setStatus(profile?.isPremium ? 'premium' : 'free');
+        setCancelDate(profile?.subscriptionCancelAt || null);
       } catch (err) {
         console.error('Failed to load profile:', err);
         setError('Failed to load profile.');
@@ -55,6 +72,60 @@ export function ProfilePage() {
       setError('Failed to save profile.');
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handleChangePassword = async () => {
+    setPasswordError(null);
+    setPasswordSuccess(null);
+
+    if (passwordForm.newPassword.length < 6) {
+      setPasswordError('Password must be at least 6 characters long.');
+      return;
+    }
+
+    if (passwordForm.newPassword !== passwordForm.confirmPassword) {
+      setPasswordError('Passwords do not match.');
+      return;
+    }
+
+    try {
+      setChangingPassword(true);
+      const { error } = await supabase.auth.updateUser({
+        password: passwordForm.newPassword,
+      });
+
+      if (error) throw error;
+
+      setPasswordSuccess('✓ Password changed successfully!');
+      setPasswordForm({ newPassword: '', confirmPassword: '' });
+    } catch (err: any) {
+      console.error('Failed to change password:', err);
+      setPasswordError(err.message || 'Failed to change password.');
+    } finally {
+      setChangingPassword(false);
+    }
+  };
+
+  const handleManageSubscription = async () => {
+    if (!user) return;
+
+    try {
+      setManagingSubscription(true);
+      setError(null);
+      
+      // Get the user's session token
+      const { data: { session } } = await supabase.auth.getSession();
+      
+      if (!session?.access_token) {
+        throw new Error('No active session');
+      }
+      
+      await stripeService.redirectToCustomerPortal(user.id, session.access_token);
+    } catch (err) {
+      console.error('Failed to open customer portal:', err);
+      setError('Failed to open subscription management. Please try again.');
+      setManagingSubscription(false);
     }
   };
 
@@ -113,17 +184,96 @@ export function ProfilePage() {
               />
             </div>
 
-            <div className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-3">
-              <div>
-                <div className="text-sm font-semibold text-gray-800 dark:text-gray-100">Subscription</div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">Premium unlocks custom nav order and more.</div>
+            <div className="rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-3">
+              <div className="flex items-center justify-between mb-3">
+                <div>
+                  <div className="text-sm font-semibold text-gray-800 dark:text-gray-100">Subscription</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">
+                    {cancelDate 
+                      ? `Premium access until ${new Date(cancelDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`
+                      : 'Premium unlocks custom nav order and more.'}
+                  </div>
+                </div>
+                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                  status === 'premium'
+                    ? cancelDate
+                      ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-200'
+                      : 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-200'
+                    : 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200'
+                }`}>
+                  {status === 'premium' ? (cancelDate ? 'Cancelling' : 'Premium') : 'Free'}
+                </span>
               </div>
-              <span className={`px-3 py-1 rounded-full text-xs font-semibold ${status === 'premium'
-                ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-200'
-                : 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200'
-              }`}>
-                {status === 'premium' ? 'Premium' : 'Free'}
-              </span>
+              
+              {status === 'premium' && (
+                <button
+                  onClick={handleManageSubscription}
+                  disabled={managingSubscription}
+                  className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900 disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  <CreditCard className="w-4 h-4" />
+                  {managingSubscription ? 'Opening portal...' : 'Manage Subscription'}
+                </button>
+              )}
+            </div>
+
+            <div className="rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-4">
+              <div className="flex items-center gap-2 mb-3">
+                <Lock className="w-4 h-4 text-gray-600 dark:text-gray-400" />
+                <div className="text-sm font-semibold text-gray-800 dark:text-gray-100">Change Password</div>
+              </div>
+              
+              <div className="space-y-3">
+                <div>
+                  <label htmlFor="new-password" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    New Password
+                  </label>
+                  <input
+                    id="new-password"
+                    type="password"
+                    placeholder="••••••••"
+                    value={passwordForm.newPassword}
+                    onChange={(e) => setPasswordForm({ ...passwordForm, newPassword: e.target.value })}
+                    className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm"
+                    minLength={6}
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="confirm-password" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Confirm Password
+                  </label>
+                  <input
+                    id="confirm-password"
+                    type="password"
+                    placeholder="••••••••"
+                    value={passwordForm.confirmPassword}
+                    onChange={(e) => setPasswordForm({ ...passwordForm, confirmPassword: e.target.value })}
+                    className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm"
+                    minLength={6}
+                  />
+                </div>
+
+                <button
+                  onClick={handleChangePassword}
+                  disabled={changingPassword || !passwordForm.newPassword || !passwordForm.confirmPassword}
+                  className="w-full px-4 py-2 rounded-lg bg-gray-600 hover:bg-gray-700 text-white text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {changingPassword ? 'Changing...' : 'Change Password'}
+                </button>
+
+                {passwordError && (
+                  <div className="p-2 rounded bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200 text-xs">
+                    {passwordError}
+                  </div>
+                )}
+
+                {passwordSuccess && (
+                  <div className="p-2 rounded bg-emerald-50 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-200 text-xs">
+                    {passwordSuccess}
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className="flex flex-wrap justify-end gap-3">

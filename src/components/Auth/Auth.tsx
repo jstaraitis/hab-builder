@@ -78,18 +78,6 @@ export function Auth() {
           </p>
         </div>
 
-        {/* Testing Warning Banner */}
-        {mode === 'signup' && (
-          <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border-2 border-red-300 dark:border-red-700 rounded-lg">
-            <p className="text-sm font-semibold text-red-800 dark:text-red-200 mb-1">
-               Sign Ups Closed
-            </p>
-            <p className="text-xs text-red-700 dark:text-red-300">
-              New user registrations are currently closed. If you already have an account, please sign in below.
-            </p>
-          </div>
-        )}
-
         <form onSubmit={handleAuth} className="space-y-4">
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">

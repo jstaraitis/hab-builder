@@ -25,7 +25,11 @@ const About = lazy(() => import('./components/About/About').then(m => ({ default
 const Roadmap = lazy(() => import('./components/Roadmap/Roadmap').then(m => ({ default: m.Roadmap })));
 const Home = lazy(() => import('./components/Home/Home').then(m => ({ default: m.Home })));
 const EquipmentTagsBuilder = lazy(() => import('./components/Admin/EquipmentTagsBuilder'));
+const UpgradePage = lazy(() => import('./components/Upgrade/UpgradePage').then(m => ({ default: m.UpgradePage })));
+import { Auth } from './components/Auth';
+import { PremiumPaywall } from './components/Upgrade/PremiumPaywall';
 import { animalProfiles } from './data/animals';
+import { profileService } from './services/profileService';
 import { useTheme } from './hooks/useTheme';
 import { useUnits } from './contexts/UnitsContext';
 import { usePWAUpdate } from './hooks/usePWAUpdate';
@@ -53,6 +57,8 @@ function App() {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isPremium, setIsPremium] = useState(false);
+  const [profileLoading, setProfileLoading] = useState(true);
   
   // Zoom level management (stored in localStorage)
   const [zoom, setZoom] = useState<number>(() => {
@@ -87,6 +93,30 @@ function App() {
   const handleResetZoom = () => {
     setZoom(100);
   };
+
+  // Load user profile to check premium status
+  useEffect(() => {
+    if (!user) {
+      setIsPremium(false);
+      setProfileLoading(false);
+      return;
+    }
+
+    const loadProfile = async () => {
+      try {
+        setProfileLoading(true);
+        const profile = await profileService.getProfile(user.id);
+        setIsPremium(profile?.isPremium ?? false);
+      } catch (error) {
+        console.error('Failed to load profile:', error);
+        setIsPremium(false);
+      } finally {
+        setProfileLoading(false);
+      }
+    };
+
+    loadProfile();
+  }, [user]);
 
   // Header visibility control based on scroll
   useEffect(() => {
@@ -561,9 +591,52 @@ function App() {
             }
           />
           <Route path="/supplies" element={<SuppliesView plan={plan} input={input} />} />
-          <Route path="/care-calendar" element={<CareCalendarView />} />
-          <Route path="/my-animals" element={<MyAnimalsView />} />
-          <Route path="/inventory" element={<InventoryView />} />
+          <Route path="/upgrade" element={<UpgradePage />} />
+          <Route path="/care-calendar" element={
+            !user ? (
+              <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="max-w-md w-full">
+                  <Auth />
+                </div>
+              </div>
+            ) : profileLoading ? (
+              <LoadingFallback />
+            ) : !isPremium ? (
+              <PremiumPaywall />
+            ) : (
+              <CareCalendarView />
+            )
+          } />
+          <Route path="/my-animals" element={
+            !user ? (
+              <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="max-w-md w-full">
+                  <Auth />
+                </div>
+              </div>
+            ) : profileLoading ? (
+              <LoadingFallback />
+            ) : !isPremium ? (
+              <PremiumPaywall />
+            ) : (
+              <MyAnimalsView />
+            )
+          } />
+          <Route path="/inventory" element={
+            !user ? (
+              <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="max-w-md w-full">
+                  <Auth />
+                </div>
+              </div>
+            ) : profileLoading ? (
+              <LoadingFallback />
+            ) : !isPremium ? (
+              <PremiumPaywall />
+            ) : (
+              <InventoryView />
+            )
+          } />
           <Route path="/about" element={<About onOpenFeedback={() => setIsFeedbackOpen(true)} />} />
           <Route path="/profile" element={<ProfileView />} />
           <Route path="/roadmap" element={<Roadmap onOpenFeedback={() => setIsFeedbackOpen(true)} />} />
