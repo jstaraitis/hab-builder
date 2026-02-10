@@ -4,8 +4,8 @@
   "author": "Habitat Builder Team",
   "date": "2026-01-20",
   "category": "Care Guides",
-  "excerpt": "White's Tree Frog–specific feeding protocols, portion sizes, and obesity prevention strategies. Detailed feeder types, schedules, and supplements to keep your frog healthy.",
-  "description": "White's Tree Frog–specific feeding protocols, portion sizes, and obesity prevention strategies. Detailed feeder types, schedules, and supplements to keep your frog healthy.",
+  "excerpt": "White's Tree Frog-specific feeding protocols, portion sizes, and obesity prevention strategies. Detailed feeder types, schedules, and supplements to keep your frog healthy.",
+  "description": "White's Tree Frog-specific feeding protocols, portion sizes, and obesity prevention strategies. Detailed feeder types, schedules, and supplements to keep your frog healthy.",
   "tags": ["feeding", "whites-tree-frog", "nutrition", "obesity-prevention"],
   "status": "community-reviewed",
   "content": [
@@ -108,7 +108,7 @@
           "type": "warning",
           "severity": "tip",
           "icon": "ExternalLink",
-          "content": "<strong>Need feeder sourcing help?</strong> Check out our comprehensive <a href=\"/blog/feeder-insect-sourcing-storage-guide\" style=\"color: #3b82f6; text-decoration: underline; font-weight: 600;\">Feeder Insect Sourcing & Storage Guide →</a><br/><br/>Covers where to buy (local vs online), proper storage temperatures for each feeder type, container setups, colony management, and troubleshooting common issues."
+          "content": "<strong>Need feeder sourcing help?</strong> Check out our comprehensive <a href=\"/blog/feeder-insect-sourcing-storage-guide\" style=\"color: #3b82f6; text-decoration: underline; font-weight: 600;\">Feeder Insect Sourcing & Storage Guide -></a><br/><br/>Covers where to buy (local vs online), proper storage temperatures for each feeder type, container setups, colony management, and troubleshooting common issues."
         },
         {
           "type": "text",
@@ -119,9 +119,9 @@
           "items": [
             "Buy smaller quantities (50-100 crickets) more frequently rather than bulk to ensure freshness",
             "Gut-load crickets for 24-48 hours before feeding with commercial gut-load or vegetables",
-            "Store dubia roaches at 75-80°F for long-term colony; they can last months with minimal care",
-            "Refrigerate BSFL at 50-55°F to slow growth; these are naturally calcium-rich",
-            "Keep waxworms refrigerated and use sparingly—they're high in fat"
+            "Store dubia roaches at 75-80 deg F for long-term colony; they can last months with minimal care",
+            "Refrigerate BSFL at 50-55 deg F to slow growth; these are naturally calcium-rich",
+            "Keep waxworms refrigerated and use sparingly - they're high in fat"
           ]
         }
       ]
@@ -186,7 +186,7 @@
         {
           "type": "warning",
           "severity": "important",
-          "content": "Warning Signs: Lethargy, refusing food for 5+ days (adults), visible bones, difficulty moving, abnormal feces - consult an exotic vet immediately."
+          "content": "Warning Signs: Lethargy, refusing food for 7+ days (adults) or 2-3 days (juveniles), visible bones, difficulty moving, abnormal feces - consult an exotic vet immediately."
         }
       ]
     },

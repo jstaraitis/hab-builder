@@ -28,8 +28,8 @@
           "rows": [
             ["Simple (Coco Fiber)", "Lower cost ($15-25), easier setup, faster cleaning, typically safe if ingested", "Requires full substrate replacement every 4-6 weeks", "Beginners, budget setups, quarantine enclosures"],
             ["Bioactive (Natural)", "Self-sustaining cleanup crew, minimal maintenance, naturalistic", "Higher initial cost ($80-150), 2-3 month establishment period", "Experienced keepers, long-term displays"],
-            ["Paper Towels (Bare Minimum)", "Cheapest ($5-10), low impaction risk, excellent for health monitoring", "Must be changed daily, no humidity retention, requires frequent misting", "Emergency setups, quarantine, medical recovery"],
-            ["Frog Foam", "Reusable (rinse weekly), cushioned surface, no impaction risk", "Zero humidity retention (mist 2-3x daily), unnatural appearance, foam degrades over 1-2 years", "Easy maintenance priority, frogs with impaction history"]
+            ["Paper Towels (Bare Minimum)", "Cheapest ($5-10), low impaction risk, excellent for health monitoring", "Must be changed daily, no humidity retention, can look stark", "Emergency setups, quarantine, medical recovery"],
+            ["Frog Foam", "Reusable (rinse weekly), cushioned surface, no impaction risk", "Zero humidity retention, unnatural appearance, foam degrades over 1-2 years", "Easy maintenance priority, frogs with impaction history"]
           ]
         },
         {
@@ -53,11 +53,11 @@
         },
         {
           "type": "text",
-          "text": "<strong>Paper Towels (Bare Minimum Setup)</strong><br/>Easy to clean, monitor for parasites/illness, zero impaction risk. Ideal for new frogs during 30-day quarantine, sick frogs, or emergency budget setups. Can be used long-term if changed daily and enclosure is misted 2-3x daily. Use white, unscented towels�avoid colored/patterned varieties."
+          "text": "<strong>Paper Towels (Bare Minimum Setup)</strong><br/>Easy to clean, monitor for parasites/illness, zero impaction risk. Ideal for new frogs during 30-day quarantine, sick frogs, or emergency budget setups. Change daily; do not raise ambient humidity. Use white, unscented towels - avoid colored/patterned varieties."
         },
         {
           "type": "text",
-          "text": "<strong>Frog Foam (Low-Maintenance Alternative)</strong><br/>Reusable foam pad designed for amphibians. Cushioned surface prevents injury from falls, easy to rinse and reuse weekly. Does NOT retain humidity�requires frequent misting (2-3x daily). Lasts 1-2 years before needing replacement. Popular brands: Frog Foam, Exo Terra Forest Foam."
+          "text": "<strong>Frog Foam (Low-Maintenance Alternative)</strong><br/>Reusable foam pad designed for amphibians. Cushioned surface prevents injury from falls, easy to rinse and reuse weekly. Does NOT retain humidity. Lasts 1-2 years before needing replacement. Popular brands: Frog Foam, Exo Terra Forest Foam."
         },
         {
           "type": "warning",
@@ -85,7 +85,7 @@
           "headers": ["Setup Type", "Substrate Depth", "Notes"],
           "rows": [
             ["Paper Towels", "3-4 layers", "No benefit beyond 5 layers"],
-            ["Frog Foam", "�-inch thick pad", "Single solid pad, no layering needed"],
+            ["Frog Foam", "1/2-inch thick pad", "Single solid pad, no layering needed"],
             ["Simple (Coco Fiber)", "1-2 inches", "Shallow for easy cleaning, prevents stagnant pockets"],
             ["Bioactive", "3-4 inches substrate + 1-2 inches leaf litter", "Deeper substrate needed for cleanup crew and plant roots"]
           ]
@@ -103,27 +103,27 @@
       "content": [
         {
           "type": "text",
-          "text": "White's Tree Frogs need DRY substrate, not wet. These are semi-arid frogs�excessive moisture causes bacterial infections and respiratory issues."
+          "text": "White's Tree Frogs need DRY substrate, not wet. These are semi-arid frogs - excessive moisture causes bacterial infections and respiratory issues."
         },
         {
           "type": "text",
-          "text": "<strong>Target Moisture Level:</strong> Lightly damp to touch, NOT soggy or waterlogged. Substrate should dry out on top layer within 4-6 hours of misting."
+          "text": "<strong>Target Moisture Level:</strong> Lightly damp to touch, NOT soggy or waterlogged. Substrate should dry out on the top layer within a few hours of any spot misting."
         },
         {
           "type": "list",
           "items": [
-            "Mist lightly every 2-3 days (simple setup) or weekly (bioactive)",
+            "No routine misting. If the substrate gets dusty, lightly mist one small corner and let it dry within a few hours.",
             "NEVER have standing water pooling on substrate surface",
             "If substrate stays wet 24/7, increase ventilation or reduce misting frequency",
-            "Water dish provides primary humidity�substrate should be mostly dry",
-            "Paper towels and frog foam require more frequent misting (2-3x daily) since they don't retain moisture"
+            "Water dish provides primary humidity - substrate should be mostly dry",
+            "Paper towels and frog foam should remain dry; do not raise ambient humidity"
           ]
         },
         {
           "type": "warning",
           "severity": "important",
           "icon": "AlertTriangle",
-          "content": "Overly Wet Substrate = Bacterial Blooms + Respiratory Infections. If you can squeeze water out of the substrate, it's TOO WET."
+          "content": "Overly Wet Substrate = Bacterial Blooms + Respiratory Infections. If you can squeeze water out of the substrate, it is too wet."
         }
       ]
     },
@@ -188,7 +188,7 @@
             "Add 1-2 inches coconut fiber (soak brick, squeeze out excess water)",
             "Spread evenly across enclosure floor",
             "Add 1-inch leaf litter layer on top for natural appearance and impaction prevention",
-            "Mist lightly every 2-3 days�substrate should be damp, not wet",
+            "No routine misting; if substrate gets dusty, lightly mist one small corner and let it dry within a few hours",
             "Replace completely every 4-6 weeks"
           ]
         },

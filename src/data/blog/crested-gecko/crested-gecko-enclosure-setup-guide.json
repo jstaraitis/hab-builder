@@ -31,8 +31,8 @@
       "type": "table",
       "headers": ["Life Stage", "Weight/Age", "Minimum Dimensions", "Rationale"],
       "rows": [
-        ["Hatchling/Juvenile", "Under 12g or 0-6 months", "12\"L  12\"W  12\"H (5 gal)", "Temporary grow-out enclosure for easy feeding/monitoring"],
-        ["Large Juvenile", "12-25g or 6-12 months", "12\"L  12\"W  18\"H", "Transition size before adult housing"],
+        ["Hatchling/Juvenile", "Under 12g or 0-4 months", "8\"L  8\"W  12\"H", "Small grow-out enclosure improves feeding success"],
+        ["Large Juvenile", "12-25g or 4-12 months", "12\"L  12\"W  18\"H", "Transition size before adult housing"],
         ["Adult", "Over 25g or 12+ months", "18\"L  18\"W  24\"H", "Minimum for proper thermoregulation and exercise"],
         ["Adult (Preferred)", "12+ months", "18\"L  18\"W  36\"H or larger", "More climbing space improves enrichment and activity"]
       ]
@@ -40,7 +40,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Young crested geckos under 12g benefit from smaller grow-out enclosures where they can easily locate food and navigate safely. Move to adult-sized housing once they reach 12-15g and demonstrate confident climbing."
+      "content": "Young crested geckos under 12g benefit from smaller grow-out enclosures (8x8x12) where they can easily locate food and navigate safely. Move to larger housing once they reach 12-15g and demonstrate confident climbing."
     },
     {
       "type": "section",
@@ -59,14 +59,14 @@
       "headers": ["Material", "Humidity Retention", "Ventilation", "Best For"],
       "rows": [
         ["Glass Terrarium (front-opening)", "Excellent (80-90%)", "Moderate with screen top", "Beginners, stable humidity, easy viewing"],
-        ["Screen/Mesh Enclosure", "Poor (40-50%)", "Excessive", "Not recommended - humidity too difficult to maintain"],
+        ["Screen/Mesh Enclosure", "Poor (40-50%)", "Excessive", "Possible with extra humidity management, but harder for beginners"],
         ["PVC/Plastic Hybrid", "Excellent (85-95%)", "Adjustable vents", "Advanced keepers, bioactive setups, maximum humidity control"],
         ["Custom Wood/Glass", "Good (75-85%)", "Variable", "Naturalistic builds, custom dimensions"]
       ]
     },
     {
       "type": "highlight",
-      "content": "Front-opening glass terrariums are ideal for crested geckos. Top-opening enclosures can stress arboreal species that perceive threats from above (like birds in the wild)."
+      "content": "Front-opening glass terrariums are ideal for crested geckos. Screen enclosures can work if you can keep humidity up, but they are harder for beginners. Top-opening enclosures can stress arboreal species that perceive threats from above (like birds in the wild)."
     },
     {
       "type": "section",

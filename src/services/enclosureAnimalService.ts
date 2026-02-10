@@ -107,12 +107,32 @@ class EnclosureAnimalService {
   }
 
   /**
-   * Delete (soft delete) an animal
+   * Delete an animal
    */
   async deleteAnimal(id: string): Promise<void> {
+    const { error: taskError } = await supabase
+      .from('care_tasks')
+      .delete()
+      .eq('enclosure_animal_id', id);
+
+    if (taskError) {
+      console.error('Error deleting animal care tasks:', taskError);
+      throw taskError;
+    }
+
+    const { error: weightError } = await supabase
+      .from('weight_logs')
+      .delete()
+      .eq('enclosure_animal_id', id);
+
+    if (weightError) {
+      console.error('Error deleting animal weight logs:', weightError);
+      throw weightError;
+    }
+
     const { error } = await supabase
       .from('enclosure_animals')
-      .update({ is_active: false })
+      .delete()
       .eq('id', id);
 
     if (error) {

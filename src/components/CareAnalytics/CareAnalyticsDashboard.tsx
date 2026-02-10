@@ -47,7 +47,7 @@ export function CareAnalyticsDashboard() {
             Sign In to View Analytics
           </h3>
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
-            Create a free account to track your care routine and see insights.
+            Create a account to track your care routine and see insights.
           </p>
         </div>
       </div>

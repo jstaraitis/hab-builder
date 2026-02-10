@@ -1,5 +1,5 @@
 ﻿import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Calendar, MoreHorizontal, X, Info, MessageCircle, Package, ChevronUp, ChevronDown, SlidersHorizontal, User, Turtle, Ruler, ZoomIn, ZoomOut, type LucideIcon } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Calendar, MoreHorizontal, X, Info, MessageCircle, Package, ChevronUp, ChevronDown, SlidersHorizontal, User, Turtle, Ruler, ZoomIn, ZoomOut, Gem, type LucideIcon } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useUnits } from '../../contexts/UnitsContext';
@@ -20,6 +20,7 @@ interface NavItem {
   icon: LucideIcon;
   description?: string;
   requires?: NavRequirement;
+  showWhen?: 'guest' | 'auth';
 }
 
 const NAV_ITEMS: NavItem[] = [
@@ -27,6 +28,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'design', path: '/design', icon: Pencil, label: 'Design', requires: 'animal' },
   { id: 'supplies', path: '/supplies', icon: ShoppingCart, label: 'Shop', requires: 'plan' },
   { id: 'plan', path: '/plan', icon: ClipboardList, label: 'Plan', requires: 'plan' },
+  { id: 'premium', path: '/premium', icon: Gem, label: 'Premium', description: 'Premium overview', showWhen: 'guest' },
   { id: 'care-calendar', path: '/care-calendar', icon: Calendar, label: 'Care Tasks', description: 'Track pet care tasks' },
   { id: 'my-animals', path: '/my-animals', icon: Turtle, label: 'My Animals', description: 'View all your animals' },
   { id: 'inventory', path: '/inventory', icon: Package, label: 'Inventory', description: 'Consumables & buy again' },
@@ -98,8 +100,15 @@ export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<Mobil
     const map = new Map(NAV_ITEMS.map((item) => [item.id, item]));
     return navOrder
       .map((id) => map.get(id))
-      .filter((item): item is NavItem => Boolean(item));
-  }, [navOrder]);
+      .filter((item): item is NavItem => Boolean(item))
+      .filter((item) => {
+        if (item.showWhen === 'guest') return !user;
+        if (item.showWhen === 'auth') return Boolean(user);
+        if (item.requires === 'animal') return hasAnimal;
+        if (item.requires === 'plan') return hasPlan;
+        return true;
+      });
+  }, [navOrder, user, hasAnimal, hasPlan]);
 
   const bottomItems = orderedItems.slice(0, 4);
   const moreItems = orderedItems.slice(4);

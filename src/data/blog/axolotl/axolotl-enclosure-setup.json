@@ -35,10 +35,10 @@
       "type": "table",
       "headers": ["Number of Axolotls", "Minimum Tank Size", "Ideal Dimensions", "Notes"],
       "rows": [
-        ["1 Adult", "30-40 gallon breeder", "36×18×16 inches", "40 gallon breeder preferred over 30 gallon for more floor space"],
-        ["2 Adults", "40 gallon breeder minimum", "36×18×16 inches", "Add 10 gallons per additional adult"],
-        ["3 Adults", "55-75 gallon", "48×18×20 inches", "Horizontal tanks better than tall"],
-        ["1 Juvenile (under 6\")", "10-20 gallon temporary", "20×10×12 inches", "Upgrade to adult tank once 6+ inches"]
+        ["1 Adult", "30-40 gallon breeder", "36x18x16 inches", "40 gallon breeder preferred over 30 gallon for more floor space"],
+        ["2 Adults", "40 gallon breeder minimum", "36x18x16 inches", "Add 10 gallons per additional adult"],
+        ["3 Adults", "55-75 gallon", "48x18x20 inches", "Horizontal tanks better than tall"],
+        ["1 Juvenile (under 6\")", "10-20 gallon temporary", "20x10x12 inches", "Upgrade to adult tank once 6+ inches"]
       ]
     },
     {
@@ -56,7 +56,7 @@
     },
     {
       "type": "highlight",
-      "text": "Breeder tanks (wider, shorter) are better than standard tall tanks. A 40 gallon breeder (36×18×16\") is superior to a 40 gallon standard (36×13×20\") because axolotls use floor space."
+      "text": "Breeder tanks (wider, shorter) are better than standard tall tanks. A 40 gallon breeder (36x18x16\") is superior to a 40 gallon standard (36x13x20\") because axolotls use floor space."
     },
     {
       "type": "section",
@@ -65,8 +65,8 @@
     {
       "type": "list",
       "items": [
-        "<span class='font-semibold'>Glass Aquarium:</span> Standard choice—durable, scratch-resistant, doesn't warp",
-        "<span class='font-semibold'>Acrylic Aquarium:</span> Lighter weight, more insulation (helps temperature)—scratches easier than glass",
+        "<span class='font-semibold'>Glass Aquarium:</span> Standard choice - durable, scratch-resistant, doesn't warp",
+        "<span class='font-semibold'>Acrylic Aquarium:</span> Lighter weight, more insulation (helps temperature) - scratches easier than glass",
         "<span class='font-semibold'>Used Tanks:</span> Acceptable if thoroughly cleaned, no cracks, no silicone deterioration",
         "<span class='font-semibold'>Avoid:</span> Rimless tanks (jumping risk), tanks with painted/treated interiors, bowls or containers without proper filtration"
       ]
@@ -91,8 +91,8 @@
       "type": "list",
       "items": [
         "<span class='font-semibold'>Step 1 - Ammonia Source:</span> Waste, uneaten food, or pure ammonia produces ammonia (NH3)",
-        "<span class='font-semibold'>Step 2 - First Bacteria (Nitrosomonas):</span> Converts ammonia ? nitrites (NO2?)",
-        "<span class='font-semibold'>Step 3 - Second Bacteria (Nitrobacter):</span> Converts nitrites ? nitrates (NO3?)",
+        "<span class='font-semibold'>Step 2 - First Bacteria (Nitrosomonas):</span> Converts ammonia -> nitrites (NO2-)",
+        "<span class='font-semibold'>Step 3 - Second Bacteria (Nitrobacter):</span> Converts nitrites -> nitrates (NO3-)",
         "<span class='font-semibold'>Step 4 - Water Changes:</span> You remove nitrates through weekly partial water changes"
       ]
     },
@@ -103,7 +103,7 @@
         ["Week 1-2", "Rises to 2-4", "0", "0", "Adding ammonia, waiting for bacteria to colonize"],
         ["Week 2-3", "Drops to 0", "Rises to 2-5", "Appears at 5-10", "First bacteria established, second bacteria colonizing"],
         ["Week 3-4", "0", "Drops to 0", "Rising", "Both bacteria established, cycle nearly complete"],
-        ["Week 4-6", "0 (after dosing)", "0 (after dosing)", "Present", "Cycle complete—bacteria can process ammonia within 24 hours"]
+        ["Week 4-6", "0 (after dosing)", "0 (after dosing)", "Present", "Cycle complete - bacteria can process ammonia within 24 hours"]
       ]
     },
     {
@@ -117,13 +117,13 @@
     {
       "type": "list",
       "items": [
-        "Place empty tank on sturdy stand—40 gallon = 400+ pounds when filled",
-        "Level the tank using shims if necessary—unlevel tanks crack over time",
-        "Add substrate if using (bare-bottom, slate tile, or fine sand—see <a href='/blog/axolotl-substrate-guide' class='text-emerald-600 underline'>Substrate Guide</a>)",
+        "Place empty tank on sturdy stand - 40 gallon = 400+ pounds when filled",
+        "Level the tank using shims if necessary - unlevel tanks crack over time",
+        "Add substrate if using (bare-bottom, slate tile, or fine sand - see <a href='/blog/axolotl-substrate-guide' class='text-emerald-600 underline'>Substrate Guide</a>)",
         "Install filter (see Filtration section below)",
-        "Add decorations (caves, plants, driftwood—rinse thoroughly first)",
+        "Add decorations (caves, plants, driftwood - rinse thoroughly first)",
         "Fill tank with dechlorinated water (use Seachem Prime or Fritz Complete)",
-        "Set up heater if room is below 60°F, chiller if room exceeds 68°F",
+        "Set up heater if room is below 60 deg F, chiller if room exceeds 68 deg F",
         "Turn on filter and let run 24 hours before starting cycle"
       ]
     },
@@ -136,15 +136,15 @@
       "items": [
         "Add ammonia source: Pure ammonia (Dr. Tim's Ammonium Chloride) to 2-4 ppm, OR fish food method (add small pinch daily)",
         "Test water daily: Ammonia should be present, nitrites and nitrates should be 0",
-        "Temperature should be 60-68°F for cycle (bacteria colonize slower at lower temps)",
-        "Add beneficial bacteria product (Seachem Stability, Fritz Turbostart)—helps but doesn't replace cycle time",
+        "Temperature should be 60-68 deg F for cycle (bacteria colonize slower at lower temps)",
+        "Add beneficial bacteria product (Seachem Stability, Fritz Turbostart) - helps but doesn't replace cycle time",
         "Continue daily ammonia dosing to feed bacteria as they colonize"
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "text": "Use ONLY pure ammonia or fish food for cycling—never household ammonia with detergents or scents. Check ingredient list: should contain only ammonium hydroxide and water."
+      "text": "Use ONLY pure ammonia or fish food for cycling - never household ammonia with detergents or scents. Check ingredient list: should contain only ammonium hydroxide and water."
     },
     {
       "type": "text",
@@ -154,10 +154,10 @@
       "type": "list",
       "items": [
         "Ammonia begins dropping, nitrites appear and rise to 2-5+ ppm",
-        "This is NORMAL—nitrite spike indicates first bacteria established",
+        "This is NORMAL - nitrite spike indicates first bacteria established",
         "Continue daily ammonia dosing to 2 ppm",
-        "Nitrites may climb very high (5+ ppm)—this is okay during cycling",
-        "Eventually nitrates will appear (5-10 ppm initially)—second bacteria colonizing",
+        "Nitrites may climb very high (5+ ppm) - this is okay during cycling",
+        "Eventually nitrates will appear (5-10 ppm initially) - second bacteria colonizing",
         "Keep testing daily: ammonia, nitrites, nitrates"
       ]
     },
@@ -171,7 +171,7 @@
         "Nitrites begin dropping toward 0 ppm",
         "Ammonia processes to 0 within 24 hours after dosing",
         "Nitrates are present and accumulating (20-40+ ppm)",
-        "Test: Add ammonia to 2 ppm, test 24 hours later—both ammonia AND nitrites should be 0",
+        "Test: Add ammonia to 2 ppm, test 24 hours later - both ammonia AND nitrites should be 0",
         "If both read 0 after 24 hours, cycle is complete",
         "Perform 50% water change to lower nitrates before adding axolotl",
         "Tank is now ready for axolotl introduction"
@@ -179,7 +179,7 @@
     },
     {
       "type": "highlight",
-      "text": "The cycle takes 4-6 weeks on average. Cold water (below 64°F) slows bacteria growth and may take 6-8 weeks. Never add axolotl until ammonia and nitrites stay at 0 ppm for 7+ days."
+      "text": "The cycle takes 4-6 weeks on average. Cold water (below 64 deg F) slows bacteria growth and may take 6-8 weeks. Never add axolotl until ammonia and nitrites stay at 0 ppm for 7+ days."
     },
     {
       "type": "section",
@@ -196,8 +196,8 @@
     {
       "type": "list",
       "items": [
-        "<span class='font-semibold'>Flow Rate:</span> Adjustable to gentle flow—aim for 3-5× tank volume per hour MAX",
-        "<span class='font-semibold'>Filtration Capacity:</span> Rated for tank size minimum, ideally 1.5-2× tank volume for biological capacity",
+        "<span class='font-semibold'>Flow Rate:</span> Adjustable to gentle flow - aim for 3-5x tank volume per hour MAX",
+        "<span class='font-semibold'>Filtration Capacity:</span> Rated for tank size minimum, ideally 1.5-2x tank volume for biological capacity",
         "<span class='font-semibold'>Three-Stage Filtration:</span> Mechanical (sponge/pad), biological (ceramic rings/sponge), chemical (activated carbon)",
         "<span class='font-semibold'>Easy Maintenance:</span> Filter media should be accessible for monthly rinsing without breaking cycle"
       ]
@@ -210,9 +210,9 @@
       "type": "table",
       "headers": ["Filter Type", "Pros", "Cons", "Best For"],
       "rows": [
-        ["Canister Filter", "Excellent filtration, very adjustable flow, quiet, high biological capacity", "Most expensive ($80-200), more complex setup", "Best overall choice—40+ gallon tanks"],
-        ["Hang-On-Back (HOB)", "Good filtration, easy maintenance, moderate price ($30-60), some have adjustable flow", "Can be noisy, less biological capacity than canister", "Good choice—20-40 gallon tanks"],
-        ["Internal Filter", "Adjustable flow, quiet, takes up tank space, moderate filtration", "Reduces swimming space, less capacity than external", "Budget option—10-30 gallon tanks"],
+        ["Canister Filter", "Excellent filtration, very adjustable flow, quiet, high biological capacity", "Most expensive ($80-200), more complex setup", "Best overall choice - 40+ gallon tanks"],
+        ["Hang-On-Back (HOB)", "Good filtration, easy maintenance, moderate price ($30-60), some have adjustable flow", "Can be noisy, less biological capacity than canister", "Good choice - 20-40 gallon tanks"],
+        ["Internal Filter", "Adjustable flow, quiet, takes up tank space, moderate filtration", "Reduces swimming space, less capacity than external", "Budget option - 10-30 gallon tanks"],
         ["Sponge Filter", "Gentlest flow, cheapest ($10-20), good for juveniles", "No chemical filtration, requires air pump (noisy), frequent cleaning", "Temporary for juveniles, backup filter"]
       ]
     },
@@ -228,10 +228,10 @@
       "type": "list",
       "items": [
         "<span class='font-semibold'>Built-In Flow Control:</span> Use filter's flow valve to reduce output (canister filters)",
-        "<span class='font-semibold'>Output Direction:</span> Aim filter output toward water surface, not at axolotl—promotes gas exchange without disturbing bottom",
+        "<span class='font-semibold'>Output Direction:</span> Aim filter output toward water surface, not at axolotl - promotes gas exchange without disturbing bottom",
         "<span class='font-semibold'>Baffle:</span> Add sponge over HOB output or place filter behind decoration to break current",
         "<span class='font-semibold'>Filter Media:</span> Adding more sponge/filter floss reduces flow rate",
-        "<span class='font-semibold'>Spray Bar:</span> Attach spray bar to canister filter output—distributes flow across surface instead of single jet"
+        "<span class='font-semibold'>Spray Bar:</span> Attach spray bar to canister filter output - distributes flow across surface instead of single jet"
       ]
     },
     {
@@ -245,7 +245,7 @@
     },
     {
       "type": "text",
-      "text": "Maintaining 60-68°F is CRITICAL. Temperature control is the #1 reason axolotls fail to thrive or die prematurely."
+      "text": "Maintaining 60-68 deg F is CRITICAL. Temperature control is the #1 reason axolotls fail to thrive or die prematurely."
     },
     {
       "type": "section",
@@ -255,10 +255,10 @@
       "type": "table",
       "headers": ["Method", "Cost", "Effectiveness", "Best For"],
       "rows": [
-        ["Room Air Conditioning", "$0 (if already installed) or $200-800 for AC unit", "Excellent—maintains consistent temperature 24/7", "Ideal solution if room can be kept at 65-70°F year-round"],
-        ["Aquarium Chiller", "$200-500 for unit", "Excellent—precisely controls water temperature regardless of room temp", "Hot climates, rooms without AC, multi-tank setups"],
-        ["Clip-On Fans (2-3 fans)", "$20-40 total", "Moderate—evaporative cooling drops temp 2-4°F", "Mild climates where room reaches 70-72°F occasionally"],
-        ["Frozen Water Bottles", "$0 (use existing bottles)", "Poor—temporary, unstable temp swings", "Emergency only during heat waves"]
+        ["Room Air Conditioning", "$0 (if already installed) or $200-800 for AC unit", "Excellent - maintains consistent temperature 24/7", "Ideal solution if room can be kept at 65-70 deg F year-round"],
+        ["Aquarium Chiller", "$200-500 for unit", "Excellent - precisely controls water temperature regardless of room temp", "Hot climates, rooms without AC, multi-tank setups"],
+        ["Clip-On Fans (2-3 fans)", "$20-40 total", "Moderate - evaporative cooling drops temp 2-4 deg F", "Mild climates where room reaches 70-72 deg F occasionally"],
+        ["Frozen Water Bottles", "$0 (use existing bottles)", "Poor - temporary, unstable temp swings", "Emergency only during heat waves"]
       ]
     },
     {
@@ -270,9 +270,9 @@
       "items": [
         "Chillers work like mini refrigerators for aquariums",
         "Pump pulls water from tank through chiller, returns cooled water",
-        "Set temperature to 65°F for automatic control",
+        "Set temperature to 65 deg F for automatic control",
         "Requires separate pump (usually included) and tubing",
-        "Produces heat—place in well-ventilated area, not in small closet",
+        "Produces heat - place in well-ventilated area, not in small closet",
         "Increases electric bill $20-40/month depending on climate"
       ]
     },
@@ -284,15 +284,15 @@
       "type": "list",
       "items": [
         "Clip 2-3 small fans to tank rim aimed at water surface",
-        "Evaporation removes heat—refill water weekly to compensate",
+        "Evaporation removes heat - refill water weekly to compensate",
         "Most effective in low-humidity environments",
         "Minimal electricity cost ($2-5/month)",
-        "Cannot cool below 68°F if room temperature exceeds 72-74°F"
+        "Cannot cool below 68 deg F if room temperature exceeds 72-74 deg F"
       ]
     },
     {
       "type": "highlight",
-      "text": "BEFORE purchasing an axolotl, monitor your room temperature for 1-2 weeks. If it exceeds 70°F regularly, budget for a chiller or dedicate AC to that room."
+      "text": "BEFORE purchasing an axolotl, monitor your room temperature for 1-2 weeks. If it exceeds 70 deg F regularly, budget for a chiller or dedicate AC to that room."
     },
     {
       "type": "section",
@@ -342,10 +342,10 @@
     {
       "type": "list",
       "items": [
-        "<span class='font-semibold'>Hides:</span> 2-3 hides per axolotl—caves, PVC pipes (4\" diameter), terracotta pots (smooth edges)",
-        "<span class='font-semibold'>Plants:</span> Live or silk (never plastic—sharp edges)—Anubias, Java fern, Java moss are cold-tolerant",
+        "<span class='font-semibold'>Hides:</span> 2-3 hides per axolotl - caves, PVC pipes (4\" diameter), terracotta pots (smooth edges)",
+        "<span class='font-semibold'>Plants:</span> Live or silk (never plastic - sharp edges) - Anubias, Java fern, Java moss are cold-tolerant",
         "<span class='font-semibold'>Driftwood:</span> Provides cover and beneficial tannins (boil first to waterlog and sterilize)",
-        "<span class='font-semibold'>Rocks:</span> Large smooth stones—too large to swallow (axolotls have powerful suction and may try eating décor)"
+        "<span class='font-semibold'>Rocks:</span> Large smooth stones - too large to swallow (axolotls have powerful suction and may try eating decor)"
       ]
     },
     {
@@ -355,11 +355,11 @@
     {
       "type": "list",
       "items": [
-        "Place hides in corners and along back wall—leaves front open for viewing",
-        "Create \"swimming lanes\" between decorations—axolotls walk along tank bottom, need clear paths",
-        "Anchor plants with weights or plant in substrate—axolotls are clumsy and will uproot loose plants",
+        "Place hides in corners and along back wall - leaves front open for viewing",
+        "Create \"swimming lanes\" between decorations - axolotls walk along tank bottom, need clear paths",
+        "Anchor plants with weights or plant in substrate - axolotls are clumsy and will uproot loose plants",
         "Leave 30-40% of tank floor bare for walking and feeding",
-        "Ensure all decorations have smooth edges—axolotls have delicate skin"
+        "Ensure all decorations have smooth edges - axolotls have delicate skin"
       ]
     },
     {
@@ -378,9 +378,9 @@
     {
       "type": "list",
       "items": [
-        "<span class='font-semibold'>Glass Canopy:</span> Most common—covers tank, allows light penetration, easy to clean",
-        "<span class='font-semibold'>Mesh Screen:</span> DIY option—plastic mesh cut to fit tank rim, secured with clips",
-        "<span class='font-semibold'>Cut Plexiglass:</span> Custom fit—cut holes for filter/heater/airline tubing",
+        "<span class='font-semibold'>Glass Canopy:</span> Most common - covers tank, allows light penetration, easy to clean",
+        "<span class='font-semibold'>Mesh Screen:</span> DIY option - plastic mesh cut to fit tank rim, secured with clips",
+        "<span class='font-semibold'>Cut Plexiglass:</span> Custom fit - cut holes for filter/heater/airline tubing",
         "<span class='font-semibold'>Leave Gaps:</span> Ensure filter, airline tubing, and thermometer probes can pass through",
         "<span class='font-semibold'>Weight Consideration:</span> Lid should be secure but removable for feeding/maintenance"
       ]
@@ -399,7 +399,7 @@
       "rows": [
         ["Tank Cycled", "Ammonia and nitrites stay at 0 ppm for 7+ days after dosing", "?"],
         ["Nitrates Present", "Nitrates are 5-40 ppm (indicates cycle complete)", "?"],
-        ["Temperature Stable", "Water temperature 60-68°F for 7+ days without fluctuation", "?"],
+        ["Temperature Stable", "Water temperature 60-68 deg F for 7+ days without fluctuation", "?"],
         ["Filter Running", "Filter has run continuously for 4+ weeks, adjusted to low flow", "?"],
         ["Water Conditioner", "Have Seachem Prime or Fritz Complete on hand", "?"],
         ["Test Kit", "Liquid test kit (API Master Kit) available with fresh reagents", "?"],
@@ -422,9 +422,9 @@
       "headers": ["Mistake", "Why It's Harmful", "Correct Approach"],
       "rows": [
         ["Skipping cycling", "Ammonia poisoning causes gill burns, death", "Cycle tank 4-6 weeks before purchasing axolotl"],
-        ["Buying \"instant cycle\" products", "Bacteria need time to colonize—products help but don't eliminate cycling", "Use bacteria supplements to speed cycle, still test for 0 ammonia/nitrites"],
+        ["Buying \"instant cycle\" products", "Bacteria need time to colonize - products help but don't eliminate cycling", "Use bacteria supplements to speed cycle, still test for 0 ammonia/nitrites"],
         ["Using high-flow filter", "Stress, exhaustion, difficulty eating", "Adjust filter to gentle flow, baffle output if needed"],
-        ["No temperature plan", "Room temp rises above 72°F, axolotl overheats", "Monitor room temp for 2 weeks before purchase, budget for chiller if needed"],
+        ["No temperature plan", "Room temp rises above 72 deg F, axolotl overheats", "Monitor room temp for 2 weeks before purchase, budget for chiller if needed"],
         ["Undersized tank", "Waste accumulates faster, limits swimming", "40 gallon breeder minimum for single adult"],
         ["Gravel substrate in new tank", "Accidental ingestion causes impaction", "Use bare-bottom, slate tile, or fine sand for 6+ inches only"],
         ["No water test kit", "Can't verify cycle completion or diagnose problems", "Purchase liquid test kit (API Master Kit) before starting cycle"],
@@ -451,13 +451,13 @@
     {
       "type": "list",
       "items": [
-        "40 gallon breeder minimum for single adult—length and width matter more than height",
-        "Cycling takes 4-6 weeks MINIMUM—cannot be rushed, test until ammonia/nitrites stay at 0 ppm",
-        "Low-flow filtration essential—canister filters best, HOB acceptable, high flow causes stress",
-        "Temperature control mandatory—60-68°F year-round requires AC, chiller, or fans",
-        "Lid prevents jumping—glass canopy, mesh screen, or cut plexiglass required",
+        "40 gallon breeder minimum for single adult - length and width matter more than height",
+        "Cycling takes 4-6 weeks MINIMUM - cannot be rushed, test until ammonia/nitrites stay at 0 ppm",
+        "Low-flow filtration essential - canister filters best, HOB acceptable, high flow causes stress",
+        "Temperature control mandatory - 60-68 deg F year-round requires AC, chiller, or fans",
+        "Lid prevents jumping - glass canopy, mesh screen, or cut plexiglass required",
         "Budget $150-250 minimum for basic setup, $600+ for premium setup with chiller",
-        "Complete setup checklist before purchasing axolotl—verify cycling, temperature, equipment function",
+        "Complete setup checklist before purchasing axolotl - verify cycling, temperature, equipment function",
         "Allow 6-8 weeks from \"I want an axolotl\" to \"axolotl comes home\" for proper setup"
       ]
     }

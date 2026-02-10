@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { SEO } from '../SEO/SEO';
 import { blogPosts, ContentBlock, BlogStatus } from '../../data/blog';
 import { generateArticleStructuredData } from '../../utils/structuredData';
-import { CheckCircle, Eye, Users, Award, FileText, X } from 'lucide-react';
+import { CheckCircle, Eye, Users, Award, FileText } from 'lucide-react';
 
 function getStatusConfig(status?: BlogStatus) {
   switch (status) {
@@ -66,7 +66,7 @@ function getStatusConfig(status?: BlogStatus) {
   }
 }
 
-function renderContentBlock(block: ContentBlock, index: number, onImageClick?: (src: string, alt: string) => void): JSX.Element {
+function renderContentBlock(block: ContentBlock, index: number): JSX.Element {
   switch (block.type) {
     case 'intro':
       return (
@@ -85,8 +85,8 @@ function renderContentBlock(block: ContentBlock, index: number, onImageClick?: (
           </h2>
           {block.content && Array.isArray(block.content) && (
             <div className="space-y-4">
-              {block.content.map((nestedBlock, nestedIndex) => 
-                renderContentBlock(nestedBlock, typeof index === 'number' ? index * 1000 + nestedIndex : nestedIndex, onImageClick)
+              {block.content.map((nestedBlock, nestedIndex) =>
+                renderContentBlock(nestedBlock, typeof index === 'number' ? index * 1000 + nestedIndex : nestedIndex)
               )}
             </div>
           )}
@@ -247,8 +247,7 @@ function renderContentBlock(block: ContentBlock, index: number, onImageClick?: (
       return (
         <div key={index} className="mb-8">
           <div 
-            className="rounded-xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 shadow-lg bg-white dark:bg-gray-800 cursor-pointer hover:border-green-500 dark:hover:border-green-400 transition-colors"
-            onClick={() => onImageClick?.(block.srcMobile || block.src || '', block.alt || '')}
+            className="rounded-xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 shadow-lg bg-white dark:bg-gray-800"
           >
             <picture>
               {block.srcMobile && (
@@ -269,7 +268,6 @@ function renderContentBlock(block: ContentBlock, index: number, onImageClick?: (
           {block.caption && (
             <p className="text-sm text-center text-gray-600 dark:text-gray-400 mt-3 italic">
               {block.caption}
-              <span className="text-xs block mt-1 text-gray-500 dark:text-gray-500">Tap image to zoom</span>
             </p>
           )}
         </div>
@@ -283,28 +281,12 @@ function renderContentBlock(block: ContentBlock, index: number, onImageClick?: (
 export function BlogPost() {
   const { postId } = useParams<{ postId: string }>();
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [zoomedImage, setZoomedImage] = useState<{ src: string; alt: string } | null>(null);
   
   useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && zoomedImage) {
-        setZoomedImage(null);
-      }
-    };
-    
-    // Prevent body scroll when modal is open
-    if (zoomedImage) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    
-    window.addEventListener('keydown', handleEscape);
     return () => {
-      window.removeEventListener('keydown', handleEscape);
       document.body.style.overflow = 'unset';
     };
-  }, [zoomedImage]);
+  }, []);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -412,36 +394,9 @@ export function BlogPost() {
         </header>
 
         <div className="prose prose-lg dark:prose-invert max-w-none">
-          {post.content.map((block, index) => renderContentBlock(block, index, (src, alt) => setZoomedImage({ src, alt })))}
+          {post.content.map((block, index) => renderContentBlock(block, index))}
         </div>
       </article>
-
-      {/* Image Zoom Modal */}
-      {zoomedImage && (
-        <div 
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
-          onClick={() => setZoomedImage(null)}
-        >
-          <button
-            onClick={() => setZoomedImage(null)}
-            className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
-            aria-label="Close zoom"
-          >
-            <X className="w-6 h-6" />
-          </button>
-          <div className="max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center">
-            <img
-              src={zoomedImage.src}
-              alt={zoomedImage.alt}
-              className="max-w-full max-h-full object-contain rounded-lg"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </div>
-          <p className="absolute bottom-4 left-0 right-0 text-center text-white text-sm px-4">
-            {zoomedImage.alt}
-          </p>
-        </div>
-      )}
 
       <div className="mt-8 text-center">
         <Link

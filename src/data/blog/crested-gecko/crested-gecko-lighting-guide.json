@@ -13,7 +13,7 @@
     {
       "type": "intro",
       "title": "Essential Lighting Requirements for Crested Geckos",
-      "content": "Crested geckos are crepuscular (most active at dawn and dusk) with exceptional night vision adapted for low-light conditions. While they can technically survive without UVB lighting due to vitamin D3 in their prepared diet, research increasingly shows that low-level UVB exposure significantly improves their health, behavior, and longevity. This guide covers evidence-based lighting practices for crested geckos."
+      "content": "Crested geckos are crepuscular (most active at dawn and dusk) with exceptional night vision adapted for low-light conditions. UVB is optional for crested geckos because quality diets include vitamin D3, but low-level UVB can be beneficial. This guide covers lighting practices so you can choose what fits your setup."
     },
     {
       "type": "section",
@@ -21,7 +21,7 @@
     },
     {
       "type": "text",
-      "content": "Crested geckos receive filtered, indirect UVB in their natural cloud forest habitat. They are classified as Ferguson Zone 2, meaning they need low-level UVB exposure."
+      "content": "Crested geckos receive filtered, indirect UVB in their natural cloud forest habitat. They are classified as Ferguson Zone 2, meaning they do best with low-level UVB exposure if you choose to provide it."
     },
     {
       "type": "text",
@@ -31,9 +31,9 @@
       "type": "table",
       "headers": ["Parameter", "Target Value", "Measurement Location"],
       "rows": [
-        ["UVI (UV Index)", "1.0-2.0", "At highest basking perch (top 6-8\" of enclosure)"],
+        ["UVI (UV Index)", "0.5-1.0", "At highest perch (top 6-8\" of enclosure)"],
         ["Ferguson Zone", "Zone 2 (Shade Dweller)", "Low UVB, filtered/indirect exposure"],
-        ["Coverage Area", "50-70% of enclosure length", "Allows self-regulation×gecko can choose UVB or shade"]
+        ["Coverage Area", "50-70% of enclosure length", "Allows self-regulation - gecko can choose UVB or shade"]
       ]
     },
     {
@@ -92,7 +92,7 @@
     },
     {
       "type": "highlight",
-      "content": "Verification is critical: Use a Solarmeter 6.5 to measure UVI at your basking perch after setup. Aim for 1.0-2.0 UVI. Adjust perch distance up or down to achieve target range. Mesh screens block 25-35% of UVB, so factor this into placement."
+      "content": "Verification is critical: Use a Solarmeter 6.5 to measure UVI at your perch after setup. Aim for 0.5-1.0 UVI. Adjust perch distance up or down to achieve target range. Mesh screens block 25-35% of UVB, so factor this into placement."
     },
     {
       "type": "section",
@@ -218,7 +218,7 @@
         ["Glass or plastic between UVB and gecko", "Glass blocks 90-100% of UVB", "Ensure only mesh screen between bulb and gecko"],
         ["Desert-strength UVB (10.0/12%)", "Excessive UVB for shade-dwelling species", "Use 5.0-6% \"tropical\" strength bulbs only"],
         ["No photoperiod (lights on 24/7)", "Disrupts circadian rhythm, chronic stress", "Use timers for consistent 12-hour light/dark cycle"],
-        ["Blue/moonlight LEDs at night", "Suppresses melatonin, stress, sleep deprivation", "Complete darkness at night×no LEDs or viewing lights"],
+        ["Blue/moonlight LEDs at night", "Suppresses melatonin, stress, sleep deprivation", "Complete darkness at night - no LEDs or viewing lights"],
         ["Not replacing UVB bulbs on schedule", "Gecko receives little/no UVB despite bulb still lighting", "Replace T8 every 6-8 months, T5 every 12 months"]
       ]
     },
@@ -248,7 +248,7 @@
     },
     {
       "type": "highlight",
-      "content": "Think of UVB like exercise for humans: you can survive without it, but you'll be healthier with it. Crested geckos with UVB access tend to be more active, eat better, and have stronger bones. If budget allows, provide low-level UVB (1.0-2.0 UVI)."
+      "content": "If budget allows, low-level UVB can be a quality-of-life upgrade. If you skip UVB, a high-quality CGD with D3 is still an acceptable baseline. If you use UVB, keep it low (0.5-1.0 UVI)."
     },
     {
       "type": "section",

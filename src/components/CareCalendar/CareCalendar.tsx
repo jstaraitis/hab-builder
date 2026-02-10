@@ -29,16 +29,14 @@ import {
   LayoutGrid,
   type LucideIcon
 } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { Auth } from '../Auth';
 import { careTaskService } from '../../services/careTaskService';
 import { enclosureService } from '../../services/enclosureService';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
-import { TaskCreationModal } from './TaskCreationModal';
-import { TaskEditModal } from './TaskEditModal';
 import { FeedingLogModal } from './FeedingLogModal';
 import { EnclosureManager } from './EnclosureManager';
-import { NotificationPrompt } from './NotificationPrompt';
 import { CareAnalyticsDashboard } from '../CareAnalytics';
 import type { CareTaskWithLogs, TaskType, CareTask, CareLog, Enclosure, EnclosureAnimal } from '../../types/careCalendar';
 
@@ -48,18 +46,17 @@ type TimeBlock = 'overdue' | 'morning' | 'afternoon' | 'evening' | 'night' | 'to
 
 export function CareCalendar() {
   const { user, loading: authLoading } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [tasks, setTasks] = useState<CareTaskWithLogs[]>([]);
   const [enclosures, setEnclosures] = useState<Enclosure[]>([]);
   const [animals, setAnimals] = useState<EnclosureAnimal[]>([]); // All animals from all enclosures
   const [filterEnclosureId, setFilterEnclosureId] = useState<string>('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [showModal, setShowModal] = useState(false);
-  const [editingTask, setEditingTask] = useState<CareTask | null>(null);
   const [feedingTask, setFeedingTask] = useState<CareTask | null>(null);
   const [showFeedingModal, setShowFeedingModal] = useState(false);
   const [expandedTasks, setExpandedTasks] = useState<Set<string>>(new Set());
-  const [showNotificationPrompt, setShowNotificationPrompt] = useState(false);
   const [viewMode, setViewMode] = useState<ViewMode>('today');
   const [layoutMode, setLayoutMode] = useState<LayoutMode>('cards');
   const [expandedSections, setExpandedSections] = useState<Set<TimeBlock>>(new Set(['overdue', 'morning', 'afternoon', 'evening']));
@@ -76,7 +73,7 @@ export function CareCalendar() {
       loadEnclosures();
       loadAnimals();
     }
-  }, [user]);
+  }, [user, location.key]);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -669,7 +666,7 @@ export function CareCalendar() {
                 </div>
 
                 <button
-                  onClick={() => setShowModal(true)}
+                  onClick={() => navigate(`/care-calendar/tasks/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
                   className="w-full lg:w-fit px-4 py-2.5 sm:py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-colors text-sm flex items-center justify-center gap-2 shadow-sm"
                 >
                   <Plus className="w-4 h-4" />
@@ -898,7 +895,7 @@ export function CareCalendar() {
                                   {!selectionMode && (
                                     <>
                                       <button
-                                        onClick={() => setEditingTask(task)}
+                                        onClick={() => navigate(`/care-calendar/tasks/edit/${task.id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
                                         className="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
                                       >
                                         <Pencil className="w-3.5 h-3.5 text-gray-400" />
@@ -1034,7 +1031,7 @@ export function CareCalendar() {
                                 
                                 {!selectionMode && (
                                   <button
-                                    onClick={() => setEditingTask(task)}
+                                    onClick={() => navigate(`/care-calendar/tasks/edit/${task.id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
                                     className="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
                                   >
                                     <Pencil className="w-4 h-4 text-gray-400" />
@@ -1184,34 +1181,6 @@ export function CareCalendar() {
       )}
       </>
       )}
-
-      {/* Notification Permission Prompt */}
-      <NotificationPrompt 
-        show={showNotificationPrompt} 
-        onClose={() => setShowNotificationPrompt(false)} 
-      />
-
-      {/* Task Creation Modal */}
-      <TaskCreationModal
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}
-        onTaskCreated={() => {
-          loadTasks();
-          setShowModal(false);
-        }}
-        onNotificationPromptNeeded={() => setShowNotificationPrompt(true)}
-      />
-
-      {/* Task Edit Modal */}
-      <TaskEditModal
-        task={editingTask}
-        isOpen={!!editingTask}
-        onClose={() => setEditingTask(null)}
-        onTaskUpdated={() => {
-          loadTasks();
-          setEditingTask(null);
-        }}
-      />
 
       {/* Feeding Log Modal */}
       <FeedingLogModal

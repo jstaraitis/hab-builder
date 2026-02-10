@@ -145,7 +145,7 @@
       "headers": ["Layer", "Material", "Depth", "Purpose"],
       "rows": [
         ["Drainage layer", "[material]", "[depth]", "[water management]"],
-        ["Mesh barrier", "[material]", "—", "[separation]"],
+        ["Mesh barrier", "[material]", "-", "[separation]"],
         ["Substrate layer", "[mix composition]", "[depth]", "[plant roots, cleanup crew]"],
         ["Leaf litter top", "[material]", "[depth]", "[microfauna habitat]"]
       ]

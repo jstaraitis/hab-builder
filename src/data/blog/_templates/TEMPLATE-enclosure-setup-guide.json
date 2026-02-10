@@ -29,7 +29,7 @@
     },
     {
       "type": "table",
-      "headers": ["Life Stage", "Minimum Dimensions (L×W×H)", "Floor Space", "Notes"],
+      "headers": ["Life Stage", "Minimum Dimensions (LxWxH)", "Floor Space", "Notes"],
       "rows": [
         ["Hatchling/Baby", "[dimensions]", "[sq ft]", "[special considerations]"],
         ["Juvenile", "[dimensions]", "[sq ft]", "[growth milestones]"],

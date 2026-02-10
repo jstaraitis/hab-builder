@@ -13,6 +13,7 @@ interface TaskCreationModalProps {
   onClose: () => void;
   onTaskCreated: () => void;
   onNotificationPromptNeeded?: () => void;
+  layout?: 'modal' | 'page';
 }
 
 interface TaskFormData {
@@ -27,7 +28,13 @@ interface TaskFormData {
   notificationMinutesBefore: number;
 }
 
-export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificationPromptNeeded }: TaskCreationModalProps) {
+export function TaskCreationModal({
+  isOpen,
+  onClose,
+  onTaskCreated,
+  onNotificationPromptNeeded,
+  layout = 'modal'
+}: TaskCreationModalProps) {
   const { user } = useAuth();
   const [enclosures, setEnclosures] = useState<Enclosure[]>([]);
   const [selectedEnclosure, setSelectedEnclosure] = useState<string>('');
@@ -202,24 +209,42 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
 
   if (!isOpen) return null;
 
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-4xl w-full max-h-[85vh] sm:max-h-[90vh] overflow-hidden flex flex-col">
+  const containerClassName = layout === 'page'
+    ? 'bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm'
+    : 'bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-4xl w-full max-h-[85vh] sm:max-h-[90vh] overflow-hidden flex flex-col';
+  const contentClassName = layout === 'page'
+    ? 'p-3 sm:p-6'
+    : 'flex-1 overflow-y-auto p-4 sm:p-6 pb-24 sm:pb-6';
+  const footerClassName = layout === 'page'
+    ? 'border-t border-gray-200 dark:border-gray-700 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between'
+    : 'border-t border-gray-200 dark:border-gray-700 p-3 sm:p-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 sm:justify-between bg-gray-50 dark:bg-gray-900 shrink-0';
+
+  const modalContent = (
+    <div className={containerClassName}>
         {/* Header */}
-        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 dark:border-gray-700">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+        <div className="flex items-center justify-between p-3 sm:p-6 border-b border-gray-200 dark:border-gray-700">
+          <h2 className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white">
             Create Care Tasks
           </h2>
+        {layout === 'page' ? (
+          <button
+            onClick={onClose}
+            className="text-sm text-emerald-700 dark:text-emerald-300 hover:text-emerald-800 dark:hover:text-emerald-200 font-medium"
+          >
+            Back
+          </button>
+        ) : (
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 -mr-1"
           >
             <X className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
+        )}
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 pb-24 sm:pb-6">
+        <div className={contentClassName}>
           {/* Step 1: Enclosure Selection */}
           {!selectedEnclosure ? (
             <div className="space-y-3 sm:space-y-4">
@@ -386,7 +411,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
             /* Step 4: Task Configuration (Template or Custom) */
             <div className="space-y-4 sm:space-y-6">
               {/* Header */}
-              <div className="flex items-start sm:items-center justify-between gap-3">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div className="flex-1 min-w-0">
                   <button
                     onClick={() => {
@@ -424,7 +449,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                         notificationMinutesBefore: 15,
                       }]);
                     }}
-                    className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm rounded-lg transition-colors shrink-0"
+                    className="w-full sm:w-auto px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm rounded-lg transition-colors shrink-0"
                   >
                     + Add Task
                   </button>
@@ -443,8 +468,8 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
               </div>
 
               {/* Animal Selection for all tasks */}
-              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3">
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-2.5 sm:p-3">
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   {taskMode === 'custom' ? 'These tasks are for:' : 'Tasks will be for:'}
                 </label>
                 <select
@@ -459,7 +484,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                     </option>
                   ))}
                 </select>
-                <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                <p className="text-[11px] sm:text-xs text-gray-600 dark:text-gray-400 mt-1">
                   {selectedAnimalId
                     ? `Tasks will be specific to ${animals.find(a => a.id === selectedAnimalId)?.name || 'this animal'}`
                     : 'Tasks will apply to the whole enclosure'}
@@ -471,7 +496,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                 {tasks.map((task, index) => (
                   <div
                     key={index}
-                    className="border border-gray-200 dark:border-gray-700 rounded-lg p-3 sm:p-4 space-y-2 sm:space-y-3"
+                    className="border border-gray-200 dark:border-gray-700 rounded-lg p-2.5 sm:p-4 space-y-2 sm:space-y-3"
                   >
                     <div className="flex items-start justify-between gap-2">
                       <input
@@ -479,34 +504,29 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                         value={task.title}
                         onChange={(e) => updateTask(index, 'title', e.target.value)}
                         placeholder="Task name (e.g., 'Feed', 'Clean tank')"
-                        className="flex-1 text-base sm:text-lg font-medium px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+                        className="flex-1 text-sm sm:text-lg font-medium px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
                       />
+                    </div>
+
+                    <div className="flex justify-end">
                       <button
                         onClick={() => removeTask(index)}
-                        className="text-red-500 hover:text-red-700 shrink-0 -mr-1"
-                        title="Remove task"
+                        className="text-xs sm:text-sm text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300"
+                        type="button"
                       >
-                        <X className="w-4 h-4 sm:w-5 sm:h-5" />
+                        Remove task
                       </button>
                     </div>
 
-                    <textarea
-                      value={task.description}
-                      onChange={(e) => updateTask(index, 'description', e.target.value)}
-                      placeholder="Optional: Add details about this task..."
-                      rows={2}
-                      className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 text-xs sm:text-sm"
-                    />
-
-                    <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                       <div>
-                        <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                        <label className="block text-[11px] sm:text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
                           Type
                         </label>
                         <select
                           value={task.type}
                           onChange={(e) => updateTask(index, 'type', e.target.value)}
-                          className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
+                          className="w-full px-2 sm:px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
                         >
                           <option value="feeding">Feeding</option>
                           <option value="gut-load">Gut-Load Feeders</option>
@@ -522,13 +542,13 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                       </div>
 
                       <div>
-                        <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                        <label className="block text-[11px] sm:text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
                           Frequency
                         </label>
                         <select
                           value={task.frequency}
                           onChange={(e) => updateTask(index, 'frequency', e.target.value)}
-                          className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
+                          className="w-full px-2 sm:px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
                         >
                           <option value="daily">Daily</option>
                           <option value="every-other-day">Every Other Day</option>
@@ -540,29 +560,29 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                       </div>
 
                       <div>
-                        <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                        <label className="block text-[11px] sm:text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
                           Start Date (optional)
                         </label>
                         <input
                           type="date"
                           value={task.startDate || ''}
                           onChange={(e) => updateTask(index, 'startDate', e.target.value)}
-                          className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
+                          className="w-full px-2 sm:px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
                         />
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                        <p className="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 mt-0.5">
                           Schedule a future task (e.g., feeding in 2 weeks)
                         </p>
                       </div>
 
                       <div>
-                        <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                        <label className="block text-[11px] sm:text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
                           Time
                         </label>
                         <input
                           type="time"
                           value={task.scheduledTime}
                           onChange={(e) => updateTask(index, 'scheduledTime', e.target.value)}
-                          className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
+                          className="w-full px-2 sm:px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
                         />
                       </div>
                     </div>
@@ -587,7 +607,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
 
                       {task.notificationEnabled && (
                         <div>
-                          <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                          <label className="block text-[11px] sm:text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
                             Remind me
                           </label>
                           <select
@@ -597,7 +617,7 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                               updated[index] = { ...updated[index], notificationMinutesBefore: parseInt(e.target.value) };
                               return updated;
                             })}
-                            className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
+                            className="w-full px-2 sm:px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
                           >
                             <option value="5">5 minutes before</option>
                             <option value="10">10 minutes before</option>
@@ -608,6 +628,19 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
                           </select>
                         </div>
                       )}
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] sm:text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                        Optional Details
+                      </label>
+                      <textarea
+                        value={task.description}
+                        onChange={(e) => updateTask(index, 'description', e.target.value)}
+                        placeholder="Add details about this task..."
+                        rows={2}
+                        className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 text-xs sm:text-sm"
+                      />
                     </div>
                   </div>
                 ))}
@@ -624,11 +657,11 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
 
         {/* Footer */}
         {(selectedAnimal || (taskMode === 'custom' && tasks.length > 0)) && (
-          <div className="border-t border-gray-200 dark:border-gray-700 p-3 sm:p-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 sm:justify-between bg-gray-50 dark:bg-gray-900 shrink-0">
+          <div className={footerClassName}>
             <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 text-center sm:text-left">
               {tasks.length} task{tasks.length !== 1 ? 's' : ''} ready
             </div>
-            <div className="flex gap-2 sm:gap-3">
+            <div className="flex gap-2 sm:gap-3 w-full sm:w-auto">
               <button
                 onClick={onClose}
                 disabled={loading}
@@ -646,7 +679,20 @@ export function TaskCreationModal({ isOpen, onClose, onTaskCreated, onNotificati
             </div>
           </div>
         )}
+    </div>
+  );
+
+  if (layout === 'page') {
+    return (
+      <div className="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6">
+        {modalContent}
       </div>
+    );
+  }
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4">
+      {modalContent}
     </div>
   );
 }

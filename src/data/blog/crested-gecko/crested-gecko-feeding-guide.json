@@ -48,7 +48,7 @@
     },
     {
       "type": "text",
-      "content": "CGD powder is a revolutionary product that transformed crested gecko keeping. It's nutritionally complete×no fruits, vegetables, or vitamin dusting required when CGD is the primary diet."
+      "content": "CGD powder is a revolutionary product that transformed crested gecko keeping. It's nutritionally complete - no fruits, vegetables, or vitamin dusting required when CGD is the primary diet."
     },
     {
       "type": "text",
@@ -102,7 +102,7 @@
       "rows": [
         ["1. Prepare fresh CGD", "Mix powder + water in small cup or ledge", "Mix immediately before feeding (evening, around 7-9 PM)"],
         ["2. Place in enclosure", "Magnetic ledge, gecko feeding cup, or cork bark", "Mid to upper level, easily accessible from vines"],
-        ["3. Remove previous CGD", "Discard any uneaten CGD from prior feeding", "CGD spoils in 24 hours×never leave more than one night"],
+        ["3. Remove previous CGD", "Discard any uneaten CGD from prior feeding", "CGD spoils in 24 hours - never leave more than one night"],
         ["4. Offer for 24 hours", "Leave fresh CGD overnight", "Crested geckos are most active 8 PM-4 AM"],
         ["5. Monitor consumption", "Check if gecko licked cup clean or left residue", "Adjust portion size based on consumption patterns"]
       ]
@@ -245,7 +245,7 @@
     {
       "type": "warning",
       "severity": "tip",
-      "content": "Do NOT offer fresh fruit (mango, banana, etc.) to crested geckos. CGD already contains fruit in optimal ratios. Fresh fruit ferments quickly, disrupts gut bacteria, and can cause diarrhea. Stick to CGD for fruit nutrition."
+      "content": "For beginners, skip fresh fruit (mango, banana, etc.). CGD already contains fruit in optimal ratios. Fresh fruit ferments quickly, disrupts gut bacteria, and can cause diarrhea. Advanced keepers sometimes use custom blends, but CGD is the safest baseline."
     },
     {
       "type": "section",
@@ -320,7 +320,7 @@
     },
     {
       "type": "highlight",
-      "content": "Position feeding ledges mid to upper level of enclosure×crested geckos feel safer eating off the ground. Have 2-3 ledges/cups so you can rotate (one in use, one being cleaned)."
+      "content": "Position feeding ledges mid to upper level of enclosure - crested geckos feel safer eating off the ground. Have 2-3 ledges/cups so you can rotate (one in use, one being cleaned)."
     },
     {
       "type": "section",

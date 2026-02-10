@@ -9,9 +9,16 @@ interface TaskEditModalProps {
   isOpen: boolean;
   onClose: () => void;
   onTaskUpdated: () => void;
+  layout?: 'modal' | 'page';
 }
 
-export function TaskEditModal({ task, isOpen, onClose, onTaskUpdated }: TaskEditModalProps) {
+export function TaskEditModal({
+  task,
+  isOpen,
+  onClose,
+  onTaskUpdated,
+  layout = 'modal'
+}: TaskEditModalProps) {
   const [formData, setFormData] = useState<Partial<CareTask>>({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -102,26 +109,41 @@ export function TaskEditModal({ task, isOpen, onClose, onTaskUpdated }: TaskEdit
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  if (!isOpen || !task) return null;
+  if (!task) return null;
+  if (layout === 'modal' && !isOpen) return null;
+  const containerClassName = layout === 'page'
+    ? 'bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm'
+    : 'bg-white dark:bg-gray-800 rounded-t-2xl sm:rounded-lg shadow-xl max-w-2xl w-full max-h-[calc(100vh-5rem)] sm:max-h-[90vh] overflow-hidden flex flex-col';
+  const formClassName = layout === 'page'
+    ? 'p-4 sm:p-6 space-y-3'
+    : 'flex-1 overflow-y-auto p-4 sm:p-6 space-y-3';
 
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-end sm:items-center justify-center z-50 pb-16 sm:pb-0">
-      <div className="bg-white dark:bg-gray-800 rounded-t-2xl sm:rounded-lg shadow-xl max-w-2xl w-full max-h-[calc(100vh-5rem)] sm:max-h-[90vh] overflow-hidden flex flex-col">
+  const modalContent = (
+    <div className={containerClassName}>
         {/* Header */}
         <div className="flex items-center justify-between p-5 sm:p-6 border-b border-gray-200 dark:border-gray-700 shrink-0">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
             Edit Task
           </h2>
-          <button
-            onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 p-1"
-          >
-            <X className="w-6 h-6" />
-          </button>
+          {layout === 'page' ? (
+            <button
+              onClick={onClose}
+              className="text-sm text-emerald-700 dark:text-emerald-300 hover:text-emerald-800 dark:hover:text-emerald-200 font-medium"
+            >
+              Back
+            </button>
+          ) : (
+            <button
+              onClick={onClose}
+              className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 p-1"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          )}
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-3">
+        <form onSubmit={handleSubmit} className={formClassName}>
           {/* Enclosure Selection (Optional) */}
           {enclosures.length > 0 && (
             <div>
@@ -393,7 +415,20 @@ export function TaskEditModal({ task, isOpen, onClose, onTaskUpdated }: TaskEdit
             </div>
           </div>
         </div>
+    </div>
+  );
+
+  if (layout === 'page') {
+    return (
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        {modalContent}
       </div>
+    );
+  }
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-end sm:items-center justify-center z-50 pb-16 sm:pb-0">
+      {modalContent}
     </div>
   );
 }

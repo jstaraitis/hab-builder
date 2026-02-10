@@ -1,0 +1,60 @@
+{
+  "id": "example-enclosure-setups",
+  "title": "Example Enclosure Setups: Reference Builds",
+  "author": "Habitat Builder Team",
+  "date": "2026-02-10",
+  "category": "General Guides",
+  "excerpt": "A curated collection of reference enclosures to help you visualize layout, lighting, and decor choices.",
+  "description": "Reference enclosure builds with photos, layout notes, and setup highlights. Use these examples to visualize your plan and refine your layout choices.",
+  "tags": ["examples", "enclosure-setup", "inspiration", "layout"],
+  "status": "in-progress",
+  "content": [
+    {
+      "type": "intro",
+      "text": "These reference builds are curated examples that show how a complete setup can look when the plan is applied in real life. Use them for layout inspiration, decor balance, and equipment placement. We will continue adding more examples over time."
+    },
+    {
+      "type": "section",
+      "heading": "White's Tree Frog: Three Reference Builds"
+    },
+    {
+      "type": "text",
+      "text": "Each example below uses the same core care requirements but different styling priorities. The goal is to show how the same plan can be expressed as minimalist, naturalistic, or display-focused."
+    },
+    {
+      "type": "image",
+      "src": "/examples/whites-tree-frog/minimalist-setup.jpg",
+      "alt": "White's Tree Frog minimalist enclosure setup",
+      "caption": "Minimalist setup: clean layout, simple hides, and easy maintenance."
+    },
+    {
+      "type": "image",
+      "src": "/examples/whites-tree-frog/naturalistic-setup.jpg",
+      "alt": "White's Tree Frog naturalistic enclosure setup",
+      "caption": "Naturalistic setup: live plants, leaf litter, and layered visual cover."
+    },
+    {
+      "type": "image",
+      "src": "/examples/whites-tree-frog/display-setup.jpg",
+      "alt": "White's Tree Frog display enclosure setup",
+      "caption": "Display setup: premium hardscape and lighting for a showcase look."
+    },
+    {
+      "type": "section",
+      "heading": "How To Use These Examples"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Match the core care targets from your plan first, then customize the decor style.",
+        "Use the layout zones in your plan as anchors for basking, hides, and water areas.",
+        "Balance coverage and open space so the animal can move and thermoregulate.",
+        "Treat these as starting points, not strict templates."
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "More species examples are coming. If a species is missing, use the layout zones and build steps in your plan to build a safe baseline while we expand the gallery."
+    }
+  ]
+}

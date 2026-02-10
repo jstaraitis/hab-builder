@@ -4,12 +4,12 @@
  * Displays and manages all animals across all enclosures for the current user
  */
 
-import { useState, useEffect } from 'react';
-import { Calendar, Scale, MapPin, Plus, X, Pencil, Trash2 } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Calendar, Scale, MapPin, Plus, Pencil, Trash2 } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { enclosureService } from '../../services/enclosureService';
-import { WeightTracker } from '../WeightTracking';
 import type { EnclosureAnimal, Enclosure } from '../../types/careCalendar';
 
 // Helper function to calculate age display string
@@ -34,19 +34,8 @@ export function MyAnimals() {
   const [enclosures, setEnclosures] = useState<Enclosure[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [showModal, setShowModal] = useState(false);
-  const [editingAnimal, setEditingAnimal] = useState<EnclosureAnimal | null>(null);
-  const [trackingWeightForAnimal, setTrackingWeightForAnimal] = useState<EnclosureAnimal | null>(null);
-
-  const [formData, setFormData] = useState({
-    enclosureId: '',
-    name: '',
-    animalNumber: '',
-    gender: '' as '' | 'male' | 'female' | 'unknown',
-    morph: '',
-    birthday: '',
-    notes: '',
-  });
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (user) {
@@ -55,7 +44,7 @@ export function MyAnimals() {
       // If no user, stop loading
       setLoading(false);
     }
-  }, [user]);
+  }, [user, location.key]);
 
   const loadData = async () => {
     try {
@@ -78,76 +67,6 @@ export function MyAnimals() {
     }
   };
 
-  const openModal = (animal?: EnclosureAnimal) => {
-    if (animal) {
-      setEditingAnimal(animal);
-      setFormData({
-        enclosureId: animal.enclosureId || '',
-        name: animal.name || '',
-        animalNumber: animal.animalNumber?.toString() || '',
-        gender: animal.gender || '',
-        morph: animal.morph || '',
-        birthday: animal.birthday ? new Date(animal.birthday).toISOString().split('T')[0] : '',
-        notes: animal.notes || '',
-      });
-    } else {
-      setEditingAnimal(null);
-      setFormData({ 
-        enclosureId: '',
-        name: '', 
-        animalNumber: '', 
-        gender: '',
-        morph: '',
-        birthday: '', 
-        notes: '' 
-      });
-    }
-    setShowModal(true);
-    setError(null);
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-    setEditingAnimal(null);
-    setFormData({ enclosureId: '', name: '', animalNumber: '', gender: '', morph: '', birthday: '', notes: '' });
-    setError(null);
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!user) {
-      setError('User not authenticated');
-      return;
-    }
-
-    try {
-      setError(null);
-
-      const animalData: Partial<EnclosureAnimal> = {
-        enclosureId: formData.enclosureId || undefined,
-        userId: user.id,
-        name: formData.name || undefined,
-        animalNumber: formData.animalNumber ? parseInt(formData.animalNumber) : undefined,
-        gender: formData.gender || undefined,
-        morph: formData.morph || undefined,
-        birthday: formData.birthday ? new Date(formData.birthday) : undefined,
-        notes: formData.notes || undefined,
-        isActive: true,
-      };
-
-      if (editingAnimal) {
-        await enclosureAnimalService.updateAnimal(editingAnimal.id, animalData);
-      } else {
-        await enclosureAnimalService.createAnimal(animalData);
-      }
-
-      await loadData();
-      closeModal();
-    } catch (err: any) {
-      console.error('Error saving animal:', err);
-      setError(err.message || 'Failed to save animal');
-    }
-  };
 
   const handleDelete = async (animal: EnclosureAnimal) => {
     if (!confirm(`Delete ${animal.name || `Animal #${animal.animalNumber || '?'}`}?`)) {
@@ -183,14 +102,14 @@ export function MyAnimals() {
         {/* Action Buttons - Inline on mobile */}
         <div className="flex items-center gap-0.5 shrink-0">
           <button
-            onClick={() => setTrackingWeightForAnimal(animal)}
+            onClick={() => navigate(`/weight-tracker/${animal.id}`)}
             className="p-1.5 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
             title="Track weight"
           >
             <Scale className="w-4 h-4" />
           </button>
           <button
-            onClick={() => openModal(animal)}
+            onClick={() => navigate(`/my-animals/edit/${animal.id}`)}
             className="p-1.5 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
             title="Edit"
           >
@@ -294,9 +213,18 @@ export function MyAnimals() {
   // Show empty state with prompt to create enclosure first if no enclosures exist
   // Removed - animals can now exist without enclosures
 
+  const getAnimalSortName = (animal: EnclosureAnimal) => {
+    if (animal.name && animal.name.trim().length > 0) return animal.name.trim().toLowerCase();
+    const number = animal.animalNumber ?? 0;
+    return `animal ${number}`;
+  };
+
+  const sortAnimalsByName = (list: EnclosureAnimal[]) =>
+    [...list].sort((a, b) => getAnimalSortName(a).localeCompare(getAnimalSortName(b)));
+
   // Separate assigned and unassigned animals
-  const assignedAnimals = animals.filter(a => a.enclosureId);
-  const unassignedAnimals = animals.filter(a => !a.enclosureId);
+  const assignedAnimals = sortAnimalsByName(animals.filter(a => a.enclosureId));
+  const unassignedAnimals = sortAnimalsByName(animals.filter(a => !a.enclosureId));
 
   return (
     <div className="space-y-4">
@@ -311,7 +239,7 @@ export function MyAnimals() {
           </p>
         </div>
         <button
-          onClick={() => openModal()}
+          onClick={() => navigate(`/my-animals/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
           className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium rounded-lg transition-colors flex items-center gap-1.5"
         >
           <Plus className="w-4 h-4" />
@@ -370,173 +298,6 @@ export function MyAnimals() {
         </>
       )}
 
-      {/* Add/Edit Animal Modal */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full">
-            <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                {editingAnimal ? 'Edit Animal' : 'Add Animal'}
-              </h3>
-              <button onClick={closeModal} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <form onSubmit={handleSubmit} className="p-4 space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Enclosure (optional)
-                </label>
-                <select
-                  value={formData.enclosureId}
-                  onChange={(e) => setFormData(prev => ({ ...prev, enclosureId: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                >
-                  <option value="">No enclosure</option>
-                  {enclosures.map(enc => (
-                    <option key={enc.id} value={enc.id}>
-                      {enc.name} - {enc.animalName}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Name (optional)
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                    placeholder="e.g., Kermit"
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Number (optional)
-                  </label>
-                  <input
-                    type="number"
-                    min="1"
-                    value={formData.animalNumber}
-                    onChange={(e) => setFormData(prev => ({ ...prev, animalNumber: e.target.value }))}
-                    placeholder="e.g., 1"
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Gender (optional)
-                  </label>
-                  <select
-                    value={formData.gender}
-                    onChange={(e) => setFormData(prev => ({ ...prev, gender: e.target.value as '' | 'male' | 'female' | 'unknown' }))}
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                  >
-                    <option value="">Select...</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="unknown">Unknown</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Morph (optional)
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.morph}
-                    onChange={(e) => setFormData(prev => ({ ...prev, morph: e.target.value }))}
-                    placeholder="e.g., Albino, Leucistic"
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Birthday/Hatch Date (optional)
-                </label>
-                <input
-                  type="date"
-                  value={formData.birthday}
-                  onChange={(e) => setFormData(prev => ({ ...prev, birthday: e.target.value }))}
-                  max={new Date().toISOString().split('T')[0]}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Notes (optional)
-                </label>
-                <textarea
-                  value={formData.notes}
-                  onChange={(e) => setFormData(prev => ({ ...prev, notes: e.target.value }))}
-                  rows={2}
-                  placeholder="Special traits, health notes, etc."
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
-                />
-              </div>
-
-              {error && (
-                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3 text-red-800 dark:text-red-200 text-sm">
-                  {error}
-                </div>
-              )}
-
-              <div className="flex gap-2 pt-2">
-                <button
-                  type="button"
-                  onClick={closeModal}
-                  className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="flex-1 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
-                >
-                  {editingAnimal ? 'Update' : 'Add'} Animal
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* Weight Tracker Modal */}
-      {trackingWeightForAnimal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4 overflow-y-auto">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-6xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto">
-            <div className="sticky top-0 bg-white dark:bg-gray-800 flex items-center justify-between p-3 sm:p-4 border-b border-gray-200 dark:border-gray-700 z-10">
-              <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white truncate pr-2">
-                Weight Tracker - {trackingWeightForAnimal.name || `Animal #${trackingWeightForAnimal.animalNumber}`}
-              </h3>
-              <button 
-                onClick={() => setTrackingWeightForAnimal(null)} 
-                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 flex-shrink-0"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-            <div className="p-2 sm:p-4">
-              <WeightTracker 
-                animal={trackingWeightForAnimal}
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

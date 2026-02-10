@@ -126,6 +126,7 @@ export interface PriceRange {
 
 export interface ShoppingItem {
   id: string;
+  uid?: string;
   category: 'equipment' | 'substrate' | 'decor' | 'live_plants' | 'cleanup_crew' | 'nutrition' | 'enclosure';
   name: string;
   quantity: number | string; // can be "2" or "1 bag (8 quarts)"

@@ -31,20 +31,20 @@
       "type": "table",
       "headers": ["Zone", "Daytime Temp", "Nighttime Temp", "Location"],
       "rows": [
-        ["Basking Area", "82-85F (28-29C)", "Drop to ambient", "Top 6\" of enclosure, directly under heat lamp"],
-        ["Mid-Level (activity zone)", "75-80F (24-27C)", "70-75F (21-24C)", "Middle third of enclosure"],
-        ["Cool Zone", "70-75F (21-24C)", "65-72F (18-22C)", "Bottom third of enclosure"],
+        ["Upper Zone", "74-78F (23-26C)", "70-74F (21-23C)", "Top third of enclosure"],
+        ["Mid-Level (activity zone)", "72-76F (22-24C)", "68-72F (20-22C)", "Middle third of enclosure"],
+        ["Cool Zone", "70-74F (21-23C)", "65-70F (18-21C)", "Bottom third of enclosure"],
         ["Substrate Surface", "68-72F (20-22C)", "65-68F (18-20C)", "Floor level"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Temperatures above 85F (29C) are dangerous for crested geckos and can cause heat stress, regurgitation, or death. Avoid heat mats/tape, these create bottom heat that conflicts with natural thermoregulation (heat should come from above)."
+      "content": "Temperatures above 82F (28C) cause stress and can lead to illness or death. Avoid heat mats/tape; bottom heat conflicts with natural thermoregulation (heat should come from above if needed)."
     },
     {
       "type": "highlight",
-      "content": "For complete guidance on heating equipment options and temperature monitoring tools, see our <a href='/blog/temperature-monitoring-equipment-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Temperature Monitoring Equipment Guide</a>. Crested geckos require minimal heating - just a 40-60w incandescent bulb creating an 82-85F basking zone at the top."
+      "content": "For complete guidance on heating equipment options and temperature monitoring tools, see our <a href='/blog/temperature-monitoring-equipment-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Temperature Monitoring Equipment Guide</a>. Many crested geckos do well at room temperature if your home stays 70-78F. Add gentle overhead heat only if your room drops below 70F."
     },
     {
       "type": "section",
@@ -62,10 +62,11 @@
       "type": "table",
       "headers": ["Time of Day", "Target Range", "Natural Pattern"],
       "rows": [
-        ["Morning (after misting)", "80-90%", "Simulates morning dew/fog in rainforest"],
+        ["Morning (after misting)", "80-100%", "Simulates morning dew/fog in rainforest"],
         ["Midday (dried out)", "50-60%", "Allows enclosure to breathe, prevents mold"],
-        ["Evening (after misting)", "70-80%", "Provides drinking water, increases comfort"],
+        ["Evening (after misting)", "70-85%", "Provides drinking water, increases comfort"],
         ["Nighttime (peak)", "70-85%", "Natural increase as temperatures drop"],
+        ["Overall Minimum", "50%", "Humidity should not drop below this"],
         ["Overall Average", "60-80%", "Daily average balances hydration and drying"]
       ]
     },

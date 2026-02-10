@@ -13,7 +13,7 @@
     {
       "type": "intro",
       "heading": "Never Miss a Care Task Again",
-      "text": "Keeping reptiles and amphibians healthy requires consistent, species-specific care routines—feeding, misting, temperature adjustments, cleaning, and health checks. But with busy schedules and multiple enclosures, it's easy to lose track of what needs to be done when. Habitat Builder's Care Tasks & My Animals system makes it easy to stay on top of your animal care with automated notifications, detailed animal profiles, and a reliability score that tracks how well you're meeting your animals' needs."
+      "text": "Keeping reptiles and amphibians healthy requires consistent, species-specific care routines - feeding, misting, temperature adjustments, cleaning, and health checks. But with busy schedules and multiple enclosures, it's easy to lose track of what needs to be done when. Habitat Builder's Care Tasks & My Animals system makes it easy to stay on top of your animal care with automated notifications, detailed animal profiles, and a reliability score that tracks how well you're meeting your animals' needs. Premium users get the most streamlined experience with richer tracking and faster workflows."
     },
     {
       "type": "section",
@@ -21,7 +21,11 @@
     },
     {
       "type": "text",
-      "text": "Care reminders are automated tasks tied to your specific enclosures and animals. When you create a new enclosure in Habitat Builder, the system recommends species-specific care tasks based on the animal's requirements. You can customize the frequency (daily, every 2 days, weekly, etc.) and preferred time of day for each task. Additionally, you can track detailed information about each animal including gender, morph (color variant), birthday, and weight history—all accessible from the My Animals page."
+      "text": "Care reminders are automated tasks tied to your specific enclosures and animals. When you create a new enclosure in Habitat Builder, the system recommends species-specific care tasks based on the animal's requirements. You can customize the frequency (daily, every 2 days, weekly, etc.) and preferred time of day for each task. Additionally, you can track detailed information about each animal including gender, morph (color variant), birthday, and weight history - all accessible from the My Animals page."
+    },
+    {
+      "type": "text",
+      "text": "Premium is ideal if you manage multiple animals and want deeper tracking, cleaner mobile workflows, and faster care planning."
     },
     {
       "type": "text",
@@ -50,7 +54,7 @@
     },
     {
       "type": "text",
-      "text": "Installing the PWA is optional—you can use Habitat Builder just fine in your regular browser. But if you want the best notification experience and offline access, installing it is highly recommended."
+      "text": "Installing the PWA is optional - you can use Habitat Builder just fine in your regular browser. But if you want the best notification experience and offline access, installing it is highly recommended."
     },
     {
       "type": "section",
@@ -149,7 +153,7 @@
     },
     {
       "type": "text",
-      "text": "This score helps you identify patterns—maybe you're great at daily feeding but sometimes miss weekly water changes. Use it as a tool to improve, not as judgment. Life happens! The goal is to trend upward over time."
+      "text": "This score helps you identify patterns - maybe you're great at daily feeding but sometimes miss weekly water changes. Use it as a tool to improve, not as judgment. Life happens! The goal is to trend upward over time."
     },
     {
       "type": "section",
@@ -211,6 +215,23 @@
         "Time of Day: Set the preferred notification time. Morning feedings? Evening misting? You control it.",
         "Notes: Add task-specific notes like 'Feed 3-4 crickets' or 'Check substrate moisture' to help you remember details.",
         "Task Type: Change the category to keep your tasks organized and easily recognizable."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Premium Care Tools"
+    },
+    {
+      "type": "text",
+      "text": "Premium keeps your care system efficient as your collection grows. It is built for keepers who want faster setup, richer history, and cleaner mobile workflows."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Richer animal profiles and tracking over time",
+        "Faster task setup and editing",
+        "Cleaner mobile experience for daily check-ins",
+        "Better visibility into your care history"
       ]
     },
     {

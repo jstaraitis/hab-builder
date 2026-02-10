@@ -14,7 +14,16 @@ const SuppliesView = lazy(() => import('./components/Views/SuppliesView').then(m
 const FindYourAnimalView = lazy(() => import('./components/Views/FindYourAnimalView').then(m => ({ default: m.FindYourAnimalView })));
 const FindYourAnimalResultsView = lazy(() => import('./components/Views/FindYourAnimalResultsView').then(m => ({ default: m.FindYourAnimalResultsView })));
 const CareCalendarView = lazy(() => import('./components/Views/CareCalendarView').then(m => ({ default: m.CareCalendarView })));
+const TaskCreationView = lazy(() => import('./components/Views/TaskCreationView').then(m => ({ default: m.TaskCreationView })));
+const TaskEditView = lazy(() => import('./components/Views/TaskEditView').then(m => ({ default: m.TaskEditView })));
 const MyAnimalsView = lazy(() => import('./components/Views/MyAnimalsView').then(m => ({ default: m.MyAnimalsView })));
+const WeightTrackerView = lazy(() => import('./components/Views/WeightTrackerView').then(m => ({ default: m.WeightTrackerView })));
+const EditAnimalView = lazy(() => import('./components/Views/EditAnimalView').then(m => ({ default: m.EditAnimalView })));
+const AddAnimalView = lazy(() => import('./components/Views/AddAnimalView').then(m => ({ default: m.AddAnimalView })));
+const AddEnclosureView = lazy(() => import('./components/Views/AddEnclosureView').then(m => ({ default: m.AddEnclosureView })));
+const EditEnclosureView = lazy(() => import('./components/Views/EditEnclosureView').then(m => ({ default: m.EditEnclosureView })));
+const AddInventoryItemView = lazy(() => import('./components/Views/AddInventoryItemView').then(m => ({ default: m.AddInventoryItemView })));
+const EditInventoryItemView = lazy(() => import('./components/Views/EditInventoryItemView').then(m => ({ default: m.EditInventoryItemView })));
 const InventoryView = lazy(() => import('./components/Views/InventoryView').then(m => ({ default: m.InventoryView })));
 const ProfileView = lazy(() => import('./components/Views/ProfileView').then(m => ({ default: m.ProfileView })));
 const CanvasDesigner = lazy(() => import('./components/EnclosureDesigner/CanvasDesigner'));
@@ -26,6 +35,7 @@ const Roadmap = lazy(() => import('./components/Roadmap/Roadmap').then(m => ({ d
 const Home = lazy(() => import('./components/Home/Home').then(m => ({ default: m.Home })));
 const EquipmentTagsBuilder = lazy(() => import('./components/Admin/EquipmentTagsBuilder'));
 const UpgradePage = lazy(() => import('./components/Upgrade/UpgradePage').then(m => ({ default: m.UpgradePage })));
+const PremiumExplainerPage = lazy(() => import('./components/Upgrade/PremiumExplainerPage').then(m => ({ default: m.PremiumExplainerPage })));
 import { Auth } from './components/Auth';
 import { PremiumPaywall } from './components/Upgrade/PremiumPaywall';
 import { animalProfiles } from './data/animals';
@@ -404,6 +414,15 @@ function App() {
               )}
             </div>
 
+            {!user && (
+              <Link
+                to="/premium"
+                className="px-4 py-2 rounded-lg border whitespace-nowrap bg-emerald-600 text-white border-emerald-600 hover:bg-emerald-700 hover:border-emerald-700 transition-colors"
+              >
+                <Gem className="w-4 h-4 inline mr-1.5" /> Premium
+              </Link>
+            )}
+
             {/* Settings/Account Dropdown */}
             <div className="relative">
               <button
@@ -564,7 +583,7 @@ function App() {
               )
             }
           />
-          <Route path="/plan" element={<PlanView plan={plan} input={input} onOpenFeedback={() => setIsFeedbackOpen(true)} />} />
+          <Route path="/plan" element={<PlanView plan={plan} input={input} />} />
           <Route
             path="/designer"
             element={
@@ -591,6 +610,7 @@ function App() {
             }
           />
           <Route path="/supplies" element={<SuppliesView plan={plan} input={input} />} />
+          <Route path="/premium" element={<PremiumExplainerPage />} />
           <Route path="/upgrade" element={<UpgradePage />} />
           <Route path="/care-calendar" element={
             !user ? (
@@ -605,6 +625,36 @@ function App() {
               <PremiumPaywall />
             ) : (
               <CareCalendarView />
+            )
+          } />
+          <Route path="/care-calendar/tasks/add" element={
+            !user ? (
+              <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="max-w-md w-full">
+                  <Auth />
+                </div>
+              </div>
+            ) : profileLoading ? (
+              <LoadingFallback />
+            ) : !isPremium ? (
+              <PremiumPaywall />
+            ) : (
+              <TaskCreationView />
+            )
+          } />
+          <Route path="/care-calendar/tasks/edit/:id" element={
+            !user ? (
+              <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="max-w-md w-full">
+                  <Auth />
+                </div>
+              </div>
+            ) : profileLoading ? (
+              <LoadingFallback />
+            ) : !isPremium ? (
+              <PremiumPaywall />
+            ) : (
+              <TaskEditView />
             )
           } />
           <Route path="/my-animals" element={
@@ -622,6 +672,81 @@ function App() {
               <MyAnimalsView />
             )
           } />
+          <Route path="/weight-tracker/:id" element={
+            !user ? (
+              <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="max-w-md w-full">
+                  <Auth />
+                </div>
+              </div>
+            ) : profileLoading ? (
+              <LoadingFallback />
+            ) : !isPremium ? (
+              <PremiumPaywall />
+            ) : (
+              <WeightTrackerView />
+            )
+          } />
+          <Route path="/my-animals/edit/:id" element={
+            !user ? (
+              <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="max-w-md w-full">
+                  <Auth />
+                </div>
+              </div>
+            ) : profileLoading ? (
+              <LoadingFallback />
+            ) : !isPremium ? (
+              <PremiumPaywall />
+            ) : (
+              <EditAnimalView />
+            )
+          } />
+          <Route path="/my-animals/add" element={
+            !user ? (
+              <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="max-w-md w-full">
+                  <Auth />
+                </div>
+              </div>
+            ) : profileLoading ? (
+              <LoadingFallback />
+            ) : !isPremium ? (
+              <PremiumPaywall />
+            ) : (
+              <AddAnimalView />
+            )
+          } />
+          <Route path="/care-calendar/enclosures/add" element={
+            !user ? (
+              <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="max-w-md w-full">
+                  <Auth />
+                </div>
+              </div>
+            ) : profileLoading ? (
+              <LoadingFallback />
+            ) : !isPremium ? (
+              <PremiumPaywall />
+            ) : (
+              <AddEnclosureView />
+            )
+          } />
+          <Route path="/care-calendar/enclosures/edit/:id" element={
+            !user ? (
+              <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="max-w-md w-full">
+                  <Auth />
+                </div>
+              </div>
+            ) : profileLoading ? (
+              <LoadingFallback />
+            ) : !isPremium ? (
+              <PremiumPaywall />
+            ) : (
+              <EditEnclosureView />
+            )
+          } />
           <Route path="/inventory" element={
             !user ? (
               <div className="min-h-[60vh] flex items-center justify-center">
@@ -635,6 +760,36 @@ function App() {
               <PremiumPaywall />
             ) : (
               <InventoryView />
+            )
+          } />
+          <Route path="/inventory/add" element={
+            !user ? (
+              <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="max-w-md w-full">
+                  <Auth />
+                </div>
+              </div>
+            ) : profileLoading ? (
+              <LoadingFallback />
+            ) : !isPremium ? (
+              <PremiumPaywall />
+            ) : (
+              <AddInventoryItemView />
+            )
+          } />
+          <Route path="/inventory/edit/:id" element={
+            !user ? (
+              <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="max-w-md w-full">
+                  <Auth />
+                </div>
+              </div>
+            ) : profileLoading ? (
+              <LoadingFallback />
+            ) : !isPremium ? (
+              <PremiumPaywall />
+            ) : (
+              <EditInventoryItemView />
             )
           } />
           <Route path="/about" element={<About onOpenFeedback={() => setIsFeedbackOpen(true)} />} />

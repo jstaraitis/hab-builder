@@ -37,10 +37,10 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
     }, {} as Record<string, ShoppingItem[]>);
   }, [items]);
 
-  // Track which categories are expanded (default all expanded on desktop, collapsed on mobile)
+  // Track which categories are expanded
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>(
     Object.keys(groupedItems).reduce((acc, category) => {
-      acc[category] = true; // Start expanded
+      acc[category] = false; // Start collapsed
       return acc;
     }, {} as Record<string, boolean>)
   );
@@ -113,20 +113,21 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
               
               {isExpanded && (
                 <div className="divide-y divide-gray-200 dark:divide-gray-700">
-                  {categoryItems.map((item) => {
+                  {categoryItems.map((item, index) => {
                     const tierOption = item.setupTierOptions?.[selectedTier];
-                    const isItemExpanded = expandedItems[item.id];
+                    const itemKey = item.uid ?? `${category}-${item.id}-${index}`;
+                    const isItemExpanded = expandedItems[itemKey];
                     
                     return (
                       <div
-                        key={item.id}
+                        key={itemKey}
                         className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/30 transition-colors"
                       >
                         {/* Compact Row */}
                         <div className="p-2.5 sm:p-3">
                           <div className="flex items-start justify-between gap-1 sm:gap-3">
                             <button
-                              onClick={() => toggleItem(item.id)}
+                              onClick={() => toggleItem(itemKey)}
                               className="flex-1 text-left"
                             >
                               <div className="flex items-start gap-2">

@@ -37,8 +37,8 @@
         "max": 78
       },
       "basking": {
-        "min": 82,
-        "max": 85
+        "min": 78,
+        "max": 80
       },
       "nighttime": {
         "min": 65,

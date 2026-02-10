@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Plus, X, Pencil, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
+import { Plus, Pencil, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureService } from '../../services/enclosureService';
-import { animalList } from '../../data/animals';
 import { AnimalList } from './AnimalList';
 import type { Enclosure } from '../../types/careCalendar';
 
@@ -14,28 +14,21 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
   const { user } = useAuth();
   const [enclosures, setEnclosures] = useState<Enclosure[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showModal, setShowModal] = useState(false);
-  const [editingEnclosure, setEditingEnclosure] = useState<Enclosure | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [expandedEnclosureId, setExpandedEnclosureId] = useState<string | null>(null); // Track expanded enclosure for animals list
-
-  const [formData, setFormData] = useState({
-    name: '',
-    animalId: '',
-    customSpeciesName: '', // For custom species input
-    description: '',
-    substrateType: '' as '' | 'bioactive' | 'soil' | 'paper' | 'sand' | 'reptile-carpet' | 'tile' | 'other',
-  });
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (user) {
       loadEnclosures();
     }
-  }, [user]);
+  }, [user, location.key]);
 
   const loadEnclosures = async () => {
     try {
       setLoading(true);
+      setError(null);
       const data = await enclosureService.getEnclosures();
       setEnclosures(data);
     } catch (err) {
@@ -43,53 +36,6 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
       setError('Failed to load enclosures');
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!user) return;
-
-    // Handle custom species
-    const isCustomSpecies = formData.animalId === 'custom';
-    if (isCustomSpecies && !formData.customSpeciesName.trim()) {
-      setError('Please enter a custom species name');
-      return;
-    }
-
-    const selectedAnimal = animalList.find(a => a.id === formData.animalId);
-    if (!selectedAnimal && !isCustomSpecies) return;
-
-    const animalId = isCustomSpecies ? 'custom' : formData.animalId;
-    const animalName = isCustomSpecies ? formData.customSpeciesName.trim() : selectedAnimal!.name;
-
-    try {
-      if (editingEnclosure) {
-        await enclosureService.updateEnclosure(editingEnclosure.id, {
-          name: formData.name,
-          animalId: animalId,
-          animalName: animalName,
-          description: formData.description,
-          substrateType: formData.substrateType || undefined,
-        });
-      } else {
-        await enclosureService.createEnclosure({
-          userId: user.id,
-          name: formData.name,
-          animalId: animalId,
-          animalName: animalName,
-          description: formData.description,
-          substrateType: formData.substrateType || undefined,
-          isActive: true,
-        });
-      }
-
-      await loadEnclosures();
-      closeModal();
-      onEnclosuresChanged?.();
-    } catch (err) {
-      console.error('Failed to save enclosure:', err);
-      setError('Failed to save enclosure');
     }
   };
 
@@ -108,44 +54,6 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
     }
   };
 
-  const openModal = (enclosure?: Enclosure) => {
-    if (enclosure) {
-      setEditingEnclosure(enclosure);
-      // Check if this is a custom species (animalId is 'custom')
-      const isCustom = enclosure.animalId === 'custom';
-      setFormData({
-        name: enclosure.name,
-        animalId: enclosure.animalId,
-        customSpeciesName: isCustom ? enclosure.animalName : '',
-        description: enclosure.description || '',
-        substrateType: enclosure.substrateType || '',
-      });
-    } else {
-      setEditingEnclosure(null);
-      setFormData({ 
-        name: '', 
-        animalId: '', 
-        customSpeciesName: '',
-        description: '', 
-        substrateType: '',
-      });
-    }
-    setShowModal(true);
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-    setEditingEnclosure(null);
-    setFormData({ 
-      name: '', 
-      animalId: '', 
-      customSpeciesName: '',
-      description: '', 
-      substrateType: '',
-    });
-    setError(null);
-  };
-
   if (loading) {
     return <div className="text-center py-4 text-gray-600 dark:text-gray-400">Loading...</div>;
   }
@@ -158,13 +66,19 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
           My Enclosures
         </h3>
         <button
-          onClick={() => openModal()}
+          onClick={() => navigate(`/care-calendar/enclosures/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
           className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium rounded-lg transition-colors flex items-center gap-1.5"
         >
           <Plus className="w-4 h-4" />
           Add Enclosure
         </button>
       </div>
+
+      {error && (
+        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3 text-red-800 dark:text-red-200 text-sm">
+          {error}
+        </div>
+      )}
 
       {/* Enclosures List */}
       {enclosures.length === 0 ? (
@@ -220,7 +134,7 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
                 </div>
                 <div className="flex gap-1 shrink-0">
                   <button
-                    onClick={() => openModal(enclosure)}
+                    onClick={() => navigate(`/care-calendar/enclosures/edit/${enclosure.id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
                     className="p-1.5 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
                     title="Edit"
                   >
@@ -252,129 +166,6 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
         </div>
       )}
 
-      {/* Modal */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full">
-            <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                {editingEnclosure ? 'Edit Enclosure' : 'Add Enclosure'}
-              </h3>
-              <button onClick={closeModal} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <form onSubmit={handleSubmit} className="p-4 space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Enclosure Name *
-                </label>
-                <input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                  placeholder="e.g., Main Frog Tank, Gecko Enclosure #1"
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Animal Species *
-                </label>
-                <select
-                  value={formData.animalId}
-                  onChange={(e) => setFormData(prev => ({ ...prev, animalId: e.target.value, customSpeciesName: '' }))}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                  required
-                >
-                  <option value="">Select species...</option>
-                  {animalList.map(animal => (
-                    <option key={animal.id} value={animal.id}>
-                      {animal.name}
-                    </option>
-                  ))}
-                  <option value="custom">Other/Custom Species</option>
-                </select>
-              </div>
-
-              {/* Custom Species Name Input - shown when "custom" is selected */}
-              {formData.animalId === 'custom' && (
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Custom Species Name *
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.customSpeciesName}
-                    onChange={(e) => setFormData(prev => ({ ...prev, customSpeciesName: e.target.value }))}
-                    placeholder="e.g., Ball Python, Red-Eared Slider"
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                    required
-                  />
-                </div>
-              )}
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Substrate Type
-                </label>
-                <select
-                  value={formData.substrateType}
-                  onChange={(e) => setFormData(prev => ({ ...prev, substrateType: e.target.value as any }))}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                >
-                  <option value="">Select...</option>
-                  <option value="bioactive">Bioactive</option>
-                  <option value="soil">Soil</option>
-                  <option value="paper">Paper</option>
-                  <option value="sand">Sand</option>
-                  <option value="reptile-carpet">Reptile Carpet</option>
-                  <option value="tile">Tile</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Description (optional)
-                </label>
-                <textarea
-                  value={formData.description}
-                  onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
-                  rows={2}
-                  placeholder="Notes about this enclosure..."
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
-                />
-              </div>
-
-              {error && (
-                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3 text-red-800 dark:text-red-200 text-sm">
-                  {error}
-                </div>
-              )}
-
-              <div className="flex gap-2 pt-2">
-                <button
-                  type="button"
-                  onClick={closeModal}
-                  className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="flex-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors"
-                >
-                  {editingEnclosure ? 'Save Changes' : 'Add Enclosure'}
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

@@ -40,5 +40,20 @@ export function generateShoppingList(
   addWaterSupplies(items, profile);
   addFeedingSupplies(items, input, profile);
 
-  return items;
+  return assignItemUids(items);
+}
+
+function assignItemUids(items: ShoppingItem[]): ShoppingItem[] {
+  const idCategoryCounts = new Map<string, number>();
+
+  return items.map((item) => {
+    const idCategoryKey = `${item.id}|${item.category}`;
+    const nextCount = (idCategoryCounts.get(idCategoryKey) ?? 0) + 1;
+    idCategoryCounts.set(idCategoryKey, nextCount);
+
+    return {
+      ...item,
+      uid: `${item.id}-${item.category}-${nextCount}`,
+    };
+  });
 }

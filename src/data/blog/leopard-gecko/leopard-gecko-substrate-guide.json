@@ -52,7 +52,7 @@
     },
     {
       "type": "text",
-      "content": "The best substrates for leopard geckos mimic their arid environment, allow digging, and hold burrow structure. Avoid pure fine sand×needs clay/soil binder for stability."
+      "content": "The best substrates for leopard geckos mimic their arid environment, allow digging, and hold burrow structure. Avoid pure fine sand - it needs clay/soil binder for stability."
     },
     {
       "type": "text",
@@ -74,7 +74,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Avoid calcium sand (marketed as 'digestible'×it's not, causes severe impaction), pure fine sand without binder (collapses burrows), reptile carpet (snags toes/claws), cedar/pine shavings (toxic aromatic oils)."
+      "content": "Avoid calcium sand (marketed as 'digestible' - it's not, causes severe impaction), pure fine sand without binder (collapses burrows), reptile carpet (snags toes/claws), cedar/pine shavings (toxic aromatic oils)."
     },
     {
       "type": "section",
@@ -92,8 +92,8 @@
       "type": "table",
       "headers": ["Ingredient", "Ratio", "Purpose", "Where to Source"],
       "rows": [
-        ["Organic topsoil (additive-free)", "40%", "Moisture retention, nutrient base, digging stability", "Garden centers (check ingredients×no fertilizers)"],
-        ["Play sand (washed)", "40%", "Drainage, texture, mimics natural sand component", "Hardware stores×children's play sand, NOT construction sand"],
+        ["Organic topsoil (additive-free)", "40%", "Moisture retention, nutrient base, digging stability", "Garden centers (check ingredients - no fertilizers)"],
+        ["Play sand (washed)", "40%", "Drainage, texture, mimics natural sand component", "Hardware stores - children's play sand, NOT construction sand"],
         ["Zoo Med Excavator Clay", "20%", "Binding agent, holds burrow structure, moldable", "Pet stores or online (grey powder that hardens)"],
         ["Optional: Fine gravel", "5-10% (reduce sand)", "Drainage enhancement, visual interest", "Aquarium stores or landscaping suppliers"]
       ]
@@ -106,9 +106,9 @@
       "type": "table",
       "headers": ["Step", "Action", "Notes"],
       "rows": [
-        ["1. Measure dry ingredients", "Combine topsoil, sand, excavator clay in large tub", "Mix thoroughly until uniform color×no clumps of pure clay"],
+        ["1. Measure dry ingredients", "Combine topsoil, sand, excavator clay in large tub", "Mix thoroughly until uniform color - no clumps of pure clay"],
         ["2. Add moisture gradually", "Spray water while mixing, test consistency", "Goal: slightly damp, holds shape when squeezed but not muddy"],
-        ["3. Consistency test", "Grab handful, squeeze into ball×should hold shape", "Too dry = crumbles instantly, too wet = drips water"],
+        ["3. Consistency test", "Grab handful, squeeze into ball - should hold shape", "Too dry = crumbles instantly, too wet = drips water"],
         ["4. Add to enclosure", "Spread 2-4\" deep, slightly deeper in humid hide area", "Can mist surface lightly to compact for burrow sculpting"],
         ["5. Cure time (optional)", "Let sit 24-48 hours before adding gecko", "Allows clay to set if you sculpted burrows/slopes"]
       ]
@@ -133,18 +133,18 @@
       "type": "table",
       "headers": ["Risk Factor", "How It Causes Impaction", "Prevention"],
       "rows": [
-        ["Basking temp too low (<90×F)", "Slowed metabolism, food ferments in gut", "Maintain 94-97×F basking surface temperature"],
+        ["Basking temp too low (<90F)", "Slowed metabolism, food ferments in gut", "Maintain 94-97F basking surface temperature"],
         ["Dehydration", "Hard, dry stool can't pass through intestines", "Provide humid hide, water dish, monitor hydration"],
         ["No UVB/low calcium", "Metabolic bone disease ? weakened gut muscles", "Provide UVB (1.0-2.0 UVI) and calcium supplementation"],
         ["Illness (parasites, infection)", "Compromised digestion, gut stasis", "Veterinary care, fecal exams annually"],
-        ["Calcium sand substrate", "Actively consumed, forms cement in gut", "NEVER use calcium sand×market as 'digestible' is false"],
+        ["Calcium sand substrate", "Actively consumed, forms cement in gut", "NEVER use calcium sand - market as 'digestible' is false"],
         ["Overeating insects on substrate", "Accidentally ingests large amounts of substrate", "Feed in bowl or use feeding tongs"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Healthy leopard geckos with proper heat (94-97×F basking), hydration, and UVB do NOT get impacted from naturalistic substrates. Wild geckos live on loose substrate without issue. If your gecko has impaction, it's a sign of underlying husbandry or health problems."
+      "content": "Healthy leopard geckos with proper heat (94-97F basking), hydration, and UVB do NOT get impacted from naturalistic substrates. Wild geckos live on loose substrate without issue. If your gecko has impaction, it's a sign of underlying husbandry or health problems."
     },
     {
       "type": "section",
@@ -170,7 +170,7 @@
     },
     {
       "type": "highlight",
-      "content": "Shallow substrates (under 2\") don't allow natural digging behaviors. Leopard geckos in nature dig burrows 6-12\" deep×while you can't replicate that in captivity, 3-4\" allows for some excavation enrichment."
+      "content": "Shallow substrates (under 2\") don't allow natural digging behaviors. Leopard geckos in nature dig burrows 6-12\" deep - while you can't replicate that in captivity, 3-4\" allows for some excavation enrichment."
     },
     {
       "type": "section",
@@ -200,7 +200,7 @@
     },
     {
       "type": "table",
-      "headers": ["CUC Species", "Quantity (36×18×18 tank)", "Role"],
+      "headers": ["CUC Species", "Quantity (36x18x18 tank)", "Role"],
       "rows": [
         ["Desert isopods (Venezillo parvus)", "20-30", "Primary decomposer, tolerates low humidity (30-40%)"],
         ["Powder blue isopods", "10-20", "Secondary decomposer, needs humid hide area to thrive"],
@@ -232,7 +232,7 @@
         ["Ceramic tile/slate", "Fair (no enrichment)", "Quarantine, impaction recovery, elderly geckos with mobility issues"],
         ["Paper towels", "Poor (no enrichment)", "Quarantine only, medical monitoring (track urates/feces)"],
         ["Shelf liner (textured)", "Fair (grippy surface)", "Temporary housing, easy cleanup"],
-        ["Reptile carpet", "Poor (toe snags)", "NOT RECOMMENDED×claws catch in fabric loops, injury risk"]
+        ["Reptile carpet", "Poor (toe snags)", "NOT RECOMMENDED - claws catch in fabric loops, injury risk"]
       ]
     },
     {
@@ -266,7 +266,7 @@
     },
     {
       "type": "highlight",
-      "content": "Bioactive setups require minimal maintenance once established×CUC handles waste breakdown. Initial setup is more complex but saves time and money over 5-10 years. Non-bioactive requires full substrate changes 1-2x per year."
+      "content": "Bioactive setups require minimal maintenance once established - CUC handles waste breakdown. Initial setup is more complex but saves time and money over 5-10 years. Non-bioactive requires full substrate changes 1-2x per year."
     },
     {
       "type": "section",
@@ -305,12 +305,12 @@
       "type": "table",
       "headers": ["Safety Factor", "Target/Status", "Impaction Risk if Not Met"],
       "rows": [
-        ["Basking surface temp", "94-97×F", "High risk×slowed digestion"],
-        ["Humid hide provided", "70-80% humidity inside", "Moderate risk×dehydration impairs gut motility"],
-        ["UVB lighting", "1.0-2.0 UVI at basking", "Moderate risk×calcium deficiency weakens gut muscles"],
-        ["Calcium supplementation", "Dusted on every feeding", "High risk×MBD leads to gut stasis"],
+        ["Basking surface temp", "94-97F", "High risk - slowed digestion"],
+        ["Humid hide provided", "70-80% humidity inside", "Moderate risk - dehydration impairs gut motility"],
+        ["UVB lighting", "1.0-2.0 UVI at basking", "Moderate risk - calcium deficiency weakens gut muscles"],
+        ["Calcium supplementation", "Dusted on every feeding", "High risk - MBD leads to gut stasis"],
         ["Substrate type", "Naturalistic mix with binder (not calcium sand)", "High risk if calcium sand, low risk if proper substrate"],
-        ["Hydration", "Water dish + humid hide", "High risk×dehydration is leading cause of impaction"],
+        ["Hydration", "Water dish + humid hide", "High risk - dehydration is leading cause of impaction"],
         ["Gecko body condition", "Tail plump but not obese, active", "Moderate risk if underweight (illness) or obese (gut compression)"]
       ]
     },
