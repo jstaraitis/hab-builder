@@ -9,16 +9,16 @@
   "completionStatus": "draft",
   "gallery": [],
   "minEnclosureSize": {
-    "width": 24,
-    "depth": 12,
-    "height": 12,
+    "width": 18,
+    "depth": 18,
+    "height": 18,
     "units": "in"
   },
   "quantityRules": {
-    "baseGallons": 10,
+    "baseGallons": 25,
     "additionalGallons": 5,
     "maxRecommended": 2,
-    "description": "Can house 1-2 together in 10+ gallon enclosure. Females much larger than males."
+    "description": "Can cohab! Females much larger than males."
   },
   "careTargets": {
     "temperature": {
@@ -28,8 +28,8 @@
         "max": 75
       },
       "warmSide": {
-        "min": 75,
-        "max": 80
+        "min": 70,
+        "max": 75
       },
       "basking": null,
       "nighttime": {
@@ -40,25 +40,25 @@
     },
     "humidity": {
       "day": {
-        "min": 60,
-        "max": 80
+        "min": 50,
+        "max": 70
       },
       "night": {
-        "min": 70,
-        "max": 90
+        "min": 50,
+        "max": 70
       },
       "shedding": {
-        "min": 80,
-        "max": 90
+        "min": 50,
+        "max": 70
       },
       "unit": "%"
     },
     "lighting": {
-      "uvbRequired": false,
-      "uvbRecommended": false,
-      "uvbStrength": null,
-      "coveragePercent": 0,
-      "photoperiod": "Natural room light sufficient"
+      "uvbRequired": true,
+      "uvbRecommended": true,
+      "uvbStrength": "5.0",
+      "coveragePercent": 65,
+      "photoperiod": "12 hours on / 12 hours off"
     },
     "gradient": "Terrestrial burrowing frog. High humidity essential. Provide deep substrate for burrowing."
   },
