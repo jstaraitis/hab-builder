@@ -1,40 +1,96 @@
 import type { ShoppingItem, AnimalProfile, EnclosureInput } from '../../types';
 import { createShoppingItem, getEquipment, calculateSubstrateQuarts } from '../utils';
 
+type SubstrateType = 'bioactive' | 'soil' | 'paper' | 'foam' | 'sand' | 'sand-aquatic' | 'substrate-bare-bottom' | 'substrate-slate-tile' | 'substrate-fine-sand-aquatic';
+
 /**
- * Determines which substrate to use based on preferences
+ * Check if substrate is compatible with animal
  */
+function isSubstrateCompatible(substrateTag: SubstrateType, compatibleList: string[]): boolean {
+  if (compatibleList.length === 0) return true; // No restrictions
+  return compatibleList.includes(substrateTag);
+}
+
+/**
+ * Get substrate key from preference mapping
+ */
+function getSubstrateFromPreference(preference: string, bioactiveType: string): { key: string; compatTag: SubstrateType } | null {
+  const preferenceMap: Record<string, { key: string; compatTag: SubstrateType }> = {
+    'soil-based': { key: 'substrate-soil', compatTag: 'soil' },
+    'paper-based': { key: 'substrate-paper', compatTag: 'paper' },
+    'foam': { key: 'substrate-foam', compatTag: 'foam' },
+    'sand-based': { key: 'substrate-sand', compatTag: 'sand' },
+    'sand-aquatic': { key: 'substrate-sand-aquatic', compatTag: 'sand-aquatic' },
+    'bioactive': { key: `substrate-bioactive-${bioactiveType}`, compatTag: 'bioactive' },
+  };
+  return preferenceMap[preference] || null;
+}
+
+/**
+ * Get default substrate from animal's compatible list
+ */
+function getDefaultSubstrate(compatibleList: string[], bioactiveType: string): string {
+  if (compatibleList.length === 0) return 'substrate-soil';
+  
+  const defaultMap: Record<string, string> = {
+    'bioactive': `substrate-bioactive-${bioactiveType}`,
+    'soil': 'substrate-soil',
+    'paper': 'substrate-paper',
+    'foam': 'substrate-foam',
+    'sand': 'substrate-sand',
+    'sand-aquatic': 'substrate-sand-aquatic',
+  };
+  
+  // Return first compatible substrate
+  for (const compat of compatibleList) {
+    if (defaultMap[compat]) {
+      return defaultMap[compat];
+    }
+  }
+  
+  return 'substrate-soil';
+}
+
 /**
  * Determines which substrate to use based on preferences
  */
 function getSubstrateKey(input: EnclosureInput, profile: AnimalProfile): string {
   const bioactiveType = profile.equipmentNeeds?.bioactiveSubstrate || 'tropical';
+  const compatibleSubstrates = profile.equipmentNeeds?.substrate || [];
   
-  // Special handling for fully aquatic animals - no substrate recommendation by default
+  // Special handling for fully aquatic animals
   if (profile.equipmentNeeds?.waterFeature === 'fully-aquatic' && !input.substratePreference) {
-    return ''; // Return empty string to skip substrate for aquatic animals unless user explicitly chooses
+    return '';
   }
   
-  // Check explicit substrate preference FIRST (before bioactive checkbox)
-  // This allows users to override bioactive with specific substrate choices
-  if (input.substratePreference && input.substratePreference !== 'bioactive') {
-    const preferenceMap: Record<string, string> = {
-      'soil-based': 'substrate-soil',
-      'paper-based': 'substrate-paper',
-      'foam': 'substrate-foam',
-      'sand-based': 'substrate-sand',
-      'sand-aquatic': 'substrate-sand-aquatic',
-    };
-    return preferenceMap[input.substratePreference] || '';
+  // Check explicit substrate preference
+  if (input.substratePreference) {
+    const mapping = getSubstrateFromPreference(input.substratePreference, bioactiveType);
+    
+    if (mapping) {
+      // Validate compatibility
+      if (isSubstrateCompatible(mapping.compatTag, compatibleSubstrates)) {
+        return mapping.key;
+      }
+      
+      console.warn(
+        `Substrate preference "${input.substratePreference}" not compatible with ${profile.commonName}. ` +
+        `Compatible: ${compatibleSubstrates.join(', ')}`
+      );
+    }
   }
   
-  // If bioactive is checked OR preference is explicitly 'bioactive'
-  if (input.bioactive || input.substratePreference === 'bioactive') {
-    return `substrate-bioactive-${bioactiveType}`;
+  // Check bioactive toggle
+  if (input.bioactive) {
+    if (isSubstrateCompatible('bioactive', compatibleSubstrates)) {
+      return `substrate-bioactive-${bioactiveType}`;
+    }
+    
+    console.warn(`Bioactive substrate not compatible with ${profile.commonName}. Using compatible option.`);
   }
   
-  // Default for terrestrial animals
-  return 'substrate-soil';
+  // Use default compatible substrate
+  return getDefaultSubstrate(compatibleSubstrates, bioactiveType);
 }
 
 /**
@@ -66,23 +122,29 @@ export function addSubstrate(
  */
 export function addBioactiveItems(
   items: ShoppingItem[],
-  dims: { width: number; depth: number; height: number }
+  dims: { width: number; depth: number; height: number },
+  profile: AnimalProfile
 ): void {
-  // Drainage layer
-  const drainageDepth = dims.height < 24 ? 1.5 : 2.5;
-  const drainageQuarts = calculateSubstrateQuarts(dims, drainageDepth);
-  const drainageConfig = getEquipment('drainage');
+  const bioactiveType = profile.equipmentNeeds?.bioactiveSubstrate || 'tropical';
   
-  if (drainageConfig) {
-    const sizing = `${drainageDepth}" layer for ${Math.round(dims.height)}" tall enclosure`;
-    items.push(createShoppingItem('drainage', drainageConfig, `${drainageQuarts} quarts`, sizing, { importance: 'required' }));
-  }
+  // Drainage layer and barrier only for tropical bioactive
+  if (bioactiveType === 'tropical') {
+    // Drainage layer
+    const drainageDepth = dims.height < 24 ? 1.5 : 2.5;
+    const drainageQuarts = calculateSubstrateQuarts(dims, drainageDepth);
+    const drainageConfig = getEquipment('drainage');
+    
+    if (drainageConfig) {
+      const sizing = `${drainageDepth}" layer for ${Math.round(dims.height)}" tall enclosure`;
+      items.push(createShoppingItem('drainage', drainageConfig, `${drainageQuarts} quarts`, sizing, { importance: 'required' }));
+    }
 
-  // Drainage barrier
-  const barrierConfig = getEquipment('drainage-barrier');
-  if (barrierConfig) {
-    const sizing = `Cut to ${Math.round(dims.width)}" × ${Math.round(dims.depth)}"`;
-    items.push(createShoppingItem('barrier', barrierConfig, '1 sheet', sizing, { importance: 'required' }));
+    // Drainage barrier
+    const barrierConfig = getEquipment('drainage-barrier');
+    if (barrierConfig) {
+      const sizing = `Cut to ${Math.round(dims.width)}" × ${Math.round(dims.depth)}"`;
+      items.push(createShoppingItem('barrier', barrierConfig, '1 sheet', sizing, { importance: 'required' }));
+    }
   }
 
   // Cleanup crew

@@ -1,0 +1,155 @@
+{
+  "id": "uromastyx-hydration-guide",
+  "title": "Uromastyx Hydration Guide: Water Sources and Dehydration Prevention",
+  "description": "Hydration strategies for arid-dwelling Uromastyx, including water dish use, diet moisture, and humid burrow tips.",
+  "excerpt": "Hydration strategies for arid-dwelling Uromastyx, including water dish use, diet moisture, and humid burrow tips.",
+  "author": "Habitat Builder",
+  "date": "2026-02-11",
+  "publishDate": "2026-02-11",
+  "category": "Care Guides",
+  "tags": ["uromastyx", "hydration", "water", "arid"],
+  "image": "/animals/uromastyx/uromastyx-1.jpg",
+  "status": "community-reviewed",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Essential Hydration for Uromastyx",
+      "content": "Uromastyx are desert specialists that get much of their water from food, but they still benefit from access to clean drinking water. Hydration should be provided without raising overall humidity."
+    },
+    {
+      "type": "section",
+      "title": "Natural Hydration Behaviors"
+    },
+    {
+      "type": "text",
+      "content": "In arid habitats, Uromastyx use plant moisture, occasional surface water, and humid burrows to stay hydrated. Captive setups should mirror this balance."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Natural Water Sources:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Water Source", "Availability", "Drinking Method"],
+      "rows": [
+        ["Plant moisture", "Daily", "Eating hydrated greens"],
+        ["Occasional rain", "Seasonal", "Surface drinking"],
+        ["Dew on surfaces", "Morning", "Licking droplets"],
+        ["Burrow humidity", "Ongoing", "Passive moisture balance"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Key insight: Uromastyx need hydration without high ambient humidity. Aim for dry air with localized moisture in burrows."
+    },
+    {
+      "type": "section",
+      "title": "Primary Hydration Methods"
+    },
+    {
+      "type": "text",
+      "content": "Use a small water dish, hydrating foods, and a slightly damp lower substrate layer."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Hydration Method Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Method", "Effectiveness", "Maintenance", "Best Use"],
+      "rows": [
+        ["Water dish", "Medium", "Daily change", "Always available"],
+        ["Hydrating greens", "High", "Daily", "Primary moisture source"],
+        ["Humid burrow", "Medium", "Occasional refresh", "Shedding support"],
+        ["Misting", "Low", "Rare", "Only for burrow maintenance"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Avoid heavy misting or foggers. High ambient humidity can cause respiratory issues in Uromastyx."
+    },
+    {
+      "type": "section",
+      "title": "Water Dish Setup"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Water Dish Specifications:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Life Stage", "Dish Diameter", "Water Depth", "Placement"],
+      "rows": [
+        ["Juvenile", "3-4 in", "Shallow", "Cool side"],
+        ["Adult", "4-6 in", "Shallow", "Cool side"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Water Quality Maintenance:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Task", "Frequency", "Procedure"],
+      "rows": [
+        ["Complete water change", "Daily", "Rinse dish and refill with dechlorinated water"],
+        ["Dish sanitization", "Weekly", "Wash with reptile-safe cleaner"],
+        ["Water quality check", "Daily", "Remove sand and debris"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Use dechlorinated tap water. Avoid distilled water as a sole source because it lacks minerals."
+    },
+    {
+      "type": "section",
+      "title": "Humid Burrow Strategy"
+    },
+    {
+      "type": "text",
+      "content": "Maintain a slightly damp lower layer of substrate on the cool side. The surface should stay dry."
+    },
+    {
+      "type": "table",
+      "headers": ["Step", "Action", "Goal"],
+      "rows": [
+        ["1", "Moisten lower 1-2 inches only", "Create stable burrow humidity"],
+        ["2", "Pack substrate firmly", "Prevent collapse"],
+        ["3", "Keep surface dry", "Avoid raising ambient humidity"],
+        ["4", "Refresh monthly", "Maintain structure"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Soaking Protocol"
+    },
+    {
+      "type": "text",
+      "content": "Routine soaking is not needed. Only soak under veterinary guidance or for stubborn shed."
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Never leave a Uromastyx unattended in water. Use shallow water and short durations if a soak is recommended."
+    },
+    {
+      "type": "section",
+      "title": "Dehydration Recognition"
+    },
+    {
+      "type": "table",
+      "headers": ["Sign", "Severity", "Action"],
+      "rows": [
+        ["Slightly wrinkled skin", "Mild", "Increase hydrating greens"],
+        ["Thick, dry urates", "Moderate", "Check water access and temps"],
+        ["Sunken eyes", "Serious", "Consult a reptile vet"],
+        ["Lethargy", "Serious", "Verify temps and seek vet advice"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Most hydration problems trace back to low basking temperatures or a dry, low-variety diet. Verify heat and diet first."
+    }
+  ]
+}

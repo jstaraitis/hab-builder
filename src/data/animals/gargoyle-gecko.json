@@ -2,11 +2,15 @@
   "id": "gargoyle-gecko",
   "commonName": "Gargoyle Gecko",
   "scientificName": "Rhacodactylus auriculatus",
-  "searchQuery": ["gargoyle gecko", "rhacodactylus auriculatus", "new caledonian gargoyle gecko"],
+  "searchQuery": [
+    "gargoyle gecko",
+    "rhacodactylus auriculatus",
+    "new caledonian gargoyle gecko"
+  ],
   "careLevel": "beginner",
   "emoji": "🦎",
   "imageUrl": "/animals/gargoyle-gecko/gargoyle-gecko-1.jpg",
-  "completionStatus": "draft",
+  "completionStatus": "validated",
   "gallery": [],
   "minEnclosureSize": {
     "width": 18,
@@ -24,14 +28,17 @@
     "temperature": {
       "thermalGradient": true,
       "coolSide": {
-        "min": 72,
+        "min": 70,
         "max": 75
       },
       "warmSide": {
-        "min": 78,
-        "max": 82
+        "min": 80,
+        "max": 85
       },
-      "basking": null,
+      "basking": {
+        "min": 82,
+        "max": 85
+      },
       "nighttime": {
         "min": 65,
         "max": 72
@@ -40,59 +47,128 @@
     },
     "humidity": {
       "day": {
-        "min": 50,
-        "max": 70
+        "min": 60,
+        "max": 75
       },
       "night": {
-        "min": 60,
+        "min": 65,
         "max": 80
       },
       "shedding": {
         "min": 70,
-        "max": 80
+        "max": 85
       },
       "unit": "%"
     },
     "lighting": {
-      "uvbRequired": false,
+      "uvbRequired": true,
       "uvbRecommended": true,
-      "uvbStrength": "2-5%",
-      "coveragePercent": 50,
-      "photoperiod": "12 hours light, 12 hours dark"
+      "uvbStrength": "5.0",
+      "coveragePercent": 65,
+      "photoperiod": "12h day / 12h night"
     },
-    "gradient": "Nocturnal species. Low UVB recommended for calcium metabolism. Temperature gradient allows thermoregulation."
+    "gradient": "Crepuscular species - active around sunset. Warm basking zone at top (82-85°F) with cooler areas below (70-75°F). Nighttime temperature drop to 65-72°F is natural and healthy."
   },
   "layoutRules": {
     "preferVertical": true,
     "verticalSpacePercent": 70,
     "thermalGradient": "horizontal",
-    "requiredZones": ["climbing", "hide", "food-ledge"],
-    "optionalZones": ["basking", "plants"]
+    "requiredZones": [
+      "climbing",
+      "hide",
+      "food-ledge"
+    ],
+    "optionalZones": [
+      "basking",
+      "plants"
+    ]
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
     "climbing": "vertical",
-    "substrate": ["bioactive", "soil", "paper"],
+    "substrate": [
+      "bioactive",
+      "soil",
+      "paper"
+    ],
     "bioactiveSubstrate": "tropical",
-    "humidity": "moderate",
-    "heatSource": "ambient",
+    "humidity": "high",
+    "heatSource": "basking",
     "waterFeature": "shallow-dish",
     "lighting": "uvb-forest",
-    "diet": ["omnivore", "frugivore"],
+    "diet": [
+      "omnivore",
+      "frugivore",
+      "insectivore"
+    ],
     "animalType": "reptile",
     "climate": "tropical",
-    "activity": "arboreal"
+    "activity": "arboreal",
+    "decor": [
+      "branches",
+      "plants",
+      "hides",
+      "ledges"
+    ]
   },
   "lifespan": "15-20 years in captivity",
-  "dietType": "Omnivore (frugivorous/insectivorous)",
-  "adultSize": "7-9 inches total length",
-  "temperament": "Docile, handleable, can drop tail when stressed",
-  "activityPattern": "Nocturnal/Crepuscular",
+  "dietType": "Omnivore",
+  "adultSize": "6-8 inches total length",
+  "temperament": "Docile, tolerant of handling, can drop tail when stressed",
+  "activityPattern": "Crepuscular",
   "originRegion": "New Caledonia",
-  "setupTips": [],
-  "notes": [],
-  "warnings": [],
-  "relatedBlogs": [],
+  "setupTips": [
+    "Young gargoyles (under 12g) benefit from a smaller 'grow out' enclosure (12×12×12) until large enough for adult setup",
+    "Use an infrared thermometer to measure temperatures throughout the enclosure - warmest at top, coolest at bottom",
+    "Mist enclosure morning and evening with tap water (contains essential minerals) - avoid distilled water",
+    "Place basking area as a vine, branch, or foliage cluster directly under heat lamp at top of enclosure",
+    "Provide vines, branches, and foliage at all vertical levels to allow proper thermoregulation",
+    "Use feeding ledges mounted at various heights for easy access to food bowls"
+  ],
+  "notes": [
+    ""
+  ],
+  "warnings": [
+    {
+      "severity": "critical",
+      "category": "cohabitation",
+      "message": "Males MUST NEVER be housed together - they are extremely territorial and will fight to the death. Only attempt housing multiple females with larger enclosure (40+ gallons) and careful monitoring."
+    },
+    {
+      "severity": "important",
+      "category": "handling",
+      "message": "Can drop their tail when stressed or frightened. Unlike crested geckos, tails may partially regenerate but will never look the same. Handle gently and avoid grabbing by tail."
+    },
+    {
+      "severity": "important",
+      "category": "temperature",
+      "message": "Consistent temperatures above 85°F can cause heat stress. Nighttime drop to 65-72°F is natural and beneficial - don't use ceramic heat emitters at night unless room drops below 60°F."
+    },
+    {
+      "severity": "important",
+      "category": "humidity",
+      "message": "Humidity consistently below 50% causes shedding problems and dehydration. Humidity constantly above 85% promotes bacterial/fungal growth. Aim for 60-80% average with natural daily fluctuation."
+    },
+    {
+      "severity": "caution",
+      "category": "feeding",
+      "message": "Feeder insects should never be larger than the space between the gecko's eyes. Oversized prey can cause impaction or choking."
+    },
+    {
+      "severity": "tip",
+      "category": "setup",
+      "message": "Front-opening enclosures are strongly preferred over top-opening. Reaching from above triggers predator response and causes stress."
+    }
+  ],
+  "relatedBlogs": [
+    "gargoyle-gecko-enrichment-welfare-guide",
+    "gargoyle-gecko-enclosure-setup-guide",
+    "gargoyle-gecko-substrate-guide",
+    "gargoyle-gecko-feeding-guide",
+    "gargoyle-gecko-temperature-humidity-guide",
+    "gargoyle-gecko-lighting-guide",
+    "gargoyle-gecko-hydration-guide"
+  ],
   "lifestyle": {
     "lifespan": "long",
     "handling": "occasional",

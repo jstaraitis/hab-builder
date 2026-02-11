@@ -1,0 +1,112 @@
+{
+  "id": "ball-python-enrichment-welfare-guide",
+  "title": "Ball Python Enrichment & Welfare Guide: [Add Subtitle]",
+  "description": "Complete enrichment & welfare guide for Ball Python covering [key topics].",
+  "excerpt": "Complete enrichment & welfare guide for Ball Python covering [key topics].",
+  "author": "Habitat Builder",
+  "publishDate": "2026-02-11",
+  "category": "Care Guides",
+  "tags": [
+    "ball-python",
+    "enrichment-welfare",
+    "care guide"
+  ],
+  "image": "/animals/ball-python/ball-python-1.jpg",
+  "status": "draft",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Understanding Ball Python Enrichment & Welfare",
+      "content": "Complete guide to Ball Python care, covering habitat requirements, behavior, health indicators, and proper husbandry practices for keeping these animals thriving in captivity."
+    },
+    {
+      "type": "section",
+      "title": "Species Overview"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about species overview for ball python. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Quick Facts"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about quick facts for ball python. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Critical Care Requirements"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about critical care requirements for ball python. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Critical Care Requirements Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Add important safety information or critical requirements for critical care requirements]"
+    },
+    {
+      "type": "section",
+      "title": "Enclosure Enrichment"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about enclosure enrichment for ball python. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Behavioral Needs"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about behavioral needs for ball python. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Common Welfare Issues"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about common welfare issues for ball python. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Getting Started Checklist"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about getting started checklist for ball python. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "highlight",
+      "content": "Key Takeaway: [Summarize the most important point for Ball Python enrichment & welfare guide]"
+    }
+  ]
+}

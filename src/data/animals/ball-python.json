@@ -2,7 +2,12 @@
   "id": "ball-python",
   "commonName": "Ball Python",
   "scientificName": "Python regius",
-  "searchQuery": ["ball python", "python regius", "python", "snake"],
+  "searchQuery": [
+    "ball python",
+    "python regius",
+    "python",
+    "snake"
+  ],
   "careLevel": "intermediate",
   "emoji": "🐍",
   "imageUrl": "/animals/ball-python/normal_ball_python-1.jpg",
@@ -74,23 +79,38 @@
     "preferVertical": false,
     "verticalSpacePercent": 30,
     "thermalGradient": "horizontal",
-    "requiredZones": ["basking", "warm-hide", "cool-hide", "water"],
-    "optionalZones": ["climbing-branches", "humid-hide"]
+    "requiredZones": [
+      "basking",
+      "warm-hide",
+      "cool-hide",
+      "water"
+    ],
+    "optionalZones": [
+      "climbing-branches",
+      "humid-hide"
+    ]
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
     "climbing": "both",
-    "substrate": ["bioactive", "soil"],
+    "substrate": [
+      "bioactive",
+      "soil"
+    ],
     "bioactiveSubstrate": "tropical",
     "humidity": "moderate",
     "heatSource": "basking",
     "waterFeature": "shallow-dish",
     "lighting": "uvb-forest",
-    "diet": ["carnivore-rodents"],
+    "diet": [
+      "carnivore-rodents"
+    ],
     "animalType": "reptile",
     "climate": "tropical",
     "activity": "semi-arboreal",
-    "requiredEquipment": ["moist-hide"]
+    "requiredEquipment": [
+      "moist-hide"
+    ]
   },
   "lifespan": "30+ years in captivity (commonly reach 40+ years with proper care)",
   "dietType": "Carnivore",
@@ -152,11 +172,12 @@
     }
   ],
   "relatedBlogs": [
+    "ball-python-enrichment-welfare-guide",
     "ball-python-enclosure-setup-guide",
     "ball-python-substrate-guide",
-    "ball-python-temp-humidity-guide",
-    "ball-python-lighting-guide",
     "ball-python-feeding-guide",
+    "ball-python-temperature-humidity-guide",
+    "ball-python-lighting-guide",
     "ball-python-hydration-guide"
   ],
   "lifestyle": {

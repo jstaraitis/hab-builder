@@ -1,7 +1,7 @@
 import type { ShoppingItem, AnimalProfile, EnclosureInput } from '../types';
 import { addEnclosure } from './generators/enclosure';
 import { addUVBLighting, addPlantLighting } from './generators/lighting';
-import { addHeatLamp } from './generators/heating';
+import { addHeatLamp, addAmbientHeating } from './generators/heating';
 import { addSubstrate, addBioactiveItems } from './generators/substrate';
 import { addHumidityControl } from './generators/environmental';
 import { addDecor, addStructuralDecor } from './generators/decor';
@@ -25,11 +25,12 @@ export function generateShoppingList(
   addAquaticEquipment(items, profile, input); // Add aquatic equipment using autoIncludeFor rules
   addUVBLighting(items, dims, profile, input);
   addHeatLamp(items, dims, profile, input);
+  addAmbientHeating(items, dims, profile, input); // Add supplemental heating for ambient species with low room temps
   addSubstrate(items, dims, input, profile);
   
   // Only add bioactive items for non-aquatic animals
   if (input.bioactive && profile.equipmentNeeds?.activity !== 'aquatic') {
-    addBioactiveItems(items, dims);
+    addBioactiveItems(items, dims, profile);
   }
   
   addHumidityControl(items, dims, profile, input);

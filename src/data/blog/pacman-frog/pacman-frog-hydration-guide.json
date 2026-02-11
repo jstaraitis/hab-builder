@@ -7,7 +7,7 @@
   "category": "Care Guides",
   "excerpt": "Learn proper water dish requirements, dechlorination, humidity's role in hydration, and how to recognize and prevent dehydration in Pacman frogs.",
   "tags": ["pacman-frog", "hydration", "water", "humidity", "care"],
-  "status": "in-progress",
+  "status": "community-reviewed",
   "content": [
     {
       "type": "intro",
@@ -34,7 +34,7 @@
     {
       "type": "list",
       "items": [
-        "<span class='font-semibold'>Width:</span> Large enough for the frog to fit their entire body comfortably (typically 1.5-2× the frog's width)",
+        "<span class='font-semibold'>Width:</span> Large enough for the frog to fit their entire body comfortably (typically 1.5-2Â° the frog's width)",
         "<span class='font-semibold'>Depth:</span> 1-2 inches deep - shallow enough that the frog can rest with nostrils above water",
         "<span class='font-semibold'>Entrance:</span> Low-sided or ramped so frog can easily enter and exit",
         "<span class='font-semibold'>Stability:</span> Heavy enough that the frog cannot tip it over (ceramic or thick plastic preferred)"
@@ -58,7 +58,7 @@
       "items": [
         "Place on substrate surface, not buried (frog should see the water)",
         "Ensure surrounding substrate is moist to prevent the dish from becoming a dry island",
-        "Keep away from heat sources to maintain water temperature at 68-75°F",
+        "Keep away from heat sources to maintain water temperature at 68-75Â°F",
         "Position so you can see if the frog is using it (for health monitoring)"
       ]
     },
@@ -105,7 +105,7 @@
       "items": [
         "<span class='font-semibold'>Seachem Prime:</span> 2 drops per gallon (or 1 capful per 50 gallons)",
         "<span class='font-semibold'>ReptiSafe:</span> Follow bottle instructions (typically 2-3 drops per 8 oz)",
-        "<span class='font-semibold'>Over-dosing caution:</span> These products are safe at 5× normal dose, but avoid excessive amounts",
+        "<span class='font-semibold'>Over-dosing caution:</span> These products are safe at 5Â° normal dose, but avoid excessive amounts",
         "<span class='font-semibold'>Batch preparation:</span> Treat a gallon jug at once and refill dish daily from treated water"
       ]
     },
@@ -126,7 +126,7 @@
       "items": [
         "Remove and dump all water",
         "Rinse dish with hot water (no soap)",
-        "Refill with dechlorinated water at room temperature (68-75°F)",
+        "Refill with dechlorinated water at room temperature (68-75Â°F)",
         "Check water level throughout the day (add water if evaporated significantly)"
       ]
     },
@@ -224,7 +224,7 @@
     {
       "type": "list",
       "items": [
-        "Mist one side of the enclosure 1-2× daily (not directly on frog)",
+        "Mist one side of the enclosure 1-2Â° daily (not directly on frog)",
         "Pour dechlorinated water directly onto substrate in corner (not through screen top)",
         "Allow substrate to dry slightly between mistings - avoid constant wetness",
         "Check moisture at different depths - top can dry while bottom stays damp"
@@ -308,8 +308,8 @@
     {
       "type": "list",
       "items": [
-        "<span class='font-semibold'>1. Shallow soak:</span> Place frog in shallow dish (0.5-1\" deep) of dechlorinated lukewarm water (75-80°F)",
-        "<span class='font-semibold'>2. Duration:</span> 15-20 minutes, 2-3× daily until skin appearance improves",
+        "<span class='font-semibold'>1. Shallow soak:</span> Place frog in shallow dish (0.5-1\" deep) of dechlorinated lukewarm water (75-80Â°F)",
+        "<span class='font-semibold'>2. Duration:</span> 15-20 minutes, 2-3Â° daily until skin appearance improves",
         "<span class='font-semibold'>3. Monitor closely:</span> Frog should perk up within 24-48 hours",
         "<span class='font-semibold'>4. Fix environment:</span> Increase substrate moisture and check humidity levels",
         "<span class='font-semibold'>5. Vet if no improvement:</span> If frog doesn't improve in 48 hours, seek veterinary care"
@@ -327,7 +327,7 @@
       "type": "list",
       "items": [
         "<span class='font-semibold'>Daily water changes:</span> Fresh dechlorinated water every day",
-        "<span class='font-semibold'>Maintain substrate moisture:</span> Use squeeze test to check, mist 1-2× daily",
+        "<span class='font-semibold'>Maintain substrate moisture:</span> Use squeeze test to check, mist 1-2Â° daily",
         "<span class='font-semibold'>Monitor humidity:</span> Use digital hygrometer, maintain species-appropriate range",
         "<span class='font-semibold'>Proper enclosure:</span> Screen tops dry out enclosures - consider glass or acrylic lids with ventilation",
         "<span class='font-semibold'>Regular health checks:</span> Inspect frog weekly for early signs of dehydration"
@@ -367,7 +367,7 @@
     },
     {
       "type": "text",
-      "text": "Water should be room temperature (68-75°F). Hot water (80°F+) can stress the frog and promotes bacterial growth."
+      "text": "Water should be room temperature (68-75Â°F). Hot water (80Â°F+) can stress the frog and promotes bacterial growth."
     },
     {
       "type": "section",
@@ -418,7 +418,7 @@
     },
     {
       "type": "text",
-      "text": "Slimy coating that forms on water dishes is biofilm (bacterial colonies). Weekly scrubbing prevents buildup. If biofilm is severe, increase cleaning frequency to 2-3× weekly."
+      "text": "Slimy coating that forms on water dishes is biofilm (bacterial colonies). Weekly scrubbing prevents buildup. If biofilm is severe, increase cleaning frequency to 2-3Â° weekly."
     },
     {
       "type": "section",
@@ -444,7 +444,7 @@
       "type": "list",
       "items": [
         "Indoor heating systems drastically reduce humidity",
-        "Increase misting frequency to 2-3× daily",
+        "Increase misting frequency to 2-3Â° daily",
         "Check water dish level twice daily (evaporates faster)",
         "Consider room humidifier if ambient humidity drops below 40%"
       ]
@@ -548,7 +548,7 @@
         "<span class='font-semibold'>Digital hygrometer:</span> Track humidity levels (Govee, AcuRite models work well)",
         "<span class='font-semibold'>Spray bottle:</span> For misting (clean, dedicated to frog use only)",
         "<span class='font-semibold'>Kitchen scale:</span> Monthly weight checks to track hydration status",
-        "<span class='font-semibold'>Thermometer:</span> Ensure water temperature is appropriate (68-75°F)"
+        "<span class='font-semibold'>Thermometer:</span> Ensure water temperature is appropriate (68-75Â°F)"
       ]
     },
     {
@@ -571,7 +571,7 @@
     {
       "type": "list",
       "items": [
-        "Water dish must be large enough for full-body soaking (1.5-2× frog width)",
+        "Water dish must be large enough for full-body soaking (1.5-2Â° frog width)",
         "Always dechlorinate water with Seachem Prime or ReptiSafe",
         "Daily water changes are non-negotiable - waste degrades quality rapidly",
         "Substrate moisture is equally important as water dish",

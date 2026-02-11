@@ -1,50 +1,23 @@
 {
   "id": "ball-python-lighting-guide",
-  "title": "Ball Python Lighting Guide: UVB Benefits & Photoperiod for Crepuscular Snakes",
-  "description": "Evidence-based lighting guide for ball pythons covering UVB recommendations (2.0-3.0 UVI), photoperiod management for crepuscular activity, and debunking the 'ball pythons don't need UVB' myth.",
-  "excerpt": "Evidence-based lighting guide for ball pythons covering UVB recommendations (2.0-3.0 UVI), photoperiod management for crepuscular activity, and debunking the 'ball pythons don't need UVB' myth.",
+  "title": "Ball Python Lighting Guide: [Add Subtitle]",
+  "description": "Complete lighting guide for Ball Python covering [key topics].",
+  "excerpt": "Complete lighting guide for Ball Python covering [key topics].",
   "author": "Habitat Builder",
-  "publishDate": "2026-01-26",
+  "publishDate": "2026-02-11",
   "category": "Care Guides",
-  "tags": ["ball-python", "UVB", "lighting", "photoperiod", "crepuscular"],
-  "image": "/animals/ball-python/ball-python-lighting.jpg",
-  "status": "in-progress",
+  "tags": [
+    "ball-python",
+    "lighting",
+    "care guide"
+  ],
+  "image": "/animals/ball-python/ball-python-1.jpg",
+  "status": "draft",
   "content": [
     {
       "type": "intro",
-      "title": "Lighting Requirements for Ball Pythons",
-      "content": "Ball pythons are predominantly nocturnal constrictors, most active during dawn and dusk when light levels are low, though they are also active semi-arboreal hunters. For decades, conventional wisdom claimed ball pythons don't need or benefit from light, leading to common practices of keeping them in dark tubs with no lighting. Recent research suggests ball pythons can benefit from UVB lighting and natural day/night cycles, though they have been successfully kept without UVB for generations using dietary vitamin D3. This guide covers UVB provision as an optional enhancement (2.0-3.0 UVI if provided), photoperiod management for day/night cycles, and the debate around UVB necessity for ball pythons."
-    },
-    {
-      "type": "section",
-      "title": "The UVB Debate: Myth vs Science"
-    },
-    {
-      "type": "text",
-      "content": "Ball pythons have been kept without UVB for decades using dietary vitamin D3 supplements. Does this mean UVB is unnecessary?"
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>UVB vs No UVB Comparison:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Factor", "With UVB Lighting (2.0-3.0 UVI)", "Without UVB (Dietary D3 Only)"],
-      "rows": [
-        ["D3 Source", "Synthesized naturally in skin from UVB exposure", "Pre-formed D3 in prey dusting supplements"],
-        ["Self-Regulation", "Snake controls exposure by moving (seeks/avoids UVB)", "Fixed dose×risk of over/under supplementation"],
-        ["Bone Density", "Research shows higher bone density, stronger skeletal structure", "Adequate for survival, some deficiencies observed long-term"],
-        ["Immune Function", "Improved immune response, better wound healing", "Normal but not optimized"],
-        ["Behavioral Enrichment", "Stimulates natural basking behavior, activity patterns", "No behavioral benefit×often lethargic"],
-        ["Appetite", "Studies show improved feeding response", "Normal appetite but some picky eaters"],
-        ["Research Consensus (2015-present)", "Recommended as best practice by leading herpetologists", "Acceptable minimum but suboptimal"],
-        ["Cost", "$60-100 setup + $20-30/year bulb replacement", "No additional cost (supplements only $10-15/year)"]
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "important",
-      "content": "Many people say ball pythons are stressed by light because they are nocturnal. While ball pythons are predominantly nocturnal, they are also active semi-arboreal hunters and will be active during brief periods of the day. They do benefit from a day/night cycle with basic lighting (even LEDs), and UVB can be beneficial if provided. Keeping them in complete darkness 24/7 is unnatural."
+      "title": "Understanding Ball Python Lighting",
+      "content": "Lighting requirements for Ball Python, covering UVB needs, light cycles, equipment selection, and proper bulb maintenance."
     },
     {
       "type": "section",
@@ -52,363 +25,128 @@
     },
     {
       "type": "text",
-      "content": "Ball pythons fall into Ferguson Zone 2 (low-level UVB exposure), similar to forest-dwelling species that receive filtered sunlight."
+      "content": "[Add detailed information about uvb requirements for ball python. Include specific requirements, ranges, and practical implementation advice.]"
     },
     {
       "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>UVB Specifications:</span>"
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>UVB Requirements Details:</span>"
     },
     {
       "type": "table",
-      "headers": ["Parameter", "Target Range", "Rationale"],
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
       "rows": [
-        ["UVI (UV Index) in Basking Area", "2.0-3.0", "Ferguson Zone 2 recommendation for crepuscular semi-arboreal species"],
-        ["UVB Bulb Strength", "5.0-6% (T5 HO or T8)", "'Forest' strength, not 'desert' strength (10.0-12% too intense)"],
-        ["UVB Coverage Area", "50-70% of enclosure length", "Covers basking area + partial gradient (allows avoidance)"],
-        ["Distance from Basking", "15-18\" if over mesh, 9-11\" if under mesh", "Achieves 2.0-3.0 UVI at basking surface"],
-        ["Photoperiod", "12-14 hours light (spring/summer), 10-12 hours (fall/winter)", "Mimics natural seasonal day length variations"]
-      ]
-    },
-    {
-      "type": "highlight",
-      "content": "Recommended UVB bulb for 48×24×24 enclosure: 22\" T5 HO Zoo Med ReptiSun 5.0 OR Arcadia D3+ Forest 6% bulb. These provide appropriate UVI levels (2.0-3.0) for ball pythons without risk of overexposure."
-    },
-    {
-      "type": "section",
-      "title": "UVB Bulb Selection"
-    },
-    {
-      "type": "text",
-      "content": "UVB bulb type, strength, and fixture selection dramatically affect UVB output and penetration."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>UVB Bulb Options:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Bulb Type", "UVB Output", "Fixture Required", "Best For Ball Pythons"],
-      "rows": [
-        ["T5 HO linear (22\" 5.0 or 6%)", "High output, efficient, long-lasting", "T5 HO fixture with reflector ($40-60)", "BEST OPTION×consistent UVI, 12-month lifespan"],
-        ["T8 linear (18\" 5.0)", "Moderate output, widely available", "T8 fixture with reflector ($25-40)", "Acceptable×replace every 6-8 months"],
-        ["Compact coil UVB (26w 5.0)", "Uneven output, hot spots", "Standard dome fixture ($15-25)", "NOT recommended×inconsistent UVI distribution"],
-        ["Mercury vapor bulb (MVB)", "Very high UVB + heat", "Deep dome fixture ($30-40)", "NOT recommended×too intense for ball pythons (10+ UVI)"]
-      ]
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>UVB Bulbs to AVOID for Ball Pythons:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Bulb", "Why Avoid"],
-      "rows": [
-        ["Zoo Med ReptiSun 10.0 (desert strength)", "Too intense×provides 4.0-6.0 UVI (desert species level)"],
-        ["Arcadia 12% or 14% (desert strength)", "Excessive UVB×risk of eye damage and stress"],
-        ["Mercury vapor bulbs (any strength)", "Combines high UVB + high heat×too intense for ball pythons"],
-        ["Generic 'reptile bulbs' from pet stores", "Often produce little/no UVB despite labeling×waste of money"],
-        ["UV LED bulbs (current technology)", "Insufficient UVB output for reptile needs×technology not mature yet"]
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Do NOT use 10.0 or 12% 'desert' UVB bulbs for ball pythons. These are designed for bearded dragons and desert species that bask in full sun. Ball pythons require 'forest' strength (5.0-6%) to achieve appropriate UVI levels (2.0-3.0)."
+      "content": "[Add important safety information or critical requirements for uvb requirements]"
     },
     {
       "type": "section",
-      "title": "UVB Fixture Placement"
+      "title": "Light Cycle"
     },
     {
       "type": "text",
-      "content": "Distance from UVB source and mesh obstruction dramatically affect UVI levels reaching the snake."
+      "content": "[Add detailed information about light cycle for ball python. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "UVB Equipment Options"
     },
     {
       "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Placement Guidelines (48×24×24 Enclosure):</span>"
+      "content": "[Add detailed information about uvb equipment options for ball python. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>UVB Equipment Options Details:</span>"
     },
     {
       "type": "table",
-      "headers": ["Mounting Configuration", "Distance to Basking", "Expected UVI", "Pros/Cons"],
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
       "rows": [
-        ["T5 HO inside enclosure (no mesh)", "9-11\" from basking surface", "2.0-3.0 UVI", "Best option×no UVB blocked, accurate UVI"],
-        ["T5 HO over mesh screen", "15-18\" from basking surface", "2.0-3.0 UVI", "Acceptable×mesh blocks 25-30% UVB"],
-        ["T8 inside enclosure", "12-15\" from basking surface", "2.0-3.0 UVI", "Good option but replace every 6-8 months"],
-        ["T8 over mesh screen", "Not recommended", "<2.0 UVI", "Insufficient penetration×UVI too low"]
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
       ]
     },
     {
+      "type": "section",
+      "title": "Basking Light Setup"
+    },
+    {
       "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>UVB Coverage Pattern:</span>"
+      "content": "[Add detailed information about basking light setup for ball python. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Measuring UVB Output"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about measuring uvb output for ball python. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Bulb Replacement Schedule"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about bulb replacement schedule for ball python. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Bulb Replacement Schedule Details:</span>"
     },
     {
       "type": "table",
-      "headers": ["Zone", "UVI Level", "Purpose"],
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
       "rows": [
-        ["Basking area (directly under UVB)", "2.0-3.0 UVI", "Maximum UVB exposure for vitamin D3 synthesis"],
-        ["Warm side (adjacent to basking)", "1.0-2.0 UVI", "Partial UVB exposure, transition zone"],
-        ["Cool side (far from UVB)", "0.0-0.5 UVI", "UVB avoidance zone×snake can escape if desired"]
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
       ]
     },
     {
       "type": "highlight",
-      "content": "Verification is critical: Use a Solarmeter 6.5 ($200-250) to measure UVI at basking surface. Placement recommendations are approximations×actual UVI varies by fixture brand, reflector quality, and bulb age. If UVI <2.0, lower fixture. If UVI >3.5, raise fixture."
-    },
-    {
-      "type": "section",
-      "title": "Mesh Obstruction Issue"
-    },
-    {
-      "type": "text",
-      "content": "Screen mesh on top-opening enclosures blocks 25-30% of UVB."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Mesh Obstruction Solutions:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Issue", "Solution", "Notes"],
-      "rows": [
-        ["UVB fixture on top of mesh screen (glass tank)", "Increase distance to 15-18\" OR mount inside enclosure", "Mesh blocks 25-30% UVB×must compensate with distance"],
-        ["Glass or acrylic between UVB and snake", "Mount UVB inside enclosure", "Glass blocks 90-100% of UVB×unusable setup"],
-        ["Front-opening PVC enclosure", "Mount UVB inside enclosure on warm end", "BEST setup×no obstruction, accurate UVI"],
-        ["Multiple layers of mesh (screen + hardware cloth)", "Remove one mesh layer OR mount inside", "Double mesh blocks 40-50% UVB×excessive loss"]
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "critical",
-      "content": "NEVER place glass or acrylic between UVB bulb and snake×glass blocks 90-100% of UVB. Snake will receive essentially zero UVB despite bulb being on. Use screen mesh only (which blocks 25-30%) or mount inside enclosure."
-    },
-    {
-      "type": "section",
-      "title": "Photoperiod Management"
-    },
-    {
-      "type": "text",
-      "content": "Consistent day/night cycles regulate ball python activity, appetite, breeding, and overall circadian rhythms. Automated timers are essential."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Lighting Schedule:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Season", "Light Duration", "Typical Schedule", "Biological Purpose"],
-      "rows": [
-        ["Spring (March-May)", "12-14 hours light", "7:00 AM - 8:00 PM (13 hours)", "Breeding season, peak activity, increased appetite"],
-        ["Summer (June-August)", "14 hours light", "6:30 AM - 8:30 PM (14 hours)", "Longest days, active feeding season"],
-        ["Fall (September-November)", "10-12 hours light", "7:30 AM - 6:30 PM (11 hours)", "Gradual day shortening, activity decreases"],
-        ["Winter (December-February)", "10 hours light", "8:00 AM - 6:00 PM (10 hours)", "Shortest days, optional cooling period"],
-        ["Nighttime (year-round)", "Complete darkness (no lights)", "×", "Natural rest period, melatonin production, circadian rhythm"]
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "important",
-      "content": "Do NOT keep lights on 24/7 or use colored 'moonlights' (blue/red LEDs) at night. Ball pythons NEED complete darkness for 10-14 hours nightly to regulate circadian rhythms and hormones. Constant light causes chronic stress and suppresses melatonin."
-    },
-    {
-      "type": "section",
-      "title": "Heat vs Light Separation"
-    },
-    {
-      "type": "text",
-      "content": "Ball pythons need heat 24/7 but light only 10-14 hours daily. This requires separating heat and light sources."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Lighting + Heating Integration:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Time Period", "UVB Light", "Halogen Heat Lamps", "Nighttime Heat (if needed)"],
-      "rows": [
-        ["Daytime (12-14 hours)", "ON via timer", "ON via dimmer (provides heat + visible light)", "×"],
-        ["Nighttime (10-14 hours)", "OFF via timer", "OFF (if room stays >70×F)", "Ceramic heat emitter OR deep heat projector (no light)"],
-        ["Winter nighttime (if room <65×F)", "OFF via timer", "OFF", "CHE on thermostat to maintain 70-75×F minimum"]
-      ]
-    },
-    {
-      "type": "highlight",
-      "content": "Ideal setup: UVB on timer (12-14 hours), halogen heat lamps provide daytime heat + visible light. At night, turn off all lights. If room drops below 70×F at night, use ceramic heat emitter (CHE) on thermostat×it produces heat without light."
-    },
-    {
-      "type": "section",
-      "title": "Visible Light Benefits"
-    },
-    {
-      "type": "text",
-      "content": "Beyond UVB, ball pythons benefit from visible light for circadian rhythm regulation and naturalistic appearance."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Visible Light Sources:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Light Source", "Color Temperature", "Brightness", "Purpose"],
-      "rows": [
-        ["Halogen heat lamps (dual function)", "2700-3000K (warm white)", "Moderate (natural sun-like)", "Provides heat + visible light simultaneously"],
-        ["LED grow lights (low intensity)", "6500K (cool white)", "Dim to moderate", "Plant growth in bioactive setups, gentle ambient light"],
-        ["Fluorescent UVB bulb (dual function)", "Variable (produces visible light + UVB)", "Dim", "UVB provision + minimal visible light"],
-        ["Room ambient light only", "Variable", "Low", "Acceptable minimum if heat lamps provide some visible light"]
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "tip",
-      "content": "Ball pythons don't need intense lighting×they're crepuscular and adapted for low-light conditions. Halogen heat lamps + UVB bulb provide sufficient visible light. Avoid bright overhead lights that cause stress and hiding behavior."
-    },
-    {
-      "type": "section",
-      "title": "UVB Bulb Replacement Schedule"
-    },
-    {
-      "type": "text",
-      "content": "UVB output degrades over time even though the bulb still produces visible light. Replace on schedule to maintain effective UVB."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Replacement Schedule:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Bulb Type", "Replacement Interval", "Degradation Pattern", "Cost"],
-      "rows": [
-        ["T5 HO (Zoo Med, Arcadia)", "12 months", "Gradual decline×maintains 70% output at 12 months", "$25-35 per bulb"],
-        ["T8 (Zoo Med, Arcadia)", "6-8 months", "Faster degradation×50-60% output by 9 months", "$15-25 per bulb"],
-        ["Compact coil (if used)", "6 months", "Rapid degradation, inconsistent output", "$15-20 per bulb"],
-        ["Mercury vapor bulb (not recommended)", "12 months", "Gradual decline in both UVB and heat output", "$40-60 per bulb"]
-      ]
-    },
-    {
-      "type": "highlight",
-      "content": "Mark bulb installation date on calendar or on bulb itself with permanent marker. UVB bulbs often look fine but have lost 40-50% output after 6-8 months (T8) or 12 months (T5). Don't wait for bulb to stop working×UVB degrades while visible light remains."
-    },
-    {
-      "type": "section",
-      "title": "Common Lighting Mistakes"
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Mistakes to Avoid:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Mistake", "Why It's Harmful", "Solution"],
-      "rows": [
-        ["No lighting at all (dark tub setup)", "Disrupts circadian rhythm, prevents vitamin D3 synthesis, unnatural", "Add UVB lighting (2.0-3.0 UVI) + natural photoperiod"],
-        ["Using 10.0 or 12% desert UVB bulb", "Too intense×excessive UVB causes stress, potential eye damage", "Switch to 5.0-6% 'forest' strength bulb"],
-        ["Glass between UVB and snake", "Blocks 90-100% of UVB×bulb is useless", "Mount UVB inside enclosure OR use screen mesh only"],
-        ["Lights on 24/7 (no dark period)", "Suppresses melatonin, disrupts circadian rhythm, chronic stress", "Use timer for 12-14 hour light cycle, complete darkness at night"],
-        ["Blue or red 'moonlight' LEDs at night", "Disrupts circadian rhythm, suppresses melatonin production", "Complete darkness at night×ball pythons don't need light to see"],
-        ["Not replacing UVB bulbs on schedule", "UVB output degraded to 40-50% even though bulb still lights", "Replace T8 every 6-8 months, T5 every 12 months"],
-        ["UVB too far from basking (>24\")", "UVI <1.0 (insufficient for vitamin D3 synthesis)", "Lower fixture to 9-18\" depending on mounting (inside vs over mesh)"],
-        ["No visible light (UVB only)", "UVB bulbs produce minimal visible light×too dark for natural rhythms", "Add halogen heat lamps OR low-intensity LED for ambient light"]
-      ]
-    },
-    {
-      "type": "section",
-      "title": "Lighting for Different Enclosure Types"
-    },
-    {
-      "type": "text",
-      "content": "Enclosure type affects UVB mounting options and effectiveness."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Enclosure-Specific Recommendations:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Enclosure Type", "UVB Mounting", "Placement Notes"],
-      "rows": [
-        ["PVC front-opening (recommended)", "Inside enclosure on warm end ceiling", "BEST×no mesh obstruction, accurate UVI, easy to achieve 2.0-3.0 at 9-11\""],
-        ["Wood front-opening", "Inside enclosure on warm end ceiling", "Same as PVC×excellent UVB penetration"],
-        ["Glass tank (top-opening)", "Over mesh screen on warm end", "Mesh blocks 25-30% UVB×increase distance to 15-18\""],
-        ["Plastic tub (rack system)", "Not possible (no lighting)", "NOT RECOMMENDED for pet keeping×no UVB provision possible"],
-        ["Custom enclosure (mixed materials)", "Inside enclosure if possible", "Ensure no glass/acrylic between UVB and snake"]
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "important",
-      "content": "Rack systems (plastic tubs on shelves) are common in breeding operations but INAPPROPRIATE for pet ball pythons. They provide no UVB, no enrichment, no thermoregulation options, and minimal space. Use proper enclosures (48×24×24 minimum) with UVB lighting for pet ball pythons."
-    },
-    {
-      "type": "section",
-      "title": "Troubleshooting Lighting Issues"
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Common Problems and Solutions:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Problem", "Likely Cause", "Solution"],
-      "rows": [
-        ["Snake never basks under UVB", "UVB too intense, basking too hot (>110×F), or normal behavior", "Verify basking surface 95-104×F, check UVI <3.5 (ball pythons are subtle baskers)"],
-        ["Snake constantly hides (won't come out)", "Lights too bright OR normal crepuscular behavior", "Reduce light intensity, provide more cover, observe during dawn/dusk hours"],
-        ["UVB bulb produces no visible light", "T8/T5 bulbs produce minimal visible light×this is normal", "Add halogen heat lamp for visible light, UVB alone is dim"],
-        ["Fixture buzzing or flickering", "Ballast failure or bulb incompatibility", "Replace fixture×ballasts degrade after 3-5 years of use"],
-        ["UVB bulb >12 months old", "UVB output degraded even though bulb still lights", "Replace immediately×bulb is providing minimal UVB at this age"],
-        ["Snake has dull skin, poor shed", "Possible vitamin D deficiency from no UVB OR low humidity", "Add UVB (2.0-3.0 UVI), verify humidity 60-75% in cool hide"],
-        ["Using solarmeter shows <1.0 UVI", "Bulb too far, wrong bulb type, or bulb expired", "Lower fixture to 9-18\", verify using 5.0-6% bulb, check bulb age"]
-      ]
-    },
-    {
-      "type": "section",
-      "title": "Complete Lighting Equipment Checklist"
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Essential Equipment:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Equipment", "Specification", "Purpose"],
-      "rows": [
-        ["UVB Bulb", "22\" T5 HO Zoo Med ReptiSun 5.0 OR Arcadia D3+ Forest 6%", "Provides 2.0-3.0 UVI for vitamin D3 synthesis"],
-        ["UVB Fixture", "24\" T5 HO fixture with reflector", "Houses UVB bulb, reflector increases efficiency by 100%"],
-        ["Timer", "Digital plug-in timer ($10-15)", "Automates 12-14 hour photoperiod"],
-        ["Halogen Heat Lamps", "90w PAR38 x2 in dual dome fixture", "Provides heat + visible light (dual purpose)"],
-        ["Optional: Solarmeter 6.5", "UVI measurement device ($200-250)", "Verifies UVI at basking area (highly recommended for accuracy)"],
-        ["Optional: LED grow light", "6500K low-intensity LED strip ($20-40)", "Plant growth in bioactive setups, gentle ambient light"]
-      ]
-    },
-    {
-      "type": "highlight",
-      "content": "Initial lighting investment: $80-120 (UVB bulb $30, fixture $50, timer $10, heat lamps already counted in heating budget). Annual maintenance: $25-35 for UVB bulb replacement. This provides optimal welfare for 30+ year lifespan."
-    },
-    {
-      "type": "section",
-      "title": "Advanced: Seasonal Light Cycling"
-    },
-    {
-      "type": "text",
-      "content": "Mimicking natural seasonal day length changes can improve breeding success and overall health."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Seasonal Photoperiod Adjustments:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Month Range", "Day Length", "Notes"],
-      "rows": [
-        ["December-February", "10 hours", "Shortest days, optional cooling period for breeding"],
-        ["March-May", "12-13 hours", "Increasing day length triggers breeding behavior"],
-        ["June-August", "14 hours", "Longest days, peak feeding season"],
-        ["September-November", "11-12 hours", "Decreasing day length, activity slows"],
-        ["Year-round (if not breeding)", "12 hours consistent", "Acceptable for pet ball pythons not in breeding programs"]
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "tip",
-      "content": "Seasonal light cycling is optional for pet ball pythons. It's primarily used to cycle breeding animals. If not breeding, maintain consistent 12-hour photoperiod year-round. Seasonal cycling benefits overall health but adds complexity."
+      "content": "Key Takeaway: [Summarize the most important point for Ball Python lighting guide]"
     }
   ]
 }

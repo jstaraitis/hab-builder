@@ -64,22 +64,28 @@ export function addDecor(
     }
   }
 
-  // Leaf litter - auto-include based on rules (amphibians with natural substrate)
+  // Leaf litter - use tag-based matching for bioactive substrates
   const leafLitterConfig = catalogDict['leaf-litter'];
-  if (leafLitterConfig && shouldInclude(leafLitterConfig.autoIncludeFor, profile, input)) {
-    items.push({
-      id: 'leaf-litter',
-      category: leafLitterConfig.category,
-      name: leafLitterConfig.name,
-      quantity: '1 bag',
-      sizing: 'Thick layer over substrate for skin protection and natural foraging',
-      importance: leafLitterConfig.importance,
-      setupTierOptions: leafLitterConfig.tiers,
-      notes: leafLitterConfig.notes,
-      incompatibleAnimals: leafLitterConfig.incompatibleAnimals,
-      isRecurring: leafLitterConfig.isRecurring,
-      recurringInterval: leafLitterConfig.recurringInterval,
-    });
+  if (leafLitterConfig) {
+    const shouldAdd = leafLitterConfig.needsTags && leafLitterConfig.needsTags.length > 0
+      ? matchesAnimalNeeds(leafLitterConfig, profile.equipmentNeeds, input)
+      : shouldInclude(leafLitterConfig.autoIncludeFor, profile, input);
+    
+    if (shouldAdd && input.bioactive) { // Only add for bioactive setups
+      items.push({
+        id: 'leaf-litter',
+        category: leafLitterConfig.category,
+        name: leafLitterConfig.name,
+        quantity: '1 bag',
+        sizing: 'Thick layer over substrate for skin protection and natural foraging',
+        importance: leafLitterConfig.importance,
+        setupTierOptions: leafLitterConfig.tiers,
+        notes: leafLitterConfig.notes,
+        incompatibleAnimals: leafLitterConfig.incompatibleAnimals,
+        isRecurring: leafLitterConfig.isRecurring,
+        recurringInterval: leafLitterConfig.recurringInterval,
+      });
+    }
   }
 
   // Add any species-specific required equipment from profile

@@ -86,7 +86,7 @@
           "type": "list",
           "items": [
             "Container: Ventilated cricket keeper or plastic bin with screen top (minimum 5 gallons for 100 crickets)",
-            "Temperature: 70-75캟 (room temperature ideal; warmer = faster die-off)",
+            "Temperature: 70-75째F (room temperature ideal; warmer = faster die-off)",
             "Humidity: Low (~30-40%); high humidity causes bacterial blooms and mass die-offs",
             "Food/Water: Provide gut-load diet (commercial cricket food, carrots, sweet potato) and water crystals or gel",
             "Hiding spots: Add egg crate vertically to maximize surface area and reduce cannibalism",
@@ -107,7 +107,7 @@
           "type": "list",
           "items": [
             "Container: Opaque plastic tote (roaches prefer darkness) with ventilation holes, 10+ gallon for 100+ roaches",
-            "Temperature: 75-80캟 optimal for health; 85-90캟 for breeding. Below 70캟 = sluggish, won't breed",
+            "Temperature: 75-80째F optimal for health; 85-90째F for breeding. Below 70째F = sluggish, won't breed",
             "Humidity: 40-60% (light misting once weekly or damp sponge in corner)",
             "Food: Fresh vegetables (carrots, squash, sweet potato), dry dog food, commercial roach chow. Remove uneaten food after 48 hours.",
             "Hiding spots: Stack egg crates vertically; roaches need tight spaces to feel secure",
@@ -117,7 +117,7 @@
         },
         {
           "type": "highlight",
-          "content": "Dubia Colony Tip: Start with 20-30 adult females + 5-10 males. Keep at 85캟 with 50-60% humidity. Expect first nymphs in 4-6 weeks, mature feeders in 4-5 months. One colony can support 2-3 adult reptiles indefinitely."
+          "content": "Dubia Colony Tip: Start with 20-30 adult females + 5-10 males. Keep at 85째F with 50-60% humidity. Expect first nymphs in 4-6 weeks, mature feeders in 4-5 months. One colony can support 2-3 adult reptiles indefinitely."
         },
         {
           "type": "text",
@@ -127,7 +127,7 @@
           "type": "list",
           "items": [
             "Container: Keep in original shipping container or shallow dish (they don't climb or burrow)",
-            "Temperature: Refrigerate at 50-55캟 to pause development and extend lifespan",
+            "Temperature: Refrigerate at 50-55째F to pause development and extend lifespan",
             "Room temp: Will pupate into flies within 1-2 weeks; only store at room temp if using quickly",
             "Food/Water: NONE required; they're self-sustaining and naturally gut-loaded",
             "Maintenance: Check weekly for pupae (black, hard casings); remove and discard or let pupate for enrichment",
@@ -142,8 +142,8 @@
           "type": "list",
           "items": [
             "Container: Keep in original cup with food; do NOT transfer (they're delicate)",
-            "Temperature: Room temperature (70-75캟); they grow RAPIDLY (can double in size in 48 hours)",
-            "Refrigeration: 50-55캟 slows growth slightly but doesn't stop it",
+            "Temperature: Room temperature (70-75째F); they grow RAPIDLY (can double in size in 48 hours)",
+            "Refrigeration: 50-55째F slows growth slightly but doesn't stop it",
             "Food: Comes with hornworm chow; DO NOT feed tomato leaves (toxic)",
             "Maintenance: Remove frass (black droppings) every 2-3 days; condensation is normal",
             "Lifespan: 1 week at room temp (they outgrow most animals quickly); order small sizes"
@@ -162,7 +162,7 @@
           "type": "list",
           "items": [
             "Container: Original cup or shallow dish with bedding (sawdust/bran mix)",
-            "Temperature: Refrigerate at 55-60캟 to slow development; room temp = rapid pupation",
+            "Temperature: Refrigerate at 55-60째F to slow development; room temp = rapid pupation",
             "Food: NONE required (they live off stored body fat)",
             "Maintenance: Remove condensation weekly (shake off lid); discard any pupae (cocoons) or moths",
             "Lifespan: 2-3 weeks refrigerated, 1 week at room temperature"
@@ -176,7 +176,7 @@
           "type": "list",
           "items": [
             "Container: Ventilated plastic container, cleaned daily (very sensitive to waste buildup)",
-            "Temperature: 75-80캟; below 70캟 = slow growth, above 85캟 = stress",
+            "Temperature: 75-80째F; below 70째F = slow growth, above 85째F = stress",
             "Food: ONLY fresh mulberry leaves or commercial silkworm chow (Silkworm Chow brand)",
             "Maintenance: Remove frass and uneaten food DAILY; silkworms are extremely sensitive to bacteria",
             "Lifespan: 4-6 weeks from hatching to pupation; must be used before cocooning"
@@ -190,7 +190,7 @@
           "type": "list",
           "items": [
             "Container: Shallow plastic container (they can't climb smooth surfaces)",
-            "Temperature: 70-75캟 for mealworms, 75-80캟 for superworms; refrigerate mealworms at 45-50캟 to extend lifespan",
+            "Temperature: 70-75째F for mealworms, 75-80째F for superworms; refrigerate mealworms at 45-50째F to extend lifespan",
             "Substrate: Wheat bran, oats, or commercial bedding (2-3 inches deep)",
             "Food: Carrots, potatoes, or commercial gut-load placed on top of substrate",
             "Maintenance: Sift out frass monthly, replace substrate every 2-3 months",
@@ -248,7 +248,7 @@
             "Mass die-offs: Usually caused by high humidity, ammonia buildup, or temperature extremes. Increase ventilation, clean more frequently, check temperature.",
             "Foul odor: Sign of bacterial bloom or dead feeders. Remove all dead insects immediately, sanitize container, reduce moisture.",
             "Feeders escaping: Ensure smooth container walls, tight-fitting lids, no condensation (creates grip). Apply petroleum jelly band at top of container.",
-            "Slow feeder growth/breeding: Temperature too low, inadequate food/water, overcrowding. Increase temp 5-10캟, provide fresh food daily, thin out population.",
+            "Slow feeder growth/breeding: Temperature too low, inadequate food/water, overcrowding. Increase temp 5-10째F, provide fresh food daily, thin out population.",
             "Pupation before use: Feeders stored too warm. Refrigerate waxworms, mealworms, BSFL to slow development. Order smaller hornworms.",
             "Mold in containers: Excess moisture or uneaten food. Increase ventilation, remove food after 48 hours, reduce misting."
           ]
@@ -263,14 +263,14 @@
           "type": "table",
           "headers": ["Feeder", "Storage Temp", "Container", "Lifespan", "Maintenance Level"],
           "rows": [
-            ["Crickets", "70-75캟", "Cricket keeper", "2-3 weeks", "High (daily cleaning)"],
-            ["Dubia Roaches", "75-80캟", "Opaque tote", "1-2 years", "Low (monthly cleaning)"],
-            ["BSFL", "50-55캟 (fridge)", "Original cup", "2-3 weeks", "None"],
-            ["Hornworms", "70-75캟", "Original cup", "1 week", "Low (frass removal)"],
-            ["Waxworms", "55-60캟 (fridge)", "Shallow dish", "2-3 weeks", "Very low"],
-            ["Silkworms", "75-80캟", "Ventilated box", "4-6 weeks", "Very high (daily cleaning)"],
-            ["Mealworms", "45-50캟 (fridge)", "Shallow container", "8-10 weeks", "Low (monthly sifting)"],
-            ["Superworms", "75-80캟", "Shallow container", "3-6 months", "Low (monthly sifting)"]
+            ["Crickets", "70-75째F", "Cricket keeper", "2-3 weeks", "High (daily cleaning)"],
+            ["Dubia Roaches", "75-80째F", "Opaque tote", "1-2 years", "Low (monthly cleaning)"],
+            ["BSFL", "50-55째F (fridge)", "Original cup", "2-3 weeks", "None"],
+            ["Hornworms", "70-75째F", "Original cup", "1 week", "Low (frass removal)"],
+            ["Waxworms", "55-60째F (fridge)", "Shallow dish", "2-3 weeks", "Very low"],
+            ["Silkworms", "75-80째F", "Ventilated box", "4-6 weeks", "Very high (daily cleaning)"],
+            ["Mealworms", "45-50째F (fridge)", "Shallow container", "8-10 weeks", "Low (monthly sifting)"],
+            ["Superworms", "75-80째F", "Shallow container", "3-6 months", "Low (monthly sifting)"]
           ]
         }
       ]

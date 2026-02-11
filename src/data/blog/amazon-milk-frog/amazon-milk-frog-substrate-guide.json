@@ -1,0 +1,162 @@
+{
+  "id": "amazon-milk-frog-substrate-guide",
+  "title": "Amazon Milk Frog Substrate Guide: [Add Subtitle]",
+  "description": "Complete substrate guide for Amazon Milk Frog covering [key topics].",
+  "excerpt": "Complete substrate guide for Amazon Milk Frog covering [key topics].",
+  "author": "Habitat Builder",
+  "publishDate": "2026-02-11",
+  "category": "Care Guides",
+  "tags": [
+    "amazon-milk-frog",
+    "substrate",
+    "care guide"
+  ],
+  "image": "/animals/amazon-milk-frog/amazon-milk-frog-1.jpg",
+  "status": "draft",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Understanding Amazon Milk Frog Substrate",
+      "content": "Comprehensive substrate selection guide for Amazon Milk Frog, covering safe options, impaction risks, bioactive setups, and maintenance requirements."
+    },
+    {
+      "type": "section",
+      "title": "Substrate Safety Overview"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about substrate safety overview for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Add important safety information or critical requirements for substrate safety overview]"
+    },
+    {
+      "type": "section",
+      "title": "Recommended Substrate Options"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about recommended substrate options for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Recommended Substrate Options Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Substrate Comparison Table"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about substrate comparison table for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Substrate Comparison Table Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Bioactive Setup"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about bioactive setup for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Maintenance Requirements"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about maintenance requirements for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Maintenance Requirements Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Add important safety information or critical requirements for maintenance requirements]"
+    },
+    {
+      "type": "section",
+      "title": "Substrates to Avoid"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about substrates to avoid for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Add important safety information or critical requirements for substrates to avoid]"
+    },
+    {
+      "type": "highlight",
+      "content": "Key Takeaway: [Summarize the most important point for Amazon Milk Frog substrate guide]"
+    }
+  ]
+}

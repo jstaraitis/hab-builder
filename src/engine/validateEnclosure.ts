@@ -122,6 +122,13 @@ export function validateEnclosureType(
   input: EnclosureInput,
   profile: AnimalProfile
 ): { compatible: boolean; warning?: string } {
+  if (input.type === 'screen' && input.animal !== 'veiled-chameleon') {
+    return {
+      compatible: false,
+      warning: `Screen enclosures are not recommended for ${profile.commonName}. They lose heat and humidity too quickly for most species. Use glass or PVC instead.`,
+    };
+  }
+
   // Amphibians require high humidity - screen enclosures are incompatible
   if (input.type === 'screen' && profile.equipmentNeeds?.animalType === 'amphibian') {
     return {

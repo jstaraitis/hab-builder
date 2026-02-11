@@ -1,0 +1,104 @@
+{
+  "id": "uromastyx-enrichment-welfare-guide",
+  "title": "Enrichment and Welfare for Uromastyx",
+  "description": "Enrichment ideas, behavior checks, and handling tips to keep Uromastyx active, secure, and stress-free.",
+  "excerpt": "Enrichment ideas, behavior checks, and handling tips to keep Uromastyx active, secure, and stress-free.",
+  "author": "Habitat Builder Team",
+  "date": "2026-02-11",
+  "publishDate": "2026-02-11",
+  "category": "Care Guides",
+  "tags": ["uromastyx", "enrichment", "welfare", "behavior"],
+  "status": "community-reviewed",
+  "content": [
+    {
+      "type": "intro",
+      "text": "Uromastyx are heat-loving, ground-dwelling lizards that thrive when their enclosure gives them choices: bright basking spots, shaded retreats, and places to dig. The goal is a warm, dry habitat with layered texture and multiple safe hideouts."
+    },
+    {
+      "type": "section",
+      "heading": "Habitat Enrichment"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Build a basking platform with stacked stone or sealed wood to create warm crevices.",
+        "Provide at least two hides: one on the cool side and one under a warm shelf.",
+        "Add a few stable rocks or cork pieces to encourage short climbs and visual barriers.",
+        "Leave open floor space for foraging; Uromastyx are active ground walkers.",
+        "Use sand or sandy soil deep enough for shallow digging and burrow shaping."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Thermoregulation Behavior"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Expect long basking sessions under very bright light; this is normal and healthy.",
+        "Watch for regular movement between hot, warm, and cool zones during the day.",
+        "Provide a shaded retreat so the lizard can exit the light without leaving the heat gradient."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Handling and Trust"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Give new arrivals 10-14 days to settle before handling.",
+        "Offer greens by hand or tongs to build positive association.",
+        "Always scoop from below and support the body; avoid grabbing from above.",
+        "Keep sessions short and calm; return the lizard if it shows signs of stress."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Welfare Checks"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Body condition: full tail base and smooth hips without sharp bones.",
+        "Appetite: steady interest in greens and occasional seeds.",
+        "Skin and eyes: clear, no retained shed around toes or tail tip.",
+        "Activity: alert and basking during the day, resting in hides at night.",
+        "Droppings: regular, well-formed feces with white urates."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Normal vs Abnormal Behaviors"
+    },
+    {
+      "type": "table",
+      "headers": ["Behavior", "Status", "Meaning or Action"],
+      "rows": [
+        ["Long basking sessions", "Normal", "Uromastyx need intense heat to digest and stay active."],
+        ["Burrowing or hiding during midday", "Normal", "They may retreat after reaching ideal body temperature."],
+        ["Skittishness in new setup", "Normal", "Give time, keep handling minimal at first."],
+        ["Persistent open-mouth breathing", "Abnormal", "Check basking temps and ventilation; seek vet if it persists."],
+        ["Refusal to bask", "Abnormal", "Often indicates temperatures or UVB are too low."],
+        ["Soft jaw or limb weakness", "Emergency", "Possible metabolic bone disease; seek vet care immediately."]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Red flags: severe lethargy, sunken eyes, blackened tail tip, or refusal to bask for multiple days. Verify temperatures and UVB immediately and consult an experienced reptile vet."
+    },
+    {
+      "type": "section",
+      "heading": "Enrichment Rotation"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Rotate one or two decor items every 6-8 weeks to add novelty without removing all landmarks.",
+        "Change feeding spots occasionally to encourage foraging.",
+        "Refresh burrow areas by lightly moistening deeper substrate, keeping the surface dry."
+      ]
+    }
+  ]
+}

@@ -11,6 +11,7 @@ export interface BlogPost {
   tags: string[];
   status?: BlogStatus; // Optional for backward compatibility
   reviewedBy?: string; // Who reviewed it (for community-reviewed or expert-verified)
+  relatedBlogs?: string[]; // IDs of related blog posts
   content: ContentBlock[];
 }
 

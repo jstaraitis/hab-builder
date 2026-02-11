@@ -12,7 +12,7 @@
     {
       "type": "intro",
       "heading": "Why Temperature Zones Matter for Ectotherms",
-      "text": "Unlike mammals and birds that generate their own body heat, reptiles and amphibians are ectothermic—they rely entirely on external heat sources to regulate their body temperature. In captivity, this means creating a thermal gradient: multiple temperature zones within the enclosure that allow your animal to move between hot and cool areas as needed. This isn't just a comfort feature—it's essential for digestion, immune function, metabolism, and survival."
+      "text": "Unlike mammals and birds that generate their own body heat, reptiles and amphibians are ectothermicÂ°they rely entirely on external heat sources to regulate their body temperature. In captivity, this means creating a thermal gradient: multiple temperature zones within the enclosure that allow your animal to move between hot and cool areas as needed. This isn't just a comfort featureÂ°it's essential for digestion, immune function, metabolism, and survival."
     },
     {
       "type": "section",
@@ -20,7 +20,7 @@
     },
     {
       "type": "text",
-      "text": "A thermal gradient is a range of temperatures across an enclosure, typically from hot to cool. Animals move between zones to warm up for activity and digestion, or cool down to prevent overheating. This mimics natural behavior—basking in sun for warmth, retreating to shade or burrows for cooling."
+      "text": "A thermal gradient is a range of temperatures across an enclosure, typically from hot to cool. Animals move between zones to warm up for activity and digestion, or cool down to prevent overheating. This mimics natural behaviorÂ°basking in sun for warmth, retreating to shade or burrows for cooling."
     },
     {
       "type": "text",
@@ -30,10 +30,10 @@
       "type": "table",
       "headers": ["Zone", "Purpose", "Typical Placement", "Temperature Range"],
       "rows": [
-        ["Basking Zone", "Warmest spot for digestion, activity, immune function", "Under heat lamp, one end of enclosure", "Species-dependent (85-110°F)"],
-        ["Warm Zone", "Comfortable warm area without intense heat", "Adjacent to basking, transition area", "75-90°F depending on species"],
-        ["Mid Zone", "Neutral temperature corridor", "Middle of enclosure", "70-85°F"],
-        ["Cool Zone", "Coolest retreat to prevent overheating", "Opposite end from heat source", "65-80°F depending on species"],
+        ["Basking Zone", "Warmest spot for digestion, activity, immune function", "Under heat lamp, one end of enclosure", "Species-dependent (85-110Â°F)"],
+        ["Warm Zone", "Comfortable warm area without intense heat", "Adjacent to basking, transition area", "75-90Â°F depending on species"],
+        ["Mid Zone", "Neutral temperature corridor", "Middle of enclosure", "70-85Â°F"],
+        ["Cool Zone", "Coolest retreat to prevent overheating", "Opposite end from heat source", "65-80Â°F depending on species"],
         ["Hide Zones", "Secure retreats at multiple temperatures", "Throughout gradient", "Should span warm, mid, and cool temps"]
       ]
     },
@@ -48,7 +48,7 @@
     },
     {
       "type": "text",
-      "text": "Ectotherms cannot regulate their internal temperature through metabolism. They depend entirely on behavioral thermoregulation—moving between temperatures to achieve their optimal body temperature."
+      "text": "Ectotherms cannot regulate their internal temperature through metabolism. They depend entirely on behavioral thermoregulationÂ°moving between temperatures to achieve their optimal body temperature."
     },
     {
       "type": "text",
@@ -58,16 +58,16 @@
       "type": "table",
       "headers": ["Problem", "Consequence", "Why It Happens"],
       "rows": [
-        ["Entire enclosure too hot", "Overheating, dehydration, death", "No cool retreat—animal cannot escape heat"],
+        ["Entire enclosure too hot", "Overheating, dehydration, death", "No cool retreatÂ°animal cannot escape heat"],
         ["Entire enclosure too cool", "Lethargy, won't eat, immune suppression, respiratory infections", "Cannot reach optimal temperature for digestion/immunity"],
-        ["Gradient too narrow (only 5-10°F difference)", "Stress, reduced activity, suboptimal thermoregulation", "Animal cannot fine-tune body temperature"],
+        ["Gradient too narrow (only 5-10Â°F difference)", "Stress, reduced activity, suboptimal thermoregulation", "Animal cannot fine-tune body temperature"],
         ["No basking zone", "Poor digestion, won't eat, lethargy", "Cannot reach high temps needed for enzyme function"],
         ["Basking zone too large", "Entire enclosure becomes too hot", "No cool zone to prevent overheating"]
       ]
     },
     {
       "type": "highlight",
-      "content": "A proper thermal gradient should have at least a 15-25°F difference between basking and cool zones. For example: 95°F basking zone and 75°F cool zone for a leopard gecko, or 88°F basking and 75°F cool zone for a ball python."
+      "content": "A proper thermal gradient should have at least a 15-25Â°F difference between basking and cool zones. For example: 95Â°F basking zone and 75Â°F cool zone for a leopard gecko, or 88Â°F basking and 75Â°F cool zone for a ball python."
     },
     {
       "type": "section",
@@ -75,7 +75,7 @@
     },
     {
       "type": "text",
-      "text": "Terrestrial species (ground-dwelling) need horizontal gradients—temperature changes across the floor from one end to the other. Arboreal species (tree-dwelling) benefit from vertical gradients—warmer near the top (heat lamp), cooler at ground level."
+      "text": "Terrestrial species (ground-dwelling) need horizontal gradientsÂ°temperature changes across the floor from one end to the other. Arboreal species (tree-dwelling) benefit from vertical gradientsÂ°warmer near the top (heat lamp), cooler at ground level."
     },
     {
       "type": "text",
@@ -85,8 +85,8 @@
       "type": "table",
       "headers": ["Species Type", "Gradient Emphasis", "Heat Source Placement", "Examples"],
       "rows": [
-        ["Terrestrial (ground-dwelling)", "Horizontal—left to right", "Heat lamp on one end, not centered", "Leopard geckos, ball pythons, bearded dragons"],
-        ["Arboreal (tree-dwelling)", "Vertical—top to bottom", "Heat lamp on screen top, basking branch below", "Crested geckos, tree frogs, chameleons"],
+        ["Terrestrial (ground-dwelling)", "HorizontalÂ°left to right", "Heat lamp on one end, not centered", "Leopard geckos, ball pythons, bearded dragons"],
+        ["Arboreal (tree-dwelling)", "VerticalÂ°top to bottom", "Heat lamp on screen top, basking branch below", "Crested geckos, tree frogs, chameleons"],
         ["Semi-arboreal (both)", "Both horizontal and vertical", "Heat lamp one side + elevated basking perch", "Corn snakes, blue tongue skinks"],
         ["Fossorial (burrowing)", "Horizontal with substrate depth", "Overhead heat + deep substrate for cool retreat", "Sand boas, African fat-tailed geckos"]
       ]
@@ -113,16 +113,16 @@
       "headers": ["Rule", "Reason", "Result"],
       "rows": [
         ["Heat lamp on ONE END only", "Creates hot zone on one side, cool zone opposite", "Proper horizontal gradient for terrestrial species"],
-        ["Never center heat lamp", "Heats entire enclosure evenly—no cool retreat", "Eliminates gradient, causes overheating"],
+        ["Never center heat lamp", "Heats entire enclosure evenlyÂ°no cool retreat", "Eliminates gradient, causes overheating"],
         ["Position lamp 6-12\" above basking surface", "Distance controls intensity", "Too close = burns, too far = insufficient heat"],
         ["Use basking platform under lamp", "Provides hot surface for belly heat", "Leopard geckos, bearded dragons need this"],
         ["Leave opposite end UNHEATED", "Cool zone for thermoregulation escape", "Prevents overheating, enables temperature choice"],
-        ["Avoid heating entire enclosure with ambient heat", "Room heaters, space heaters affect whole enclosure", "Destroys gradient—use focused heat sources only"]
+        ["Avoid heating entire enclosure with ambient heat", "Room heaters, space heaters affect whole enclosure", "Destroys gradientÂ°use focused heat sources only"]
       ]
     },
     {
       "type": "highlight",
-      "content": "Think of your heat lamp as the 'sun'—it should warm a specific spot (basking zone), not the entire enclosure. Natural sunlight creates hot spots (sunny areas) and cool spots (shade). Your setup should mimic this."
+      "content": "Think of your heat lamp as the 'sun'Â°it should warm a specific spot (basking zone), not the entire enclosure. Natural sunlight creates hot spots (sunny areas) and cool spots (shade). Your setup should mimic this."
     },
     {
       "type": "section",
@@ -130,7 +130,7 @@
     },
     {
       "type": "text",
-      "text": "Most reptile care advice focuses on surface temperatures—the temperature of the substrate, rocks, or branches where your animal actually sits. Air temperature matters too, but surface temp is what the animal feels."
+      "text": "Most reptile care advice focuses on surface temperaturesÂ°the temperature of the substrate, rocks, or branches where your animal actually sits. Air temperature matters too, but surface temp is what the animal feels."
     },
     {
       "type": "text",
@@ -140,7 +140,7 @@
       "type": "table",
       "headers": ["Measurement", "Tool", "Why It Matters", "How to Measure"],
       "rows": [
-        ["Basking surface temperature", "Infrared temperature gun", "Most critical—where animal basks", "Point IR gun at basking rock/branch, read within 1 second"],
+        ["Basking surface temperature", "Infrared temperature gun", "Most criticalÂ°where animal basks", "Point IR gun at basking rock/branch, read within 1 second"],
         ["Cool end surface temperature", "IR gun or probe thermometer", "Ensures cool retreat exists", "Measure substrate surface on opposite end from heat"],
         ["Ambient air temperature (basking zone)", "Digital probe thermometer", "Shows air temp animal breathes", "Place probe at basking height, not on floor"],
         ["Ambient air temperature (cool zone)", "Digital probe thermometer", "Verifies gradient exists in air too", "Place probe at animal height in cool end"],
@@ -150,7 +150,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Common mistake: Only measuring air temperature with a digital thermometer. This doesn't tell you surface temps where the animal actually sits. You MUST use an infrared temperature gun to measure basking surface temps—this is the most critical measurement."
+      "content": "Common mistake: Only measuring air temperature with a digital thermometer. This doesn't tell you surface temps where the animal actually sits. You MUST use an infrared temperature gun to measure basking surface tempsÂ°this is the most critical measurement."
     },
     {
       "type": "section",
@@ -158,7 +158,7 @@
     },
     {
       "type": "text",
-      "text": "Different species have evolved in different climates and need different temperature ranges. These are general guidelines—always research your specific species' requirements."
+      "text": "Different species have evolved in different climates and need different temperature ranges. These are general guidelinesÂ°always research your specific species' requirements."
     },
     {
       "type": "text",
@@ -168,16 +168,16 @@
       "type": "table",
       "headers": ["Species Category", "Basking Zone", "Warm Zone", "Cool Zone", "Night Drop", "Examples"],
       "rows": [
-        ["Desert/Arid Terrestrial", "95-110°F", "85-90°F", "70-80°F", "Down to 65°F", "Bearded dragons, leopard geckos, uromastyx"],
-        ["Tropical Terrestrial", "85-90°F", "78-85°F", "72-78°F", "70-75°F", "Ball pythons, blue tongue skinks"],
-        ["Tropical Arboreal", "80-85°F", "75-80°F", "70-75°F", "68-72°F", "Crested geckos, tree frogs"],
-        ["Semi-Aquatic", "78-85°F", "75-80°F", "70-75°F", "68-75°F", "Red-eyed tree frogs, fire-bellied toads"],
-        ["Temperate (Cooler Climate)", "80-88°F", "75-80°F", "65-75°F", "Down to 60°F", "Corn snakes, garter snakes"]
+        ["Desert/Arid Terrestrial", "95-110Â°F", "85-90Â°F", "70-80Â°F", "Down to 65Â°F", "Bearded dragons, leopard geckos, uromastyx"],
+        ["Tropical Terrestrial", "85-90Â°F", "78-85Â°F", "72-78Â°F", "70-75Â°F", "Ball pythons, blue tongue skinks"],
+        ["Tropical Arboreal", "80-85Â°F", "75-80Â°F", "70-75Â°F", "68-72Â°F", "Crested geckos, tree frogs"],
+        ["Semi-Aquatic", "78-85Â°F", "75-80Â°F", "70-75Â°F", "68-75Â°F", "Red-eyed tree frogs, fire-bellied toads"],
+        ["Temperate (Cooler Climate)", "80-88Â°F", "75-80Â°F", "65-75Â°F", "Down to 60Â°F", "Corn snakes, garter snakes"]
       ]
     },
     {
       "type": "highlight",
-      "content": "These are approximations. Always look up your specific species' care requirements. For example, panther chameleons need 85-90°F basking but emerald tree boas only need 78-82°F. Species-level accuracy matters."
+      "content": "These are approximations. Always look up your specific species' care requirements. For example, panther chameleons need 85-90Â°F basking but emerald tree boas only need 78-82Â°F. Species-level accuracy matters."
     },
     {
       "type": "section",
@@ -185,7 +185,7 @@
     },
     {
       "type": "text",
-      "text": "In nature, temperatures drop at night. Most reptiles and amphibians benefit from nighttime cooling—it supports natural circadian rhythms, metabolic health, and breeding cycles."
+      "text": "In nature, temperatures drop at night. Most reptiles and amphibians benefit from nighttime coolingÂ°it supports natural circadian rhythms, metabolic health, and breeding cycles."
     },
     {
       "type": "text",
@@ -195,16 +195,16 @@
       "type": "table",
       "headers": ["Species Type", "Daytime Basking", "Nighttime Low", "Drop Amount", "When Supplemental Heat Needed"],
       "rows": [
-        ["Desert species", "95-110°F", "70-80°F", "15-30°F drop OK", "If room drops below 65°F"],
-        ["Tropical species", "80-90°F", "70-75°F", "10-15°F drop OK", "If room drops below 68°F"],
-        ["Temperate species", "80-88°F", "60-70°F", "20-25°F drop OK", "If room drops below 55°F"],
-        ["Amphibians (frogs)", "75-85°F", "68-75°F", "5-10°F drop OK", "If room drops below 65°F"]
+        ["Desert species", "95-110Â°F", "70-80Â°F", "15-30Â°F drop OK", "If room drops below 65Â°F"],
+        ["Tropical species", "80-90Â°F", "70-75Â°F", "10-15Â°F drop OK", "If room drops below 68Â°F"],
+        ["Temperate species", "80-88Â°F", "60-70Â°F", "20-25Â°F drop OK", "If room drops below 55Â°F"],
+        ["Amphibians (frogs)", "75-85Â°F", "68-75Â°F", "5-10Â°F drop OK", "If room drops below 65Â°F"]
       ]
     },
     {
       "type": "warning",
       "severity": "tip",
-      "content": "Turn off basking lamps at night—animals need darkness for proper circadian rhythm. If supplemental heat is needed at night, use a ceramic heat emitter (CHE) or deep heat projector (DHP) that produces heat without visible light. Never use red or blue night bulbs—these disrupt sleep."
+      "content": "Turn off basking lamps at nightÂ°animals need darkness for proper circadian rhythm. If supplemental heat is needed at night, use a ceramic heat emitter (CHE) or deep heat projector (DHP) that produces heat without visible light. Never use red or blue night bulbsÂ°these disrupt sleep."
     },
     {
       "type": "section",
@@ -218,13 +218,13 @@
       "type": "table",
       "headers": ["Mistake", "Problem", "Solution"],
       "rows": [
-        ["Heat lamp centered in enclosure", "No gradient—entire enclosure one temperature", "Move lamp to far left or right end"],
+        ["Heat lamp centered in enclosure", "No gradientÂ°entire enclosure one temperature", "Move lamp to far left or right end"],
         ["Only measuring air temp", "Don't know surface basking temp", "Use IR temperature gun for surface temps"],
         ["Enclosure too small for gradient", "Hot and cool zones overlap", "Minimum 36\" length for most species"],
-        ["Using stick-on dial thermometers", "±10°F inaccuracy—unreliable", "Switch to digital probe thermometers and IR gun"],
+        ["Using stick-on dial thermometers", "Â°10Â°F inaccuracyÂ°unreliable", "Switch to digital probe thermometers and IR gun"],
         ["No thermostat on heat source", "Unregulated heat causes overheating/fires", "ALWAYS use thermostat with heat mats/CHEs"],
         ["Basking zone too large", "Cool zone doesn't exist", "Basking should cover =1/3 of enclosure"],
-        ["Cool zone still too warm", "Animal cannot escape heat", "Ensure cool zone 15-25°F cooler than basking"],
+        ["Cool zone still too warm", "Animal cannot escape heat", "Ensure cool zone 15-25Â°F cooler than basking"],
         ["Night temperatures too high", "Disrupts circadian rhythm", "Turn off basking lamp, allow natural drop"],
         ["Placing thermometer probe on hot surface", "Reads basking temp, displays artificially high reading", "Place probe at animal height in middle of zone, not touching hot surface"]
       ]
@@ -300,7 +300,7 @@
     },
     {
       "type": "highlight",
-      "content": "An infrared temperature gun is the single most important tool for thermal gradient management. It costs $15-30 and lets you instantly map temperatures across the entire enclosure. This is NOT optional equipment—it's essential."
+      "content": "An infrared temperature gun is the single most important tool for thermal gradient management. It costs $15-30 and lets you instantly map temperatures across the entire enclosure. This is NOT optional equipmentÂ°it's essential."
     },
     {
       "type": "section",
@@ -314,14 +314,14 @@
       "type": "table",
       "headers": ["Species", "Enclosure Size", "Basking", "Warm", "Cool", "Heat Source"],
       "rows": [
-        ["Leopard Gecko", "36×18×18", "94-97°F", "85-90°F", "70-77°F", "75w halogen flood, one end"],
-        ["Ball Python", "48×24×24", "88-92°F", "80-85°F", "75-80°F", "50-75w halogen or CHE, one end"],
-        ["Bearded Dragon", "48×24×24", "100-110°F", "85-95°F", "75-85°F", "100-150w halogen flood, one end"],
-        ["Crested Gecko", "18×18×24 (vertical)", "78-82°F", "72-78°F", "68-72°F", "25-40w halogen, top one side"],
-        ["Corn Snake", "48×24×18", "85-90°F", "78-85°F", "70-75°F", "60w halogen, one end"],
-        ["Red-Eyed Tree Frog", "18×18×36 (vertical)", "80-85°F", "75-80°F", "70-75°F", "25-50w halogen, top one side"],
-        ["White's Tree Frog", "24×18×24", "82-85°F", "75-80°F", "70-75°F", "40-60w halogen, top one side"],
-        ["Blue Tongue Skink", "48×24×18", "95-100°F", "80-90°F", "70-80°F", "75-100w halogen flood, one end"]
+        ["Leopard Gecko", "36Â°18Â°18", "94-97Â°F", "85-90Â°F", "70-77Â°F", "75w halogen flood, one end"],
+        ["Ball Python", "48Â°24Â°24", "88-92Â°F", "80-85Â°F", "75-80Â°F", "50-75w halogen or CHE, one end"],
+        ["Bearded Dragon", "48Â°24Â°24", "100-110Â°F", "85-95Â°F", "75-85Â°F", "100-150w halogen flood, one end"],
+        ["Crested Gecko", "18Â°18Â°24 (vertical)", "78-82Â°F", "72-78Â°F", "68-72Â°F", "25-40w halogen, top one side"],
+        ["Corn Snake", "48Â°24Â°18", "85-90Â°F", "78-85Â°F", "70-75Â°F", "60w halogen, one end"],
+        ["Red-Eyed Tree Frog", "18Â°18Â°36 (vertical)", "80-85Â°F", "75-80Â°F", "70-75Â°F", "25-50w halogen, top one side"],
+        ["White's Tree Frog", "24Â°18Â°24", "82-85Â°F", "75-80Â°F", "70-75Â°F", "40-60w halogen, top one side"],
+        ["Blue Tongue Skink", "48Â°24Â°18", "95-100Â°F", "80-90Â°F", "70-80Â°F", "75-100w halogen flood, one end"]
       ]
     },
     {
@@ -342,13 +342,13 @@
       "items": [
         " Heat source is on ONE END of enclosure, not centered",
         " Basking surface temperature measured with IR gun meets species requirements",
-        " Cool zone surface temperature is 15-25°F cooler than basking zone",
+        " Cool zone surface temperature is 15-25Â°F cooler than basking zone",
         " Air temperature measured at multiple heights and locations",
         " Hides placed in warm, mid, and cool zones (animal can choose secure retreat at any temperature)",
         " Digital probe thermometers monitoring warm and cool zones continuously",
         " All heat sources connected to thermostats (if applicable)",
         " Temperature measurements taken at different times of day (morning, afternoon, evening)",
-        " Night temperatures checked—should drop 10-25°F depending on species",
+        " Night temperatures checkedÂ°should drop 10-25Â°F depending on species",
         " Gradient maintained consistently for 48-72 hours before adding animal",
         " No drafts, direct sunlight, or room temp fluctuations affecting gradient",
         " IR temperature gun accessible for regular spot checks"
@@ -371,15 +371,15 @@
       "items": [
         "Post photos and temperature readings to species-specific forums (r/leopardgeckos, r/ballpython, etc.) for troubleshooting help",
         "Consult experienced keepers at local reptile expos or herpetological societies",
-        "Review your enclosure size—too small enclosures cannot support proper gradients",
-        "Check if your room temperature is extreme (below 60°F or above 85°F)—this makes gradient creation difficult",
+        "Review your enclosure sizeÂ°too small enclosures cannot support proper gradients",
+        "Check if your room temperature is extreme (below 60Â°F or above 85Â°F)Â°this makes gradient creation difficult",
         "Consider whether your heat source is appropriate for your enclosure type and size"
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Do NOT add your animal to the enclosure until temperatures are stable and appropriate. An improperly heated enclosure is life-threatening. Take the time to get it right—your animal's health depends on it."
+      "content": "Do NOT add your animal to the enclosure until temperatures are stable and appropriate. An improperly heated enclosure is life-threatening. Take the time to get it rightÂ°your animal's health depends on it."
     }
   ]
 }

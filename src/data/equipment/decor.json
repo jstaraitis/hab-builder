@@ -369,14 +369,10 @@
   "leaf-litter": {
     "name": "Leaf Litter Layer",
     "category": "substrate",
-    "needsTags": ["decor:natural", "substrate:bioactive"],
+    "needsTags": ["substrate:bioactive", "bioactiveSubstrate:tropical"],
     "importance": "recommended",
     "isRecurring": true,
     "recurringInterval": "6 months",
-    "autoIncludeFor": {
-      "animalType": "amphibian",
-      "substrate": ["bioactive", "soil-based"]
-    },
     "spec": {
       "type": "Oak, magnolia, or terrarium-safe leaf litter",
       "purpose": "Protects sensitive skin, natural foraging, microfauna habitat"

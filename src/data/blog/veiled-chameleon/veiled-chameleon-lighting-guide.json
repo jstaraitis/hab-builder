@@ -1,0 +1,300 @@
+﻿{
+  "id": "veiled-chameleon-lighting-guide",
+  "title": "Veiled Chameleon UVB & Lighting Requirements",
+  "description": "Complete lighting guide for veiled chameleons covering mandatory T5 HO UVB (22\" Arcadia Forest 6% or Zoo Med ReptiSun 5.0), UVI 3.0 at basking, daylight LED options, 12-hour photoperiod, basking heat schedule (3 hours morning only), and bulb replacement schedules.",
+  "excerpt": "Complete lighting guide for veiled chameleons covering mandatory T5 HO UVB (22\" Arcadia Forest 6% or Zoo Med ReptiSun 5.0), UVI 3.0 at basking, daylight LED options, 12-hour photoperiod, basking heat schedule (3 hours morning only), and bulb replacement schedules.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-02-11",
+  "category": "Lighting",
+  "tags": ["veiled-chameleon", "UVB", "lighting", "T5-HO", "photoperiod"],
+  "image": "/animals/veiled-chameleon/veiled-chameleon-5.jpg",
+  "status": "community-reviewed",
+  "relatedGuides": ["veiled-chameleon-enclosure-setup", "veiled-chameleon-temperature-humidity-guide"],
+  "content": [
+    {
+      "type": "intro",
+      "title": "UVB & Lighting for Veiled Chameleons",
+      "content": "Veiled chameleons REQUIRE high-output UVB lighting - this is non-optional. ReptiFiles specifies T5 HO (High Output) linear fluorescent fixtures with specific bulbs: 22\" Arcadia Forest 6% or Zoo Med ReptiSun 5.0 T5 HO, positioned to deliver UVI 3.0 at basking height. Compact UVB bulbs and T8 fixtures are INSUFFICIENT for veiled chameleons. Additionally, chameleons need daylight LED for bright full-spectrum illumination, and precise photoperiod management with basking heat limited to 3 hours morning only. This guide covers complete lighting system setup, equipment specifications, positioning, maintenance, and troubleshooting."
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "UVB is MANDATORY, NOT Optional: Veiled chameleons synthesize ALL vitamin D3 from UVB exposure (dietary D3 supplementation is minimal 2x/month only - chameleons sensitive to D3 toxicity). Without proper UVB: Metabolic Bone Disease develops within 3-6 months causing deformities, seizures, paralysis, death. ReptiFiles requirement is T5 HO linear fixture ONLY - compact bulbs (coils), T8 fixtures, or window sunlight exposure are all INADEQUATE and will result in MBD."
+    },
+    {
+      "type": "section",
+      "title": "UVB Requirements"
+    },
+    {
+      "type": "table",
+      "headers": ["Specification", "ReptiFiles Requirement", "Why This Specific Standard"],
+      "rows": [
+        ["Bulb Type", "Linear fluorescent T5 HIGH OUTPUT (HO) ONLY", "T5 HO bulbs produce 40-50% more UVB than T8 bulbs. 24x24x48 enclosure with mesh top requires strong output to achieve UVI 3.0 at basking (6-8\" below fixture). T8 bulbs maxfall to UVI 1.5-2.0 insufficient"],
+        ["Bulb Options", "22\" Arcadia Forest 6% (preferred) OR Zoo Med ReptiSun 5.0 T5 HO", "Both produce UVI 3.0-3.5 at 6-8\" distance through mesh. Arcadia lasts 12 months before replacement; Zoo Med 6-9 months. Arcadia higher initial cost ($45 vs $35) but longer lifespan"],
+        ["UVI Target", "3.0 at basking branch (Ferguson Zone 3)", "Veiled chameleons are Ferguson Zone 3 (moderate sun exposure). UVI 2.5-3.5 range supports healthy D3 synthesis. Below 2.0 = gradual MBD risk; above 4.0 = potential eye damage/photokeratoconjunctivitis"],
+        ["Basking Distance", "6-8 inches below screen top", "This distance with T5 HO achieves UVI 3.0. If basking branch <6\" (too close): UVI exceeds 4.0 risk. If >10\" (too far): UVI drops below 2.5 insufficient"],
+        ["Screen Mesh Effect", "Reduces UVB by 30-50%", "Metal mesh screen tops block significant UVB. This is why T5 HO required (T8 already weak, mesh makes it useless). Place UVB fixture OUTSIDE on top of screen, NOT inside enclosure"],
+        ["Photoperiod", "12 hours daily (7 AM - 7 PM)", "Mimics natural day/night cycle. Chameleons need 12 hours darkness for proper circadian rhythm, rest, and hormone regulation. More light (14-16 hr) disrupts breeding cycles; less light (<10 hr) causes lethargy"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "T5 HO vs T8 Confusion: T5 and T8 refer to tube diameter (T5 = 5/8\" diameter, T8 = 1\" diameter). Both have \"5.0\" bulbs causing confusion. KEY DIFFERENCE: T5 HO (High Output) produces 50% more UVB than standard T5, and 100% more than T8. You MUST specify 'T5 HO' or 'T5 High Output' when purchasing. 'T5 5.0' alone could be incorrect standard output version."
+    },
+    {
+      "type": "section",
+      "title": "UVB Equipment Recommendations"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Arcadia Option (Preferred by ReptiFiles):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Bulb:</span> Arcadia ProT5 Forest 6% UVB (22\"), also called 'Shade Dweller' in some regions. $40-50",
+        "<span class='font-semibold'>Fixture:</span> Arcadia ProT5 UVB Kit 22\" (fixture + reflector + bulb). $90-110 complete. Or Arcadia fixture only $50-60",
+        "<span class='font-semibold'>Pros:</span> 12-month bulb lifespan (longest available), higher quality phosphor coating (consistent UVB output), superior reflector design (focuses UVB downward efficiently), German engineering known for reliability",
+        "<span class='font-semibold'>Cons:</span> Higher upfront cost, sometimes difficult to find in US stores (order online), bulb replacement $40-50",
+        "<span class='font-semibold'>Best For:</span> Keepers prioritizing quality, willing to pay premium for longer bulb life and consistency"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Zoo Med Option (Budget-Friendly):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Bulb:</span> Zoo Med ReptiSun 5.0 T5 HO (24\"). $30-38. NOTE: Use 24\" bulb in 22\" fixture (overhangs slightly but fits)",
+        "<span class='font-semibold'>Fixture:</span> Zoo Med ReptiSun T5 HO Terrarium Hood 24\". $60-75 includes reflector and bulb",
+        "<span class='font-semibold'>Pros:</span> Lower cost, widely available (Petco, PetSmart, online), solid performance for 6 months, established brand reputation",
+        "<span class='font-semibold'>Cons:</span> 6-9 month bulb lifespan (replace more frequently), UVB output declines noticeably after 6 months, reflector quality lower than Arcadia",
+        "<span class='font-semibold'>Best For:</span> Budget-conscious keepers, first-time setup, easier to source locally"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Fixture Sizing for 24x24x48 Enclosure:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Enclosure screen top is 24\" x 24\" square. UVB fixture should span majority of depth (front to back)",
+        "<span class='font-semibold'>22-24\" fixture:</span> Covers ~90% of enclosure depth. Basking zone receives full coverage. Standard recommendation",
+        "<span class='font-semibold'>18\" fixture (too small):</span> Only covers ~75% depth, creates weak zones in back half of enclosure. Avoid",
+        "<span class='font-semibold'>36\" fixture (too large):</span> Overhangs significantly, difficult to position, wastes bulb coverage. Avoid unless using larger enclosure",
+        "Position fixture centered over basking branch (usually back half of enclosure). Chameleon spends 80% of time in back/top areas"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Daylight/Plant Growth Lighting"
+    },
+    {
+      "type": "text",
+      "content": "UVB bulbs provide ultraviolet radiation but produce minimal visible light (slightly dim bluish glow). Veiled chameleons need BRIGHT full-spectrum daylight for natural behavior, coloration, vision, and live plant photosynthesis. ReptiFiles recommends LED daylight supplementation."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>LED Daylight Options:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Arcadia JungleDawn LED Bar 22\":</span> $70-90. BEST option - bright 6500K white light, plant growth spectrum, low heat output, 50,000 hour lifespan (10+ years). Mounts alongside UVB fixture",
+        "<span class='font-semibold'>Bio Dude Glow & Grow LED 22\":</span> $45-60. Budget alternative, good plant spectrum, 6000K daylight, 3-5 year lifespan. Quality slightly below Arcadia but solid choice",
+        "<span class='font-semibold'>Vivarium Electronics Daylight LED:</span> $50-80. Customizable spectrum, dimmer option, 6000-6500K, excellent for planted enclosures",
+        "<span class='font-semibold'>Generic 6500K LED Shop Light:</span> $20-35 from hardware store. WORKS but lacks plant-specific spectrum. Cheaper option if not bioactive setup"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Why LED Over Fluorescent Daylight:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Heat Output:</span> LEDs produce 80% less heat than fluorescent or incandescent. Critical for summer temps",
+        "<span class='font-semibold'>Lifespan:</span> LEDs last 40,000-50,000 hours (10+ years daily use). 6500K daylight fluorescent bulbs degrade to yellow after 12-18 months",
+        "<span class='font-semibold'>Energy Efficiency:</span> LEDs use 50-70% less electricity. Running 12 hours daily = $15-20/year vs $40-50 for fluorescent",
+        "<span class='font-semibold'>Plant Growth:</span> Modern LEDs match or exceed fluorescent PAR (photosynthetically active radiation) for live plants"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Do NOT Use Colored Bulbs: Red, blue, purple, or 'moonlight' bulbs disrupt chameleon circadian rhythm and stress vision (they see different light spectrum than humans). Colored lights at night prevent proper sleep (chameleons need COMPLETE darkness 12 hours). Only white 6000-6500K 'daylight' spectrum appropriate. Absolutely NO light after 7 PM."
+    },
+    {
+      "type": "section",
+      "title": "Basking Light Schedule"
+    },
+    {
+      "type": "text",
+      "content": "ReptiFiles specifies unique basking schedule for veiled chameleons: basking HEAT for 3 HOURS MORNING ONLY, NOT all day. However, UVB and daylight LEDs run full 12 hours."
+    },
+    {
+      "type": "table",
+      "headers": ["Light Type", "ON Time", "OFF Time", "Total Duration", "Purpose"],
+      "rows": [
+        ["UVB T5 HO", "7:00 AM", "7:00 PM", "12 hours", "D3 synthesis throughout day. Chameleon basks for UVB mid-morning after digesting, periodically throughout day"],
+        ["Daylight LED", "7:00 AM", "7:00 PM", "12 hours", "Provides bright illumination for vision, hunting, color perception. Powers photosynthesis for live plants"],
+        ["Basking Heat (2x 50w)", "7:00 AM", "10:00 AM", "3 hours ONLY", "Morning warmth for thermoregulation, metabolism activation, digestion aid. Chameleon basks 1-2 hours then retreats. Prolonged heat harmful"],
+        ["All Lights", "7:00 PM night", "7:00 AM morning", "12 hours DARK", "Complete darkness essential for rest, hormone regulation (melatonin production), circadian health, eye rest"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "3-Timer System Required: You need THREE timers for proper lighting: (1) Timer for basking heat bulbs (ON 7 AM, OFF 10 AM = 3 hours), (2) Timer for UVB fixture (ON 7 AM, OFF 7 PM = 12 hours), (3) Timer for daylight LED (ON 7 AM, OFF 7 PM = 12 hours). Alternatively: One 'master timer' for UVB+LED (both 12 hours), separate timer for basking heat (3 hours)."
+    },
+    {
+      "type": "section",
+      "title": "Lighting Setup & Positioning"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step-by-Step Installation:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Step 1 - Measure Basking Zone:</span> Identify where chameleon will bask (usually back portion of enclosure, highest branches). Mark center of this 8-10\" zone",
+        "<span class='font-semibold'>Step 2 - Position UVB Fixture:</span> Place T5 HO UVB fixture OUTSIDE on top of screen mesh, centered over basking area. Fixture should run front-to-back orientation (22\" length spans depth of enclosure)",
+        "<span class='font-semibold'>Step 3 - Install Basking Branch:</span> Position horizontal branch 6-8 inches BELOW screen top directly under UVB fixture. Use infrared temp gun - bulb surface temp should allow chameleon's back to be 6-8\" from fixture when perched",
+        "<span class='font-semibold'>Step 4 - Verify UVI:</span> If you have Solarmeter 6.5 ($220-250), measure UVI at basking branch level with sensor pointing up. Target: 3.0-3.5 UVI. Too high (>4.0)? Raise branch 1-2\". Too low (<2.5)? Lower branch 1\"",
+        "<span class='font-semibold'>Step 5 - Position Daylight LED:</span> Mount LED bar alongside UVB fixture (both spanning front-to-back on screen top). Some setups use LED in front half, UVB in back half; others side-by-side. Either works - goal is full enclosure illumination",
+        "<span class='font-semibold'>Step 6 - Add Basking Heat:</span> Position 2x 50w basking bulbs in dual-dome fixture off to one side of basking zone (not directly over center). Aim beams to converge on basking branch creating 8-10\" warm zone",
+        "<span class='font-semibold'>Step 7 - Timer Setup:</span> Connect UVB fixture  timer  outlet (set 7 AM - 7 PM). Connect LED  timer  outlet (set 7 AM - 7 PM). Connect basking dome  separate timer  outlet (set 7 AM - 10 AM)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Common Positioning Mistakes:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Mistake:</span> UVB inside enclosure - Reduces ventilation, risk of chameleon contacting fixture, blocks screen top access. <span class='font-semibold'>Fix:</span> Always place UVB on top of screen mesh outside enclosure",
+        "<span class='font-semibold'>Mistake:</span> Basking branch too close (<6\") or too far (>10\") from UVB - Creates excessive UVI (>4.0) or insufficient (<2.5). <span class='font-semibold'>Fix:</span> Measure precisely 6-8\" distance from screen top to branch surface",
+        "<span class='font-semibold'>Mistake:</span> UVB oriented side-to-side (short axis) - Only covers 50% enclosure depth. <span class='font-semibold'>Fix:</span> Rotate fixture to front-to-back orientation (long axis spans depth)",
+        "<span class='font-semibold'>Mistake:</span> No LED supplement - UVB alone produces dim blue glow, insufficient for chameleon vision/plants. <span class='font-semibold'>Fix:</span> Add 6500K LED bar for bright white light",
+        "<span class='font-semibold'>Mistake:</span> Basking heat runs 12 hours - Overheats chameleon, causes stress. <span class='font-semibold'>Fix:</span> Separate timer for heat - 3 hours morning ONLY"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "UVI Measurement (Optional But Recommended)"
+    },
+    {
+      "type": "text",
+      "content": "Solarmeter 6.5 UVI meter ($220-250) measures UVB intensity at any point in enclosure. While expensive, provides precise data confirming setup meets requirements."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>How to Use Solarmeter:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Place meter sensor at basking branch level, sensor disc facing UPWARD toward UVB fixture",
+        "Wait 10-15 seconds for reading to stabilize (initial reading may fluctuate)",
+        "Record UVI value. Target for veiled chameleon: 3.0-3.5 UVI (Ferguson Zone 3)",
+        "Test multiple locations: basking branch (highest UVI), mid-level branches (should be 1.5-2.5), ground level (0.5-1.0)",
+        "Verify gradient: Chameleon can self-regulate exposure by moving higher (more UVB) or lower (less UVB)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Do You NEED a Solarmeter?</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>No - But Highly Valuable:</span> ReptiFiles guidelines (T5 HO bulb at 6-8\" distance) produce correct UVI without measurement. Thousands of keepers succeed without meter",
+        "<span class='font-semibold'>When Worthwhile:</span> If keeping multiple reptiles with different UVI needs, if using DIY enclosure (non-standard mesh density), if chameleon shows MBD symptoms despite proper setup (verifies UVB not issue), if bulb age uncertain (used enclosure)",
+        "<span class='font-semibold'>Budget Alternative:</span> MyUVB - smartphone app using camera sensor. Free-$5. Accuracy 30% but provides general guidance. Rough tool better than no measurement"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Bulb Replacement Schedule"
+    },
+    {
+      "type": "text",
+      "content": "UVB bulbs degrade over time - phosphor coating deteriorates, UVB output declines even though bulb still produces visible light. Replace proactively BEFORE failure to prevent MBD."
+    },
+    {
+      "type": "table",
+      "headers": ["Bulb Type", "Replacement Schedule", "Degradation Pattern", "Cost", "Tips"],
+      "rows": [
+        ["Arcadia ProT5 Forest 6%", "12 months (1 year)", "Maintains 80-90% output for 10 months, gradual decline months 11-12. Still functional but below optimal", "$40-50", "Mark calendar replacement date. Arcadia stamps manufacture date on bulb end - track from there"],
+        ["Zoo Med ReptiSun 5.0 T5 HO", "6-9 months", "Maintains 80%+ output for 5-6 months, drops significantly months 7-9. Replace at 6 months for safety margin", "$30-38", "Zoo Med recommends 12 months but independent testing shows 6 month replacement safer. Err toward earlier replacement"],
+        ["Daylight LED", "No replacement (10+ year lifespan)", "LEDs don't degrade meaningfully. May notice slight dimming after 40,000-50,000 hours (10-12 years daily use)", "N/A", "If LED fails prematurely (rare), typically manufacturer defect covered by warranty"],
+        ["Basking Heat Bulb", "Replace when burns out", "Incandescent/halogen bulbs don't degrade - work fully until filament fails. Lifespan 2,000-5,000 hours (6-18 months)", "$8-15", "Keep spare bulb - they burn out unpredictably. Especially critical in winter when room temps low"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Bulb Replacement Failure Trap: 'But the bulb still turns on!' - Yes, UVB bulbs continue producing visible light LONG after UVB output drops below therapeutic levels. Chameleon gets no UVB but keeper doesn't notice because bulb 'works.' Result: Slow-onset MBD developing over 3-6 months. ALWAYS replace on schedule regardless of whether bulb appears functional."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Bulb Replacement Tracking Tips:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Write installation date directly on bulb end cap with permanent marker",
+        "Set phone calendar reminder for replacement date (11 months for Arcadia, 6 months for Zoo Med)",
+        "Order replacement bulb 2-3 weeks before expiration so ready when needed",
+        "Some keepers replace all reptile UVB bulbs same day annually (January 1st or March 1st) for simplicity"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Lighting Troubleshooting"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Symptoms", "Causes", "Solutions"],
+      "rows": [
+        ["MBD Developing Despite UVB", "Kinked tail, bent limbs, weak grip, tremors, lethargy", "UVB bulb expired (>12 months), wrong bulb type (T8 or compact), basking branch too far (>10\"), mesh blocks 60%+ UVB (very fine mesh)", "Replace bulb immediately, verify T5 HO (not T8), measure basking distance 6-8\", check mesh is standard screen (not fine shade cloth)"],
+        ["Chameleon Avoiding Basking Zone", "Stays at mid/lower enclosure, dark stressed coloration, refuses to bask even at 7-8 AM", "UVI too high (>4.5) causing discomfort, basking branch exposed (no foliage cover), excessive heat, light too bright (no gradient)", "Raise basking branch 1-2\", add foliage near basking zone (partial cover), reduce basking wattage, create shaded zones"],
+        ["Photokeratoconjunctivitis (Eye Damage)", "Closed eyes frequently, sensitivity to light, bulging eyes, discoloration", "UVI excessive (>5.0), basking too close (<4\"), staring at UVB bulb (reflector broken focusing beam)", "URGENT: Reduce UVI immediately, raise basking 3-4\", vet visit for eye assessment. Check reflector not cracked focusing intense beam"],
+        ["Plants NOT Growing (Bioactive)", "Live plants yellowing, leggy growth, dropping leaves despite watering", "Insufficient light intensity (no LED supplement, only UVB dim glow), wrong spectrum (3000-4000K warm white not 6500K daylight), too few hours (<10 hr)", "Add 6500K LED daylight (Arcadia JungleDawn or equivalent), verify 12-hour photoperiod, increase light intensity (add second LED or higher wattage)"],
+        ["UVB Bulb Flickering", "Buzzing sound, intermittent flashing, bulb dims randomly", "Failing ballast (electronic component in fixture), bulb near end of life, loose electrical connection", "Test bulb in different fixture - if flicker persists, replace bulb. If flicker stops, replace fixture (ballast failed ~$40-60)"],
+        ["Chameleon Active at Night", "Restless after 7 PM, strange behavior, stressed coloration", "Room not dark enough (windows, electronics LEDs, under-door light), colored night bulb running, timer malfunction", "Cover windows with blackout curtains, tape over electronic LEDs (alarm clocks, TV standby lights), verify ALL lights OFF at 7 PM, eliminate ambient light sources"],
+        ["Basking Heat Running 12 Hours", "Chameleon gaping frequently, staying at bottom, stressed, overheated", "Timer set incorrectly, using same timer for heat+UVB (both run 12 hr)", "Critical fix: Basking heat separate timer set 7 AM - 10 AM only (3 hours). UVB/LED different timer 7 AM - 7 PM (12 hours). Verify daily for 1 week"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Lighting Checklist"
+    },
+    {
+      "type": "text",
+      "content": "Use this checklist to verify your veiled chameleon lighting setup meets ReptiFiles standards:"
+    },
+    {
+      "type": "list",
+      "items": [
+        " <span class='font-semibold'>UVB bulb:</span> T5 HIGH OUTPUT (HO) 22\" - either Arcadia Forest 6% OR Zoo Med ReptiSun 5.0 T5 HO (NOT T8, NOT compact)",
+        " <span class='font-semibold'>UVB fixture:</span> T5 HO fixture with reflector, mounted OUTSIDE on top of screen mesh, centered over basking zone",
+        " <span class='font-semibold'>Basking distance:</span> Chameleon's back is 6-8 inches from screen top when perched on basking branch",
+        " <span class='font-semibold'>UVI level:</span> If measured with Solarmeter 6.5, basking spot UVI reads 3.0-3.5 (Ferguson Zone 3)",
+        " <span class='font-semibold'>Daylight LED:</span> 22\" LED bar 6000-6500K (Arcadia JungleDawn, Bio Dude Glow & Grow, or equivalent) for bright white illumination",
+        " <span class='font-semibold'>Timer for UVB:</span> Runs 12 hours daily (7:00 AM - 7:00 PM). Programmable digital timer, NOT manual twist timer",
+        " <span class='font-semibold'>Timer for LED:</span> Runs 12 hours daily (7:00 AM - 7:00 PM). Can share timer with UVB or use separate timer",
+        " <span class='font-semibold'>Timer for basking heat:</span> SEPARATE timer runs 3 hours ONLY morning (7:00 AM - 10:00 AM). This is CRITICAL",
+        " <span class='font-semibold'>Complete darkness:</span> Enclosure completely dark 12 hours nightly (7 PM - 7 AM). No colored lights, no moonlights, no ambient room lights",
+        " <span class='font-semibold'>Bulb age tracking:</span> Installation date written on bulb. Calendar reminder set for replacement (12 months Arcadia, 6 months Zoo Med)",
+        " <span class='font-semibold'>Spare bulbs:</span> Replacement UVB bulb and basking heat bulbs on hand BEFORE current bulbs expire/burn out"
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Lighting Success Summary: T5 HO UVB MANDATORY (22\" Arcadia Forest 6% or ReptiSun 5.0 T5 HO), 6-8\" basking distance, UVI 3.0 target. LED daylight 6500K for bright full-spectrum light. 12-hour photoperiod for UVB+LED (7 AM-7 PM), 3 HOURS ONLY for basking heat (7-10 AM). Replace Arcadia bulbs 12 months, Zoo Med 6 months. Complete 12-hour darkness nightly (7 PM-7 AM) non-negotiable."
+    }
+  ]
+}

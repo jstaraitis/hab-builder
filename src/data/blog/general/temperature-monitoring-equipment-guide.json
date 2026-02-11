@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "temperature-monitoring-equipment-guide",
   "title": "Temperature Monitoring Equipment: Tools & Techniques",
   "species": "general",
@@ -12,7 +12,7 @@
     {
       "type": "intro",
       "heading": "Why Accurate Temperature Monitoring Is Critical",
-      "text": "Reptiles and amphibians depend entirely on external temperatures to regulate their body heat. A difference of just 5-10�F can mean the difference between healthy digestion and respiratory infection, between active behavior and lethargy. Inaccurate temperature measurement is one of the most common causes of husbandry failures in captive reptiles. This guide covers every type of temperature monitoring equipment, how to use them correctly, and which tools are essential vs optional."
+      "text": "Reptiles and amphibians depend entirely on external temperatures to regulate their body heat. A difference of just 5-10°F can mean the difference between healthy digestion and respiratory infection, between active behavior and lethargy. Inaccurate temperature measurement is one of the most common causes of husbandry failures in captive reptiles. This guide covers every type of temperature monitoring equipment, how to use them correctly, and which tools are essential vs optional."
     },
     {
       "type": "section",
@@ -69,7 +69,7 @@
     },
     {
       "type": "highlight",
-      "content": "CRITICAL: The laser pointer on IR guns does NOT measure where the laser hits�it just marks the center of the measurement area. The gun measures a circular area around the laser point, with size depending on distance."
+      "content": "CRITICAL: The laser pointer on IR guns does NOT measure where the laser hits°it just marks the center of the measurement area. The gun measures a circular area around the laser point, with size depending on distance."
     },
     {
       "type": "text",
@@ -79,10 +79,10 @@
       "type": "table",
       "headers": ["Model", "Price", "Accuracy", "Range", "Best For"],
       "rows": [
-        ["Etekcity 774", "$16-20", "�2�F", "-58�F to 716�F", "Budget-friendly, reptile hobbyists"],
-        ["Helect (Non-Contact)", "$15-18", "�2�F", "-58�F to 1022�F", "Budget option, accurate enough for most uses"],
-        ["Fluke 62 MAX", "$70-90", "�1.5�F", "-22�F to 932�F", "Professional-grade, advanced keepers"],
-        ["Klein Tools IR1", "$25-35", "$�2�F", "-22�F to 752�F", "Mid-range, good accuracy, durable"]
+        ["Etekcity 774", "$16-20", "°2°F", "-58°F to 716°F", "Budget-friendly, reptile hobbyists"],
+        ["Helect (Non-Contact)", "$15-18", "°2°F", "-58°F to 1022°F", "Budget option, accurate enough for most uses"],
+        ["Fluke 62 MAX", "$70-90", "°1.5°F", "-22°F to 932°F", "Professional-grade, advanced keepers"],
+        ["Klein Tools IR1", "$25-35", "$°2°F", "-22°F to 752°F", "Mid-range, good accuracy, durable"]
       ]
     },
     {
@@ -93,11 +93,11 @@
       "type": "table",
       "headers": ["Step", "Technique", "Common Mistake to Avoid"],
       "rows": [
-        ["1. Point at surface", "Aim directly at basking rock, substrate, or branch", "Measuring air or through glass�won't work"],
+        ["1. Point at surface", "Aim directly at basking rock, substrate, or branch", "Measuring air or through glass°won't work"],
         ["2. Get close", "Within 6-12\" for small spots like basking surfaces", "Too far away = measurement area too large, averages temps"],
         ["3. Pull trigger", "Hold trigger 1-2 seconds for reading to stabilize", "Quick trigger pull = inaccurate reading"],
         ["4. Read display", "Note temperature while trigger held", "Reading changes after releasing trigger"],
-        ["5. Repeat multiple spots", "Measure basking, warm zone, mid, cool zone, hides", "Only checking one spot�need full gradient map"]
+        ["5. Repeat multiple spots", "Measure basking, warm zone, mid, cool zone, hides", "Only checking one spot°need full gradient map"]
       ]
     },
     {
@@ -124,7 +124,7 @@
         ["Probe Wire", "6-12 ft cable connects probe to display", "Long enough to route outside enclosure without gaps"],
         ["Display Unit", "Sits outside enclosure, shows current temp", "Check temps without opening enclosure"],
         ["Min/Max Memory", "Records highest/lowest temps since last reset", "Shows nighttime lows and daytime highs you might miss"],
-        ["Accuracy", "�1-2�F for good models", "Within this range is acceptable for reptile care"],
+        ["Accuracy", "°1-2°F for good models", "Within this range is acceptable for reptile care"],
         ["Battery vs Wired", "Most use AAA batteries", "Replace batteries annually or when display dims"]
       ]
     },
@@ -153,7 +153,7 @@
       "rows": [
         ["Warm/Basking Zone", "At animal height (not on hot surface!)", "Ambient air temp in warm zone", "Shows air temperature animal breathes while basking"],
         ["Cool Zone", "At animal height on opposite end", "Ambient air temp in cool retreat", "Verifies gradient exists, cool zone is adequate"],
-        ["Inside Hide (optional)", "Place probe inside hide", "Hide interior temperature", "Animals spend most time in hides�shows actual temps they experience"],
+        ["Inside Hide (optional)", "Place probe inside hide", "Hide interior temperature", "Animals spend most time in hides°shows actual temps they experience"],
         ["Mid-Zone (optional)", "Middle height, center of enclosure", "Transition zone temperature", "Helps map full gradient"],
         ["AVOID substrate surface", "Don't place probe touching basking rock", "Will read basking surface temp (too high)", "Use IR gun for surface temps, probes for air temps"]
       ]
@@ -214,17 +214,17 @@
       "headers": ["Step", "Action", "Details"],
       "rows": [
         ["1. Place probe", "Position thermostat probe in warm zone", "Should be near heat source but not touching it"],
-        ["2. Set target temp", "Enter desired temperature (e.g., 90�F)", "This is the temp the thermostat maintains"],
+        ["2. Set target temp", "Enter desired temperature (e.g., 90°F)", "This is the temp the thermostat maintains"],
         ["3. Connect heat source", "Plug heat mat/CHE into thermostat outlet", "Thermostat controls power to this device"],
         ["4. Test for 24-48 hours", "Monitor with IR gun to verify accuracy", "Thermostat probe may read differently than actual temps"],
-        ["5. Adjust if needed", "Raise/lower target temp to achieve actual desired temp", "If you want 90�F but thermostat at 90 gives 85�F, set thermostat to 95�F"],
+        ["5. Adjust if needed", "Raise/lower target temp to achieve actual desired temp", "If you want 90°F but thermostat at 90 gives 85°F, set thermostat to 95°F"],
         ["6. Verify nighttime", "Check temps at night after heat lamp turns off", "Thermostat should maintain nighttime heat if needed"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Calibrate your thermostat against your IR temperature gun. Thermostat probes can be off by �5�F. Set the thermostat to whatever number produces your target temperature�don't assume the display is accurate."
+      "content": "Calibrate your thermostat against your IR temperature gun. Thermostat probes can be off by °5°F. Set the thermostat to whatever number produces your target temperature°don't assume the display is accurate."
     },
     {
       "type": "section",
@@ -232,7 +232,7 @@
     },
     {
       "type": "text",
-      "text": "Hygrometers measure relative humidity (% moisture in air). Many species-specific guides discuss humidity requirements�here's how to measure it accurately."
+      "text": "Hygrometers measure relative humidity (% moisture in air). Many species-specific guides discuss humidity requirements°here's how to measure it accurately."
     },
     {
       "type": "text",
@@ -242,7 +242,7 @@
       "type": "table",
       "headers": ["Feature", "What to Look For", "Why It Matters"],
       "rows": [
-        ["Accuracy", "�3-5% RH", "Within this range is acceptable for reptile care"],
+        ["Accuracy", "°3-5% RH", "Within this range is acceptable for reptile care"],
         ["Probe vs Built-in Sensor", "Probe = place anywhere, built-in = must place unit inside", "Probe is more versatile, easier to position"],
         ["Min/Max Memory", "Records humidity highs/lows", "See overnight humidity changes, misting effectiveness"],
         ["Calibration", "Some models allow manual calibration", "Improves accuracy over time"],
@@ -261,13 +261,13 @@
         ["ThermoPro TP50", "$15-22", "Temp + humidity combo, touchscreen", "Dual monitoring, easy to read"],
         ["Govee Bluetooth Hygrometer", "$20-30", "App data logging, alerts, graphing", "Tech-savvy keepers, remote monitoring"],
         ["Exo Terra Thermometer/Hygrometer", "$20-25", "Dual display, probe, min/max", "All-in-one monitoring"],
-        ["Caliber IV Digital Hygrometer", "$25-35", "High accuracy (�1% RH), calibratable", "Advanced keepers wanting precision"]
+        ["Caliber IV Digital Hygrometer", "$25-35", "High accuracy (°1% RH), calibratable", "Advanced keepers wanting precision"]
       ]
     },
     {
       "type": "warning",
       "severity": "tip",
-      "content": "Place hygrometer probes where your animal spends time�inside hides or mid-level in arboreal setups. Don't place at enclosure top where humidity is lowest. You want to measure humidity the animal actually experiences."
+      "content": "Place hygrometer probes where your animal spends time°inside hides or mid-level in arboreal setups. Don't place at enclosure top where humidity is lowest. You want to measure humidity the animal actually experiences."
     },
     {
       "type": "section",
@@ -285,19 +285,19 @@
       "type": "table",
       "headers": ["Product", "Why It's Bad", "Problem", "Better Alternative"],
       "rows": [
-        ["Stick-On Dial Thermometers", "�10�F inaccuracy", "Unreliable, can't measure surface temps, adhesive fails", "Digital probe thermometer ($12)"],
-        ["Analog Dial Thermometers (free-standing)", "�5-10�F inaccuracy, slow response", "Not precise enough for reptile care", "Digital probe thermometer ($12)"],
-        ["Stick-On Dial Hygrometers", "�15% RH inaccuracy", "Almost useless, wildly inaccurate", "Digital hygrometer with probe ($15)"],
+        ["Stick-On Dial Thermometers", "°10°F inaccuracy", "Unreliable, can't measure surface temps, adhesive fails", "Digital probe thermometer ($12)"],
+        ["Analog Dial Thermometers (free-standing)", "°5-10°F inaccuracy, slow response", "Not precise enough for reptile care", "Digital probe thermometer ($12)"],
+        ["Stick-On Dial Hygrometers", "°15% RH inaccuracy", "Almost useless, wildly inaccurate", "Digital hygrometer with probe ($15)"],
         ["Combo Stick-On Dial Units", "Inaccurate for both temp and humidity", "Double the problems", "Separate digital units for each"],
         ["Heat Rocks/Hot Rocks", "No thermostat, uneven heating, burn risk", "Cause severe burns, overheating", "Overhead heat lamp with thermostat"],
-        ["Unregulated Heat Mats (no thermostat)", "Overheat without limit, fire risk", "Can exceed 120�F, burn animal and cause fires", "Heat mat + thermostat ($30-50)"],
+        ["Unregulated Heat Mats (no thermostat)", "Overheat without limit, fire risk", "Can exceed 120°F, burn animal and cause fires", "Heat mat + thermostat ($30-50)"],
         ["Cheap Thermostats (<$20)", "Fail frequently, inaccurate, fire risk", "May not shut off, unreliable", "Inkbird ITC-308 ($35) minimum"]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "If your setup currently uses stick-on dial thermometers, replace them immediately. These are �10�F inaccurate�you could think your enclosure is 85�F when it's actually 75�F or 95�F. This causes serious health issues."
+      "content": "If your setup currently uses stick-on dial thermometers, replace them immediately. These are °10°F inaccurate°you could think your enclosure is 85°F when it's actually 75°F or 95°F. This causes serious health issues."
     },
     {
       "type": "section",
@@ -324,7 +324,7 @@
     },
     {
       "type": "highlight",
-      "content": "Use dimmers for halogen basking bulbs. If your basking temp is 5�F too hot, dim the bulb slightly instead of moving the lamp higher or buying a lower wattage bulb. Dimmers provide fine control."
+      "content": "Use dimmers for halogen basking bulbs. If your basking temp is 5°F too hot, dim the bulb slightly instead of moving the lamp higher or buying a lower wattage bulb. Dimmers provide fine control."
     },
     {
       "type": "section",
@@ -359,7 +359,7 @@
         "Receive alerts if temperature/humidity goes out of range (equipment failure, power outage)",
         "Track seasonal changes and adjust heating/cooling proactively",
         "See exact temperature/humidity patterns over days, weeks, months",
-        "Monitor while traveling�ensure pet sitter maintains proper conditions",
+        "Monitor while traveling°ensure pet sitter maintains proper conditions",
         "Document conditions for breeding projects (brumation cycles, seasonal cooling)",
         "Troubleshoot issues with historical data (when did temps start fluctuating?)"
       ]
@@ -398,11 +398,11 @@
     {
       "type": "list",
       "items": [
-        "Surface temps (IR gun): Measure basking rock/platform, warm zone substrate, cool zone substrate�these show where animal sits",
-        "Air temps (probe): Monitor warm zone air, cool zone air continuously with probes�these show breathing conditions",
-        "Both measurements matter: A basking rock can be 95�F (surface) while air temp 6\" above is 80�F�both are relevant",
+        "Surface temps (IR gun): Measure basking rock/platform, warm zone substrate, cool zone substrate°these show where animal sits",
+        "Air temps (probe): Monitor warm zone air, cool zone air continuously with probes°these show breathing conditions",
+        "Both measurements matter: A basking rock can be 95°F (surface) while air temp 6\" above is 80°F°both are relevant",
         "Time of day: Measure morning (after night cooling), afternoon (peak heat), evening (as basking lamp turns off)",
-        "Multiple locations: Don't just check one spot�map temperatures across entire enclosure"
+        "Multiple locations: Don't just check one spot°map temperatures across entire enclosure"
       ]
     },
     {
@@ -421,15 +421,15 @@
       "type": "table",
       "headers": ["Equipment", "Calibration Method", "Frequency", "Details"],
       "rows": [
-        ["IR Temperature Gun", "Ice water test (32�F/0�C)", "Every 6-12 months", "Fill cup with ice + water, measure surface�should read ~32�F"],
-        ["Digital Probe Thermometer", "Ice water test + boiling water test", "Every 6-12 months", "Ice water = 32�F, boiling water = 212�F (at sea level)"],
+        ["IR Temperature Gun", "Ice water test (32°F/0°C)", "Every 6-12 months", "Fill cup with ice + water, measure surface°should read ~32°F"],
+        ["Digital Probe Thermometer", "Ice water test + boiling water test", "Every 6-12 months", "Ice water = 32°F, boiling water = 212°F (at sea level)"],
         ["Hygrometer", "Salt test (75% RH)", "Every 6 months", "Seal hygrometer + salt solution in bag 8-12 hrs, should read 75%"],
-        ["Thermostat Probe", "Compare to IR gun readings", "Monthly", "Set thermostat to 90�F, measure actual surface temp with IR gun�adjust as needed"]
+        ["Thermostat Probe", "Compare to IR gun readings", "Monthly", "Set thermostat to 90°F, measure actual surface temp with IR gun°adjust as needed"]
       ]
     },
     {
       "type": "highlight",
-      "content": "If your thermometer reads 30�F in ice water instead of 32�F, it's 2�F low. Add 2�F to all readings mentally, or replace the unit. For reptile care, �2-3�F is acceptable accuracy."
+      "content": "If your thermometer reads 30°F in ice water instead of 32°F, it's 2°F low. Add 2°F to all readings mentally, or replace the unit. For reptile care, °2-3°F is acceptable accuracy."
     },
     {
       "type": "section",
@@ -444,12 +444,12 @@
       "headers": ["Problem", "Likely Cause", "Solution"],
       "rows": [
         ["Readings fluctuate wildly", "Probe touching heat source, drafts, cheap equipment", "Move probe to hang in air, seal drafts, upgrade equipment"],
-        ["IR gun shows different temp than probe", "IR measures surface, probe measures air�both correct", "This is normal�use each for their intended purpose"],
+        ["IR gun shows different temp than probe", "IR measures surface, probe measures air°both correct", "This is normal°use each for their intended purpose"],
         ["Thermostat shuts off but temps still too hot", "Thermostat probe poorly placed or calibration off", "Reposition probe, lower thermostat target temperature"],
-        ["Temps vary 10-15�F throughout day", "Normal fluctuation, but may need thermostat/dimmer", "Some fluctuation is OK, but large swings need regulation"],
-        ["Display shows 'LLL' or 'HHH'", "Out of range (too low/too high)", "Probe disconnected or environment extreme�check probe connection"],
+        ["Temps vary 10-15°F throughout day", "Normal fluctuation, but may need thermostat/dimmer", "Some fluctuation is OK, but large swings need regulation"],
+        ["Display shows 'LLL' or 'HHH'", "Out of range (too low/too high)", "Probe disconnected or environment extreme°check probe connection"],
         ["Battery dies quickly", "Cheap batteries, high-drain unit, cold environment", "Use quality alkaline batteries, replace annually"],
-        ["Humidity reads 0% or 100%", "Hygrometer sensor failed or saturated", "Replace unit�sensor is damaged"]
+        ["Humidity reads 0% or 100%", "Hygrometer sensor failed or saturated", "Replace unit°sensor is damaged"]
       ]
     },
     {
@@ -476,7 +476,7 @@
     },
     {
       "type": "highlight",
-      "content": "Invest most in thermostats (prevent fires/overheating) and IR temperature guns (most-used tool). You can use budget probe thermometers without issue�they're less critical than IR guns and thermostats."
+      "content": "Invest most in thermostats (prevent fires/overheating) and IR temperature guns (most-used tool). You can use budget probe thermometers without issue°they're less critical than IR guns and thermostats."
     },
     {
       "type": "section",
@@ -491,7 +491,7 @@
       "headers": ["Equipment", "Lifespan", "Maintenance", "Replace When"],
       "rows": [
         ["IR Temperature Gun", "5-10 years", "Wipe lens clean, store in case", "Display fails, readings consistently off after calibration"],
-        ["Digital Probe Thermometer", "3-7 years", "Replace batteries annually, check probe wire for damage", "Display dims/fails, readings drift >5�F"],
+        ["Digital Probe Thermometer", "3-7 years", "Replace batteries annually, check probe wire for damage", "Display dims/fails, readings drift >5°F"],
         ["Thermostat", "5-10 years", "Check calibration monthly, test relay function", "Fails to shut off heat, relay sticks, wildly inaccurate"],
         ["Hygrometer", "3-5 years", "Calibrate twice yearly, keep sensor clean", "Reads 0%/100% constantly, won't calibrate"],
         ["Probe Wires", "3-5 years", "Inspect for kinks, animal chewing, wear", "Wire damaged, readings erratic, connector loose"]

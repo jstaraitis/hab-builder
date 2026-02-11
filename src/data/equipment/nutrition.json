@@ -2,7 +2,7 @@
   "calcium": {
     "name": "Calcium Supplement",
     "category": "nutrition",
-    "needsTags": ["diet:insectivore", "diet:omnivore"],
+    "needsTags": ["diet:insectivore", "diet:omnivore","diet:herbivore"],
     "importance": "required",
     "isRecurring": true,
     "recurringInterval": "quarterly",
@@ -32,7 +32,7 @@
   "multivitamin": {
     "name": "Multivitamin Supplement",
     "category": "nutrition",
-    "needsTags": ["diet:insectivore", "diet:omnivore"],
+    "needsTags": ["diet:insectivore", "diet:omnivore", "diet:herbivore"],
     "importance": "required",
     "isRecurring": true,
     "recurringInterval": "quarterly",

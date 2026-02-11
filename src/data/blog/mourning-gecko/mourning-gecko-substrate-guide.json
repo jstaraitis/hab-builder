@@ -8,7 +8,7 @@
   "category": "Care Guides",
   "tags": ["mourning gecko", "substrate", "bioactive", "tropical"],
   "image": "/animals/mourning-gecko/mourning-gecko-1.jpg",
-  "status": "in-progress",
+  "status": "community-reviewed",
   "content": [
     {
       "type": "intro",
@@ -130,7 +130,7 @@
     },
     {
       "type": "text",
-      "content": "<strong>Cleanup Crew Selection:</strong> Tropical species thrive at mourning gecko temperatures (70-85°F) and humidity (60-80%). Best options: Dwarf white isopods, powder blue isopods, dwarf purple isopods, and tropical springtails. Start with 20-30 isopods and 50+ springtails for a 12×12×18 enclosure."
+      "content": "<strong>Cleanup Crew Selection:</strong> Tropical species thrive at mourning gecko temperatures (70-85Â°F) and humidity (60-80%). Best options: Dwarf white isopods, powder blue isopods, dwarf purple isopods, and tropical springtails. Start with 20-30 isopods and 50+ springtails for a 12Â°12Â°18 enclosure."
     },
     {
       "type": "highlight",
@@ -151,7 +151,7 @@
         ["Non-bioactive", "2 inches", "3 inches", "Adequate humidity, easier to replace"],
         ["Bioactive", "3 inches", "4 inches", "Supports cleanup crew populations"],
         ["With live plants", "3 inches", "4-5 inches", "Root establishment, plant health"],
-        ["Minimal substrate (not recommended)", "1 inch", "—", "Insufficient humidity, inadequate cushioning"]
+        ["Minimal substrate (not recommended)", "1 inch", "Â°", "Insufficient humidity, inadequate cushioning"]
       ]
     },
     {
@@ -179,7 +179,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Never collect leaves from roadsides or areas treated with pesticides. If collecting wild leaves, bake at 200°F for 30 minutes to sterilize, or purchase commercial reptile-safe leaf litter."
+      "content": "Never collect leaves from roadsides or areas treated with pesticides. If collecting wild leaves, bake at 200Â°F for 30 minutes to sterilize, or purchase commercial reptile-safe leaf litter."
     },
     {
       "type": "section",

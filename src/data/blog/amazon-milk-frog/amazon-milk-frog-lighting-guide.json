@@ -1,0 +1,152 @@
+{
+  "id": "amazon-milk-frog-lighting-guide",
+  "title": "Amazon Milk Frog Lighting Guide: [Add Subtitle]",
+  "description": "Complete lighting guide for Amazon Milk Frog covering [key topics].",
+  "excerpt": "Complete lighting guide for Amazon Milk Frog covering [key topics].",
+  "author": "Habitat Builder",
+  "publishDate": "2026-02-11",
+  "category": "Care Guides",
+  "tags": [
+    "amazon-milk-frog",
+    "lighting",
+    "care guide"
+  ],
+  "image": "/animals/amazon-milk-frog/amazon-milk-frog-1.jpg",
+  "status": "draft",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Understanding Amazon Milk Frog Lighting",
+      "content": "Lighting requirements for Amazon Milk Frog, covering UVB needs, light cycles, equipment selection, and proper bulb maintenance."
+    },
+    {
+      "type": "section",
+      "title": "UVB Requirements"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about uvb requirements for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>UVB Requirements Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Add important safety information or critical requirements for uvb requirements]"
+    },
+    {
+      "type": "section",
+      "title": "Light Cycle"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about light cycle for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "UVB Equipment Options"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about uvb equipment options for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>UVB Equipment Options Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Basking Light Setup"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about basking light setup for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Measuring UVB Output"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about measuring uvb output for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Bulb Replacement Schedule"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about bulb replacement schedule for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Bulb Replacement Schedule Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Key Takeaway: [Summarize the most important point for Amazon Milk Frog lighting guide]"
+    }
+  ]
+}

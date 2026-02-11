@@ -1,0 +1,150 @@
+{
+  "id": "amazon-milk-frog-temperature-humidity-guide",
+  "title": "Amazon Milk Frog Temperature & Humidity Guide: [Add Subtitle]",
+  "description": "Complete temperature & humidity guide for Amazon Milk Frog covering [key topics].",
+  "excerpt": "Complete temperature & humidity guide for Amazon Milk Frog covering [key topics].",
+  "author": "Habitat Builder",
+  "publishDate": "2026-02-11",
+  "category": "Care Guides",
+  "tags": [
+    "amazon-milk-frog",
+    "temperature-humidity",
+    "care guide"
+  ],
+  "image": "/animals/amazon-milk-frog/amazon-milk-frog-1.jpg",
+  "status": "draft",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Understanding Amazon Milk Frog Temperature & Humidity",
+      "content": "Essential temperature and humidity requirements for Amazon Milk Frog, including gradient setup, equipment recommendations, and monitoring protocols."
+    },
+    {
+      "type": "section",
+      "title": "Temperature Requirements"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about temperature requirements for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Temperature Requirements Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Zone",
+        "Temperature Range",
+        "Method",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Basking Spot",
+          "[temp range]",
+          "[heating method]",
+          "[notes]"
+        ],
+        [
+          "Warm Side",
+          "[temp range]",
+          "Gradient",
+          "[notes]"
+        ],
+        [
+          "Cool Side",
+          "[temp range]",
+          "Ambient",
+          "[notes]"
+        ]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Add important safety information or critical requirements for temperature requirements]"
+    },
+    {
+      "type": "section",
+      "title": "Humidity Requirements"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about humidity requirements for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Humidity Requirements Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Add important safety information or critical requirements for humidity requirements]"
+    },
+    {
+      "type": "section",
+      "title": "Thermal Gradient Setup"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about thermal gradient setup for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Heating Equipment"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about heating equipment for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Humidity Management"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about humidity management for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Monitoring Equipment"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about monitoring equipment for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Seasonal Adjustments"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about seasonal adjustments for amazon milk frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "highlight",
+      "content": "Key Takeaway: [Summarize the most important point for Amazon Milk Frog temperature & humidity guide]"
+    }
+  ]
+}

@@ -79,19 +79,30 @@
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
-    "climbing": "ground",
-    "substrate": ["bioactive", "soil", "paper", "sand"],
-    "bioactiveSubstrate": "arid",
-    "humidity": "low",
-    "heatSource": "basking",
-    "waterFeature": "shallow-dish",
-    "lighting": "uvb-desert",
-    "diet": ["omnivore"],
-    "animalType": "reptile",
-    "climate": "arid",
-    "activity": "terrestrial",
-    "requiredEquipment": ["feeding-dish"]
-  },
+  "heatSource": "basking",
+  "humidity": "low",
+  "lighting": "uvb-desert",
+  "substrate": [
+    "paper",
+    "sand",
+    "soil",
+    "bioactive"
+  ],
+  "diet": [
+    "omnivore"
+  ],
+  "waterFeature": "large-bowl",
+  "decor": [
+    "hides",
+    "branches",
+    "plants"
+  ],
+  "climbing": "both",
+  "activity": "terrestrial",
+  "climate": "arid",
+  "animalType": "reptile",
+  "bioactiveSubstrate": "arid"
+},
   "lifespan": "10-15 years in captivity, 20-25 possible with excellent care",
   "dietType": "Omnivore",
   "adultSize": "16-24 inches (including tail)",

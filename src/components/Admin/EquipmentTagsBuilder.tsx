@@ -1,88 +1,328 @@
-﻿import { useState } from 'react';
+﻿import { useState, useMemo } from 'react';
 import { Copy, Check } from 'lucide-react';
+import enclosures from '../../data/equipment/enclosures.json';
+import substrate from '../../data/equipment/substrate.json';
+import cleanupCrew from '../../data/equipment/cleanup-crew.json';
+import lighting from '../../data/equipment/lighting.json';
+import heating from '../../data/equipment/heating.json';
+import humidity from '../../data/equipment/humidity.json';
+import monitoring from '../../data/equipment/monitoring.json';
+import nutrition from '../../data/equipment/nutrition.json';
+import decor from '../../data/equipment/decor.json';
+import aquatic from '../../data/equipment/aquatic.json';
+import { generateShoppingList } from '../../engine/shopping';
+import type { AnimalProfile, EnclosureInput, ShoppingItem, EquipmentNeeds } from '../../engine/types';
 
-interface TagInfo {
-  tag: string;
-  category: string;
-  description: string;
-  example: string;
+interface EquipmentConfig {
+  needsTags?: string[];
 }
 
-const ALL_TAGS: TagInfo[] = [
-  // HEATING & TEMPERATURE
-  { tag: 'heatSource:basking', category: 'Heating', description: 'For basking species that need a focused hot spot', example: 'Bearded dragons, leopard geckos' },
-  { tag: 'heatSource:ambient', category: 'Heating', description: 'For general enclosure heating (not focused spot)', example: 'Species needing overall warmth' },
-  { tag: 'heating:aquatic', category: 'Heating', description: 'For aquarium heaters (submerged)', example: 'Turtles, aquatic frogs' },
-  { tag: 'temperature:cold-water', category: 'Heating', description: 'For cold-water aquatic species (60-68°F)', example: 'Axolotls (CRITICAL)' },
-  
-  // HUMIDITY
-  { tag: 'humidity:high', category: 'Humidity', description: 'For species needing 70-90%+ humidity', example: 'Tropical frogs, many geckos' },
-  { tag: 'humidity:moderate', category: 'Humidity', description: 'For species needing 50-70% humidity', example: 'Many temperate reptiles' },
-  { tag: 'humidity:low', category: 'Humidity', description: 'For arid/desert species (30-50% humidity)', example: 'Bearded dragons, leopard geckos' },
-  { tag: 'humidity:moss', category: 'Humidity', description: 'For moss boxes or humid hides', example: 'Shedding reptiles' },
-  
-  // LIGHTING
-  { tag: 'lighting:uvb-forest', category: 'Lighting', description: 'For tropical/forest species (5.0/6% UVB)', example: 'Crested geckos, tree frogs' },
-  { tag: 'lighting:uvb-desert', category: 'Lighting', description: 'For desert species (10.0/12% UVB)', example: 'Bearded dragons, uromastyx' },
-  
-  // SUBSTRATE
-  { tag: 'substrate:bioactive', category: 'Substrate', description: 'For living substrate with cleanup crew', example: 'Naturalistic setups' },
-  { tag: 'substrate:soil', category: 'Substrate', description: 'For soil-based substrates (non-bioactive)', example: 'Burrowing species' },
-  { tag: 'substrate:paper', category: 'Substrate', description: 'For paper towel/newspaper substrates', example: 'Quarantine, easy cleanup' },
-  { tag: 'substrate:foam', category: 'Substrate', description: 'For foam mat substrates', example: 'Easy-clean setups' },
-  { tag: 'substrate:sand', category: 'Substrate', description: 'For sand substrates (terrestrial)', example: 'Some desert species' },
-  { tag: 'substrate:sand-aquatic', category: 'Substrate', description: 'For fine aquarium sand (6+ inches)', example: 'Axolotls' },
-  { tag: 'substrate:carpet', category: 'Substrate', description: 'For reptile carpet', example: 'Easy-clean setups' },
-  { tag: 'substrate:bare', category: 'Substrate', description: 'For bare-bottom (no substrate)', example: 'Axolotls (safest)' },
-  { tag: 'substrate:slate', category: 'Substrate', description: 'For slate tile substrate', example: 'Aquatic/terrestrial easy-clean' },
-  { tag: 'substrate:moss', category: 'Substrate', description: 'For sphagnum moss substrate/accents', example: 'Humid hides' },
-  
-  // DIET
-  { tag: 'diet:insectivore', category: 'Diet', description: 'Eats primarily insects', example: 'Geckos, many lizards' },
-  { tag: 'diet:omnivore', category: 'Diet', description: 'Eats both insects and plants', example: 'Bearded dragons' },
-  { tag: 'diet:herbivore', category: 'Diet', description: 'Eats primarily plants/vegetables', example: 'Uromastyx, tortoises' },
-  { tag: 'diet:carnivore-rodents', category: 'Diet', description: 'Eats rodents (frozen/thawed)', example: 'Ball pythons, corn snakes' },
-  { tag: 'diet:carnivore-aquatic', category: 'Diet', description: 'Eats aquatic proteins (pellets, worms)', example: 'Axolotls, aquatic frogs' },
-  { tag: 'diet:frugivore', category: 'Diet', description: 'Eats fruit-based diets', example: 'Crested geckos' },
-  
-  // AQUATIC & WATER
-  { tag: 'aquatic', category: 'Aquatic', description: 'Fully aquatic species', example: 'Axolotls, aquatic frogs' },
-  { tag: 'filtration:high-flow', category: 'Aquatic', description: 'For messy aquatic animals', example: 'Turtles' },
-  { tag: 'filtration:low-flow', category: 'Aquatic', description: 'For delicate aquatics (gentle filtration)', example: 'Axolotls' },
-  { tag: 'filtration:biological', category: 'Aquatic', description: 'For biological filtration media', example: 'All aquatic setups' },
-  { tag: 'filtration:chemical', category: 'Aquatic', description: 'For chemical filtration', example: 'Water polishing' },
-  { tag: 'water-quality:testing', category: 'Aquatic', description: 'For water parameter testing', example: 'All aquatic setups' },
-  { tag: 'water-treatment', category: 'Aquatic', description: 'For water conditioners', example: 'All aquatic setups' },
-  { tag: 'waterFeature:shallow-dish', category: 'Aquatic', description: 'For shallow water dishes', example: 'Terrestrial species' },
-  { tag: 'water:dish', category: 'Aquatic', description: 'For water dishes/bowls', example: 'All terrestrial species' },
-  { tag: 'basking:aquatic', category: 'Aquatic', description: 'For aquatic basking platforms', example: 'Turtles' },
-  { tag: 'maintenance:water-change', category: 'Aquatic', description: 'For water change equipment', example: 'All aquatic setups' },
-  
-  // DECOR & ENRICHMENT
-  { tag: 'decor:branches', category: 'Decor', description: 'For climbing branches', example: 'Arboreal species' },
-  { tag: 'decor:plants', category: 'Decor', description: 'For plants (live or artificial)', example: 'All naturalistic setups' },
-  { tag: 'plants:live', category: 'Decor', description: 'Specifically live plants', example: 'Bioactive setups' },
-  { tag: 'plants:artificial', category: 'Decor', description: 'Specifically fake plants', example: 'Beginner setups' },
-  { tag: 'plants:mixed', category: 'Decor', description: 'Combination of live and artificial', example: 'Balanced setups' },
-  { tag: 'decor:background', category: 'Decor', description: 'For background panels', example: 'Visual appeal, climbing' },
-  { tag: 'decor:ledges', category: 'Decor', description: 'For ledges/platforms', example: 'Arboreal species' },
-  { tag: 'decor:hides', category: 'Decor', description: 'For terrestrial hides', example: 'All terrestrial species' },
-  { tag: 'decor:hides-aquatic', category: 'Decor', description: 'For aquatic hides', example: 'Axolotls, aquatic frogs' },
-  { tag: 'decor:humid-hide', category: 'Decor', description: 'For humid hide boxes', example: 'Shedding reptiles' },
-  { tag: 'decor:natural', category: 'Decor', description: 'For natural decorations', example: 'Bioactive setups' },
-  { tag: 'feeding:dish', category: 'Decor', description: 'For feeding dishes', example: 'Omnivores, herbivores' },
-  
-  // ACTIVITY & BEHAVIOR
-  { tag: 'climbing:vertical', category: 'Activity', description: 'For vertical climbers', example: 'Tree frogs, crested geckos' },
-  { tag: 'climbing:ground', category: 'Activity', description: 'For ground-level enrichment', example: 'Leopard geckos, bearded dragons' },
-  { tag: 'animalType:amphibian', category: 'Activity', description: 'Specifically for amphibians', example: 'All frogs, salamanders' },
+const EQUIPMENT_SOURCES: Array<Record<string, EquipmentConfig>> = [
+  enclosures as Record<string, EquipmentConfig>,
+  substrate as Record<string, EquipmentConfig>,
+  cleanupCrew as Record<string, EquipmentConfig>,
+  lighting as Record<string, EquipmentConfig>,
+  heating as Record<string, EquipmentConfig>,
+  humidity as Record<string, EquipmentConfig>,
+  monitoring as Record<string, EquipmentConfig>,
+  nutrition as Record<string, EquipmentConfig>,
+  decor as Record<string, EquipmentConfig>,
+  aquatic as Record<string, EquipmentConfig>,
 ];
 
-const CATEGORIES = ['Heating', 'Humidity', 'Lighting', 'Substrate', 'Diet', 'Aquatic', 'Decor', 'Activity'];
+const FIELD_ORDER = [
+  'heatSource',
+  'humidity',
+  'lighting',
+  'substrate',
+  'diet',
+  'waterFeature',
+  'decor',
+  'climbing',
+  'activity',
+  'climate',
+  'animalType',
+  'bioactiveSubstrate',
+];
+
+const SCHEMA_VALUES: Record<string, string[]> = {
+  heatSource: ['basking', 'ambient', 'none'],
+  humidity: ['high', 'moderate', 'low'],
+  lighting: ['uvb-forest', 'uvb-desert', 'none'],
+  substrate: [
+    'bioactive',
+    'soil',
+    'paper',
+    'foam',
+    'sand',
+    'sand-aquatic',
+    'substrate-bare-bottom',
+    'substrate-slate-tile',
+    'substrate-fine-sand-aquatic',
+  ],
+  diet: [
+    'insectivore',
+    'omnivore',
+    'herbivore',
+    'carnivore-rodents',
+    'carnivore-aquatic',
+    'frugivore',
+  ],
+  waterFeature: ['shallow-dish', 'large-bowl', 'pool', 'none', 'fully-aquatic'],
+  decor: ['branches', 'ledges', 'hides', 'plants', 'background'],
+  climbing: ['vertical', 'ground', 'both', 'none', 'aquatic'],
+  activity: ['arboreal', 'terrestrial', 'semi-arboreal', 'aquatic'],
+  climate: ['tropical', 'semi-arid', 'arid', 'temperate'],
+  animalType: ['reptile', 'amphibian'],
+  bioactiveSubstrate: ['tropical', 'arid'],
+};
+
+const FIELD_DESCRIPTIONS: Record<string, string> = {
+  heatSource: 'Primary heat strategy needed to reach target temperatures.',
+  humidity: 'Overall humidity range required by the species.',
+  lighting: 'UVB or lighting type required by the species.',
+  substrate: 'Safe substrate options for the enclosure.',
+  diet: 'Primary diet category for feeding supplies.',
+  waterFeature: 'Primary water access needed in the enclosure.',
+  decor: 'Core decor elements needed for security and enrichment.',
+  climbing: 'Climbing structure emphasis based on behavior.',
+  activity: 'Primary activity pattern for equipment matching.',
+  climate: 'Native climate profile for environmental matching.',
+  animalType: 'Taxonomic classification for compatibility checks.',
+  bioactiveSubstrate: 'Bioactive substrate type if applicable.',
+};
+
+const VALUE_DESCRIPTIONS: Record<string, Record<string, string>> = {
+  heatSource: {
+    basking: 'Focused basking heat source (spot heat).',
+    ambient: 'Enclosure-wide ambient heat source.',
+    none: 'No external heat source needed.',
+  },
+  humidity: {
+    high: 'High humidity (70-90%+).',
+    moderate: 'Moderate humidity (50-70%).',
+    low: 'Low humidity (30-50%).',
+  },
+  lighting: {
+    'uvb-forest': 'Lower UVB output for forest species (5.0/6%).',
+    'uvb-desert': 'High UVB output for desert species (10.0/12%).',
+    none: 'No UVB lighting required.',
+  },
+  substrate: {
+    bioactive: 'Bioactive substrate with cleanup crew.',
+    soil: 'Soil-based or loose substrate.',
+    paper: 'Paper towel or newspaper.',
+    foam: 'Foam mat substrate.',
+    sand: 'Dry sand substrate.',
+    'sand-aquatic': 'Fine aquatic sand (deep bed).',
+    'substrate-bare-bottom': 'Bare-bottom enclosure.',
+    'substrate-slate-tile': 'Slate tile or solid surface.',
+    'substrate-fine-sand-aquatic': 'Fine aquatic sand (deep bed).',
+  },
+  diet: {
+    insectivore: 'Primarily insects.',
+    omnivore: 'Insects and plant matter.',
+    herbivore: 'Plants and vegetables.',
+    'carnivore-rodents': 'Frozen/thawed rodents.',
+    'carnivore-aquatic': 'Aquatic proteins (worms, pellets).',
+    frugivore: 'Fruit-based diets.',
+  },
+  waterFeature: {
+    'shallow-dish': 'Shallow water dish for drinking/soaking.',
+    'large-bowl': 'Large water bowl for bigger species.',
+    pool: 'Partial pool for semi-aquatic species.',
+    none: 'No water feature required.',
+    'fully-aquatic': 'Fully aquatic setup required.',
+  },
+  decor: {
+    branches: 'Branches or climbing decor.',
+    ledges: 'Ledges or platforms.',
+    hides: 'Hides or shelters.',
+    plants: 'Plants (live or artificial).',
+    background: 'Background panels.',
+  },
+  climbing: {
+    vertical: 'Vertical climbing focus.',
+    ground: 'Ground-level enrichment.',
+    both: 'Both vertical and ground climbing.',
+    none: 'No climbing structures needed.',
+    aquatic: 'Aquatic climbing surfaces.',
+  },
+  activity: {
+    arboreal: 'Primarily arboreal.',
+    terrestrial: 'Primarily terrestrial.',
+    'semi-arboreal': 'Mix of ground and climbing.',
+    aquatic: 'Fully aquatic.',
+  },
+  climate: {
+    tropical: 'Tropical rainforest climate.',
+    'semi-arid': 'Semi-arid climate.',
+    arid: 'Arid desert climate.',
+    temperate: 'Temperate climate.',
+  },
+  animalType: {
+    reptile: 'Reptile species.',
+    amphibian: 'Amphibian species.',
+  },
+  bioactiveSubstrate: {
+    tropical: 'Tropical bioactive mix.',
+    arid: 'Arid bioactive mix.',
+  },
+};
+
+const buildTagsByField = () => {
+  const allowedFields = new Set(Object.keys(SCHEMA_VALUES));
+  const fieldMap = new Map<string, Set<string>>();
+
+  Object.entries(SCHEMA_VALUES).forEach(([field, values]) => {
+    fieldMap.set(field, new Set(values));
+  });
+
+  EQUIPMENT_SOURCES.forEach((source) => {
+    Object.values(source).forEach((item) => {
+      item.needsTags?.forEach((tag) => {
+        const [field, value] = tag.split(':');
+        if (!field || !value || !allowedFields.has(field)) {
+          return;
+        }
+        if (!fieldMap.has(field)) {
+          fieldMap.set(field, new Set());
+        }
+        fieldMap.get(field)?.add(value);
+      });
+    });
+  });
+
+  return FIELD_ORDER.map((field) => ({
+    field,
+    tags: Array.from(fieldMap.get(field) ?? []).sort((a, b) => a.localeCompare(b)),
+  }));
+};
+
+const createMockProfile = (selectedTags: Set<string>): AnimalProfile => {
+  const equipmentNeeds: EquipmentNeeds = {};
+  const arrayFields = new Set(['substrate', 'diet', 'decor']);
+  const singleFields = new Set([
+    'climbing',
+    'humidity',
+    'heatSource',
+    'waterFeature',
+    'lighting',
+    'animalType',
+    'climate',
+    'activity',
+    'bioactiveSubstrate',
+  ]);
+
+  selectedTags.forEach(tag => {
+    const [field, value] = tag.split(':');
+    if (!field || !value) return;
+
+    if (arrayFields.has(field)) {
+      if (!equipmentNeeds[field as keyof EquipmentNeeds]) {
+        (equipmentNeeds as any)[field] = [];
+      }
+      ((equipmentNeeds as any)[field] as string[]).push(value);
+    } else if (singleFields.has(field)) {
+      (equipmentNeeds as any)[field] = value;
+    }
+  });
+
+  return {
+    id: 'mock-preview',
+    commonName: 'Preview Animal',
+    scientificName: 'Preview spp.',
+    careLevel: 'beginner',
+    minEnclosureSize: { width: 48, depth: 24, height: 24, units: 'in' },
+    equipmentNeeds,
+    careTargets: {
+      temperature: {
+        min: 75,
+        max: 85,
+        unit: 'F',
+        thermalGradient: false,
+      },
+      humidity: {
+        day: { min: 50, max: 70 },
+        night: { min: 55, max: 75 },
+        shedding: { min: 60, max: 80 },
+        unit: '%',
+      },
+      lighting: {
+        uvbRequired: equipmentNeeds.lighting?.includes('uvb'),
+        coveragePercent: 50,
+        photoperiod: '12h day / 12h night',
+      },
+      gradient: 'Preview gradient',
+    },
+    layoutRules: {
+      preferVertical: false,
+      verticalSpacePercent: 30,
+      thermalGradient: 'horizontal',
+      requiredZones: ['basking', 'hide'],
+      optionalZones: [],
+    },
+    warnings: [],
+    bioactiveCompatible: true,
+    notes: [],
+  };
+};
+
+const createMockInput = (): EnclosureInput => ({
+  width: 48,
+  depth: 24,
+  height: 24,
+  units: 'in',
+  type: 'glass',
+  animal: 'mock-preview',
+  quantity: 1,
+  bioactive: false,
+  ambientTemp: 72,
+  ambientHumidity: 50,
+  humidityControl: 'manual',
+  substratePreference: 'soil-based',
+  plantPreference: 'artificial',
+  backgroundType: 'none',
+  numberOfHides: 2,
+  numberOfLedges: 2,
+  numberOfClimbingAreas: 1,
+  hideStylePreference: 'both',
+  doorOrientation: 'front',
+  automatedLighting: false,
+});
 
 export default function EquipmentTagsBuilder() {
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
   const [copied, setCopied] = useState(false);
+  const tagsByField = buildTagsByField();
+
+  // Generate preview shopping list based on selected tags
+  const previewSupplies = useMemo(() => {
+    if (selectedTags.size === 0) return [];
+    
+    const mockProfile = createMockProfile(selectedTags);
+    const mockInput = createMockInput();
+    const dims = { width: 48, depth: 24, height: 24 };
+    
+    try {
+      return generateShoppingList(dims, mockProfile, mockInput);
+    } catch (error) {
+      console.error('Error generating preview shopping list:', error);
+      return [];
+    }
+  }, [selectedTags]);
+
+  // Group supplies by category
+  const suppliesByCategory = useMemo(() => {
+    const grouped = new Map<string, ShoppingItem[]>();
+    previewSupplies.forEach(item => {
+      if (!grouped.has(item.category)) {
+        grouped.set(item.category, []);
+      }
+      grouped.get(item.category)?.push(item);
+    });
+    return grouped;
+  }, [previewSupplies]);
 
   // Only show in development
   if (import.meta.env.PROD) {
@@ -114,19 +354,35 @@ export default function EquipmentTagsBuilder() {
 
   const generateJSON = () => {
     const result: Record<string, string | string[]> = {};
+    const arrayFields = new Set(['substrate', 'diet', 'decor']);
+    const singleFields = new Set([
+      'climbing',
+      'humidity',
+      'heatSource',
+      'waterFeature',
+      'lighting',
+      'animalType',
+      'climate',
+      'activity',
+      'bioactiveSubstrate',
+    ]);
     
     selectedTags.forEach(tag => {
-      // Parse tag into field and value
-      const [field, value] = tag.includes(':') ? tag.split(':') : [tag, ''];
-      
-      if (!result[field]) {
-        result[field] = value || field;
-      } else {
-        // Convert to array if multiple values for same field
-        if (!Array.isArray(result[field])) {
-          result[field] = [result[field] as string];
+      const [field, value] = tag.split(':');
+      if (!field || !value) {
+        return;
+      }
+
+      if (arrayFields.has(field)) {
+        if (!result[field]) {
+          result[field] = [];
         }
-        (result[field] as string[]).push(value || field);
+        (result[field] as string[]).push(value);
+        return;
+      }
+
+      if (singleFields.has(field)) {
+        result[field] = value;
       }
     });
 
@@ -152,49 +408,57 @@ export default function EquipmentTagsBuilder() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
           {/* Tag Selection */}
-          <div className="lg:col-span-2 space-y-6">
-            {CATEGORIES.map(category => {
-              const tags = ALL_TAGS.filter(t => t.category === category);
-              return (
-                <div key={category} className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4 border-b-2 border-green-500 pb-2">
-                    {category}
-                  </h2>
+          <div className="xl:col-span-2 space-y-6">
+            {tagsByField.map((group) => (
+              <div key={group.field} className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2 border-b-2 border-green-500 pb-2">
+                  {group.field}
+                </h2>
+                {FIELD_DESCRIPTIONS[group.field] && (
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                    {FIELD_DESCRIPTIONS[group.field]}
+                  </p>
+                )}
+                {group.tags.length === 0 ? (
+                  <p className="text-sm text-gray-500 dark:text-gray-400">No tags available.</p>
+                ) : (
                   <div className="space-y-3">
-                    {tags.map(tagInfo => (
-                      <label
-                        key={tagInfo.tag}
-                        className="flex items-start gap-3 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
-                      >
-                        <input
-                          type="checkbox"
-                          checked={selectedTags.has(tagInfo.tag)}
-                          onChange={() => toggleTag(tagInfo.tag)}
-                          className="mt-1 w-5 h-5 text-green-600 rounded focus:ring-green-500"
-                        />
-                        <div className="flex-1">
-                          <div className="font-mono text-sm font-semibold text-green-600 dark:text-green-400">
-                            {tagInfo.tag}
+                    {group.tags.map((value) => {
+                      const tag = `${group.field}:${value}`;
+                      return (
+                        <label
+                          key={tag}
+                          className="flex items-start gap-3 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                        >
+                          <input
+                            type="checkbox"
+                            checked={selectedTags.has(tag)}
+                            onChange={() => toggleTag(tag)}
+                            className="mt-1 w-5 h-5 text-green-600 rounded focus:ring-green-500"
+                          />
+                          <div>
+                            <div className="font-mono text-sm font-semibold text-green-600 dark:text-green-400">
+                              {tag}
+                            </div>
+                            {VALUE_DESCRIPTIONS[group.field]?.[value] && (
+                              <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                {VALUE_DESCRIPTIONS[group.field][value]}
+                              </div>
+                            )}
                           </div>
-                          <div className="text-sm text-gray-700 dark:text-gray-300 mt-1">
-                            {tagInfo.description}
-                          </div>
-                          <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                            Example: {tagInfo.example}
-                          </div>
-                        </div>
-                      </label>
-                    ))}
+                        </label>
+                      );
+                    })}
                   </div>
-                </div>
-              );
-            })}
+                )}
+              </div>
+            ))}
           </div>
 
-          {/* Generated Output */}
-          <div className="lg:col-span-1">
+          {/* Generated Output & Preview */}
+          <div className="xl:col-span-1">
             <div className="sticky top-8 space-y-4">
               {/* Summary */}
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4">
@@ -210,7 +474,7 @@ export default function EquipmentTagsBuilder() {
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="font-bold text-gray-900 dark:text-white">
-                    Generated equipmentNeeds
+                    Generated JSON
                   </h3>
                   <button
                     onClick={copyToClipboard}
@@ -229,9 +493,67 @@ export default function EquipmentTagsBuilder() {
                     )}
                   </button>
                 </div>
-                <pre className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 overflow-x-auto text-xs font-mono text-gray-800 dark:text-gray-200 max-h-[600px] overflow-y-auto">
+                <pre className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 overflow-x-auto text-xs font-mono text-gray-800 dark:text-gray-200 max-h-[300px] overflow-y-auto">
                   {selectedTags.size > 0 ? generateJSON() : '// Select tags to generate JSON'}
                 </pre>
+              </div>
+
+              {/* Supplies Preview */}
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4">
+                <h3 className="font-bold text-gray-900 dark:text-white mb-3 border-b-2 border-purple-500 pb-2">
+                  📦 Complete Shopping List Preview
+                </h3>
+                {previewSupplies.length === 0 ? (
+                  <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+                    Select tags to preview supplies
+                  </p>
+                ) : (
+                  <div className="space-y-4 max-h-[500px] overflow-y-auto">
+                    <div className="text-xs bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-500 rounded p-2 mb-3">
+                      <strong>Note:</strong> Shows complete setup including baseline items (enclosure, substrate, monitoring, etc.) plus equipment matching your selected tags.
+                    </div>
+                    <div className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+                      <strong>{previewSupplies.length}</strong> total items for 48×24×24" glass enclosure
+                    </div>
+                    {Array.from(suppliesByCategory.entries()).map(([category, items]) => (
+                      <div key={category} className="space-y-2">
+                        <h4 className="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wide">
+                          {category} ({items.length})
+                        </h4>
+                        <div className="space-y-1.5">
+                          {items.map((item, idx) => (
+                            <div 
+                              key={item.uid || `${item.id}-${idx}`}
+                              className="text-xs bg-gray-50 dark:bg-gray-900 rounded p-2"
+                            >
+                              <div className="font-semibold text-gray-800 dark:text-gray-200">
+                                {item.name}
+                              </div>
+                              {item.quantity && (
+                                <div className="text-gray-600 dark:text-gray-400">
+                                  Qty: {item.quantity}
+                                </div>
+                              )}
+                              {item.importance && (() => {
+                                let colorClass = 'text-gray-500 dark:text-gray-400';
+                                if (item.importance === 'required') {
+                                  colorClass = 'text-red-600 dark:text-red-400';
+                                } else if (item.importance === 'recommended') {
+                                  colorClass = 'text-blue-600 dark:text-blue-400';
+                                }
+                                return (
+                                  <div className={`text-xs ${colorClass}`}>
+                                    {item.importance}
+                                  </div>
+                                );
+                              })()}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Instructions */}
@@ -241,9 +563,9 @@ export default function EquipmentTagsBuilder() {
                 </h4>
                 <ol className="text-sm text-blue-800 dark:text-blue-300 space-y-1 list-decimal list-inside">
                   <li>Select relevant tags for your animal</li>
-                  <li>Click "Copy" button</li>
+                  <li>Review supplies preview</li>
+                  <li>Click "Copy" to copy JSON</li>
                   <li>Paste into animal JSON file</li>
-                  <li>Adjust field names if needed</li>
                 </ol>
               </div>
 

@@ -1,464 +1,112 @@
 {
   "id": "axolotl-enrichment-welfare-guide",
-  "title": "Axolotl Enrichment & Welfare Guide: Complete Aquatic Care Overview",
-  "description": "Comprehensive enrichment and welfare guide for Ambystoma mexicanum covering aquarium setup, water quality, temperature control, and long-term care for these unique aquatic salamanders.",
+  "title": "Axolotl Enrichment & Welfare Guide: [Add Subtitle]",
+  "description": "Complete enrichment & welfare guide for Axolotl covering [key topics].",
+  "excerpt": "Complete enrichment & welfare guide for Axolotl covering [key topics].",
   "author": "Habitat Builder",
-  "date": "2026-01-28",
+  "publishDate": "2026-02-11",
   "category": "Care Guides",
-  "excerpt": "Complete care guide for axolotls (Ambystoma mexicanum) with evidence-based recommendations for aquarium setup, water quality management, feeding, and ensuring lifelong health.",
-  "tags": ["axolotl", "ambystoma-mexicanum", "aquatic", "intermediate", "enrichment", "welfare"],
-  "status": "in-progress",
+  "tags": [
+    "axolotl",
+    "enrichment-welfare",
+    "care guide"
+  ],
+  "image": "/animals/axolotl/axolotl-1.jpg",
+  "status": "draft",
   "content": [
     {
       "type": "intro",
-      "heading": "Axolotl Enrichment & Welfare Guide",
-      "text": "Axolotls (Ambystoma mexicanum) are neotenic salamanders that retain their aquatic larval form throughout their entire lives. Native only to Lake Xochimilco in Mexico, these fascinating creatures are Critically Endangered in the wild but thrive in captivity with proper care. This guide covers everything needed to provide excellent welfare for these unique amphibians."
-    },
-    {
-      "type": "warning",
-      "severity": "important",
-      "text": "Axolotls are FULLY AQUATIC and never leave water. They are NOT terrestrial amphibians. All care revolves around maintaining pristine cold water conditions."
+      "title": "Understanding Axolotl Enrichment & Welfare",
+      "content": "Complete guide to Axolotl care, covering habitat requirements, behavior, health indicators, and proper husbandry practices for keeping these animals thriving in captivity."
     },
     {
       "type": "section",
-      "heading": "Species Overview"
+      "title": "Species Overview"
     },
     {
       "type": "text",
-      "text": "Axolotls are extraordinary amphibians with several unique characteristics:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Neoteny:</span> Retain larval features (external gills, finned tail, aquatic lifestyle) for entire life, never metamorphosing into terrestrial salamanders",
-        "<span class='font-semibold'>Regeneration:</span> Can regrow lost limbs, gills, tail, heart tissue, and even parts of brain",
-        "<span class='font-semibold'>No eyelids:</span> Evolved in darkness at lake bottom, have no eyelids and are sensitive to bright light",
-        "<span class='font-semibold'>Poor eyesight:</span> Use powerful sensory organs on head to detect movement and locate prey",
-        "<span class='font-semibold'>Bottom-dwelling:</span> Spend most time resting on tank floor in mud/plants",
-        "<span class='font-semibold'>Cold-water:</span> Require temperatures 60-68°F—warmer water is dangerous or fatal"
-      ]
+      "content": "[Add detailed information about species overview for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
     },
     {
       "type": "section",
-      "heading": "Quick Facts"
+      "title": "Quick Facts"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about quick facts for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Critical Care Requirements"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about critical care requirements for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Critical Care Requirements Details:</span>"
     },
     {
       "type": "table",
-      "headers": ["Characteristic", "Details"],
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
       "rows": [
-        ["Scientific Name", "Ambystoma mexicanum"],
-        ["Common Names", "Axolotl, Mexican Walking Fish (misnomer—they're salamanders)"],
-        ["Adult Size", "9-12 inches in length"],
-        ["Lifespan", "10-15 years in captivity with proper care"],
-        ["Native Range", "Lake Xochimilco, Mexico (only remaining wild population)"],
-        ["Conservation Status", "Critically Endangered (IUCN Red List)"],
-        ["Activity Pattern", "Crepuscular/Nocturnal (most active dawn/dusk/night)"],
-        ["Social Structure", "Solitary—best housed alone"],
-        ["Minimum Tank Size", "30-40 gallon breeder for single adult"],
-        ["Water Temperature", "60-68°F (never exceed 72°F)"]
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Critical Care Requirements Summary"
-    },
-    {
-      "type": "text",
-      "text": "Before acquiring an axolotl, ensure you can meet these non-negotiable requirements:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Cycled Aquarium:</span> Tank MUST be fully cycled 4-6 weeks before adding axolotl",
-        "<span class='font-semibold'>Cold Water:</span> Consistent 60-68°F—may require aquarium chiller in warm climates",
-        "<span class='font-semibold'>Weekly Testing:</span> Test water parameters with liquid test kit every 7 days minimum",
-        "<span class='font-semibold'>Weekly Water Changes:</span> 20-30% water changes weekly with cold conditioned water",
-        "<span class='font-semibold'>Low-Flow Filtration:</span> Strong filters cause stress—use adjustable low-flow filters",
-        "<span class='font-semibold'>Safe Substrate:</span> Bare-bottom, slate tile, or fine sand (6+ inches only)—NO gravel",
-        "<span class='font-semibold'>Specialized Diet:</span> Earthworms, blackworms, frozen fish—not typical aquarium fish food"
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "text": "COMMITMENT REQUIRED: Axolotls live 10-15 years and require consistent, specialized care. They are intermediate-level pets, not beginner-friendly fish alternatives."
+      "content": "[Add important safety information or critical requirements for critical care requirements]"
     },
     {
       "type": "section",
-      "heading": "The Nitrogen Cycle: Why Cycling Matters"
+      "title": "Enclosure Enrichment"
     },
     {
       "type": "text",
-      "text": "The nitrogen cycle is the MOST CRITICAL concept in axolotl care. Understanding and establishing this cycle before purchasing your axolotl will determine success or failure."
+      "content": "[Add detailed information about enclosure enrichment for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
     },
     {
       "type": "section",
-      "heading": "What is the Nitrogen Cycle?"
+      "title": "Behavioral Needs"
     },
     {
       "type": "text",
-      "text": "The nitrogen cycle is a biological process where beneficial bacteria convert toxic waste into safer compounds:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Step 1:</span> Axolotl waste and uneaten food produce ammonia (highly toxic)",
-        "<span class='font-semibold'>Step 2:</span> Nitrosomonas bacteria convert ammonia ? nitrites (also toxic)",
-        "<span class='font-semibold'>Step 3:</span> Nitrobacter bacteria convert nitrites ? nitrates (less toxic)",
-        "<span class='font-semibold'>Step 4:</span> Water changes remove nitrates before they accumulate"
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "critical",
-      "text": "NEVER add an axolotl to an uncycled tank. Ammonia and nitrite poisoning cause chemical burns to gills and skin, often resulting in death within days."
+      "content": "[Add detailed information about behavioral needs for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
     },
     {
       "type": "section",
-      "heading": "Cycling Process (4-6 Weeks)"
+      "title": "Common Welfare Issues"
     },
     {
-      "type": "list",
-      "items": [
-        "Set up aquarium with filter, substrate (if using), and decorations",
-        "Add ammonia source (pure ammonia solution or fish food)",
-        "Test water daily for ammonia, nitrites, and nitrates",
-        "Week 1-2: Ammonia levels rise, then nitrites appear as ammonia drops",
-        "Week 3-4: Nitrites rise then drop as nitrates appear",
-        "Week 4-6: Ammonia and nitrites stay at 0 ppm even after adding ammonia—cycle complete",
-        "Perform large water change before adding axolotl"
-      ]
+      "type": "text",
+      "content": "[Add detailed information about common welfare issues for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Getting Started Checklist"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about getting started checklist for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
     },
     {
       "type": "highlight",
-      "text": "Cycling cannot be rushed. Products claiming to \"instant cycle\" tanks help but don't eliminate the establishment period. Always test water before purchasing axolotl."
-    },
-    {
-      "type": "section",
-      "heading": "Water Parameters"
-    },
-    {
-      "type": "text",
-      "text": "Axolotls are sensitive to water quality. Test weekly and maintain these parameters:"
-    },
-    {
-      "type": "table",
-      "headers": ["Parameter", "Ideal Range", "Acceptable Range", "Action if Out of Range"],
-      "rows": [
-        ["Temperature", "60-68°F", "60-68°F (no variation)", "Above 72°F: Emergency—add ice, increase AC, turn off lights. Above 74°F can be fatal."],
-        ["pH", "7.4-7.6", "6.5-8.0", "Use pH adjuster products slowly. Stable pH more important than perfect pH."],
-        ["Ammonia", "0 ppm", "0 ppm (no tolerance)", "Immediate 50% water change. Test daily until 0. Check filter function."],
-        ["Nitrites", "0 ppm", "0 ppm (no tolerance)", "Immediate 50% water change. Add beneficial bacteria supplement. Test daily."],
-        ["Nitrates", "5-20 ppm", "Under 40 ppm", "Increase water change frequency/volume. Reduce feeding if nitrates climb rapidly."]
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Housing Requirements"
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Tank Size</span>"
-    },
-    {
-      "type": "text",
-      "text": "Length and width matter more than height since axolotls are bottom-dwelling:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Single Adult:</span> 30-40 gallon breeder minimum (36×18×16\" dimensions ideal)",
-        "<span class='font-semibold'>Two Adults:</span> 40 gallon breeder minimum (add 10 gallons per additional axolotl)",
-        "<span class='font-semibold'>Juveniles:</span> Can temporarily house in 10-20 gallons until 6 inches long",
-        "<span class='font-semibold'>Why Size Matters:</span> Larger tanks dilute waste faster and provide swimming space"
-      ]
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Tank Lid</span>"
-    },
-    {
-      "type": "text",
-      "text": "Essential—axolotls can and will jump out of open-top tanks. Use glass lid, mesh lid, or cut plexiglass to cover tank while allowing filter access."
-    },
-    {
-      "type": "section",
-      "heading": "Filtration"
-    },
-    {
-      "type": "text",
-      "text": "Axolotls evolved in the still waters of Lake Xochimilco. High water flow causes extreme stress."
-    },
-    {
-      "type": "section",
-      "heading": "Filter Requirements"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Low Flow:</span> Adjustable flow rate essential—aim for gentle water movement",
-        "<span class='font-semibold'>Adequate Filtration:</span> Rated for tank size minimum, preferably 1.5-2× tank volume",
-        "<span class='font-semibold'>Three-Stage Filtration:</span> Mechanical (debris), biological (bacteria), chemical (activated carbon)",
-        "<span class='font-semibold'>Output Direction:</span> Aim toward surface, not at axolotl—promotes gas exchange without disturbing animal"
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Filter Type Options"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Canister Filters:</span> Best option—strong filtration, adjustable flow, quiet operation",
-        "<span class='font-semibold'>Hang-On-Back (HOB) Filters:</span> Good option—easy maintenance, adjustable flow on some models",
-        "<span class='font-semibold'>Internal Filters:</span> Acceptable—takes up tank space but provides adjustable flow",
-        "<span class='font-semibold'>Sponge Filters:</span> Budget option—gentle flow but lacks chemical filtration, needs frequent cleaning"
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "important",
-      "text": "Filters do NOT eliminate need for water changes. Even with excellent filtration, 20-30% weekly water changes are mandatory to remove nitrates."
-    },
-    {
-      "type": "section",
-      "heading": "Temperature Control"
-    },
-    {
-      "type": "text",
-      "text": "Temperature is CRITICAL for axolotl survival. These are cold-water amphibians that cannot tolerate warmth."
-    },
-    {
-      "type": "section",
-      "heading": "Temperature Dangers"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>70-72°F:</span> Uncomfortable, increased stress, reduced appetite",
-        "<span class='font-semibold'>72-74°F:</span> Dangerous—risk of fungal/bacterial infections, gill deterioration",
-        "<span class='font-semibold'>74°F+:</span> Life-threatening—organ failure, heat stress, often fatal within hours",
-        "<span class='font-semibold'>Below 60°F:</span> Slowed metabolism, reduced activity (not harmful in short term)"
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Cooling Methods"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Room Air Conditioning:</span> Ideal—keep room at 65-70°F year-round",
-        "<span class='font-semibold'>Aquarium Chiller:</span> Most reliable—maintains exact temperature automatically (expensive $200-500)",
-        "<span class='font-semibold'>Clip-On Fans:</span> Budget option—evaporative cooling drops temp 2-4°F (not sufficient for hot climates)",
-        "<span class='font-semibold'>Frozen Water Bottles:</span> Emergency only—float frozen bottles in tank during heat waves, rotate as they thaw"
-      ]
-    },
-    {
-      "type": "highlight",
-      "text": "If you cannot maintain 60-68°F year-round, do NOT get an axolotl. Temperature control is non-negotiable for their survival."
-    },
-    {
-      "type": "section",
-      "heading": "Lighting"
-    },
-    {
-      "type": "text",
-      "text": "Axolotls have NO eyelids and evolved in darkness at the bottom of Lake Xochimilco. They are extremely sensitive to bright light."
-    },
-    {
-      "type": "list",
-      "items": [
-        "Natural room light or indirect sunlight is sufficient—no special lighting needed",
-        "If using aquarium light for plants, keep intensity low and provide dark hides",
-        "Avoid placing tank in direct sunlight—causes temperature spikes and algae blooms",
-        "Consider red/blue night lights if you want to observe axolotl at night—less disruptive than white light",
-        "Provide multiple hiding spots (caves, plants, PVC pipes) where axolotl can escape light"
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Feeding"
-    },
-    {
-      "type": "text",
-      "text": "Axolotls are carnivorous bottom-feeders that use suction to inhale prey. They don't chew—food must fit in their mouth whole."
-    },
-    {
-      "type": "section",
-      "heading": "Feeding Schedule"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Adults (8+ inches):</span> Feed every 2-3 days, as much as they'll eat in 10-15 minutes",
-        "<span class='font-semibold'>Juveniles (under 8 inches):</span> Feed daily, as much as they'll eat in 10-15 minutes",
-        "<span class='font-semibold'>Remove Uneaten Food:</span> After 30 minutes to prevent water quality degradation",
-        "<span class='font-semibold'>Variety:</span> Rotate between different staple foods for balanced nutrition"
-      ]
-    },
-    {
-      "type": "text",
-      "text": "See our <a href='/blog/axolotl-feeding-guide' class='text-emerald-600 underline'>Feeding Guide</a> for detailed food options and feeding techniques."
-    },
-    {
-      "type": "section",
-      "heading": "Behavior and Enrichment"
-    },
-    {
-      "type": "text",
-      "text": "While axolotls have simple needs compared to terrestrial reptiles, providing enrichment improves quality of life."
-    },
-    {
-      "type": "section",
-      "heading": "Natural Behaviors"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Bottom-Resting:</span> Spend 80%+ of time resting on tank floor—normal, not illness",
-        "<span class='font-semibold'>Slow Movement:</span> Occasionally walk along bottom using legs—graceful, deliberate movements",
-        "<span class='font-semibold'>Gill Flicking:</span> Regularly flick gills to oxygenate—faster flicking indicates poor water quality",
-        "<span class='font-semibold'>Gulping Air:</span> Occasionally swim to surface for air gulp—helps buoyancy control",
-        "<span class='font-semibold'>Feeding Response:</span> Sense movement, turn toward prey, inhale with powerful suction"
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Enrichment Ideas"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Hides:</span> Caves, PVC pipes, terracotta pots (smooth edges)—multiple hiding spots reduce stress",
-        "<span class='font-semibold'>Live Plants:</span> Anubias, Java fern, Java moss—provide cover and improve water quality",
-        "<span class='font-semibold'>Varied Substrate:</span> Mix bare-bottom with slate tile \"islands\"—creates defined zones",
-        "<span class='font-semibold'>Feeding Enrichment:</span> Tong-feeding instead of dropping food—encourages interaction and hunting behavior",
-        "<span class='font-semibold'>Rearranging:</span> Occasionally move decorations to provide novelty (do during water changes)"
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "important",
-      "text": "Do NOT handle axolotls for \"enrichment.\" Handling causes extreme stress, damages protective slime coat, and increases infection risk. Observe, don't interact physically."
-    },
-    {
-      "type": "section",
-      "heading": "Common Beginner Mistakes"
-    },
-    {
-      "type": "table",
-      "headers": ["Mistake", "Why It's Harmful", "Correct Approach"],
-      "rows": [
-        ["Adding axolotl to uncycled tank", "Ammonia poisoning causes gill burns, stress, often death", "Cycle tank 4-6 weeks before purchase, test parameters"],
-        ["Using gravel substrate", "Accidentally swallowed causing fatal impaction", "Use bare-bottom, slate tile, or fine sand (6+ inches only)"],
-        ["Keeping water too warm (72°F+)", "Heat stress, organ failure, fungal infections", "Maintain 60-68°F with AC or chiller"],
-        ["Using aloe vera water conditioners", "Aloe is toxic to axolotls", "Use Seachem Prime or Fritz Complete only"],
-        ["High-flow filters", "Causes stress, difficulty swimming, exhaustion", "Adjust filter to gentle flow, aim output at surface"],
-        ["Handling frequently", "Damages slime coat, causes stress, increases infection risk", "Handle only for necessary tank maintenance with wet hands"],
-        ["Skipping water changes", "Nitrates accumulate causing chronic stress", "20-30% weekly water changes mandatory"],
-        ["Housing with fish", "Fish nip gills and limbs, axolotl may eat fish", "House axolotls alone or with other axolotls only"]
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Signs of a Healthy Axolotl"
-    },
-    {
-      "type": "list",
-      "items": [
-        "Gills are fluffy/feathery and bright colored (red, pink, or white depending on morph)",
-        "Clear eyes (cloudy eyes indicate illness)",
-        "Smooth skin without white fuzz, lesions, or wounds",
-        "Responds to food quickly when offered",
-        "Rests on bottom with body fully supported, not slumped",
-        "Gills flick every 10-20 seconds (faster indicates poor water quality)",
-        "Maintains healthy weight—visible spine/hip bones indicate underfeeding"
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Signs of Illness or Stress"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Curled Gills:</span> Poor water quality, temperature too warm",
-        "<span class='font-semibold'>Deteriorating Gills:</span> Ammonia/nitrite exposure, gill infection",
-        "<span class='font-semibold'>Loss of Appetite:</span> Stress, temperature issues, illness",
-        "<span class='font-semibold'>Floating:</span> Swallowed too much air (usually harmless), or swim bladder issues",
-        "<span class='font-semibold'>Frantic Swimming:</span> Water quality emergency, temperature spike",
-        "<span class='font-semibold'>White Fungus:</span> Fungal infection from poor water quality or injury",
-        "<span class='font-semibold'>Red/Pale Gills:</span> Stress, poor oxygenation, illness"
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "important",
-      "text": "If axolotl shows multiple illness signs, immediately test water parameters. 90% of health issues stem from water quality problems."
-    },
-    {
-      "type": "section",
-      "heading": "Long-Term Care Commitment"
-    },
-    {
-      "type": "text",
-      "text": "Axolotls live 10-15 years with proper care. Before committing, ensure you can provide:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Weekly Maintenance:</span> 1-2 hours for water testing, water changes, tank cleaning",
-        "<span class='font-semibold'>Daily Feeding:</span> 5-10 minutes (juveniles) or every 2-3 days (adults)",
-        "<span class='font-semibold'>Temperature Control:</span> Year-round cooling via AC or chiller ($20-50/month electric costs)",
-        "<span class='font-semibold'>Monthly Costs:</span> $20-40 for food, water conditioner, test kit reagents",
-        "<span class='font-semibold'>Emergency Fund:</span> Veterinary care for exotic amphibians ($100-500 per visit)",
-        "<span class='font-semibold'>Vacation Planning:</span> Arrange experienced pet sitter or auto-feeder (risky)"
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Conservation Note"
-    },
-    {
-      "type": "text",
-      "text": "Wild axolotls are Critically Endangered—the last step before extinct in the wild. Only one natural population remains in Lake Xochimilco, Mexico, due to habitat loss and pollution from Mexico City's expansion. All pet axolotls are captive-bred."
-    },
-    {
-      "type": "highlight",
-      "text": "By providing excellent care to captive axolotls, you help preserve this species' genetic diversity and support education about their conservation needs."
-    },
-    {
-      "type": "section",
-      "heading": "Related Guides"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<a href='/blog/axolotl-enclosure-setup' class='text-emerald-600 underline'>Enclosure Setup Guide</a> - Tank selection, cycling, and equipment",
-        "<a href='/blog/axolotl-substrate-guide' class='text-emerald-600 underline'>Substrate Guide</a> - Safe substrate options and impaction prevention",
-        "<a href='/blog/axolotl-temperature-water-quality' class='text-emerald-600 underline'>Temperature & Water Quality Guide</a> - Detailed water parameters and testing",
-        "<a href='/blog/axolotl-feeding-guide' class='text-emerald-600 underline'>Feeding Guide</a> - Complete diet and feeding schedule",
-        "<a href='/blog/axolotl-water-care-guide' class='text-emerald-600 underline'>Water Care Guide</a> - Water changes, conditioning, and maintenance"
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Key Takeaways"
-    },
-    {
-      "type": "list",
-      "items": [
-        "Axolotls are intermediate-level pets requiring specialized cold-water aquatic care",
-        "Tank MUST be cycled 4-6 weeks before adding axolotl—non-negotiable",
-        "Temperature 60-68°F critical—above 72°F dangerous, above 74°F often fatal",
-        "Weekly water testing and 20-30% water changes mandatory",
-        "Ammonia and nitrites must be 0 ppm at all times",
-        "Low-flow filtration essential—high flow causes stress",
-        "No gravel—causes impaction. Use bare-bottom, slate tile, or fine sand (6+ inches only)",
-        "Solitary animals that thrive alone—tank mates generally not recommended",
-        "Live 10-15 years—long-term commitment with consistent care requirements"
-      ]
+      "content": "Key Takeaway: [Summarize the most important point for Axolotl enrichment & welfare guide]"
     }
   ]
 }

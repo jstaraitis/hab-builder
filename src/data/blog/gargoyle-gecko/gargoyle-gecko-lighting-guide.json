@@ -1,0 +1,253 @@
+﻿{
+  "id": "gargoyle-gecko-lighting-guide",
+  "title": "Gargoyle Gecko Lighting Guide: UVB & Photoperiod",
+  "description": "Complete lighting guide for gargoyle geckos covering UVB requirements (optional but recommended), equipment specifications, photoperiod management, and positioning guidelines.",
+  "excerpt": "Complete lighting guide for gargoyle geckos covering UVB requirements (optional but recommended), equipment specifications, photoperiod management, and positioning guidelines.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-02-11",
+  "category": "Environment",
+  "tags": ["gargoyle-gecko", "lighting", "UVB", "photoperiod", "health"],
+  "image": "/animals/gargoyle-gecko/gargoyle-gecko-6.jpg",
+  "status": "community-reviewed",
+  "relatedGuides": ["gargoyle-gecko-temperature-humidity-guide", "gargoyle-gecko-enclosure-setup"],
+  "content": [
+    {
+      "type": "intro",
+      "title": "Lighting Requirements for Gargoyle Geckos",
+      "content": "Gargoyle geckos are crepuscular (active at dawn/dusk) and can survive without UVB lighting when supplemented with dietary vitamin D3. However, UVB lighting is increasingly recommended as research shows measurable health benefits for bone density, activity levels, and coloration. This guide covers UVB equipment, photoperiod management, and setup positioning."
+    },
+    {
+      "type": "highlight",
+      "content": "UVB Status: Historically considered optional for gargoyle geckos, but current best practice recommends low-level UVB (UVI 1.0-2.0) for optimal health. Geckos provided UVB show improved feeding response, more vibrant coloration, and better calcium metabolism compared to those on D3 supplementation alone."
+    },
+    {
+      "type": "section",
+      "title": "UVB: Optional but Recommended"
+    },
+    {
+      "type": "text",
+      "content": "Gargoyle geckos can synthesize vitamin D3 from UVB exposure, which regulates calcium absorption and bone health. While they can survive without UVB using dietary D3 supplements, providing UVB lighting offers physiological and behavioral benefits."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>UVB Benefits:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Natural D3 Synthesis:</span> Gecko produces own vitamin D3 through skin exposure to UVB-B (290-315nm wavelength). More bioavailable than dietary D3",
+        "<span class='font-semibold'>Improved Calcium Metabolism:</span> UVB enhances calcium absorption from diet, reducing MBD (metabolic bone disease) risk",
+        "<span class='font-semibold'>Behavioral Enrichment:</span> UVB-exposed geckos show increased exploratory behavior, appetite, and activity during crepuscular periods",
+        "<span class='font-semibold'>Enhanced Coloration:</span> Many keepers report brighter, more vivid oranges/reds in fired-up coloration with UVB",
+        "<span class='font-semibold'>Immune Function:</span> Vitamin D3 plays role in immune regulation - UVB may improve disease resistance",
+        "<span class='font-semibold'>Reproductive Success:</span> Breeding females with UVB access show improved egg calcification and clutch viability"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Can Gargoyle Geckos Live Without UVB?</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Yes, with proper supplementation:</span> Gargoyle geckos can remain healthy using calcium WITH D3 powder (dusted on insects 2x weekly) + D3-fortified CGD",
+        "<span class='font-semibold'>Historical Success:</span> Thousands of gargoyle geckos have thrived in captivity without UVB for decades using supplementation",
+        "<span class='font-semibold'>However:</span> Modern research (2015-2024) shows measurable improvements with UVB. Current best practice = provide low-level UVB whenever possible",
+        "<span class='font-semibold'>Budget Constraint:</span> If UVB not affordable initially, start with D3 supplementation and add UVB later. Gecko will not suffer immediately without it",
+        "<span class='font-semibold'>Risk of Over-Supplementation:</span> Using BOTH UVB and D3 supplements causes hypervitaminosis D3 (D3 toxicity). Choose one method only"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "D3 Toxicity Warning: If providing UVB lighting, use calcium WITHOUT D3 for insect dusting. NEVER combine UVB with D3 supplements - this causes vitamin D3 overdose leading to organ calcification, kidney damage, and death. UVB requires calcium without D3; no UVB requires calcium WITH D3. Never both simultaneously."
+    },
+    {
+      "type": "section",
+      "title": "UVB Equipment Recommendations"
+    },
+    {
+      "type": "text",
+      "content": "Gargoyle geckos need low-intensity UVB appropriate for shade-dwelling species. Target UVI (UV Index) of 1.0-2.0 at basking zone."
+    },
+    {
+      "type": "table",
+      "headers": ["UVB Option", "UVI Output", "Coverage", "Pros", "Cons", "Cost"],
+      "rows": [
+        ["Arcadia T8 6% (18 inch)", "UVI 1.5-2.0 at 8-10\" distance", "Full enclosure length", "Excellent spectrum, long lifespan (12+ months), proven results", "Requires T8 fixture ($20-30)", "$25-30 bulb"],
+        ["Zoo Med ReptiSun 5.0 T8 (18 inch)", "UVI 1.0-1.5 at 8-10\" distance", "Full enclosure length", "Widely available, reliable, moderate output", "Shorter lifespan (6-9 months), needs more frequent replacement", "$20-25 bulb"],
+        ["Arcadia ShadeDweller (7 inch)", "UVI 1.0-1.5 at 6-8\" distance", "Small area - suitable for 12x12x18\" enclosures only", "All-in-one kit (fixture + bulb), perfect for small setups, 12-month lifespan", "Insufficient coverage for 18x18x24\" or larger", "$45-55 kit"],
+        ["Zoo Med ReptiSun 5.0 Compact (13w)", "UVI 0.5-1.0 at 6\" distance", "Small focused area", "Affordable, fits desk lamp fixtures", "Poor coverage, lower output, coil design less effective than linear", "$15-18 bulb"],
+        ["Arcadia T5 HO 6% (NOT recommended)", "UVI 3.0-4.0 at 12\" distance", "Full length", "Powerful output", "TOO STRONG - designed for desert species. Risk of eye damage/burns for gargoyle geckos", "$35-40 bulb"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Best Choice for Most Setups: Arcadia T8 6% or Zoo Med ReptiSun 5.0 T8 in 18-inch length. These provide appropriate UVI (1.0-2.0) for 18\"x18\"x24\" enclosures when mounted 8-12 inches from basking area. For smaller 12\"x12\"x18\" grow-out enclosures, use Arcadia ShadeDweller kit."
+    },
+    {
+      "type": "section",
+      "title": "UVB Positioning & Setup"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Mounting Guidelines:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Location:</span> Mount UVB fixture on screen top or suspended inside enclosure. MUST be above screen (if outside) or bare bulb (if inside) - UVB cannot penetrate glass or acrylic barriers",
+        "<span class='font-semibold'>Distance from Basking:</span> Position highest basking branch 8-12 inches below UVB bulb. Closer = higher UVI (risk of overdose); farther = lower UVI (insufficient exposure)",
+        "<span class='font-semibold'>Screen Barrier:</span> Standard aluminum mesh screen blocks 30-45% of UVB output. Account for this when calculating distances. Example: 10 inches distance through screen = effective 13-14 inches",
+        "<span class='font-semibold'>Coverage Area:</span> Linear fluorescent tubes produce UVB in cone pattern. Strongest directly below bulb, weakest at edges. Ensure basking zone within central 12 inches of 18-inch bulb",
+        "<span class='font-semibold'>Fixture Type:</span> Use T8 fixture with reflector (increases output 30-40%). Avoid aquarium fixtures (splash guards block UVB)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Creating UVB Gradient:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>High UVI Zone (Top Third):</span> Basking branch 6-10 inches below UVB = UVI 1.5-2.0. Gecko basks here for D3 synthesis",
+        "<span class='font-semibold'>Moderate UVI Zone (Middle Third):</span> 12-15 inches distance = UVI 0.5-1.0. Moderate exposure during general activity",
+        "<span class='font-semibold'>Low/No UVI Zone (Bottom Third):</span> 18+ inches distance = UVI 0.2-0.5. Gecko retreats here to avoid UVB when desired",
+        "<span class='font-semibold'>Choice is Critical:</span> Gecko must be able to completely escape UVB by moving to ground level. Never bathe entire enclosure in high UVB"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>UVB Testing & Verification:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Solarmeter 6.5:</span> $250 device measures UVI precisely. Gold standard for serious keepers or breeders with multiple setups",
+        "<span class='font-semibold'>Budget Alternative:</span> Follow manufacturer distance guidelines (8-10 inches for T8 5.0/6%), observe gecko behavior (should bask ~30 min daily, not avoid top entirely)",
+        "<span class='font-semibold'>Signs of Correct UVB:</span> Gecko regularly visits basking zone (10-30 min daily), vibrant coloration, clear eyes, active feeding",
+        "<span class='font-semibold'>Signs of Excessive UVB:</span> Gecko avoids top third entirely, staying at ground level constantly, squinting/closed eyes, pale washed-out coloration, skittish behavior",
+        "<span class='font-semibold'>Signs of Insufficient UVB:</span> Minimal basking behavior, MBD symptoms (bowed legs, kinked tail), lethargy, poor appetite"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "UVB Bulb Lifespan & Replacement"
+    },
+    {
+      "type": "text",
+      "content": "UVB bulbs degrade over time even when appearing visibly bright. UV-B output decreases 20-50% after 6-12 months depending on brand."
+    },
+    {
+      "type": "table",
+      "headers": ["Bulb Type", "Visible Lifespan", "UVB Lifespan (Replacement Schedule)", "Date Tracking Method"],
+      "rows": [
+        ["Arcadia T8 6%", "18-24 months", "12 months", "Write purchase date on fixture with Sharpie, set phone reminder for 11 months"],
+        ["Zoo Med ReptiSun 5.0 T8", "12-18 months", "6-9 months", "Replace every 8 months to ensure consistent UVB output"],
+        ["Arcadia ShadeDweller", "18-24 months", "12 months", "All-in-one unit - replace entire fixture after 12 months"],
+        ["Compact Fluorescent (coil)", "8-12 months", "4-6 months", "Replace every 5 months - coils degrade faster than linear tubes"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Replacement Critical: UVB bulbs appear bright long after UV-B output drops below effective levels. Gargoyle gecko experiencing UVB benefits one day may receive zero UVB the next from same bulb if overdue for replacement. Mark replacement date on calendar immediately when installing new bulb."
+    },
+    {
+      "type": "section",
+      "title": "Visible Light & Photoperiod"
+    },
+    {
+      "type": "text",
+      "content": "Gargoyle geckos need regular day/night cycle to maintain circadian rhythm. Photoperiod (light:dark ratio) affects feeding behavior, activity patterns, and breeding cycles."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Recommended Photoperiod:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Standard Year-Round:</span> 12 hours light : 12 hours dark (12:12). Simple, consistent, works for non-breeding geckos",
+        "<span class='font-semibold'>Seasonal Variation (Advanced):</span> 14:10 in summer (March-August), 10:14 in winter (September-February). Mimics natural light cycles, can trigger breeding behavior",
+        "<span class='font-semibold'>Timing:</span> Lights ON at 7-8 AM, OFF at 7-8 PM (adjust to household schedule). Consistency more important than exact times",
+        "<span class='font-semibold'>Dawn/Dusk Activity:</span> Gargoyle geckos most active first hour after lights on and last hour before lights off. Time feeding for evening activity peak (6-9 PM)",
+        "<span class='font-semibold'>Nighttime:</span> Complete darkness or very dim ambient room light (moonlight equivalent). NEVER use red/blue night lights (disrupts sleep)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Light Sources for Photoperiod:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>UVB Bulb (If Using):</span> Provides both UVB and visible light. Run on 12-hour timer (7 AM - 7 PM)",
+        "<span class='font-semibold'>Heat Bulb (Incandescent):</span> Provides visible light + heat. Run on 12-hour timer synchronized with UVB",
+        "<span class='font-semibold'>LED Plant Light (Optional):</span> Enhances live plant growth, adds ambient brightness. Can run 12-14 hours (overlaps heat/UVB schedule)",
+        "<span class='font-semibold'>Room Light:</span> If enclosure receives bright indirect natural light from windows, artificial lighting optional (but UVB still recommended for D3)",
+        "<span class='font-semibold'>Timer:</span> Use digital timer ($10-15) to automate lights. Manual switching leads to inconsistent photoperiod"
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Lighting Setup Example: 18\"x18\"x24\" enclosure with Arcadia T8 6% UVB (on timer 7 AM - 7 PM) + 40w basking bulb on dimmer (manually adjusted for temp, synced to UVB timer). LED plant light (optional) runs 6 AM - 8 PM for extended plant growth period."
+    },
+    {
+      "type": "section",
+      "title": "Lighting for Bioactive Enclosures"
+    },
+    {
+      "type": "text",
+      "content": "Live plants in bioactive setups require appropriate light spectrum and intensity beyond what UVB bulbs provide."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Plant Lighting Options:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>LED Plant Grow Lights:</span> Full spectrum LEDs designed for terrariums. Brands: biodude Glow & Grow ($60-80), Jungle Dawn LED Bar ($40-70)",
+        "<span class='font-semibold'>6500K LED Bulbs:</span> Standard daylight spectrum LEDs work for low-light plants (pothos, ferns, snake plants). $10-15 at hardware stores",
+        "<span class='font-semibold'>Dual Fixture Setup:</span> UVB for gecko + separate LED for plants. Run LEDs 12-14 hours (extended photoperiod for plant growth)",
+        "<span class='font-semibold'>Intensity:</span> Low-light tropical plants (pothos, bromeliads, ferns) thrive under moderate LED. High-light plants (some orchids) need stronger fixtures",
+        "<span class='font-semibold'>Positioning:</span> Mount plant lights alongside UVB fixture on screen top or suspend inside enclosure for even coverage"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Low-Light Plants (Work with UVB Alone):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Pothos (Epipremnum aureum) - excellent climbing vine",
+        "Snake plants (Sansvieria) - vertical structure, low maintenance",
+        "Most ferns (Boston fern, bird's nest fern) - humidity-loving, shade tolerant",
+        "Bromeliads - water-holding rosettes, colorful",
+        "Peperomia species - compact ground cover"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Lighting Troubleshooting"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Possible Causes", "Solutions"],
+      "rows": [
+        ["Gecko avoids basking zone entirely", "UVB too strong (UVI >3.0), heat too intense, insufficient hiding options at top", "Raise UVB fixture 2-4 inches, add foliage/plants near basking zone for partial shade, verify using T8 (not T5 HO), check basking temp <85F"],
+        ["Gecko shows MBD signs despite UVB", "UVB bulb expired (>12 months old), insufficient calcium in diet, basking too far from bulb (>15 inches), glass/acrylic blocking UVB", "Replace UVB bulb immediately, dust insects with calcium without D3 every feeding, lower basking branch to 8-10 inches from UVB, remove barriers between bulb and gecko"],
+        ["Gecko never basks under UVB", "Nocturnal habit (normal), UVI too low, gecko doesn't recognize UVB zone", "Observe during dawn/dusk hours (7-9 AM, 6-8 PM), ensure basking branch within 8-12 inches of UVB, add attractive décor (cork bark) to basking zone"],
+        ["Plants dying despite grow light", "Insufficient light intensity, wrong plant species for light level, overwatering/underwatering", "Upgrade to higher wattage LED (20w  40w), choose low-light species (pothos, ferns), adjust watering - most issues from overwatering in humid enclosures"],
+        ["Gecko lethargic with UVB", "D3 overdose from combining UVB + D3 supplements, excessive UVB exposure (UVI >3.0)", "STOP all D3 supplements immediately (use calcium without D3 only), raise UVB fixture, allow gecko access to deep shade zones, consult exotic vet if symptoms persist"],
+        ["Lights causing temperature spike", "Heat lamp + UVB + grow light all generating heat, poor ventilation", "Stagger light timing (UVB 7AM-7PM, grow light 6AM-8PM, heat lamp off during hottest hours 12-3PM), use LED grow lights (low heat), increase ventilation"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Lighting Success Summary: Provide low-level UVB (T8 6% or 5.0) positioned 8-12 inches from basking zone for UVI 1.0-2.0. Run on 12-hour photoperiod (7 AM - 7 PM). Replace UVB bulbs every 6-12 months depending on brand. If using UVB, dust insects with calcium WITHOUT D3. If no UVB, dust with calcium WITH D3. Gecko should bask 10-30 minutes daily and have access to complete shade zones at ground level."
+    }
+  ]
+}

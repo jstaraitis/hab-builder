@@ -1,0 +1,259 @@
+﻿{
+  "id": "gargoyle-gecko-temperature-humidity-guide",
+  "title": "Gargoyle Gecko Temperature & Humidity Guide",
+  "description": "Complete guide to temperature and humidity management for gargoyle geckos including thermal gradients, heating equipment, misting protocols, and seasonal adjustments.",
+  "excerpt": "Complete guide to temperature and humidity management for gargoyle geckos including thermal gradients, heating equipment, misting protocols, and seasonal adjustments.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-02-11",
+  "category": "Environment",
+  "tags": ["gargoyle-gecko", "temperature", "humidity", "heating", "misting"],
+  "image": "/animals/gargoyle-gecko/gargoyle-gecko-5.jpg",
+  "status": "community-reviewed",
+  "relatedGuides": ["gargoyle-gecko-enclosure-setup", "gargoyle-gecko-hydration-guide"],
+  "content": [
+    {
+      "type": "intro",
+      "title": "Temperature & Humidity Management",
+      "content": "Gargoyle geckos are temperate tropical species from New Caledonia requiring moderate temperatures (82-85F basking, 70-75F cool) and high humidity (60-80%). This guide covers thermal gradient creation, heating equipment, misting protocols, and troubleshooting environmental issues."
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "Temperature Limits: Gargoyle geckos tolerate cooler temperatures better than excessive heat. NEVER exceed 88F - prolonged exposure above 85F causes stress, dehydration, and respiratory issues. Temperatures below 65F slow metabolism and digestion. Maintain 82-85F basking maximum with 70-75F cool zone at all times."
+    },
+    {
+      "type": "section",
+      "title": "Temperature Requirements"
+    },
+    {
+      "type": "text",
+      "content": "Gargoyle geckos need a vertical thermal gradient due to arboreal nature - warmest at top (basking), coolest at bottom (ground level)."
+    },
+    {
+      "type": "table",
+      "headers": ["Zone", "Temperature Range", "Purpose", "Measurement Location"],
+      "rows": [
+        ["Basking Zone (Top Third)", "82-85F (28-29C)", "Thermoregulation, digestion, activity", "6-8 inches directly below heat source"],
+        ["Mid-Level (Middle Third)", "76-80F (24-27C)", "Resting, feeding, general activity", "12-15 inches height in center of enclosure"],
+        ["Cool Zone (Bottom Third)", "70-75F (21-24C)", "Cooling down, sleeping, escaping heat", "Substrate level away from heat source"],
+        ["Nighttime Drop (All Zones)", "65-72F (18-22C)", "Natural circadian rhythm, rest period", "Turn off heat source - ambient room temp"],
+        ["Critical Minimum", "Above 65F (18C)", "Prevents metabolic shutdown", "Coldest area of enclosure at night"],
+        ["Critical Maximum", "Below 88F (31C)", "Prevents heat stress", "Hottest basking spot measurement"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Vertical Gradient Key: Unlike terrestrial reptiles with horizontal gradients (hot side  cool side), gargoyle geckos need VERTICAL gradients. Top of enclosure = warmest (82-85F), bottom = coolest (70-75F). This allows gecko to climb up for warmth or down to cool - mimics natural tree canopy behavior."
+    },
+    {
+      "type": "section",
+      "title": "Heating Equipment"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Recommended Heating Methods:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Heating Type", "Wattage/Specs", "Pros", "Cons", "Best For"],
+      "rows": [
+        ["Incandescent Heat Bulb (Standard)", "40-60w with dimmer or thermostat", "Inexpensive ($3-5), provides visible light + heat, easy temperature control with dimmer", "Requires ceramic socket, dries air slightly", "Most gargoyle geckos; best all-around option"],
+        ["Deep Heat Projector (DHP)", "50-80w with thermostat required", "Infrared heat (no visible light), high humidity compatible, energy efficient", "Expensive ($40-60), requires pulse thermostat", "Keepers maintaining very high humidity (75-80%)"],
+        ["Ceramic Heat Emitter (CHE)", "40-75w with thermostat required", "No light emission, long lifespan (2-3 years)", "Dries air quickly, surface extremely hot (240F+)", "Nighttime supplemental heat only in cold climates"],
+        ["Radiant Heat Panel (RHP)", "Variable by size - 15-40w typical", "Even heat distribution, very low energy use", "Expensive ($80-120), requires ceiling mounting", "Advanced keepers with custom enclosures"],
+        ["Under-Tank Heater (UTH)", "8-15w pads", "Gentle belly heat, low wattage", "Poor for arboreal species (geckos don't use ground), ineffective for ambient temps", "NOT RECOMMENDED - gargoyle geckos arboreal"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Heating Setup & Placement:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Position:</span> Mount heat source on screen top or suspended above top - creates warmest zone at top third of enclosure",
+        "<span class='font-semibold'>Basking Distance:</span> Heat bulb should be 6-10 inches above highest basking branch. Closer = hotter spot",
+        "<span class='font-semibold'>Dimmer vs Thermostat:</span> 40w bulb with dimmer works for most setups ($15-20). Thermostat required for CHE/DHP for safety ($30-50)",
+        "<span class='font-semibold'>Guard/Dome:</span> Always use ceramic dome fixture rated for bulb wattage. Metal screen cages prevent direct contact burns",
+        "<span class='font-semibold'>Multiple Branches:</span> Provide branches at various heights (6\", 12\", 18\") so gecko can choose preferred temperature",
+        "<span class='font-semibold'>Night Heat:</span> Turn OFF heat source at night in most climates. Only use nighttime heat if room drops below 65F"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Thermostat Safety: Ceramic Heat Emitters and Deep Heat Projectors reach surface temps of 240-400F and MUST use thermostats to prevent fires and overheating. Standard incandescent bulbs (40-60w) can use dimmer switches OR thermostats. NEVER use red/blue colored bulbs - disrupt circadian rhythm. Use white daylight bulbs only."
+    },
+    {
+      "type": "section",
+      "title": "Temperature Monitoring"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Essential Tools:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Infrared Temperature Gun (Most Important):</span> $15-25. Measures surface temperature instantly. Aim at basking branch, mid-level branch, substrate. Take readings 3-4x daily first week",
+        "<span class='font-semibold'>Digital Thermometer/Hygrometer Combo:</span> $10-15. Displays ambient air temp and humidity. Place probe at mid-level (12-15 inches height)",
+        "<span class='font-semibold'>DO NOT Use:</span> Stick-on dial thermometers (wildly inaccurate 10F), analog hygrometers (lag 30+ minutes), or colored zone thermometers"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Measurement Protocol:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Measure basking spot surface temp (top branch) with infrared gun - should read 82-85F when heat source on",
+        "Measure mid-level branch (feeding area) - target 76-80F",
+        "Measure substrate/ground level - target 70-75F",
+        "Check ambient air temp at mid-level with digital thermometer - should match infrared mid-level reading within 2-3F",
+        "Monitor for 7-10 days during initial setup, adjusting bulb wattage/height until consistent gradient achieved",
+        "After stable gradient established: Check temps 2-3x weekly, daily during seasonal weather changes"
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Temperature Troubleshooting: If entire enclosure too hot (>85F at basking): Lower bulb wattage (60w  40w) or raise fixture height. If entire enclosure too cool (<75F mid-level): Increase bulb wattage (40w  60w) or lower fixture. If gradient insufficient (all zones same temp): Add ventilation or reposition branches vertically."
+    },
+    {
+      "type": "section",
+      "title": "Humidity Requirements"
+    },
+    {
+      "type": "text",
+      "content": "Gargoyle geckos require 60-80% humidity average with nightly peaks to 85-90% after misting. Humidity too low causes dehydration and stuck shed; too high (>85% constantly) causes respiratory infections."
+    },
+    {
+      "type": "table",
+      "headers": ["Time Period", "Humidity Target", "How to Achieve", "Purpose"],
+      "rows": [
+        ["Morning (After AM Mist)", "75-85%", "Heavy misting - 30-40 sprays covering all surfaces", "Drinking opportunity, rehydration after night"],
+        ["Daytime (10 AM - 5 PM)", "60-70%", "Natural evaporation from morning mist + substrate moisture", "Moderate humidity, allows enclosure to dry partially"],
+        ["Evening (After PM Mist)", "75-85%", "Second misting session - 30-40 sprays before lights out", "Drinking opportunity, nighttime humidity maintenance"],
+        ["Overnight (10 PM - 6 AM)", "65-75%", "Residual moisture from evening mist + closed room ventilation", "Natural nighttime humidity, prevents respiratory issues from constant saturation"],
+        ["Average (24-Hour)", "60-80%", "Combination of 2x daily misting + moisture-retentive substrate", "Overall target - gecko should never experience <50% or >90% for extended periods"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Signs of Incorrect Humidity:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Too Low (<50% consistently):</span> Wrinkled/dull skin, sunken eyes, stuck shed (especially on toes/tail tip), lethargy, dehydration",
+        "<span class='font-semibold'>Too High (>90% constantly):</span> Respiratory infection (wheezing, open-mouth breathing, mucus), excessive mold growth, bacterial skin infections, lethargy",
+        "<span class='font-semibold'>Ideal Signs:</span> Clear bright eyes, smooth skin, complete sheds, active behavior, regular feeding"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Misting Protocols"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Manual Misting (Budget Option):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Equipment:</span> Pump pressure sprayer ($15-25) - NOT trigger spray bottles (inconsistent, hand fatigue). Brands: Chapin, Vivosun, Hudson",
+        "<span class='font-semibold'>Water Type:</span> Dechlorinated tap water preferred (minerals beneficial) OR filtered water. Room temperature (70-75F)",
+        "<span class='font-semibold'>Morning Session (7-9 AM):</span> 30-40 sprays covering glass walls, branches, foliage. Create visible water droplets on all surfaces",
+        "<span class='font-semibold'>Evening Session (6-9 PM):</span> 30-40 sprays again - same coverage. Time with feeding (offer CGD after misting)",
+        "<span class='font-semibold'>Technique:</span> Mist side walls and décor - let water run down naturally. Avoid spraying gecko directly (stresses them)",
+        "<span class='font-semibold'>Duration:</span> Each session 2-3 minutes total. Enclosure should look \"rainforest wet\" with droplets everywhere"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Automatic Misting Systems (Advanced):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Entry Level:</span> Exo Terra Monsoon ($70-90) - programmable timer, 1L reservoir, covers 1-2 enclosures",
+        "<span class='font-semibold'>Mid-Range:</span> MistKing Starter ($150-180) - superior pump quality, expandable, quieter operation",
+        "<span class='font-semibold'>Premium:</span> Cli-Mist or HerpMist ($200-300) - commercial quality, multiple enclosures, precise control",
+        "<span class='font-semibold'>Programming:</span> Set for 60-90 seconds misting at 8 AM and 7 PM daily",
+        "<span class='font-semibold'>Maintenance:</span> Clean nozzles monthly with vinegar (prevents mineral buildup), replace reservoir water weekly"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Misting System Note: Automatic misters are convenience upgrades, NOT requirements. Manual misting with pressure sprayer works perfectly for 1-3 enclosures. Only invest in automatic systems if maintaining 4+ enclosures or travel frequently. Poor-quality systems ($30-50) fail within months - invest in quality or stick with manual."
+    },
+    {
+      "type": "section",
+      "title": "Seasonal Adjustments"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Summer Adjustments (High Ambient Temps):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "If room temperature exceeds 78-80F, TURN OFF heat source during hottest hours (12-4 PM)",
+        "Increase ventilation - remove partial screen covers, add small fan in room (not directly on enclosure)",
+        "Maintain misting schedule - may need to increase to 3x daily if humidity drops below 60%",
+        "Monitor basking spot - should never exceed 85F even with heat source off",
+        "If room consistently above 82F: Use room air conditioning or relocate enclosure to cooler area"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Winter Adjustments (Low Ambient Temps):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "If room temperature drops below 70F during day, increase heat source wattage (40w  60w) or add second fixture",
+        "If nighttime temps drop below 65F, add low-wattage Ceramic Heat Emitter (25-40w) on thermostat set to 68F",
+        "Winter air drier - increase misting duration by 30-50% (45-60 sprays per session) OR add fogger for humidity boost",
+        "Consider room humidifier (40-50% room humidity helps enclosure maintain 60-80%)",
+        "Cover 25-50% of screen top with acrylic sheet or plastic wrap to retain heat and humidity (ensure ventilation remains)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Year-Round Monitoring:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Re-check temperature gradients when outdoor seasons change (spring, summer, fall, winter)",
+        "Adjust heating and misting schedules proactively before gecko shows stress signs",
+        "Keep digital thermometer/hygrometer visible for quick daily checks",
+        "Log temps weekly in notebook or phone app to track patterns and catch issues early",
+        "Expect to adjust equipment 2-4 times per year as ambient conditions change"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Troubleshooting Environmental Issues"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Symptoms/Signs", "Causes", "Solutions"],
+      "rows": [
+        ["Overheating", "Gecko always at ground level, panting/open mouth breathing, lethargy, refusing food", "Heat source too strong, poor ventilation, summer heat", "Lower bulb wattage, raise fixture height, add ventilation, turn off heat during hot days, relocate enclosure"],
+        ["Too Cold", "Gecko lethargic, staying at top constantly, dark coloration, refusing food, slow digestion", "Insufficient heat source, room too cold, winter drop", "Increase bulb wattage, lower fixture, add second heat source, insulate enclosure sides, move to warmer room"],
+        ["Humidity Too Low", "Wrinkled skin, stuck shed (toes/tail), sunken eyes, reduced appetite", "Insufficient misting, too much ventilation, low substrate depth", "Increase misting to 3x daily, add moisture-retentive substrate (coco fiber/sphagnum), cover 25% screen top, add water bowl"],
+        ["Humidity Too High", "Wheezing/labored breathing, excessive mold, bacterial infections, constant fogging", "Over-misting, poor ventilation, drainage issues", "Reduce misting to 1x daily temporarily, increase ventilation, remove screen top covers, add fan to room, check drainage layer"],
+        ["Temperature Swings", "Inconsistent feeding, stress behavior, erratic activity", "No thermostat/dimmer, weather fluctuations, poor insulation", "Add dimmer or thermostat, increase monitoring frequency, insulate enclosure back/sides, use more stable heat source (DHP)"],
+        ["Hot Spot Too Hot", "Gecko avoids top third entirely, staying mid-level constantly", "Bulb wattage too high, fixture too close to basking branch", "Lower wattage (60w  40w or 40w  25w), raise fixture 2-4 inches, reposition branch further from heat"],
+        ["No Temperature Gradient", "Entire enclosure same temperature top to bottom", "Heat source too powerful heating entire space, enclosed terrarium trapping heat", "Switch to lower wattage focused heat (40w bulb), increase ventilation, ensure vertical space (18\" minimum height)"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Environmental Success Summary: Maintain 82-85F basking (top third), 76-80F mid-level, 70-75F cool zone (bottom). Drop to 65-72F at night. Keep humidity 60-80% average via 2x daily misting. Measure temps with infrared gun weekly. Adjust equipment seasonally. Gargoyle geckos tolerate cooler temps better than heat - err on cooler side if uncertain."
+    }
+  ]
+}

@@ -7,7 +7,7 @@
   "category": "Care Guides",
   "excerpt": "Evidence-based guide to heating and lighting for Pacman frogs: why overhead heating is best, UVB benefits, thermostat selection, and complete equipment recommendations.",
   "tags": ["pacman-frog", "heating", "lighting", "uvb", "thermostats"],
-  "status": "in-progress",
+  "status": "community-reviewed",
   "content": [
     {
       "type": "intro",
@@ -122,11 +122,11 @@
     },
     {
       "type": "text",
-      "text": "Most Pacman frogs do fine with nighttime temperatures down to ~65°F (18°C). Supplemental night heat usually not needed."
+      "text": "Most Pacman frogs do fine with nighttime temperatures down to ~65Â°F (18Â°C). Supplemental night heat usually not needed."
     },
     {
       "type": "text",
-      "text": "<span class='font-semibold'>If night heating required (room drops below 65°F):</span>"
+      "text": "<span class='font-semibold'>If night heating required (room drops below 65Â°F):</span>"
     },
     {
       "type": "text",
@@ -183,10 +183,10 @@
       "type": "table",
       "headers": ["Zone", "Temperature Range", "Notes"],
       "rows": [
-        ["Warm Side (Day)", "80-85°F (27-29°C)", "Under heat lamp, measure at substrate surface"],
-        ["Cool Side (Day)", "70-75°F (21-24°C)", "Away from heat sources"],
-        ["Nighttime (Both Sides)", "65-75°F (18-24°C)", "Most don't need supplemental heat"],
-        ["C. cornuta (Amazon species)", "75-85°F (24-29°C)", "Prefers warmer temps year-round"]
+        ["Warm Side (Day)", "80-85Â°F (27-29Â°C)", "Under heat lamp, measure at substrate surface"],
+        ["Cool Side (Day)", "70-75Â°F (21-24Â°C)", "Away from heat sources"],
+        ["Nighttime (Both Sides)", "65-75Â°F (18-24Â°C)", "Most don't need supplemental heat"],
+        ["C. cornuta (Amazon species)", "75-85Â°F (24-29Â°C)", "Prefers warmer temps year-round"]
       ]
     },
     {
@@ -384,7 +384,7 @@
     {
       "type": "list",
       "items": [
-        "Enclosure dimensions (L×W×H in inches)",
+        "Enclosure dimensions (LÂ°WÂ°H in inches)",
         "Distance from lid to substrate surface",
         "Whether frog is albino",
         "Type of enclosure top (screen vs solid)"
@@ -492,7 +492,7 @@
       "headers": ["Time", "Heat Lamp", "UVB", "Night Heat (if needed)"],
       "rows": [
         ["7 AM - 7 PM (12 hours)", "ON", "ON", "OFF"],
-        ["7 PM - 7 AM (12 hours)", "OFF", "OFF", "ON (if room < 65°F)"]
+        ["7 PM - 7 AM (12 hours)", "OFF", "OFF", "ON (if room < 65Â°F)"]
       ]
     },
     {
@@ -518,7 +518,7 @@
     },
     {
       "type": "text",
-      "text": "<span class='font-semibold'>Nighttime Heating (If Room < 65°F):</span>"
+      "text": "<span class='font-semibold'>Nighttime Heating (If Room < 65Â°F):</span>"
     },
     {
       "type": "list",

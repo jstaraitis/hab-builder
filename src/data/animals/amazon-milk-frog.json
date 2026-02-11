@@ -2,11 +2,15 @@
   "id": "amazon-milk-frog",
   "commonName": "Amazon Milk Frog",
   "scientificName": "Trachycephalus resinifictrix",
-  "searchQuery": ["amazon milk frog", "mission golden eyed tree frog", "trachycephalus resinifictrix"],
+  "searchQuery": [
+    "amazon milk frog",
+    "mission golden eyed tree frog",
+    "trachycephalus resinifictrix"
+  ],
   "careLevel": "beginner",
   "emoji": "🐸",
   "imageUrl": "/animals/amazon-milk-frog/amazon-milk-frog-1.jpg",
-  "completionStatus": "draft",
+  "completionStatus": "validated",
   "gallery": [],
   "minEnclosureSize": {
     "width": 18,
@@ -31,7 +35,10 @@
         "min": 80,
         "max": 85
       },
-      "basking": null,
+      "basking": {
+        "min": 80,
+        "max": 85
+      },
       "nighttime": {
         "min": 70,
         "max": 75
@@ -54,7 +61,7 @@
       "unit": "%"
     },
     "lighting": {
-      "uvbRequired": false,
+      "uvbRequired": true,
       "uvbRecommended": true,
       "uvbStrength": "5.0",
       "coveragePercent": 65,
@@ -66,23 +73,45 @@
     "preferVertical": true,
     "verticalSpacePercent": 70,
     "thermalGradient": "horizontal",
-    "requiredZones": ["climbing", "water-bowl", "plants", "hide"],
-    "optionalZones": ["feeding", "secondary-hide"]
+    "requiredZones": [
+      "climbing",
+      "water-bowl",
+      "plants",
+      "hide"
+    ],
+    "optionalZones": [
+      "feeding",
+      "secondary-hide"
+    ]
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
-    "climbing": "vertical",
-    "substrate": ["bioactive", "soil", "paper", "foam"],
-    "bioactiveSubstrate": "tropical",
-    "humidity": "high",
     "heatSource": "basking",
-    "waterFeature": "shallow-dish",
+    "humidity": "high",
     "lighting": "uvb-forest",
-    "diet": ["insectivore"],
-    "animalType": "amphibian",
-    "climate": "tropical",
+    "substrate": [
+      "bare",
+      "bioactive",
+      "foam",
+      "paper",
+      "soil"
+    ],
+    "diet": [
+      "insectivore"
+    ],
+    "waterFeature": "shallow-dish",
+    "decor": [
+      "branches",
+      "hides",
+      "ledges",
+      "natural",
+      "plants"
+    ],
+    "climbing": "vertical",
     "activity": "arboreal",
-    "water": ["water-dish-large"]
+    "climate": "tropical",
+    "animalType": "amphibian",
+    "bioactiveSubstrate": "tropical"
   },
   "lifespan": "6-8+ years in captivity",
   "dietType": "Insectivore",
@@ -93,7 +122,15 @@
   "setupTips": [],
   "notes": [],
   "warnings": [],
-  "relatedBlogs": [],
+  "relatedBlogs": [
+    "amazon-milk-frog-enrichment-welfare-guide",
+    "amazon-milk-frog-enclosure-setup-guide",
+    "amazon-milk-frog-substrate-guide",
+    "amazon-milk-frog-feeding-guide",
+    "amazon-milk-frog-temperature-humidity-guide",
+    "amazon-milk-frog-lighting-guide",
+    "amazon-milk-frog-hydration-guide"
+  ],
   "lifestyle": {
     "lifespan": "medium",
     "handling": "minimal",

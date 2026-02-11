@@ -1,50 +1,20 @@
-{
+﻿{
   "id": "leopard-gecko-substrate-guide",
-  "title": "Leopard Gecko Substrate Guide: Best Options for Arid Habitats",
-  "description": "Complete substrate guide for leopard geckos covering naturalistic arid substrates, DIY sand mixes, impaction myths, bioactive setups, and safe alternatives for desert species.",
-  "excerpt": "Complete substrate guide for leopard geckos covering naturalistic arid substrates, DIY sand mixes, impaction myths, bioactive setups, and safe alternatives for desert species.",
+  "title": "Leopard Gecko Substrate Guide: Safe Options & Best Practices",
+  "description": "Comprehensive guide to leopard gecko substrate options including DIY mixes, commercial products, safety considerations, and maintenance.",
+  "excerpt": "Comprehensive guide to leopard gecko substrate options including DIY mixes, commercial products, safety considerations, and maintenance.",
   "author": "Habitat Builder",
-  "publishDate": "2026-01-26",
-  "category": "Care Guides",
-  "tags": ["leopard-gecko", "substrate", "bedding", "sand", "impaction"],
-  "image": "/animals/leopard-gecko/leopard-gecko-substrate.jpg",
-  "status": "in-progress",
+  "publishDate": "2026-02-11",
+  "category": "Housing",
+  "tags": ["leopard-gecko", "substrate", "housing", "safety"],
+  "image": "/animals/leopard-gecko/leopard-gecko-3.jpg",
+  "status": "community-reviewed",
+  "relatedGuides": ["leopard-gecko-enclosure-setup", "leopard-gecko-enrichment-welfare-guide"],
   "content": [
     {
       "type": "intro",
-      "title": "Substrate Selection for Leopard Geckos",
-      "content": "Substrate for leopard geckos is one of the most debated topics in reptile keeping. For decades, keepers were told to avoid any loose substrate due to impaction fears. However, modern research and field observations show that healthy leopard geckos on appropriate substrates, with proper heating and hydration, do not experience impaction. This guide covers evidence-based substrate choices that balance safety, enrichment, and naturalistic habitat design."
-    },
-    {
-      "type": "section",
-      "title": "Natural Habitat Context"
-    },
-    {
-      "type": "text",
-      "content": "Leopard geckos inhabit the semi-deserts and arid grasslands of Afghanistan, Pakistan, India, and Nepal. Their natural substrate consists of packed earth, sand, rocks, and dry grasses."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Wild Habitat Substrate Characteristics:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Feature", "Natural Habitat", "Captive Replication"],
-      "rows": [
-        ["Composition", "Packed clay-sand-rock mix, 10-20% organic matter", "40% topsoil + 40% sand + 20% excavator clay"],
-        ["Moisture Level", "Dry surface (5-10% moisture), humid burrows underground", "Surface dry, humid hide provides localized moisture"],
-        ["Texture", "Firm but diggable, holds burrow structure", "Slightly moist substrate compacts when squeezed"],
-        ["Depth", "Geckos dig burrows 6-12\" deep in wild", "2-4\" minimum in captivity for digging enrichment"],
-        ["pH Level", "Neutral to slightly alkaline (7.0-8.0)", "Play sand and topsoil naturally neutral"]
-      ]
-    },
-    {
-      "type": "highlight",
-      "content": "Wild leopard geckos live on and dig in loose substrate their entire lives. Impaction is a husbandry issue (low temps, dehydration, illness), not a substrate issue when proper care is provided."
-    },
-    {
-      "type": "highlight",
-      "content": "For comprehensive guidance on substrate categories, DIY mixing formulas, impaction myths, and bioactive layering applicable to most reptiles, see our <a href='/blog/substrate-selection-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Substrate Selection Guide</a>. The information below covers leopard gecko-specific substrate requirements and arid habitat recommendations."
+      "title": "Choosing the Right Leopard Gecko Substrate",
+      "content": "Substrate choice significantly impacts leopard gecko health, behavior, and enrichment. This guide covers safe naturalistic options, debunks common impaction myths, and provides maintenance protocols for loose substrate systems."
     },
     {
       "type": "section",
@@ -52,50 +22,39 @@
     },
     {
       "type": "text",
-      "content": "The best substrates for leopard geckos mimic their arid environment, allow digging, and hold burrow structure. Avoid pure fine sand - it needs clay/soil binder for stability."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Top Substrate Choices:</span>"
+      "content": "Leopard geckos benefit from naturalistic substrates that allow digging behavior and mimic their arid habitat. Proper substrate depth (2-4 inches) and particle size are critical for safety."
     },
     {
       "type": "table",
-      "headers": ["Substrate", "Digging Ability", "Cost", "Best For"],
+      "headers": ["Substrate Type", "Composition", "Pros", "Cons", "Best For"],
       "rows": [
-        ["DIY Arid Mix (40% topsoil, 40% sand, 20% clay)", "Excellent (holds burrows)", "$10-20 for large batch", "Budget-conscious, naturalistic, bioactive foundation"],
-        ["Lugarti Natural Reptile Bedding", "Excellent", "$20-25 per bag", "Ready-to-use convenience, consistent quality"],
-        ["Zoo Med ReptiSand", "Good (pure sand, needs moisture)", "$15-20 per bag", "Fine texture, natural color, needs clay added for structure"],
-        ["Exo Terra Desert Sand", "Good (pure sand)", "$12-18 per bag", "Red sand aesthetic, mix with clay for stability"],
-        ["The Bio Dude Terra Sahara", "Excellent", "$40-60 per bag", "Premium bioactive substrate with CUC support"],
-        ["Excavator Clay (pure)", "Excellent (moldable)", "$15-25 per bag", "Mix with sand/soil, can sculpt burrows/slopes"],
-        ["Tile/Slate (non-naturalistic)", "None (solid surface)", "$20-40 for set", "Temporary (quarantine), medical issues, not enriching"]
+        ["DIY Naturalistic Mix (Recommended)", "40% organic topsoil + 40% washed play sand + 20% Excavator Clay", "Most naturalistic, allows digging, holds shape, affordable, supports bioactive", "Requires mixing, initial dust (settles after misting)", "All leopard geckos; best overall option"],
+        ["Lugarti Natural Reptile Bedding", "Commercial soil/sand/clay blend", "Pre-mixed convenience, quality ingredients", "More expensive than DIY mix", "Keepers wanting commercial convenience"],
+        ["Zoo Med ReptiSand", "Fine desert sand", "Mimics desert environment, allows digging", "Dusty when dry; pure sand less stable than soil mix", "Geckos with confirmed healthy digestion (not juveniles)"],
+        ["Terra Sahara", "Fine sand substrate", "Desert-appropriate, naturalistic", "Same dust concerns as ReptiSand", "Adult geckos, experienced keepers"],
+        ["Textured Tile or Slate", "Ceramic/stone tiles cut to fit", "Zero impaction risk, easy to clean, holds heat well", "No digging behavior, less enrichment, less naturalistic", "Geckos with history of impaction issues"],
+        ["Paper Towels (Temporary)", "Plain paper towels", "Cheap, easy replacement, good for quarantine", "No enrichment, unnatural, requires frequent changes", "Quarantine, sick geckos, hatchlings under 3 months"],
+        ["Reptile Carpet (NOT Recommended)", "Fabric mat", "Reusable", "Snags claws, harbors bacteria, difficult to fully clean", "Avoid - negatives outweigh benefits"]
       ]
     },
     {
-      "type": "warning",
-      "severity": "important",
-      "content": "Avoid calcium sand (marketed as 'digestible' - it's not, causes severe impaction), pure fine sand without binder (collapses burrows), reptile carpet (snags toes/claws), cedar/pine shavings (toxic aromatic oils)."
+      "type": "highlight",
+      "content": "Top Recommendation: DIY mix (40% topsoil + 40% sand + 20% clay) is the best substrate for leopard geckos. It provides naturalistic texture, allows digging, is safe when proper husbandry is maintained, and costs $15-25 for enough substrate to fill several enclosures."
     },
     {
       "type": "section",
-      "title": "DIY Substrate Formula"
+      "title": "DIY Substrate Mix: Complete Recipe"
     },
     {
       "type": "text",
-      "content": "Creating your own arid substrate is economical and allows customization for bioactive setups or aesthetic preferences."
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Ingredients & Sourcing:</span>"
     },
     {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>DIY Arid Mix Recipe:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Ingredient", "Ratio", "Purpose", "Where to Source"],
-      "rows": [
-        ["Organic topsoil (additive-free)", "40%", "Moisture retention, nutrient base, digging stability", "Garden centers (check ingredients - no fertilizers)"],
-        ["Play sand (washed)", "40%", "Drainage, texture, mimics natural sand component", "Hardware stores - children's play sand, NOT construction sand"],
-        ["Zoo Med Excavator Clay", "20%", "Binding agent, holds burrow structure, moldable", "Pet stores or online (grey powder that hardens)"],
-        ["Optional: Fine gravel", "5-10% (reduce sand)", "Drainage enhancement, visual interest", "Aquarium stores or landscaping suppliers"]
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Organic Topsoil (40%):</span> Must be additive-free (no fertilizers, pesticides, or perlite chunks). Brands: Timberline Topsoil, Black Gold Natural & Organic Potting Soil (ensure no added nutrients). Check ingredients label.",
+        "<span class='font-semibold'>Washed Play Sand (40%):</span> Fine-grain construction sand. Brands: Quikrete Play Sand (tan color). Avoid coarse builder's sand or sand with large particles. Rinse until water runs clear.",
+        "<span class='font-semibold'>Excavator Clay (20%):</span> Zoo Med Excavator Clay or similar binding clay. Allows substrate to hold tunnels and shapes when moistened."
       ]
     },
     {
@@ -103,220 +62,206 @@
       "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Mixing Instructions:</span>"
     },
     {
+      "type": "list",
+      "items": [
+        "Use 5-gallon bucket or large tub for mixing. For 36\"x18\" enclosure, prepare approximately 15-20 lbs total substrate",
+        "Measure by weight (most accurate) or volume: 40% topsoil, 40% sand, 20% clay",
+        "Example batch: 8 lbs topsoil + 8 lbs play sand + 4 lbs Excavator Clay = 20 lbs total mix",
+        "Combine dry ingredients thoroughly - mix for 3-5 minutes until evenly distributed",
+        "Add water gradually while mixing - substrate should clump when squeezed but not drip water",
+        "Let mixed substrate rest for 30-60 minutes before adding to enclosure (allows even moisture distribution)",
+        "Spread 2-4 inches deep in enclosure - deeper in areas where gecko can dig, shallower near hides"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Pro Tips:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Mix large batches and store excess in sealed containers for future use",
+        "Initial dust is normal - mist substrate lightly after installation to settle particles",
+        "Create slight slope from warm end (higher) to cool end (lower) to aid temperature gradient",
+        "Pack substrate around rock stacks and décor bases for stability",
+        "Some keepers add 5-10% sphagnum moss to mix for moisture retention in bioactive setups"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Impaction Myths vs. Reality"
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Impaction Myth: Loose substrate does NOT automatically cause impaction in healthy leopard geckos with proper husbandry. Impaction is caused by husbandry errors: low temperatures preventing digestion, dehydration, oversized prey, or nutrient deficiencies causing pica (eating substrate deliberately)."
+    },
+    {
+      "type": "text",
+      "content": "Leopard geckos naturally live on packed earth, sand, and rock terrain. Healthy geckos with proper temperatures (basking 94-97F, warm hide 90-92F), hydration, and nutrition rarely experience impaction from incidental substrate ingestion."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>True Impaction Risk Factors:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Insufficient Heat:</span> Digestion requires proper temperatures. Cool enclosures (basking below 90F) slow gut motility and allow substrate to accumulate",
+        "<span class='font-semibold'>Dehydration:</span> Dry geckos have sluggish digestion. Must provide humid hide, water dish, and 30-40% ambient humidity",
+        "<span class='font-semibold'>Nutritional Deficiencies:</span> Geckos lacking calcium or vitamins may deliberately eat substrate (pica behavior). Supplement properly with Repashy Calcium Plus LoD or Arcadia EarthPro-A",
+        "<span class='font-semibold'>Oversized Prey:</span> Feeders larger than space between gecko's eyes can cause impaction regardless of substrate",
+        "<span class='font-semibold'>Inappropriate Particle Size:</span> Pebbles, gravel (2-15mm particles), or large bark chunks are impaction hazards. Fine sand/soil mix is safe",
+        "<span class='font-semibold'>Juveniles Under 3 Months:</span> Hatchlings have less developed digestion; paper towels recommended until 3-4 months old"
+      ]
+    },
+    {
       "type": "table",
-      "headers": ["Step", "Action", "Notes"],
+      "headers": ["Substrate Type", "Impaction Risk", "Why"],
       "rows": [
-        ["1. Measure dry ingredients", "Combine topsoil, sand, excavator clay in large tub", "Mix thoroughly until uniform color - no clumps of pure clay"],
-        ["2. Add moisture gradually", "Spray water while mixing, test consistency", "Goal: slightly damp, holds shape when squeezed but not muddy"],
-        ["3. Consistency test", "Grab handful, squeeze into ball - should hold shape", "Too dry = crumbles instantly, too wet = drips water"],
-        ["4. Add to enclosure", "Spread 2-4\" deep, slightly deeper in humid hide area", "Can mist surface lightly to compact for burrow sculpting"],
-        ["5. Cure time (optional)", "Let sit 24-48 hours before adding gecko", "Allows clay to set if you sculpted burrows/slopes"]
+        ["Fine sand/soil mix (DIY mix)", "Low", "Fine particles pass through digestive system; mimics natural habitat"],
+        ["Pure fine sand", "Low", "Fine particles; less stable than soil mix but safe if husbandry correct"],
+        ["Pebbles/gravel (2-15mm)", "HIGH", "Large particles block intestines; cannot be digested or passed"],
+        ["Reptile carpet", "Medium", "Threads snag claws and can be ingested if frayed; bacteria harboring"],
+        ["Large bark chips", "HIGH", "Sharp edges, large size; very dangerous if ingested"],
+        ["Paper towels/tile", "None", "Non-ingestible; but provide no enrichment"]
       ]
     },
     {
       "type": "highlight",
-      "content": "Pro tip: Mix substrate slightly damp (not soaking). This activates the excavator clay binding properties and allows you to sculpt slopes, burrows, and stable rock formations. Surface will dry in 24-48 hours."
+      "content": "Bottom Line: Loose substrate is safe and enriching when temperatures are correct (basking 94-97F), gecko is hydrated (humid hide provided), and proper supplementation prevents nutrient deficiencies. Focus on husbandry, not substrate fear."
     },
     {
       "type": "section",
-      "title": "Impaction Myths & Reality"
+      "title": "Bioactive Substrate Systems"
     },
     {
       "type": "text",
-      "content": "Impaction is often blamed on substrate, but research shows it's actually caused by improper husbandry: low temperatures (slowed digestion), dehydration, illness, or nutritional deficiencies."
+      "content": "Bioactive substrates incorporate live plants and cleanup crew (isopods, springtails) that break down waste naturally. This reduces maintenance and provides enrichment."
     },
     {
       "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Impaction Risk Factors:</span>"
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Bioactive Setup Requirements:</span>"
     },
     {
-      "type": "table",
-      "headers": ["Risk Factor", "How It Causes Impaction", "Prevention"],
-      "rows": [
-        ["Basking temp too low (<90F)", "Slowed metabolism, food ferments in gut", "Maintain 94-97F basking surface temperature"],
-        ["Dehydration", "Hard, dry stool can't pass through intestines", "Provide humid hide, water dish, monitor hydration"],
-        ["No UVB/low calcium", "Metabolic bone disease ? weakened gut muscles", "Provide UVB (1.0-2.0 UVI) and calcium supplementation"],
-        ["Illness (parasites, infection)", "Compromised digestion, gut stasis", "Veterinary care, fecal exams annually"],
-        ["Calcium sand substrate", "Actively consumed, forms cement in gut", "NEVER use calcium sand - market as 'digestible' is false"],
-        ["Overeating insects on substrate", "Accidentally ingests large amounts of substrate", "Feed in bowl or use feeding tongs"]
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Drainage Layer:</span> 1-2 inches of hydro balls (expanded clay) at bottom of enclosure, separated from substrate by mesh screen. Prevents waterlogging",
+        "<span class='font-semibold'>Substrate Layer:</span> 3-4 inches of DIY mix (40% topsoil + 40% sand + 20% clay). Deeper than non-bioactive to support cleanup crew and plant roots",
+        "<span class='font-semibold'>Cleanup Crew:</span> Dwarf white isopods (Trichorhina tomentosa) and temperate springtails (Folsomia candida). These break down feces and uneaten feeders",
+        "<span class='font-semibold'>Live Plants:</span> Arid-tolerant species like Sansevieria (snake plants), small aloe, Haworthia, or hardy succulents. Require low humidity and tolerate dry soil",
+        "<span class='font-semibold'>Lighting Consideration:</span> UVB benefits plants but some keepers add low-wattage 6500K LED for plant growth (leopard geckos tolerate this)",
+        "<span class='font-semibold'>Establishment Period:</span> Let bioactive enclosure run 2-4 weeks before introducing gecko (allows cleanup crew to establish population)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Bioactive Benefits:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Reduced spot-cleaning frequency (cleanup crew handles feces)",
+        "Natural enrichment from live plants and microfauna",
+        "More stable humidity (substrate retains moisture better)",
+        "Attractive naturalistic display"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Bioactive Challenges:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Higher initial cost ($50-100 more for plants, cleanup crew, drainage layer)",
+        "Requires understanding of microfauna care (feeding cleanup crew, maintaining population)",
+        "Plant selection limited to arid-tolerant species (leopard gecko habitat = 30-40% humidity)",
+        "Longer setup time and establishment period",
+        "Some geckos dig up plants (individual personality dependent)"
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Bioactive Recommendation: Excellent option for experienced keepers wanting naturalistic display and reduced maintenance. Beginners should master basic husbandry first before attempting bioactive systems."
+    },
+    {
+      "type": "section",
+      "title": "Substrate Maintenance"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Weekly Spot Cleaning:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Remove visible feces with small scooper or tongs - dispose in trash (NOT compost - reptile feces can carry parasites)",
+        "Remove uneaten feeder insects (dead insects attract mites and mold)",
+        "Check substrate moisture - DIY mix should be very slightly damp (not bone dry or soggy). Mist lightly if dust becomes excessive",
+        "Sift substrate in high-traffic areas to redistribute and refresh appearance",
+        "Wipe down water dish and refill with fresh dechlorinated water"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Monthly Deep Cleaning:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Remove gecko to temporary holding container (spare tank or large plastic tub with paper towels, hide, and water dish)",
+        "Remove top 1 inch of substrate and dispose (this layer accumulates most waste)",
+        "Sift remaining substrate to remove debris and clumps",
+        "Wipe down enclosure walls, hides, and décor with reptile-safe disinfectant (F10SC or chlorhexidine solution)",
+        "Rinse décor thoroughly and let air dry completely",
+        "Add fresh substrate to restore 2-4 inch depth (mix new substrate with old for cost savings)",
+        "Replace humid hide sphagnum moss entirely",
+        "Return décor and gecko to enclosure"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Full Substrate Replacement:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Frequency:</span> Every 3-4 months for non-bioactive; every 6-12 months for bioactive (cleanup crew reduces waste buildup)",
+        "<span class='font-semibold'>Process:</span> Remove all substrate, clean enclosure completely with disinfectant, add entirely fresh substrate batch",
+        "<span class='font-semibold'>Dispose Safely:</span> Bag used substrate and place in trash. Do NOT reuse substrate from previous geckos (parasite transmission risk)"
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Healthy leopard geckos with proper heat (94-97F basking), hydration, and UVB do NOT get impacted from naturalistic substrates. Wild geckos live on loose substrate without issue. If your gecko has impaction, it's a sign of underlying husbandry or health problems."
+      "content": "Substrate Odor Check: Properly maintained substrate should NOT smell. Foul odor indicates waste buildup, mold, or bacterial growth. If substrate smells, perform full replacement immediately and increase spot-cleaning frequency going forward."
     },
     {
       "type": "section",
-      "title": "Substrate Depth Guidelines"
+      "title": "Special Situations: When to Use Non-Particulate Substrate"
     },
     {
       "type": "text",
-      "content": "Proper substrate depth allows for digging enrichment, temperature buffering, and humid hide functionality."
+      "content": "While loose substrate is ideal for healthy adults, certain situations warrant temporary use of tile or paper towels:"
     },
     {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Depth Recommendations:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Setup Type", "Minimum Depth", "Ideal Depth", "Rationale"],
-      "rows": [
-        ["Standard arid setup", "2\"", "3-4\"", "Allows shallow digging, insulates from bottom heat loss"],
-        ["Bioactive setup", "3\"", "4-6\"", "CUC habitat depth, burrow construction, plant roots"],
-        ["Hatchling/juvenile tank", "1-2\"", "2-3\"", "Proportional to gecko size, easier to monitor"],
-        ["Humid hide area (localized)", "3-4\" damp substrate", "4-6\" damp substrate", "Moisture reservoir that stays humid longer"]
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Hatchlings Under 3 Months:</span> Digestive systems still developing; paper towels safest until 3-4 months old, then transition to DIY mix",
+        "<span class='font-semibold'>Sick Geckos:</span> If gecko is recovering from impaction, parasites, or illness, use paper towels until fully healthy and vet clears return to loose substrate",
+        "<span class='font-semibold'>Quarantine Period:</span> New geckos should quarantine 30-90 days on paper towels (easier to monitor feces for parasites)",
+        "<span class='font-semibold'>Recent Surgery:</span> Tile or paper towels prevent wound contamination during healing (2-4 weeks)",
+        "<span class='font-semibold'>Persistent Impaction Issues:</span> If gecko repeatedly experiences impaction despite correct husbandry, switch to tile permanently and investigate underlying health issues with vet"
       ]
+    },
+    {
+      "type": "text",
+      "content": "Once special circumstances resolve, transition gecko back to loose substrate for enrichment benefits and natural behavior expression."
     },
     {
       "type": "highlight",
-      "content": "Shallow substrates (under 2\") don't allow natural digging behaviors. Leopard geckos in nature dig burrows 6-12\" deep - while you can't replicate that in captivity, 3-4\" allows for some excavation enrichment."
-    },
-    {
-      "type": "section",
-      "title": "Bioactive Substrate Setup"
-    },
-    {
-      "type": "text",
-      "content": "Bioactive enclosures for leopard geckos are challenging due to low humidity requirements, but possible with proper setup and drought-tolerant CUC."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Bioactive Substrate Layers (Bottom to Top):</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Layer", "Material", "Depth", "Purpose"],
-      "rows": [
-        ["1. Drainage Layer (optional)", "Hydro balls or LECA", "1-2\"", "Prevents waterlogging in humid hide area only"],
-        ["2. Screen Barrier", "Mesh or landscape fabric", "Single layer", "Separates drainage from substrate"],
-        ["3. Substrate Layer", "Arid mix (40% soil, 40% sand, 20% clay)", "4-6\"", "CUC habitat, moisture buffering, burrow construction"],
-        ["4. Surface Layer", "Thin sand dusting or small pebbles", "0.5\"", "Aesthetic, prevents substrate from sticking to gecko"]
-      ]
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Cleanup Crew for Leopard Gecko Bioactive:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["CUC Species", "Quantity (36x18x18 tank)", "Role"],
-      "rows": [
-        ["Desert isopods (Venezillo parvus)", "20-30", "Primary decomposer, tolerates low humidity (30-40%)"],
-        ["Powder blue isopods", "10-20", "Secondary decomposer, needs humid hide area to thrive"],
-        ["Superworms/darkling beetles", "5-10", "Aggressive decomposers, aerate substrate"],
-        ["Desert springtails (if available)", "50-100", "Mold control, supplemental waste breakdown"]
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "tip",
-      "content": "Bioactive leopard gecko enclosures work best with a localized humid hide area where CUC can access higher moisture. CUC will concentrate in that area and emerge at night to process waste. Requires 2-3 months to establish before adding gecko."
-    },
-    {
-      "type": "section",
-      "title": "Non-Naturalistic Alternatives"
-    },
-    {
-      "type": "text",
-      "content": "For medical reasons, quarantine, or temporary housing, non-particulate substrates can be used short-term. These lack enrichment value but are easy to clean."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Temporary Substrate Options:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Substrate", "Suitability", "When to Use"],
-      "rows": [
-        ["Ceramic tile/slate", "Fair (no enrichment)", "Quarantine, impaction recovery, elderly geckos with mobility issues"],
-        ["Paper towels", "Poor (no enrichment)", "Quarantine only, medical monitoring (track urates/feces)"],
-        ["Shelf liner (textured)", "Fair (grippy surface)", "Temporary housing, easy cleanup"],
-        ["Reptile carpet", "Poor (toe snags)", "NOT RECOMMENDED - claws catch in fabric loops, injury risk"]
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "important",
-      "content": "Tile/paper towels are acceptable for short-term medical use (2-6 weeks) but should not be permanent. Leopard geckos on non-enriching substrates long-term show reduced activity, muscle atrophy, and behavioral issues. Transition to naturalistic substrate once health issue resolves."
-    },
-    {
-      "type": "section",
-      "title": "Maintenance Schedule"
-    },
-    {
-      "type": "text",
-      "content": "Proper substrate maintenance prevents odor, bacterial growth, and keeps the enclosure hygienic while preserving burrows and structure."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Substrate Care Tasks:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Task", "Frequency", "Procedure"],
-      "rows": [
-        ["Spot clean feces/urates", "Daily", "Scoop out waste with small shovel or spoon, replace substrate in that spot"],
-        ["Humid hide substrate refresh", "Every 3-5 days", "Replace damp moss/substrate inside humid hide, mist with water"],
-        ["Sift/turn substrate", "Weekly", "Stir substrate to aerate, prevents compaction, redistributes moisture"],
-        ["Partial substrate change", "Every 2-3 months", "Remove top 1-2\", add fresh substrate, preserve burrows if possible"],
-        ["Complete substrate change", "Every 6-12 months (non-bioactive)", "Remove all substrate, sanitize enclosure, add fresh mix"],
-        ["Bioactive maintenance", "Minimal after established", "Spot clean large waste, add leaf litter quarterly, CUC handles rest"]
-      ]
-    },
-    {
-      "type": "highlight",
-      "content": "Bioactive setups require minimal maintenance once established - CUC handles waste breakdown. Initial setup is more complex but saves time and money over 5-10 years. Non-bioactive requires full substrate changes 1-2x per year."
-    },
-    {
-      "type": "section",
-      "title": "Troubleshooting Substrate Issues"
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Common Problems and Solutions:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Problem", "Cause", "Solution"],
-      "rows": [
-        ["Substrate too dry/dusty", "Insufficient moisture, low ambient humidity", "Mist substrate lightly until it clumps when squeezed (not soaking)"],
-        ["Substrate too wet/muddy", "Over-misting, poor drainage", "Add more sand/excavator clay to absorb moisture, improve ventilation"],
-        ["Burrows collapse immediately", "Too much sand, not enough clay binder", "Add 10-20% more excavator clay, mist to activate binding"],
-        ["Foul ammonia smell", "Waste buildup, insufficient spot cleaning", "Increase spot cleaning frequency, partial substrate change"],
-        ["Substrate sticks to gecko's body", "Too fine, lacks texture variation", "Add small pebbles or coarse sand on surface layer"],
-        ["Mold growth (rare in arid setups)", "Localized excess moisture (humid hide area)", "Reduce misting in that area, ensure humid hide is contained"],
-        ["Gecko eating large amounts of substrate", "Nutritional deficiency (calcium/D3) or illness", "Vet check, ensure UVB provided, calcium supplementation, check temps"]
-      ]
-    },
-    {
-      "type": "section",
-      "title": "Substrate Safety Checklist"
-    },
-    {
-      "type": "text",
-      "content": "Use this checklist to ensure your substrate choice and husbandry support gecko health and prevent impaction."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Safety Requirements:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Safety Factor", "Target/Status", "Impaction Risk if Not Met"],
-      "rows": [
-        ["Basking surface temp", "94-97F", "High risk - slowed digestion"],
-        ["Humid hide provided", "70-80% humidity inside", "Moderate risk - dehydration impairs gut motility"],
-        ["UVB lighting", "1.0-2.0 UVI at basking", "Moderate risk - calcium deficiency weakens gut muscles"],
-        ["Calcium supplementation", "Dusted on every feeding", "High risk - MBD leads to gut stasis"],
-        ["Substrate type", "Naturalistic mix with binder (not calcium sand)", "High risk if calcium sand, low risk if proper substrate"],
-        ["Hydration", "Water dish + humid hide", "High risk - dehydration is leading cause of impaction"],
-        ["Gecko body condition", "Tail plump but not obese, active", "Moderate risk if underweight (illness) or obese (gut compression)"]
-      ]
-    },
-    {
-      "type": "highlight",
-      "content": "If all safety factors are met, impaction risk from naturalistic substrate is less than 1%. Focus on proper husbandry (heat, hydration, nutrition) rather than avoiding substrates that provide enrichment and natural behaviors."
+      "content": "Transition Protocol: When moving from paper towels to loose substrate, sprinkle thin layer (0.5 inch) of substrate over paper towels for 1-2 weeks. Gradually increase depth to full 2-4 inches over a month. This allows gecko to adjust and reduces chance of excessive ingestion."
     }
   ]
 }

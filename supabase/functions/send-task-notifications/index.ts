@@ -202,7 +202,7 @@ serve(async (req) => {
         const taskTitles = tasks.map(t => t.title);
         
         const notificationTitle = tasks.length === 1
-          ? `� Habitat Builder - Care Reminder`
+          ? `🦎 Habitat Builder - Care Reminder`
           : `🦎 Habitat Builder - ${tasks.length} Care Reminders`;
         
         const notificationBody = tasks.length === 1

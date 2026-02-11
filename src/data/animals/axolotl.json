@@ -2,11 +2,16 @@
   "id": "axolotl",
   "commonName": "Axolotl",
   "scientificName": "Ambystoma mexicanum",
-  "searchQuery": ["axolotl", "mexican walking fish", "water dragon", "ambystoma mexicanum"],
+  "searchQuery": [
+    "axolotl",
+    "mexican walking fish",
+    "water dragon",
+    "ambystoma mexicanum"
+  ],
   "careLevel": "advanced",
   "emoji": "🦎",
   "imageUrl": "/animals/axolotl/axolotl-1.jpg",
-  "completionStatus": "validated",
+  "completionStatus": "draft",
   "gallery": [
     {
       "url": "/animals/axolotl/axolotl-1.jpg",
@@ -72,19 +77,32 @@
     "preferVertical": false,
     "verticalSpacePercent": 0,
     "thermalGradient": "none",
-    "requiredZones": ["open-swimming", "hides", "plants"],
-    "optionalZones": ["additional-hides"]
+    "requiredZones": [
+      "open-swimming",
+      "hides",
+      "plants"
+    ],
+    "optionalZones": [
+      "additional-hides"
+    ]
   },
   "bioactiveCompatible": false,
   "equipmentNeeds": {
     "climbing": "aquatic",
-    "substrate": ["substrate-bare-bottom", "substrate-slate-tile", "substrate-fine-sand-aquatic", "sand-aquatic"],
+    "substrate": [
+      "substrate-bare-bottom",
+      "substrate-slate-tile",
+      "substrate-fine-sand-aquatic",
+      "sand-aquatic"
+    ],
     "bioactiveSubstrate": null,
     "humidity": 100,
     "heatSource": "none",
     "waterFeature": "fully-aquatic",
     "lighting": "none",
-    "diet": ["carnivore-aquatic"],
+    "diet": [
+      "carnivore-aquatic"
+    ],
     "animalType": "amphibian",
     "activity": "aquatic"
   },
@@ -168,11 +186,12 @@
   ],
   "relatedBlogs": [
     "axolotl-enrichment-welfare-guide",
-    "axolotl-enclosure-setup",
+    "axolotl-enclosure-setup-guide",
     "axolotl-substrate-guide",
-    "axolotl-temperature-water-quality",
     "axolotl-feeding-guide",
-    "axolotl-water-care-guide"
+    "axolotl-temperature-humidity-guide",
+    "axolotl-lighting-guide",
+    "axolotl-hydration-guide"
   ],
   "lifestyle": {
     "lifespan": "medium",
@@ -250,8 +269,12 @@
       "Never add axolotl to uncycled tank - causes fatal ammonia poisoning"
     ],
     "nativeHabitat": {
-      "regions": ["Lake Xochimilco, Mexico (only remaining natural habitat)"],
-      "biomes": ["Shallow lake with muddy bottom, heavy vegetation, cool water"],
+      "regions": [
+        "Lake Xochimilco, Mexico (only remaining natural habitat)"
+      ],
+      "biomes": [
+        "Shallow lake with muddy bottom, heavy vegetation, cool water"
+      ],
       "conservationStatus": "Critically Endangered (IUCN Red List) - one step above extinct in wild"
     }
   }

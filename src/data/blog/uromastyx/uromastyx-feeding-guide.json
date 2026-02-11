@@ -1,0 +1,181 @@
+{
+  "id": "uromastyx-feeding-guide",
+  "title": "Uromastyx Feeding Guide: Plant-Based Nutrition by Life Stage",
+  "description": "A complete feeding guide for Uromastyx including greens, vegetables, seeds, supplements, and feeding frequency by age.",
+  "excerpt": "A complete feeding guide for Uromastyx including greens, vegetables, seeds, supplements, and feeding frequency by age.",
+  "author": "Habitat Builder",
+  "date": "2026-02-11",
+  "publishDate": "2026-02-11",
+  "category": "Care Guides",
+  "tags": ["uromastyx", "feeding", "nutrition", "diet"],
+  "image": "/animals/uromastyx/uromastyx-1.jpg",
+  "status": "community-reviewed",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Complete Nutritional Guide for Uromastyx",
+      "content": "Uromastyx are herbivores that thrive on a varied, fiber-rich diet. A wide mix of leafy greens and vegetables builds long-term health, while seeds and insects are used sparingly as occasional boosts."
+    },
+    {
+      "type": "section",
+      "title": "Age-Based Feeding Protocol"
+    },
+    {
+      "type": "text",
+      "content": "Younger Uromastyx grow quickly and benefit from daily meals. Adults do best with fewer, larger salads each week."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Feeding Schedule by Age:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Life Stage", "Age Range", "Feeding Frequency", "Meal Composition"],
+      "rows": [
+        ["Juvenile", "0-12 months", "Daily", "Greens daily, small seed portion weekly"],
+        ["Sub-adult", "12-24 months", "5-6x per week", "Greens plus vegetables"],
+        ["Adult", "24+ months", "4-5x per week", "Large salads with variety"],
+        ["Breeding adults", "Seasonal", "5x per week", "Slightly larger salads"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Overfeeding seeds or insects can lead to obesity and kidney stress. Keep protein very limited."
+    },
+    {
+      "type": "section",
+      "title": "Primary Food Sources (Leafy Greens)"
+    },
+    {
+      "type": "text",
+      "content": "Greens should make up the bulk of the diet. Rotate options weekly for nutrient variety."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Staple Greens:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Food Item", "Nutritional Value", "Size Guideline", "Frequency"],
+      "rows": [
+        ["Collard greens", "High calcium", "Chopped bite-size", "Frequent"],
+        ["Mustard greens", "Good vitamins", "Chopped", "Frequent"],
+        ["Turnip greens", "High calcium", "Chopped", "Frequent"],
+        ["Dandelion greens", "Mineral rich", "Chopped", "Frequent"],
+        ["Arugula or endive", "Balanced", "Chopped", "Rotation"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Variety matters more than any single green. Rotate at least 4-6 options each week."
+    },
+    {
+      "type": "section",
+      "title": "Secondary Food Sources"
+    },
+    {
+      "type": "text",
+      "content": "Vegetables and edible flowers add color and nutrients. Use them as mix-ins, not the main base."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Vegetables and Flowers:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Food Item", "Notes", "Frequency", "Preparation"],
+      "rows": [
+        ["Squash", "Good fiber", "2-3x per week", "Shredded"],
+        ["Carrot", "Beta carotene", "1-2x per week", "Shredded"],
+        ["Green beans", "Low sugar", "2-3x per week", "Chopped"],
+        ["Hibiscus flowers", "Calcium rich", "Weekly", "Fresh petals"],
+        ["Opuntia cactus pads", "Hydrating", "Weekly", "De-spined, chopped"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Limit fruit to rare treats. Sugary foods can disrupt gut health and lead to weight gain."
+    },
+    {
+      "type": "section",
+      "title": "Seeds and Dry Foods"
+    },
+    {
+      "type": "text",
+      "content": "Seeds provide fats and protein but should stay minimal. Offer a small seed mix once per week."
+    },
+    {
+      "type": "table",
+      "headers": ["Item", "Role", "Frequency", "Notes"],
+      "rows": [
+        ["Lentils or millet", "Protein and fat", "1x per week", "Small portion"],
+        ["Herbivore pellets", "Supplemental variety", "1-2x per week", "Soak if needed"],
+        ["Dried hay blends", "Fiber", "Occasional", "Mix with greens"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Supplementation Schedule"
+    },
+    {
+      "type": "text",
+      "content": "Even with UVB, calcium and multivitamin supplementation are important."
+    },
+    {
+      "type": "table",
+      "headers": ["Supplement", "Active Ingredients", "Frequency", "Notes"],
+      "rows": [
+        ["Calcium (no D3)", "Calcium carbonate", "2x per week", "Use with strong UVB"],
+        ["Multivitamin", "Vitamin A, trace minerals", "1x per week", "Do not overuse"],
+        ["Carotenoid booster", "Beta carotene", "Optional", "For color support"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Balance is key. Excess supplementation can be as harmful as deficiencies."
+    },
+    {
+      "type": "section",
+      "title": "Hydration Through Diet"
+    },
+    {
+      "type": "table",
+      "headers": ["Food Item", "Water Content", "Frequency", "Hydration Benefit"],
+      "rows": [
+        ["Cactus pads", "High", "Weekly", "Supports hydration without raising humidity"],
+        ["Leafy greens", "Moderate", "Daily", "Baseline moisture"],
+        ["Squash", "Moderate", "2-3x per week", "Adds variety and moisture"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Body Condition Assessment"
+    },
+    {
+      "type": "table",
+      "headers": ["Body Condition", "Signs", "Adjustment"],
+      "rows": [
+        ["Underweight", "Flat tail base, prominent hip bones", "Increase meal size and check temps"],
+        ["Ideal", "Full tail base, smooth hips", "Maintain current plan"],
+        ["Overweight", "Bulging belly, heavy fat pads", "Reduce seeds and high-calorie items"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Common Feeding Mistakes"
+    },
+    {
+      "type": "table",
+      "headers": ["Mistake", "Health Consequence", "Correct Approach"],
+      "rows": [
+        ["Too much protein", "Kidney stress, obesity", "Limit insects and seeds"],
+        ["Low variety greens", "Nutrient gaps", "Rotate multiple greens weekly"],
+        ["No supplements", "Bone issues", "Use calcium and multivitamin schedule"],
+        ["Overfeeding fruit", "Weight gain", "Use as rare treat only"],
+        ["Feeding in cool temps", "Poor digestion", "Ensure proper basking heat"]
+      ]
+    }
+  ]
+}

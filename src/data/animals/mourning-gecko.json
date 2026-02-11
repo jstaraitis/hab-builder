@@ -6,7 +6,7 @@
   "careLevel": "beginner",
   "emoji": "🦎",
   "imageUrl": "/animals/mourning-gecko/mourning-gecko-1.jpg",
-  "completionStatus": "in-progress",
+  "completionStatus": "validated",
   "gallery": [
     {
       "url": "/animals/mourning-gecko/mourning-gecko-1.jpg",
@@ -149,7 +149,6 @@
     "mourning-gecko-temp-humidity-guide",
     "mourning-gecko-lighting-guide",
     "mourning-gecko-feeding-guide",
-    "mourning-gecko-hydration-guide",
     "mourning-gecko-enrichment-welfare-guide",
     "mourning-gecko-hydration-guide"
   ],

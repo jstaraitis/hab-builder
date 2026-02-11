@@ -1,0 +1,262 @@
+﻿{
+  "id": "veiled-chameleon-feeding-guide",
+  "title": "Veiled Chameleon Feeding Guide: Insects & Nutrition",
+  "description": "Complete feeding guide for veiled chameleons including insect variety, age-based schedules, gutloading protocols, supplementation (Arcadia EarthPro A), and feeding techniques.",
+  "excerpt": "Complete feeding guide for veiled chameleons including insect variety, age-based schedules, gutloading protocols, supplementation (Arcadia EarthPro A), and feeding techniques.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-02-11",
+  "category": "Nutrition",
+  "tags": ["veiled-chameleon", "feeding", "insects", "nutrition", "supplements"],
+  "image": "/animals/veiled-chameleon/veiled-chameleon-3.jpg",
+  "status": "community-reviewed",
+  "relatedGuides": ["veiled-chameleon-enrichment-welfare-guide", "veiled-chameleon-enclosure-setup"],
+  "content": [
+    {
+      "type": "intro",
+      "title": "Feeding Your Veiled Chameleon",
+      "content": "Veiled chameleons are insectivorous hunters that use their projectile tongues to capture prey. Proper nutrition requires exceptional insect variety (10+ types), careful supplementation sensitive to chameleon needs, and gutloading protocols. This guide covers feeding schedules, acceptable feeders, supplementation (Arcadia EarthPro A + Repashy LoD), and feeding techniques."
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "Chameleons Are Supplement-Sensitive: Unlike bearded dragons or leopard geckos that tolerate over-supplementation, chameleons develop hypervitaminosis (vitamin toxicity) and kidney failure from excessive vitamins. Use supplements SPARINGLY - Arcadia EarthPro A every feeding (light dust), Repashy Calcium Plus LoD or Arcadia Revitalise D3 only 2x per month. NEVER use daily multivitamins or standard calcium + D3 powders marketed for other reptiles."
+    },
+    {
+      "type": "section",
+      "title": "Age-Based Feeding Schedules"
+    },
+    {
+      "type": "table",
+      "headers": ["Age/Size", "Feeding Frequency", "Insects Per Feeding", "Insect Size", "Notes"],
+      "rows": [
+        ["Hatchlings (0-3 months, 0-10g)", "Daily, as much as they'll eat", "10-20 small insects", "1/4\" crickets, fruit flies, pinhead roaches", "Rapid growth phase - prioritize quantity and calcium. Dust every feeding with Arcadia EarthPro A"],
+        ["Juveniles (3-8 months, 10-50g)", "Daily", "8-15 appropriately-sized insects", "1/2\" crickets, small dubias, small hornworms", "Still growing - daily feeding essential. Begin diet variety rotation (3-4 feeder types weekly)"],
+        ["Sub-Adults (8-12 months, 50-100g)", "Daily tapering to every other day", "5-10 insects", "3/4\" crickets, medium dubias, medium hornworms", "Transition period - reduce frequency gradually. Males continue growing; females may start egg production"],
+        ["Adult Males (12+ months, 100-180g)", "Every other day", "4-5 large insects", "Adult crickets, adult dubias, large hornworms, locusts", "Established metabolism. Feed every 48 hours. Adjust if weight loss/gain occurs"],
+        ["Adult Females (12+ months, 80-120g)", "Every other day, increase during egg production", "4-5 medium-large insects", "3/4\" crickets, adult dubias, medium hornworms", "Females produce eggs without mating - require extra calcium during follicle development. Monitor body condition closely"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Feeding Time Matters: Offer insects mid-morning (9-11 AM) after 2-3 hour basking period when metabolically active. Chameleons have slow digestion requiring warmth - feeding late afternoon means undigested food overnight at cooler temps. Never feed after lights out."
+    },
+    {
+      "type": "section",
+      "title": "Acceptable Feeder Insects"
+    },
+    {
+      "type": "text",
+      "content": "ReptiFiles lists these feeders as safe for veiled chameleons. Variety is CRITICAL - rotating 5-7 types prevents nutritional deficiencies and maintains feeding interest."
+    },
+    {
+      "type": "table",
+      "headers": ["Feeder Type", "Nutritional Value", "Feeding Frequency", "Notes"],
+      "rows": [
+        ["Crickets (Acheta domesticus)", "Moderate protein, low fat, good calcium:phosphorus", "Staple - can offer 2-3x/week", "Most common feeder. Noisy, short lifespan (3-4 weeks). Gutload heavily 48 hours before feeding"],
+        ["Dubia Roaches", "High protein, moderate fat, excellent calcium ratio", "Staple - 2-3x/week", "Quiet, long lifespan (12+ months), easy gutloading. Illegal in FL/HI. Slower movement (less stimulating)"],
+        ["Black Soldier Fly Larvae (BSFL)", "Moderate protein, HIGH calcium (ideal Ca:P ratio)", "2-3x/week - excellent calcium source", "Self-gut-loading (don't require feeding). Low activity = less enrichment. Great for gravid females"],
+        ["Blue Bottle Flies & Larvae", "Low-moderate protein, high activity", "1-2x/week - enrichment feeder", "Excellent flight simulation for tongue practice. Larvae (\"spikes\") easier to contain than adult flies"],
+        ["Hornworms", "Low protein, very high moisture (85% water)", "1-2x/week as hydration treat", "Fast-growing (too large quickly). High phosphorus - balance with high-calcium feeders. Bright green = easy to see"],
+        ["Silkworms", "High protein, good calcium, low fat", "2-3x/week - excellent staple", "Nutritious and safe. Require fresh mulberry leaves or commercial chow. Short shelf life (7-10 days)"],
+        ["Locusts", "High protein, low-moderate fat", "1-2x/week - variety/enrichment", "Active hoppers trigger strong hunting response. Larger size good for adult chameleons. Expensive ($1-2 each)"],
+        ["Red Runner Roaches", "High protein, very active", "1-2x/week", "VERY fast - use feeding cup to prevent escapes. Legal everywhere unlike dubias. Excellent enrichment"],
+        ["Stick Insects (Phasmids)", "Low-moderate protein", "Occasional (1-2x/month)", "Slow-moving, odd shape provides novelty. NOT a staple - supplemental variety only"],
+        ["Snails (Captive-Bred)", "Moderate protein, HIGH calcium (shell)", "1-2x/month", "Crush shell slightly to encourage eating shell (calcium). Never wild-caught (pesticide risk)"],
+        ["Mantis Hatchlings", "High protein, low fat", "Occasional (1x/month)", "Novelty feeder. Small size only suitable for juveniles. Avoid adult mantis (too large, aggressive)"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "AVOID These Insects: NEVER feed wild-caught insects (pesticide/parasite risk), fireflies/lightning bugs (highly toxic - deadly), king mealworms for juveniles (impaction risk), boxelder bugs (toxic), or monarch butterflies (toxins from milkweed diet). Also avoid superworms and mealworms as staples - high chitin (indigestible exoskeleton), poor nutrition, cause impaction."
+    },
+    {
+      "type": "section",
+      "title": "Insect Size Guidelines"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Golden Rule:</span> Insect length should NOT exceed distance between chameleon's eyes. Oversized feeders = choking risk, refusal to eat, stress",
+        "<span class='font-semibold'>Hatchlings (0-3 months):</span> 1/4 inch crickets (pinheads), fruit flies (Drosophila hydei), pinhead dubias, BSFL (small)",
+        "<span class='font-semibold'>Juveniles (3-8 months):</span> 1/2 inch crickets, small dubia nymphs (1/4-3/8\"), small hornworms (1-1.5\")",
+        "<span class='font-semibold'>Sub-Adults (8-12 months):</span> 3/4 inch crickets, medium dubias (1/2-5/8\"), medium hornworms (2-2.5\"), small locusts",
+        "<span class='font-semibold'>Adults (12+ months):</span> Adult crickets (1 inch), adult dubias (3/4-1\"), large hornworms (3-4\"), adult locusts (2-3\")"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Gutloading Feeders"
+    },
+    {
+      "type": "text",
+      "content": "Gutloading is feeding insects high-quality nutrition 48-72 hours before offering to chameleon. \"You are what your feeders eat\" - proper gutloading transfers vitamins/minerals to chameleon."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Commercial Gutload Products (Easiest):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Repashy Bug Burger ($12-15 for 12oz) - Complete gel diet, add water, lasts 5-7 days refrigerated",
+        "Arcadia Insect Fuel ($15-18 for 120g) - Powder form, mix with water into paste",
+        "Cricket Crack ($10-12 for 8oz) - Dry powder, sprinkle over vegetables",
+        "Fluker's High-Calcium Cricket Diet ($8-10) - Affordable option, less comprehensive nutrition"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>DIY Gutload (Budget Option):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Best Vegetables:</span> Collard greens, mustard greens, dandelion greens, squash, sweet potato, carrots (grated), bell peppers",
+        "<span class='font-semibold'>Fruits (10-20% max):</span> Mango, papaya, berries - small amounts for palatability",
+        "<span class='font-semibold'>Add-Ins:</span> Bee pollen (1 tsp per cup vegetables), spirulina powder (1/2 tsp), fish flakes (1 tbsp)",
+        "<span class='font-semibold'>Avoid:</span> Iceberg lettuce (zero nutrition), spinach (binds calcium), tomatoes (acidic), onion/garlic (toxic), avocado (toxic)",
+        "<span class='font-semibold'>Preparation:</span> Chop finely, mix thoroughly, offer to insects in shallow dish. Replace every 24 hours (molds quickly)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Gutloading Timeline:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Minimum 48 hours before feeding: Begin offering gutload to feeder insects",
+        "72+ hours ideal: Allows complete digestive tract filling with nutrition",
+        "Continuous gutloading: Keep insects on high-quality diet constantly (not just before feeding). Healthy insects = better nutrition for chameleon",
+        "Hydration: Provide water crystals or fresh vegetables for insect hydration. Dehydrated insects = poor nutrition transfer"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Supplementation Protocol"
+    },
+    {
+      "type": "text",
+      "content": "Chameleons are highly sensitive to vitamin toxicity. ReptiFiles recommends conservative supplementation with Arcadia EarthPro A (contains bee pollen) and minimal D3."
+    },
+    {
+      "type": "table",
+      "headers": ["Supplement", "Frequency", "Application Method", "Notes"],
+      "rows": [
+        ["Arcadia EarthPro A", "EVERY feeding", "Light dusting - insects should look lightly powdered (not caked)", "Primary supplement. Contains calcium, trace minerals, bee pollen. NO vitamin D3 (chameleon synthesizes from UVB). Suitable for daily use"],
+        ["Arcadia Revitalise D3 OR Repashy Calcium Plus LoD", "2x per month only", "Light dusting - very thin coating", "Low-dose D3 + vitamins. Use 1st and 15th of month. LoD = Low D3. NEVER use more frequently - chameleons sensitive to D3 overdose (causes kidney failure)"],
+        ["Multivitamin (Herptivite, ReptiVite)", "AVOID - NOT RECOMMENDED", "N/A", "Standard reptile multivitamins too strong for chameleons. Stick to Arcadia/Repashy chameleon-specific formulas only"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Dusting Technique:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Place 5-10 insects in plastic container or ziplock bag with 1/4 teaspoon Arcadia EarthPro A",
+        "Shake/tumble gently for 10-15 seconds until insects lightly coated",
+        "Insects should still be visible through powder - NOT thick breading. Over-dusting causes refusal to eat",
+        "Offer immediately - powder wears off as insects groom within 15-20 minutes",
+        "On D3 days (2x month): Dust half the insects with EarthPro A, half with Arcadia Revitalise D3/Repashy LoD. This prevents excessive D3 if chameleon eats all feeders"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "D3 Toxicity Warning: Chameleons with UVB lighting synthesize vitamin D3 naturally. Additional D3 supplementation should be MINIMAL (2x monthly only with low-D3 formulas). Daily D3 supplementation or using standard calcium + D3 powders causes hypervitaminosis D3: symptoms include lethargy, organ calcification, kidney failure, death. If chameleon shows neurological signs (twitching, seizures, loss of coordination) after supplementation, STOP all supplements immediately and consult exotic vet."
+    },
+    {
+      "type": "section",
+      "title": "Feeding Methods"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Free-Roaming (Best for Behavioral Enrichment):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Release insects directly into enclosure - triggers natural hunting behavior",
+        "Best for: Crickets, dubias, locusts (active crawlers/jumpers)",
+        "Pros: Maximum enrichment, exercises tongue projection, natural behavior",
+        "Cons: Difficult to track intake, insects may hide/escape enclosure, crickets can nibble sleeping chameleon",
+        "Best practice: Release insects in morning, observe feeding for 15-20 min, remove uneaten insects after 2-3 hours"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Feeder Cup (Better Control):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Mount transparent plastic cup or deli container at mid-height (18-24\" high). Chameleon can see insects moving inside",
+        "Best for: Dubias, BSFL, hornworms, silkworms (slower crawlers)",
+        "Pros: Accurate intake tracking, prevents escapes, easy supplement application",
+        "Cons: Less natural, requires training chameleon to recognize cup as food source (2-5 days)",
+        "Setup: 16-32oz deli cup with smooth sides (insects can't climb out easily). Secure with zip ties mid-level on mesh wall"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Tong Feeding (Training/Bonding):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Hold insect with 6-10\" feeding tongs, present at chameleon eye level 6-12\" away",
+        "Best for: Large feeders (hornworms, locusts), training, building trust",
+        "Pros: Bonds chameleon to keeper, precise intake control, works for picky eaters",
+        "Cons: Time-intensive, some chameleons wary of tongs, requires slow movements",
+        "Technique: Hold insect still or wiggle slightly to trigger prey drive. Wait patiently 30-60 seconds for tongue strike"
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Feeding Method Recommendation: Combine approaches for best results. Use feeder cup for daily base diet (easy tracking) + occasional free-roaming feeders (enrichment) + hand/tong feeding for treats (bonding). Vary methods weekly to prevent boredom."
+    },
+    {
+      "type": "section",
+      "title": "Plant Matter in Diet"
+    },
+    {
+      "type": "text",
+      "content": "ReptiFiles notes veiled chameleons occasionally munch on live plants - thought to aid digestion rather than reflecting true herbivory. While not a dietary requirement, plant matter can supplement hydration and fiber."
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Why They Eat Plants:</span> Digestive aid (fiber), boredom, exploration, hydration supplement. More common in males than females",
+        "<span class='font-semibold'>How Much:</span> Typically 5-10% of diet or less. Some chameleons never eat plants; others nibble weekly",
+        "<span class='font-semibold'>Safe Plants:</span> Pothos, hibiscus, ficus benjamina, umbrella plant, wandering jew, money tree, weeping fig, ZZ plant (per ReptiFiles list)",
+        "<span class='font-semibold'>Not Required:</span> Unlike iguanas or uromastyx, veiled chameleons do NOT need plant matter for survival. Insect diet provides complete nutrition",
+        "<span class='font-semibold'>Monitor Intake:</span> Excessive plant eating (>20% diet) may indicate nutritional deficiency or illness. Consult vet if dramatic increase in plant consumption"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Feeding Problems & Solutions"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Possible Causes", "Solutions"],
+      "rows": [
+        ["Refusing food 3-5 days", "Overfed recently, temperatures too low, stress, illness, gravid female (egg development)", "Check basking temp (should reach 85F), reduce handling, skip 2-3 feedings, offer different insect type, inspect for gravid swelling (females)"],
+        ["Refusing food 7+ days", "Illness (parasites, respiratory infection, MBD), severe stress, enclosure issues", "EXOTIC VET immediately. Check all husbandry parameters (temps, humidity, UVB), inspect for symptoms (sunken eyes, lethargy, gaping, discharge)"],
+        ["Tongue projection weak/missing prey", "Vitamin A deficiency, injury, dehydration, metabolic bone disease", "Increase vitamin supplementation (Arcadia Revitalise D3 2x/month), vet exam for injuries, check hydration (skin turgor test), assess UVB exposure"],
+        ["Only eating one insect type", "Preference developed, insuffient variety exposure", "Withholding favorites temporarily (3-5 days), introduce new feeders via tong feeding (more enticing), mix insect types in feeder cup"],
+        ["Weight loss despite eating", "Parasites (coccidia, pinworms), insufficient feeding frequency, poor supplement schedule", "Fecal parasite test by exotic vet, increase feeding frequency to daily temporarily, dust EVERY feeding with EarthPro A, weigh weekly to track"],
+        ["Obesity (thick fatty deposits near limbs/tail)", "Overfeeding, high-fat feeders (hornworms, superworms), insufficient activity", "Reduce feeding to every 3 days temporarily, eliminate high-fat feeders, offer only 3-4 insects per feeding, increase enclosure complexity for activity"],
+        ["Choking on large feeder", "Insect size too large (exceeds eye-to-eye distance)", "Offer smaller insects only (see size chart). If choking occurs: DO NOT intervene physically. Monitor closely - most chameleons can expel or swallow with time. Vet if distress continues 10+ minutes"],
+        ["Eating substrate/rocks", "Calcium deficiency (pica behavior), boredom, instinct", "Cover all substrate with river rocks (prevents access), increase calcium dusting frequency, offer cuttlebone or calcium block, vet exam for deficiencies"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Feeding Success Summary: Variety is KEY - rotate 5-7 insect types weekly. Juveniles eat daily, adults every other day (4-5 insects). Gutload all feeders 48-72 hours. Dust every feeding with Arcadia EarthPro A. Add Arcadia Revitalise D3 or Repashy LoD 2x/month only. Feed mid-morning (9-11 AM) after basking. Use feeder cup + occasional free-roaming for enrichment. Never use standard reptile multivitamins or daily D3 - chameleons sensitive to toxicity."
+    }
+  ]
+}

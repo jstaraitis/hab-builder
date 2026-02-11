@@ -298,12 +298,12 @@ function generateWarnings(
   
   // Enclosure type warnings
   const minHumidity = profile.careTargets.humidity.day?.min ?? profile.careTargets.humidity.min ?? 60;
-  if (input.type === 'screen' && minHumidity > 60) {
+  if (input.type === 'screen' && input.animal !== 'veiled-chameleon') {
     warnings.push({
       id: 'screen-humidity',
       severity: 'important',
       category: 'common_mistake',
-      message: `Screen enclosures lose humidity quickly. ${profile.commonName} needs ${minHumidity}%+ humidity - you'll need active humidity management (misting system or fogger). Screen material allows excellent airflow but requires careful environmental control.`,
+      message: `Screen enclosures lose humidity quickly and bleed heat. ${profile.commonName} needs ${minHumidity}%+ humidity and stable thermal gradients - you'll need active humidity management (misting system or fogger) and stronger heat output. Screen material allows excellent airflow but requires careful environmental control.`,
     });
   }
   

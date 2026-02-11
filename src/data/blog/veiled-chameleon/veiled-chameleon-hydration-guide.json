@@ -1,0 +1,344 @@
+﻿{
+  "id": "veiled-chameleon-hydration-guide",
+  "title": "Veiled Chameleon Hydration & Misting Protocol",
+  "description": "Complete hydration guide for veiled chameleons covering Chameleon Academy schedule (misting 3x daily at 1:30 AM, 6 AM, 9 PM), fogger protocol (1:30-6 AM with distilled water), dripper setup (3-5 PM), drinking behavior recognition (lick droplets, don't use water dishes), dehydration signs, and equipment recommendations.",
+  "excerpt": "Complete hydration guide for veiled chameleons covering Chameleon Academy schedule (misting 3x daily at 1:30 AM, 6 AM, 9 PM), fogger protocol (1:30-6 AM with distilled water), dripper setup (3-5 PM), drinking behavior recognition (lick droplets, don't use water dishes), dehydration signs, and equipment recommendations.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-02-11",
+  "category": "Hydration",
+  "tags": ["veiled-chameleon", "hydration", "misting", "fogger", "water"],
+  "image": "/animals/veiled-chameleon/veiled-chameleon-6.jpg",
+  "status": "community-reviewed",
+  "relatedGuides": ["veiled-chameleon-temperature-humidity-guide", "veiled-chameleon-enclosure-setup"],
+  "content": [
+    {
+      "type": "intro",
+      "title": "Hydration for Veiled Chameleons",
+      "content": "Veiled chameleons have unique hydration needs requiring precise misting schedules, overnight fogging, and understanding their drinking behavior. Unlike many reptiles, chameleons do NOT drink from standing water dishes - they lick water droplets from foliage and enclosure surfaces. ReptiFiles and Chameleon Academy recommend specific hydration protocol: misting 3x daily (1:30 AM, 6 AM, 9 PM), fogger running 4.5 hours overnight (1:30-6 AM), and optional dripper mid-afternoon (3-5 PM). This guide covers complete hydration system setup, drinking behavior recognition, water quality requirements, dehydration assessment, and troubleshooting common issues."
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "Do NOT Rely on Water Dishes: Chameleons may NEVER drink from standing water bowls/dishes. Their instinct is to drink moving water droplets on leaves after rain/dew. Keepers who provide only water dish find chameleon dehydrated within weeks despite 'water available.' Misting and fogging are MANDATORY primary hydration methods. Water dishes optional as backup only (some individuals learn to use, most don't)."
+    },
+    {
+      "type": "section",
+      "title": "Understanding Chameleon Drinking Behavior"
+    },
+    {
+      "type": "text",
+      "content": "Veiled chameleons evolved in Yemeni mountain regions with heavy nighttime fog and morning dew. They adapted to lick water droplets from vegetation rather than seek standing water sources. Understanding natural drinking patterns helps keepers provide appropriate hydration."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Natural Drinking Pattern:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Morning Primary Drinking (6-7 AM):</span> Fog lifts at dawn leaving heavy dew on leaves. Chameleon wakes, immediately licks droplets for 30-60 minutes. This is MAIN daily water intake (60-70% of hydration)",
+        "<span class='font-semibold'>Evening Secondary Drinking (8-9 PM):</span> Dusk brings moisture increase before night fog forms. Chameleon drinks moderately for 10-20 minutes before sleeping",
+        "<span class='font-semibold'>Opportunistic Mid-Day:</span> Occasional brief showers in nature. Some chameleons drink mid-afternoon if opportunity presented (dripper simulates this)",
+        "<span class='font-semibold'>Standing Water Avoidance:</span> Streams/ponds not reliable in arid mountains. Chameleons didn't evolve to recognize still water as drinking source"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>What Drinking Looks Like:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Chameleon approaches leaves, branches, or glass walls with visible water droplets",
+        "Extends tongue slowly (NOT rapid feeding strike) licking droplets",
+        "May tilt head positioning mouth at droplet, then lap water",
+        "Drinking sessions: 15-60 minutes post-misting. Chameleon methodically moves branch-to-branch licking droplets",
+        "Eyes remain open, body relaxed (greenish calm coloration). Closed eyes or stress colors = NOT drinking comfortably",
+        "After drinking: May defecate within 30-60 minutes (water intake triggers bowel movement)"
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "You May NEVER See Drinking: Many chameleons drink during early morning misting (1:30 AM and 6 AM) when keeper sleeping. Don't panic if you never witness drinking - focus on output indicators: Regular urates (white chalky portion of feces) that are WHITE (not yellow/orange), plump eyes, smooth skin = properly hydrated even if drinking unseen."
+    },
+    {
+      "type": "section",
+      "title": "Chameleon Academy Misting Schedule"
+    },
+    {
+      "type": "text",
+      "content": "ReptiFiles references Chameleon Academy research establishing evidence-based misting protocol aligning with natural fog/dew cycles. This schedule precisely tested across hundreds of chameleons showing optimal hydration and respiratory health."
+    },
+    {
+      "type": "table",
+      "headers": ["Time", "Duration", "Method", "Purpose"],
+      "rows": [
+        ["1:30 AM", "2-3 minutes", "Misting system or manual pump sprayer", "Coincides with fogger start. Saturates surfaces creating drinking opportunities during night if chameleon wakes. Primes humidity for fog saturation"],
+        ["6:00 AM", "2-3 minutes", "Misting system or manual pump sprayer", "PRIMARY DRINKING SESSION. Coincides with fogger end and chameleon waking. Heavy droplet coverage on all foliage. Chameleon drinks 30-60 minutes. This is most critical misting of day"],
+        ["9:00 PM", "2-3 minutes", "Misting system or manual pump sprayer", "Evening drinking session before sleep. Primes humidity for overnight fogging. Chameleon drinks 10-20 minutes then settles for night"],
+        ["3:00-5:00 PM", "Continuous slow drip", "Gravity dripper (Zoo Med Big Dripper or DIY)", "Optional but recommended. Creates moving water stimulus mid-afternoon. Drip rate: 1 drop per 2-3 seconds onto plant leaves. Not misting - gentle drip only"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "1:30 AM Misting is DIFFICULT: Waking at 1:30 AM to manually mist is major commitment few keepers sustain long-term. This is why ReptiFiles emphasizes automatic misting system (MistKing) as near-essential for veiled chameleons. If manual misting only option: Absolute minimum is 6 AM + 9 PM sessions WITH fogger 1:30-6 AM. Missing 1:30 AM misting acceptable IF fogger running reliably (fog provides some drinking moisture). But this is compromise - full 3x daily misting + fogger is ideal."
+    },
+    {
+      "type": "section",
+      "title": "Misting Equipment & Setup"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Automatic Misting System (Recommended):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>MistKing Starter System:</span> $150-180. Industry standard. Includes timer, pump, reservoir, 1 nozzle, tubing. Programmable for precise timing (1:30 AM, 6 AM, 9 PM sessions). Expandable to multiple enclosures",
+        "<span class='font-semibold'>Why MistKing:</span> Reliable timer (holds settings during power outage), strong pump (fine mist, good coverage), durable components (2-5 year lifespan), customer support, replacement parts available",
+        "<span class='font-semibold'>Setup Complexity:</span> Moderate DIY (1-2 hours). Mount nozzle inside enclosure top, run tubing to external reservoir, program timer, test spray pattern",
+        "<span class='font-semibold'>Pros:</span> Consistent hydration, NO waking at 1:30 AM, precise duration control (2-3 min exactly), can leave home for days (large reservoir)",
+        "<span class='font-semibold'>Cons:</span> Upfront cost, requires reservoir refilling weekly, nozzles clog if water quality poor (use distilled water)",
+        "<span class='font-semibold'>Alternative:</span> Exo Terra Monsoon ($100-120) cheaper but less reliable timer, louder pump, more frequent failures"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Manual Misting (Budget Option):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Pump Pressure Sprayer:</span> $15-25 (garden supply stores). 1-2 liter capacity. Pump handle builds pressure, trigger sprays fine mist. Chapin or Exo Terra brands",
+        "<span class='font-semibold'>Technique:</span> Spray enclosure walls, branches, foliage for 2-3 minutes until 75% of surfaces have visible water droplets. Avoid spraying chameleon directly (startles, stresses)",
+        "<span class='font-semibold'>Coverage Pattern:</span> Start top-back, work forward and downward. Water droplets should drip down surfaces mimicking rain. Heavy coverage = more drinking opportunities",
+        "<span class='font-semibold'>Pros:</span> Minimal cost, simple maintenance (rinse sprayer weekly), allows observation during misting",
+        "<span class='font-semibold'>Cons:</span> Requires waking 1:30 AM (unsustainable for most keepers), inconsistent duration (tired keeper at 1:30 AM may mist 30 seconds vs 3 minutes), can't leave town without pet sitter",
+        "<span class='font-semibold'>Realistic Approach:</span> If manual only, do 6 AM + 9 PM misting religiously. Skip 1:30 AM (accept this compromise) but MUST run fogger 1:30-6 AM to compensate. Not ideal but workable"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Fogging Protocol"
+    },
+    {
+      "type": "text",
+      "content": "Fogger provides critical overnight humidity (80-100%) AND drinking opportunities during deep sleep/early waking. ReptiFiles specifies fogger runs 1:30-6:00 AM (4.5 hours) creating dense fog mimicking mountain cloud cover."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Fogger Equipment:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Cool Mist Humidifier:</span> $30-60 from pharmacy/big-box store. Ultrasonic (quieter, finer mist) or evaporative (fan-based, noisier). Reptile-specific foggers work but not required",
+        "<span class='font-semibold'>Timer Requirement:</span> MUST have timer (manual on/off unsustainable). Some humidifiers have built-in timer; if not, use external outlet timer set 1:30 AM ON, 6:00 AM OFF",
+        "<span class='font-semibold'>Output Hose:</span> Direct fog into enclosure top vent with flexible hose/tube. Fog heavier than air - sinks and fills enclosure from top down naturally",
+        "<span class='font-semibold'>Reservoir Size:</span> Need ~2-3 liters capacity to run 4.5 hours nightly. Check reservoir every 2-3 days, refill before empty"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Distilled Water Requirement:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>MUST Use Distilled:</span> Tap water contains minerals (calcium, magnesium) that ultrasonic foggers atomize into fine white dust coating everything. This dust: (1) Creates slippery film on branches (fall risk), (2) Coats chameleon skin/eyes causing irritation, (3) Inhaled as particulate matter (respiratory irritation risk)",
+        "<span class='font-semibold'>Cost:</span> Distilled water $1-2 per gallon. Use ~2 gallons weekly for fogging = $8-15/month",
+        "<span class='font-semibold'>NOT Just Filtered:</span> Brita filters, fridge filters do NOT remove minerals. Only distillation or reverse osmosis (RO) removes minerals. Check label says 'Distilled' or 'Demineralized'",
+        "<span class='font-semibold'>For Misting:</span> Can use dechlorinated tap water (misting forms larger droplets not respirable dust). But if using distilled for fogger anyway, might as well use for misting too (eliminates mineral buildup in MistKing nozzles)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Fogger Hygiene (Critical):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Weekly Deep Clean:</span> Empty reservoir completely. Scrub all surfaces with white vinegar (removes biofilm slime). Rinse 4-5 times until no vinegar smell. Biofilm harbors bacteria (Pseudomonas, Aeromonas) causing respiratory infections",
+        "<span class='font-semibold'>Biweekly Disinfection:</span> After vinegar clean, soak removable parts in diluted bleach solution (1 tablespoon bleach per gallon water) for 10 minutes. Rinse EXHAUSTIVELY 10+ times until zero bleach smell remains. Bleach residue toxic",
+        "<span class='font-semibold'>Daily Check:</span> Smell reservoir water - should be odorless. Musty/swampy smell = bacteria growing, clean immediately",
+        "<span class='font-semibold'>Visible Mold:</span> Any black/green/pink spots in reservoir = mold. Clean immediately with bleach disinfection. Increase cleaning frequency to 2x weekly if mold recurring"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "Fogger Hygiene is #1 Respiratory Infection Cause: Contaminated foggers atomize bacteria and mold spores directly into chameleon respiratory tract = pneumonia. Symptoms: Open-mouth breathing, wheezing, mucus bubbles around nostrils, lethargy, refusing food, clicking sounds when breathing. Respiratory infections difficult to treat, often fatal without aggressive vet care (antibiotics, nebulization). PREVENTION via weekly cleaning is far easier than treatment."
+    },
+    {
+      "type": "section",
+      "title": "Dripper Setup (Optional)"
+    },
+    {
+      "type": "text",
+      "content": "Dripper provides mid-afternoon drinking opportunity via moving water stimulus. Not mandatory (misting 3x daily sufficient) but adds hydration security and behavioral enrichment."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Dripper Options:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Zoo Med Big Dripper:</span> $15-20. 1-gallon gravity reservoir with adjustable valve. Set drip rate 1 drop per 2-3 seconds. Lasts 4-6 hours before refill needed. Position above plant leaves so water drips leaf-to-leaf creating movement",
+        "<span class='font-semibold'>DIY Dripper:</span> Drill tiny hole in bottom of plastic bottle cap. Fill bottle with water, invert, position above enclosure. Adjust hole size for drip rate (start small, enlarge if needed). Free option using materials on-hand",
+        "<span class='font-semibold'>Automatic Dripper:</span> MistKing or Exo Terra dripper nozzle attachment ($20-30) connects to misting system. Timer runs for continuous drip 3-5 PM. Most convenient but requires misting system"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Dripper Positioning:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Position above large-leafed plant (pothos, umbrella plant, ficus) at mid-height enclosure",
+        "Water drips onto topmost leaf, then cascades leaf-to-leaf downward creating multiple drinking stations",
+        "Movement catches chameleon attention (motion triggers drinking response)",
+        "Place catch cup at bottom to collect excess water (prevents drainage overflow). Empty catch cup daily",
+        "Run dripper 3:00-5:00 PM (after morning/noon drying period, before evening misting)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Do You Need a Dripper?</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Skip If:</span> Misting 3x daily (especially 1:30 AM + 6 AM) with fogger running. Chameleon showing excellent hydration (white urates, plump eyes). Dripper adds complexity/maintenance without benefit",
+        "<span class='font-semibold'>Use If:</span> Misting only 2x daily (6 AM + 9 PM), missing 1:30 AM session. Chameleon borderline hydrated (pale yellow urates, slightly sunken eyes). Dripper provides supplemental mid-day water intake",
+        "<span class='font-semibold'>Try If:</span> Chameleon dehydrated despite proper misting/fogging (yellow-orange urates, sunken eyes). Some individuals prefer moving water - dripper may trigger drinking response where misting doesn't"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Assessing Hydration Status"
+    },
+    {
+      "type": "text",
+      "content": "Monitor these indicators to verify chameleon receiving adequate hydration. Early dehydration detection allows quick correction before serious health consequences."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Primary Indicators (Check Weekly):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Urate Color:</span> Urates are white chalky portion of feces (chameleons don't urinate - excrete solid urate). <span class='font-semibold'>White/cream = well hydrated.</span> <span class='font-semibold'>Pale yellow = borderline, increase misting duration.</span> <span class='font-semibold'>Orange/brown = dehydrated, immediate intervention needed.</span> Check every fecal deposit",
+        "<span class='font-semibold'>Eye Appearance:</span> Eyes should be rounded, full, plump. <span class='font-semibold'>Sunken eyes (flat appearance, visible orbital bone)</span> = dehydration. Turret shape should be convex dome, not concave dip",
+        "<span class='font-semibold'>Skin Texture:</span> Gently pinch skin on side (between ribs). Skin should snap back immediately when released. <span class='font-semibold'>Slow return (tenting)</span> = dehydration. Wrinkled appearance when relaxed = dehydration",
+        "<span class='font-semibold'>Shed Quality:</span> Shed should come off cleanly in large pieces within 6-12 hours. <span class='font-semibold'>Stuck shed</span> (especially on casque, limbs, tail tip) indicates low humidity or dehydration. White flaky patches remaining >24 hours = concern"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Behavioral Indicators:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Drinking Eagerly After Misting:</span> Chameleon immediately approaches droplets, drinks for 20+ minutes = could indicate borderline hydration (desperately thirsty). Or normal behavior. Context matters - check urate color",
+        "<span class='font-semibold'>Gaping Mouth:</span> Usually indicates overheating, but combined with sunken eyes/yellow urates could be dehydration (attempting to cool via evaporation). Check temps first",
+        "<span class='font-semibold'>Lethargy:</span> Dehydrated chameleons move less, stay in one spot, dark coloration. Nonspecific symptom (could be many issues) but consider if combined with dehydration signs",
+        "<span class='font-semibold'>Closed Eyes During Day:</span> Major illness indicator (metabolic issues, infection, dehydration). If eyes closed + sunken appearance + yellow urates = severe dehydration, vet ASAP"
+      ]
+    },
+    {
+      "type": "table",
+      "headers": ["Hydration Level", "Urate Color", "Eye Appearance", "Skin", "Action Needed"],
+      "rows": [
+        ["Excellent", "Bright white, cream", "Plump, rounded turrets", "Smooth, snaps back instantly", "Continue current hydration protocol. System working well"],
+        ["Good", "White with very pale yellow tinge", "Full, slight rounding", "Smooth, quick snap back", "Current protocol adequate. Monitor weekly. Can fine-tune if desired"],
+        ["Borderline", "Pale yellow, off-white", "Starting to flatten slightly", "Slight wrinkle, 1-2 sec snap back", "Increase misting duration 4-5 min per session. Add dripper if not using. Recheck in 3-5 days"],
+        ["Dehydrated", "Dark yellow, orange tinge", "Sunken, flat appearance", "Wrinkled, tenting 2-3+ seconds", "IMMEDIATE INTERVENTION: Mist 4-5 times daily (every 3-4 hours), 5 min sessions. Add dripper. Recheck daily. If no improvement 48 hours, VET"],
+        ["Severe Dehydration", "Orange, brown, dry/crumbly", "Deeply sunken, visible bone", "Tented, dry, papery texture", "VETERINARY EMERGENCY: Needs subcutaneous fluids, hospitalization. Home care insufficient at this stage. Transport to vet same day"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Dehydration Progresses Slowly Then Suddenly: Chameleons can tolerate mild dehydration for weeks (slightly yellow urates, owner doesn't notice). Then suddenly crash - eyes sunken, won't eat, lethargic. This delayed presentation tricks keepers into thinking 'it happened overnight' when actually gradual deterioration unnoticed. CHECK URATE COLOR EVERY FECAL DEPOSIT (defecate every 2-4 days typically). Pale yellow = early warning, intervene immediately."
+    },
+    {
+      "type": "section",
+      "title": "Water Quality & Safety"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Water Sources:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>For Fogger:</span> MUST use distilled water (prevents mineral dust). $1-2 per gallon, ~2 gallons weekly = $8-15/month",
+        "<span class='font-semibold'>For Misting:</span> Tap water dechlorinated (let sit 24 hours OR use water conditioner like Reptisafe). OR use distilled if available (eliminates nozzle clog from minerals). Avoid well water (high mineral content clogs misting nozzles)",
+        "<span class='font-semibold'>For Dripper:</span> Dechlorinated tap water acceptable. Changes daily so quality less critical than fogger reservoir (no biofilm growth time)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Dechlorination Methods:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>24-Hour Evaporation:</span> Fill bucket with tap water, let sit uncovered 24 hours. Chlorine (gas) evaporates naturally. Chloramine (some cities) does NOT evaporate - requires conditioner",
+        "<span class='font-semibold'>Water Conditioner:</span> Reptisafe, Prime (aquarium conditioner), Zoo Med ReptiSafe, or similar. Follow label (usually 2-3 drops per gallon). Neutralizes chlorine AND chloramine instantly. Cost: $10 bottle treats hundreds of gallons",
+        "<span class='font-semibold'>Check Your City:</span> Contact water utility - ask if using chlorine (evaporates) or chloramine (requires conditioner). Most cities list on website"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Troubleshooting Hydration Issues"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Symptoms", "Causes", "Solutions"],
+      "rows": [
+        ["Chameleon NOT Drinking Despite Misting", "Yellow urates, sunken eyes BUT chameleon doesn't approach droplets after misting", "Water droplets too fine (evaporate quickly), misting duration too short (<2 min), chameleon stressed (won't drink in disturbed state), wrong misting time (not aligned with natural behavior)", "Increase misting duration to 4-5 min (heavy droplet coverage). Verify large droplets visible on leaves (not just fine mist vanishing immediately). Add dripper for moving water stimulus. Leave chameleon undisturbed 30-60 min post-misting (allow drinking time without observation stress)"],
+        ["Excellent Misting System But Still Dehydrated", "Proper schedule, good equipment, but yellow urates persist", "Fogger not running (chameleon dehydrated overnight), dripper inadequate, chameleon ill (parasites, infection), enclosure too hot (excessive evaporation), too much ventilation (humidity too low)", "Verify fogger runs full 4.5 hours (1:30-6 AM). Check nighttime humidity reaches 80-100%. Lower basking temps (excessive heat = dehydration). Reduce ventilation if humidity <40% daytime. Fecal test for parasites (Coccidia common dehydration cause). Vet visit if no improvement"],
+        ["Chameleon Gaping After Misting", "Open mouth breathing during or after misting sessions", "Water too cold (shocking system), misting directly on chameleon (respiratory irritation), fogger contaminated (bacteria in mist), overheating triggered by misting (humidity trap)", "Use room-temp water (65-75F) NOT cold tap. Spray walls/foliage AROUND chameleon, not directly on body. Deep clean fogger - bacterial pneumonia suspect. Check temps not exceeding 85F during misting (humidity + heat = respiratory stress)"],
+        ["Misting System Nozzle Clogged", "Weak spray, no spray, or erratic spray pattern from MistKing nozzle", "Mineral buildup from tap water, debris in line, biofilm in nozzle", "Disassemble nozzle, soak in white vinegar 2-4 hours (dissolves mineral deposits), scrub with old toothbrush, rinse thoroughly. Flush water line by running pump with nozzle removed (clears debris). Switch to distilled water. Clean nozzles monthly preventatively"],
+        ["Excessive Water Pooling / Drainage Overflow", "Water accumulating on enclosure floor, drainage system overflowing", "Misting duration too long (>5 min), dripper running too fast (>1 drop per second), drainage insufficient, catch cup too small", "Reduce misting to 2-3 min standard duration. Adjust dripper valve to 1 drop per 2-3 seconds. Upgrade drainage system (larger catch bucket, substrate tray, or plumbed drain). Empty catch vessels after each misting session"],
+        ["Chameleon Drinking Excessively (15+ Min)", "Seems dehydrated despite proper hydration schedule", "Parasites (Coccidia absorb water in GI tract), kidney disease, diabetes (rare reptiles), improper temps (dehydration from overheating)", "Fecal test for parasites (Coccidia common in WC/CB imports). Vet bloodwork (kidney values). Verify temps: Basking 83-85F NOT exceeding 88F. Monitor urate color - if white despite excessive drinking = investigate illness cause"],
+        ["Low Humidity Despite Misting/Fogging", "Humidity drops to 30-40% daytime even with proper misting, never reaches 80-100% night", "Enclosure too ventilated (full screen in dry climate), room humidity <30%, HVAC drying air, mesh too coarse (large openings)", "Switch to hybrid enclosure (PVC sides, screen front) or cover 25-50% screen with acrylic panels. Add room humidifier (target 45-55% room humidity). Position enclosure away from heating vents. Use fine mesh screen (smaller openings retain moisture better)"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Hydration Checklist"
+    },
+    {
+      "type": "text",
+      "content": "Use this checklist to verify your veiled chameleon hydration setup meets ReptiFiles/Chameleon Academy standards:"
+    },
+    {
+      "type": "list",
+      "items": [
+        " <span class='font-semibold'>Misting schedule:</span> 3x daily at 1:30 AM, 6:00 AM, 9:00 PM (OR minimum 2x daily at 6 AM + 9 PM if automatic system unavailable)",
+        " <span class='font-semibold'>Misting duration:</span> 2-3 minutes per session creating heavy droplet coverage on 75%+ of surfaces",
+        " <span class='font-semibold'>Misting equipment:</span> Automatic system (MistKing preferred) OR manual pump sprayer with phone alarms set",
+        " <span class='font-semibold'>Fogger schedule:</span> Runs 1:30 AM - 6:00 AM (4.5 hours) on timer every single night without exception",
+        " <span class='font-semibold'>Fogger water:</span> Distilled water ONLY (NOT tap water) to prevent mineral dust. Reservoir refilled every 2-3 days",
+        " <span class='font-semibold'>Fogger cleaning:</span> Deep clean with vinegar weekly, disinfect with diluted bleach every 2 weeks. Calendar reminders set",
+        " <span class='font-semibold'>Dripper (optional):</span> If used, runs 3:00-5:00 PM dripping onto plant leaves at 1 drop per 2-3 seconds",
+        " <span class='font-semibold'>Water quality:</span> Tap water dechlorinated (24 hour sit OR conditioner) for misting, distilled for fogger",
+        " <span class='font-semibold'>Drainage system:</span> Adequate capacity for 3-5 gallons daily water from misting+fogging. Catch vessels emptied daily",
+        " <span class='font-semibold'>Urate monitoring:</span> Check color with every fecal deposit (every 2-4 days). White/cream = good, yellow = concern",
+        " <span class='font-semibold'>Eye checks:</span> Weekly examination - eyes should be rounded plump turrets, NOT sunken or flat",
+        " <span class='font-semibold'>No water dish reliance:</span> Water bowl if present is backup only, NOT primary hydration. Misting + fogger mandatory"
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Hydration Success Summary: Mist 3x daily (1:30 AM, 6 AM, 9 PM) for 2-3 minutes - automatic system highly recommended. Fogger 1:30-6 AM (4.5 hours) with distilled water, clean weekly. Dripper optional 3-5 PM. Chameleons lick droplets from foliage (don't use water dishes reliably). Monitor urate color (white/cream good, yellow/orange concern). Clean fogger weekly - contaminated foggers cause respiratory infections. Proper hydration = white urates, plump eyes, smooth skin."
+    }
+  ]
+}

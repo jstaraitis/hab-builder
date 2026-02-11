@@ -33,6 +33,49 @@ function addItemWithDependencies(
 }
 
 /**
+ * Adds ambient heating if room temperature is insufficient
+ */
+export function addAmbientHeating(
+  items: ShoppingItem[],
+  dims: { width: number; depth: number; height: number },
+  profile: AnimalProfile,
+  input: EnclosureInput
+): void {
+  // Skip if not ambient heat source or if basking heat exists (handled by addHeatLamp)
+  if (profile.equipmentNeeds?.heatSource !== 'ambient' || profile.careTargets.temperature.basking) {
+    return;
+  }
+
+  const ambientTemp = input.ambientTemp || 72;
+  const requiredMinTemp = profile.careTargets.temperature.warmSide?.min || 
+                          profile.careTargets.temperature.coolSide?.min || 
+                          70;
+
+  // Only add heating if room temp is below required temperature
+  if (ambientTemp >= requiredMinTemp) {
+    return;
+  }
+
+  const config = getEquipment('heat-lamp');
+  if (!config) return;
+
+  const tempDifference = requiredMinTemp - ambientTemp;
+  const volume = calculateVolume(dims);
+  
+  // CHE wattage calculation (gentle heating for ambient supplementation)
+  const baseWattage = volume * 8; // 8W per cubic foot for CHE
+  const wattage = Math.max(60, Math.min(150, Math.round(baseWattage * (tempDifference / 15))));
+  
+  const sizing = `Room temperature (${ambientTemp}°F) is below required minimum (${requiredMinTemp}°F). Ceramic heat emitter (~${wattage}W) provides gentle supplemental heating without light.`;
+  
+  // Add CHE with automatic dependencies (ceramic dome fixture, thermostat)
+  addItemWithDependencies(items, 'heat-lamp', config, `1 (${wattage}W estimate)`, sizing, profile, input, {
+    importance: 'required',
+    notes: `Required when room temperature drops below ${requiredMinTemp}°F. Use with thermostat to maintain proper temperature range. CHE produces heat without light, ideal for nocturnal species and nighttime heating.`
+  });
+}
+
+/**
  * Adds heat lamp if required by animal profile
  */
 export function addHeatLamp(

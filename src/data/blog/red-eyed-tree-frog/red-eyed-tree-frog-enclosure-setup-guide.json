@@ -3,11 +3,11 @@
   "title": "Red-Eyed Tree Frog Enclosure Setup Guide",
   "species": "red-eyed-tree-frog",
   "category": "enclosure",
-  "description": "Complete guide to setting up a proper paludarium habitat for Red-Eyed Tree Frogs, including size requirements, vertical layout design, water section, and naturalistic décor.",
-  "excerpt": "Complete guide to setting up a proper paludarium habitat for Red-Eyed Tree Frogs, including size requirements, vertical layout design, water section, and naturalistic décor.",
+  "description": "Complete guide to setting up a proper paludarium habitat for Red-Eyed Tree Frogs, including size requirements, vertical layout design, water section, and naturalistic dÂ°cor.",
+  "excerpt": "Complete guide to setting up a proper paludarium habitat for Red-Eyed Tree Frogs, including size requirements, vertical layout design, water section, and naturalistic dÂ°cor.",
   "lastUpdated": "2026-01-28",
   "tags": ["red-eyed-tree-frog", "enclosure", "paludarium", "arboreal", "semi-aquatic"],
-  "status": "in-progress",
+  "status": "community-reviewed",
   "content": [
     {
       "type": "intro",
@@ -24,17 +24,17 @@
     },
     {
       "type": "table",
-      "headers": ["Group Size", "Minimum Dimensions (W×D×H)", "Gallons", "Notes"],
+      "headers": ["Group Size", "Minimum Dimensions (WÂ°DÂ°H)", "Gallons", "Notes"],
       "rows": [
-        ["2-3 frogs", "18×18×24 inches", "~20 gal", "Minimum viable paludarium"],
-        ["3-4 frogs", "18×18×36 inches", "~30 gal", "Recommended for breeding groups"],
-        ["4-5 frogs", "24×18×36 inches", "~40 gal", "Better space for social dynamics"],
-        ["5-8 frogs", "36×18×36 inches", "~60 gal", "Ideal for colony breeding"]
+        ["2-3 frogs", "18Â°18Â°24 inches", "~20 gal", "Minimum viable paludarium"],
+        ["3-4 frogs", "18Â°18Â°36 inches", "~30 gal", "Recommended for breeding groups"],
+        ["4-5 frogs", "24Â°18Â°36 inches", "~40 gal", "Better space for social dynamics"],
+        ["5-8 frogs", "36Â°18Â°36 inches", "~60 gal", "Ideal for colony breeding"]
       ]
     },
     {
       "type": "highlight",
-      "text": "Prioritize HEIGHT over floor space. An 18×18×36? enclosure is better than a 24×24×24? cube for arboreal species."
+      "text": "Prioritize HEIGHT over floor space. An 18Â°18Â°36? enclosure is better than a 24Â°24Â°24? cube for arboreal species."
     },
     {
       "type": "warning",
@@ -94,7 +94,7 @@
     {
       "type": "list",
       "items": [
-        "Diagonal Branches: Position branches at 30-60° angles from bottom to top, creating highways to climb. Use natural hardwood branches (avoid resinous woods) or cork bark tubes.",
+        "Diagonal Branches: Position branches at 30-60Â° angles from bottom to top, creating highways to climb. Use natural hardwood branches (avoid resinous woods) or cork bark tubes.",
         "Vines & Lianas: Add bendable Jungle Vines or Moss Vines to fill gaps and create 3D climbing networks. Twist multiple vines together for structural complexity.",
         "Cork Bark Panels: Attach flat Cork Bark pieces to back and side walls to expand climbable surface area. Also creates hiding spaces behind bark.",
         "Live Plant Vines: Pothos (Epipremnum), Philodendron, and Scindapsus provide natural climbing routes and large leaves for sleeping spots. Train vines to grow across entire enclosure."
@@ -140,7 +140,7 @@
         "Water Depth: 2-3? for juveniles/non-breeding setups, 4-6? for adults planning breeding (females need depth to absorb water into bladder for egg jelly).",
         "Water Volume: Aim for 25-30% of total enclosure volume in water. Larger volume = more stable parameters and less frequent changes.",
         "Circulation: Use a small submersible filter or waterfall pump for gentle circulation. Prevents stagnation and supports beneficial bacteria colonies.",
-        "Temperature: Maintain water at 78-79°F (25-26°C) using preset Turtle Heaters. Slightly cooler than ambient air temp is ideal.",
+        "Temperature: Maintain water at 78-79Â°F (25-26Â°C) using preset Turtle Heaters. Slightly cooler than ambient air temp is ideal.",
         "Treatment: ALWAYS treat tap water with Aquatize to remove chlorine, chloramines, and heavy metals. Add Turtle Clean to boost beneficial organisms.",
         "Access Points: Ensure 2-3 easy entry/exit locations using sloped stones, driftwood ramps, or partially submerged Cork Bark."
       ]
@@ -173,7 +173,7 @@
     },
     {
       "type": "section",
-      "heading": "Additional Décor & Enrichment"
+      "heading": "Additional DÂ°cor & Enrichment"
     },
     {
       "type": "text",
@@ -197,11 +197,11 @@
       "type": "table",
       "headers": ["Equipment", "Purpose", "Notes"],
       "rows": [
-        ["Exo Terra X-Tall Terrarium", "Vertical paludarium enclosure", "18×18×36? minimum for 3-4 frogs"],
+        ["Exo Terra X-Tall Terrarium", "Vertical paludarium enclosure", "18Â°18Â°36? minimum for 3-4 frogs"],
         ["Bio Drain Substrate + Mesh", "False bottom drainage system", "Mandatory for paludarium"],
         ["Sub Stratum + Plantation Soil", "Bioactive planting substrate", "60:40 ratio, 2-3? depth"],
         ["Large Turtle Pebbles", "Aquatic zone substrate", "Too large to swallow"],
-        ["Preset Turtle Heater (78°F)", "Water temperature regulation", "25-50W depending on water volume"],
+        ["Preset Turtle Heater (78Â°F)", "Water temperature regulation", "25-50W depending on water volume"],
         ["Small Submersible Filter/Pump", "Water circulation & filtration", "Low flow rate (under 100 GPH)"],
         ["Hardwood Branches + Cork Bark", "Climbing structure framework", "Boil/bake before use"],
         ["Jungle Vines + Moss Vines", "3D climbing network", "Bendable, waterproof"],
@@ -228,7 +228,7 @@
         "Add Vines & Finishing: Weave Jungle Vines through branches. Add top layer of Forest Moss or leaf litter. Install floating plants in water.",
         "Fill Water Section: Add dechlorinated water to desired depth (2-6?). Add Aquatize and Turtle Clean.",
         "Cycle Setup: Run filtration and heating for 1-2 weeks before adding frogs to establish beneficial bacteria colonies.",
-        "Test Parameters: Use thermometers and hygrometer to verify temperature gradient (75-85°F) and humidity (70-75%) are within range."
+        "Test Parameters: Use thermometers and hygrometer to verify temperature gradient (75-85Â°F) and humidity (70-75%) are within range."
       ]
     },
     {
@@ -286,7 +286,7 @@
       "type": "table",
       "headers": ["Priority Level", "Essential Items", "Can Upgrade Later"],
       "rows": [
-        ["MUST HAVE", "18×18×36? terrarium, Bio Drain system, branches, Pothos plants, spray bottle, thermometer/hygrometer", "Automated misting, waterfalls, expensive live plants"],
+        ["MUST HAVE", "18Â°18Â°36? terrarium, Bio Drain system, branches, Pothos plants, spray bottle, thermometer/hygrometer", "Automated misting, waterfalls, expensive live plants"],
         ["STRONGLY RECOMMENDED", "Turtle heater, small filter, Aquatize, Cork Bark, additional live plants", "High-end filtration, elaborate rockwork"],
         ["NICE TO HAVE", "Monsoon misting system, decorative water features, rare plant species, background texturing", "These add aesthetics/convenience but aren't mandatory for frog health"]
       ]

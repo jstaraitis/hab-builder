@@ -1,244 +1,271 @@
-{
+﻿{
   "id": "leopard-gecko-enclosure-setup-guide",
-  "title": "Leopard Gecko Enclosure Setup Guide: Complete Housing Requirements",
-  "description": "Complete enclosure setup guide for leopard geckos covering dimensions, terrestrial layout design, heating zones, equipment checklist, and naturalistic desert habitat creation.",
-  "excerpt": "Complete enclosure setup guide for leopard geckos covering dimensions, terrestrial layout design, heating zones, equipment checklist, and naturalistic desert habitat creation.",
+  "title": "Leopard Gecko Enclosure Setup: Complete Housing Guide",
+  "description": "Complete guide to setting up a leopard gecko enclosure including tank sizing, equipment requirements, and step-by-step assembly instructions.",
+  "excerpt": "Complete guide to setting up a leopard gecko enclosure including tank sizing, equipment requirements, and step-by-step assembly instructions.",
   "author": "Habitat Builder",
-  "publishDate": "2026-01-26",
-  "category": "Care Guides",
-  "tags": ["leopard-gecko", "enclosure", "housing", "terrestrial", "terrarium"],
-  "image": "/animals/leopard-gecko/leopard-gecko-enclosure.jpg",
-  "status": "in-progress",
+  "publishDate": "2026-02-11",
+  "category": "Housing",
+  "tags": ["leopard-gecko", "enclosure setup", "housing", "equipment"],
+  "image": "/animals/leopard-gecko/leopard-gecko-2.jpg",
+  "status": "community-reviewed",
+  "relatedGuides": ["leopard-gecko-substrate-guide", "leopard-gecko-temperature-humidity-guide", "leopard-gecko-lighting-guide"],
   "content": [
     {
       "type": "intro",
-      "title": "Essential Housing for Leopard Geckos",
-      "content": "Leopard geckos are terrestrial (ground-dwelling) lizards from the arid grasslands and semi-deserts of South Asia. Unlike arboreal species, they need enclosures that prioritize floor space over height, with multiple temperature zones, hiding spots, and climbing opportunities among rocks. This guide covers everything you need to know about setting up the perfect leopard gecko enclosure."
+      "title": "Setting Up Your Leopard Gecko Enclosure",
+      "content": "A proper leopard gecko enclosure provides space for thermoregulation, exercise, and natural behaviors. This guide covers minimum requirements, equipment specifications, and step-by-step setup for a thriving habitat."
     },
     {
       "type": "section",
-      "title": "Enclosure Dimensions"
+      "title": "Enclosure Size Requirements"
     },
     {
       "type": "text",
-      "content": "Leopard geckos are terrestrial and need horizontal space to roam, hunt, and thermoregulate. While they're skilled climbers in rocky terrain, enclosures should be wider than tall."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Minimum Enclosure Sizes:</span>"
+      "content": "Leopard geckos are terrestrial lizards requiring horizontal space over vertical height. Proper sizing is critical for establishing temperature gradients and providing adequate exercise opportunities."
     },
     {
       "type": "table",
-      "headers": ["Number of Geckos", "Minimum Dimensions", "Floor Area", "Rationale"],
+      "headers": ["Size Category", "Dimensions", "Suitable For", "Notes"],
       "rows": [
-        ["1 gecko (recommended)", "36\"L x 18\"W x 18\"H", "648 sq in (4.5 sq ft)", "Adequate floor space for thermal gradient and multiple hides"],
-        ["2-3 females (advanced only)", "48\"L x 24\"W x 18\"H", "1,152 sq in (8 sq ft)", "Reduces competition, provides space for multiple basking/hiding areas"],
-        ["Hatchling grow-out (temporary)", "20\"L x 10\"W x 12\"H", "200 sq in", "Easier to monitor feeding, transition to adult size at 6-12 months"]
+        ["Minimum Adult", "36\"x18\"x18\"", "Single adult leopard gecko", "Allows proper temp gradient (cool 70-77F to basking 94-97F)"],
+        ["Preferred Adult", "48\"x24\"x18\" or larger", "Single adult with more exercise space", "Better for enrichment, easier temperature management"],
+        ["Juvenile (Temporary)", "20 gallon long (30\"x12\"x12\")", "Geckos under 6 months only", "MUST upgrade to 36\"x18\" by 8-10 months"],
+        ["NOT Recommended", "Tall/vertical enclosures", "Any leopard gecko", "Leopard geckos are terrestrial - prioritize floor space over height"]
       ]
     },
     {
       "type": "warning",
-      "severity": "important",
-      "content": "Never house leopard geckos in enclosures smaller than 36x18x18. Common '20-gallon long' tanks (30x12x12) are too narrow to establish proper temperature gradients. Height is less critical - 18\" is sufficient, though 24\" allows for rock stacks."
-    },
-    {
-      "type": "section",
-      "title": "Enclosure Material Comparison"
+      "severity": "critical",
+      "content": "Undersized Enclosure Risk: Tanks smaller than 36\"x18\" do not provide adequate space for both a proper temperature gradient AND exercise. Cool and warm zones overlap in small enclosures, preventing thermoregulation."
     },
     {
       "type": "text",
-      "content": "Different enclosure materials offer advantages for desert species. Leopard geckos need good ventilation and the ability to maintain a hot basking zone without overheating the entire enclosure."
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Enclosure Material Options:</span>"
     },
     {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Material Options:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Material", "Heat Retention", "Ventilation", "Best For"],
-      "rows": [
-        ["Glass Terrarium (front-opening)", "Good (maintains basking heat)", "Excellent with screen top", "Beginners, easy viewing, widely available"],
-        ["PVC/Plastic Panel", "Excellent (holds heat well)", "Adjustable vents", "Advanced keepers, colder climates, better insulation"],
-        ["Wood/Melamine (sealed)", "Excellent (best insulation)", "Requires added vents", "Custom builds, bioactive setups, visual appeal"],
-        ["Screen/Mesh Enclosure", "Poor (heat escapes)", "Excessive (too dry)", "Not recommended - can't maintain humidity for humid hide"]
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Glass Aquariums:</span> Most common and affordable. Front-opening styles reduce stress during maintenance. Ensure secure mesh lid with clips",
+        "<span class='font-semibold'>PVC Enclosures:</span> Excellent heat/humidity retention, lightweight, no condensation issues. More expensive but highly durable",
+        "<span class='font-semibold'>Wood with Sealed Interior:</span> DIY option if properly sealed with water-safe coating. Must have ventilation panels",
+        "<span class='font-semibold'>Avoid:</span> Plastic tubs (inadequate ventilation unless heavily modified), screen cages (cannot maintain heat/humidity), rack systems for display animals"
       ]
     },
     {
       "type": "highlight",
-      "content": "Front-opening glass terrariums are ideal for beginners. Top-opening tanks can be used but stress terrestrial species that perceive threats from above. Avoid screen enclosures entirely - insufficient heat retention."
+      "content": "Setup Recommendation: 36\"x18\"x18\" front-opening glass terrarium is the ideal entry-level enclosure. Front access reduces stress compared to top-opening tanks where you appear as a predator."
     },
     {
       "type": "section",
-      "title": "Hide Requirements"
+      "title": "Essential Equipment List"
     },
     {
       "type": "text",
-      "content": "Leopard geckos are secretive and require multiple hides at different temperature zones. Three hides minimum: warm, cool, and humid."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Essential Hide Setup:</span>"
+      "content": "This equipment list covers all requirements for proper temperature, lighting, humidity, and enrichment."
     },
     {
       "type": "table",
-      "headers": ["Hide Type", "Placement", "Specifications", "Purpose"],
+      "headers": ["Equipment", "Specification", "Purpose", "Typical Cost"],
       "rows": [
-        ["Warm Hide", "Directly under heat lamp", "Enclosed, single entrance, fits gecko snugly", "Secure warm retreat, sleep spot, digestion"],
-        ["Cool Hide", "Cool end, opposite basking", "Enclosed, single entrance", "Cool retreat, temperature regulation escape"],
-        ["Humid Hide", "Cool end near water dish", "Enclosed with moist substrate inside", "Shedding assistance, hydration, 70-80% humidity inside"],
-        ["Additional Hides (optional)", "Mid-zone or secondary cool spot", "Rock caves, half-logs, cork bark", "Security, enrichment, reduce stress"]
+        ["Enclosure", "36\"x18\"x18\" glass or PVC", "Primary housing", "$150-300"],
+        ["Screen Lid + Clips", "Metal mesh with secure clips", "Ventilation and security", "$30-50 (if not included)"],
+        ["Halogen Heat Bulb", "75w (adjust by room temp)", "Basking heat and ambient warmth", "$10-15"],
+        ["Lamp Dome Fixture", "Ceramic socket rated for bulb wattage", "Holds heat bulb", "$15-25"],
+        ["Dimming Thermostat", "Herpstat, VE, Spyder Robotics", "Regulates heat bulb temp", "$100-180"],
+        ["Infrared Temp Gun", "Non-contact digital thermometer", "Measures surface temps", "$15-30"],
+        ["UVB Light Fixture", "Zoo Med T5 HO 5.0 (24\" for 36\" tank) OR Arcadia ShadeDweller", "UVB provision for D3 synthesis", "$60-90 (fixture + bulb)"],
+        ["Solarmeter 6.5 (Optional)", "UV Index measuring device", "Verifies UVI levels (1.0-2.0)", "$200+ (optional but recommended)"],
+        ["Timer", "Digital outlet timer", "Automates 12hr photoperiod", "$10-20"],
+        ["Humid Hide", "Enclosed hide with sphagnum moss", "Shedding support (70-80% humidity)", "$15-25"],
+        ["Warm End Hide", "Cork bark, half-log, or cave", "Secure hide at 90-92F", "$15-30"],
+        ["Cool End Hide", "Cork bark, half-log, or cave", "Secure hide at 70-77F", "$15-30"],
+        ["Climbing Décor", "Cork rounds, rock stacks, branches", "Exercise and enrichment", "$30-60"],
+        ["Substrate", "DIY mix (topsoil+sand+clay) OR Lugarti Natural", "Natural digging substrate", "$20-40"],
+        ["Hygrometer", "Digital with probe", "Monitors ambient humidity", "$10-15"],
+        ["Water Dish", "Shallow ceramic or glass", "Fresh water access", "$8-15"],
+        ["Feeding Dish", "Shallow ceramic", "Contains feeder insects", "$8-12"],
+        ["Supplement", "Repashy Calcium Plus LoD OR Arcadia EarthPro-A", "All-in-one supplement powder", "$15-25"]
       ]
     },
     {
       "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Humid Hide Construction:</span>"
+      "content": "<span class='font-semibold'>Estimated Total Initial Cost:</span> $500-850 for complete quality setup. Budget setups may reduce cost to $350-400 but compromise longevity and sometimes welfare."
     },
     {
-      "type": "table",
-      "headers": ["Component", "Material Options", "Notes"],
-      "rows": [
-        ["Container", "Plastic hide box, tupperware with entrance cut", "Opaque, enclosed, single opening"],
-        ["Substrate Inside", "Damp sphagnum moss, paper towels, coco fiber", "Keep moist (not soaking wet)"],
-        ["Moisture Maintenance", "Spray with water every 2-3 days", "Should feel damp to touch, not dripping"],
-        ["Placement", "Cool end of enclosure", "Prevents humid hide from drying out too quickly"]
+      "type": "section",
+      "title": "Step-by-Step Setup Instructions"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 1: Prepare Enclosure Location</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Choose a location away from windows (temperature fluctuations), loud speakers, and high-traffic areas",
+        "Use sturdy furniture that can support 100+ lbs (tank + substrate + equipment weight)",
+        "Ensure access to power outlets for heat lamp, UVB, and timer",
+        "Position at waist height or slightly below for easy maintenance and observation",
+        "Confirm location has stable room temperature (68-75F ambient year-round)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 2: Install Substrate</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Clean enclosure with reptile-safe disinfectant and rinse thoroughly with water, allow to dry completely",
+        "Add 2-4 inches of substrate (deeper in areas where gecko can dig, shallower near hides)",
+        "DIY Mix Recipe: 40% organic topsoil (no additives) + 40% washed play sand + 20% Excavator Clay by weight",
+        "Commercial Alternative: Lugarti Natural Reptile Bedding, Zoo Med ReptiSand (with caution), or Terra Sahara",
+        "Moisten substrate slightly (should clump when squeezed but not drip water) for easier shaping",
+        "Create slight slope from warm end (higher) to cool end (lower) - aids in temperature gradient"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 3: Position Hides and Décor</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Warm End (under basking light):</span> Place warm hide where gecko can reach 90-92F inside. Cork bark or half-log works well",
+        "<span class='font-semibold'>Middle (humid hide):</span> Position humid hide in center or slightly toward cool end. Fill with moist sphagnum moss",
+        "<span class='font-semibold'>Cool End:</span> Place cool hide at opposite end from heat source (70-77F ambient)",
+        "<span class='font-semibold'>Climbing Structures:</span> Add rock stacks (ensure stability - glue with aquarium-safe silicone if needed), cork rounds leaned at angles, or low branches",
+        "<span class='font-semibold'>Background Elements:</span> Consider textured background or back wall ledges for added climbing surfaces",
+        "<span class='font-semibold'>Spacing:</span> Ensure gecko can move between all hides without excessive open space (creates stress)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 4: Install Heating Equipment</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Mount lamp dome fixture on screen lid centered over warm hide (or use stand if fixture has clamp)",
+        "Install 75w halogen bulb in fixture (adjust wattage based on room temp - cooler rooms may need 100w)",
+        "Connect heat lamp to dimming thermostat probe positioned at basking spot height",
+        "Set thermostat to achieve 94-97F surface temperature at basking stone/substrate",
+        "Allow 30-60 minutes to stabilize, then verify temps with infrared temp gun (NOT stick-on thermometers)",
+        "NEVER use heat rocks, heat cables, or unregulated under-tank heaters (burn risk)"
       ]
     },
     {
       "type": "warning",
-      "severity": "important",
-      "content": "A humid hide is NOT optional - it's required equipment for leopard geckos. Without 70-80% humidity access, they experience stuck shed (especially on toes, leading to toe loss), dehydration, and eye problems."
-    },
-    {
-      "type": "section",
-      "title": "Substrate Selection"
+      "severity": "critical",
+      "content": "Temperature Gun Requirement: Stick-on thermometers measure air temperature, NOT surface temperature where gecko touches. You MUST use infrared temp gun to verify basking surface is 94-97F and warm hide interior is 90-92F."
     },
     {
       "type": "text",
-      "content": "Leopard geckos do best on naturalistic arid substrates that allow for digging, retain some moisture (for humid hide support), and mimic their native semi-desert habitat."
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 5: Install UVB Lighting</span>"
     },
     {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Substrate Options (2-4\" depth):</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Substrate Type", "Suitability", "Best For"],
-      "rows": [
-        ["DIY Arid Mix (40% topsoil + 40% sand + 20% excavator clay)", "Excellent", "Budget-friendly, mimics natural habitat, allows digging"],
-        ["Lugarti Natural Reptile Bedding", "Excellent", "Pre-mixed arid substrate, consistent quality"],
-        ["Zoo Med ReptiSand", "Good", "Fine sand, good for digging, needs moisture management"],
-        ["Exo Terra Desert Sand", "Good", "Red sand, naturalistic appearance"],
-        ["The Bio Dude Terra Sahara", "Excellent", "Premium bioactive substrate with beneficial microbes"],
-        ["Tile/Slate (flat stones)", "Fair", "Easy to clean, heat-absorbing, but no digging/enrichment"],
-        ["Paper towels (temporary)", "Poor", "Quarantine/medical use only - no enrichment value"]
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "important",
-      "content": "Avoid calcium sand (causes impaction), pure fine sand without binder (collapses burrows), reptile carpet (toe snags), and wood shavings (aromatic oils toxic). With proper heat, hydration, and UVB, naturalistic substrates are safe."
-    },
-    {
-      "type": "section",
-      "title": "Decor & Climbing Structures"
-    },
-    {
-      "type": "text",
-      "content": "Leopard geckos are skilled rock climbers in the wild. Provide stacked stones, branches, and ledges to encourage natural behaviors and exercise."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Enrichment Items:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Item Type", "Quantity for 36x18x18", "Placement Strategy"],
-      "rows": [
-        ["Flat basking rocks", "2-3 pieces slate/flagstone", "Under heat lamp, stacked for climbing access"],
-        ["Rock caves/stacks", "1-2 formations", "Mid to warm zone, create hide openings and ledges"],
-        ["Cork bark (flat or round)", "2-3 pieces", "Horizontal ground hides, vertical for climbing"],
-        ["Driftwood/mopani branches", "1-2 pieces", "Diagonal placement, climbing enrichment"],
-        ["Live succulents (optional)", "2-4 small plants", "Aloe, haworthia, echeveria - arid tolerant, low water"],
-        ["Background (optional)", "3D foam rock background or slate", "Visual security, climbing surface, naturalistic"]
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Over Mesh Option:</span> Zoo Med T5 HO 5.0 (24\" fixture for 36\" tank) mounted on screen lid. Position over warm/basking area",
+        "<span class='font-semibold'>Under Mesh Option:</span> Arcadia ShadeDweller mounted inside enclosure. Requires specific distance from basking spot (check manufacturer specs)",
+        "Ensure UVB overlaps with basking area so gecko receives heat + UVB simultaneously",
+        "Position 10-12 inches from basking surface for T5 HO 5.0 (distance affects UVI output)",
+        "For albino/leucistic/less-pigmented morphs: increase distance to 14-16 inches OR use ShadeDweller to achieve UVI 0.5-0.7 (standard morphs need 1.0-2.0)",
+        "Connect UVB to timer set for 12 hours on, 12 hours off (matches photoperiod)"
       ]
     },
     {
       "type": "highlight",
-      "content": "Leopard geckos love to climb - provide ledges and rock stacks up to 8-12\" high. Ensure stacks are stable (use aquarium-safe silicone to bond rocks if needed) to prevent collapse injuries."
-    },
-    {
-      "type": "section",
-      "title": "Setup Timeline"
+      "content": "UVB Verification: If possible, use Solarmeter 6.5 to measure UVI at basking spot. Target: 1.0-2.0 for standard morphs, 0.5-0.7 for albinos. Without meter, follow manufacturer distance guidelines precisely."
     },
     {
       "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Day-by-Day Setup Process:</span>"
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 6: Add Water and Finishing Touches</span>"
     },
     {
-      "type": "table",
-      "headers": ["Day", "Task", "Details"],
-      "rows": [
-        ["Day 1", "Equipment assembly", "Install lights, heat lamp, thermometers. Test all equipment without gecko."],
-        ["Day 2", "Substrate & hardscape", "Add 2-4\" substrate, position rocks/cork bark, create stable formations."],
-        ["Day 3", "Hide placement", "Install warm hide under basking, cool hide on opposite end, humid hide near water dish."],
-        ["Day 4-5", "Temperature testing", "Run setup for 48 hours. Verify basking surface 94-97F, cool end 70-77F."],
-        ["Day 6", "Final decor & plants", "Add climbing branches, background plants, food/water dishes."],
-        ["Day 7", "Introduce gecko", "Place gecko in cool end during evening. Monitor for 48 hours, minimal handling."]
+      "type": "list",
+      "items": [
+        "Place shallow water dish (1-2 inches tall) in cool end - should be heavy enough not to tip (ceramic works well)",
+        "Fill with dechlorinated water (tap water with conditioner OR let sit 24hrs to off-gas chlorine)",
+        "Position feeding dish near warm hide (insects are more active at warmer temps)",
+        "Install digital hygrometer probe in middle of enclosure at substrate level (check ambient humidity stays 30-40%)",
+        "Double-check all décor is stable (rock stacks especially - can cause injury if collapse)",
+        "Confirm screen lid fits securely and has clips (leopard geckos can push lids off)"
       ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 7: Final Equipment Check</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "ALL equipment running for 24-48 hours BEFORE gecko introduction",
+        "Verify basking surface: 94-97F (infrared temp gun measurement)",
+        "Verify warm hide interior: 90-92F",
+        "Verify cool end ambient: 70-77F",
+        "Verify ambient humidity: 30-40% (digital hygrometer)",
+        "Verify humid hide interior: 70-80% humidity (sphagnum moss should be damp but not dripping)",
+        "Confirm UVB timer activates/deactivates on 12hr schedule",
+        "Confirm heat lamp thermostat maintains consistent basking temp (check multiple times over 24hrs)",
+        "Check for escape gaps at lid edges, cord holes, or ventilation panels"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Cycling Period Critical: Run enclosure empty for 24-48 hours and verify all temperatures/humidity are stable BEFORE introducing gecko. Temperature fluctuations in first few days can indicate thermostat calibration issues."
     },
     {
       "type": "section",
       "title": "Common Setup Mistakes"
     },
     {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Mistakes to Avoid:</span>"
-    },
-    {
       "type": "table",
-      "headers": ["Mistake", "Problem", "Solution"],
+      "headers": ["Mistake", "Why It's a Problem", "Correct Approach"],
       "rows": [
-        ["Using 20-gallon long tank (30x12x12)", "Too narrow for proper thermal gradient", "Use minimum 36x18x18 - width is critical for temperature zones"],
-        ["No humid hide provided", "Stuck shed, toe loss, dehydration, eye caps stuck", "Humid hide with 70-80% humidity is mandatory equipment"],
-        ["Only 1-2 hides total", "Gecko forced to choose between temperature and security", "Minimum 3 hides: warm, cool, humid (plus additional optional)"],
-        ["Heat mat as sole heat source", "No overhead basking, unnatural heat source", "Heat lamp is primary - mat only supplemental if needed"],
-        ["Basking temp too low (<90F)", "Poor digestion, lethargy, won't eat", "Use 75-100w halogen to achieve 94-97F surface temp"],
-        ["No temperature gradient (hot everywhere)", "Can't thermoregulate, stress, overheating", "Heat lamp on one end only - cool end should be 70-77F"],
-        ["Sparse decor (empty tank)", "Stress, hiding constantly, reduced activity", "Add rock stacks, branches, ledges - aim for 50% floor coverage"]
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "important",
-      "content": "Cohabitation is for advanced keepers only and is highly not recommended. Keep one leopard gecko per enclosure to avoid stress, injury, and competition."
-    },
-    {
-      "type": "section",
-      "title": "Bioactive Setup (Advanced)"
-    },
-    {
-      "type": "text",
-      "content": "Bioactive enclosures use live plants and cleanup crew (CUC) to create a self-sustaining desert ecosystem. Advanced option requiring specific setup."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Bioactive Components:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Component", "Specifications", "Purpose"],
-      "rows": [
-        ["Drainage Layer", "1-2\" hydro balls or LECA", "Prevents substrate waterlogging in humid hide area"],
-        ["Substrate Barrier", "Mesh or landscape fabric", "Separates drainage from substrate"],
-        ["Arid Substrate", "3-4\" Terra Sahara or DIY mix", "CUC habitat, moisture buffering"],
-        ["Live Plants", "Aloe, haworthia, snake plant, jade", "Oxygen, humidity regulation, naturalistic"],
-        ["Cleanup Crew", "Desert isopods (Venezillo parvus), superworms", "Consume feces, break down waste"],
-        ["LED Grow Light", "6500K full-spectrum", "Supports plant growth in low-UVB environment"]
+        ["Using heat rocks/mats as primary heat", "Causes thermal burns on belly; doesn't warm body core", "Use overhead halogen bulb for heat (mimics sun, heats air + surfaces)"],
+        ["Relying on stick-on thermometers", "Measures air temp, not surface temp where gecko touches", "Use infrared temp gun to measure surface temps"],
+        ["Skipping UVB lighting", "Leads to Metabolic Bone Disease and weakened immune system", "Provide Zoo Med T5 HO 5.0 or Arcadia ShadeDweller"],
+        ["Only 1-2 hides provided", "Gecko forced to choose between security and thermoregulation", "Minimum 3 hides: warm, cool, and humid"],
+        ["No thermostat on heat lamp", "Overheating risk, temperature swings", "Always use dimming thermostat with probe at basking spot"],
+        ["Tall vertical enclosure", "Doesn't provide horizontal exercise space; difficult to establish temp gradient", "Use 36\"x18\"x18\" or larger with horizontal emphasis"],
+        ["Introducing gecko immediately", "If temps are incorrect, gecko cannot thermoregulate properly", "Cycle enclosure empty for 24-48hrs to verify stability"],
+        ["Overcrowding with décor", "Reduces usable floor space and creates stress from open gaps", "Balance enrichment with adequate floor space for movement"]
       ]
     },
     {
       "type": "highlight",
-      "content": "Bioactive leopard gecko setups are challenging due to low humidity requirements. Focus CUC activity near humid hide where moisture is higher. Allow 4-6 weeks for ecosystem to establish before adding gecko."
+      "content": "Quality Over Budget: Investing in proper heating (thermostat + halogen bulb), appropriate UVB, and correct enclosure size from the start prevents costly vet bills and re-purchasing equipment. Budget options often fail within months."
+    },
+    {
+      "type": "section",
+      "title": "Cohabitation Considerations"
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "Cohabitation NOT Recommended: Leopard geckos are solitary animals. While experienced keepers sometimes house females together, this is NOT recommended for beginners. Males will fight to the death. Even females can experience stress, resource guarding, and injuries from cohabitation."
+    },
+    {
+      "type": "text",
+      "content": "If you choose to cohabit despite risks (experienced keepers only), you MUST:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Use 48\"x24\" minimum for 2 females (add 12\" length per additional gecko)",
+        "Provide duplicate resources: 2 warm hides, 2 cool hides, 2 humid hides, 2 water dishes, 2 feeding stations",
+        "Never house males together or male with female(s) outside breeding season",
+        "Monitor daily for aggression: tail nips, missing toes, weight loss, one gecko monopolizing resources",
+        "Have separate quarantine enclosures ready to separate geckos at first sign of conflict",
+        "Expect increased feeding costs, supplement costs, and maintenance time"
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<span class='font-semibold'>Reality Check:</span> Most cohabitation attempts eventually require separation due to aggression, stress, or injuries. Single housing is strongly recommended for welfare and simplicity."
     }
   ]
 }

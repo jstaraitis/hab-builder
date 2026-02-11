@@ -2,7 +2,11 @@
   "id": "veiled-chameleon",
   "commonName": "Veiled Chameleon",
   "scientificName": "Chamaeleo calyptratus",
-  "searchQuery": ["veiled chameleon", "yemen chameleon", "chamaeleo calyptratus"],
+  "searchQuery": [
+    "veiled chameleon",
+    "yemen chameleon",
+    "chamaeleo calyptratus"
+  ],
   "careLevel": "advanced",
   "emoji": "🦎",
   "imageUrl": "/animals/veiled-chameleon/veiled-chameleon-1.jpg",
@@ -69,19 +73,31 @@
     "preferVertical": true,
     "verticalSpacePercent": 80,
     "thermalGradient": "vertical",
-    "requiredZones": ["basking-top", "climbing", "live-plants", "misting"],
-    "optionalZones": ["additional-branches"]
+    "requiredZones": [
+      "basking-top",
+      "climbing",
+      "live-plants",
+      "misting"
+    ],
+    "optionalZones": [
+      "additional-branches"
+    ]
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
     "climbing": "vertical",
-    "substrate": ["bioactive", "soil"],
+    "substrate": [
+      "bioactive",
+      "soil"
+    ],
     "bioactiveSubstrate": "tropical",
     "humidity": "high",
     "heatSource": "basking",
     "waterFeature": "none",
     "lighting": "uvb-desert",
-    "diet": ["insectivore"],
+    "diet": [
+      "insectivore"
+    ],
     "animalType": "reptile",
     "climate": "tropical",
     "activity": "arboreal"
@@ -95,7 +111,15 @@
   "setupTips": [],
   "notes": [],
   "warnings": [],
-  "relatedBlogs": [],
+  "relatedBlogs": [
+    "veiled-chameleon-enrichment-welfare-guide",
+    "veiled-chameleon-enclosure-setup-guide",
+    "veiled-chameleon-substrate-guide",
+    "veiled-chameleon-feeding-guide",
+    "veiled-chameleon-temperature-humidity-guide",
+    "veiled-chameleon-lighting-guide",
+    "veiled-chameleon-hydration-guide"
+  ],
   "lifestyle": {
     "lifespan": "short",
     "handling": "none",

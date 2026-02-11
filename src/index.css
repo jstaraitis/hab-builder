@@ -27,6 +27,25 @@
   .animate-slide-up {
     animation: slide-up 0.3s ease-out;
   }
+
+  /* Print mode styles */
+  .print-mode {
+    background: white !important;
+  }
+  .print-mode * {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+  .print-mode .fixed,
+  .print-mode button:not(.print-mode article button) {
+    display: none !important;
+  }
+
+  /* Blog content heading styles */
+  .text-base.font-semibold,
+  p > span.font-semibold:only-child {
+    @apply text-gray-900 dark:text-white block mb-2;
+  }
 }
 
 :root {

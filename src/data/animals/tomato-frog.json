@@ -2,11 +2,16 @@
   "id": "tomato-frog",
   "commonName": "Tomato Frog",
   "scientificName": "Dyscophus antongilii",
-  "searchQuery": ["tomato frog", "dyscophus antongilii", "red tomato frog", "madagascar tomato frog"],
+  "searchQuery": [
+    "tomato frog",
+    "dyscophus antongilii",
+    "red tomato frog",
+    "madagascar tomato frog"
+  ],
   "careLevel": "beginner",
   "emoji": "🐸",
   "imageUrl": "/animals/tomato-frog/tomato-frog-1.jpg",
-  "completionStatus": "draft",
+  "completionStatus": "validated",
   "gallery": [],
   "minEnclosureSize": {
     "width": 18,
@@ -66,23 +71,38 @@
     "preferVertical": false,
     "verticalSpacePercent": 10,
     "thermalGradient": "horizontal",
-    "requiredZones": ["burrow", "water-bowl", "hide"],
-    "optionalZones": ["plants"]
+    "requiredZones": [
+      "burrow",
+      "water-bowl",
+      "hide"
+    ],
+    "optionalZones": [
+      "plants"
+    ]
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
-    "climbing": "ground",
-    "substrate": ["bioactive", "soil"],
-    "bioactiveSubstrate": "tropical",
-    "humidity": "high",
-    "heatSource": "ambient",
-    "waterFeature": "shallow-dish",
-    "lighting": "none",
-    "diet": ["insectivore"],
-    "animalType": "amphibian",
-    "climate": "tropical",
-    "activity": "terrestrial"
-  },
+  "heatSource": "ambient",
+  "humidity": "high",
+  "lighting": "uvb-forest",
+  "substrate": [
+    "bioactive",
+    "soil"
+  ],
+  "diet": [
+    "insectivore"
+  ],
+  "waterFeature": "large-bowl",
+  "decor": [
+    "hides",
+    "plants"
+  ],
+  "climbing": "ground",
+  "activity": "terrestrial",
+  "climate": "tropical",
+  "animalType": "amphibian",
+  "bioactiveSubstrate": "tropical"
+},
   "lifespan": "6-8 years in captivity",
   "dietType": "Insectivore",
   "adultSize": "3-4 inches (females), 2-2.5 inches (males)",
@@ -92,7 +112,15 @@
   "setupTips": [],
   "notes": [],
   "warnings": [],
-  "relatedBlogs": [],
+  "relatedBlogs": [
+    "tomato-frog-enrichment-welfare-guide",
+    "tomato-frog-enclosure-setup-guide",
+    "tomato-frog-substrate-guide",
+    "tomato-frog-feeding-guide",
+    "tomato-frog-temperature-humidity-guide",
+    "tomato-frog-lighting-guide",
+    "tomato-frog-hydration-guide"
+  ],
   "lifestyle": {
     "lifespan": "short",
     "handling": "minimal",

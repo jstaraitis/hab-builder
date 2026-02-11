@@ -1,0 +1,166 @@
+{
+  "id": "uromastyx-enclosure-setup-guide",
+  "title": "Uromastyx Enclosure Setup: Size, Layout and Equipment Guide",
+  "description": "Complete guide to setting up a Uromastyx enclosure including minimum size rules, layout planning, and essential equipment.",
+  "excerpt": "Complete guide to setting up a Uromastyx enclosure including minimum size rules, layout planning, and essential equipment.",
+  "author": "Habitat Builder",
+  "date": "2026-02-11",
+  "publishDate": "2026-02-11",
+  "category": "Care Guides",
+  "tags": ["uromastyx", "enclosure", "setup", "habitat"],
+  "image": "/animals/uromastyx/uromastyx-1.jpg",
+  "status": "community-reviewed",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Essential Enclosure Requirements for Uromastyx",
+      "content": "Uromastyx are desert lizards that need intense heat, bright light, and room to move on the ground. A wide, front-opening enclosure with strong ventilation and a large basking platform is the foundation for long-term health."
+    },
+    {
+      "type": "section",
+      "title": "Minimum Enclosure Dimensions"
+    },
+    {
+      "type": "text",
+      "content": "Size needs scale with adult length. Plan larger than minimum whenever possible, especially for larger species like U. aegyptia."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Size Requirements by Adult Length:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Adult Length", "Minimum Dimensions (LxWxH)", "Floor Space", "Notes"],
+      "rows": [
+        ["Up to 18 in", "48x24x24 in", "8 sq ft", "Good baseline for most common species"],
+        ["18-24 in", "72x24x24 in", "12 sq ft", "Provide a longer thermal gradient"],
+        ["24-30 in", "96x48x48 in", "32 sq ft", "Large species require much more space"],
+        ["Oversized adults", "96x48x48 in or larger", "32+ sq ft", "Plan custom builds for giant species"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Minimums are for a single lizard. Housing pairs requires at least double the space and careful monitoring for aggression."
+    },
+    {
+      "type": "section",
+      "title": "Enclosure Type Selection"
+    },
+    {
+      "type": "text",
+      "content": "Choose an enclosure that holds heat on the basking side while allowing strong airflow. Front-opening designs reduce stress during maintenance and feeding."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Material Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Material", "Temperature Control", "Humidity Management", "Best Application"],
+      "rows": [
+        ["PVC (vented)", "Excellent", "Dry and stable", "Best for heat retention with adjustable vents"],
+        ["Glass (front-opening)", "Good", "Moderate", "Works well with strong overhead heat"],
+        ["Screen/mesh", "Poor", "Too dry and loses heat", "Only for very hot rooms or as a top panel"],
+        ["Wood (sealed)", "Good", "Dry and stable", "Custom builds with protected surfaces"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Recommended: Front-opening PVC or glass enclosure with a vented or mesh top section to provide airflow and reduce humidity buildup."
+    },
+    {
+      "type": "section",
+      "title": "Internal Layout Design"
+    },
+    {
+      "type": "text",
+      "content": "Uromastyx are terrestrial and need a clear horizontal gradient from hot to cool. Build a basking platform with multiple levels and crevices for security."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Zone Layout Template (48x24x24 enclosure):</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Zone", "Location", "Temperature", "Features"],
+      "rows": [
+        ["Basking zone", "Warm end, under heat and UVB", "120-130 deg F surface", "Stacked rock or retes-style platform"],
+        ["Warm mid zone", "Middle third", "95-105 deg F", "Open space and low hides"],
+        ["Cool zone", "Opposite end", "82-88 deg F", "Primary hide and water dish"],
+        ["Humid burrow", "Cool end under substrate", "Localized humidity", "Slightly damp lower substrate"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "Keep the basking platform 10-12 inches below the heat lamps for reliable surface temperatures. Adjust height rather than switching bulbs constantly."
+    },
+    {
+      "type": "section",
+      "title": "Essential Equipment Checklist"
+    },
+    {
+      "type": "text",
+      "content": "High heat, strong UVB, and accurate measurement tools are non-negotiable for Uromastyx."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Required Equipment:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Category", "Items", "Purpose"],
+      "rows": [
+        ["Heating", "Halogen flood bulbs with dimmer", "Create 120-130 deg F basking surface"],
+        ["UVB", "T5 HO 12-14% linear fixture", "UVI 4.5-6 at basking"],
+        ["Visible light", "Bright 6500K LED bar", "Activity and appetite support"],
+        ["Substrate", "Packed sand or sandy soil", "Digging and burrow structure"],
+        ["Monitoring", "IR temp gun, probe thermometer, hygrometer", "Verify surface and ambient ranges"],
+        ["Automation", "Timers and dimmers", "Consistent photoperiod and heat"],
+        ["Hides and decor", "Stone, cork, or sealed wood", "Security and enrichment"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Safety note: Always use a dimmer or thermostat on heat lamps and verify basking surface temps with an infrared thermometer."
+    },
+    {
+      "type": "section",
+      "title": "Common Setup Errors"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Frequent Mistakes and Solutions:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Error", "Consequence", "Correction"],
+      "rows": [
+        ["Basking surface below 120 deg F", "Poor digestion and appetite", "Raise platform or increase heat output"],
+        ["Over-humid enclosure", "Respiratory issues", "Increase ventilation and keep surface substrate dry"],
+        ["UVB too weak or too short", "Metabolic bone disease risk", "Use high-output T5 HO spanning half the enclosure"],
+        ["Sparse decor", "Stress and hiding", "Add secure crevices and a cool hide"],
+        ["Shallow substrate", "No burrowing", "Provide 4+ inches of packed sand or soil"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Setup Timeline and Testing"
+    },
+    {
+      "type": "text",
+      "content": "Run all equipment for several days before introducing the lizard to confirm stable temperatures and lighting coverage."
+    },
+    {
+      "type": "table",
+      "headers": ["Day", "Task", "Success Criteria"],
+      "rows": [
+        ["1-2", "Install equipment and decor", "Basking platform is secure and stable"],
+        ["3-4", "Measure temps at multiple heights", "Surface 120-130 deg F, cool side 82-88 deg F"],
+        ["5-6", "Verify UVB coverage and brightness", "UVI 4.5-6 at basking, bright visible light"],
+        ["7", "Final adjustments", "Stable day and night ranges before arrival"]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": "tomato-frog-feeding-guide",
+  "title": "Tomato Frog Feeding Guide: [Add Subtitle]",
+  "description": "Complete feeding guide for Tomato Frog covering [key topics].",
+  "excerpt": "Complete feeding guide for Tomato Frog covering [key topics].",
+  "author": "Habitat Builder",
+  "publishDate": "2026-02-11",
+  "category": "Care Guides",
+  "tags": [
+    "tomato-frog",
+    "feeding",
+    "care guide"
+  ],
+  "image": "/animals/tomato-frog/tomato-frog-1.jpg",
+  "status": "draft",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Understanding Tomato Frog Feeding",
+      "content": "Complete feeding guide for Tomato Frog covering diet composition, feeding schedules by age, feeder selection, supplementation, and common nutritional mistakes."
+    },
+    {
+      "type": "section",
+      "title": "Age-Based Feeding Schedule"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about age-based feeding schedule for tomato frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Age-Based Feeding Schedule Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Feeder Options"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about feeder options for tomato frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Feeder Options Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Dietary Requirements"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about dietary requirements for tomato frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Dietary Requirements Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Add important safety information or critical requirements for dietary requirements]"
+    },
+    {
+      "type": "section",
+      "title": "Supplementation"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about supplementation for tomato frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Gut-Loading"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about gut-loading for tomato frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Foods to Avoid"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about foods to avoid for tomato frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Add important safety information or critical requirements for foods to avoid]"
+    },
+    {
+      "type": "section",
+      "title": "Common Feeding Mistakes"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about common feeding mistakes for tomato frog. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "highlight",
+      "content": "Key Takeaway: [Summarize the most important point for Tomato Frog feeding guide]"
+    }
+  ]
+}

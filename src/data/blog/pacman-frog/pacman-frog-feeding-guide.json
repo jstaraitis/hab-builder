@@ -7,7 +7,7 @@
   "category": "Care Guides",
   "excerpt": "Complete nutritional guide for Pacman frogs: appropriate feeders, gutloading, age-based schedules, supplement protocols, and debunking common myths.",
   "tags": ["pacman-frog", "feeding", "nutrition", "supplements", "diet"],
-  "status": "in-progress",
+  "status": "community-reviewed",
   "content": [
     {
       "type": "intro",
@@ -587,7 +587,7 @@
     {
       "type": "list",
       "items": [
-        "<span class='font-semibold'>Temperature too low:</span> Warm side must be 80-85캟 for proper digestion",
+        "<span class='font-semibold'>Temperature too low:</span> Warm side must be 80-85째F for proper digestion",
         "<span class='font-semibold'>New frog stress:</span> Allow 3-7 days to settle in before offering food",
         "<span class='font-semibold'>Picky eater:</span> Try different feeder types (some frogs have preferences)",
         "<span class='font-semibold'>Too shy:</span> Some frogs won't eat if watched - leave and check later",
@@ -687,7 +687,7 @@
       "type": "list",
       "items": [
         "Keep in ventilated container with egg crate",
-        "Room temperature (70-80캟)",
+        "Room temperature (70-80째F)",
         "Feed gutload diet continuously",
         "Remove dead roaches promptly",
         "Can live weeks to months with proper care"
@@ -715,7 +715,7 @@
     {
       "type": "list",
       "items": [
-        "Store in fridge (40-50캟)",
+        "Store in fridge (40-50째F)",
         "Keep in bedding/soil",
         "Moist but not waterlogged",
         "Can last weeks to months",
@@ -729,7 +729,7 @@
     {
       "type": "list",
       "items": [
-        "Room temperature (70-80캟)",
+        "Room temperature (70-80째F)",
         "Feed specialized diet (comes with or buy separately)",
         "Grow VERY quickly (use promptly)",
         "Clean frass (waste) regularly",
@@ -746,7 +746,7 @@
         " Feeders appropriately sized (width = distance between eyes)",
         " Feeders gutloaded 24-48 hours",
         " Feeder dusted with appropriate supplement (unless rodent/fish)",
-        " Warm side temperature 80-85캟 (required for digestion)",
+        " Warm side temperature 80-85째F (required for digestion)",
         " Water dish has fresh treated water",
         " Feeding method chosen (tong, free-range, or dish)",
         " Remove uneaten crickets after feeding",

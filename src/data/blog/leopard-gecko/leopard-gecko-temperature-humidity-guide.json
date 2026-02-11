@@ -1,0 +1,357 @@
+﻿{
+  "id": "leopard-gecko-temperature-humidity-guide",
+  "title": "Leopard Gecko Temperature & Humidity Guide",
+  "description": "Complete guide to leopard gecko temperature and humidity requirements including equipment, gradient setup, and troubleshooting.",
+  "excerpt": "Complete guide to leopard gecko temperature and humidity requirements including equipment, gradient setup, and troubleshooting.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-02-11",
+  "category": "Environmental Control",
+  "tags": ["leopard-gecko", "temperature", "humidity", "heating", "thermoregulation"],
+  "image": "/animals/leopard-gecko/leopard-gecko-5.jpg",
+  "status": "community-reviewed",
+  "relatedGuides": ["leopard-gecko-enclosure-setup", "leopard-gecko-lighting-guide", "leopard-gecko-hydration-guide"],
+  "content": [
+    {
+      "type": "intro",
+      "title": "Temperature & Humidity for Leopard Geckos",
+      "content": "Proper temperature gradients and humidity levels are critical for leopard gecko health. This guide covers target zones, heating equipment, measurement tools, and common issues to ensure your gecko can thermoregulate effectively."
+    },
+    {
+      "type": "section",
+      "title": "Target Temperature Zones"
+    },
+    {
+      "type": "text",
+      "content": "Leopard geckos are ectothermic (cold-blooded) and require a temperature gradient to regulate body temperature behaviorally. They move between zones depending on metabolic needs."
+    },
+    {
+      "type": "table",
+      "headers": ["Temperature Zone", "Target Range", "Measurement Location", "Purpose"],
+      "rows": [
+        ["Basking Surface", "94-97F", "Surface of basking stone/substrate under heat lamp", "Digestion, immune function activation"],
+        ["Warm Hide Interior", "90-92F", "Air temp inside warm hide", "Secure thermoregulation while hidden"],
+        ["Warm End Ambient", "85-90F", "Air temp in warm side of enclosure, 4-6\" off substrate", "General warm zone activity"],
+        ["Cool End Ambient", "70-77F", "Air temp in cool side of enclosure, 4-6\" off substrate", "Cooling down, resting after basking"],
+        ["Night Temperature", "60-75F", "Ambient enclosure temp after lights off", "Natural temp drop; 60F minimum acceptable"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "Surface Temperature Critical: Basking SURFACE (not air temp) must be 94-97F. Use infrared temp gun to measure surface temps. Stick-on thermometers measure air temp and are INACCURATE for reptile care."
+    },
+    {
+      "type": "highlight",
+      "content": "Temperature Gradient Purpose: Gradient allows gecko to choose temperature zone based on needs. After eating, gecko moves to basking spot (94-97F) for digestion. Once warmed, gecko moves to cool zone (70-77F). Inadequate gradient prevents proper thermoregulation."
+    },
+    {
+      "type": "section",
+      "title": "Heating Equipment"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Recommended: Overhead Halogen Heat Bulbs</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Why Halogen:</span> Mimics natural sun, provides deep tissue heating (infrared A), warms both air and surfaces efficiently",
+        "<span class='font-semibold'>Wattage:</span> 75w for 36\"x18\" enclosure (adjust based on room temp - cooler rooms need 100w)",
+        "<span class='font-semibold'>Fixture:</span> Ceramic socket dome lamp rated for bulb wattage, positioned over warm hide",
+        "<span class='font-semibold'>Bulb Examples:</span> Arcadia Halogen Heat Lamp, Zoo Med Repti Basking Spot (halogen version), Philips EcoVantage Halogen PAR38",
+        "<span class='font-semibold'>Distance:</span> 8-12 inches above basking surface (adjust to achieve 94-97F surface temp)",
+        "<span class='font-semibold'>Dimming Thermostat REQUIRED:</span> Herpstat, VE, Spyder Robotics - prevents overheating and maintains consistent temps"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Alternative: Deep Heat Projectors (DHP)</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Emit infrared A and B wavelengths (deep tissue heating) without visible light",
+        "Excellent for night heating if room temps drop below 60F",
+        "Examples: Arcadia Deep Heat Projector, Pangea DHP",
+        "Use with dimming thermostat to maintain 70-75F night temps if needed",
+        "Higher cost than halogen bulbs ($50-80 vs. $10-15)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Acceptable Supplement: Ceramic Heat Emitters (CHE)</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Emit  infrared C (surface heating only, does not penetrate tissue)",
+        "No visible light - good for 24hr heat if room temps unstable",
+        "Less effective than halogen or DHP but workable",
+        "Examples: Fluker's Ceramic Heat Emitter, Zoo Med ReptiCare CHE",
+        "Requires pulse-proportional thermostat (NOT on/off thermostat)"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "NEVER Use Heat Rocks or Heat Cables: These cause severe thermal burns on gecko belly. Leopard geckos cannot sense heat on their belly and will sit on dangerously hot surfaces. Deaths and severe injuries common. ALWAYS use overhead heating."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Under-Tank Heaters (UTH) - Use with Caution:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Can provide supplemental belly heat if used correctly, but NOT as primary heat source",
+        "MUST be regulated with thermostat - unregulated UTH causes burns",
+        "Place under only 1/3 of enclosure (warm end) to allow gecko to move away",
+        "Max surface temp: 88-90F (measure with temp gun through substrate)",
+        "Better option: Use overhead heat and skip UTH entirely"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Temperature Measurement Tools"
+    },
+    {
+      "type": "table",
+      "headers": ["Tool", "Purpose", "Accuracy", "Cost", "Essential?"],
+      "rows": [
+        ["Infrared Temperature Gun", "Measure surface temps (basking spot, substrate, hide interiors)", "2F", "$15-30", "YES - absolutely required"],
+        ["Digital Thermometer with Probe", "Monitor ambient air temps in warm/cool zones", "1F", "$10-15 for 2", "YES - place one probe each end"],
+        ["Dimming Thermostat", "Regulate heat bulb to maintain consistent basking surface temp", "1-2F", "$100-180", "YES - prevents overheating"],
+        ["Stick-On Dial Thermometers", "Decorative only", "5-10F", "$5", "NO - highly inaccurate, do not rely on these"],
+        ["Thermal Camera (FLIR)", "Visualize entire enclosure heat map", "3-5F", "$200-300", "NO - optional for advanced troubleshooting"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Minimum Equipment: Infrared temp gun ($15-30) + 2 digital thermometers with probes ($10-15 each) + dimming thermostat ($100-180). Do NOT skimp on temperature equipment - these tools prevent fatal overheating and ensure proper thermoregulation."
+    },
+    {
+      "type": "section",
+      "title": "Setting Up Temperature Gradient"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 1: Install Heat Source</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Position dome fixture with 75w halogen bulb over warm hide area (1/3 of enclosure)",
+        "Start with bulb 10 inches above substrate/basking surface",
+        "Connect heat bulb to dimming thermostat",
+        "Place thermostat probe at basking spot surface (touching where gecko will bask)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 2: Calibrate Basking Temp</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Set thermostat to 95F and allow 30-60 minutes to stabilize",
+        "Use infrared temp gun to measure basking surface temperature",
+        "Target: 94-97F on surface of basking stone or substrate under heat lamp",
+        "Adjust thermostat setting OR bulb height if temp incorrect (increase height = lower temp; decrease height = higher temp)",
+        "Recheck after each adjustment and allow 30 min to stabilize"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 3: Verify Warm Hide Temp</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Place digital thermometer probe inside warm hide (center of hide, substrate level)",
+        "Target: 90-92F inside hide",
+        "If too hot (>92F): Move hide slightly away from heat source or increase bulb height",
+        "If too cool (<90F): Move hide closer to heat source or decrease bulb height"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 4: Verify Cool End Temp</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Place digital thermometer probe in cool end (opposite side from heat source, 4-6 inches off substrate)",
+        "Target: 70-77F ambient air temp",
+        "If too warm (>77F): Room temp too high, increase ventilation or move enclosure to cooler room; OR reduce heat bulb wattage",
+        "If too cool (<70F): Acceptable for cooling down; gecko should primarily be in warm zones if cool end below 70F"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 5: Monitor for 24-48 Hours</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Check temps with infrared gun 4-6 times over 24 hours to ensure stability",
+        "Measure basking surface, warm hide interior, cool end ambient every 6 hours",
+        "Adjust thermostat if temps fluctuate more than 3F",
+        "Verify night temps after lights off - should drop naturally to 60-75F (if room temp drops below 60F, add DHP or CHE for night heat)"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Seasonal Adjustments: Room temperature changes with seasons. Summer may require lower wattage bulb or increased ventilation. Winter may need higher wattage or supplemental heat source. Recheck temps monthly and adjust as needed."
+    },
+    {
+      "type": "section",
+      "title": "Humidity Requirements"
+    },
+    {
+      "type": "text",
+      "content": "Leopard geckos come from arid environments and require LOW ambient humidity with access to a HIGH humidity humid hide for shedding."
+    },
+    {
+      "type": "table",
+      "headers": ["Humidity Zone", "Target Range", "Measurement Location", "Purpose"],
+      "rows": [
+        ["Ambient Enclosure", "30-40%", "General enclosure air humidity (measured with hygrometer)", "Prevents respiratory infections, mimics natural arid habitat"],
+        ["Humid Hide Interior", "70-80%", "Inside enclosed humid hide with moist substrate", "Facilitates healthy shedding, prevents stuck shed"],
+        ["During Shed", "40-50% ambient okay", "Ambient can spike slightly during shed (2-3 days)", "Temporary increase acceptable, return to 30-40% after shed complete"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "High Ambient Humidity Risk: Sustained ambient humidity above 50% increases respiratory infection risk. If room humidity consistently high (tropical climates, humid basements), increase ventilation or use dehumidifier in room."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Maintaining Humid Hide:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Use enclosed hide (single entrance or two entrances) - must be enclosed on top to trap moisture",
+        "Fill hide with moist sphagnum moss (squeeze out excess water - should clump but not drip)",
+        "Alternative substrates: Paper towels kept damp (change every 2-3 days), coconut fiber (mist lightly)",
+        "Position humid hide in middle or slightly toward cool end (NOT under basking light - heat dries it out)",
+        "Mist humid hide substrate with spray bottle every 2-3 days to maintain 70-80% humidity inside",
+        "Use small digital hygrometer inside hide to verify humidity level (optional but recommended)",
+        "Replace sphagnum moss entirely every month (mold prevention)"
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Humid Hide is NON-NEGOTIABLE: Even with \"perfect\" 30-40% ambient humidity, leopard geckos REQUIRE a humid hide for healthy shedding. Geckos without humid hides experience stuck shed (especially toes, tail tip, eyelids) which can lead to tissue death and digit loss."
+    },
+    {
+      "type": "section",
+      "title": "Common Temperature & Humidity Issues"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Signs", "Causes", "Solutions"],
+      "rows": [
+        ["Enclosure too cold overall", "Gecko constantly basking, lethargic, refuses food, slow digestion", "Insufficient heat bulb wattage, room too cold, thermostat set too low", "Increase bulb wattage (75w  100w), verify basking surface 94-97F, check thermostat setting"],
+        ["Basking spot too hot", "Gecko avoids basking area entirely, thermal burns on belly", "Thermostat malfunction, bulb too close, no thermostat used", "Install or replace thermostat, increase bulb distance, verify surface temp with temp gun"],
+        ["No temperature gradient", "Gecko cannot thermoregulate, stays in one location constantly", "Enclosure too small (<36\"x18\"), heat source too powerful, poor ventilation", "Upgrade to 36\"x18\" minimum, reduce bulb wattage, ensure screen lid for ventilation"],
+        ["Cool end too warm", "Gecko overheats, no cool refuge, panting (open-mouth breathing)", "Room temp too high, enclosure in direct sunlight, inadequate ventilation", "Move enclosure away from windows, increase ventilation, reduce heat bulb wattage, use fan in room"],
+        ["Night temps drop below 60F", "Gecko very inactive at night, cool to touch in morning", "Room temp drops significantly overnight (common in winter)", "Add Deep Heat Projector or CHE for night heat (70-75F), use thermostat to regulate night temps"],
+        ["Ambient humidity too high (>50%)", "Respiratory issues (wheezing, mucus bubbles), lethargy", "Room naturally humid, insufficient ventilation, over-misting", "Increase ventilation, use dehumidifier in room, reduce misting frequency, ensure screen lid (not glass)"],
+        ["Stuck shed on toes/tail/eyes", "Retained skin after shedding, constricted digits, cloudy eyes", "Humid hide not provided OR humid hide too dry (<70%)", "Provide enclosed humid hide with damp sphagnum moss, mist hide every 2-3 days, verify 70-80% inside hide"],
+        ["Humid hide dries out quickly", "Moss dries within 24 hours of misting", "Hide placed under basking light, hide not fully enclosed, low-humidity room", "Move hide away from heat source, use fully enclosed hide, mist more frequently (daily vs. every 3 days)"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Monitoring & Maintenance Schedule"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Daily Tasks:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Visually check digital thermometer readings (warm and cool zones)",
+        "Ensure heat lamp is functioning (look for visible light if halogen)",
+        "Check gecko behavior - basking briefly then moving to cool end = correct temps; constant basking = too cold; hiding all day = may be too hot",
+        "Glance at hygrometer - ambient should stay 30-40%"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Every 2-3 Days:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Mist humid hide substrate with spray bottle (3-5 sprays) - sphagnum moss should feel damp to touch",
+        "Use infrared temp gun to spot-check basking surface temp (should still be 94-97F)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Weekly Tasks:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Measure temps at all locations with infrared gun: basking surface, warm hide interior, cool end ambient",
+        "Record temps in log (notebook or phone app) to track any drift over time",
+        "Check humid hide for mold - if mold present, replace sphagnum moss immediately"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Monthly Tasks:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Replace humid hide sphagnum moss entirely (mold prevention even if not visible)",
+        "Test thermostat function: unplug thermostat briefly, verify bulb runs full power, replug and verify thermostat regulates temp again",
+        "Inspect heat bulb for damage or blackening - replace if degraded",
+        "Clean thermometer/hygrometer probes with damp cloth (dust buildup affects accuracy)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Every 6-12 Months:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Replace heat bulb even if still functioning (output degrades over time, especially halogen)",
+        "Calibrate or replace infrared temp gun if readings seem inconsistent (test against known temp like boiling water 212F)",
+        "Deep clean enclosure and all equipment during full substrate change"
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Temperature Logs Prevent Issues: Recording temps weekly helps identify gradual drift (e.g., basking temp slowly dropping from 95F to 88F over 2 months). Catching drift early prevents health issues and identifies equipment failures before they become critical."
+    },
+    {
+      "type": "section",
+      "title": "Troubleshooting Thermoregulation Behavior"
+    },
+    {
+      "type": "text",
+      "content": "Leopard gecko behavior reveals whether temperature gradient is correct:"
+    },
+    {
+      "type": "table",
+      "headers": ["Observed Behavior", "What It Means", "Action Needed"],
+      "rows": [
+        ["Basking for 30-60 min after lights on or after eating, then moves to cool zone", "Normal thermoregulation - temps are correct", "None - this is ideal behavior"],
+        ["Constantly on basking spot, rarely leaves warm end", "Enclosure too cold overall, gecko trying to reach adequate body temp", "Check basking surface with temp gun - increase to 94-97F; verify warm hide 90-92F"],
+        ["Avoids warm end entirely, stays in cool hide all day", "Warm end too hot, gecko overheating, or gecko ill", "Check basking temp - reduce if >97F; verify cool end <77F; monitor for illness signs"],
+        ["Glass surfing (pacing at front glass)", "Room temp too high, enclosure overheating, stress, or hunger", "Check all temps with temp gun; reduce heat if needed; verify cool zone exists; check feeding schedule"],
+        ["Digging in substrate constantly", "Trying to escape heat (too hot), natural burrowing behavior, or gravid female", "Check temps first; if temps correct, provide deeper substrate (3-4 inches) for burrowing enrichment"],
+        ["Lethargic, eyes closed during active hours (dusk)", "Temperatures too cold (slows metabolism), or illness", "Verify basking 94-97F, warm hide 90-92F; if temps correct, vet check recommended"]
+      ]
+    }
+  ]
+}

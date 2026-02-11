@@ -69,7 +69,7 @@
     "needsTags": ["substrate:bioactive", "plants:live"],
     "requiredWith": ["surge-protector"],
     "importance": "conditional",
-    "isRecurring": true,
+    "isRecurring": false,
     "recurringInterval": "12 months",
     "spec": {
       "type": "LED or fluorescent",

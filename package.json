@@ -14,7 +14,8 @@
     "export-animals": "node scripts/export-animals-to-txt.js",
     "export-equipment-needs": "node scripts/export-equipment-needs.js",
     "format-for-word": "node scripts/format-for-word.js",
-    "compress-images": "node scripts/compress-images.js"
+    "compress-images": "node scripts/compress-images.js",
+    "generate-blog": "node scripts/generate-blog-content.cjs"
   },
   "dependencies": {
     "@stripe/stripe-js": "^8.7.0",

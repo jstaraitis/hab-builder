@@ -1,0 +1,139 @@
+{
+  "id": "red-eared-slider-enclosure-setup-guide",
+  "title": "Red Eared Slider Enclosure Setup Guide: [Add Subtitle]",
+  "description": "Complete enclosure setup guide for Red Eared Slider covering [key topics].",
+  "excerpt": "Complete enclosure setup guide for Red Eared Slider covering [key topics].",
+  "author": "Habitat Builder",
+  "publishDate": "2026-02-11",
+  "category": "Care Guides",
+  "tags": [
+    "red-eared-slider",
+    "enclosure-setup",
+    "care guide"
+  ],
+  "image": "/animals/red-eared-slider/red-eared-slider-1.jpg",
+  "status": "draft",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Understanding Red Eared Slider Enclosure Setup",
+      "content": "Step-by-step guide to setting up a proper enclosure for Red Eared Slider, including tank sizing, equipment selection, and initial preparation."
+    },
+    {
+      "type": "section",
+      "title": "Tank Size Requirements"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about tank size requirements for red eared slider. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Tank Size Requirements Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Life Stage",
+        "Minimum Size",
+        "Recommended Size",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Juvenile",
+          "[dimensions]",
+          "[dimensions]",
+          "[specific notes]"
+        ],
+        [
+          "Adult",
+          "[dimensions]",
+          "[dimensions]",
+          "[specific notes]"
+        ]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Add important safety information or critical requirements for tank size requirements]"
+    },
+    {
+      "type": "section",
+      "title": "Enclosure Type Selection"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about enclosure type selection for red eared slider. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Essential Equipment List"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about essential equipment list for red eared slider. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Setup Steps"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about setup steps for red eared slider. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Initial Cycling/Preparation"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about initial cycling/preparation for red eared slider. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Adding Your Animal"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about adding your animal for red eared slider. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Maintenance Schedule"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about maintenance schedule for red eared slider. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Maintenance Schedule Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Key Takeaway: [Summarize the most important point for Red Eared Slider enclosure setup guide]"
+    }
+  ]
+}

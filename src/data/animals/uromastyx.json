@@ -2,11 +2,17 @@
   "id": "uromastyx",
   "commonName": "Uromastyx",
   "scientificName": "Uromastyx spp.",
-  "searchQuery": ["uromastyx", "spiny tailed lizard", "dabb lizard", "uromastyx ornata"],
-  "careLevel": "advanced",
+  "searchQuery": [
+    "uromastyx",
+    "spiny tailed lizard",
+    "spiny-tailed lizard",
+    "mastigure",
+    "uromastyx ornata"
+  ],
+  "careLevel": "moderate",
   "emoji": "🦎",
   "imageUrl": "/animals/uromastyx/uromastyx-1.jpg",
-  "completionStatus": "draft",
+  "completionStatus": "validated",
   "gallery": [],
   "minEnclosureSize": {
     "width": 48,
@@ -24,15 +30,15 @@
     "temperature": {
       "thermalGradient": true,
       "coolSide": {
-        "min": 80,
-        "max": 85
+        "min": 82,
+        "max": 88
       },
       "warmSide": {
         "min": 95,
-        "max": 100
+        "max": 105
       },
       "basking": {
-        "min": 110,
+        "min": 120,
         "max": 130
       },
       "nighttime": {
@@ -43,15 +49,15 @@
     },
     "humidity": {
       "day": {
-        "min": 10,
+        "min": 20,
         "max": 30
       },
       "night": {
         "min": 20,
-        "max": 40
+        "max": 35
       },
       "shedding": {
-        "min": 30,
+        "min": 25,
         "max": 40
       },
       "unit": "%"
@@ -59,43 +65,81 @@
     "lighting": {
       "uvbRequired": true,
       "uvbRecommended": true,
-      "uvbStrength": "10-12%",
-      "coveragePercent": 70,
+      "uvbStrength": "10.0",
+      "coveragePercent": 60,
       "photoperiod": "12-14 hours light in summer, 10-12 in winter"
     },
-    "gradient": "Requires EXTREME heat. Basking temps 110-130°F essential for digestion. Very low humidity needed."
+    "gradient": "Requires very high basking heat for digestion. Keep humidity low with a humid burrow rather than overall high moisture."
   },
   "layoutRules": {
     "preferVertical": false,
     "verticalSpacePercent": 20,
     "thermalGradient": "horizontal",
-    "requiredZones": ["basking", "hide-cool", "hide-warm"],
-    "optionalZones": ["climbing"]
+    "requiredZones": [
+      "basking",
+      "hide-cool",
+      "hide-warm"
+    ],
+    "optionalZones": [
+      "climbing"
+    ]
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
-    "climbing": "ground",
-    "substrate": ["bioactive", "sand"],
-    "bioactiveSubstrate": "arid",
     "humidity": "low",
-    "heatSource": "basking",
-    "waterFeature": "shallow-dish",
+    "substrate": [
+      "paper",
+      "sand",
+      "soil",
+      "bioactive"
+    ],
     "lighting": "uvb-desert",
-    "diet": ["herbivore"],
-    "animalType": "reptile",
+    "heatSource": "basking",
+    "diet": [
+      "herbivore"
+    ],
+    "waterFeature": "large-bowl",
+    "decor": [
+      "background",
+      "hides",
+      "plants",
+      "branches"
+    ],
+    "climbing": "ground",
+    "activity": "terrestrial",
     "climate": "arid",
-    "activity": "terrestrial"
+    "animalType": "reptile",
+    "bioactiveSubstrate": "arid",
+    "requiredEquipment" : ["feeding-dish"]
   },
-  "lifespan": "15-20 years in captivity",
+  "lifespan": "25+ years; some exceed 40",
   "dietType": "Herbivore",
-  "adultSize": "10-18 inches depending on species",
-  "temperament": "Shy initially, can become handleable with patience",
+  "adultSize": "9-30 inches depending on species",
+  "temperament": "Shy initially, often tames with patience",
   "activityPattern": "Diurnal",
   "originRegion": "North Africa and Middle East",
-  "setupTips": [],
-  "notes": [],
-  "warnings": [],
-  "relatedBlogs": [],
+  "setupTips": [
+    "Use a front-opening enclosure with strong ventilation and a basking platform 10-12 inches below the heat lamp.",
+    "Provide 4+ inches of packed sand or sandy soil for digging and burrows.",
+    "Add a hot basking zone plus a cooler retreat and a humid burrow on the cool side."
+  ],
+  "notes": [
+    "Most Uromastyx are best housed alone unless the enclosure is significantly oversized and carefully monitored.",
+    "These lizards thrive under very bright light with strong UVB and visible illumination."
+  ],
+  "warnings": [
+    "Basking surface temperatures below 120 F can lead to poor digestion and appetite loss.",
+    "Sustained humidity above 40% can cause respiratory issues; keep the enclosure dry overall."
+  ],
+  "relatedBlogs": [
+    "uromastyx-enrichment-welfare-guide",
+    "uromastyx-enclosure-setup-guide",
+    "uromastyx-substrate-guide",
+    "uromastyx-temp-humidity-guide",
+    "uromastyx-lighting-guide",
+    "uromastyx-feeding-guide",
+    "uromastyx-hydration-guide"
+  ],
   "lifestyle": {
     "lifespan": "long",
     "handling": "occasional",

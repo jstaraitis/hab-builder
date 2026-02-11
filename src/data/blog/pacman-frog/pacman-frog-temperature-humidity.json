@@ -7,7 +7,7 @@
   "category": "Care Guides",
   "excerpt": "Species-specific temperature and humidity requirements for all Pacman frog species with monitoring tips, control methods, and regional habitat considerations.",
   "tags": ["pacman-frog", "temperature", "humidity", "environment", "ceratophrys"],
-  "status": "in-progress",
+  "status": "community-reviewed",
   "content": [
     {
       "type": "intro",
@@ -26,11 +26,11 @@
       "type": "table",
       "headers": ["Species", "Warm Side (Day)", "Cool Side (Day)", "Nighttime", "Notes"],
       "rows": [
-        ["C. cranwelli", "80-85캟 (27-29캜)", "70-75캟 (21-24캜)", "65-75캟 (18-24캜)", "Gran Chaco - tolerates wider range"],
-        ["C. cornuta", "80-85캟 (27-29캜)", "75-80캟 (24-27캜)", "70-75캟 (21-24캜)", "Amazon rainforest - prefers warmer"],
-        ["C. ornata", "80-85캟 (27-29캜)", "70-75캟 (21-24캜)", "65-75캟 (18-24캜)", "Standard tropical care"],
-        ["C. aurita", "80-85캟 (27-29캜)", "75-80캟 (24-27캜)", "68-75캟 (20-24캜)", "Atlantic rainforest - similar to cornuta"],
-        ["Hybrids", "80-85캟 (27-29캜)", "70-75캟 (21-24캜)", "65-75캟 (18-24캜)", "Standard tropical care"]
+        ["C. cranwelli", "80-85째F (27-29째C)", "70-75째F (21-24째C)", "65-75째F (18-24째C)", "Gran Chaco - tolerates wider range"],
+        ["C. cornuta", "80-85째F (27-29째C)", "75-80째F (24-27째C)", "70-75째F (21-24째C)", "Amazon rainforest - prefers warmer"],
+        ["C. ornata", "80-85째F (27-29째C)", "70-75째F (21-24째C)", "65-75째F (18-24째C)", "Standard tropical care"],
+        ["C. aurita", "80-85째F (27-29째C)", "75-80째F (24-27째C)", "68-75째F (20-24째C)", "Atlantic rainforest - similar to cornuta"],
+        ["Hybrids", "80-85째F (27-29째C)", "70-75째F (21-24째C)", "65-75째F (18-24째C)", "Standard tropical care"]
       ]
     },
     {
@@ -88,8 +88,8 @@
         "Leave opposite end without heat sources (cool side)",
         "Position thermostat probe on warm side at substrate level",
         "Place one thermometer probe on warm side, one on cool side",
-        "Adjust heat lamp wattage or dimmer until warm side reaches 80-85캟",
-        "Verify cool side stays 70-75캟 (or species-appropriate range)"
+        "Adjust heat lamp wattage or dimmer until warm side reaches 80-85째F",
+        "Verify cool side stays 70-75째F (or species-appropriate range)"
       ]
     },
     {
@@ -102,7 +102,7 @@
     },
     {
       "type": "section",
-      "heading": "Problem: Warm side too cool (below 80캟)"
+      "heading": "Problem: Warm side too cool (below 80째F)"
     },
     {
       "type": "text",
@@ -121,7 +121,7 @@
     },
     {
       "type": "section",
-      "heading": "Problem: Warm side too hot (above 85캟)"
+      "heading": "Problem: Warm side too hot (above 85째F)"
     },
     {
       "type": "text",
@@ -157,7 +157,7 @@
     },
     {
       "type": "section",
-      "heading": "Problem: Nighttime too cold (below 65캟)"
+      "heading": "Problem: Nighttime too cold (below 65째F)"
     },
     {
       "type": "text",
@@ -170,7 +170,7 @@
         "Cover more of screen top to retain warmth",
         "Move enclosure away from windows and drafts",
         "Increase room temperature if possible",
-        "Note: Most Pacman frogs tolerate 65캟 just fine"
+        "Note: Most Pacman frogs tolerate 65째F just fine"
       ]
     },
     {
@@ -411,7 +411,7 @@
         "Indoor heating dries air (need more misting/humidity efforts)",
         "Shorter daylight (maintain 12h light cycle with timer)",
         "Windows cause drafts (move enclosure away from windows)",
-        "Possible nighttime heat needed if room drops below 65캟"
+        "Possible nighttime heat needed if room drops below 65째F"
       ]
     },
     {
@@ -523,7 +523,7 @@
     },
     {
       "type": "text",
-      "text": "<span class='font-semibold'>C. cornuta (Surinam):</span> Amazon rainforest species - needs consistent warmth (70-85캟) and high humidity (75-85%). Least tolerant of drying out. Prioritize humidity maintenance."
+      "text": "<span class='font-semibold'>C. cornuta (Surinam):</span> Amazon rainforest species - needs consistent warmth (70-85째F) and high humidity (75-85%). Least tolerant of drying out. Prioritize humidity maintenance."
     },
     {
       "type": "text",
@@ -544,10 +544,10 @@
     {
       "type": "list",
       "items": [
-        " Check warm side temperature (should be 80-85캟)",
-        " Check cool side temperature (should be 70-75캟 or species-appropriate)",
+        " Check warm side temperature (should be 80-85째F)",
+        " Check cool side temperature (should be 70-75째F or species-appropriate)",
         " Check cool side humidity (should be in species range)",
-        " Verify thermal gradient exists (10-15캟 difference between sides)",
+        " Verify thermal gradient exists (10-15째F difference between sides)",
         " Check substrate moisture (still moist throughout, not just surface)",
         " Verify all equipment functioning (heat lamp, UVB, thermostats)",
         " Observe frog behavior (using both warm and cool sides = good)"

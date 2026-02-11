@@ -6,7 +6,7 @@
   "careLevel": "beginner",
   "emoji": "🐸",
   "imageUrl": "/animals/pacman-frog/pacman-frog-1.jpg",
-  "completionStatus": "in-progress",
+  "completionStatus": "validated",
   "gallery": [
     {
       "url": "/animals/pacman-frog/pacman-frog-1.jpg",
@@ -63,7 +63,7 @@
       "notes": "C. cranwelli (Cranwell's) tolerate slightly lower humidity (more arid habitat). C. cornuta (Surinam) prefer higher humidity (rainforest habitat). Maintain with moist substrate and regular misting."
     },
     "lighting": {
-      "uvbRequired": false,
+      "uvbRequired": true,
       "uvbRecommended": true,
       "uvbStrength": "5.0",
       "coveragePercent": 50,
@@ -80,18 +80,27 @@
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
-    "climbing": "ground",
-    "substrate": ["bioactive", "soil"],
-    "bioactiveSubstrate": "tropical",
-    "humidity": "moderate-high",
-    "heatSource": "basking",
-    "waterFeature": "shallow-dish",
-    "lighting": "uvb-forest",
-    "diet": ["insectivore"],
-    "animalType": "amphibian",
-    "climate": "tropical",
-    "activity": "terrestrial"
-  },
+  "heatSource": "ambient",
+  "humidity": "high",
+  "lighting": "uvb-forest",
+  "substrate": [
+    "bioactive",
+    "soil"
+  ],
+  "diet": [
+    "insectivore"
+  ],
+  "waterFeature": "large-bowl",
+  "decor": [
+    "hides",
+    "plants"
+  ],
+  "climbing": "ground",
+  "activity": "terrestrial",
+  "climate": "tropical",
+  "animalType": "amphibian",
+  "bioactiveSubstrate": "tropical"
+},
   "lifespan": "5-10 years in captivity",
   "dietType": "Insectivor",
   "adultSize": "3-7 inches diameter (females larger than males, varies by species)",

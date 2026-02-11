@@ -1,330 +1,162 @@
 {
   "id": "corn-snake-substrate-guide",
-  "title": "Corn Snake Substrate Guide: Soil-Based Bedding for 65-75% Humidity",
-  "description": "Complete substrate guide for corn snakes covering soil-based substrates (ReptiSoil, DIY 40/40/20 mix), 3-4 inch depth requirements, leaf litter layers, humidity retention (65-75%), maintenance schedules, and troubleshooting common substrate issues.",
-  "excerpt": "Complete substrate guide for corn snakes covering soil-based substrates (ReptiSoil, DIY 40/40/20 mix), 3-4 inch depth requirements, leaf litter layers, humidity retention (65-75%), maintenance schedules, and troubleshooting common substrate issues.",
+  "title": "Corn Snake Substrate Guide: [Add Subtitle]",
+  "description": "Complete substrate guide for Corn Snake covering [key topics].",
+  "excerpt": "Complete substrate guide for Corn Snake covering [key topics].",
   "author": "Habitat Builder",
-  "publishDate": "2026-01-26",
+  "publishDate": "2026-02-11",
   "category": "Care Guides",
-  "tags": ["corn-snake", "substrate", "bedding", "humidity", "bioactive"],
-  "image": "/animals/corn-snake/corn-snake-substrate.jpg",
-  "status": "in-progress",
+  "tags": [
+    "corn-snake",
+    "substrate",
+    "care guide"
+  ],
+  "image": "/animals/corn-snake/corn-snake-1.jpg",
+  "status": "draft",
   "content": [
     {
       "type": "intro",
-      "title": "Soil-Based Substrates for Corn Snake Humidity & Enrichment",
-      "content": "Corn snakes from the southeastern United States require moisture-retentive naturalistic substrates that maintain 65-75% humidity while supporting natural burrowing and foraging behaviors. Soil-based substrates (Zoo Med ReptiSoil, Lugarti Natural Reptile Bedding, coconut fiber, or DIY 40% topsoil + 40% coco coir + 20% play sand) provide optimal moisture retention, safe burrowing substrate, and bioactive compatibility. Depth matters×3-4 inches minimum allows humidity buffering and slight burrowing while supporting beneficial microfauna in bioactive setups."
+      "title": "Understanding Corn Snake Substrate",
+      "content": "Comprehensive substrate selection guide for Corn Snake, covering safe options, impaction risks, bioactive setups, and maintenance requirements."
     },
     {
       "type": "section",
-      "title": "Substrate Requirements"
+      "title": "Substrate Safety Overview"
     },
     {
       "type": "text",
-      "content": "Corn snakes need substrates that hold moisture (65-75% ambient humidity), allow slight burrowing, and don't cause impaction if accidentally ingested during feeding."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Key Substrate Criteria:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Requirement", "Why It Matters", "How to Achieve"],
-      "rows": [
-        ["Moisture retention", "Corn snakes need 65-75% humidity for healthy sheds and respiratory function", "Soil-based substrates (coco coir, ReptiSoil, topsoil) hold moisture without molding"],
-        ["Safe if ingested", "Snakes may ingest substrate during feeding strikes", "Natural soil substrates pass through digestive system safely (unlike sand or walnut shells)"],
-        ["Burrowing capability", "Corn snakes burrow under leaf litter and push through substrate when exploring", "3-4 inch depth allows light burrowing without collapsing substrate"],
-        ["Odor control", "Waste products produce ammonia smell if substrate doesn't process it", "Soil substrates break down waste naturally, especially with bioactive cleanup crew"],
-        ["Non-toxic", "Aromatic oils in pine/cedar substrates cause respiratory damage", "Use hardwood substrates ONLY×never pine, cedar, or aromatic wood"],
-        ["Bioactive compatible", "If transitioning to bioactive, substrate must support isopods/springtails", "Soil-based substrates support cleanup crew (paper towels, reptile carpet do not)"]
-      ]
+      "content": "[Add detailed information about substrate safety overview for corn snake. Include specific requirements, ranges, and practical implementation advice.]"
     },
     {
       "type": "warning",
-      "severity": "critical",
-      "content": "NEVER use: Pine shavings (toxic aromatic oils), cedar shavings (highly toxic), sand alone (doesn't hold humidity), walnut shell (sharp edges cause impaction), reptile carpet (harbors bacteria, snags teeth), newspaper/paper towels (can't maintain humidity). These substrates are inappropriate for corn snakes."
-    },
-    {
-      "type": "highlight",
-      "content": "For comprehensive guidance on substrate categories, DIY mixing formulas, impaction myths, and bioactive layering applicable to most reptiles, see our <a href='/blog/substrate-selection-guide' style='color: #3b82f6; text-decoration: underline; font-weight: 600;'>Substrate Selection Guide</a>. The information below covers corn snake-specific substrate requirements and temperate habitat recommendations."
+      "severity": "important",
+      "content": "[Add important safety information or critical requirements for substrate safety overview]"
     },
     {
       "type": "section",
-      "title": "Commercial Substrate Options"
+      "title": "Recommended Substrate Options"
     },
     {
       "type": "text",
-      "content": "Pre-mixed commercial substrates are convenient and consistent quality. Choose soil-based products designed for tropical/subtropical species."
+      "content": "[Add detailed information about recommended substrate options for corn snake. Include specific requirements, ranges, and practical implementation advice.]"
     },
     {
       "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Commercial Substrates for Corn Snakes:</span>"
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Recommended Substrate Options Details:</span>"
     },
     {
       "type": "table",
-      "headers": ["Product", "Composition", "Cost (48×24 enclosure)", "Pros/Cons"],
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
       "rows": [
-        ["Zoo Med ReptiSoil", "Compressed coconut fiber + peat moss + sand", "$60-80 for 4 bags (3-4\" depth)", "PRO: Perfect moisture retention, natural appearance, bioactive-ready. CON: Expensive long-term"],
-        ["Lugarti Natural Reptile Bedding", "Sphagnum peat moss + coco coir + cypress mulch", "$50-70 for 4 bags", "PRO: Excellent humidity, natural look. CON: Can be dusty when dry"],
-        ["Zilla Jungle Mix", "Moss + fir bark + coconut fiber", "$50-70 for 4 bags", "PRO: Good moisture retention, nice texture. CON: Fir bark pieces may be large"],
-        ["Coconut fiber (Eco Earth, ReptiChip)", "Pure compressed coconut coir", "$30-50 for 3-4 bricks", "PRO: Affordable, holds humidity well, safe. CON: Can be dusty, less naturalistic alone"],
-        ["Cypress mulch", "Shredded cypress bark", "$40-60 for multiple bags", "PRO: Good odor control, natural appearance. CON: Doesn't hold humidity as well as soil-based"]
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
       ]
-    },
-    {
-      "type": "highlight",
-      "content": "Top recommendation: Zoo Med ReptiSoil or Lugarti Natural Reptile Bedding. Both are formulated specifically for humidity-dependent species, look natural, and work excellently for bioactive setups. Worth the higher cost for convenience and quality."
     },
     {
       "type": "section",
-      "title": "DIY Substrate Formula"
+      "title": "Substrate Comparison Table"
     },
     {
       "type": "text",
-      "content": "Mixing your own substrate saves 50-70% vs commercial products and allows customization. Use only organic, additive-free ingredients."
+      "content": "[Add detailed information about substrate comparison table for corn snake. Include specific requirements, ranges, and practical implementation advice.]"
     },
     {
       "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>DIY Substrate Mix:</span>"
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Substrate Comparison Table Details:</span>"
     },
     {
       "type": "table",
-      "headers": ["Ingredient", "Ratio", "Purpose", "Where to Buy"],
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
       "rows": [
-        ["Organic topsoil (additive-free)", "40%", "Base structure, holds moisture, supports plant roots", "Hardware stores ($5-8 per 40lb bag×verify NO fertilizers, perlite, or additives)"],
-        ["Zoo Med ReptiSoil OR Eco Earth coconut fiber", "40%", "Moisture retention, prevents compaction, adds texture", "Pet stores ($15-20 per brick/bag)"],
-        ["Play sand (NOT calcium sand)", "20%", "Drainage, prevents substrate from becoming waterlogged", "Hardware stores ($5-8 per 50lb bag×use children's play sand only)"]
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
       ]
     },
     {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Mixing Instructions:</span>"
+      "type": "section",
+      "title": "Bioactive Setup"
     },
     {
-      "type": "list",
-      "items": [
-        "Use large plastic tub or mixing container",
-        "Add 40% topsoil (verify organic, no additives×read label carefully)",
-        "Add 40% ReptiSoil or rehydrated coconut fiber (follow rehydration instructions on package)",
-        "Add 20% play sand",
-        "Mix thoroughly until evenly combined (use hands or garden trowel)",
-        "Moisten slightly with dechlorinated water (substrate should clump when squeezed, not drip)",
-        "For 48×24×24 enclosure with 3-4 inch depth, need approximately 8-10 gallons of mixed substrate",
-        "Total DIY cost: $20-30 vs $60-80 commercial (saves $40-50 per substrate change)"
+      "type": "text",
+      "content": "[Add detailed information about bioactive setup for corn snake. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Maintenance Requirements"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about maintenance requirements for corn snake. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Maintenance Requirements Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "content": "Topsoil safety: MUST be organic and additive-free. Brands like Miracle-Gro potting mix contain fertilizers that are TOXIC to reptiles. Read ingredients×if it lists anything other than 'topsoil' or 'compost,' do NOT use. Safe brands: Timberline Topsoil, Black Kow, unbranded organic topsoil from hardware stores."
+      "content": "[Add important safety information or critical requirements for maintenance requirements]"
     },
     {
       "type": "section",
-      "title": "Substrate Depth Guidelines"
+      "title": "Substrates to Avoid"
     },
     {
       "type": "text",
-      "content": "Depth affects humidity retention, burrowing opportunity, and bioactive functionality. Too shallow = low humidity; too deep = waste of substrate and potential anaerobic pockets."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Depth Requirements by Setup Type:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Setup Type", "Substrate Depth", "Rationale"],
-      "rows": [
-        ["Traditional (non-bioactive)", "3-4 inches", "Holds humidity, allows light burrowing, sufficient volume for moisture buffering"],
-        ["Bioactive", "4-6 inches (substrate) + 2 inch drainage layer below", "Supports cleanup crew colonies, plant roots, and drainage system"],
-        ["Quarantine/hospital tank", "1-2 inches paper towels or thin substrate layer", "Easy to monitor feces, quick cleaning, temporary setup only"],
-        ["Hatchling temporary housing", "2-3 inches", "Slightly shallower OK for small enclosures, but still need humidity retention"]
-      ]
-    },
-    {
-      "type": "highlight",
-      "content": "Minimum 3 inches for adult corn snakes: Anything less than 3 inches won't maintain 65-75% humidity consistently, especially in dry climates. The substrate acts as a moisture reservoir×shallow layers dry out within hours of misting."
-    },
-    {
-      "type": "section",
-      "title": "Leaf Litter Layer"
-    },
-    {
-      "type": "text",
-      "content": "Leaf litter on top of substrate is essential enrichment for corn snakes, mimicking natural forest floor habitat where they forage and explore."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Leaf Litter Benefits & Application:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Benefit", "How It Works", "Application"],
-      "rows": [
-        ["Humidity retention", "Leaves trap moisture under layer, slowing evaporation", "Cover 70-90% of substrate surface with 1-2 inch thick layer"],
-        ["Foraging enrichment", "Snakes push through leaves naturally (mimics wild behavior)", "Use loose leaves that snake can easily move through"],
-        ["Visual cover", "Breaks up open space, makes snake feel secure when moving", "Especially important in sparse enclosures"],
-        ["Bioactive substrate health", "Leaves break down, feeding cleanup crew and enriching substrate", "Replenish leaves every 2-3 months as they decompose"],
-        ["Natural appearance", "Looks like forest floor (aesthetically pleasing)", "Mix different leaf sizes/species for varied texture"]
-      ]
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Safe Leaf Types:</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "Magnolia leaves (large, durable, slow to decompose×most popular)",
-        "Live oak leaves (smaller, faster breakdown, good for bioactive)",
-        "Indian almond leaves (beneficial tannins, used in aquariums too)",
-        "Collect your own: Oak, maple, beech leaves from pesticide-free areas (bake at 200×F for 20 min to sterilize)",
-        "Purchase: Josh's Frogs, The Bio Dude, NEHerp sell leaf litter packs ($10-20 per bag)",
-        "AVOID: Pine needles (aromatic oils), eucalyptus (toxic), treated/sprayed leaves"
-      ]
-    },
-    {
-      "type": "section",
-      "title": "Moisture Management"
-    },
-    {
-      "type": "text",
-      "content": "Substrate must stay slightly moist (not wet, not bone dry) to maintain 65-75% ambient humidity."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Substrate Moisture Testing & Adjustment:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Moisture Level", "How to Test", "Appearance/Feel", "Action Needed"],
-      "rows": [
-        ["Too dry", "Squeeze handful×crumbles apart, no clumping", "Light colored, dusty, bone dry to touch", "Mist enclosure thoroughly, increase misting frequency to 2-3x daily"],
-        ["Ideal", "Squeeze handful×holds shape briefly, then crumbles", "Dark colored, slightly damp to touch, clumps when squeezed", "Maintain current misting schedule (1-2x daily)"],
-        ["Too wet", "Squeeze handful×water drips out, stays clumped", "Very dark, muddy, water pools on surface", "Reduce misting, improve ventilation, remove water bowl temporarily"],
-        ["Waterlogged (danger)", "Standing water on substrate surface", "Swampy appearance, anaerobic smell", "Replace substrate immediately×causes scale rot and respiratory infections"]
-      ]
+      "content": "[Add detailed information about substrates to avoid for corn snake. Include specific requirements, ranges, and practical implementation advice.]"
     },
     {
       "type": "warning",
-      "severity": "critical",
-      "content": "Mold vs healthy decomposition: White fuzzy mold = too wet, poor ventilation (fix: reduce misting, increase air exchange). Brown/gray decomposing leaves = normal bioactive process (beneficial fungi breaking down organic matter). Learn the difference to avoid unnecessary substrate changes."
-    },
-    {
-      "type": "section",
-      "title": "Maintenance Schedule"
-    },
-    {
-      "type": "text",
-      "content": "Traditional setups require regular maintenance; bioactive setups are largely self-sustaining."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Traditional Substrate Maintenance:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Task", "Frequency", "Method"],
-      "rows": [
-        ["Spot clean feces", "Daily or as needed", "Use gloved hand or scoop to remove feces and contaminated substrate immediately"],
-        ["Remove urates (white deposits)", "As needed", "Scoop out with spoon or small shovel, replace with fresh substrate"],
-        ["Refresh leaf litter", "Every 2-3 months", "Add new layer of leaves as old leaves break down and look weathered"],
-        ["Full substrate change", "Every 3-4 months", "Remove all substrate, disinfect enclosure with F10SC or diluted bleach (rinse thoroughly), add fresh substrate"],
-        ["Misting", "1-2x daily (moderate climates), 2-3x daily (dry climates)", "Use pressure sprayer to lightly mist substrate and d×cor until slightly damp"],
-        ["Check for mold", "Weekly during misting", "Inspect substrate surface×if white fuzzy mold appears, reduce misting and improve ventilation"]
-      ]
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Bioactive Substrate Maintenance:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Task", "Frequency", "Method"],
-      "rows": [
-        ["Spot clean large feces (optional)", "Occasionally", "Cleanup crew will process feces, but removing large deposits speeds decomposition"],
-        ["Mist substrate", "2-3x weekly (less than traditional)", "Plants transpire moisture×less manual misting needed"],
-        ["Replenish leaf litter", "Every 2-3 months", "Cleanup crew eats leaves×add new layer as food source and enrichment"],
-        ["Feed cleanup crew", "Monthly (optional)", "Add small amount of fish flakes, vegetables, or reptile food crumbs for isopods"],
-        ["Full substrate change", "NEVER", "Bioactive substrates self-sustain indefinitely×no replacement needed"],
-        ["Monitor cleanup crew population", "Monthly", "Ensure isopods/springtails are visible×if population crashes, add more cultures"]
-      ]
+      "severity": "important",
+      "content": "[Add important safety information or critical requirements for substrates to avoid]"
     },
     {
       "type": "highlight",
-      "content": "Long-term cost comparison: Traditional substrate changes 4x/year = $60-80/year × 20 year lifespan = $1,200-1,600. Bioactive setup cost $200-300 upfront, $20-40/year for leaf litter/plants = $600-1,100 total. Bioactive saves $500-600 over snake's lifetime PLUS dramatically less maintenance labor."
-    },
-    {
-      "type": "section",
-      "title": "Troubleshooting Substrate Issues"
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Common Problems & Solutions:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Problem", "Cause", "Solution"],
-      "rows": [
-        ["Humidity too low (<60%)", "Substrate too shallow, insufficient misting, excessive ventilation", "Increase substrate depth to 4 inches, mist 2-3x daily, cover 50% of screen top (glass tanks)"],
-        ["Humidity too high (>85%)", "Substrate waterlogged, poor ventilation, oversized water bowl", "Reduce misting frequency, improve air exchange, use smaller water bowl"],
-        ["White fuzzy mold growth", "Substrate too wet + poor air circulation", "Reduce misting, increase ventilation, remove moldy spots, add springtails (bioactive control)"],
-        ["Foul ammonia smell", "Feces not removed, substrate saturated with urine", "Spot clean feces immediately, full substrate change if smell persists, consider bioactive"],
-        ["Substrate compacting hard", "Too much sand or not enough organic material", "Add more coconut fiber or ReptiSoil to mix (40-50%), reduce sand to 10-15%"],
-        ["Snake won't burrow", "Substrate too dry or too shallow", "Moisten substrate slightly, increase depth to 4 inches, add loose leaf litter"],
-        ["Substrate ingestion during feeding", "Feeding on bare substrate surface", "Feed in separate container OR place prey on feeding dish/flat rock inside enclosure"],
-        ["Stuck shed despite humidity", "Substrate moisture not translating to ambient air humidity", "Add humid hide with damp sphagnum moss, verify hygrometer reads 65-75% at substrate level"]
-      ]
-    },
-    {
-      "type": "section",
-      "title": "Bioactive Substrate Setup"
-    },
-    {
-      "type": "text",
-      "content": "Bioactive setups use living organisms (isopods, springtails) to decompose waste, creating self-sustaining ecosystem."
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Bioactive Layering System (Bottom to Top):</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "Layer 1 (bottom): Hydro balls or LECA (lightweight expanded clay aggregate) 2 inches×drainage layer prevents waterlogging",
-        "Layer 2: Mesh screen or weed barrier fabric×separates drainage from substrate, prevents mixing",
-        "Layer 3: Bioactive substrate mix 4-6 inches×ReptiSoil or DIY 40/40/20 formula with extra organic matter",
-        "Layer 4: Leaf litter 1-2 inches thick on top×food source for cleanup crew, enrichment for snake",
-        "Add cleanup crew AFTER setup stabilizes (1-2 weeks): Dwarf white isopods + tropical springtails (cultures available from Josh's Frogs, Rubber Ducky Isopods, Bio Dude)",
-        "Optional: Live plants (pothos, snake plants, spider plants) for humidity stability and aesthetics",
-        "Cure enclosure for 4-6 weeks before adding snake×allows cleanup crew to establish colonies"
-      ]
-    },
-    {
-      "type": "highlight",
-      "content": "Corn snakes are ideal for bioactive: They defecate infrequently (every 7-14 days), don't dig excessively deep, and their waste is easily processed by isopod/springtail colonies. Much easier to maintain than high-waste species like bearded dragons."
-    },
-    {
-      "type": "section",
-      "title": "Substrate Cost Analysis"
-    },
-    {
-      "type": "text",
-      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>20-Year Lifetime Cost Comparison:</span>"
-    },
-    {
-      "type": "table",
-      "headers": ["Setup Type", "Initial Cost", "Annual Cost", "20-Year Total"],
-      "rows": [
-        ["Commercial substrate (Zoo Med ReptiSoil)", "$60-80 per change × 4/year", "$240-320/year", "$4,800-6,400"],
-        ["DIY substrate (40/40/20 mix)", "$20-30 per change × 4/year", "$80-120/year", "$1,600-2,400"],
-        ["Bioactive setup", "$200-300 initial (drainage, substrate, cleanup crew, plants)", "$20-40/year (leaf litter, plant replacement)", "$600-1,100 total"],
-        ["Savings: DIY vs commercial", "×", "Save $160-200/year", "Save $3,200-4,000 over lifetime"],
-        ["Savings: Bioactive vs commercial", "×", "Save $220-280/year after year 1", "Save $3,700-5,300 over lifetime"]
-      ]
-    },
-    {
-      "type": "highlight",
-      "content": "Bioactive substrate investment pays for itself within 1-2 years and saves thousands over corn snake's 20-25 year lifespan. Plus: dramatically less maintenance labor (no quarterly substrate changes = 80+ hours saved over lifetime)."
+      "content": "Key Takeaway: [Summarize the most important point for Corn Snake substrate guide]"
     }
   ]
 }

@@ -1,0 +1,104 @@
+{
+  "id": "axolotl-hydration-guide",
+  "title": "Axolotl Hydration Guide: [Add Subtitle]",
+  "description": "Complete hydration guide for Axolotl covering [key topics].",
+  "excerpt": "Complete hydration guide for Axolotl covering [key topics].",
+  "author": "Habitat Builder",
+  "publishDate": "2026-02-11",
+  "category": "Care Guides",
+  "tags": [
+    "axolotl",
+    "hydration",
+    "care guide"
+  ],
+  "image": "/animals/axolotl/axolotl-1.jpg",
+  "status": "draft",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Understanding Axolotl Hydration",
+      "content": "Hydration management for Axolotl, including water provision methods, misting schedules, and recognizing dehydration signs."
+    },
+    {
+      "type": "section",
+      "title": "Natural Hydration Behavior"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about natural hydration behavior for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Water Dish Setup"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about water dish setup for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Misting Requirements"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about misting requirements for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Misting Requirements Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "[Add important safety information or critical requirements for misting requirements]"
+    },
+    {
+      "type": "section",
+      "title": "Signs of Dehydration"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about signs of dehydration for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Hydrating Foods"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about hydrating foods for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Soaking Guidelines"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about soaking guidelines for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "highlight",
+      "content": "Key Takeaway: [Summarize the most important point for Axolotl hydration guide]"
+    }
+  ]
+}

@@ -7,7 +7,7 @@
   "excerpt": "Complete guide to hydration needs for Red-Eyed Tree Frogs, including water sources, misting protocols, water quality requirements, and recognizing dehydration.",
   "lastUpdated": "2026-01-28",
   "tags": ["red-eyed-tree-frog", "hydration", "water", "misting", "water-quality"],
-  "status": "in-progress",
+  "status": "community-reviewed",
   "content": [
     {
       "type": "intro",
@@ -26,7 +26,7 @@
       "type": "table",
       "headers": ["Water Source", "Function", "Frequency", "Critical Details"],
       "rows": [
-        ["Soaking Pool (Paludarium)", "Direct skin absorption, thermoregulation, breeding", "24/7 access", "Must be 25-30% of enclosure, 2-6\" deep, 78°F"],
+        ["Soaking Pool (Paludarium)", "Direct skin absorption, thermoregulation, breeding", "24/7 access", "Must be 25-30% of enclosure, 2-6\" deep, 78Â°F"],
         ["Misting/Droplets", "Droplet drinking, skin absorption, humidity boost", "2-3x daily", "Heavy 60-90 second sessions morning & evening"],
         ["Substrate Moisture", "Passive absorption through ventral patch", "Constant moist", "Substrate damp (not wet), Forest Moss retains moisture"],
         ["Live Plant Transpiration", "Ambient humidity increase", "Passive 24/7", "Pothos, Philodendron release water vapor"]
@@ -34,7 +34,7 @@
     },
     {
       "type": "highlight",
-      "text": "The paludarium water section is MANDATORY - it's not optional décor. Red-Eyed Tree Frogs are semi-aquatic and must have soaking access."
+      "text": "The paludarium water section is MANDATORY - it's not optional dÂ°cor. Red-Eyed Tree Frogs are semi-aquatic and must have soaking access."
     },
     {
       "type": "section",
@@ -49,7 +49,7 @@
       "items": [
         "Size: 25-30% of total enclosure floor space minimum. Larger is better for stable water parameters.",
         "Depth: 2-3 inches for juveniles and non-breeding setups, 4-6 inches for adults planning to breed (females need depth to fill bladder for egg jelly production).",
-        "Temperature: Constant 78-79°F (25-26°C) using preset submersible heater. Prevents thermal shock during soaking.",
+        "Temperature: Constant 78-79Â°F (25-26Â°C) using preset submersible heater. Prevents thermal shock during soaking.",
         "Circulation: Gentle filtration or waterfall pump to prevent stagnation. Stagnant water develops bacteria and ammonia.",
         "Substrate: Large Turtle Pebbles (too big to swallow) or bare glass for easy cleaning. NEVER small gravel or sand.",
         "Access: 2-3 easy entry/exit points using sloped stones, driftwood ramps, or Cork Bark. Frogs must exit easily without struggling.",
@@ -80,7 +80,7 @@
         "Test for ammonia - Should be 0 ppm always. Ammonia causes chemical burns to skin and gills (tadpoles).",
         "Nitrite/Nitrate - Nitrite should be 0 ppm, nitrate under 20 ppm. High nitrates cause immune suppression.",
         "pH Range - 6.5-7.5 ideal. Avoid extreme pH shifts (stress response, skin damage).",
-        "Temperature - Maintain 78-79°F constantly. Cold water causes thermal shock, hot water (85°F+) causes stress."
+        "Temperature - Maintain 78-79Â°F constantly. Cold water causes thermal shock, hot water (85Â°F+) causes stress."
       ]
     },
     {
@@ -245,7 +245,7 @@
       "items": [
         "Verify Water Access: Ensure frog can physically reach water section. Check for obstructions, confirm ramps/access points functional.",
         "Heavy Misting: Mist enclosure heavily 3-4 times over the next 6-8 hours. Create dripping wet conditions temporarily.",
-        "Shallow Soaking: Place frog in shallow (1\" deep) container of treated water at 78°F for 10-15 minutes. Monitor constantly - never leave unattended.",
+        "Shallow Soaking: Place frog in shallow (1\" deep) container of treated water at 78Â°F for 10-15 minutes. Monitor constantly - never leave unattended.",
         "Increase Humidity: Boost ambient humidity to 80-85% temporarily using fogger or covering partial screen top (remove after 24 hours).",
         "Offer High-Moisture Food: Hornworms are 85% water - offer if frog still has appetite.",
         "Monitor Closely: Check frog every 2-3 hours. If no improvement in 24 hours or worsening, emergency vet visit required.",
@@ -383,7 +383,7 @@
         ["Nitrite (NO2)", "0 ppm", "Weekly", "25-50% water change, verify biological filtration established"],
         ["Nitrate (NO3)", "0-20 ppm", "Bi-weekly", "If >20ppm, increase water change frequency to weekly"],
         ["pH", "6.5-7.5", "Monthly", "If drift, adjust with pH buffer (avoid sudden changes)"],
-        ["Temperature", "78-79°F", "Daily visual check", "Adjust heater, verify thermostat functioning"],
+        ["Temperature", "78-79Â°F", "Daily visual check", "Adjust heater, verify thermostat functioning"],
         ["Chlorine/Chloramine", "0 ppm", "Before adding tap water", "Use Aquatize/water conditioner ALWAYS"]
       ]
     },
@@ -414,7 +414,7 @@
         ["Stagnant water (no circulation)", "Bacterial blooms, ammonia spikes, illness", "Add small filter or change water more frequently"],
         ["Misting only once daily", "Insufficient hydration in dry climates", "Minimum 2x daily (morning + evening)"],
         ["Over-misting (constant 90%+ humidity)", "Bacterial skin infections", "Allow surfaces to dry between mistings, ensure ventilation"],
-        ["Cold water in pool", "Thermal shock, stress response", "Use preset heater, maintain 78-79°F"],
+        ["Cold water in pool", "Thermal shock, stress response", "Use preset heater, maintain 78-79Â°F"],
         ["Forgetting to refill water section", "Frogs dehydrate despite misting", "Weekly checks, top off evaporated water"],
         ["Small gravel in water section", "Impaction if swallowed", "Only large Turtle Pebbles (0.5\"+ diameter) or bare glass"],
         ["Using fogger as only hydration", "No droplets to drink from, chronic dehydration", "Fogger supplements misting, never replaces it"]

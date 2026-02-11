@@ -2,7 +2,12 @@
   "id": "african-clawed-frog",
   "commonName": "African Clawed Frog",
   "scientificName": "Xenopus laevis",
-  "searchQuery": ["african clawed frog", "xenopus laevis", "xenopus", "clawed frog"],
+  "searchQuery": [
+    "african clawed frog",
+    "xenopus laevis",
+    "xenopus",
+    "clawed frog"
+  ],
   "careLevel": "beginner",
   "emoji": "🐸",
   "imageUrl": "/animals/african-clawed-frog/african-clawed-frog-1.jpg",
@@ -67,19 +72,29 @@
     "preferVertical": false,
     "verticalSpacePercent": 0,
     "thermalGradient": "none",
-    "requiredZones": ["open-swimming", "hides"],
-    "optionalZones": ["plants"]
+    "requiredZones": [
+      "open-swimming",
+      "hides"
+    ],
+    "optionalZones": [
+      "plants"
+    ]
   },
   "bioactiveCompatible": false,
   "equipmentNeeds": {
     "climbing": "aquatic",
-    "substrate": ["substrate-bare-bottom", "sand-aquatic"],
+    "substrate": [
+      "substrate-bare-bottom",
+      "sand-aquatic"
+    ],
     "bioactiveSubstrate": null,
     "humidity": 100,
     "heatSource": "ambient",
     "waterFeature": "fully-aquatic",
     "lighting": "none",
-    "diet": ["carnivore-aquatic"],
+    "diet": [
+      "carnivore-aquatic"
+    ],
     "animalType": "amphibian",
     "activity": "aquatic"
   },
@@ -92,7 +107,15 @@
   "setupTips": [],
   "notes": [],
   "warnings": [],
-  "relatedBlogs": [],
+  "relatedBlogs": [
+    "african-clawed-frog-enrichment-welfare-guide",
+    "african-clawed-frog-enclosure-setup-guide",
+    "african-clawed-frog-substrate-guide",
+    "african-clawed-frog-feeding-guide",
+    "african-clawed-frog-temperature-humidity-guide",
+    "african-clawed-frog-lighting-guide",
+    "african-clawed-frog-hydration-guide"
+  ],
   "lifestyle": {
     "lifespan": "medium",
     "handling": "none",

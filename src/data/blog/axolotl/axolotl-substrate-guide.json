@@ -1,471 +1,162 @@
 {
   "id": "axolotl-substrate-guide",
-  "title": "Axolotl Substrate Guide: Preventing Impaction & Safe Options",
-  "description": "Complete substrate safety guide for axolotls covering bare-bottom, fine sand, slate tile options and preventing deadly impaction from gravel ingestion.",
+  "title": "Axolotl Substrate Guide: [Add Subtitle]",
+  "description": "Complete substrate guide for Axolotl covering [key topics].",
+  "excerpt": "Complete substrate guide for Axolotl covering [key topics].",
   "author": "Habitat Builder",
-  "date": "2026-01-28",
-  "category": "Setup Guides",
-  "excerpt": "Learn which substrates are safe for axolotls and which cause fatal impaction. Evidence-based recommendations for bare-bottom, fine sand, and tile substrates.",
-  "tags": ["axolotl", "substrate", "impaction", "aquarium-setup", "safety"],
-  "status": "in-progress",
+  "publishDate": "2026-02-11",
+  "category": "Care Guides",
+  "tags": [
+    "axolotl",
+    "substrate",
+    "care guide"
+  ],
+  "image": "/animals/axolotl/axolotl-1.jpg",
+  "status": "draft",
   "content": [
     {
       "type": "intro",
-      "heading": "Axolotl Substrate Guide",
-      "text": "Substrate choice is CRITICAL for axolotl safety. These amphibians use powerful suction feeding and will accidentally (or deliberately) swallow substrate particles. Gravel, rocks, and marbles cause fatal intestinal impaction. This guide covers safe substrate options, age restrictions, and maintenance requirements."
+      "title": "Understanding Axolotl Substrate",
+      "content": "Comprehensive substrate selection guide for Axolotl, covering safe options, impaction risks, bioactive setups, and maintenance requirements."
+    },
+    {
+      "type": "section",
+      "title": "Substrate Safety Overview"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about substrate safety overview for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
     },
     {
       "type": "warning",
-      "severity": "critical",
-      "text": "NEVER use gravel, pebbles, marbles, glass stones, or any substrate particles 1mm-15mm in size. Axolotls WILL swallow them, causing intestinal blockage (impaction) which is often fatal even with surgery."
+      "severity": "important",
+      "content": "[Add important safety information or critical requirements for substrate safety overview]"
     },
     {
       "type": "section",
-      "heading": "Understanding Impaction Risk"
+      "title": "Recommended Substrate Options"
     },
     {
       "type": "text",
-      "text": "Axolotls are suction feeders—they inhale prey with powerful negative pressure. This feeding mechanism causes three substrate hazards:"
+      "content": "[Add detailed information about recommended substrate options for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
     },
     {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Accidental Ingestion:</span> Substrate is sucked in along with food during feeding",
-        "<span class='font-semibold'>Deliberate Ingestion:</span> Axolotls explore by mouthing objects, may intentionally swallow substrate",
-        "<span class='font-semibold'>Cumulative Damage:</span> Even small amounts build up over time, eventually causing blockage"
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Recommended Substrate Options Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
       ]
     },
     {
       "type": "section",
-      "heading": "Why Gravel Is Deadly"
+      "title": "Substrate Comparison Table"
     },
     {
       "type": "text",
-      "text": "Gravel particles (1mm-15mm diameter) are:"
+      "content": "[Add detailed information about substrate comparison table for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
     },
     {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Too Large to Pass:</span> Get stuck in intestinal tract causing blockage",
-        "<span class='font-semibold'>Too Small to Regurgitate:</span> Once swallowed, axolotl cannot expel them",
-        "<span class='font-semibold'>Sharp When Broken:</span> Can perforate intestinal walls causing internal bleeding",
-        "<span class='font-semibold'>Heavy:</span> Accumulate in intestines, weighing down and damaging organs"
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Substrate Comparison Table Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
       ]
     },
     {
       "type": "section",
-      "heading": "Signs of Impaction"
+      "title": "Bioactive Setup"
     },
     {
-      "type": "list",
-      "items": [
-        "Loss of appetite or refusing food",
-        "Visibly swollen/bloated abdomen",
-        "Floating uncontrollably (intestinal gas from blockage)",
-        "Constipation—no waste production for 5+ days",
-        "Lethargy and reduced movement",
-        "Regurgitating food shortly after eating"
+      "type": "text",
+      "content": "[Add detailed information about bioactive setup for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "section",
+      "title": "Maintenance Requirements"
+    },
+    {
+      "type": "text",
+      "content": "[Add detailed information about maintenance requirements for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Maintenance Requirements Details:</span>"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ],
+        [
+          "[data]",
+          "[data]",
+          "[data]"
+        ]
       ]
     },
     {
       "type": "warning",
       "severity": "important",
-      "text": "If impaction is suspected, IMMEDIATELY stop feeding, perform 50% water change, and consult exotic vet. Surgery is often required and has 50-70% survival rate even with intervention."
+      "content": "[Add important safety information or critical requirements for maintenance requirements]"
     },
     {
       "type": "section",
-      "heading": "Safe Substrate Options"
+      "title": "Substrates to Avoid"
     },
     {
       "type": "text",
-      "text": "Three substrates are proven safe for axolotls. Each has distinct advantages and maintenance requirements."
+      "content": "[Add detailed information about substrates to avoid for axolotl. Include specific requirements, ranges, and practical implementation advice.]"
     },
     {
-      "type": "section",
-      "heading": "Option 1: Bare-Bottom (Recommended for Beginners)"
-    },
-    {
-      "type": "text",
-      "text": "No substrate—glass or acrylic tank bottom left bare."
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Advantages</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Zero Impaction Risk:</span> Nothing to swallow—safest option",
-        "<span class='font-semibold'>Easy Cleaning:</span> Waste visible, easily siphoned during water changes",
-        "<span class='font-semibold'>Cost:</span> Free—no substrate purchase needed",
-        "<span class='font-semibold'>Best for Juveniles:</span> Recommended for axolotls under 6 inches",
-        "<span class='font-semibold'>Monitoring Health:</span> Easy to see waste, uneaten food, signs of illness"
-      ]
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Disadvantages</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Aesthetics:</span> Less natural appearance—some keepers dislike bare glass look",
-        "<span class='font-semibold'>Slippery Surface:</span> Axolotls may have difficulty gripping smooth glass (more likely in acrylic tanks)",
-        "<span class='font-semibold'>Nervous Behavior:</span> Some axolotls feel exposed without substrate to \"anchor\" to",
-        "<span class='font-semibold'>Reflection Stress:</span> Clear bottom may cause axolotl to see its reflection and become stressed (rare)"
-      ]
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Maintenance</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "Siphon waste and uneaten food during weekly water changes",
-        "Wipe algae from glass bottom monthly with aquarium-safe scraper",
-        "No special maintenance required"
-      ]
+      "type": "warning",
+      "severity": "important",
+      "content": "[Add important safety information or critical requirements for substrates to avoid]"
     },
     {
       "type": "highlight",
-      "text": "Bare-bottom is the BEST choice for new axolotl keepers and any axolotl under 6 inches long. Provides maximum safety while learning care requirements."
-    },
-    {
-      "type": "section",
-      "heading": "Option 2: Fine Sand (For Adults 6+ Inches)"
-    },
-    {
-      "type": "text",
-      "text": "Very fine sand with particle size under 1mm diameter."
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Advantages</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Natural Appearance:</span> Most visually appealing, mimics lake bottom habitat",
-        "<span class='font-semibold'>Passes Through System:</span> Fine particles (under 1mm) pass through digestive tract without blockage",
-        "<span class='font-semibold'>Beneficial Bacteria:</span> Sand hosts nitrifying bacteria, supplementing filter's biological filtration",
-        "<span class='font-semibold'>Natural Behavior:</span> Axolotls enjoy digging and rearranging sand",
-        "<span class='font-semibold'>Grip:</span> Provides better traction than bare-bottom for walking"
-      ]
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Disadvantages</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Age Restriction:</span> ONLY safe for axolotls 6+ inches long—younger animals risk impaction",
-        "<span class='font-semibold'>Cleaning Difficulty:</span> Waste sinks into sand, requires thorough siphoning",
-        "<span class='font-semibold'>Anaerobic Pockets:</span> Sand compaction creates low-oxygen zones producing toxic hydrogen sulfide (must stir regularly)",
-        "<span class='font-semibold'>Initial Cost:</span> Requires 20-40 pounds of sand ($15-40)",
-        "<span class='font-semibold'>Cloudy Water:</span> Sand disturbed during maintenance causes temporary cloudiness"
-      ]
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Sand Requirements</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Particle Size:</span> Under 1mm diameter—\"play sand\" or \"pool filter sand\"",
-        "<span class='font-semibold'>Depth:</span> 1-2 inches—deeper than 2\" increases anaerobic pocket risk",
-        "<span class='font-semibold'>Type:</span> Inert sand (silica-based)—avoid calcium-based sands that raise pH",
-        "<span class='font-semibold'>Color:</span> Natural tan/beige best—black sand shows waste, white shows algae",
-        "<span class='font-semibold'>Preparation:</span> Rinse thoroughly before adding—sand contains dust that clouds water"
-      ]
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Recommended Sand Products</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "CaribSea Super Naturals Aquarium Sand",
-        "Quikrete Play Sand (hardware store—cheapest, rinse thoroughly)",
-        "Pool filter sand (hardware store—very fine, good choice)",
-        "Exoterra Riverbed Sand, very fine sand."
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "important",
-      "text": "AVOID aquarium gravels marketed as \"fine\"—if particles are 2-5mm diameter, they are TOO LARGE. If you can distinguish individual pebbles, it's gravel, not sand."
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Maintenance</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Weekly:</span> Siphon 1-2 inches above sand surface during water changes—waste sits on top",
-        "<span class='font-semibold'>Bi-Weekly:</span> Gently stir sand with finger or chopstick to release trapped gases and prevent anaerobic pockets",
-        "<span class='font-semibold'>Monthly:</span> Deeper gravel-vac siphoning to remove waste that sank into sand",
-        "<span class='font-semibold'>As Needed:</span> Replace sand if it becomes severely compacted or develops black spots (hydrogen sulfide)"
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Option 3: Slate Tile (Intermediate Aesthetics)"
-    },
-    {
-      "type": "text",
-      "text": "Large flat slate tiles placed on tank bottom."
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Advantages</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Zero Impaction Risk:</span> Tiles too large to swallow—completely safe",
-        "<span class='font-semibold'>Easy Cleaning:</span> Waste sits on top, easily siphoned like bare-bottom",
-        "<span class='font-semibold'>Natural Appearance:</span> Better aesthetics than bare-bottom, resembles rocky lake floor",
-        "<span class='font-semibold'>Grip:</span> Textured surface provides excellent traction for walking",
-        "<span class='font-semibold'>Safe for All Ages:</span> Suitable for juveniles and adults",
-        "<span class='font-semibold'>Defined Zones:</span> Can create \"tile islands\" with bare-bottom areas for visual interest"
-      ]
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Disadvantages</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Initial Effort:</span> Requires cutting tiles to fit tank dimensions",
-        "<span class='font-semibold'>Cost:</span> $20-40 for tiles and cutting tools",
-        "<span class='font-semibold'>Gaps:</span> Waste can fall between tiles if not perfectly fitted",
-        "<span class='font-semibold'>Weight:</span> Adds significant weight to tank—ensure stand can support",
-        "<span class='font-semibold'>No Bacteria Hosting:</span> Smooth surface provides less surface area for beneficial bacteria than sand"
-      ]
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Slate Tile Requirements</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Type:</span> Natural slate tile from hardware store (Home Depot, Lowe's)",
-        "<span class='font-semibold'>Size:</span> 12×12 inch tiles most common—cut to fit tank dimensions",
-        "<span class='font-semibold'>Thickness:</span> 1/4 to 1/2 inch thick—thinner tiles easier to cut",
-        "<span class='font-semibold'>Color:</span> Gray, tan, or reddish slate—natural earth tones",
-        "<span class='font-semibold'>Preparation:</span> Scrub with hot water (no soap), boil 10 minutes to sterilize"
-      ]
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Installation</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "Measure tank bottom dimensions",
-        "Cut slate tiles with tile cutter or angle grinder to fit (leave small gaps for water flow)",
-        "Smooth sharp edges with sandpaper or file",
-        "Boil tiles 10 minutes, let cool completely",
-        "Place tiles in empty tank—do NOT glue down (makes cleaning difficult)",
-        "Fill tank with water, tiles will stay in place from weight"
-      ]
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Maintenance</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Weekly:</span> Siphon waste from tile surface during water changes",
-        "<span class='font-semibold'>Monthly:</span> Lift tiles to clean underneath—waste and algae accumulate in gaps",
-        "<span class='font-semibold'>Quarterly:</span> Remove tiles, scrub with hot water, boil to sterilize, replace"
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Unsafe Substrates (NEVER USE)"
-    },
-    {
-      "type": "text",
-      "text": "The following substrates cause impaction, injury, or toxicity:"
-    },
-    {
-      "type": "table",
-      "headers": ["Substrate Type", "Why It's Dangerous", "Common Names"],
-      "rows": [
-        ["Aquarium Gravel", "Particle size 2-15mm causes fatal impaction", "Standard aquarium gravel, rainbow gravel, natural gravel"],
-        ["Pebbles/River Rocks", "Too large to pass, too small to be safe—causes blockage", "River stones, polished pebbles, decorative rocks"],
-        ["Marbles", "Deliberately swallowed by curious axolotls—causes immediate blockage", "Glass marbles, decorative spheres"],
-        ["Glass Stones", "Same as marbles—attractive to axolotls, causes impaction", "Flat glass stones, aquarium gems"],
-        ["Colored Aquarium Gravel", "Dyes may leach toxins, same impaction risk as natural gravel", "Neon gravel, glow stones"],
-        ["Crushed Coral/Shells", "Raises pH, sharp edges, impaction risk", "Coral sand, crushed oyster shells"],
-        ["Large Gravel (20mm+)", "Creates deep gaps where waste accumulates, anaerobic zones", "Large river rock, landscaping stone"],
-        ["Soil/Dirt", "Clouds water, harbors parasites, compacts and creates anaerobic zones", "Potting soil, garden dirt, topsoil"],
-        ["Planted Tank Substrate", "Nutrient-rich substrates decompose and spike ammonia", "Flourite, Eco-Complete, aqua soil"]
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "critical",
-      "text": "If your axolotl currently has unsafe substrate, IMMEDIATELY remove it. Temporarily house axolotl in bare-bottom container during tank substrate removal. Impaction is not \"if\" but \"when.\""
-    },
-    {
-      "type": "section",
-      "heading": "Substrate Comparison Chart"
-    },
-    {
-      "type": "table",
-      "headers": ["Substrate", "Safety", "Maintenance", "Aesthetics", "Cost", "Best For"],
-      "rows": [
-        ["Bare-Bottom", "Excellent (zero risk)", "Easy", "Fair", "$0", "Beginners, juveniles, high-maintenance keepers"],
-        ["Fine Sand", "Good (6+ inches only)", "Moderate", "Excellent", "$15-40", "Experienced keepers, adults, planted tanks"],
-        ["Slate Tile", "Excellent (zero risk)", "Easy-Moderate", "Good", "$20-40", "All ages, keepers wanting better aesthetics than bare-bottom"],
-        ["Gravel", "DANGEROUS", "—", "—", "—", "NEVER USE"]
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Age-Specific Recommendations"
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Juveniles (Under 6 Inches)</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Recommended:</span> Bare-bottom only",
-        "<span class='font-semibold'>Acceptable:</span> Slate tile (smooth edges)",
-        "<span class='font-semibold'>NEVER:</span> Sand or gravel—higher impaction risk in juveniles"
-      ]
-    },
-    {
-      "type": "text",
-      "text": "<span class='font-semibold'>Adults (6+ Inches)</span>"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Recommended:</span> Fine sand or slate tile",
-        "<span class='font-semibold'>Acceptable:</span> Bare-bottom (always safe)",
-        "<span class='font-semibold'>NEVER:</span> Gravel, pebbles, marbles"
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Transitioning Substrates"
-    },
-    {
-      "type":"text",
-      "text": "If switching from unsafe to safe substrate:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "Remove axolotl to temporary container (bare-bottom tub with cycled water, airstone for oxygenation)",
-        "Drain tank completely—siphon out all substrate",
-        "Rinse tank thoroughly to remove remaining particles",
-        "Add new substrate (if using sand or tile) following preparation instructions above",
-        "Refill tank with conditioned water at 60-68°F",
-        "Run filter 24 hours to ensure substrate doesn't cloud water",
-        "Test water parameters—ammonia and nitrites should still be 0 ppm",
-        "Acclimate axolotl back to tank (see <a href='/blog/axolotl-water-care-guide' class='text-emerald-600 underline'>Water Care Guide</a>)"
-      ]
-    },
-    {
-      "type": "warning",
-      "severity": "important",
-      "text": "Substrate changes can disrupt beneficial bacteria colonies. Test water daily for 1 week after substrate transition to ensure nitrogen cycle remains stable."
-    },
-    {
-      "type": "section",
-      "heading": "Live Plants and Substrate"
-    },
-    {
-      "type": "text",
-      "text": "Axolotl-safe plants can be grown without planted tank substrate:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<span class='font-semibold'>Bare-Bottom:</span> Use plant weights, suction cup plants (Anubias, Java fern), or floating plants (duckweed)",
-        "<span class='font-semibold'>Fine Sand:</span> Can root plants directly in sand—Anubias, Java fern, Amazon sword",
-        "<span class='font-semibold'>Slate Tile:</span> Attach plants to driftwood/rocks with fishing line, place weighted pots between tiles",
-        "<span class='font-semibold'>Avoid:</span> Plants requiring nutrient-rich substrate (they won't thrive in inert sand/tile setups)"
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Monitoring for Ingestion"
-    },
-    {
-      "type": "text",
-      "text": "Even with safe substrates, watch for signs of excessive substrate eating:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "Axolotl deliberately scooping mouthfuls of sand (curiosity behavior—usually harmless)",
-        "Abdomen appears darker than usual (sand visible through skin—monitor for constipation)",
-        "Loss of appetite after introducing sand (may indicate impaction beginning)",
-        "If axolotl obsessively eats substrate, remove substrate and switch to bare-bottom"
-      ]
-    },
-    {
-      "type": "highlight",
-      "text": "Fine sand passes through digestive system harmlessly in small amounts. Concern arises only if axolotl compulsively eats large quantities indicating behavioral issue or nutrient deficiency."
-    },
-    {
-      "type": "section",
-      "heading": "Budget Considerations"
-    },
-    {
-      "type": "table",
-      "headers": ["Substrate", "Initial Cost", "Replacement Cost", "Lifespan"],
-      "rows": [
-        ["Bare-Bottom", "$0", "$0", "Indefinite"],
-        ["Fine Sand (40 gallon tank)", "$15-40 for 20-40 lbs", "$15-40 (rarely needed)", "2-5+ years"],
-        ["Slate Tile (40 gallon tank)", "$20-40 for tiles + cutting tool", "$10-20 (if tiles crack)", "5-10+ years"],
-        ["Gravel", "DON'T USE", "—", "—"]
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Related Guides"
-    },
-    {
-      "type": "list",
-      "items": [
-        "<a href='/blog/axolotl-enrichment-welfare-guide' class='text-emerald-600 underline'>Enrichment & Welfare Guide</a> - Complete overview of axolotl care",
-        "<a href='/blog/axolotl-enclosure-setup' class='text-emerald-600 underline'>Enclosure Setup Guide</a> - Tank cycling, filtration, temperature control",
-        "<a href='/blog/axolotl-feeding-guide' class='text-emerald-600 underline'>Feeding Guide</a> - Proper feeding techniques to minimize substrate ingestion"
-      ]
-    },
-    {
-      "type": "section",
-      "heading": "Key Takeaways"
-    },
-    {
-      "type": "list",
-      "items": [
-        "NEVER use gravel, pebbles, marbles, or stones 1mm-15mm diameter—causes fatal impaction",
-        "Three safe options: bare-bottom (all ages), fine sand (6+ inches only), slate tile (all ages)",
-        "Bare-bottom is best for beginners and juveniles—zero impaction risk, easy maintenance",
-        "Fine sand ONLY for adults 6+ inches long—particles under 1mm pass through digestive system",
-        "Slate tile provides natural appearance with zero impaction risk—good middle-ground option",
-        "If currently using unsafe substrate, remove IMMEDIATELY and transition to safe option",
-        "Monitor axolotl behavior with new substrate—excessive eating indicates problem",
-        "Substrate changes may disrupt nitrogen cycle—test water daily for 1 week after transition"
-      ]
+      "content": "Key Takeaway: [Summarize the most important point for Axolotl substrate guide]"
     }
   ]
 }

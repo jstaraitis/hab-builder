@@ -2,7 +2,12 @@
   "id": "blue-tongue-skink",
   "commonName": "Blue-Tongue Skink",
   "scientificName": "Tiliqua scincoides",
-  "searchQuery": ["blue tongue skink", "blue tongued skink", "tiliqua scincoides", "northern blue tongue"],
+  "searchQuery": [
+    "blue tongue skink",
+    "blue tongued skink",
+    "tiliqua scincoides",
+    "northern blue tongue"
+  ],
   "careLevel": "intermediate",
   "emoji": "🦎",
   "imageUrl": "/animals/blue-tongue-skink/blue-tongue-skink-1.jpg",
@@ -69,19 +74,31 @@
     "preferVertical": false,
     "verticalSpacePercent": 10,
     "thermalGradient": "horizontal",
-    "requiredZones": ["basking", "hide-cool", "hide-warm"],
-    "optionalZones": ["burrow"]
+    "requiredZones": [
+      "basking",
+      "hide-cool",
+      "hide-warm"
+    ],
+    "optionalZones": [
+      "burrow"
+    ]
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
     "climbing": "ground",
-    "substrate": ["bioactive", "soil", "sand"],
+    "substrate": [
+      "bioactive",
+      "soil",
+      "sand"
+    ],
     "bioactiveSubstrate": "arid",
     "humidity": "moderate",
     "heatSource": "basking",
     "waterFeature": "shallow-dish",
     "lighting": "uvb-desert",
-    "diet": ["omnivore"],
+    "diet": [
+      "omnivore"
+    ],
     "animalType": "reptile",
     "climate": "arid",
     "activity": "terrestrial"
@@ -95,7 +112,15 @@
   "setupTips": [],
   "notes": [],
   "warnings": [],
-  "relatedBlogs": [],
+  "relatedBlogs": [
+    "blue-tongue-skink-enrichment-welfare-guide",
+    "blue-tongue-skink-enclosure-setup-guide",
+    "blue-tongue-skink-substrate-guide",
+    "blue-tongue-skink-feeding-guide",
+    "blue-tongue-skink-temperature-humidity-guide",
+    "blue-tongue-skink-lighting-guide",
+    "blue-tongue-skink-hydration-guide"
+  ],
   "lifestyle": {
     "lifespan": "long",
     "handling": "frequent",

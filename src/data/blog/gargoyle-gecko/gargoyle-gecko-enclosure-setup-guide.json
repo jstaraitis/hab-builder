@@ -1,0 +1,317 @@
+﻿{
+  "id": "gargoyle-gecko-enclosure-setup-guide",
+  "title": "Gargoyle Gecko Enclosure Setup: Complete Housing Guide",
+  "description": "Complete guide to setting up a gargoyle gecko enclosure including terrarium sizing, equipment requirements, vertical space utilization, and step-by-step assembly.",
+  "excerpt": "Complete guide to setting up a gargoyle gecko enclosure including terrarium sizing, equipment requirements, vertical space utilization, and step-by-step assembly.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-02-11",
+  "category": "Housing",
+  "tags": ["gargoyle-gecko", "enclosure setup", "housing", "arboreal", "equipment"],
+  "image": "/animals/gargoyle-gecko/gargoyle-gecko-2.jpg",
+  "status": "community-reviewed",
+  "relatedGuides": ["gargoyle-gecko-substrate-guide", "gargoyle-gecko-temperature-humidity-guide", "gargoyle-gecko-lighting-guide"],
+  "content": [
+    {
+      "type": "intro",
+      "title": "Setting Up Your Gargoyle Gecko Enclosure",
+      "content": "A proper gargoyle gecko enclosure emphasizes vertical space for climbing, provides temperature/humidity gradients, and includes environmental enrichment. This guide covers minimum requirements, equipment specifications, and step-by-step setup for a thriving arboreal habitat."
+    },
+    {
+      "type": "section",
+      "title": "Enclosure Size Requirements"
+    },
+    {
+      "type": "text",
+      "content": "Gargoyle geckos are arboreal (tree-dwelling) lizards requiring vertical space over horizontal floor area. Proper sizing is critical for establishing temperature gradients from top to bottom and providing adequate climbing opportunities."
+    },
+    {
+      "type": "table",
+      "headers": ["Size Category", "Dimensions", "Suitable For", "Notes"],
+      "rows": [
+        ["Minimum Adult", "18\"x18\"x24\" (LxWxH)", "Single adult gargoyle gecko", "Allows proper vertical temperature gradient and climbing space - HEIGHT is priority"],
+        ["Preferred Adult", "18\"x18\"x36\" or 24\"x18\"x36\"", "Single adult with more vertical space", "Better for enrichment, easier temperature management, more climbing options"],
+        ["Juvenile Grow-Out", "12\"x12\"x12\" (~5 gallons)", "Hatchlings/juveniles under 12 grams only", "Temporary housing until large enough to navigate adult enclosure safely (4-6 months)"],
+        ["NOT Recommended", "Horizontal/low terrariums", "Any gargoyle gecko", "Gargoyle geckos are arboreal - prioritize HEIGHT over floor space"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "Vertical Orientation Critical: Unlike terrestrial leopard geckos, gargoyle geckos NEED tall enclosures. An 18\" tall enclosure is inadequate - this is the MINIMUM height. Taller is always better for arboreal species. They spend 80-90% of time climbing, not on substrate."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Enclosure Material Options:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Front-Opening Glass Terrariums:</span> Best option - Exo Terra, Zoo Med, or ReptiZoo brands. Front doors reduce stress (top-opening appears as predator attack). Mesh top for ventilation",
+        "<span class='font-semibold'>Screen Cages:</span> NOT recommended - cannot maintain humidity (gargoyle geckos need 60-80%). May work in naturally humid climates but difficult to manage",
+        "<span class='font-semibold'>PVC Enclosures:</span> Acceptable for experienced keepers. Excellent humidity retention but harder to achieve proper ventilation. Custom builds only",
+        "<span class='font-semibold'>Bioactive-Ready Terrariums:</span> Glass terrariums with built-in drainage and raised false bottom (e.g., Josh's Frogs bioactive kits) - ideal for planted setups"
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Setup Recommendation: 18\"x18\"x24\" front-opening glass terrarium is the minimum entry-level enclosure. Exo Terra and Zoo Med produce quality terrariums in this size. If budget allows, 18\"x18\"x36\" provides significantly better vertical space."
+    },
+    {
+      "type": "section",
+      "title": "Essential Equipment List"
+    },
+    {
+      "type": "text",
+      "content": "This equipment list covers all requirements for proper temperature, lighting, humidity, and enrichment."
+    },
+    {
+      "type": "table",
+      "headers": ["Equipment", "Specification", "Purpose", "Typical Cost"],
+      "rows": [
+        ["Terrarium", "18\"x18\"x24\" front-opening glass", "Primary housing", "$120-180"],
+        ["Heat Bulb", "40w white incandescent bulb", "Basking heat (82-85F at top)", "$5-10"],
+        ["Dome Lamp Fixture", "5.5\" dome with ceramic socket", "Holds heat bulb", "$15-25"],
+        ["Plug-In Dimmer", "Lamp dimmer switch", "Adjusts heat output to target temp", "$10-15"],
+        ["Infrared Temp Gun", "Non-contact digital thermometer", "Measures surface temps", "$15-30"],
+        ["Digital Thermometer/Hygrometer", "Probe-style combo unit", "Monitors temps + humidity", "$10-20"],
+        ["UVB Light Fixture", "14\" T8 fluorescent hood with reflector", "Holds UVB bulb", "$25-40"],
+        ["UVB Bulb", "12\" Arcadia T8 6% OR Zoo Med T8 ReptiSun 5.0", "UVB provision (optional but recommended)", "$20-35"],
+        ["Timer", "Digital plug-in timer", "Automates 12hr photoperiod", "$10-15"],
+        ["Pressure Sprayer", "Pump-style spray bottle (1-2 liter)", "Misting enclosure twice daily", "$15-25"],
+        ["Substrate", "DIY mix (topsoil+coco fiber) OR Lugarti/Reptisoil", "Moisture retention + cushion", "$15-30"],
+        ["Leaf Litter", "Magnolia, oak, or commercial litter", "Naturalistic cover", "$10-20"],
+        ["Branches", "Bamboo, cork, or mopani wood (3-5 pieces)", "Primary climbing structures", "$25-50"],
+        ["Vines", "Flexible artificial or natural vines (2-3)", "Create pathways", "$20-30"],
+        ["Live or Artificial Plants", "Pothos, ferns, OR quality fake plants", "Cover and enrichment", "$30-60"],
+        ["Magnetic Feeding Ledge", "Elevated feeding platform", "Holds food cups", "$10-15"],
+        ["Small Feeding Cups", "Gecko-sized cups (2-3)", "Holds CGD", "$5-10"],
+        ["Crested Gecko Diet", "Pangea, Repashy, or quality brand", "Staple diet powder", "$15-25"],
+        ["Calcium Supplement", "Calcium without D3 (Arcadia or MinerAll)", "Dust insects", "$10-15"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<span class='font-semibold'>Estimated Total Initial Cost:</span> $350-600 for complete quality setup. Budget setups may reduce cost to $250-300 but compromise longevity. UVB is optional but strongly recommended for best health."
+    },
+    {
+      "type": "section",
+      "title": "Step-by-Step Setup Instructions"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 1: Prepare Enclosure Location</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Choose location away from windows (direct sunlight causes overheating), loud areas, and high-traffic zones",
+        "Use sturdy furniture supporting 50-75 lbs (terrarium + substrate + equipment weight)",
+        "Ensure access to power outlets for heat lamp, UVB, and timer",
+        "Position at eye level or slightly above for easy observation and maintenance",
+        "Confirm room temperature stays 68-75F year-round (easier to heat UP than cool DOWN)"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 2: Install Substrate</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Clean enclosure with reptile-safe disinfectant (F10SC or 10:1 water:vinegar), rinse thoroughly, dry completely",
+        "Add 2-4 inches of moisture-retentive substrate",
+        "DIY Mix Recipe: 60% organic topsoil (no additives) + 40% coconut fiber by volume - mix thoroughly",
+        "Commercial Alternative: Lugarti Natural Reptile Bedding, Zoo Med Reptisoil, or Bio Dude Terra Fauna",
+        "Moisten substrate lightly - should clump when squeezed but not drip water",
+        "Create slight slope from back to front (aesthetic preference - not required for gradient)",
+        "Add layer of leaf litter on top (1-2 inches depth) - magnolia, oak, or commercial"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 3: Install Background (Optional)</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Cork bark background, foam background, or living wall provides additional climbing surfaces",
+        "Attach with aquarium-safe silicone - allow 48hrs to cure before adding gecko",
+        "Textured backgrounds increase vertical climbing area by 30-50%",
+        "If skipping background: use back wall of terrarium for magnetic feeding ledges"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 4: Arrange Branches and Vines</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Top Third (Basking Zone):</span> Place 1-2 horizontal or diagonal branches 6-8\" below screen top. This is where gecko basks under heat lamp",
+        "<span class='font-semibold'>Middle Third (Transition Zone):</span> Add 2-3 branches at mid-height with vines connecting to upper branches",
+        "<span class='font-semibold'>Bottom Third (Cool Zone):</span> Position 1-2 branches near substrate level for nighttime descent",
+        "<span class='font-semibold'>Create Pathways:</span> Ensure gecko can travel from bottom to top via connected branches/vines without jumping large gaps",
+        "<span class='font-semibold'>Secure Branches:</span> Wedge between walls OR use aquarium silicone to attach - branches must support gecko weight without shifting",
+        "<span class='font-semibold'>Add Vines:</span> Drape flexible vines between branches to create crisscross pathways"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 5: Add Plants and Foliage</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Live Plants (If Bioactive):</span> Pothos (excellent trailing vines), snake plants, bromeliads, ferns planted in substrate or mounted to background",
+        "<span class='font-semibold'>Artificial Plants:</span> Quality silk or plastic plants arranged around branches - cluster at multiple heights for dense cover",
+        "<span class='font-semibold'>Foliage Density:</span> Should be dense enough that gecko can hide but not so thick that you cannot see gecko for welfare checks",
+        "<span class='font-semibold'>Spanish Moss:</span> Drape over branches in mid-height areas - geckos love to rest in moss",
+        "<span class='font-semibold'>Visual Barriers:</span> Break line of sight across enclosure - prevents feeling exposed"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 6: Position Feeding Ledge</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Attach magnetic feeding ledge to glass wall at mid-height (10-14\" from substrate)",
+        "Place in area accessible from nearby branches (gecko should not need to climb glass to reach)",
+        "Position away from direct heat lamp (food spoils faster in warm areas)",
+        "Ensure ledge is level - wobbly ledges spill food and stress gecko"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 7: Install Heating Equipment</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Position 5.5\" dome lamp on top of screen centered over basking branch",
+        "Install 40w white incandescent bulb in dome",
+        "Plug heat lamp into dimmer switch, then dimmer into outlet",
+        "Turn dimmer to 50% initially, allow 30-60 minutes to stabilize",
+        "Use infrared temp gun to measure basking branch surface temperature",
+        "Target: 82-85F on basking branch surface (NOT air temp)",
+        "Adjust dimmer up/down until target temp achieved (increase dimmer = higher temp)",
+        "Recheck after 30 min - temps should stabilize within 2F",
+        "If cannot reach 82F even at 100% dimmer: increase bulb wattage (try 50w or 60w)",
+        "If exceeds 85F even at lowest dimmer setting: reduce bulb wattage (try 25w)"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Temperature Gradient Verification: Measure temps at top (basking branch), middle (mid-height branch), and bottom (substrate level). Top should be 82-85F, middle 75-78F, bottom 70-75F. Gradient allows gecko to thermoregulate by moving vertically."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 8: Install UVB Lighting (Recommended)</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Mount 14\" T8 fluorescent hood with reflector on top of screen",
+        "Install 12\" Arcadia T8 6% OR Zoo Med T8 ReptiSun 5.0 bulb in fixture",
+        "Position fixture adjacent to or overlapping with heat lamp - gecko receives heat + UVB simultaneously at basking branch",
+        "Ensure basking branch is 6-8\" below UVB bulb (UVI 1.0-2.0 target)",
+        "Connect fixture to timer for automatic 12hr on/off cycle",
+        "Both heat lamp and UVB should turn on/off together (plug both into same timer)"
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "UVB Positioning: Basking branch must be NO CLOSER than 6\" below UVB bulb. Closer = excessive UVB (potential eye damage). Farther than 10\" = insufficient UVB. Measure distance carefully from bulb to branch surface where gecko perches."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 9: Set Up Misting System</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Fill pressure sprayer with tap water (NOT distilled - tap water contains essential minerals)",
+        "Mist enclosure thoroughly until foliage dripping and substrate surface damp",
+        "Target humidity: 60-80% after misting (check with digital hygrometer)",
+        "Misting schedule: Once in morning (7-8 AM), once in evening (7-8 PM)",
+        "Allow enclosure to dry slightly between mistings - constant saturation causes mold",
+        "Place digital hygrometer probe at mid-height (center of enclosure) to monitor humidity"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Step 10: Final Equipment Check</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Run ALL equipment for 24-48 hours BEFORE gecko introduction",
+        "Verify basking branch surface: 82-85F (infrared temp gun measurement)",
+        "Verify mid-height area: 75-78F",
+        "Verify substrate level: 70-75F",
+        "Verify humidity: 60-80% after misting, drops to 50-60% between mistings (normal)",
+        "Confirm timer activates/deactivates lights on 12hr schedule",
+        "Check for escape gaps at door seals, screen top edges, or ventilation holes",
+        "Ensure all branches secure (gently shake - should not wobble or fall)"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Cycling Period Critical: Run enclosure empty for 24-48 hours to verify temperatures and humidity are stable. Temperature spikes or drops indicate equipment issues that must be resolved before gecko introduction. Mist 2-3 times during cycling period to test humidity response."
+    },
+    {
+      "type": "section",
+      "title": "Common Setup Mistakes"
+    },
+    {
+      "type": "table",
+      "headers": ["Mistake", "Why It's a Problem", "Correct Approach"],
+      "rows": [
+        ["Using horizontal/low enclosure", "Gargoyle geckos are arboreal and NEED vertical space; horizontal tanks prevent natural climbing behavior", "Use 18\"x18\"x24\" MINIMUM (height is priority) - taller is better"],
+        ["Insufficient climbing structures", "Gecko cannot access all temperature zones; limited exercise and enrichment", "Provide branches/vines at top, middle, AND bottom thirds with connected pathways"],
+        ["No temperature gradient", "Gecko cannot thermoregulate (choose between too hot or too cool)", "Heat lamp at TOP creates gradient: 82-85F top, 70-75F bottom"],
+        ["Basking branch too far from heat", "Gecko cannot reach 82-85F needed for digestion", "Position horizontal branch 6-8\" below heat lamp"],
+        ["Using screen cages", "Cannot maintain 60-80% humidity - screen allows too much airflow", "Use glass front-opening terrarium with mesh top only"],
+        ["Over-misting (constantly 90%+ humidity)", "Mold growth, respiratory issues from excessive moisture + poor ventilation", "Mist twice daily; allow humidity to drop to 50-60% between mistings"],
+        ["Skipping leaf litter", "Substrate dries faster, less naturalistic, no springtail/isopod habitat", "Add 1-2\" leaf litter layer on top of substrate"],
+        ["Dense foliage with no open areas", "Cannot observe gecko for health checks; gecko may feel trapped", "Balance dense cover with some open pathways - should see gecko if you look carefully"],
+        ["Introducing gecko immediately", "If temps/humidity incorrect, gecko suffers before you notice problem", "Cycle enclosure 24-48hrs empty, verify all parameters stable"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Quality Over Budget: Investing in proper terrarium (front-opening), appropriate heating/misting equipment, and adequate vertical décor from the start prevents costly replacements and vet bills. Budget glass terrariums without front doors, insufficient branches, or poor humidity control lead to behavioral and health issues."
+    },
+    {
+      "type": "section",
+      "title": "Cohabitation Setup (Experienced Keepers Only)"
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "Cohabitation NOT Recommended: While some experienced keepers successfully house multiple gargoyle geckos together, this is NOT advised for beginners. Geckos can fight, causing severe injuries including tail loss (does NOT regenerate). Males MUST NEVER be housed together - they will fight to the death."
+    },
+    {
+      "type": "text",
+      "content": "If you choose to cohabit DESPITE risks (experienced keepers only with multiple females OR one male with multiple females), you MUST:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Use 24\"x18\"x36\" MINIMUM for 2 geckos (add 6-8\" height per additional gecko)",
+        "Provide duplicate resources: 2 feeding ledges in different areas, 3-4 dense foliage clusters for sleeping",
+        "Never house males together OR house male with females outside breeding season (remove male after breeding)",
+        "Monitor daily for aggression: tail nips, weight loss, one gecko monopolizing basking area, avoiding food",
+        "Have separate quarantine enclosures ready to separate geckos at first sign of conflict",
+        "Expect increased food costs, misting maintenance, and fecal monitoring complexity"
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<span class='font-semibold'>Reality Check:</span> Most cohabitation attempts eventually require separation due to aggression, stress, or injuries (especially tail loss). Single housing is strongly recommended for welfare and simplicity."
+    }
+  ]
+}

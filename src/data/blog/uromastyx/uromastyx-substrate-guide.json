@@ -1,0 +1,214 @@
+{
+  "id": "uromastyx-substrate-guide",
+  "title": "Uromastyx Substrate Guide: Safe Options and Setup",
+  "description": "Safe substrate choices, depth requirements, and maintenance tips for Uromastyx enclosures.",
+  "excerpt": "Safe substrate choices, depth requirements, and maintenance tips for Uromastyx enclosures.",
+  "author": "Habitat Builder",
+  "date": "2026-02-11",
+  "publishDate": "2026-02-11",
+  "category": "Care Guides",
+  "tags": ["uromastyx", "substrate", "arid", "bioactive"],
+  "image": "/animals/uromastyx/uromastyx-1.jpg",
+  "status": "community-reviewed",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Substrate Selection for Uromastyx",
+      "content": "Uromastyx come from arid, sandy regions where they dig and shelter in burrows. A deep, packable sand or sandy soil is the best match and supports natural behavior."
+    },
+    {
+      "type": "section",
+      "title": "Natural Habitat Considerations"
+    },
+    {
+      "type": "text",
+      "content": "In the wild, these lizards live on sandy or sandy-soil terrain with firm, compacted layers that allow shallow burrows. Captive substrate should be fine, stable, and deep enough to hold shape."
+    },
+    {
+      "type": "highlight",
+      "content": "Key requirement: Provide at least 4 inches of packed substrate with a dry surface and slightly denser lower layers for burrowing."
+    },
+    {
+      "type": "section",
+      "title": "Recommended Substrates"
+    },
+    {
+      "type": "text",
+      "content": "Fine sand or sandy soil blends work best. Avoid sharp or oversized particles."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Substrate Comparison:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Option", "Type", "Best For", "Depth Requirement"],
+      "rows": [
+        ["Clean play sand", "Fine sand", "Simple, economical setups", "4-6 in"],
+        ["Reptile desert sand", "Fine sand", "Pre-washed bagged options", "4-6 in"],
+        ["Sand + soil mix", "Sandy soil", "More structure and burrow stability", "4-8 in"],
+        ["Arid bioactive mix", "Soil/sand/clay", "Advanced planted setups", "6-8 in"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "DIY Substrate Recipe"
+    },
+    {
+      "type": "text",
+      "content": "A simple DIY blend provides excellent structure and saves money."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>DIY Substrate Mix:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Ingredient", "Ratio", "Purpose"],
+      "rows": [
+        ["Play sand", "50%", "Base texture and drainage"],
+        ["Organic topsoil", "30%", "Structure and natural feel"],
+        ["Excavator-style clay", "20%", "Burrow stability"],
+        ["Optional gravel (very small)", "0-5%", "Use sparingly for texture"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Mixing Instructions:</strong> Combine dry ingredients thoroughly, add small amounts of water until the mix holds shape when squeezed, then pack it firmly in the enclosure. Let it dry before adding the lizard."
+    },
+    {
+      "type": "section",
+      "title": "Impaction Risk Management"
+    },
+    {
+      "type": "text",
+      "content": "Impaction is far more likely when heat, UVB, or hydration are inadequate. Correct husbandry reduces risk significantly."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Risk Factors:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Factor", "Impact", "Prevention"],
+      "rows": [
+        ["Low basking heat", "Slow digestion", "Maintain 120-130 deg F surface"],
+        ["Weak UVB", "Poor calcium use", "Use high-output UVB and correct distance"],
+        ["Dehydration", "Dry gut contents", "Provide fresh water and hydrating greens"],
+        ["Large particles", "Mechanical blockage", "Use fine sand or sandy soil"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Healthy heat and UVB are the primary safeguards. Substrate is rarely the sole cause of impaction when husbandry is correct."
+    },
+    {
+      "type": "section",
+      "title": "Contraindications for Loose Substrate"
+    },
+    {
+      "type": "text",
+      "content": "Temporary non-loose substrates are recommended for illness, injury, or quarantine."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Temporary Alternatives:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Situation", "Duration", "Alternative"],
+      "rows": [
+        ["Illness or injury", "Until cleared by vet", "Paper towels"],
+        ["Post-surgery recovery", "2-6 weeks", "Paper towels or non-adhesive liners"],
+        ["Quarantine", "30-90 days", "Paper towels"],
+        ["Suspected impaction", "Short term", "Paper towels"],
+        ["Very young juveniles", "Optional", "Paper towels with hides"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<strong>Recovery Protocol:</strong> Reintroduce loose substrate once the animal is stable, temperatures are verified, and eating is consistent."
+    },
+    {
+      "type": "section",
+      "title": "Bioactive Substrate Setup"
+    },
+    {
+      "type": "text",
+      "content": "Arid bioactive setups can work, but the surface should remain mostly dry. Use hardy, drought-tolerant plants and a cleanup crew suited to warm, low-humidity conditions."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Bioactive Layer Structure:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Layer", "Material", "Depth", "Purpose"],
+      "rows": [
+        ["Drainage (optional)", "Lightweight rock or clay balls", "1-2 in", "Prevent soggy zones"],
+        ["Substrate", "Arid soil mix", "6-8 in", "Plant roots and burrows"],
+        ["Top dressing", "Leaf litter or small bark", "Light layer", "Microfauna cover"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Keep the surface dry and only lightly moisten lower layers so burrows hold shape without raising ambient humidity."
+    },
+    {
+      "type": "section",
+      "title": "Depth Requirements"
+    },
+    {
+      "type": "table",
+      "headers": ["Setup Type", "Minimum Depth", "Recommended Depth", "Behavior Enabled"],
+      "rows": [
+        ["Non-bioactive", "4 in", "6 in", "Digging and shallow burrows"],
+        ["Bioactive", "6 in", "8 in", "Plant roots and stable burrows"],
+        ["Young juveniles", "3-4 in", "4-5 in", "Light digging without collapse"],
+        ["Large adults", "6 in", "8+ in", "Full burrow formation"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Maintenance and Cleaning"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Maintenance Schedule:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Task", "Frequency", "Method"],
+      "rows": [
+        ["Spot clean waste", "Daily", "Remove feces and soiled sand"],
+        ["Refresh burrow moisture", "As needed", "Lightly dampen lower layer only"],
+        ["Partial replacement", "Every 4-8 weeks", "Replace 20-30% of substrate"],
+        ["Full replacement", "Every 3-4 months", "Replace all substrate and disinfect enclosure"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Substrates to Avoid"
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Unsafe Options:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Substrate", "Risk", "Reason"],
+      "rows": [
+        ["Calcium sand", "High", "Can be ingested in large amounts"],
+        ["Walnut shell", "High", "Sharp particles and poor digestibility"],
+        ["Large gravel", "High", "Impaction and injury risk"],
+        ["Pine or cedar", "High", "Aromatic oils are irritating"],
+        ["Loose bark chips", "Medium", "Too coarse for burrows"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Avoid coarse or sharp substrates. Uromastyx thrive on fine sand or sandy soil with stable structure."
+    }
+  ]
+}

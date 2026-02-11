@@ -1,0 +1,136 @@
+{
+  "id": "uromastyx-temp-humidity-guide",
+  "title": "Uromastyx Temperature and Humidity Control Guide",
+  "description": "Temperature gradients, basking targets, and low-humidity management for Uromastyx.",
+  "excerpt": "Temperature gradients, basking targets, and low-humidity management for Uromastyx.",
+  "author": "Habitat Builder",
+  "date": "2026-02-11",
+  "publishDate": "2026-02-11",
+  "category": "Care Guides",
+  "tags": ["uromastyx", "temperature", "humidity", "heating"],
+  "image": "/animals/uromastyx/uromastyx-1.jpg",
+  "status": "community-reviewed",
+  "content": [
+    {
+      "type": "intro",
+      "text": "Uromastyx are full-sun desert lizards. They need extreme basking heat, a strong thermal gradient, and low ambient humidity to digest food and stay healthy."
+    },
+    {
+      "type": "section",
+      "heading": "Target Ranges"
+    },
+    {
+      "type": "table",
+      "headers": ["Parameter", "Day", "Night", "Notes"],
+      "rows": [
+        ["Basking surface", "120-130 deg F", "N/A", "Use a raised platform 10-12 in below heat lamp"],
+        ["Warm side ambient", "95-105 deg F", "70-75 deg F", "Daytime activity zone"],
+        ["Cool side ambient", "82-88 deg F", "70-75 deg F", "Retreat and water dish zone"],
+        ["Humidity", "20-30%", "20-35%", "Keep overall humidity low"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Basking temperatures below 120 deg F often lead to poor digestion, low appetite, and chronic health issues."
+    },
+    {
+      "type": "section",
+      "heading": "Heating Equipment Selection"
+    },
+    {
+      "type": "text",
+      "content": "Halogen flood bulbs are the best primary heat source for Uromastyx. Use a dimmer or thermostat to fine-tune surface temperatures."
+    },
+    {
+      "type": "table",
+      "headers": ["Heat Source", "Wattage Range", "Light Output", "Best Application"],
+      "rows": [
+        ["Halogen flood", "75-150w", "Yes", "Primary basking heat"],
+        ["Ceramic heat emitter", "60-150w", "No", "Night heat if room is cold"],
+        ["Deep heat projector", "50-80w", "Low", "Supplemental warmth"],
+        ["Heat mat", "Low", "No", "Not recommended for primary heat"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Best setup: Two halogen floods over a raised platform, controlled by a dimmer to reach 120-130 deg F surface temperatures."
+    },
+    {
+      "type": "section",
+      "heading": "Thermostat and Probe Placement"
+    },
+    {
+      "type": "text",
+      "content": "Use a dimming thermostat or a dimmer with frequent temperature checks. Place probes where the lizard actually basks."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Place the primary probe on the basking surface, not hanging in the air.",
+        "Use a second probe on the cool side to verify the gradient.",
+        "Check surface temps with an infrared temperature gun daily during setup."
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Unregulated heat can quickly exceed safe limits. Always control heat lamps with a dimmer or thermostat."
+    },
+    {
+      "type": "section",
+      "heading": "Humidity Management"
+    },
+    {
+      "type": "text",
+      "content": "Keep ambient humidity low while providing a localized humid burrow. Avoid routine misting that raises overall humidity."
+    },
+    {
+      "type": "table",
+      "headers": ["Method", "Effect", "Application"],
+      "rows": [
+        ["Deep substrate", "Stable burrow humidity", "Lightly dampen lower layers only"],
+        ["Ventilation", "Keeps enclosure dry", "Use vents or partial mesh top"],
+        ["Water dish", "Minor humidity boost", "Keep on cool side"],
+        ["Misting", "Raises humidity quickly", "Use rarely, only for burrow maintenance"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Sustained humidity above 40% can lead to respiratory issues. Keep the surface substrate dry."
+    },
+    {
+      "type": "section",
+      "heading": "Seasonal Adjustments"
+    },
+    {
+      "type": "table",
+      "headers": ["Season", "Temperature", "Humidity", "Notes"],
+      "rows": [
+        ["Summer", "Standard targets", "20-30%", "Longest photoperiod"],
+        ["Winter", "Same temps", "20-35%", "Reduce light hours to 10-12"],
+        ["Breeding (optional)", "Slight night drop", "Keep dry", "Only for experienced keepers"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "A modest seasonal light cycle change is enough for most keepers. Do not reduce basking temps below target ranges."
+    },
+    {
+      "type": "section",
+      "heading": "Troubleshooting"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Cause", "Solution"],
+      "rows": [
+        ["Basking surface too cool", "Lamp too weak or platform too low", "Increase wattage or raise platform"],
+        ["Cool side too warm", "Enclosure too small or poor airflow", "Increase ventilation or enlarge enclosure"],
+        ["Humidity too high", "Water dish too large or poor airflow", "Move dish, add vents"],
+        ["Nocturnal restlessness", "Night temps too warm", "Allow safe nighttime drop to 70-75 deg F"],
+        ["Low appetite", "Basking temps or UVB too low", "Verify heat and UVB output"]
+      ]
+    }
+  ]
+}

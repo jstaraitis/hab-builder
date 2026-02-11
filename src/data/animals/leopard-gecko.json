@@ -2,11 +2,16 @@
   "id": "leopard-gecko",
   "commonName": "Leopard Gecko",
   "scientificName": "Eublepharis macularius",
-  "searchQuery": ["leopard gecko", "eublepharis macularius", "gecko", "ground gecko"],
+  "searchQuery": [
+    "leopard gecko",
+    "eublepharis macularius",
+    "gecko",
+    "ground gecko"
+  ],
   "careLevel": "beginner",
   "emoji": "🦎",
   "imageUrl": "/animals/leopard-gecko/leopard-gecko-1.jpg",
-  "completionStatus": "in-progress",
+  "completionStatus": "validated",
   "gallery": [
     {
       "url": "/animals/leopard-gecko/leopard-gecko-1.jpg",
@@ -78,25 +83,46 @@
     "preferVertical": false,
     "verticalSpacePercent": 20,
     "thermalGradient": "horizontal",
-    "requiredZones": ["basking", "warmHide", "coolHide", "humidHide", "water"],
-    "optionalZones": ["feeding", "climbing"]
+    "requiredZones": [
+      "basking",
+      "warmHide",
+      "coolHide",
+      "humidHide",
+      "water"
+    ],
+    "optionalZones": [
+      "feeding",
+      "climbing"
+    ]
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
-    "climbing": "ground",
-    "substrate": ["bioactive", "soil", "sand"],
-    "bioactiveSubstrate": "arid",
-    "humidity": "low",
-    "heatSource": "basking",
-    "waterFeature": "shallow-dish",
-    "lighting": "uvb-forest",
-    "diet": ["insectivore"],
-    "animalType": "reptile",
-    "climate": "arid",
-    "activity": "terrestrial",
-    "requiredEquipment": ["moist-hide"],
-    "humidity-aids": ["sphagnum-moss"]
-  },
+  "heatSource": "basking",
+  "humidity": "moderate",
+  "lighting": "uvb-forest",
+  "substrate": [
+    "bioactive",
+    "paper",
+    "sand",
+    "soil"
+  ],
+  "diet": [
+    "insectivore"
+  ],
+  "waterFeature": "shallow-dish",
+  "decor": [
+    "branches",
+    "hides",
+    "humid-hide",
+    "ledges",
+    "plants"
+  ],
+  "climbing": "ground",
+  "activity": "terrestrial",
+  "climate": "semi-arid",
+  "animalType": "reptile",
+  "bioactiveSubstrate": "arid"
+},
   "lifespan": "10-20 years in captivity",
   "dietType": "Insectivore",
   "adultSize": "7-10 inches (females smaller than males)",
@@ -145,11 +171,12 @@
     }
   ],
   "relatedBlogs": [
+    "leopard-gecko-enrichment-welfare-guide",
     "leopard-gecko-enclosure-setup-guide",
     "leopard-gecko-substrate-guide",
-    "leopard-gecko-temp-humidity-guide",
-    "leopard-gecko-lighting-guide",
     "leopard-gecko-feeding-guide",
+    "leopard-gecko-temperature-humidity-guide",
+    "leopard-gecko-lighting-guide",
     "leopard-gecko-hydration-guide"
   ],
   "lifestyle": {

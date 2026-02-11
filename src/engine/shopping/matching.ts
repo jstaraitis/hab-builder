@@ -11,6 +11,7 @@ import type { EquipmentConfig, AnimalProfile, EnclosureInput } from '../types';
  * - "climbing:ground" - fulfills ground enrichment needs
  * - "humidity:high" - for high-humidity species
  * - "substrate:bioactive" - for bioactive setups
+ * - "bioactiveSubstrate:tropical" / "bioactiveSubstrate:arid" - for specific bioactive types
  * - "plants:live" / "plants:artificial" / "plants:mixed" - plant type preferences
  * - [] (empty array) - universal item, compatible with all animals
  */
@@ -46,6 +47,11 @@ export function matchesAnimalNeeds(
         break;
       case 'substrate':
         if (animalNeeds.substrate && animalNeeds.substrate.includes(value as 'bioactive' | 'soil' | 'paper' | 'foam' | 'sand' | 'sand-aquatic')) {
+          return true;
+        }
+        break;
+      case 'bioactiveSubstrate':
+        if (animalNeeds.bioactiveSubstrate === value) {
           return true;
         }
         break;

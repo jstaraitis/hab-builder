@@ -1,0 +1,164 @@
+{
+  "id": "uromastyx-lighting-guide",
+  "title": "Uromastyx Lighting Guide: UVB and Photoperiod",
+  "description": "High-output UVB guidance, placement distances, and bright visible lighting for Uromastyx.",
+  "excerpt": "High-output UVB guidance, placement distances, and bright visible lighting for Uromastyx.",
+  "author": "Habitat Builder",
+  "date": "2026-02-11",
+  "publishDate": "2026-02-11",
+  "category": "Care Guides",
+  "tags": ["uromastyx", "UVB", "lighting", "photoperiod"],
+  "image": "/animals/uromastyx/uromastyx-1.jpg",
+  "status": "community-reviewed",
+  "content": [
+    {
+      "type": "intro",
+      "title": "Essential Lighting Requirements for Uromastyx",
+      "content": "Uromastyx are full-sun baskers that require strong UVB and bright visible light. Proper lighting supports vitamin D3 synthesis, bone health, appetite, and natural activity."
+    },
+    {
+      "type": "section",
+      "title": "UVB Requirements"
+    },
+    {
+      "type": "text",
+      "content": "Aim for a basking UVI of 4.5-6.0 with a strong gradient that lets the lizard self-regulate."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>UVB Targets:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Parameter", "Target Value", "Measurement Location"],
+      "rows": [
+        ["UVI (UV Index)", "4.5-6.0", "Basking surface"],
+        ["Ferguson Zone", "Zone 4", "Full-sun basking species"],
+        ["Coverage Area", "50-70% of enclosure", "Warm side"],
+        ["Shade access", "Required", "Cool side and hides"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "High-output UVB is essential. Weak UVB or short fixtures are a leading cause of metabolic bone disease in Uromastyx."
+    },
+    {
+      "type": "section",
+      "title": "UVB Equipment Selection"
+    },
+    {
+      "type": "text",
+      "content": "Use a T5 HO linear UVB fixture with a 12-14% bulb that spans roughly half the enclosure length."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Recommended UVB Types:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Bulb Type", "UVB Output", "Length", "Replacement Interval"],
+      "rows": [
+        ["T5 HO high output", "12-14%", "Half enclosure length", "12 months"],
+        ["T5 HO mid output", "10%", "Half enclosure length", "10-12 months"],
+        ["T8 linear", "Not preferred", "Longer length needed", "6-8 months"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Avoid compact UVB bulbs and weak T8 fixtures for Uromastyx. They do not provide adequate UVB at safe distances."
+    },
+    {
+      "type": "section",
+      "title": "UVB Placement Guidelines"
+    },
+    {
+      "type": "text",
+      "content": "Distance and mesh coverage change UVB intensity. Place the basking platform at the correct distance for the chosen setup."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Mounting Distance Guidelines:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Configuration", "Distance to Basking", "Notes"],
+      "rows": [
+        ["Over mesh", "8-12 in", "Mesh reduces UVB output"],
+        ["Inside enclosure", "14-19 in", "No mesh loss, adjust for UVI target"],
+        ["Through glass", "Avoid", "Glass blocks UVB"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Best practice: Measure UVI at the basking surface with a Solarmeter 6.5 and adjust distance to reach 4.5-6.0."
+    },
+    {
+      "type": "section",
+      "title": "Full-Spectrum Illumination"
+    },
+    {
+      "type": "text",
+      "content": "Bright visible light improves activity and appetite. Use a 6500K LED bar that covers most of the enclosure length."
+    },
+    {
+      "type": "table",
+      "headers": ["Light Type", "Color Temperature", "Coverage Recommendation"],
+      "rows": [
+        ["LED bar", "6500K", "Most of enclosure length"],
+        ["T5 daylight tube", "6500K", "Supplementary brightness"],
+        ["Additional spot LED", "5000-6500K", "Boost basking zone brightness"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "UVB and visible light are different tools. Provide both for best results."
+    },
+    {
+      "type": "section",
+      "title": "Photoperiod Management"
+    },
+    {
+      "type": "table",
+      "headers": ["Season", "Light Duration", "Purpose"],
+      "rows": [
+        ["Spring and summer", "12-14 hours", "Peak activity and growth"],
+        ["Fall and winter", "10-12 hours", "Rest period"],
+        ["Night", "Complete darkness", "Sleep and circadian rhythm"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "content": "Use timers to keep lighting consistent and avoid irregular day lengths."
+    },
+    {
+      "type": "section",
+      "title": "Maintenance and Replacement"
+    },
+    {
+      "type": "table",
+      "headers": ["Equipment", "Replacement Interval", "Notes"],
+      "rows": [
+        ["T5 HO UVB", "Every 12 months", "UVB declines before light output does"],
+        ["LED bars", "Every 2-3 years", "Replace if brightness drops"],
+        ["Timers", "As needed", "Test monthly"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Common Setup Errors"
+    },
+    {
+      "type": "table",
+      "headers": ["Mistake", "Consequence", "Solution"],
+      "rows": [
+        ["Short UVB fixture", "No gradient", "Use a longer T5 HO fixture"],
+        ["UVB too far", "Low UVI", "Raise basking platform or lower fixture"],
+        ["No visible light", "Low activity", "Add a bright daylight LED bar"],
+        ["No shade", "Overexposure risk", "Provide hides and cool zone"]
+      ]
+    }
+  ]
+}

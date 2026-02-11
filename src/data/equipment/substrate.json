@@ -2,7 +2,7 @@
   "substrate-bioactive-tropical": {
     "name": "Bioactive Substrate Mix (Tropical)",
     "category": "substrate",
-    "needsTags": ["substrate:bioactive"],
+    "needsTags": ["substrate:bioactive", "bioactiveSubstrate:tropical"],
     "importance": "required",
     "isRecurring": false,
     "recurringInterval": "6 months",
@@ -35,7 +35,7 @@
   "substrate-bioactive-arid": {
     "name": "Bioactive Substrate Mix (Arid/Desert)",
     "category": "substrate",
-    "needsTags": ["substrate:bioactive"],
+    "needsTags": ["substrate:bioactive", "bioactiveSubstrate:arid"],
     "importance": "required",
     "isRecurring": false,
     "recurringInterval": "6 months",
@@ -217,7 +217,7 @@
   "drainage": {
     "name": "Drainage Layer (LECA or clay balls)",
     "category": "substrate",
-    "needsTags": ["substrate:bioactive"],
+    "needsTags": ["substrate:bioactive", "bioactiveSubstrate:tropical"],
     "importance": "conditional",
     "spec": {
       "depth": "1-3 inches",
@@ -248,7 +248,7 @@
   "drainage-barrier": {
     "name": "Drainage Barrier (mesh screen)",
     "category": "substrate",
-    "needsTags": ["substrate:bioactive"],
+    "needsTags": ["substrate:bioactive", "bioactiveSubstrate:tropical"],
     "importance": "conditional",
     "tiers": {
       "minimum": {

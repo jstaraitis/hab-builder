@@ -6,7 +6,7 @@
   "careLevel": "intermediate",
   "emoji": "🐸",
   "imageUrl": "/animals/red-eyed-tree-frog/red-eyed-tree-frog-main.jpg",
-  "completionStatus": "in-progress",
+  "completionStatus": "validated",
   "gallery": [
     {
       "url": "/animals/red-eyed-tree-frog/red-eyed-tree-frog-1.jpg",
@@ -79,7 +79,7 @@
       "notes": "Average 70-75% daytime with peaks of 90-95% at night during misting. Never keep above 75% continuously during day (bacterial skin infections risk). Well-ventilated setup essential."
     },
     "lighting": {
-      "uvbRequired": false,
+      "uvbRequired": true,
       "uvbRecommended": true,
       "uvbStrength": "5.0",
       "coveragePercent": 50,
@@ -99,14 +99,15 @@
     "climbing": "vertical",
     "substrate": ["bioactive", "soil", "paper", "foam"],
     "bioactiveSubstrate": "tropical",
-    "humidity": "high",
+    "humidity": "low",
     "heatSource": "basking",
-    "waterFeature": "paludarium",
+    "waterFeature": "shallow-dish",
     "lighting": "uvb-forest",
     "diet": ["insectivore"],
     "animalType": "amphibian",
-    "climate": "tropical",
-    "activity": "arboreal"
+    "climate": "semi-arid",
+    "activity": "arboreal",
+    "water": ["water-dish-large"]
   },
   "lifespan": "5-8+ years",
   "dietType": "Insectivore",

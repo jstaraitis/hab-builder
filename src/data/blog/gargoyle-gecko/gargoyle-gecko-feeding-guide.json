@@ -1,0 +1,265 @@
+﻿{
+  "id": "gargoyle-gecko-feeding-guide",
+  "title": "Gargoyle Gecko Feeding Guide: Complete Diet & Schedules",
+  "description": "Complete feeding guide for gargoyle geckos covering CGD (crested gecko diet) preparation, age-based schedules, insect supplementation, calcium dusting, and nutrition management.",
+  "excerpt": "Complete feeding guide for gargoyle geckos covering CGD (crested gecko diet) preparation, age-based schedules, insect supplementation, calcium dusting, and nutrition management.",
+  "author": "Habitat Builder",
+  "publishDate": "2026-02-11",
+  "category": "Nutrition",
+  "tags": ["gargoyle-gecko", "feeding", "nutrition", "diet", "insects"],
+  "image": "/animals/gargoyle-gecko/gargoyle-gecko-4.jpg",
+  "status": "community-reviewed",
+  "relatedGuides": ["gargoyle-gecko-enrichment-welfare-guide", "gargoyle-gecko-enclosure-setup"],
+  "content": [
+    {
+      "type": "intro",
+      "title": "Feeding Your Gargoyle Gecko",
+      "content": "Gargoyle geckos are omnivorous, requiring both fruit-based meal replacement powder (CGD - Crested Gecko Diet) and live insects. This guide covers complete nutrition including CGD brands, preparation, feeding schedules by age, insect supplementation, and portion management for healthy growth."
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "CGD is Not Optional: Unlike insectivorous species (leopard geckos, bearded dragons), gargoyle geckos REQUIRE fruit-based nutrition from CGD powder. Insects alone lack essential vitamins, calcium ratios, and fruit sugars needed for health. CGD must be the staple diet with insects as supplemental protein."
+    },
+    {
+      "type": "section",
+      "title": "Crested Gecko Diet (CGD): The Staple Food"
+    },
+    {
+      "type": "text",
+      "content": "CGD powder is a complete meal replacement developed specifically for frugivorous geckos (gargoyle, crested, leachianus). It contains balanced protein, vitamins, minerals, and fruit components."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Recommended CGD Brands:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Brand", "Popular Flavors", "Protein Content", "Best For", "Price Range"],
+      "rows": [
+        ["Pangea", "Watermelon, Fig & Insects, Papaya, Apricot", "High protein (insects included in some)", "Daily staple; most popular choice", "$10-12 for 8oz"],
+        ["Repashy", "Mango Superblend, Grubs 'N' Fruit, Banana Cream Pie", "Moderate-high protein", "Variety rotation; long shelf life", "$12-15 for 12oz"],
+        ["Black Panther Zoological", "Multiple fruit blends", "High protein, insect-based", "Performance diet for breeders", "$15-18 for 8oz"],
+        ["Gecko Pro", "Gold, Complete (with insects)", "Moderate protein", "Budget-friendly quality option", "$8-10 for 6oz"],
+        ["Leapin' Leachie", "Multiple flavors", "Formulated for larger geckos", "Gargoyle geckos over 40g", "$14-16 for 8oz"],
+        ["Zoo Med", "Fruit Mix, Tropical Fruit", "Lower protein", "Widely available at pet stores", "$7-9 for 4oz"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Brand Recommendations: Pangea Fig & Insects or Watermelon are gold standards. Repashy Grubs 'N' Fruit excellent for variety. Rotate 2-3 flavors to prevent pickiness and ensure balanced nutrition. Avoid relying solely on one brand/flavor."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>CGD Preparation:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Ratio:</span> Mix 1 part powder to 2 parts water by volume. Example: 1 teaspoon powder + 2 teaspoons water",
+        "<span class='font-semibold'>Water Type:</span> Filtered or dechlorinated tap water. Avoid distilled water (lacks minerals)",
+        "<span class='font-semibold'>Consistency:</span> Mix thoroughly until smooth - should resemble ketchup or baby food (thick but pourable). Lumps indicate insufficient mixing",
+        "<span class='font-semibold'>Mixing Container:</span> Use small lidded container or shot glass. Shake vigorously for 30-60 seconds",
+        "<span class='font-semibold'>Batch Size:</span> Prepare only what gecko will eat in 24-36 hours. Small batches prevent waste",
+        "<span class='font-semibold'>Storage:</span> Refrigerate unused powder after opening (extends freshness). Mixed CGD lasts 24-48 hours refrigerated in sealed container"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Feeding Presentation:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Feeding Ledge:</span> Use magnetic feeding ledge positioned mid-height (12-15 inches up). Gargoyle geckos prefer elevated feeding stations",
+        "<span class='font-semibold'>Bowl Type:</span> Small shallow dish or bottle cap (gecko licks food, doesn't need depth). Avoid dishes >2 inches tall",
+        "<span class='font-semibold'>Portion Size:</span> 1-2 teaspoons mixed CGD per feeding. Hatchlings <10g: 1/2 teaspoon; juveniles 10-30g: 1 teaspoon; adults 30g+: 1.5-2 teaspoons",
+        "<span class='font-semibold'>Feeding Time:</span> Offer in evening (6-9 PM) since gargoyle geckos are crepuscular (active dawn/dusk)",
+        "<span class='font-semibold'>Removal:</span> Remove uneaten CGD after 24 hours maximum. CGD molds quickly in humid environment (60-80% humidity)"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Age-Based Feeding Schedules"
+    },
+    {
+      "type": "table",
+      "headers": ["Age/Size", "CGD Frequency", "Insect Frequency", "Portion Sizes", "Notes"],
+      "rows": [
+        ["Hatchlings (0-10g, 0-3 months)", "Daily", "1-2x per week", "CGD: 1/2 tsp; Insects: 2-3 small (1/4\" crickets)", "Focus on growth - CGD every night is critical. Never skip CGD days"],
+        ["Juveniles (10-30g, 3-12 months)", "Daily", "1-2x per week", "CGD: 1 tsp; Insects: 3-5 small-medium (3/8\" crickets, small dubia)", "Rapid growth phase. Continue daily CGD until 12+ months"],
+        ["Sub-Adults (30-40g, 12-18 months)", "Every 2 days", "1x per week", "CGD: 1.5 tsp; Insects: 4-6 medium (1/2\" crickets, medium dubia)", "Transition to adult schedule gradually. Monitor weight"],
+        ["Adults (40g+, 18+ months)", "Every 2-3 days", "1x per week", "CGD: 1.5-2 tsp; Insects: 5-8 medium-large (1/2\" crickets, adult dubia)", "Adjust based on activity level. Breeding females need daily CGD"],
+        ["Breeding Females", "Daily during breeding season", "2x per week", "CGD: 2 tsp; Insects: 6-10 medium (calcium-heavy dusting)", "Increased nutrition for egg production. Monitor calcium levels closely"]
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Feeding Frequency Key Point: Juveniles under 12 months need DAILY CGD for proper growth. Adults can eat every 2-3 days but should never go longer than 3 days between CGD meals. Insects are supplemental - gargoyle geckos can survive on CGD alone but insects provide behavioral enrichment and protein variety."
+    },
+    {
+      "type": "section",
+      "title": "Live Insect Supplementation"
+    },
+    {
+      "type": "text",
+      "content": "While CGD provides complete nutrition, live insects add protein variety, mental stimulation, and hunting enrichment. Offer insects 1-2x per week depending on age."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Best Insect Feeders:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Insect Type", "Nutritional Value", "Pros", "Cons", "Best For"],
+      "rows": [
+        ["Crickets (Acheta domesticus)", "Moderate protein, low fat", "Widely available, affordable, good activity", "Noisy, short lifespan, smell", "All ages; weekly staple"],
+        ["Dubia Roaches", "High protein, moderate fat", "Quiet, long lifespan, easy gut-loading", "Illegal in some states (FL, HI), slower movement", "Adults and sub-adults; excellent staple"],
+        ["Red Runner Roaches", "High protein, low-moderate fat", "Very active (triggers hunting), legal everywhere", "Fast - can escape if not careful", "High-energy juveniles"],
+        ["Black Soldier Fly Larvae", "Moderate protein, high calcium", "High calcium:phosphorus ratio, no dusting needed", "Low activity (less enrichment)", "Calcium supplementation, breeding females"],
+        ["Darkling Beetles (adult mealworms)", "Moderate protein, crunchy", "Long lifespan, slow movement, easy storage", "High chitin (hard shell), less digestible", "Occasional treat only"],
+        ["Grasshoppers/Locusts", "High protein, low fat", "Large size, excellent hunting enrichment", "Expensive, seasonal availability", "Adult geckos, occasional variety"],
+        ["Snails (land snails)", "Low protein, high calcium", "Crush shell for calcium boost", "Must source pesticide-free, slow", "Occasional calcium treat"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "AVOID These Feeders: NEVER feed wild-caught insects (pesticide risk), fireflies/lightning bugs (toxic), boxelder bugs (toxic), or king mealworms to geckos under 40g (too large, impaction risk). Also avoid superworms as regular feeders - high fat content causes obesity. Use superworms as occasional treats only."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Insect Size Guidelines:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Golden Rule:</span> Insect length should NOT exceed distance between gecko's eyes (approximately 1/3 head width)",
+        "<span class='font-semibold'>Hatchlings (0-10g):</span> 1/4 inch crickets (pinheads), extra small dubia nymphs",
+        "<span class='font-semibold'>Juveniles (10-30g):</span> 3/8 inch crickets, small dubia (6-8mm)",
+        "<span class='font-semibold'>Adults (40g+):</span> 1/2 inch crickets, medium-large dubia (12-15mm), adult red runners",
+        "<span class='font-semibold'>Oversized Consequences:</span> Impaction (intestinal blockage), choking risk, refusal to eat"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Gut-Loading Insects (48 Hours Before Feeding):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Purpose:</span> Insects are nutritionally poor without gut-loading. Feeding insects quality food transfers nutrients to gecko",
+        "<span class='font-semibold'>Commercial Gut-Load:</span> Repashy Bug Burger, Fluker's High-Calcium Cricket Diet, Cricket Crack",
+        "<span class='font-semibold'>DIY Gut-Load:</span> Collard greens, squash, sweet potato, carrots, high-quality fish flakes. Avoid iceberg lettuce (no nutrients)",
+        "<span class='font-semibold'>Timing:</span> Feed insects heavily 24-48 hours before offering to gecko. Well-fed insects = better gecko nutrition",
+        "<span class='font-semibold'>Hydration:</span> Provide water crystals or fresh vegetables for insect hydration (dry insects less nutritious)"
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Calcium & Vitamin Supplementation"
+    },
+    {
+      "type": "text",
+      "content": "Gargoyle geckos need calcium supplementation when eating insects. CGD already contains calcium, so dusting is for insects only."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Supplement Schedule:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Supplement Type", "Frequency", "Best Products", "Usage"],
+      "rows": [
+        ["Calcium WITHOUT D3", "Every insect feeding", "Arcadia CalciumPro Mg, Rep-Cal, Zoo Med ReptiCalcium", "Light dusting - insects should look lightly powdered (not breaded)"],
+        ["Calcium WITH D3", "NOT NEEDED if using UVB", "Rep-Cal with D3, Zoo Med with D3", "Only use if NO UVB lighting. Overdose risk with UVB present"],
+        ["Multivitamin", "NOT NEEDED - CGD contains vitamins", "Repashy Calcium Plus (low D3), Arcadia EarthPro-A", "Skip if gecko eating CGD regularly. Only supplement if refusing CGD >1 week"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Dusting Technique:</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Place insects in small plastic bag or cup with 1/4 teaspoon calcium powder",
+        "Shake gently 10-15 seconds until insects lightly coated (should still see insect color through powder)",
+        "Offer immediately - dusting wears off as insects groom themselves within 30 minutes",
+        "Do NOT over-dust - thick powder coating causes geckos to refuse insects",
+        "For multiple insects: Dust in batches to ensure even coating"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "critical",
+      "content": "D3 Toxicity Risk: If providing UVB lighting (12\" T8 6% or ReptiSun 5.0), use calcium WITHOUT D3 only. Gargoyle geckos synthesize D3 from UVB exposure. Adding supplemental D3 when UVB present causes hypervitaminosis D3 (D3 overdose) - symptoms include lethargy, kidney damage, calcification of organs. NEVER double-supplement D3."
+    },
+    {
+      "type": "section",
+      "title": "Occasional Treats & Variety"
+    },
+    {
+      "type": "text",
+      "content": "Gargoyle geckos can have occasional treats for enrichment and dietary variety. Treats should comprise <10% of total diet."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-gray-900 dark:text-white block mb-2'>Safe Treats (1-2x per month):</span>"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Pinkie Mice (frozen/thawed):</span> Size: newborn pinkie for adults 40g+ only. High calcium, protein, fat - excellent for breeding females. Offer 1x monthly maximum (very high fat)",
+        "<span class='font-semibold'>Fruit Purees:</span> Mashed banana, papaya, mango, or fig mixed into CGD (80% CGD + 20% puree). Adds natural fruit sugars",
+        "<span class='font-semibold'>Honey (raw, unpasteurized):</span> Tiny drop (pea-sized) mixed into CGD for appetite stimulation. Use sparingly - high sugar",
+        "<span class='font-semibold'>Waxworms/Superworms:</span> 1-2 worms monthly as high-fat treat. DO NOT use as regular feeders (causes obesity)",
+        "<span class='font-semibold'>Hornworms:</span> Excellent hydration treat (85% water), low fat, high calcium. 1-2 medium hornworms every 2-3 weeks"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "content": "Foods to AVOID: NEVER offer dairy products (geckos are lactose intolerant), avocado (toxic), citrus fruits (too acidic), raw meat (bacteria risk), dog/cat food (wrong nutrient ratios), or baby food with additives/preservatives. Stick to CGD, approved insects, and occasional safe treats only."
+    },
+    {
+      "type": "section",
+      "title": "Feeding Problems & Solutions"
+    },
+    {
+      "type": "table",
+      "headers": ["Problem", "Possible Causes", "Solutions"],
+      "rows": [
+        ["Refusing CGD", "Flavor pickiness, temperature too cold (<70F), stress, breeding season", "Rotate CGD flavors (try Pangea Watermelon, Repashy Mango), warm CGD to room temp before offering, check temperatures, add tiny drop honey to stimulate appetite, reduce handling for 3-5 days"],
+        ["Refusing insects", "Overfed CGD (too full), insect size too large, gecko not hungry, low temperatures", "Skip next CGD feeding to increase hunger, offer smaller insects, ensure basking zone 82-85F (metabolism slows when cold), try different insect type (dubia vs crickets)"],
+        ["Weight loss despite eating", "Parasites (coccidia, pinworms), improper temperatures, metabolic bone disease (MBD)", "Fecal test by exotic vet, verify basking 82-85F and cool 70-75F, check calcium supplementation schedule, increase feeding frequency"],
+        ["Obesity (tail thicker than body)", "Overfeeding CGD, too many insects, high-fat feeders (waxworms, superworms)", "Reduce CGD to every 3 days for adults, limit insects to 1x weekly, eliminate waxworms/superworms, increase enclosure enrichment for activity"],
+        ["Picky eater after move/new enclosure", "Stress from relocation, unfamiliar surroundings", "Give 5-7 days to acclimate without handling, maintain consistent feeding schedule, offer favorite CGD flavor, ensure proper temperatures"],
+        ["Not eating after purchase", "Shipping stress, temperature stress during transport, dehydration", "Prioritize hydration first (mist heavily, offer water droplets), wait 48 hours before offering food, keep in quiet location, check temps immediately"],
+        ["Eating substrate", "Calcium deficiency (pica behavior), boredom, mistaking for food", "Increase calcium dusting frequency, add more climbing enrichment, ensure insects not falling to substrate during feeding, consider magnetic feeding ledge"]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Hydration During Feeding"
+    },
+    {
+      "type": "text",
+      "content": "Gargoyle geckos often drink while eating or immediately after. Ensure fresh water available during feeding times."
+    },
+    {
+      "type": "list",
+      "items": [
+        "<span class='font-semibold'>Water Dish:</span> Always provide shallow water dish (<1 inch deep) with fresh water. Change daily",
+        "<span class='font-semibold'>Misting During Feeding:</span> Lightly mist enclosure before offering CGD (6-9 PM). Geckos lick water droplets while feeding",
+        "<span class='font-semibold'>CGD Hydration:</span> Mixed CGD contains 60-65% water - contributes significantly to hydration",
+        "<span class='font-semibold'>Dehydration Signs:</span> Sunken eyes, wrinkled skin, lethargy, stuck shed. Increase misting to 3x daily if detected",
+        "<span class='font-semibold'>Humidity Target:</span> Maintain 60-80% humidity for proper hydration and appetite"
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "Feeding Success Summary: Feed juveniles CGD daily + insects 1-2x weekly. Feed adults CGD every 2-3 days + insects 1x weekly. Always dust insects with calcium WITHOUT D3 (if using UVB). Rotate CGD flavors monthly to prevent pickiness. Remove uneaten CGD after 24 hours. Gut-load insects 48 hours before feeding. Monitor weight monthly - adjust portions if gaining/losing too fast."
+    }
+  ]
+}
