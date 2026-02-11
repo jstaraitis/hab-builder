@@ -294,7 +294,8 @@ export function EditInventoryItemView() {
                 type="date"
                 value={form.lastReplacedAt}
                 onChange={(event) => setForm(prev => ({ ...prev, lastReplacedAt: event.target.value }))}
-                className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm"
+                className="w-full rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2.5 text-sm sm:text-base min-h-[44px] sm:min-h-[42px] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none appearance-none [-webkit-appearance:none] [&::-webkit-calendar-picker-indicator]:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
+                style={{ colorScheme: 'light' }}
               />
             </div>
             <div>
@@ -330,7 +331,8 @@ export function EditInventoryItemView() {
                 type="time"
                 value={form.reminderTime}
                 onChange={(event) => setForm(prev => ({ ...prev, reminderTime: event.target.value }))}
-                className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm"
+                className="w-full rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2.5 text-sm sm:text-base min-h-[44px] sm:min-h-[42px] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none appearance-none [-webkit-appearance:none] [&::-webkit-calendar-picker-indicator]:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
+                style={{ colorScheme: 'light' }}
               />
             </div>
             <div>

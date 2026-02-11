@@ -567,7 +567,8 @@ export function TaskCreationModal({
                           type="date"
                           value={task.startDate || ''}
                           onChange={(e) => updateTask(index, 'startDate', e.target.value)}
-                          className="w-full px-2 sm:px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
+                          className="w-full px-2 sm:px-3 py-2.5 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm sm:text-base min-h-[44px] sm:min-h-[42px] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none appearance-none [-webkit-appearance:none] [&::-webkit-calendar-picker-indicator]:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
+                          style={{ colorScheme: 'light' }}
                         />
                         <p className="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 mt-0.5">
                           Schedule a future task (e.g., feeding in 2 weeks)
@@ -582,7 +583,8 @@ export function TaskCreationModal({
                           type="time"
                           value={task.scheduledTime}
                           onChange={(e) => updateTask(index, 'scheduledTime', e.target.value)}
-                          className="w-full px-2 sm:px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
+                          className="w-full px-2 sm:px-3 py-2.5 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm sm:text-base min-h-[44px] sm:min-h-[42px] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none appearance-none [-webkit-appearance:none] [&::-webkit-calendar-picker-indicator]:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
+                          style={{ colorScheme: 'light' }}
                         />
                       </div>
                     </div>

@@ -249,7 +249,8 @@ export function TaskEditModal({
                 type="time"
                 value={formData.scheduledTime || ''}
                 onChange={(e) => updateField('scheduledTime', e.target.value)}
-                className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base"
+                className="w-full px-3 py-3 sm:py-2 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base min-h-[50px] sm:min-h-[42px] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none appearance-none [-webkit-appearance:none] [&::-webkit-calendar-picker-indicator]:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
+                style={{ colorScheme: 'light' }}
               />
             </div>
 
@@ -268,7 +269,8 @@ export function TaskEditModal({
                     : ''
                 }
                 onChange={(e) => setFormData(prev => ({ ...prev, startDate: e.target.value ? new Date(e.target.value) : undefined }))}
-                className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base"
+                className="w-full px-3 py-3 sm:py-2 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base min-h-[50px] sm:min-h-[42px] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none appearance-none [-webkit-appearance:none] [&::-webkit-calendar-picker-indicator]:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
+                style={{ colorScheme: 'light' }}
               />
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                 Schedule a future task (e.g., feeding in 2 weeks)

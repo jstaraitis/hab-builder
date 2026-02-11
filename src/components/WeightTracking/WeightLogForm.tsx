@@ -155,9 +155,10 @@ export function WeightLogForm({ animal, onSuccess, onCancel, initialData }: Weig
             value={date}
             onChange={(e) => setDate(e.target.value)}
             max={new Date().toISOString().split('T')[0]}
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg
-                     bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
-                     focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+            className="w-full px-3 py-2.5 border-2 border-gray-300 dark:border-gray-600 rounded-lg
+                     bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 text-sm sm:text-base min-h-[44px] sm:min-h-[42px]
+                     focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none appearance-none [-webkit-appearance:none] [&::-webkit-calendar-picker-indicator]:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
+            style={{ colorScheme: 'light' }}
             required
           />
         </div>
@@ -171,9 +172,10 @@ export function WeightLogForm({ animal, onSuccess, onCancel, initialData }: Weig
             type="time"
             value={time}
             onChange={(e) => setTime(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg
-                     bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
-                     focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+            className="w-full px-3 py-2.5 border-2 border-gray-300 dark:border-gray-600 rounded-lg
+                     bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 text-sm sm:text-base min-h-[44px] sm:min-h-[42px]
+                     focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none appearance-none [-webkit-appearance:none] [&::-webkit-calendar-picker-indicator]:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
+            style={{ colorScheme: 'light' }}
           />
         </div>
       </div>
