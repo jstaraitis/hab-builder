@@ -349,37 +349,35 @@ export function TaskEditModal({
 
         {/* Footer */}
         <div className="border-t border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-900 shrink-0 relative z-10">
-          {/* Mobile layout: Save on top, Cancel/Delete on bottom */}
-          <div className="sm:hidden space-y-3">
+          {/* Mobile layout: Icon-only buttons */}
+          <div className="sm:hidden flex items-center justify-between gap-3">
             <button
-              onClick={handleSubmit}
+              type="button"
+              onClick={handleDelete}
               disabled={loading}
-              aria-label="Save changes"
-              className="w-full px-4 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-semibold transition-colors disabled:opacity-50 shadow-sm text-base flex items-center justify-center gap-2"
+              aria-label="Delete task"
+              className="p-4 text-red-600 hover:text-white dark:text-red-400 bg-red-50 hover:bg-red-600 dark:bg-red-900/20 dark:hover:bg-red-600 rounded-xl transition-colors disabled:opacity-50 border-2 border-red-200 dark:border-red-800 shadow-sm active:scale-95"
             >
-              <Check className="w-5 h-5" />
-              <span>Save Changes</span>
+              <Trash2 className="w-6 h-6" />
             </button>
+            
             <div className="flex gap-3">
-              <button
-                type="button"
-                onClick={handleDelete}
-                disabled={loading}
-                aria-label="Delete task"
-                className="flex-1 px-4 py-3 text-red-600 hover:text-white dark:text-red-400 bg-red-50 hover:bg-red-600 dark:bg-red-900/20 dark:hover:bg-red-600 rounded-lg transition-colors disabled:opacity-50 font-semibold text-base border-2 border-red-200 dark:border-red-800 flex items-center justify-center gap-2"
-              >
-                <Trash2 className="w-5 h-5" />
-                <span>Delete</span>
-              </button>
               <button
                 type="button"
                 onClick={onClose}
                 disabled={loading}
                 aria-label="Cancel"
-                className="flex-1 px-4 py-3 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 border-2 border-gray-300 dark:border-gray-600 rounded-lg transition-colors disabled:opacity-50 font-semibold text-base flex items-center justify-center gap-2"
+                className="p-4 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 border-2 border-gray-300 dark:border-gray-600 rounded-xl transition-colors disabled:opacity-50 shadow-sm active:scale-95"
               >
-                <X className="w-5 h-5" />
-                <span>Cancel</span>
+                <X className="w-6 h-6" />
+              </button>
+              <button
+                onClick={handleSubmit}
+                disabled={loading}
+                aria-label="Save changes"
+                className="p-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl transition-colors disabled:opacity-50 shadow-lg active:scale-95"
+              >
+                <Check className="w-6 h-6" />
               </button>
             </div>
           </div>

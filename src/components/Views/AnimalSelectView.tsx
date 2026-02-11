@@ -41,24 +41,19 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
     }
   }, [input.animal]);
 
-  // Detect when user scrolls near bottom of page
+  // Show button after user has had time to view content (smoother UX than scroll-based)
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollHeight = document.documentElement.scrollHeight;
-      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      const clientHeight = document.documentElement.clientHeight;
+    if (input.animal) {
+      // Show button after a short delay once animal is selected
+      const timer = setTimeout(() => {
+        setShowContinueButton(true);
+      }, 800);
       
-      // Show button when user is within 200px of bottom
-      const isNearBottom = scrollHeight - scrollTop - clientHeight < 200;
-      setShowContinueButton(isNearBottom);
-    };
-
-    // Check on mount
-    handleScroll();
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      return () => clearTimeout(timer);
+    } else {
+      setShowContinueButton(false);
+    }
+  }, [input.animal]);
 
   // SEO metadata for animal-specific pages
   const animalSEO = selectedProfile ? {

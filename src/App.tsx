@@ -808,7 +808,7 @@ function App() {
 
       <FeedbackModal isOpen={isFeedbackOpen} onClose={() => setIsFeedbackOpen(false)} />
 
-      <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-12 lg:mt-16">
+      <footer className="hidden lg:block bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-12 lg:mt-16">
         <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 text-center">
           <div className="flex items-center justify-center gap-2 mb-3 md:mb-4">
             <span className="text-xl md:text-2xl">🦎</span>

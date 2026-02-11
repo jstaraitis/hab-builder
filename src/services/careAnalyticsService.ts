@@ -1,8 +1,6 @@
 import { supabase } from '../lib/supabase';
 import { careTaskService } from './careTaskService';
-import { enclosureService } from './enclosureService';
-import { enclosureAnimalService } from './enclosureAnimalService';
-import type { CareLog, CareTask, TaskType } from '../types/careCalendar';
+import type { CareLog, CareTask, TaskType, Enclosure, EnclosureAnimal } from '../types/careCalendar';
 import type {
   CareLogAnalytics,
   TaskTypeStats,
@@ -247,6 +245,8 @@ class CareAnalyticsService {
 
   /**
    * Enrich logs with task information
+   * 
+   * PERFORMANCE: Batch fetch all animals and enclosures upfront to avoid N+1 queries
    */
   private async enrichLogsWithTaskInfo(logs: CareLog[]): Promise<CareLogWithTask[]> {
     if (logs.length === 0) return [];
@@ -254,35 +254,49 @@ class CareAnalyticsService {
     const tasks = await careTaskService.getTasksWithLogs();
     const taskMap = new Map(tasks.map(t => [t.id, t]));
 
+    // Collect unique animal and enclosure IDs needed
+    const animalIds = new Set<string>();
+    const enclosureIds = new Set<string>();
+    
+    logs.forEach(log => {
+      const task = taskMap.get(log.taskId);
+      if (task) {
+        if (task.enclosureAnimalId) animalIds.add(task.enclosureAnimalId);
+        if (task.enclosureId) enclosureIds.add(task.enclosureId);
+      }
+    });
+
+    // Batch fetch all animals and enclosures at once
+    const [animals, enclosures] = await Promise.all([
+      animalIds.size > 0 ? this.batchFetchAnimals(Array.from(animalIds)) : Promise.resolve([]),
+      enclosureIds.size > 0 ? this.batchFetchEnclosures(Array.from(enclosureIds)) : Promise.resolve([]),
+    ]);
+
+    // Create lookup maps
+    const animalMap = new Map(animals.map(a => [a.id, a]));
+    const enclosureMap = new Map(enclosures.map(e => [e.id, e]));
+
+    // Enrich logs using the maps (no additional queries)
     const enrichedLogs: CareLogWithTask[] = [];
 
     for (const log of logs) {
       const task = taskMap.get(log.taskId);
       if (!task) continue;
 
-      // Get animal/enclosure names if available
       let animalName: string | undefined;
       let enclosureName: string | undefined;
 
       if (task.enclosureAnimalId) {
-        try {
-          const animal = await enclosureAnimalService.getAnimalById(task.enclosureAnimalId);
-          if (animal) {
-            animalName = animal.name || `Animal #${animal.animalNumber}`;
-          }
-        } catch (e) {
-          console.error('Error fetching animal:', e);
+        const animal = animalMap.get(task.enclosureAnimalId);
+        if (animal) {
+          animalName = animal.name || `Animal #${animal.animalNumber}`;
         }
       }
 
       if (task.enclosureId) {
-        try {
-          const enclosure = await enclosureService.getEnclosureById(task.enclosureId);
-          if (enclosure) {
-            enclosureName = enclosure.name;
-          }
-        } catch (e) {
-          console.error('Error fetching enclosure:', e);
+        const enclosure = enclosureMap.get(task.enclosureId);
+        if (enclosure) {
+          enclosureName = enclosure.name;
         }
       }
 
@@ -296,6 +310,72 @@ class CareAnalyticsService {
     }
 
     return enrichedLogs;
+  }
+
+  /**
+   * Batch fetch multiple animals by IDs
+   */
+  private async batchFetchAnimals(ids: string[]): Promise<EnclosureAnimal[]> {
+    try {
+      const { data, error } = await supabase
+        .from('enclosure_animals')
+        .select('*')
+        .in('id', ids);
+      
+      if (error) throw error;
+      
+      // Map the results inline
+      return (data || []).map(row => ({
+        id: row.id,
+        enclosureId: row.enclosure_id || undefined,
+        userId: row.user_id,
+        name: row.name,
+        animalNumber: row.animal_number,
+        gender: row.gender,
+        morph: row.morph,
+        birthday: row.birthday ? new Date(row.birthday) : undefined,
+        notes: row.notes,
+        isActive: row.is_active,
+        createdAt: new Date(row.created_at),
+        updatedAt: new Date(row.updated_at),
+      }));
+    } catch (e) {
+      console.error('Error batch fetching animals:', e);
+      return [];
+    }
+  }
+
+  /**
+   * Batch fetch multiple enclosures by IDs
+   */
+  private async batchFetchEnclosures(ids: string[]): Promise<Enclosure[]> {
+    try {
+      const { data, error } = await supabase
+        .from('enclosures')
+        .select('*')
+        .in('id', ids);
+      
+      if (error) throw error;
+      
+      // Map the results inline
+      return (data || []).map(row => ({
+        id: row.id,
+        userId: row.user_id,
+        name: row.name,
+        animalId: row.animal_id,
+        animalName: row.animal_name,
+        description: row.description,
+        setupDate: row.setup_date ? new Date(row.setup_date) : undefined,
+        animalBirthday: row.animal_birthday ? new Date(row.animal_birthday) : undefined,
+        substrateType: row.substrate_type,
+        isActive: row.is_active,
+        createdAt: new Date(row.created_at),
+        updatedAt: new Date(row.updated_at),
+      }));
+    } catch (e) {
+      console.error('Error batch fetching enclosures:', e);
+      return [];
+    }
   }
 
   /**
