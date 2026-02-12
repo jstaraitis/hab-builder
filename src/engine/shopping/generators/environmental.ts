@@ -1,6 +1,29 @@
 import type { ShoppingItem, AnimalProfile, EnclosureInput, EquipmentConfig } from '../../types';
 import { catalog } from '../utils';
 
+const catalogDict = catalog as Record<string, EquipmentConfig>;
+
+/**
+ * Helper to add humidity control item
+ */
+function addHumidityItem(
+  items: ShoppingItem[],
+  id: string,
+  config: EquipmentConfig,
+  quantity: string,
+  sizing: string
+): void {
+  items.push({
+    id,
+    category: config.category,
+    name: config.name,
+    quantity,
+    sizing,
+    importance: 'required',
+    notes: config.notes,
+  });
+}
+
 /**
  * Adds humidity control equipment based on ambient conditions
  */
@@ -10,8 +33,6 @@ export function addHumidityControl(
   profile: AnimalProfile,
   input: EnclosureInput
 ): void {
-  const catalogDict = catalog as Record<string, EquipmentConfig>;
-  
   // Skip humidity control for fully aquatic animals (humidity is inherent)
   if (profile.equipmentNeeds?.activity === 'aquatic') {
     return;
@@ -19,67 +40,77 @@ export function addHumidityControl(
   
   // Need humidity control if ambient is below the animal's max humidity requirement
   const needsHumidityControl = input.ambientHumidity < (profile.careTargets.humidity.day?.max ?? 80);
-  const isScreenEnclosure = input.type === 'screen';
-  const humidityWarning = isScreenEnclosure && needsHumidityControl ? ' (screen loses humidity - may need larger unit)' : '';
-  const volume = dims.width * dims.depth * dims.height;
+  if (!needsHumidityControl) return;
   
-  if (needsHumidityControl && input.humidityControl === 'manual') {
-    const misterConfig = catalogDict['spray-bottle'];
-    if (misterConfig) {
-      const mistingFrequency = isScreenEnclosure ? '4-6 times daily' : '2-3 times daily';
-      items.push({
-        id: 'spray-bottle',
-        category: misterConfig.category,
-        name: misterConfig.name,
-        quantity: '1 bottle',
-        sizing: `Manual misting ${mistingFrequency} to maintain ${profile.careTargets.humidity.day?.min ?? 60}-${profile.careTargets.humidity.day?.max ?? 80}% humidity${isScreenEnclosure ? ' (more frequent due to screen material)' : ''} (current room: ${input.ambientHumidity}%)`,
-        importance: 'required',
-        notes: misterConfig.notes,
-      });
+  const isScreenEnclosure = input.type === 'screen';
+  const humidityRange = `${profile.careTargets.humidity.day?.min ?? 60}-${profile.careTargets.humidity.day?.max ?? 80}%`;
+  const ambientNote = ` (current room: ${input.ambientHumidity}%)`;
+  const screenWarning = isScreenEnclosure ? ' (screen loses humidity - may need larger unit)' : '';
+  
+  switch (input.humidityControl) {
+    case 'manual': {
+      const config = catalogDict['spray-bottle'];
+      if (config) {
+        const frequency = isScreenEnclosure ? '4-6 times daily' : '2-3 times daily';
+        const screenNote = isScreenEnclosure ? ' (more frequent due to screen material)' : '';
+        addHumidityItem(
+          items,
+          'spray-bottle',
+          config,
+          '1 bottle',
+          `Manual misting ${frequency} to maintain ${humidityRange} humidity${screenNote}${ambientNote}`
+        );
+      }
+      break;
     }
-  } else if (needsHumidityControl && input.humidityControl === 'misting-system') {
-    const mistingConfig = catalogDict['misting-system'];
-    if (mistingConfig) {
-      // Screen enclosures may need more frequent misting
-      const mistingFrequency = isScreenEnclosure ? '4-5 times daily' : '2-3 times daily';
-      items.push({
-        id: 'misting-system',
-        category: mistingConfig.category,
-        name: mistingConfig.name,
-        quantity: '1 system',
-        sizing: `Automatic timer for ${mistingFrequency} misting to maintain ${profile.careTargets.humidity.day?.min ?? 60}-${profile.careTargets.humidity.day?.max ?? 80}% humidity${isScreenEnclosure ? ' (high frequency due to screen material)' : ''} (current room: ${input.ambientHumidity}%)`,
-        importance: 'required', // Required when humidity control is needed
-        notes: mistingConfig.notes,
-      });
+    
+    case 'misting-system': {
+      const config = catalogDict['misting-system'];
+      if (config) {
+        const frequency = isScreenEnclosure ? '4-5 times daily' : '2-3 times daily';
+        const screenNote = isScreenEnclosure ? ' (high frequency due to screen material)' : '';
+        addHumidityItem(
+          items,
+          'misting-system',
+          config,
+          '1 system',
+          `Automatic timer for ${frequency} misting to maintain ${humidityRange} humidity${screenNote}${ambientNote}`
+        );
+      }
+      break;
     }
-  } else if (needsHumidityControl && input.humidityControl === 'humidifier') {
-    const humidifierConfig = catalogDict.humidifier;
-    if (humidifierConfig) {
-      // Screen enclosures may need larger humidifier
-      const sizeMultiplier = isScreenEnclosure ? 1.5 : 1;
-      const cubicFeet = Math.round(volume / 1728);
-      items.push({
-        id: 'humidifier',
-        category: humidifierConfig.category,
-        name: humidifierConfig.name,
-        quantity: '1 unit',
-        sizing: `Sized for ${Math.round(cubicFeet * sizeMultiplier)}+ cubic feet to reach ${profile.careTargets.humidity.min}-${profile.careTargets.humidity.max}% humidity${humidityWarning} (current room: ${input.ambientHumidity}%)`,
-        importance: 'required', // Required when humidity control is needed
-        notes: humidifierConfig.notes,
-      });
+    
+    case 'humidifier': {
+      const config = catalogDict.humidifier;
+      if (config) {
+        const sizeMultiplier = isScreenEnclosure ? 1.5 : 1;
+        const cubicFeet = Math.round((dims.width * dims.depth * dims.height) / 1728);
+        const targetSize = Math.round(cubicFeet * sizeMultiplier);
+        const humidityRangeSimple = `${profile.careTargets.humidity.min}-${profile.careTargets.humidity.max}%`;
+        addHumidityItem(
+          items,
+          'humidifier',
+          config,
+          '1 unit',
+          `Sized for ${targetSize}+ cubic feet to reach ${humidityRangeSimple} humidity${screenWarning}${ambientNote}`
+        );
+      }
+      break;
     }
-  } else if (needsHumidityControl && input.humidityControl === 'fogger') {
-    const foggerConfig = catalogDict.fogger;
-    if (foggerConfig) {
-      items.push({
-        id: 'fogger',
-        category: foggerConfig.category,
-        name: foggerConfig.name,
-        quantity: '1 unit',
-        sizing: `Ultrasonic fogger for ${profile.careTargets.humidity.min}-${profile.careTargets.humidity.max}% humidity${humidityWarning} (current room: ${input.ambientHumidity}%)`,
-        importance: 'required', // Required when humidity control is needed
-        notes: foggerConfig.notes,
-      });
+    
+    case 'fogger': {
+      const config = catalogDict.fogger;
+      if (config) {
+        const humidityRangeSimple = `${profile.careTargets.humidity.min}-${profile.careTargets.humidity.max}%`;
+        addHumidityItem(
+          items,
+          'fogger',
+          config,
+          '1 unit',
+          `Ultrasonic fogger for ${humidityRangeSimple} humidity${screenWarning}${ambientNote}`
+        );
+      }
+      break;
     }
   }
 }

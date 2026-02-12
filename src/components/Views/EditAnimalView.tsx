@@ -22,7 +22,13 @@ export function EditAnimalView() {
     gender: '' as '' | 'male' | 'female' | 'unknown',
     morph: '',
     birthday: '',
-    notes: ''
+    notes: '',
+    // Acquisition fields
+    source: '' as '' | 'breeder' | 'pet-store' | 'rescue' | 'wild-caught' | 'bred-by-me' | 'adopted' | 'other',
+    sourceDetails: '',
+    acquisitionDate: '',
+    acquisitionPrice: '',
+    acquisitionNotes: ''
   });
 
   useEffect(() => {
@@ -61,7 +67,12 @@ export function EditAnimalView() {
           gender: animalData.gender || '',
           morph: animalData.morph || '',
           birthday: animalData.birthday ? new Date(animalData.birthday).toISOString().split('T')[0] : '',
-          notes: animalData.notes || ''
+          notes: animalData.notes || '',
+          source: animalData.source || '',
+          sourceDetails: animalData.sourceDetails || '',
+          acquisitionDate: animalData.acquisitionDate ? new Date(animalData.acquisitionDate).toISOString().split('T')[0] : '',
+          acquisitionPrice: animalData.acquisitionPrice?.toString() || '',
+          acquisitionNotes: animalData.acquisitionNotes || ''
         });
       } catch (err) {
         if (isMounted) {
@@ -98,6 +109,11 @@ export function EditAnimalView() {
         morph: formData.morph || undefined,
         birthday: formData.birthday ? new Date(formData.birthday) : undefined,
         notes: formData.notes || undefined,
+        source: formData.source || undefined,
+        sourceDetails: formData.sourceDetails || undefined,
+        acquisitionDate: formData.acquisitionDate ? new Date(formData.acquisitionDate) : undefined,
+        acquisitionPrice: formData.acquisitionPrice ? parseFloat(formData.acquisitionPrice) : undefined,
+        acquisitionNotes: formData.acquisitionNotes || undefined,
         isActive: true
       };
 
@@ -260,6 +276,90 @@ export function EditAnimalView() {
               placeholder="Special traits, health notes, etc."
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
             />
+          </div>
+
+          {/* Acquisition Information Section */}
+          <div className="border-t border-gray-300 dark:border-gray-600 pt-4 mt-6">
+            <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-4">
+              Acquisition Information
+            </h3>
+
+            <div className="grid grid-cols-2 gap-3 mb-3">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Source (optional)
+                </label>
+                <select
+                  value={formData.source}
+                  onChange={(e) => setFormData(prev => ({ ...prev, source: e.target.value as any }))}
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                >
+                  <option value="">Select source...</option>
+                  <option value="breeder">Breeder</option>
+                  <option value="pet-store">Pet Store</option>
+                  <option value="rescue">Rescue</option>
+                  <option value="wild-caught">Wild-Caught</option>
+                  <option value="bred-by-me">Bred by Me</option>
+                  <option value="adopted">Adopted</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Source Details (optional)
+                </label>
+                <input
+                  type="text"
+                  value={formData.sourceDetails}
+                  onChange={(e) => setFormData(prev => ({ ...prev, sourceDetails: e.target.value }))}
+                  placeholder="Breeder/store name"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 mb-3">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Acquisition Date (optional)
+                </label>
+                <input
+                  type="date"
+                  value={formData.acquisitionDate}
+                  onChange={(e) => setFormData(prev => ({ ...prev, acquisitionDate: e.target.value }))}
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Acquisition Price (optional)
+                </label>
+                <input
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  value={formData.acquisitionPrice}
+                  onChange={(e) => setFormData(prev => ({ ...prev, acquisitionPrice: e.target.value }))}
+                  placeholder="0.00"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Acquisition Notes (optional)
+              </label>
+              <textarea
+                value={formData.acquisitionNotes}
+                onChange={(e) => setFormData(prev => ({ ...prev, acquisitionNotes: e.target.value }))}
+                rows={2}
+                placeholder="Source info, story, breeder contact, etc."
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+              />
+            </div>
           </div>
 
           {error && (

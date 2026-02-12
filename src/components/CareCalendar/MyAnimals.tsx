@@ -85,7 +85,8 @@ export function MyAnimals() {
   // Animal Card Component
   const AnimalCard = ({ animal, enclosure }: { animal: EnclosureAnimal; enclosure?: Enclosure }) => (
     <div
-      className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3 hover:border-emerald-300 dark:hover:border-emerald-700 transition-colors"
+      onClick={() => navigate(`/my-animals/${animal.id}`)}
+      className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3 hover:border-emerald-300 dark:hover:border-emerald-700 hover:shadow-md transition-all cursor-pointer"
     >
       {/* Header: Name + Action Buttons */}
       <div className="flex items-center justify-between gap-2 mb-1.5">
@@ -100,14 +101,7 @@ export function MyAnimals() {
           )}
         </div>
         {/* Action Buttons - Inline on mobile */}
-        <div className="flex items-center gap-0.5 shrink-0">
-          <button
-            onClick={() => navigate(`/weight-tracker/${animal.id}`)}
-            className="p-1.5 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
-            title="Track weight"
-          >
-            <Scale className="w-4 h-4" />
-          </button>
+        <div className="flex items-center gap-0.5 shrink-0" onClick={(e) => e.stopPropagation()}>
           <button
             onClick={() => navigate(`/my-animals/edit/${animal.id}`)}
             className="p-1.5 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
@@ -227,29 +221,31 @@ export function MyAnimals() {
   const unassignedAnimals = sortAnimalsByName(animals.filter(a => !a.enclosureId));
 
   return (
-    <div className="space-y-4">
+    <div className="max-w-7xl mx-auto p-4 sm:p-8">
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-            My Animals
-          </h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
-            {animals.length} {animals.length === 1 ? 'animal' : 'animals'} total
-          </p>
+      <div className="mb-8">
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+              My Animals
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400">
+              {animals.length} {animals.length === 1 ? 'animal' : 'animals'} total
+            </p>
+          </div>
+          <button
+            onClick={() => navigate(`/my-animals/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
+            className="p-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors flex items-center justify-center"
+            title="Add Animal"
+          >
+            <Plus className="w-5 h-5" />
+          </button>
         </div>
-        <button
-          onClick={() => navigate(`/my-animals/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-          className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium rounded-lg transition-colors flex items-center gap-1.5"
-        >
-          <Plus className="w-4 h-4" />
-          Add Animal
-        </button>
       </div>
 
       {/* Error Message */}
       {error && (
-        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3 text-red-800 dark:text-red-200 text-sm">
+        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3 text-red-800 dark:text-red-200 text-sm mb-6">
           {error}
         </div>
       )}
@@ -262,13 +258,13 @@ export function MyAnimals() {
           </p>
         </div>
       ) : (
-        <>
+        <div className="space-y-8">
           {/* Unassigned Animals Section */}
           {unassignedAnimals.length > 0 && (
-            <div className="space-y-3">
-              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300">
+            <div>
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 Unassigned Animals ({unassignedAnimals.length})
-              </h4>
+              </h2>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {unassignedAnimals.map(animal => (
                   <AnimalCard key={animal.id} animal={animal} enclosure={undefined} />
@@ -279,11 +275,11 @@ export function MyAnimals() {
 
           {/* Assigned Animals Section */}
           {assignedAnimals.length > 0 && (
-            <div className="space-y-3">
+            <div>
               {unassignedAnimals.length > 0 && (
-                <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                   In Enclosures ({assignedAnimals.length})
-                </h4>
+                </h2>
               )}
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {assignedAnimals.map(animal => {
@@ -295,9 +291,8 @@ export function MyAnimals() {
               </div>
             </div>
           )}
-        </>
+        </div>
       )}
-
     </div>
   );
 }

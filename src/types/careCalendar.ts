@@ -136,6 +136,14 @@ export interface EnclosureAnimal {
   morph?: string; // Color morph/mutation (e.g., "Albino", "Leucistic", "Normal")
   birthday?: Date; // Birthday/acquisition date for age calculation
   notes?: string; // Notes about this specific animal
+  
+  // Acquisition/source tracking
+  source?: 'breeder' | 'pet-store' | 'rescue' | 'wild-caught' | 'bred-by-me' | 'adopted' | 'other';
+  sourceDetails?: string; // Name of breeder, store, rescue org, etc.
+  acquisitionDate?: Date;
+  acquisitionPrice?: number;
+  acquisitionNotes?: string;
+  
   isActive: boolean;
   createdAt: Date;
   updatedAt: Date;

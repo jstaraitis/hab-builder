@@ -6,8 +6,8 @@ import { addSubstrate, addBioactiveItems } from './generators/substrate';
 import { addHumidityControl } from './generators/environmental';
 import { addDecor, addStructuralDecor } from './generators/decor';
 import { addMonitoring } from './generators/monitoring';
-import { addWaterSupplies } from './generators/water';
 import { addFeedingSupplies } from './generators/feeding';
+import { addMaintenance } from './generators/maintenance';
 import { addAquaticEquipment } from './generators/specialized';
 
 /**
@@ -38,8 +38,8 @@ export function generateShoppingList(
   addPlantLighting(items, input);
   addStructuralDecor(items, input, profile);
   addMonitoring(items, profile, input);
-  addWaterSupplies(items, profile);
-  addFeedingSupplies(items, input, profile);
+  addMaintenance(items, profile, input);
+  addFeedingSupplies(items, input, profile); // Includes water bowl & dechlorinator
 
   return assignItemUids(items);
 }

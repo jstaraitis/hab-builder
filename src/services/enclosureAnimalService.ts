@@ -173,6 +173,11 @@ class EnclosureAnimalService {
       morph: row.morph,
       birthday: row.birthday ? new Date(row.birthday) : undefined,
       notes: row.notes,
+      source: row.source,
+      sourceDetails: row.source_details,
+      acquisitionDate: row.acquisition_date ? new Date(row.acquisition_date) : undefined,
+      acquisitionPrice: row.acquisition_price,
+      acquisitionNotes: row.acquisition_notes,
       isActive: row.is_active,
       createdAt: new Date(row.created_at),
       updatedAt: new Date(row.updated_at),
@@ -195,6 +200,16 @@ class EnclosureAnimalService {
       mapped.birthday = animal.birthday ? animal.birthday.toISOString().split('T')[0] : null;
     }
     if (animal.notes !== undefined) mapped.notes = animal.notes;
+    
+    // Acquisition fields
+    if (animal.source !== undefined) mapped.source = animal.source;
+    if (animal.sourceDetails !== undefined) mapped.source_details = animal.sourceDetails;
+    if (animal.acquisitionDate !== undefined) {
+      mapped.acquisition_date = animal.acquisitionDate ? animal.acquisitionDate.toISOString().split('T')[0] : null;
+    }
+    if (animal.acquisitionPrice !== undefined) mapped.acquisition_price = animal.acquisitionPrice;
+    if (animal.acquisitionNotes !== undefined) mapped.acquisition_notes = animal.acquisitionNotes;
+    
     if (animal.isActive !== undefined) mapped.is_active = animal.isActive;
 
     return mapped;

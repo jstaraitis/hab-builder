@@ -128,25 +128,31 @@ export function InventoryReminders() {
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-            <Package className="w-6 h-6 text-emerald-600" />
-            Inventory Reminders
-          </h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
-            Track consumables, replacement schedules, and buy-again links.
-          </p>
+    <div className="max-w-7xl mx-auto p-4 sm:p-8">
+      {/* Header */}
+      <div className="mb-8">
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+              <Package className="w-8 h-8 text-emerald-600" />
+              Inventory Reminders
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400">
+              Track consumables, replacement schedules, and buy-again links.
+            </p>
+          </div>
+          <button
+            onClick={() => navigate(`/inventory/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
+            className="p-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors flex items-center justify-center"
+            title="Add Item"
+          >
+            <Plus className="w-5 h-5" />
+          </button>
         </div>
-        <button
-          onClick={() => navigate(`/inventory/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 transition-colors"
-        >
-          <Plus className="w-4 h-4" />
-          Add Item
-        </button>
       </div>
+
+      {/* Content */}
+      <div className="space-y-6">
 
       {error && (
         <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-200 rounded-lg p-4">
@@ -248,6 +254,7 @@ export function InventoryReminders() {
           })}
         </div>
       )}
+      </div>
     </div>
   );
 }

@@ -287,6 +287,8 @@ export interface EquipmentConfig {
   isRecurring?: boolean; // true for items that need regular replacement
   recurringInterval?: string; // e.g., "monthly", "6 months", "yearly"
   autoIncludeFor?: AutoIncludeRules; // NEW: Automatic inclusion rules based on animal/input characteristics
+  defaultQuantity?: string; // Default quantity for auto-add system (e.g., "1 container", "2-3 cups")
+  defaultSizing?: string; // Default sizing description for auto-add system (e.g., "Mix with water per instructions")
 }
 
 export interface AutoIncludeRules {

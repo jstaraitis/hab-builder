@@ -1,9 +1,11 @@
 {
   "monitoring": {
     "name": "Digital Thermometer & Hygrometer",
-    "category": "equipment",
+    "category": "monitoring",
     "needsTags": [],
     "importance": "required",
+    "defaultQuantity": "1",
+    "defaultSizing": "Monitor warm and cool zones",
     "spec": {
       "measures": "temperature and humidity",
       "placement": "warm and cool zones"
@@ -29,9 +31,11 @@
   },
   "infrared-thermometer": {
     "name": "Infrared Thermometer Gun",
-    "category": "equipment",
+    "category": "monitoring",
     "needsTags": [],
     "importance": "recommended",
+    "defaultQuantity": "1",
+    "defaultSizing": "For surface temperature checks",
     "spec": {
       "measures": "surface temperature",
       "accuracy": "±2°F"
@@ -57,11 +61,13 @@
   },
   "uv-meter": {
     "name": "UVB Meter",
-    "category": "equipment",
+    "category": "monitoring",
     "needsTags": ["lighting:uvb-forest", "lighting:uvb-desert"],
     "importance": "recommended",
     "isRecurring": true,
     "recurringInterval": "12 months",
+    "defaultQuantity": "1",
+    "defaultSizing": "Verify UVB bulb output",
     "spec": {
       "measures": "UVB output (μW/cm²)",
       "type": "Solarmeter 6.5 or equivalent"
@@ -87,9 +93,11 @@
   },
   "timer": {
     "name": "Light Timer (Digital)",
-    "category": "equipment",
+    "category": "monitoring",
     "needsTags": [],
     "importance": "recommended",
+    "defaultQuantity": "1",
+    "defaultSizing": "Automate 12hr lighting cycle",
     "spec": {
       "type": "programmable digital timer",
       "schedule": "12hr day/night cycle"
@@ -115,9 +123,11 @@
   },
   "reptile-scale": {
     "name": "Digital Scale (Reptile/Small Animal)",
-    "category": "equipment",
+    "category": "monitoring",
     "needsTags": [],
     "importance": "recommended",
+    "defaultQuantity": "1",
+    "defaultSizing": "Track weight and health",
     "spec": {
       "type": "Digital scale",
       "capacity": "Based on animal size (grams to pounds)",

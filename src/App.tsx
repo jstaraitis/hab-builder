@@ -17,6 +17,7 @@ const CareCalendarView = lazy(() => import('./components/Views/CareCalendarView'
 const TaskCreationView = lazy(() => import('./components/Views/TaskCreationView').then(m => ({ default: m.TaskCreationView })));
 const TaskEditView = lazy(() => import('./components/Views/TaskEditView').then(m => ({ default: m.TaskEditView })));
 const MyAnimalsView = lazy(() => import('./components/Views/MyAnimalsView').then(m => ({ default: m.MyAnimalsView })));
+const AnimalDetailView = lazy(() => import('./components/Views/AnimalDetailView').then(m => ({ default: m.AnimalDetailView })));
 const WeightTrackerView = lazy(() => import('./components/Views/WeightTrackerView').then(m => ({ default: m.WeightTrackerView })));
 const EditAnimalView = lazy(() => import('./components/Views/EditAnimalView').then(m => ({ default: m.EditAnimalView })));
 const AddAnimalView = lazy(() => import('./components/Views/AddAnimalView').then(m => ({ default: m.AddAnimalView })));
@@ -685,6 +686,21 @@ function App() {
               <PremiumPaywall />
             ) : (
               <WeightTrackerView />
+            )
+          } />
+          <Route path="/my-animals/:animalId" element={
+            !user ? (
+              <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="max-w-md w-full">
+                  <Auth />
+                </div>
+              </div>
+            ) : profileLoading ? (
+              <LoadingFallback />
+            ) : !isPremium ? (
+              <PremiumPaywall />
+            ) : (
+              <AnimalDetailView />
             )
           } />
           <Route path="/my-animals/edit/:id" element={

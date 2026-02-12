@@ -53,14 +53,15 @@ class WeightTrackingService {
       .from('weight_logs')
       .select('*')
       .eq('id', id)
-      .single();
+      .limit(1);
 
     if (error) {
       console.error('Error fetching weight log:', error);
       return null;
     }
 
-    return this.mapToWeightLog(data);
+    if (!data || data.length === 0) return null;
+    return this.mapToWeightLog(data[0]);
   }
 
   /**

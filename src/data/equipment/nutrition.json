@@ -6,6 +6,8 @@
     "importance": "required",
     "isRecurring": true,
     "recurringInterval": "quarterly",
+    "defaultQuantity": "1 container",
+    "defaultSizing": "Dust following product instructions",
     "spec": {
       "type": "powder",
       "schedule": "every feeding"
@@ -36,6 +38,8 @@
     "importance": "required",
     "isRecurring": true,
     "recurringInterval": "quarterly",
+    "defaultQuantity": "1 container",
+    "defaultSizing": "Dust following product instructions",
     "spec": {
       "type": "powder",
       "schedule": "once weekly"
@@ -64,6 +68,8 @@
     "category": "nutrition",
     "needsTags": [],
     "importance": "conditional",
+    "defaultQuantity": "1 pair",
+    "defaultSizing": "For safe feeding",
     "tiers": {
       "minimum": {
         "description": "Stainless steel tongs",
@@ -90,6 +96,8 @@
     "importance": "required",
     "isRecurring": true,
     "recurringInterval": "weekly",
+    "defaultQuantity": "Ongoing supply",
+    "defaultSizing": "Size appropriate for animal",
     "spec": {
       "types": "crickets, dubia roaches, etc",
       "size": "appropriate for animal size"
@@ -120,6 +128,8 @@
     "importance": "required",
     "isRecurring": true,
     "recurringInterval": "weekly",
+    "defaultQuantity": "Daily supply",
+    "defaultSizing": "Fresh vegetables daily, fruits as treats",
     "spec": {
       "vegetables": "collard greens, mustard greens, squash, bell peppers, etc",
       "fruits": "occasional treats only"
@@ -150,6 +160,8 @@
     "importance": "required",
     "isRecurring": true,
     "recurringInterval": "weekly",
+    "defaultQuantity": "Ongoing supply",
+    "defaultSizing": "Size appropriate for snake",
     "spec": {
       "types": "frozen/thawed mice, rats",
       "size": "appropriate for snake size (1-1.5x snake's widest body part)"
@@ -178,6 +190,8 @@
     "category": "nutrition",
     "needsTags": ["diet:carnivore-rodents"],
     "importance": "required",
+    "defaultQuantity": "1 pair",
+    "defaultSizing": "12-16\" for safe distance",
     "tiers": {
       "minimum": {
         "description": "12\" stainless steel tongs",
@@ -204,6 +218,8 @@
     "importance": "recommended",
     "isRecurring": true,
     "recurringInterval": "weekly",
+    "defaultQuantity": "Weekly supply",
+    "defaultSizing": "2-3 times per week as treats",
     "spec": {
       "type": "frozen bloodworms (chironomid larvae)",
       "feeding": "2-3 times per week for axolotls"
@@ -234,6 +250,8 @@
     "importance": "required",
     "isRecurring": true,
     "recurringInterval": "weekly",
+    "defaultQuantity": "Ongoing supply",
+    "defaultSizing": "Cut into bite-sized pieces for juveniles",
     "spec": {
       "type": "nightcrawlers, red wigglers",
       "size": "cut into bite-sized pieces for juveniles"
@@ -264,6 +282,8 @@
     "importance": "required",
     "isRecurring": true,
     "recurringInterval": "monthly",
+    "defaultQuantity": "1 container",
+    "defaultSizing": "Daily staple food",
     "spec": {
       "type": "sinking carnivore pellets",
       "feeding": "daily staple food"
@@ -292,6 +312,8 @@
     "category": "nutrition",
     "needsTags": ["diet:carnivore-rodents"],
     "importance": "recommended",
+    "defaultQuantity": "1",
+    "defaultSizing": "For tracking weight",
     "spec": {
       "accuracy": "1 gram increments",
       "capacity": "5kg minimum"
@@ -322,6 +344,8 @@
     "importance": "recommended",
     "isRecurring": true,
     "recurringInterval": "quarterly",
+    "defaultQuantity": "1 box",
+    "defaultSizing": "Powder-free for animal safety",
     "spec": {
       "type": "powder-free nitrile",
       "use": "handling and maintenance"
@@ -352,6 +376,8 @@
     "importance": "required",
     "isRecurring": true,
     "recurringInterval": "monthly",
+    "defaultQuantity": "1 bottle",
+    "defaultSizing": "For water bowl and misting",
     "spec": {
       "type": "amphibian-safe",
       "use": "treat all water"
@@ -380,6 +406,8 @@
     "category": "nutrition",
     "needsTags": ["waterFeature:shallow-dish"],
     "importance": "required",
+    "defaultQuantity": "1",
+    "defaultSizing": "Large enough for soaking",
     "spec": {
       "type": "shallow dish",
       "size": "large enough for soaking"
@@ -410,6 +438,8 @@
     "importance": "required",
     "isRecurring": true,
     "recurringInterval": "monthly",
+    "defaultQuantity": "1 container",
+    "defaultSizing": "Mix with water per instructions",
     "spec": {
       "type": "powdered fruit diet",
       "examples": "Pangea, Repashy, The Bio Dude",
@@ -439,6 +469,8 @@
     "category": "nutrition",
     "needsTags": ["diet:frugivore", "activity:arboreal"],
     "importance": "recommended",
+    "defaultQuantity": "1-2 ledges",
+    "defaultSizing": "Wall-mounted feeding platform",
     "spec": {
       "type": "Wall-mounted feeding platform",
       "mounting": "Magnetic or suction cup",
@@ -470,6 +502,8 @@
     "importance": "required",
     "isRecurring": false,
     "recurringInterval": "6 months",
+    "defaultQuantity": "2-3 cups",
+    "defaultSizing": "Small dishes for gecko diet",
     "spec": {
       "type": "Small plastic or ceramic cups",
       "size": "1-2 oz capacity",
@@ -499,6 +533,8 @@
     "category": "nutrition",
     "needsTags": ["diet:insectivore", "diet:carnivore"],
     "importance": "required",
+    "defaultQuantity": "1 pair",
+    "defaultSizing": "Long-handled for safe feeding",
     "spec": {
       "type": "Long-handled tongs or tweezers",
       "length": "10-12 inches",

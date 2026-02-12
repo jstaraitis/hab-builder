@@ -16,7 +16,6 @@ import {
   ChevronDown,
   Hand,
   Calendar,
-  List,
   AlertCircle,
   Sunrise,
   Sun,
@@ -26,7 +25,6 @@ import {
   CalendarClock,
   BarChart3,
   MoreVertical,
-  LayoutGrid,
   type LucideIcon
 } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -41,7 +39,6 @@ import { CareAnalyticsDashboard } from '../CareAnalytics';
 import type { CareTaskWithLogs, TaskType, CareTask, CareLog, Enclosure, EnclosureAnimal } from '../../types/careCalendar';
 
 type ViewMode = 'all' | 'today' | 'week' | 'analytics';
-type LayoutMode = 'cards' | 'list';
 type TimeBlock = 'overdue' | 'morning' | 'afternoon' | 'evening' | 'night' | 'tomorrow' | 'week' | 'future';
 
 export function CareCalendar() {
@@ -56,9 +53,7 @@ export function CareCalendar() {
   const [error, setError] = useState<string | null>(null);
   const [feedingTask, setFeedingTask] = useState<CareTask | null>(null);
   const [showFeedingModal, setShowFeedingModal] = useState(false);
-  const [expandedTasks, setExpandedTasks] = useState<Set<string>>(new Set());
   const [viewMode, setViewMode] = useState<ViewMode>('week');
-  const [layoutMode, setLayoutMode] = useState<LayoutMode>('cards');
   const [expandedSections, setExpandedSections] = useState<Set<TimeBlock>>(new Set(['overdue', 'morning', 'afternoon', 'evening']));
   const [selectedTasks, setSelectedTasks] = useState<Set<string>>(new Set());
   const [selectionMode, setSelectionMode] = useState(false);
@@ -179,17 +174,7 @@ export function CareCalendar() {
 
 
 
-  const toggleTaskExpanded = (taskId: string) => {
-    setExpandedTasks(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(taskId)) {
-        newSet.delete(taskId);
-      } else {
-        newSet.add(taskId);
-      }
-      return newSet;
-    });
-  };
+
 
   const getTaskIcon = (type: TaskType): LucideIcon => {
     const icons: Record<TaskType, LucideIcon> = {
@@ -207,40 +192,9 @@ export function CareCalendar() {
     return icons[type] || FileText;
   };
 
-  const formatDueDate = (date: Date): string => {
-    const now = new Date();
-    const diff = date.getTime() - now.getTime();
-    const hours = Math.floor(diff / (1000 * 60 * 60));
 
-    if (diff < 0) return 'Overdue';
-    if (hours < 1) return 'Due now';
-    if (hours < 24) return `Due in ${hours}h`;
-    
-    // Use local dates for calendar day comparison (users think in their local timezone)
-    const todayLocal = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-    const dueDayLocal = new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
-    const daysDiff = Math.floor((dueDayLocal - todayLocal) / (1000 * 60 * 60 * 24));
-    
-    if (daysDiff === 1) return 'Due tomorrow';
-    return `Due in ${daysDiff} days`;
-  };
 
-  const formatFrequency = (frequency: string, customDays?: number): string => {
-    const frequencyMap: Record<string, string> = {
-      'daily': 'Daily',
-      'every-other-day': 'Every other day',
-      'twice-weekly': 'Twice weekly',
-      'weekly': 'Weekly',
-      'bi-weekly': 'Every 2 weeks',
-      'monthly': 'Monthly',
-    };
-    
-    if (frequency === 'custom' && customDays) {
-      return `Every ${customDays} day${customDays > 1 ? 's' : ''}`;
-    }
-    
-    return frequencyMap[frequency] || frequency;
-  };
+
 
   const formatTime = (time?: string): string | null => {
     if (!time) return null;
@@ -286,10 +240,10 @@ export function CareCalendar() {
   const getTimeBlockLabel = (block: TimeBlock): string => {
     const labels: Record<TimeBlock, string> = {
       overdue: 'Overdue',
-      morning: 'Morning (before 12pm)',
-      afternoon: 'Afternoon (12pm-5pm)',
-      evening: 'Evening (5pm-9pm)',
-      night: 'Night (after 9pm)',
+      morning: 'Morning',
+      afternoon: 'Afternoon',
+      evening: 'Evening',
+      night: 'Night',
       tomorrow: 'Tomorrow',
       week: 'This Week',
       future: 'Future',
@@ -599,19 +553,6 @@ export function CareCalendar() {
                   ))}
                 </select>
 
-                {/* Layout Toggle - Icon Only */}
-                <button
-                  onClick={() => setLayoutMode(layoutMode === 'cards' ? 'list' : 'cards')}
-                  className="p-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                  title={layoutMode === 'cards' ? 'Switch to list view' : 'Switch to card view'}
-                >
-                  {layoutMode === 'cards' ? (
-                    <List className="w-5 h-5" />
-                  ) : (
-                    <LayoutGrid className="w-5 h-5" />
-                  )}
-                </button>
-
                 {/* Menu Button */}
                 <div className="relative menu-container">
                   <button
@@ -773,15 +714,9 @@ export function CareCalendar() {
 
                   {/* Section Content */}
                   {isExpanded && (
-                    <div className={layoutMode === 'cards' 
-                      ? 'grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 p-4' 
-                      : 'divide-y divide-gray-200 dark:divide-gray-700'
-                    }>
+                    <div className='divide-y divide-gray-200 dark:divide-gray-700'>
                       {blockTasks.map(task => {
                         const isDueToday = task.nextDueAt.toDateString() === new Date().toDateString();
-                        const isTaskExpanded = expandedTasks.has(task.id);
-                        
-                        if (layoutMode === 'list') {
                           // Compact List View
                           const isBeingSwiped = swipedTask === task.id;
                           const swipeTransform = isBeingSwiped ? `translateX(${swipeOffset}px)` : 'translateX(0)';
@@ -876,7 +811,7 @@ export function CareCalendar() {
                                             </span>
                                           </>
                                         )}
-                                        {task.streak && task.streak > 0 && (
+                                        {task.streak > 0 && (
                                           <>
                                             <span>•</span>
                                             <span className="inline-flex items-center gap-1 text-orange-600 dark:text-orange-400 font-semibold">
@@ -918,9 +853,9 @@ export function CareCalendar() {
                                 </div>
                               </div>
 
-                              {/* Additional Details (desktop only) */}
+                              {/* Additional Details */}
                               {!selectionMode && task.notes && (
-                                <div className="hidden sm:block mt-2 pt-2 border-t border-gray-200 dark:border-gray-700 space-y-2">
+                                <div className="mt-2 pt-2 border-t border-gray-200 dark:border-gray-700 space-y-2">
                                   {/* Notes */}
                                   {task.notes && (
                                     <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-2 border-l-2 border-blue-400">
@@ -934,202 +869,6 @@ export function CareCalendar() {
                               </div>
                             </div>
                           );
-                        }
-                        
-                        // Card View (existing design)
-                        const isBeingSwiped = swipedTask === task.id;
-                        const swipeTransform = isBeingSwiped ? `translateX(${swipeOffset}px)` : 'translateX(0)';
-                        
-                        return (
-                          <div
-                            key={task.id}
-                            className="relative overflow-hidden rounded-xl"
-                          >
-                            {/* Swipe Action Background */}
-                            <div className="absolute inset-0 sm:hidden flex items-center justify-end px-4 bg-emerald-500 rounded-xl">
-                              <div className="flex items-center gap-2 text-white font-semibold">
-                                <Check className="w-5 h-5" />
-                                <span>Complete</span>
-                              </div>
-                            </div>
-                            
-                            {/* Card Content (swipeable) */}
-                            <div
-                            className={`relative border-2 transition-all touch-pan-y ${
-                              isOverdue 
-                                ? 'bg-white dark:bg-gray-800 border-red-400 dark:border-red-700' 
-                                : isDueToday
-                                ? 'bg-white dark:bg-gray-800 border-emerald-400 dark:border-emerald-700'
-                                : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700'
-                            }`}
-                            style={{ 
-                              transform: swipeTransform,
-                              transition: isBeingSwiped ? 'none' : 'transform 0.3s ease',
-                              borderRadius: '0.75rem'
-                            }}
-                            onTouchStart={(e) => handleTouchStart(e, task.id)}
-                            onTouchMove={handleTouchMove}
-                            onTouchEnd={(e) => handleTouchEnd(e, task.id)}
-                          >
-                            <div className="p-4">
-                              {/* Compact Header */}
-                              <div className="flex items-center justify-between mb-3">
-                                <div className="flex items-center gap-2 flex-1 min-w-0">
-                                  {/* Checkbox for selection mode */}
-                                  {selectionMode && (
-                                    <input
-                                      type="checkbox"
-                                      checked={selectedTasks.has(task.id)}
-                                      onChange={() => toggleTaskSelection(task.id)}
-                                      className="w-4 h-4 text-emerald-600 border-gray-300 rounded focus:ring-emerald-500"
-                                    />
-                                  )}
-                                  
-                                  <div className={`p-2 rounded-lg ${
-                                    isOverdue 
-                                      ? 'bg-red-100 dark:bg-red-900/30' 
-                                      : isDueToday
-                                      ? 'bg-emerald-100 dark:bg-emerald-900/30'
-                                      : 'bg-gray-100 dark:bg-gray-700'
-                                  }`}>
-                                    {React.createElement(getTaskIcon(task.type), { 
-                                      className: `w-5 h-5 ${
-                                        isOverdue 
-                                          ? 'text-red-600 dark:text-red-400' 
-                                          : isDueToday
-                                          ? 'text-emerald-600 dark:text-emerald-400'
-                                          : 'text-gray-600 dark:text-gray-400'
-                                      }` 
-                                    })}
-                                  </div>
-                                  <div className="flex-1 min-w-0">
-                                    <div className="flex items-center gap-1.5 flex-wrap">
-                                      <h3 className="text-sm font-bold text-gray-900 dark:text-white">
-                                        {task.title || 'Untitled Task'}
-                                      </h3>
-                                      {task.enclosureId && (
-                                        <>
-                                          <span className="text-xs text-gray-400">•</span>
-                                          <span className="text-xs text-gray-600 dark:text-gray-400">
-                                            {getEnclosureName(task.enclosureId)}
-                                          </span>
-                                        </>
-                                      )}
-                                      {task.enclosureAnimalId && (
-                                        <>
-                                          <span className="text-xs text-gray-400">•</span>
-                                          <span className="px-2 py-0.5 text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full font-medium">
-                                            {getAnimalName(task.enclosureAnimalId)}
-                                          </span>
-                                        </>
-                                      )}
-                                      {task.scheduledTime && (
-                                        <>
-                                          <span className="text-xs text-gray-400">•</span>
-                                          <span className="text-xs text-gray-600 dark:text-gray-400">
-                                            {formatTime(task.scheduledTime)}
-                                          </span>
-                                        </>
-                                      )}
-                                    </div>
-                                  </div>
-                                </div>
-                                
-                                {!selectionMode && (
-                                  <button
-                                    onClick={() => navigate(`/care-calendar/tasks/edit/${task.id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-                                    className="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                                  >
-                                    <Pencil className="w-4 h-4 text-gray-400" />
-                                  </button>
-                                )}
-                              </div>
-
-                              {/* Status & Action Row */}
-                              {!selectionMode && (
-                                <div className="flex items-center gap-3">
-                                <div className={`flex-1 px-2 py-1.5 rounded-lg text-xs font-bold text-center ${
-                                  isOverdue 
-                                    ? 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300' 
-                                    : isDueToday
-                                    ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300'
-                                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
-                                }`}>
-                                  {formatDueDate(task.nextDueAt)}
-                                </div>
-                                
-                                <button
-                                  onClick={() => handleCompleteTask(task.id)}
-                                  className="p-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg transition-colors flex items-center justify-center shadow-sm"
-                                  title="Mark as done"
-                                >
-                                  <Check className="w-5 h-5" />
-                                </button>
-                              </div>
-                              )}
-
-                              {/* Expandable Details */}
-                              {!selectionMode && (task.description || task.notes || task.streak || task.lastCompleted) && (
-                                <button
-                                  onClick={() => toggleTaskExpanded(task.id)}
-                                  className="w-full mt-3 pt-3 border-t border-gray-200 dark:border-gray-700 flex items-center justify-center gap-1 text-xs text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
-                                >
-                                  <span>{isTaskExpanded ? 'Less' : 'More'} info</span>
-                                  <ChevronDown className={`w-3 h-3 transition-transform ${isTaskExpanded ? 'rotate-180' : ''}`} />
-                                </button>
-                              )}
-
-                              {/* Collapsible Content */}
-                              {isTaskExpanded && (
-                                <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700 space-y-3">
-                                  {/* Description */}
-                                  {task.description && (
-                                    <p className="text-xs text-gray-600 dark:text-gray-400">
-                                      {task.description}
-                                    </p>
-                                  )}
-
-                                  {/* Frequency & Schedule */}
-                                  <div className="flex flex-wrap items-center gap-1.5 text-xs">
-                                    <div className="inline-flex items-center gap-1 px-2 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full">
-                                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                                      </svg>
-                                      {formatFrequency(task.frequency, task.customFrequencyDays)}
-                                    </div>
-                                  </div>
-
-                                  {/* Stats */}
-                                  {(task.lastCompleted || task.streak) && (
-                                    <div className="flex flex-wrap items-center gap-3 text-xs">
-                                      {task.lastCompleted && (
-                                        <span className="text-gray-600 dark:text-gray-400">
-                                          Last: {task.lastCompleted.toLocaleDateString()}
-                                        </span>
-                                      )}
-                                      {task.streak && task.streak > 0 && (
-                                        <div className="inline-flex items-center gap-1 px-2 py-0.5 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 rounded-full">
-                                          <Flame className="w-3 h-3" />
-                                          {task.streak} day streak
-                                        </div>
-                                      )}
-                                    </div>
-                                  )}
-
-                                  {/* Notes */}
-                                  {task.notes && (
-                                    <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-2 border-l-2 border-blue-400">
-                                      <p className="text-xs text-gray-700 dark:text-gray-300">
-                                        <span className="font-medium">Note: </span>{task.notes}
-                                      </p>
-                                    </div>
-                                  )}
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                          </div>
-                        );
                       })}
                     </div>
                   )}
@@ -1143,11 +882,11 @@ export function CareCalendar() {
         {enclosures.length > 0 && filteredTasks.length === 0 && !error && (
           <div className="bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-8 text-center">
             <p className="text-gray-600 dark:text-gray-400 flex items-center justify-center gap-2">
-              {viewMode === 'today' 
+              {viewMode === 'today'
                 ? <><span>No tasks due today!</span><Sparkles className="w-5 h-5 text-emerald-500" /></>
                 : viewMode === 'week'
-                ? "No tasks due this week."
-                : "No tasks yet. Click '+ Add Task' above to create care tasks for your pets."}
+                  ? "No tasks due this week."
+                  : "No tasks yet. Click '+ Add Task' above to create care tasks for your pets."}
             </p>
           </div>
         )}
@@ -1166,7 +905,7 @@ export function CareCalendar() {
           <div className="max-w-4xl mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between gap-3 sm:gap-4">
             <div className="flex items-center gap-4">
               <span className="text-sm font-medium text-gray-900 dark:text-white">
-                {selectedTasks.size} task{selectedTasks.size !== 1 ? 's' : ''} selected
+                {selectedTasks.size} task{selectedTasks.size === 1 ? '' : 's'} selected
               </span>
               <button
                 onClick={deselectAll}

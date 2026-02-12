@@ -4,6 +4,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useToast } from '../../contexts/ToastContext';
 import { weightTrackingService } from '../../services/weightTrackingService';
 import { WEIGHT_CONVERSIONS, WEIGHT_UNIT_INFO, type WeightUnit } from '../../types/weightTracking';
+import { formStyles, fieldLayouts } from '../../lib/formStyles';
 import type { EnclosureAnimal } from '../../types/careCalendar';
 
 interface WeightLogFormProps {
@@ -107,47 +108,45 @@ export function WeightLogForm({ animal, onSuccess, onCancel, initialData }: Weig
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* Weight Input */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-            Weight *
-          </label>
-          <div className="flex gap-2">
+    <form onSubmit={handleSubmit} className={formStyles.form}>
+      {/* Weight Input */}
+      <div>
+        <label className={formStyles.label}>
+          Weight *
+        </label>
+        <div className={fieldLayouts.inputWithSelect}>
+          <div className={fieldLayouts.inputWithSelectInput}>
             <input
               type="number"
               step="any"
               value={weight}
               onChange={(e) => setWeight(e.target.value)}
               placeholder="Enter weight"
-              className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg
-                       bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
-                       focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+              className={formStyles.inputFull}
               required
             />
-            <select
-              value={unit}
-              onChange={(e) => handleUnitChange(e.target.value as WeightUnit)}
-              className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg
-                       bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
-                       focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-            >
-              {(Object.keys(WEIGHT_UNIT_INFO) as WeightUnit[]).map(u => (
-                <option key={u} value={u}>
-                  {WEIGHT_UNIT_INFO[u].label}
-                </option>
-              ))}
-            </select>
           </div>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-            {WEIGHT_UNIT_INFO[unit].typical}
-          </p>
+          <select
+            value={unit}
+            onChange={(e) => handleUnitChange(e.target.value as WeightUnit)}
+            className={fieldLayouts.inputWithSelectSelect}
+          >
+            {(Object.keys(WEIGHT_UNIT_INFO) as WeightUnit[]).map(u => (
+              <option key={u} value={u}>
+                {WEIGHT_UNIT_INFO[u].label}
+              </option>
+            ))}
+          </select>
         </div>
+        <p className={formStyles.helperText}>
+          {WEIGHT_UNIT_INFO[unit].typical}
+        </p>
+      </div>
 
-        {/* Date Input */}
+      {/* Date and Time Inputs */}
+      <div className={fieldLayouts.twoColumnGrid}>
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+          <label className={formStyles.label}>
             Measurement Date *
           </label>
           <input
@@ -155,54 +154,43 @@ export function WeightLogForm({ animal, onSuccess, onCancel, initialData }: Weig
             value={date}
             onChange={(e) => setDate(e.target.value)}
             max={new Date().toISOString().split('T')[0]}
-            className="w-full px-3 py-2.5 border-2 border-gray-300 dark:border-gray-600 rounded-lg
-                     bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 text-sm sm:text-base min-h-[44px] sm:min-h-[42px]
-                     focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none appearance-none [-webkit-appearance:none] [&::-webkit-calendar-picker-indicator]:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
-            style={{ colorScheme: 'light' }}
+            className={formStyles.selectFull}
             required
           />
         </div>
-
-        {/* Time Input */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+          <label className={formStyles.label}>
             Time
           </label>
           <input
             type="time"
             value={time}
             onChange={(e) => setTime(e.target.value)}
-            className="w-full px-3 py-2.5 border-2 border-gray-300 dark:border-gray-600 rounded-lg
-                     bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 text-sm sm:text-base min-h-[44px] sm:min-h-[42px]
-                     focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none appearance-none [-webkit-appearance:none] [&::-webkit-calendar-picker-indicator]:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
-            style={{ colorScheme: 'light' }}
+            className={formStyles.selectFull}
           />
         </div>
       </div>
 
       {/* Notes */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+        <label className={formStyles.label}>
           Notes (Optional)
         </label>
         <textarea
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           placeholder="Add any observations (e.g., 'After feeding', 'Looks healthy')"
-          rows={3}
-          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg
-                   bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
-                   focus:ring-2 focus:ring-emerald-500 focus:border-transparent resize-none"
+          rows={2}
+          className={formStyles.textarea}
         />
       </div>
 
       {/* Action Buttons */}
-      <div className="flex gap-3 pt-2">
+      <div className={formStyles.buttonContainer}>
         <button
           type="submit"
           disabled={loading}
-          className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 
-                   text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className={formStyles.buttonPrimary}
         >
           <Save className="w-4 h-4" />
           {loading ? 'Saving...' : initialData ? 'Update' : 'Save'}
@@ -211,9 +199,7 @@ export function WeightLogForm({ animal, onSuccess, onCancel, initialData }: Weig
           type="button"
           onClick={onCancel}
           disabled={loading}
-          className="flex items-center gap-2 px-4 py-2 bg-gray-200 hover:bg-gray-300 
-                   dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 
-                   rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className={formStyles.buttonSecondary}
         >
           <X className="w-4 h-4" />
           Cancel

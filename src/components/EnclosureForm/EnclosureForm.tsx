@@ -454,12 +454,13 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
             type="checkbox"
             checked={value.bioactive}
             onChange={(e) => {
-              const updates: Partial<EnclosureInput> = { bioactive: e.target.checked };
-              // Only auto-set substrate preference if user hasn't manually selected one
-              if (!value.substratePreference || value.substratePreference === 'bioactive' || value.substratePreference === 'soil-based') {
-                updates.substratePreference = e.target.checked ? 'bioactive' : 'soil-based';
-              }
-              onChange({ ...value, ...updates });
+              onChange({ 
+                ...value, 
+                bioactive: e.target.checked,
+                // When bioactive is checked, always set substrate to bioactive
+                // When unchecked, set to soil-based as default
+                substratePreference: e.target.checked ? 'bioactive' : 'soil-based'
+              });
             }}
             className="w-5 h-5 text-primary-600 border-gray-300 dark:border-gray-600 rounded focus:ring-primary-500"
           />
@@ -668,7 +669,15 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
         </label>
         <select
           value={value.substratePreference || (animalProfile?.equipmentNeeds?.waterFeature === 'fully-aquatic' ? '' : 'soil-based')}
-          onChange={(e) => onChange({ ...value, substratePreference: e.target.value as SubstrateType })}
+          onChange={(e) => {
+            const newSubstrate = e.target.value as SubstrateType;
+            onChange({ 
+              ...value, 
+              substratePreference: newSubstrate,
+              // Auto-check bioactive when bioactive substrate is selected, uncheck for anything else
+              bioactive: newSubstrate === 'bioactive'
+            });
+          }}
           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500"
         >
           {animalProfile?.equipmentNeeds?.waterFeature === 'fully-aquatic' && (

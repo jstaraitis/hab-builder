@@ -1,38 +1,12 @@
-import type { ShoppingItem, AnimalProfile, EnclosureInput, EquipmentConfig } from '../../types';
-import { catalog } from '../utils';
-import { matchesAnimalNeeds } from '../matching';
+import type { ShoppingItem, AnimalProfile, EnclosureInput } from '../../types';
+import { autoAddItemsByCategory } from '../autoAdd';
 
 /**
- * Adds monitoring equipment (thermometer/hygrometer, IR thermometer, UV meter, timer)
+ * Adds monitoring equipment using the auto-add system.
+ * All monitoring items are automatically included based on their needsTags matching the animal's equipmentNeeds.
+ * No custom sizing logic needed - quantity/sizing come from catalog's defaultQuantity/defaultSizing fields.
  */
 export function addMonitoring(items: ShoppingItem[], profile: AnimalProfile, input: EnclosureInput): void {
-  const catalogDict = catalog as Record<string, EquipmentConfig>;
-  const monitoringItems = [
-    'monitoring',
-    'infrared-thermometer', 
-    'uv-meter',
-    'timer'
-  ];
-
-  for (const itemId of monitoringItems) {
-    const config = catalogDict[itemId];
-    if (!config) continue;
-
-    // Use needs-based matching for monitoring equipment
-    if (!matchesAnimalNeeds(config, profile.equipmentNeeds, input)) {
-      continue;
-    }
-
-    items.push({
-      id: itemId,
-      category: config.category,
-      name: config.name,
-      quantity: 1,
-      sizing: itemId === 'monitoring' ? 'Monitor warm and cool zones' : '',
-      importance: config.importance || 'recommended',
-      setupTierOptions: config.tiers,
-      notes: config.notes,
-      incompatibleAnimals: config.incompatibleAnimals,
-    });
-  }
+  // Auto-add all monitoring category items that match animal needs
+  autoAddItemsByCategory(items, 'monitoring', profile, input);
 }

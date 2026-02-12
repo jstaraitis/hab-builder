@@ -35,7 +35,7 @@ export function WeightChart({ enclosureAnimalId, refreshKey }: WeightChartProps)
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-64">
+      <div className="flex items-center justify-center w-full" style={{ height: '300px' }}>
         <Loader2 className="w-8 h-8 text-emerald-600 animate-spin" />
       </div>
     );
@@ -43,7 +43,7 @@ export function WeightChart({ enclosureAnimalId, refreshKey }: WeightChartProps)
 
   if (error) {
     return (
-      <div className="flex items-center justify-center h-64">
+      <div className="flex items-center justify-center w-full" style={{ height: '300px' }}>
         <p className="text-red-600 dark:text-red-400">{error}</p>
       </div>
     );
@@ -51,7 +51,7 @@ export function WeightChart({ enclosureAnimalId, refreshKey }: WeightChartProps)
 
   if (chartData.length === 0) {
     return (
-      <div className="flex items-center justify-center h-64">
+      <div className="flex items-center justify-center w-full" style={{ height: '300px' }}>
         <div className="text-center">
           <p className="text-gray-500 dark:text-gray-400 mb-2">No weight data yet</p>
           <p className="text-sm text-gray-400 dark:text-gray-500">
@@ -66,8 +66,8 @@ export function WeightChart({ enclosureAnimalId, refreshKey }: WeightChartProps)
   const averageWeight = chartData.reduce((sum, d) => sum + d.weightGrams, 0) / chartData.length;
 
   return (
-    <div className="w-full h-64 md:h-80">
-      <ResponsiveContainer width="100%" height="100%">
+    <div className="w-full">
+      <ResponsiveContainer width="100%" height={300}>
         <LineChart data={chartData} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200 dark:stroke-gray-700" />
           <XAxis 

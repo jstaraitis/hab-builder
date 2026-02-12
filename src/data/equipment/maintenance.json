@@ -1,10 +1,13 @@
 {
   "disinfectant": {
     "name": "Reptile-Safe Disinfectant",
-    "category": "equipment",
+    "category": "maintenance",
+    "needsTags": [],
     "importance": "required",
     "isRecurring": true,
     "recurringInterval": "quarterly",
+    "defaultQuantity": "1 bottle",
+    "defaultSizing": "For deep cleaning and sanitizing",
     "spec": {
       "type": "Non-toxic disinfectant",
       "purpose": "Deep cleaning and sanitizing enclosures",
@@ -31,8 +34,11 @@
   },
   "drainage-tray": {
     "name": "Drainage Tray (Substrate Tray)",
-    "category": "equipment",
+    "category": "maintenance",
+    "needsTags": ["humidity:high"],
     "importance": "conditional",
+    "defaultQuantity": "1",
+    "defaultSizing": "Prevents water damage from misting",
     "spec": {
       "type": "Waterproof tray or pan",
       "purpose": "Collects excess water from misting, prevents enclosure damage",

@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Plus, Pencil, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
+import { Plus, Pencil, Trash2, ChevronDown} from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureService } from '../../services/enclosureService';
-import { AnimalList } from './AnimalList';
 import type { Enclosure } from '../../types/careCalendar';
 
 interface EnclosureManagerProps {
@@ -15,7 +14,6 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
   const [enclosures, setEnclosures] = useState<Enclosure[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [expandedEnclosureId, setExpandedEnclosureId] = useState<string | null>(null); // Track expanded enclosure for animals list
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -67,10 +65,10 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
         </h3>
         <button
           onClick={() => navigate(`/care-calendar/enclosures/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-          className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium rounded-lg transition-colors flex items-center gap-1.5"
+          className="p-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 transition-colors"
+          title="Add Enclosure"
         >
-          <Plus className="w-4 h-4" />
-          Add Enclosure
+          <Plus className="w-5 h-5" />
         </button>
       </div>
 
@@ -86,81 +84,62 @@ export function EnclosureManager({ onEnclosuresChanged }: EnclosureManagerProps)
           No enclosures yet. Add one to organize your care tasks!
         </div>
       ) : (
-        <div className="grid gap-3">
+        <div className="space-y-3">
           {enclosures.map(enclosure => (
             <div
               key={enclosure.id}
-              className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden"
+              className="space-y-2"
             >
-              {/* Enclosure Header */}
-              <div className="p-3 flex items-start justify-between gap-3">
-                <div className="flex-1 min-w-0">
-                  <h4 className="text-sm font-semibold text-gray-900 dark:text-white truncate">
-                    {enclosure.name}
-                  </h4>
-                  <p className="text-xs text-emerald-600 dark:text-emerald-400">
-                    {enclosure.animalName}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 mt-1">
-                    {enclosure.substrateType && (
-                      <span className="text-xs px-1.5 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded capitalize">
-                        {enclosure.substrateType}
-                      </span>
+              {/* Enclosure Card */}
+              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-sm font-semibold text-gray-900 dark:text-white truncate">
+                      {enclosure.name}
+                    </h4>
+                    <p className="text-xs text-emerald-600 dark:text-emerald-400">
+                      {enclosure.animalName}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mt-1.5">
+                      {enclosure.substrateType && (
+                        <span className="text-xs px-1.5 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded capitalize">
+                          {enclosure.substrateType}
+                        </span>
+                      )}
+                    </div>
+                    {enclosure.description && (
+                      <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">
+                        {enclosure.description}
+                      </p>
                     )}
                   </div>
-                  {enclosure.description && (
-                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-1">
-                      {enclosure.description}
-                    </p>
-                  )}
-                  
-                  {/* Animals Toggle Button */}
-                  <button
-                    onClick={() => setExpandedEnclosureId(expandedEnclosureId === enclosure.id ? null : enclosure.id)}
-                    className="mt-2 inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 rounded-md transition-colors"
-                  >
-                    {expandedEnclosureId === enclosure.id ? (
-                      <>
-                        <ChevronUp className="w-3.5 h-3.5" />
-                        Hide Animals
-                      </>
-                    ) : (
-                      <>
-                        <ChevronDown className="w-3.5 h-3.5" />
-                        Manage Animals
-                      </>
-                    )}
-                  </button>
-                </div>
-                <div className="flex gap-1 shrink-0">
-                  <button
-                    onClick={() => navigate(`/care-calendar/enclosures/edit/${enclosure.id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-                    className="p-1.5 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
-                    title="Edit"
-                  >
-                    <Pencil className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => handleDelete(enclosure.id, enclosure.name)}
-                    className="p-1.5 text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 transition-colors"
-                    title="Delete"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
+                  <div className="flex gap-1 shrink-0">
+                    <button
+                      onClick={() => navigate(`/care-calendar/enclosures/edit/${enclosure.id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
+                      className="p-1.5 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                      title="Edit"
+                    >
+                      <Pencil className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => handleDelete(enclosure.id, enclosure.name)}
+                      className="p-1.5 text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 transition-colors"
+                      title="Delete"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
               </div>
 
-              {/* AnimalList - Expandable */}
-              {expandedEnclosureId === enclosure.id && (
-                <div className="border-t border-gray-200 dark:border-gray-700 p-3 bg-gray-50 dark:bg-gray-900/30">
-                  <AnimalList 
-                    enclosureId={enclosure.id}
-                    enclosureName={enclosure.name}
-                    speciesName={enclosure.animalName}
-                    onAnimalsChanged={loadEnclosures}
-                  />
-                </div>
-              )}
+              {/* Manage Animals Button - Outside Card */}
+              <button
+                onClick={() => navigate('/my-animals')}
+                className="w-full px-3 py-2 text-xs font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 rounded-md transition-colors flex items-center justify-center gap-1.5"
+              >
+                <ChevronDown className="w-3.5 h-3.5" />
+                Manage Animals
+              </button>
             </div>
           ))}
         </div>

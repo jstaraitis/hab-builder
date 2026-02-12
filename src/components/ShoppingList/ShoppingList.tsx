@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Home, Wrench, Layers, Image, Leaf, Bug, ChevronRight, ShoppingBag, Utensils } from 'lucide-react';
+import { Home, Wrench, Layers, Image, Leaf, Bug, ChevronRight, ShoppingBag, Utensils, Gauge, Sparkles } from 'lucide-react';
 import type { ShoppingItem, SetupTier, EnclosureInput } from '../../engine/types';
 import { generateAmazonLink } from '../../utils/amazonLinks';
 
@@ -20,6 +20,8 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
     live_plants: 'Live Plants',
     cleanup_crew: 'Cleanup Crew',
     nutrition: 'Nutrition & Feeding',
+    monitoring: 'Monitoring & Tools',
+    maintenance: 'Maintenance & Cleaning',
   };
 
   const tierLabels = {
@@ -91,6 +93,8 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
                       live_plants: <Leaf className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
                       cleanup_crew: <Bug className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
                       nutrition: <Utensils className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
+                      monitoring: <Gauge className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
+                      maintenance: <Sparkles className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
                     };
                     return imap[category] ?? null;
                   })()}
