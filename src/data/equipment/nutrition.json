@@ -433,5 +433,94 @@
       }
     },
     "notes": "Essential for crested and mourning geckos. Mix with water to create paste. Feed 3-4x per week on rotating schedule (alternate with insects/fruit). Remove uneaten portions within 24 hours to prevent mold. Store in cool, dry place."
+  },
+  "feeding-ledge": {
+    "name": "Feeding Ledge (Magnetic or Suction)",
+    "category": "nutrition",
+    "needsTags": ["diet:frugivore", "activity:arboreal"],
+    "importance": "recommended",
+    "spec": {
+      "type": "Wall-mounted feeding platform",
+      "mounting": "Magnetic or suction cup",
+      "purpose": "Elevated feeding station for arboreal species"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic suction cup ledge",
+        "searchQuery": "suction cup feeding ledge gecko reptile",
+        "priceRange": { "min": 6, "max": 12 }
+      },
+      "recommended": {
+        "description": "Magnetic feeding ledge with removable cup",
+        "searchQuery": "magnetic feeding ledge gecko removable dish",
+        "priceRange": { "min": 12, "max": 20 }
+      },
+      "ideal": {
+        "description": "Pangea magnetic ledge with multiple cups",
+        "searchQuery": "pangea magnetic gecko feeding ledge",
+        "priceRange": { "min": 18, "max": 28 }
+      }
+    },
+    "notes": "Perfect for crested and gargoyle geckos. Holds food cups at natural feeding height. Magnetic versions work better than suction cups - don't fall off. Easy to remove for cleaning. Place in warm area of enclosure to prevent food spoilage."
+  },
+  "feeding-cups": {
+    "name": "Feeding Cups (Small Dishes)",
+    "category": "nutrition",
+    "needsTags": ["diet:frugivore"],
+    "importance": "required",
+    "isRecurring": false,
+    "recurringInterval": "6 months",
+    "spec": {
+      "type": "Small plastic or ceramic cups",
+      "size": "1-2 oz capacity",
+      "purpose": "Holds gecko diet (CGD)"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic plastic feeding cups (2-pack)",
+        "searchQuery": "small feeding cups gecko reptile plastic",
+        "priceRange": { "min": 3, "max": 7 }
+      },
+      "recommended": {
+        "description": "Ceramic feeding dishes (3-pack)",
+        "searchQuery": "ceramic feeding dish gecko small",
+        "priceRange": { "min": 8, "max": 15 }
+      },
+      "ideal": {
+        "description": "Magnetic cups with lids (prevents drying)",
+        "searchQuery": "magnetic feeding cups gecko with lids",
+        "priceRange": { "min": 12, "max": 22 }
+      }
+    },
+    "notes": "Essential for crested gecko diet (CGD). Small size prevents waste. Ceramic heavier than plastic - won't tip. Wash daily to prevent bacteria/mold. Have extras for rotation. Replace every 6 months or when scratched."
+  },
+  "feeding-tongs": {
+    "name": "Feeding Tongs (Tweezers)",
+    "category": "nutrition",
+    "needsTags": ["diet:insectivore", "diet:carnivore"],
+    "importance": "required",
+    "spec": {
+      "type": "Long-handled tongs or tweezers",
+      "length": "10-12 inches",
+      "purpose": "Safe feeding and maintenance"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic plastic feeding tongs",
+        "searchQuery": "reptile feeding tongs tweezers",
+        "priceRange": { "min": 4, "max": 8 }
+      },
+      "recommended": {
+        "description": "Stainless steel tongs with rubber tips",
+        "searchQuery": "stainless steel feeding tongs reptile rubber tip",
+        "priceRange": { "min": 8, "max": 15 }
+      },
+      "ideal": {
+        "description": "Professional feeding tongs with angled tip",
+        "searchQuery": "professional feeding tongs reptile angled",
+        "priceRange": { "min": 12, "max": 20 }
+      }
+    },
+    "notes": "Essential safety tool for all keepers. Prevents accidental bites during feeding. Also useful for spot-cleaning, moving decorations, and handling prey items. Stainless steel easier to clean than plastic. Keep multiple pairs (one for feeding, one for cleaning)."
   }
 }

@@ -12,6 +12,7 @@ import monitoring from './monitoring.json';
 import nutrition from './nutrition.json';
 import decor from './decor.json';
 import aquatic from './aquatic.json';
+import maintenance from './maintenance.json';
 
 // Merge all equipment categories into a single catalog
 // Maintains the same interface as the original equipment-catalog.json
@@ -26,6 +27,7 @@ const equipmentCatalog = {
   ...nutrition,
   ...decor,
   ...aquatic,
+  ...maintenance,
 };
 
 export default equipmentCatalog;

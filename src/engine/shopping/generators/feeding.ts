@@ -180,6 +180,40 @@ export function addFeedingSupplies(items: ShoppingItem[], input: EnclosureInput,
     });
   }
 
+  // Feeding cups (for frugivorous geckos)
+  const feedingCupsConfig = catalogDict['feeding-cups'];
+  if (feedingCupsConfig && matchesAnimalNeeds(feedingCupsConfig, profile.equipmentNeeds, input)) {
+    items.push({
+      id: 'feeding-cups',
+      category: feedingCupsConfig.category,
+      name: feedingCupsConfig.name,
+      quantity: '2-3 cups',
+      sizing: 'Small dishes for gecko diet',
+      importance: feedingCupsConfig.importance,
+      setupTierOptions: feedingCupsConfig.tiers,
+      notes: feedingCupsConfig.notes,
+      incompatibleAnimals: feedingCupsConfig.incompatibleAnimals,
+      ...(feedingCupsConfig.isRecurring && { isRecurring: feedingCupsConfig.isRecurring }),
+      ...(feedingCupsConfig.recurringInterval && { recurringInterval: feedingCupsConfig.recurringInterval }),
+    });
+  }
+
+  // Feeding ledge (for arboreal frugivorous geckos)
+  const feedingLedgeConfig = catalogDict['feeding-ledge'];
+  if (feedingLedgeConfig && matchesAnimalNeeds(feedingLedgeConfig, profile.equipmentNeeds, input)) {
+    items.push({
+      id: 'feeding-ledge',
+      category: feedingLedgeConfig.category,
+      name: feedingLedgeConfig.name,
+      quantity: '1-2 ledges',
+      sizing: 'Wall-mounted feeding platform',
+      importance: feedingLedgeConfig.importance,
+      setupTierOptions: feedingLedgeConfig.tiers,
+      notes: feedingLedgeConfig.notes,
+      incompatibleAnimals: feedingLedgeConfig.incompatibleAnimals,
+    });
+  }
+
   // Appropriately-sized insects for geckos
   const geckoInsectsConfig = catalogDict['insects-for-geckos'];
   if (geckoInsectsConfig && matchesAnimalNeeds(geckoInsectsConfig, profile.equipmentNeeds, input)) {

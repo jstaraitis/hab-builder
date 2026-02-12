@@ -269,5 +269,34 @@
       }
     },
     "notes": "Protects expensive equipment (thermostats, lights, timers) from power surges. Get one with enough outlets for all devices (lights, heat, timers, misters, etc.)."
+  },
+  "dimmer-switch": {
+    "name": "Dimmer Switch (Lamp Dimmer)",
+    "category": "equipment",
+    "needsTags": ["heatSource:basking"],
+    "importance": "recommended",
+    "spec": {
+      "type": "Plug-in dimmer or inline dimmer",
+      "purpose": "Fine-tune heat lamp wattage",
+      "compatibility": "Incandescent/halogen bulbs only (NOT LEDs or fluorescent)"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic plug-in lamp dimmer",
+        "searchQuery": "plug in lamp dimmer switch reptile",
+        "priceRange": { "min": 8, "max": 15 }
+      },
+      "recommended": {
+        "description": "Inline dimmer with dial control",
+        "searchQuery": "inline dimmer switch lamp reptile terrarium",
+        "priceRange": { "min": 12, "max": 20 }
+      },
+      "ideal": {
+        "description": "Heavy-duty dimmer with digital display",
+        "searchQuery": "heavy duty dimmer switch digital reptile",
+        "priceRange": { "min": 18, "max": 30 }
+      }
+    },
+    "notes": "Allows precise temperature control by reducing bulb output. Useful alternative to thermostats for basking fixtures. ONLY works with incandescent/halogen bulbs - will damage LEDs. Don't use with ceramic heat emitters."
   }
 }

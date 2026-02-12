@@ -485,5 +485,147 @@
       }
     },
     "notes": "ONLY for axolotls 6+ inches long - still carries impaction risk. Must be ultra-fine (smaller than grains can swallow). Bare-bottom or slate tile safer options. Rinse thoroughly before adding to tank. Provides natural look and beneficial bacteria surface."
+  },
+  "gravel-siphon": {
+    "name": "Gravel Vacuum (Aquarium Siphon)",
+    "category": "equipment",
+    "needsTags": ["waterFeature:fully-aquatic"],
+    "importance": "required",
+    "spec": {
+      "type": "Gravel vacuum with siphon",
+      "purpose": "Water changes and substrate cleaning"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic aquarium siphon",
+        "searchQuery": "aquarium gravel vacuum siphon",
+        "priceRange": { "min": 8, "max": 15 }
+      },
+      "recommended": {
+        "description": "Self-priming gravel vacuum",
+        "searchQuery": "self priming aquarium gravel vacuum",
+        "priceRange": { "min": 12, "max": 22 }
+      },
+      "ideal": {
+        "description": "Python No-Spill water changer system",
+        "searchQuery": "python no spill aquarium water changer",
+        "priceRange": { "min": 25, "max": 45 }
+      }
+    },
+    "notes": "Essential for weekly water changes. Removes waste from substrate while siphoning water. Self-priming models easier to use. For large tanks, Python system connects to sink faucet for easy filling."
+  },
+  "algae-scraper": {
+    "name": "Algae Scraper/Pad",
+    "category": "equipment",
+    "needsTags": ["waterFeature:fully-aquatic"],
+    "importance": "recommended",
+    "isRecurring": true,
+    "recurringInterval": "6 months",
+    "spec": {
+      "type": "Magnetic or handheld algae cleaner"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic algae pad",
+        "searchQuery": "aquarium algae scraper pad",
+        "priceRange": { "min": 3, "max": 8 }
+      },
+      "recommended": {
+        "description": "Magnetic algae scraper",
+        "searchQuery": "magnetic aquarium algae cleaner",
+        "priceRange": { "min": 10, "max": 20 }
+      },
+      "ideal": {
+        "description": "Floating magnetic algae scraper",
+        "searchQuery": "floating magnetic algae scraper aquarium",
+        "priceRange": { "min": 15, "max": 30 }
+      }
+    },
+    "notes": "Keeps glass clear for viewing and monitoring. Magnetic cleaners work from outside tank - no wet hands. Replace scrubbing pads every 6 months to prevent scratching glass."
+  },
+  "fish-net": {
+    "name": "Aquarium Net",
+    "category": "equipment",
+    "needsTags": ["waterFeature:fully-aquatic"],
+    "importance": "required",
+    "spec": {
+      "type": "Fine mesh net",
+      "size": "4-6 inches for most species"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic fine mesh net (4 inch)",
+        "searchQuery": "aquarium fish net fine mesh 4 inch",
+        "priceRange": { "min": 3, "max": 7 }
+      },
+      "recommended": {
+        "description": "Coarse mesh net (less stress) 5-6 inch",
+        "searchQuery": "aquarium fish net coarse mesh 6 inch",
+        "priceRange": { "min": 5, "max": 10 }
+      },
+      "ideal": {
+        "description": "Soft mesh net with padded rim",
+        "searchQuery": "aquarium net soft mesh padded rim",
+        "priceRange": { "min": 8, "max": 15 }
+      }
+    },
+    "notes": "For safely moving animals during tank maintenance. Coarse mesh causes less stress than fine mesh. Never chase animals - guide gently into net. Rinse after each use."
+  },
+  "heater-guard": {
+    "name": "Heater Guard (Protective Cage)",
+    "category": "equipment",
+    "needsTags": ["waterFeature:fully-aquatic"],
+    "importance": "recommended",
+    "spec": {
+      "type": "Plastic grid cage",
+      "purpose": "Prevents burns from heater contact"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic plastic heater guard",
+        "searchQuery": "aquarium heater guard cage",
+        "priceRange": { "min": 6, "max": 12 }
+      },
+      "recommended": {
+        "description": "Adjustable heater guard with suction cups",
+        "searchQuery": "adjustable aquarium heater protector guard",
+        "priceRange": { "min": 10, "max": 18 }
+      },
+      "ideal": {
+        "description": "Heavy-duty heater guard with mounting clips",
+        "searchQuery": "heavy duty aquarium heater guard cage",
+        "priceRange": { "min": 14, "max": 24 }
+      }
+    },
+    "notes": "Prevents animals from touching hot heater surface. Essential for turtles and large aquatic animals that might bump heater. Allows water circulation while blocking direct contact."
+  },
+  "aquarium-tubing": {
+    "name": "Vinyl Tubing (Aquarium Grade)",
+    "category": "equipment",
+    "needsTags": ["waterFeature:fully-aquatic"],
+    "importance": "conditional",
+    "spec": {
+      "type": "Flexible vinyl tubing",
+      "size": "3/8 inch or 1/2 inch diameter",
+      "purpose": "For filters, drippers, drainage systems"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Standard vinyl tubing (10 ft)",
+        "searchQuery": "vinyl tubing aquarium 3/8 inch",
+        "priceRange": { "min": 5, "max": 10 }
+      },
+      "recommended": {
+        "description": "Flexible tubing with connectors (25 ft)",
+        "searchQuery": "aquarium tubing kit vinyl flexible",
+        "priceRange": { "min": 12, "max": 20 }
+      },
+      "ideal": {
+        "description": "Clear silicone tubing (50 ft) with check valves",
+        "searchQuery": "silicone tubing aquarium clear flexible",
+        "priceRange": { "min": 18, "max": 35 }
+      }
+    },
+    "notes": "For connecting filters, air pumps, drainage systems, and misting systems. 3/8 inch fits most standard equipment. Clear tubing shows water flow and blockages. Replace annually or when cloudy/cracked."
   }
 }

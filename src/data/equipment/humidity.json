@@ -101,5 +101,34 @@
       }
     },
     "notes": "For manual humidity control. Clean regularly."
+  },
+  "dripper-system": {
+    "name": "Water Dripper (Drip System)",
+    "category": "equipment",
+    "needsTags": ["humidity:moderate", "humidity:high"],
+    "importance": "recommended",
+    "spec": {
+      "type": "Gravity-fed water dripper",
+      "capacity": "16-70 oz",
+      "purpose": "Provides moving water for hydration and humidity"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Basic drip system (16 oz)",
+        "searchQuery": "reptile dripper water system terrarium",
+        "priceRange": { "min": 8, "max": 15 }
+      },
+      "recommended": {
+        "description": "Adjustable dripper (32 oz)",
+        "searchQuery": "zoo med little dripper reptile water system",
+        "priceRange": { "min": 12, "max": 20 }
+      },
+      "ideal": {
+        "description": "Large-capacity dripper (70 oz) with adjustable flow",
+        "searchQuery": "zoo med big dripper reptile water system",
+        "priceRange": { "min": 18, "max": 28 }
+      }
+    },
+    "notes": "Essential for chameleons and tree frogs that drink moving water droplets. Hang above enclosure - drips stimulate natural drinking behavior. Adjustable valve controls drip rate. Empty collection dish daily to prevent bacteria growth."
   }
 }

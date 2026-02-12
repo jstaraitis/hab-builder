@@ -1,0 +1,60 @@
+{
+  "disinfectant": {
+    "name": "Reptile-Safe Disinfectant",
+    "category": "equipment",
+    "importance": "required",
+    "isRecurring": true,
+    "recurringInterval": "quarterly",
+    "spec": {
+      "type": "Non-toxic disinfectant",
+      "purpose": "Deep cleaning and sanitizing enclosures",
+      "active": "Safe for reptiles/amphibians when diluted properly"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "10:1 white vinegar solution",
+        "searchQuery": "white vinegar cleaning solution",
+        "priceRange": { "min": 3, "max": 6 }
+      },
+      "recommended": {
+        "description": "Chlorhexidine solution (reptile-safe)",
+        "searchQuery": "chlorhexidine reptile cleaner disinfectant",
+        "priceRange": { "min": 12, "max": 22 }
+      },
+      "ideal": {
+        "description": "F10SC veterinary disinfectant",
+        "searchQuery": "f10sc disinfectant reptile veterinary grade",
+        "priceRange": { "min": 18, "max": 35 }
+      }
+    },
+    "notes": "Essential for monthly deep cleaning and quarantine protocols. F10SC is gold standard - kills bacteria, viruses, fungi without toxic residue. Always rinse thoroughly after use and let enclosure air dry completely. Never use Lysol, Pine-Sol, or other household cleaners - toxic to reptiles. Dilute per product instructions."
+  },
+  "drainage-tray": {
+    "name": "Drainage Tray (Substrate Tray)",
+    "category": "equipment",
+    "importance": "conditional",
+    "spec": {
+      "type": "Waterproof tray or pan",
+      "purpose": "Collects excess water from misting, prevents enclosure damage",
+      "material": "Plastic, PVC, or custom built"
+    },
+    "tiers": {
+      "minimum": {
+        "description": "Large plastic storage bin (as drainage catch)",
+        "searchQuery": "large plastic storage bin waterproof",
+        "priceRange": { "min": 15, "max": 30 }
+      },
+      "recommended": {
+        "description": "Custom PVC drainage tray with bulkhead",
+        "searchQuery": "pvc drainage tray reptile terrarium",
+        "priceRange": { "min": 40, "max": 75 }
+      },
+      "ideal": {
+        "description": "Professional drainage tray system with plumbing",
+        "searchQuery": "drainage tray system terrarium plumbing kit",
+        "priceRange": { "min": 80, "max": 150 }
+      }
+    },
+    "notes": "Critical for large bioactive enclosures and chameleon setups with heavy misting. Prevents water damage to floors/furniture. DIY option: concrete mixing tub with hole drilled for drainage tube. Professional systems include bulkhead fittings and tubing to route water to collection bucket. Essential for paludariums and heavily-misted arboreal setups."
+  }
+}
