@@ -57,7 +57,7 @@ export function CareCalendar() {
   const [feedingTask, setFeedingTask] = useState<CareTask | null>(null);
   const [showFeedingModal, setShowFeedingModal] = useState(false);
   const [expandedTasks, setExpandedTasks] = useState<Set<string>>(new Set());
-  const [viewMode, setViewMode] = useState<ViewMode>('today');
+  const [viewMode, setViewMode] = useState<ViewMode>('week');
   const [layoutMode, setLayoutMode] = useState<LayoutMode>('cards');
   const [expandedSections, setExpandedSections] = useState<Set<TimeBlock>>(new Set(['overdue', 'morning', 'afternoon', 'evening']));
   const [selectedTasks, setSelectedTasks] = useState<Set<string>>(new Set());
@@ -211,13 +211,18 @@ export function CareCalendar() {
     const now = new Date();
     const diff = date.getTime() - now.getTime();
     const hours = Math.floor(diff / (1000 * 60 * 60));
-    const days = Math.floor(hours / 24);
 
     if (diff < 0) return 'Overdue';
     if (hours < 1) return 'Due now';
     if (hours < 24) return `Due in ${hours}h`;
-    if (days === 1) return 'Due tomorrow';
-    return `Due in ${days} days`;
+    
+    // Use local dates for calendar day comparison (users think in their local timezone)
+    const todayLocal = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+    const dueDayLocal = new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
+    const daysDiff = Math.floor((dueDayLocal - todayLocal) / (1000 * 60 * 60 * 24));
+    
+    if (daysDiff === 1) return 'Due tomorrow';
+    return `Due in ${daysDiff} days`;
   };
 
   const formatFrequency = (frequency: string, customDays?: number): string => {
@@ -249,14 +254,17 @@ export function CareCalendar() {
 
   const getTimeBlock = (date: Date): TimeBlock => {
     const now = new Date();
-    const hours = date.getHours();
+    const hours = date.getHours(); // Local hour for time-of-day blocks
     
     // Overdue
     if (date < now) return 'overdue';
     
+    // Use local dates for calendar day comparison (users think in their local timezone)
+    const todayLocal = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+    const dateLocal = new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
+    
     // Today
-    const isToday = date.toDateString() === now.toDateString();
-    if (isToday) {
+    if (dateLocal === todayLocal) {
       if (hours < 12) return 'morning';
       if (hours < 17) return 'afternoon';
       if (hours < 21) return 'evening';
@@ -264,14 +272,12 @@ export function CareCalendar() {
     }
     
     // Tomorrow
-    const tomorrow = new Date(now);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    if (date.toDateString() === tomorrow.toDateString()) return 'tomorrow';
+    const tomorrowLocal = todayLocal + (24 * 60 * 60 * 1000);
+    if (dateLocal === tomorrowLocal) return 'tomorrow';
     
-    // This week (next 7 days from now)
-    const weekEnd = new Date(now);
-    weekEnd.setDate(weekEnd.getDate() + 7);
-    if (date < weekEnd) return 'week';
+    // This week (next 7 days from today)
+    const weekEndLocal = todayLocal + (7 * 24 * 60 * 60 * 1000);
+    if (dateLocal < weekEndLocal) return 'week';
     
     // Future (more than 7 days away)
     return 'future';
@@ -902,10 +908,10 @@ export function CareCalendar() {
                                       </button>
                                       <button
                                         onClick={() => handleCompleteTask(task.id)}
-                                        className="px-3 py-1.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg font-medium text-xs transition-colors flex items-center gap-1"
+                                        className="p-1.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg transition-colors flex items-center justify-center"
+                                        title="Mark as done"
                                       >
-                                        <Check className="w-3.5 h-3.5" />
-                                        Done
+                                        <Check className="w-4 h-4" />
                                       </button>
                                     </>
                                   )}
@@ -1054,10 +1060,10 @@ export function CareCalendar() {
                                 
                                 <button
                                   onClick={() => handleCompleteTask(task.id)}
-                                  className="px-4 py-1.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg font-semibold text-sm transition-colors flex items-center gap-1.5 shadow-sm"
+                                  className="p-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg transition-colors flex items-center justify-center shadow-sm"
+                                  title="Mark as done"
                                 >
-                                  <Check className="w-4 h-4" />
-                                  Done
+                                  <Check className="w-5 h-5" />
                                 </button>
                               </div>
                               )}

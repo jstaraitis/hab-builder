@@ -128,7 +128,9 @@ export function TaskCreationModal({
 
         // Use start date if provided, otherwise use today
         if (taskData.startDate) {
-          nextDueAt = new Date(taskData.startDate);
+          // Parse date as local date, not UTC (add 'T00:00:00' to force local timezone)
+          const [year, month, day] = taskData.startDate.split('-').map(Number);
+          nextDueAt = new Date(year, month - 1, day); // month is 0-indexed
         } else {
           nextDueAt.setHours(0, 0, 0, 0); // Start from today
         }
