@@ -110,7 +110,11 @@
   "activityPattern": "Diurnal",
   "originRegion": "Australia and Indonesia",
   "setupTips": [],
-  "notes": [],
+  "notes": [
+    "Known for their bright blue, UV reflective tongues used to threaten predators",
+    "Unique becaue they are ovoviviparous, giving birth to live young, not egg laying.",
+    "Can drop and regrow their tails!"
+  ],
   "warnings": [],
   "relatedBlogs": [
     "blue-tongue-skink-enrichment-welfare-guide",

@@ -37,8 +37,7 @@ const Home = lazy(() => import('./components/Home/Home').then(m => ({ default: m
 const EquipmentTagsBuilder = lazy(() => import('./components/Admin/EquipmentTagsBuilder'));
 const UpgradePage = lazy(() => import('./components/Upgrade/UpgradePage').then(m => ({ default: m.UpgradePage })));
 const PremiumExplainerPage = lazy(() => import('./components/Upgrade/PremiumExplainerPage').then(m => ({ default: m.PremiumExplainerPage })));
-import { Auth } from './components/Auth';
-import { PremiumPaywall } from './components/Upgrade/PremiumPaywall';
+import { PremiumRoute } from './components/Auth/PremiumRoute';
 import { animalProfiles } from './data/animals';
 import { profileService } from './services/profileService';
 import { useTheme } from './hooks/useTheme';
@@ -613,201 +612,19 @@ function App() {
           <Route path="/supplies" element={<SuppliesView plan={plan} input={input} />} />
           <Route path="/premium" element={<PremiumExplainerPage />} />
           <Route path="/upgrade" element={<UpgradePage />} />
-          <Route path="/care-calendar" element={
-            !user ? (
-              <div className="min-h-[60vh] flex items-center justify-center">
-                <div className="max-w-md w-full">
-                  <Auth />
-                </div>
-              </div>
-            ) : profileLoading ? (
-              <LoadingFallback />
-            ) : !isPremium ? (
-              <PremiumPaywall />
-            ) : (
-              <CareCalendarView />
-            )
-          } />
-          <Route path="/care-calendar/tasks/add" element={
-            !user ? (
-              <div className="min-h-[60vh] flex items-center justify-center">
-                <div className="max-w-md w-full">
-                  <Auth />
-                </div>
-              </div>
-            ) : profileLoading ? (
-              <LoadingFallback />
-            ) : !isPremium ? (
-              <PremiumPaywall />
-            ) : (
-              <TaskCreationView />
-            )
-          } />
-          <Route path="/care-calendar/tasks/edit/:id" element={
-            !user ? (
-              <div className="min-h-[60vh] flex items-center justify-center">
-                <div className="max-w-md w-full">
-                  <Auth />
-                </div>
-              </div>
-            ) : profileLoading ? (
-              <LoadingFallback />
-            ) : !isPremium ? (
-              <PremiumPaywall />
-            ) : (
-              <TaskEditView />
-            )
-          } />
-          <Route path="/my-animals" element={
-            !user ? (
-              <div className="min-h-[60vh] flex items-center justify-center">
-                <div className="max-w-md w-full">
-                  <Auth />
-                </div>
-              </div>
-            ) : profileLoading ? (
-              <LoadingFallback />
-            ) : !isPremium ? (
-              <PremiumPaywall />
-            ) : (
-              <MyAnimalsView />
-            )
-          } />
-          <Route path="/weight-tracker/:id" element={
-            !user ? (
-              <div className="min-h-[60vh] flex items-center justify-center">
-                <div className="max-w-md w-full">
-                  <Auth />
-                </div>
-              </div>
-            ) : profileLoading ? (
-              <LoadingFallback />
-            ) : !isPremium ? (
-              <PremiumPaywall />
-            ) : (
-              <WeightTrackerView />
-            )
-          } />
-          <Route path="/my-animals/:animalId" element={
-            !user ? (
-              <div className="min-h-[60vh] flex items-center justify-center">
-                <div className="max-w-md w-full">
-                  <Auth />
-                </div>
-              </div>
-            ) : profileLoading ? (
-              <LoadingFallback />
-            ) : !isPremium ? (
-              <PremiumPaywall />
-            ) : (
-              <AnimalDetailView />
-            )
-          } />
-          <Route path="/my-animals/edit/:id" element={
-            !user ? (
-              <div className="min-h-[60vh] flex items-center justify-center">
-                <div className="max-w-md w-full">
-                  <Auth />
-                </div>
-              </div>
-            ) : profileLoading ? (
-              <LoadingFallback />
-            ) : !isPremium ? (
-              <PremiumPaywall />
-            ) : (
-              <EditAnimalView />
-            )
-          } />
-          <Route path="/my-animals/add" element={
-            !user ? (
-              <div className="min-h-[60vh] flex items-center justify-center">
-                <div className="max-w-md w-full">
-                  <Auth />
-                </div>
-              </div>
-            ) : profileLoading ? (
-              <LoadingFallback />
-            ) : !isPremium ? (
-              <PremiumPaywall />
-            ) : (
-              <AddAnimalView />
-            )
-          } />
-          <Route path="/care-calendar/enclosures/add" element={
-            !user ? (
-              <div className="min-h-[60vh] flex items-center justify-center">
-                <div className="max-w-md w-full">
-                  <Auth />
-                </div>
-              </div>
-            ) : profileLoading ? (
-              <LoadingFallback />
-            ) : !isPremium ? (
-              <PremiumPaywall />
-            ) : (
-              <AddEnclosureView />
-            )
-          } />
-          <Route path="/care-calendar/enclosures/edit/:id" element={
-            !user ? (
-              <div className="min-h-[60vh] flex items-center justify-center">
-                <div className="max-w-md w-full">
-                  <Auth />
-                </div>
-              </div>
-            ) : profileLoading ? (
-              <LoadingFallback />
-            ) : !isPremium ? (
-              <PremiumPaywall />
-            ) : (
-              <EditEnclosureView />
-            )
-          } />
-          <Route path="/inventory" element={
-            !user ? (
-              <div className="min-h-[60vh] flex items-center justify-center">
-                <div className="max-w-md w-full">
-                  <Auth />
-                </div>
-              </div>
-            ) : profileLoading ? (
-              <LoadingFallback />
-            ) : !isPremium ? (
-              <PremiumPaywall />
-            ) : (
-              <InventoryView />
-            )
-          } />
-          <Route path="/inventory/add" element={
-            !user ? (
-              <div className="min-h-[60vh] flex items-center justify-center">
-                <div className="max-w-md w-full">
-                  <Auth />
-                </div>
-              </div>
-            ) : profileLoading ? (
-              <LoadingFallback />
-            ) : !isPremium ? (
-              <PremiumPaywall />
-            ) : (
-              <AddInventoryItemView />
-            )
-          } />
-          <Route path="/inventory/edit/:id" element={
-            !user ? (
-              <div className="min-h-[60vh] flex items-center justify-center">
-                <div className="max-w-md w-full">
-                  <Auth />
-                </div>
-              </div>
-            ) : profileLoading ? (
-              <LoadingFallback />
-            ) : !isPremium ? (
-              <PremiumPaywall />
-            ) : (
-              <EditInventoryItemView />
-            )
-          } />
+          <Route path="/care-calendar" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><CareCalendarView /></PremiumRoute>} />
+          <Route path="/care-calendar/tasks/add" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><TaskCreationView /></PremiumRoute>} />
+          <Route path="/care-calendar/tasks/edit/:id" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><TaskEditView /></PremiumRoute>} />
+          <Route path="/my-animals" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><MyAnimalsView /></PremiumRoute>} />
+          <Route path="/weight-tracker/:id" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><WeightTrackerView /></PremiumRoute>} />
+          <Route path="/my-animals/:animalId" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><AnimalDetailView /></PremiumRoute>} />
+          <Route path="/my-animals/edit/:id" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><EditAnimalView /></PremiumRoute>} />
+          <Route path="/my-animals/add" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><AddAnimalView /></PremiumRoute>} />
+          <Route path="/care-calendar/enclosures/add" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><AddEnclosureView /></PremiumRoute>} />
+          <Route path="/care-calendar/enclosures/edit/:id" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><EditEnclosureView /></PremiumRoute>} />
+          <Route path="/inventory" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><InventoryView /></PremiumRoute>} />
+          <Route path="/inventory/add" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><AddInventoryItemView /></PremiumRoute>} />
+          <Route path="/inventory/edit/:id" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><EditInventoryItemView /></PremiumRoute>} />
           <Route path="/about" element={<About onOpenFeedback={() => setIsFeedbackOpen(true)} />} />
           <Route path="/profile" element={<ProfileView />} />
           <Route path="/roadmap" element={<Roadmap onOpenFeedback={() => setIsFeedbackOpen(true)} />} />

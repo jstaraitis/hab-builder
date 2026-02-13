@@ -105,7 +105,12 @@
   "activityPattern": "Diurnal",
   "originRegion": "Sub-Saharan Africa",
   "setupTips": [],
-  "notes": [],
+  "notes": [
+    "Fully aquatic, carnivorous Amphibian from Africa.",
+    "Uses their three-clawed hind feet to tear food",
+    "African clawed frogs do not have eyelids or a tongue!",
+    "Have a lateral line system for sensing vibrations, and incredible resilience, allowing them to burrow in mud during droughts."
+  ],
   "warnings": [],
   "relatedBlogs": [
     "african-clawed-frog-enrichment-welfare-guide",
