@@ -84,7 +84,7 @@ export function TaskCreationModal({
 
   // Available animals (expand this as more templates are added)
   const availableAnimals = [
-    { id: 'whites-tree-frog', name: "White's Tree Frog" },
+    { id: 'basic-care', name: 'Basic Care (All Animals)' },
   ];
 
   useEffect(() => {

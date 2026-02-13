@@ -173,6 +173,8 @@ class EnclosureAnimalService {
       morph: row.morph,
       birthday: row.birthday ? new Date(row.birthday) : undefined,
       notes: row.notes,
+      photoUrl: row.photo_url || undefined,
+      images: row.images || [],
       source: row.source,
       sourceDetails: row.source_details,
       acquisitionDate: row.acquisition_date ? new Date(row.acquisition_date) : undefined,
@@ -199,6 +201,8 @@ class EnclosureAnimalService {
     if (animal.birthday !== undefined) {
       mapped.birthday = animal.birthday ? animal.birthday.toISOString().split('T')[0] : null;
     }
+    if (animal.photoUrl !== undefined) mapped.photo_url = animal.photoUrl || null;
+    if (animal.images !== undefined) mapped.images = animal.images;
     if (animal.notes !== undefined) mapped.notes = animal.notes;
     
     // Acquisition fields

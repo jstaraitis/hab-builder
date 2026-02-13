@@ -5,7 +5,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import { Calendar, Scale, MapPin, Plus, Pencil, Trash2 } from 'lucide-react';
+import { Calendar, Scale, MapPin, Plus, Pencil, Trash2, Turtle } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
@@ -28,6 +28,123 @@ function calculateAge(birthday: Date): string {
   return `${years}y ${remainingMonths}m`;
 }
 
+// Animal Card Component - Extracted and memoized to prevent remounting on scroll
+const AnimalCard = ({ 
+  animal, 
+  enclosure, 
+  onNavigate,
+  onDelete 
+}: { 
+  animal: EnclosureAnimal; 
+  enclosure?: Enclosure;
+  onNavigate: (path: string) => void;
+  onDelete: (animal: EnclosureAnimal) => void;
+}) => (
+  <div
+    onClick={() => onNavigate(`/my-animals/${animal.id}`)}
+    className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3 hover:border-emerald-300 dark:hover:border-emerald-700 hover:shadow-md transition-all cursor-pointer"
+    style={{ contain: 'layout style paint' }}
+  >
+    <div className="flex items-start gap-3">
+      <div className="h-20 w-20 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 overflow-hidden flex items-center justify-center text-gray-400 flex-shrink-0">
+        {animal.photoUrl ? (
+          <img 
+            src={animal.photoUrl} 
+            alt={animal.name || 'Animal'} 
+            className="h-full w-full object-cover" 
+            loading="lazy"
+            decoding="async"
+            sizes="(max-width: 768px) 80px, 80px"
+          />
+        ) : (
+          <Turtle className="w-8 h-8" />
+        )}
+      </div>
+
+      <div className="flex-1 min-w-0">
+        {/* Header: Name + Action Buttons */}
+        <div className="flex items-center justify-between gap-2 mb-1.5">
+          <div className="flex-1 min-w-0">
+            <h4 className="text-sm font-semibold text-gray-900 dark:text-white truncate">
+              {animal.name || `Animal #${animal.animalNumber || '?'}`}
+            </h4>
+            {enclosure && (
+              <p className="text-xs text-gray-500 dark:text-gray-500 truncate">
+                {enclosure.animalName}
+              </p>
+            )}
+          </div>
+          {/* Action Buttons - Inline on mobile */}
+          <div className="flex items-center gap-0.5 shrink-0" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => onNavigate(`/my-animals/edit/${animal.id}`)}
+              className="p-1.5 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              title="Edit"
+            >
+              <Pencil className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => onDelete(animal)}
+              className="p-1.5 text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors"
+              title="Delete"
+            >
+              <Trash2 className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+
+        {/* Badges: Gender, Morph, Age - Compact row */}
+        <div className="flex flex-wrap items-center gap-1 mb-1.5">
+          {animal.gender && (
+            <span className="px-1.5 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded text-xs capitalize inline-flex items-center gap-0.5">
+              {animal.gender === 'male' ? '♂' : animal.gender === 'female' ? '♀' : '?'} {animal.gender}
+            </span>
+          )}
+          {animal.birthday && (
+            <span className="px-1.5 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-xs inline-flex items-center gap-0.5">
+              <Calendar className="w-3 h-3 shrink-0" />
+              {calculateAge(new Date(animal.birthday))}
+            </span>
+          )}
+          {animal.morph && (
+            <span className="px-1.5 py-0.5 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded text-xs">
+              {animal.morph}
+            </span>
+          )}
+        </div>
+
+        {/* Enclosure Location + Birthday - Bottom row */}
+        <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-500">
+          {enclosure ? (
+            <div className="flex items-center gap-1 flex-1 min-w-0">
+              <MapPin className="w-3 h-3 shrink-0" />
+              <span className="truncate">{enclosure.name}</span>
+            </div>
+          ) : (
+            <div className="flex items-center gap-1 flex-1 min-w-0 text-amber-600 dark:text-amber-500">
+              <MapPin className="w-3 h-3 shrink-0" />
+              <span className="italic">No enclosure</span>
+            </div>
+          )}
+          {animal.birthday && (
+            <div className="flex items-center gap-1 shrink-0 text-gray-400 dark:text-gray-600">
+              <Calendar className="w-3 h-3 shrink-0" />
+              <span>{new Date(animal.birthday).toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' })}</span>
+            </div>
+          )}
+        </div>
+
+        {/* Notes Preview - Show if exists */}
+        {animal.notes && (
+          <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-1 mt-1.5 pt-1.5 border-t border-gray-200 dark:border-gray-700">
+            {animal.notes}
+          </p>
+        )}
+      </div>
+    </div>
+  </div>
+);
+
 export function MyAnimals() {
   const { user } = useAuth();
   const [animals, setAnimals] = useState<EnclosureAnimal[]>([]);
@@ -44,7 +161,7 @@ export function MyAnimals() {
       // If no user, stop loading
       setLoading(false);
     }
-  }, [user, location.key]);
+  }, [user]);
 
   const loadData = async () => {
     try {
@@ -81,93 +198,6 @@ export function MyAnimals() {
       setError('Failed to delete animal');
     }
   };
-
-  // Animal Card Component
-  const AnimalCard = ({ animal, enclosure }: { animal: EnclosureAnimal; enclosure?: Enclosure }) => (
-    <div
-      onClick={() => navigate(`/my-animals/${animal.id}`)}
-      className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3 hover:border-emerald-300 dark:hover:border-emerald-700 hover:shadow-md transition-all cursor-pointer"
-    >
-      {/* Header: Name + Action Buttons */}
-      <div className="flex items-center justify-between gap-2 mb-1.5">
-        <div className="flex-1 min-w-0">
-          <h4 className="text-sm font-semibold text-gray-900 dark:text-white truncate">
-            {animal.name || `Animal #${animal.animalNumber || '?'}`}
-          </h4>
-          {enclosure && (
-            <p className="text-xs text-gray-500 dark:text-gray-500 truncate">
-              {enclosure.animalName}
-            </p>
-          )}
-        </div>
-        {/* Action Buttons - Inline on mobile */}
-        <div className="flex items-center gap-0.5 shrink-0" onClick={(e) => e.stopPropagation()}>
-          <button
-            onClick={() => navigate(`/my-animals/edit/${animal.id}`)}
-            className="p-1.5 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
-            title="Edit"
-          >
-            <Pencil className="w-4 h-4" />
-          </button>
-          <button
-            onClick={() => handleDelete(animal)}
-            className="p-1.5 text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors"
-            title="Delete"
-          >
-            <Trash2 className="w-4 h-4" />
-          </button>
-        </div>
-      </div>
-
-      {/* Badges: Gender, Morph, Age - Compact row */}
-      <div className="flex flex-wrap items-center gap-1 mb-1.5">
-        {animal.gender && (
-          <span className="px-1.5 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded text-xs capitalize inline-flex items-center gap-0.5">
-            {animal.gender === 'male' ? '♂' : animal.gender === 'female' ? '♀' : '?'} {animal.gender}
-          </span>
-        )}
-        {animal.birthday && (
-          <span className="px-1.5 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-xs inline-flex items-center gap-0.5">
-            <Calendar className="w-3 h-3 shrink-0" />
-            {calculateAge(new Date(animal.birthday))}
-          </span>
-        )}
-        {animal.morph && (
-          <span className="px-1.5 py-0.5 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded text-xs">
-            {animal.morph}
-          </span>
-        )}
-      </div>
-
-      {/* Enclosure Location + Birthday - Bottom row */}
-      <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-500">
-        {enclosure ? (
-          <div className="flex items-center gap-1 flex-1 min-w-0">
-            <MapPin className="w-3 h-3 shrink-0" />
-            <span className="truncate">{enclosure.name}</span>
-          </div>
-        ) : (
-          <div className="flex items-center gap-1 flex-1 min-w-0 text-amber-600 dark:text-amber-500">
-            <MapPin className="w-3 h-3 shrink-0" />
-            <span className="italic">No enclosure</span>
-          </div>
-        )}
-        {animal.birthday && (
-          <div className="flex items-center gap-1 shrink-0 text-gray-400 dark:text-gray-600">
-            <Calendar className="w-3 h-3 shrink-0" />
-            <span>{new Date(animal.birthday).toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' })}</span>
-          </div>
-        )}
-      </div>
-
-      {/* Notes Preview - Show if exists */}
-      {animal.notes && (
-        <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-1 mt-1.5 pt-1.5 border-t border-gray-200 dark:border-gray-700">
-          {animal.notes}
-        </p>
-      )}
-    </div>
-  );
 
   const getEnclosureById = (id: string) => enclosures.find(e => e.id === id);
 
@@ -267,7 +297,13 @@ export function MyAnimals() {
               </h2>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {unassignedAnimals.map(animal => (
-                  <AnimalCard key={animal.id} animal={animal} enclosure={undefined} />
+                  <AnimalCard 
+                    key={animal.id} 
+                    animal={animal} 
+                    enclosure={undefined} 
+                    onNavigate={navigate}
+                    onDelete={handleDelete}
+                  />
                 ))}
               </div>
             </div>
@@ -285,7 +321,13 @@ export function MyAnimals() {
                 {assignedAnimals.map(animal => {
                   const enclosure = getEnclosureById(animal.enclosureId!);
                   return (
-                    <AnimalCard key={animal.id} animal={animal} enclosure={enclosure} />
+                    <AnimalCard 
+                      key={animal.id} 
+                      animal={animal} 
+                      enclosure={enclosure}
+                      onNavigate={navigate}
+                      onDelete={handleDelete}
+                    />
                   );
                 })}
               </div>

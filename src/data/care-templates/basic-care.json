@@ -1,0 +1,62 @@
+{
+  "animalId": "basic-care",
+  "species": "Basic Care (All Animals)",
+  "tasks": [
+    {
+      "type": "health-check",
+      "title": "Daily Visual Check",
+      "description": "Check activity, posture, breathing, and general alertness. Note anything unusual.",
+      "frequency": "daily",
+      "scheduledTime": "09:00"
+    },
+    {
+      "type": "maintenance",
+      "title": "Check Temperature and Humidity",
+      "description": "Verify temps and humidity are within target ranges for your species.",
+      "frequency": "daily",
+      "scheduledTime": "09:00"
+    },
+    {
+      "type": "water-change",
+      "title": "Check Water",
+      "description": "Replace or refresh drinking water. Clean dish if soiled.",
+      "frequency": "daily",
+      "scheduledTime": "09:00"
+    },
+    {
+      "type": "spot-clean",
+      "title": "Spot Clean",
+      "description": "Remove waste and uneaten food. Check for mold or damp spots.",
+      "frequency": "daily",
+      "scheduledTime": "09:00"
+    },
+    {
+      "type": "feeding",
+      "title": "Feed (Adjust to Species)",
+      "description": "Feed on a schedule appropriate for age and species. Track appetite and refusals.",
+      "frequency": "custom",
+      "scheduledTime": "20:00"
+    },
+    {
+      "type": "maintenance",
+      "title": "Equipment Check",
+      "description": "Confirm heat, UVB, and timers are working as expected.",
+      "frequency": "weekly",
+      "scheduledTime": "10:00"
+    },
+    {
+      "type": "health-check",
+      "title": "Weigh and Log",
+      "description": "Weigh your animal and log the result to spot trends early.",
+      "frequency": "weekly",
+      "scheduledTime": "10:00"
+    },
+    {
+      "type": "deep-clean",
+      "title": "Deep Clean Enclosure",
+      "description": "Deep clean surfaces and decor. Replace substrate if needed. Use reptile-safe cleaner.",
+      "frequency": "monthly",
+      "scheduledTime": "10:00"
+    }
+  ]
+}

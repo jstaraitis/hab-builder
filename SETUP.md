@@ -1,101 +1,48 @@
 # Habitat Builder - Setup Instructions
 
 ## Prerequisites
+- Node.js (LTS recommended)
 
-You need Node.js installed to run this project. Download from: https://nodejs.org/
-
-## Installation & Running
+## Install and Run
 
 ```bash
-# 1. Install dependencies
 npm install
-
-# 2. Start development server
 npm run dev
-
-# 3. Open browser to http://localhost:5173
 ```
 
-## Project Structure Created
+Open http://localhost:5173
 
-```
-HabBuild/
-├── .github/
-│   └── copilot-instructions.md    # AI agent guidance
-├── src/
-│   ├── engine/
-│   │   ├── types.ts              # Core TypeScript types
-│   │   └── generatePlan.ts       # Rule engine (deterministic calculator)
-│   ├── data/
-│   │   └── animals/
-│   │       ├── eastern-gray-tree-frog.json
-│   │       ├── whites-tree-frog.json
-│   │       ├── crested-gecko.json
-│   │       └── index.ts
-│   ├── components/
-│   │   ├── EnclosureForm/
-│   │   │   └── EnclosureForm.tsx
-│   │   ├── AnimalPicker/
-│   │   │   └── AnimalPicker.tsx
-│   │   ├── PlanPreview/
-│   │   │   ├── PlanPreview.tsx
-│   │   │   └── CareTargets.tsx
-│   │   ├── Layout/
-│   │   │   ├── TopDownLayout.tsx
-│   │   │   └── SideViewLayout.tsx
-│   │   ├── ShoppingList/
-│   │   │   └── ShoppingList.tsx
-│   │   ├── BuildSteps/
-│   │   │   └── BuildSteps.tsx
-│   │   └── Warnings/
-│   │       └── Warnings.tsx
-│   ├── App.tsx                   # Main app component
-│   ├── main.tsx                  # Entry point
-│   └── index.css                 # Tailwind imports
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-├── tailwind.config.js
-└── README.md
+## Environment Setup
+Create `.env.local` at the project root (never commit it):
+
+```env
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+VITE_VAPID_PUBLIC_KEY=your-vapid-public-key
+VITE_STRIPE_PUBLISHABLE_KEY=pk_test_xxx
+VITE_STRIPE_PRICE_ID_MONTHLY=price_xxx
+VITE_STRIPE_PRICE_ID_ANNUAL=price_xxx
 ```
 
-## What's Working
+## Core Flows to Test
+- Plan generation: choose animal -> enter dimensions -> generate plan
+- Supplies view: verify tier selection updates shopping list
+- Plan view: warnings + care targets present
+- Designer: drag equipment from shopping list into layout
 
-✅ Complete type system for enclosures, animals, and build plans  
-✅ Rule engine that calculates equipment sizing and layout zones  
-✅ 3 animal profiles with care requirements and warnings  
-✅ Input components: enclosure form + animal picker  
-✅ Output components: layouts, shopping list, build steps, warnings  
-✅ Budget tiers affect equipment recommendations  
-✅ Bioactive toggle adds drainage layer + cleanup crew  
-✅ Beginner mode provides extra safety tips
+## Premium Flows (Requires Supabase + Stripe)
+- Care Calendar with task completion logging
+- My Animals and Animal Detail views
+- Weight Tracking and Inventory
+- Premium upgrade/paywall
 
-## Next Steps
+## Useful Docs
+- AI architecture guide: [.github/copilot-instructions.md](.github/copilot-instructions.md)
+- Supabase care calendar setup: [docs/SUPABASE_SETUP.md](docs/SUPABASE_SETUP.md)
+- Push notifications: [docs/PUSH_NOTIFICATIONS_SETUP.md](docs/PUSH_NOTIFICATIONS_SETUP.md)
+- Payments setup: [docs/PAYMENT_SETUP.md](docs/PAYMENT_SETUP.md)
 
-1. **Install Node.js** if not already installed
-2. **Run `npm install`** to download dependencies
-3. **Run `npm run dev`** to start the app
-4. **Test the MVP** by generating plans for all 3 animals
-5. **Iterate** on layout algorithms, equipment formulas, or add features
-
-## Key Features to Test
-
-- Generate plan for Eastern Gray Tree Frog (18×18×24")
-- Toggle bioactive on/off → see shopping list changes
-- Switch budget tiers → equipment brands update
-- Try beginner mode → extra warnings appear
-- Test with custom dimensions
-- Verify UVB sizing calculations
-
-## Future Enhancements (Phase 2)
-
-- Shareable URLs for generated plans
-- PDF export
-- User accounts (Supabase)
-- More species (terrestrial, aquatic)
-- Cost estimation
-- Plant database with safety info
-
----
-
-**Questions?** See `.github/copilot-instructions.md` for architecture details.
+## Troubleshooting
+- If env vars change, restart the dev server
+- If Supabase errors appear, confirm `.env.local` values and table migrations
+- Premium routes require a signed-in user with `is_premium` set in profiles

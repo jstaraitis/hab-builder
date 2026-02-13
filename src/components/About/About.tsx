@@ -20,7 +20,7 @@ export function About({ onOpenFeedback }: AboutProps) {
         <div className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg p-6 text-white">
           <h1 className="text-2xl md:text-3xl font-bold mb-2">About Habitat Builder</h1>
           <p className="text-base md:text-lg text-emerald-50">
-            Science-backed enclosure planning for reptile and amphibian keepers who care about getting it right.
+            A beginner-friendly way to build a safe, species-correct enclosure with confidence.
           </p>
         </div>
 
@@ -28,10 +28,10 @@ export function About({ onOpenFeedback }: AboutProps) {
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
           <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-3">Our Mission</h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            Setting up a reptile or amphibian enclosure shouldn't require weeks of research and guesswork. We built Habitat Builder to give you species-specific, science-backed plans that actually make sense—no more conflicting advice, no more "wait, do I need that?"
+            Getting a first reptile or amphibian should feel exciting, not overwhelming. We built Habitat Builder to turn real care requirements into a clear, step-by-step plan.
           </p>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            Our goal? <strong className="text-emerald-600 dark:text-emerald-400">Make proper care accessible to everyone</strong>—whether you're setting up your first gecko terrarium or upgrading your ball python's palace. Your animal deserves the best, and you deserve to feel confident you're providing it.
+            Our goal is simple: <strong className="text-emerald-600 dark:text-emerald-400">make proper care accessible</strong> so you can feel confident from day one.
           </p>
         </div>
 
@@ -39,29 +39,28 @@ export function About({ onOpenFeedback }: AboutProps) {
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
           <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-3">The Problem We're Solving</h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            More people are getting into reptiles and amphibians (awesome!), but we kept seeing the same mistakes over and over:
+            Beginners run into the same problems over and over:
           </p>
           <ul className="space-y-3 mb-4">
             <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
               <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-              <span><strong>Undersized enclosures</strong> - "20 gallon is fine for adult bearded dragons" (it's not)</span>
+              <span><strong>Undersized enclosures</strong> - common advice that is too small</span>
             </li>
             <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
               <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-              <span><strong>Wrong equipment</strong> - Coil UVB bulbs, inadequate heating, improper substrates</span>
+              <span><strong>Wrong equipment</strong> - poor UVB, weak heating, unsafe substrates</span>
             </li>
             <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
               <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-              <span><strong>Information overload</strong> - Spending hours on forums trying to piece together care guides</span>
+              <span><strong>Information overload</strong> - hours of conflicting forum advice</span>
             </li>
             <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
               <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-              <span><strong>Budget surprises</strong> - Not realizing how much proper setup costs until it's too late</span>
+              <span><strong>Budget surprises</strong> - hidden costs after you already bought the animal</span>
             </li>
           </ul>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            We built Habitat Builder to give keepers a <strong className="text-gray-900 dark:text-white">clear roadmap </strong> 
-            from day one—accurate dimensions, proper equipment, and step-by-step instructions.
+            Habitat Builder gives you a <strong className="text-gray-900 dark:text-white">clear roadmap</strong> from day one - accurate dimensions, proper equipment, and a plan you can follow.
           </p>
         </div>
 
@@ -76,7 +75,7 @@ export function About({ onOpenFeedback }: AboutProps) {
               <div>
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Select Your Animal</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Choose from our database of popular reptiles and amphibians, each with verified care requirements.
+                  Choose from popular species with verified care requirements.
                 </p>
               </div>
             </div>
@@ -88,7 +87,7 @@ export function About({ onOpenFeedback }: AboutProps) {
               <div>
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Input Your Dimensions</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Enter your enclosure size (or choose from common presets). We'll validate it against species requirements.
+                  Enter your enclosure size and get validation against species needs.
                 </p>
               </div>
             </div>
@@ -100,7 +99,7 @@ export function About({ onOpenFeedback }: AboutProps) {
               <div>
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Get Your Custom Plan</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Instantly receive equipment recommendations, substrate calculations, layout suggestions, and step-by-step build instructions.
+                  Get equipment recommendations, substrate depth, layout tips, and build steps.
                 </p>
               </div>
             </div>
@@ -111,20 +110,20 @@ export function About({ onOpenFeedback }: AboutProps) {
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Where We Get Our Info</h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            We didn't just make this stuff up. Every animal profile and care parameter comes from:
+            Every plan is based on real care requirements, pulled from:
           </p>
           <ul className="space-y-3 mb-6">
             <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
               <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-              <span><strong className="text-gray-900 dark:text-white">Equipment manufacturers</strong> - Official specifications for UVB output, wattage, coverage</span>
+              <span><strong className="text-gray-900 dark:text-white">Equipment manufacturers</strong> - UVB output, wattage, and coverage specs</span>
             </li>
             <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
               <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-              <span><strong className="text-gray-900 dark:text-white">Community expertise</strong> - Insights from experienced breeders and keepers</span>
+              <span><strong className="text-gray-900 dark:text-white">Community expertise</strong> - input from experienced keepers</span>
             </li>
             <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
               <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-              <span><strong className="text-gray-900 dark:text-white">Scientific literature</strong> - Published research on thermal biology and habitat requirements</span>
+              <span><strong className="text-gray-900 dark:text-white">Scientific literature</strong> - thermal biology and habitat research</span>
             </li>
           </ul>
           
@@ -134,10 +133,7 @@ export function About({ onOpenFeedback }: AboutProps) {
               <h3 className="font-semibold text-blue-900 dark:text-blue-300">How We Calculate Stuff</h3>
             </div>
             <p className="text-blue-800 dark:text-blue-300 text-sm leading-relaxed">
-              Quick note: our equipment recommendations are <strong>math-based, not AI guesses</strong>. We use actual formulas 
-              (enclosure volume, temperature needs, species requirements) to figure out what you need. For example, your UVB fixture 
-              length is calculated from your tank width × coverage percentage. Heat lamp wattage? That's based on volume and how much 
-              temp increase you need. Real science, not magic.
+              Quick note: our equipment recommendations are <strong>math-based, not AI guesses</strong>. We use formulas like enclosure volume, temperature delta, and UVB coverage to calculate sizes.
             </p>
           </div>
         </div>
@@ -149,14 +145,13 @@ export function About({ onOpenFeedback }: AboutProps) {
             <h2 className="text-xl font-bold text-yellow-900 dark:text-yellow-300">Quick Reality Check</h2>
           </div>
           <p className="text-yellow-800 dark:text-yellow-300 text-sm leading-relaxed mb-3">
-            We provide solid <strong>general guidance</strong> based on proven care standards, but here's the thing:
+            We provide strong guidance, but please keep these in mind:
           </p>
           <ul className="space-y-2 text-yellow-800 dark:text-yellow-300 text-sm">
-            <li>• We're not vets—if your pet seems sick, <strong>talk to a vet</strong></li>
-            <li>• Every animal is different (health, age, temperament, morphs—they all matter)</li>
-            <li>• Do your own research too and chat with experienced keepers</li>
-            <li>• Your home environment (ambient temp, humidity) affects what you'll need</li>
-            <li>• We're here to help, but ultimately, you're responsible for your pet's welfare</li>
+            <li>• We're not vets - if your pet seems sick, talk to a vet</li>
+            <li>• Every animal is different (age, health, temperament)</li>
+            <li>• Your home environment affects what you will need</li>
+            <li>• Use this as a guide and keep learning</li>
           </ul>
         </div>
 
@@ -164,28 +159,28 @@ export function About({ onOpenFeedback }: AboutProps) {
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">What's Coming Next</h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            We're always cooking up new stuff:
+            We are building toward:
           </p>
           <ul className="space-y-2 text-gray-700 dark:text-gray-300">
             <li className="flex items-start gap-2">
               <Squirrel className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1" />
-              <span><strong className="text-gray-900 dark:text-white">More animals</strong> - We're adding new species every month</span>
+              <span><strong className="text-gray-900 dark:text-white">More animals</strong> - new species added regularly</span>
             </li>
             <li className="flex items-start gap-2">
               <DollarSign className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1" />
-              <span><strong className="text-gray-900 dark:text-white">Cost estimates</strong> - Know what you'll spend before you buy</span>
+              <span><strong className="text-gray-900 dark:text-white">Cost estimates</strong> - know what you will spend before you buy</span>
             </li>
             <li className="flex items-start gap-2">
               <Box className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1" />
-              <span><strong className="text-gray-900 dark:text-white">3D previews</strong> - See your setup before you build it</span>
+              <span><strong className="text-gray-900 dark:text-white">3D previews</strong> - see your setup before you build</span>
             </li>
             <li className="flex items-start gap-2">
               <Save className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1" />
-              <span><strong className="text-gray-900 dark:text-white">Saved designs</strong> - Save and compare different setups</span>
+              <span><strong className="text-gray-900 dark:text-white">Saved designs</strong> - save and compare different setups</span>
             </li>
             <li className="flex items-start gap-2">
               <Share2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1" />
-              <span><strong className="text-gray-900 dark:text-white">Community features</strong> - Share your builds and get advice from other keepers</span>
+              <span><strong className="text-gray-900 dark:text-white">Community features</strong> - share builds and get feedback</span>
             </li>
           </ul>
           <div className="mt-6">
@@ -202,8 +197,7 @@ export function About({ onOpenFeedback }: AboutProps) {
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 text-center">
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Let's Chat</h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-            Got questions? Ideas? Want to help us add more animals?<br />
-            Hit us up—we actually read everything!
+            Got questions or ideas? Want to help us add more animals? We read every message.
           </p>
           <button 
             onClick={onOpenFeedback}

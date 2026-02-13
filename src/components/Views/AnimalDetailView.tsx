@@ -30,7 +30,8 @@ import {
   Moon,
   Info,
   Plus,
-  X
+  X,
+  Turtle
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
@@ -49,6 +50,7 @@ import { VetRecordList } from '../HealthTracking/VetRecordList';
 import { LengthLogForm } from '../LengthTracking/LengthLogForm';
 import { LengthHistory } from '../LengthTracking/LengthHistory';
 import { LengthStats } from '../LengthTracking/LengthStats';
+import { AnimalGallery } from '../AnimalGallery/AnimalGallery';
 
 // Helper function to calculate age
 function calculateAge(birthday: Date): string {
@@ -84,13 +86,15 @@ export function AnimalDetailView() {
   const { user } = useAuth();
   const navigate = useNavigate();
   
-  // Core data state
+  // Core data state (fast load)
   const [animal, setAnimal] = useState<EnclosureAnimal | null>(null);
   const [enclosure, setEnclosure] = useState<Enclosure | null>(null);
-  const [tasks, setTasks] = useState<CareTaskWithLogs[]>([]);
-  const [weightLogs, setWeightLogs] = useState<WeightLog[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  // Core data state
+  const [tasks, setTasks] = useState<CareTaskWithLogs[]>([]);
+  const [weightLogs, setWeightLogs] = useState<WeightLog[]>([]);
 
   // Tab management
   const [activeTab, setActiveTab] = useState<TabType>('overview');
@@ -113,6 +117,7 @@ export function AnimalDetailView() {
     loadAnimalData();
   };
 
+  // Load all data on mount
   useEffect(() => {
     if (user && animalId) {
       loadAnimalData();
@@ -126,7 +131,7 @@ export function AnimalDetailView() {
       setLoading(true);
       setError(null);
 
-      // Load animal data
+      // Load animal data first
       const animalData = await enclosureAnimalService.getAnimalById(animalId);
       if (!animalData) {
         setError('Animal not found');
@@ -140,15 +145,16 @@ export function AnimalDetailView() {
         const enclosureData = await enclosureService.getEnclosureById(animalData.enclosureId);
         setEnclosure(enclosureData);
 
-        // Load tasks for this enclosure
-        const allTasks = await careTaskService.getTasksWithLogs(user!.id);
+        // Load tasks and weight logs in parallel
+        const [allTasks, weightData] = await Promise.all([
+          careTaskService.getTasksWithLogs(user.id),
+          weightTrackingService.getWeightLogs(animalId)
+        ]);
+
         const enclosureTasks = allTasks.filter(task => task.enclosureId === animalData.enclosureId);
         setTasks(enclosureTasks);
+        setWeightLogs(weightData);
       }
-
-      // Load weight logs
-      const weightData = await weightTrackingService.getWeightLogs(animalId);
-      setWeightLogs(weightData);
 
     } catch (err) {
       console.error('Failed to load animal data:', err);
@@ -241,12 +247,21 @@ export function AnimalDetailView() {
 
       {/* Header */}
       <div className="mb-8">
-        <div className="flex items-start justify-between gap-4 mb-6">
-          <div>
+        {/* Mobile Layout - Photo centered and large */}
+        <div className="sm:hidden flex flex-col items-center gap-4 mb-6">
+          <div className="h-48 w-48 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 overflow-hidden flex items-center justify-center text-gray-400">
+            {animal.photoUrl ? (
+              <img src={animal.photoUrl} alt="Animal" className="h-full w-full object-cover" />
+            ) : (
+              <Turtle className="w-20 h-20" />
+            )}
+          </div>
+          
+          <div className="text-center w-full">
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
               {animal.name || `Animal #${animal.animalNumber || '?'}`}
             </h1>
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-wrap justify-center items-center gap-2 mb-4">
               {animal.gender && (
                 <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm capitalize">
                   {animal.gender === 'male' ? '♂' : animal.gender === 'female' ? '♀' : '?'} {animal.gender}
@@ -263,6 +278,50 @@ export function AnimalDetailView() {
                   {calculateAge(new Date(animal.birthday))}
                 </span>
               )}
+            </div>
+          </div>
+
+          <button
+            onClick={() => navigate(`/my-animals/edit/${animal.id}`)}
+            className="w-full px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2"
+          >
+            <Pencil className="w-4 h-4" />
+            Edit
+          </button>
+        </div>
+
+        {/* Desktop Layout - Original side-by-side */}
+        <div className="hidden sm:flex sm:items-start justify-between gap-4 mb-6">
+          <div className="flex items-start gap-4">
+            <div className="h-32 w-32 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 overflow-hidden flex items-center justify-center text-gray-400">
+              {animal.photoUrl ? (
+                <img src={animal.photoUrl} alt="Animal" className="h-full w-full object-cover" />
+              ) : (
+                <Turtle className="w-12 h-12" />
+              )}
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                {animal.name || `Animal #${animal.animalNumber || '?'}`}
+              </h1>
+              <div className="flex flex-wrap items-center gap-2">
+                {animal.gender && (
+                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm capitalize">
+                    {animal.gender === 'male' ? '♂' : animal.gender === 'female' ? '♀' : '?'} {animal.gender}
+                  </span>
+                )}
+                {animal.morph && (
+                  <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full text-sm">
+                    {animal.morph}
+                  </span>
+                )}
+                {animal.birthday && (
+                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm flex items-center gap-1">
+                    <Calendar className="w-4 h-4" />
+                    {calculateAge(new Date(animal.birthday))}
+                  </span>
+                )}
+              </div>
             </div>
           </div>
 
@@ -345,7 +404,7 @@ export function AnimalDetailView() {
 
             {/* Right Column - Summary Cards */}
             <div className="lg:col-span-2 space-y-4 sm:space-y-6">
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3 sm:p-6">
                   <Scale className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600 dark:text-blue-400 mb-1 sm:mb-2" />
                   <h3 className="text-xs sm:text-sm font-medium text-blue-900 dark:text-blue-100 mb-1">Latest Weight</h3>
@@ -657,13 +716,13 @@ export function AnimalDetailView() {
             </div>
 
             {/* Active Care Tasks */}
-            {tasks.length > 0 && (
-              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                  <Clock className="w-5 h-5" />
-                  Active Care Tasks
-                </h2>
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+              <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                <Clock className="w-5 h-5" />
+                Active Care Tasks
+              </h2>
 
+              {tasks.length > 0 ? (
                 <div className="space-y-2">
                   {tasks.slice(0, 5).map((task) => (
                     <div
@@ -687,14 +746,36 @@ export function AnimalDetailView() {
                     </div>
                   ))}
                 </div>
-              </div>
-            )}
+              ) : (
+                <div className="text-center py-8">
+                  <Clock className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">No care tasks yet</p>
+                  <Link
+                    to="/care-calendar"
+                    className="text-emerald-600 dark:text-emerald-400 hover:underline"
+                  >
+                    Set up a care task
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         )}
 
         {/* Info Tab */}
         {activeTab === 'info' && (
           <div className="space-y-6">
+            {/* Gallery Section */}
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+              <AnimalGallery
+                animal={animal}
+                onUpdate={async (images) => {
+                  await enclosureAnimalService.updateAnimal(animal.id, { images });
+                  await loadAnimalData();
+                }}
+              />
+            </div>
+
             <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
               <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Basic Information</h2>
               

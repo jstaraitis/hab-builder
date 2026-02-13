@@ -662,7 +662,7 @@ function App() {
           <div className="mt-4 md:mt-6 pt-4 md:pt-6 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-center gap-4 mb-3 md:mb-4">
               <a
-                href="https://www.instagram.com/joshs_frog"
+                href="https://www.instagram.com/frog_habitat_builder"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-1.5 md:p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-pink-100 hover:text-pink-600 dark:hover:bg-pink-900/30 dark:hover:text-pink-400 transition-colors"
@@ -670,7 +670,26 @@ function App() {
               >
                 <Instagram className="w-4 h-4 md:w-5 md:h-5" />
               </a>
+              <a
+                href="https://www.tiktok.com/@habitat.builder"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1.5 md:p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:text-white dark:hover:bg-gray-100 dark:hover:text-gray-900 transition-colors"
+                title="Follow us on TikTok"
+              >
+                <svg
+                  className="w-4 h-4 md:w-5 md:h-5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M20.59 7.19a5.78 5.78 0 0 1-3.41-3.4A6 6 0 0 1 16.93 2h-3.72v12.34a3.12 3.12 0 1 1-2.65-3.08V7.53a6.84 6.84 0 0 0-1.14-.1 6.84 6.84 0 1 0 6.84 6.84V9.66a9.52 9.52 0 0 0 4.33 1.05V7.19z" />
+                </svg>
+              </a>
             </div>
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              Install this site as an app from your browser menu (Add to Home Screen).
+            </p>
             <p className="text-xs text-gray-500 dark:text-gray-500">
               Not a substitute for veterinary advice
             </p>

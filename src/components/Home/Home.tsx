@@ -61,8 +61,8 @@ export function Home() {
   return (
     <div className="space-y-12 lg:space-y-16">
       {/* Hero Section */}
-      <section className="text-center space-y-6">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
+      <section className="text-center space-y-4 sm:space-y-6">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
           Give Your Pet the Home
           <span className="block text-green-600 dark:text-green-400 flex items-center justify-center gap-3">They Deserve</span>
         </h1>
@@ -72,9 +72,64 @@ export function Home() {
           <strong className="text-gray-900 dark:text-white"> Get the confidence that comes from knowing you're doing it right.</strong>
         </p>
 
-        <p className="text-base text-emerald-600 dark:text-emerald-400 font-semibold flex items-center justify-center gap-2">
-           Takes about 5 minutes to get your custom plan • Completely free • No sign-up required
-        </p>
+        <div className="flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm">
+          <span className="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 font-semibold">
+            5-minute plan
+          </span>
+          <span className="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 font-semibold">
+            Completely free
+          </span>
+          <span className="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 font-semibold">
+            No sign-up required
+          </span>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
+          <Link
+            to="/animal"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all w-full sm:w-auto"
+          >
+            <Worm className="w-5 h-5" />
+            Build My Plan
+          </Link>
+          <Link
+            to="/find-animal"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all border-2 border-gray-200 dark:border-gray-700 w-full sm:w-auto"
+          >
+            <Search className="w-5 h-5" />
+            Help Me Choose
+          </Link>
+        </div>
+
+        <div className="sm:hidden rounded-2xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/70 dark:bg-emerald-900/20 p-4 text-left max-w-md mx-auto">
+          <div className="flex items-start gap-3">
+            <div className="mt-0.5 text-xs font-semibold text-emerald-700 dark:text-emerald-300">1</div>
+            <p className="text-sm text-gray-700 dark:text-gray-300">Choose your species or get matched to one that fits your space.</p>
+          </div>
+          <div className="mt-3 flex items-start gap-3">
+            <div className="mt-0.5 text-xs font-semibold text-blue-700 dark:text-blue-300">2</div>
+            <p className="text-sm text-gray-700 dark:text-gray-300">Enter enclosure size and preferences in minutes.</p>
+          </div>
+          <div className="mt-3 flex items-start gap-3">
+            <div className="mt-0.5 text-xs font-semibold text-purple-700 dark:text-purple-300">3</div>
+            <p className="text-sm text-gray-700 dark:text-gray-300">Get a full plan: shopping list, steps, and care targets.</p>
+          </div>
+        </div>
+
+        <div className="hidden sm:grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+          <div className="rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/70 dark:bg-emerald-900/20 p-4 text-left">
+            <p className="text-xs uppercase tracking-wide text-emerald-700 dark:text-emerald-300 font-semibold">Step 1</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">Choose your species or get matched to one that fits your space.</p>
+          </div>
+          <div className="rounded-xl border border-blue-200 dark:border-blue-800 bg-blue-50/70 dark:bg-blue-900/20 p-4 text-left">
+            <p className="text-xs uppercase tracking-wide text-blue-700 dark:text-blue-300 font-semibold">Step 2</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">Enter enclosure size and preferences in minutes.</p>
+          </div>
+          <div className="rounded-xl border border-purple-200 dark:border-purple-800 bg-purple-50/70 dark:bg-purple-900/20 p-4 text-left">
+            <p className="text-xs uppercase tracking-wide text-purple-700 dark:text-purple-300 font-semibold">Step 3</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">Get a full plan: shopping list, steps, and care targets.</p>
+          </div>
+        </div>
 
         {/* Hero Image */}
         <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto border-4 border-green-200 dark:border-green-800">
@@ -91,54 +146,6 @@ export function Home() {
           />
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-sm">
             <p className="font-semibold">Example: White's Tree Frog Bioactive Setup</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Personal Story Section */}
-      <section className="bg-gradient-to-br from-emerald-50 via-teal-50 to-green-50 dark:from-gray-800 dark:via-gray-800 dark:to-gray-800 border-2 border-emerald-200 dark:border-emerald-800 rounded-2xl shadow-lg p-8 md:p-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 text-center">
-          Why I Built This
-        </h2>
-        
-        <div className="max-w-3xl mx-auto space-y-4 text-gray-700 dark:text-gray-300">
-          <p className="text-lg leading-relaxed">
-            When I decided to get White's Tree Frogs, I wasn't just excited—I was <em>determined</em> to give them the best possible life. These weren't decorations—they were going to be members of my family. I wanted to get <strong className="text-gray-900 dark:text-white">everything right.</strong>
-          </p>
-          
-          <p className="text-lg leading-relaxed">
-            So I dove into research. And that's when the anxiety hit. Every source contradicted the last. One person said 10 gallons was fine, another insisted on 20 minimum. Screen enclosures? Some swore by them, others said they'd seriously harm your frogs from humidity loss. UVB lighting? "Essential" according to some, "unnecessary" according to others.
-          </p>
-          
-          <p className="text-lg leading-relaxed">
-            I didn't want conflicting advice—I wanted to know <strong className="text-emerald-600 dark:text-emerald-400">what my frogs actually needed to thrive.</strong> Not just survive, but be healthy and happy. I ended up with this massive spreadsheet comparing 30+ setups, trying to figure out what would truly meet their needs.
-          </p>
-          
-          <p className="text-lg leading-relaxed">
-            And I kept thinking: Why doesn't something just exist that tells me—clearly and accurately—what's right for <em>my specific situation?</em> Something that cares as much about animal welfare as I do?
-          </p>
-          
-          <p className="text-lg leading-relaxed">
-            <strong className="text-gray-900 dark:text-white">So I built it.</strong> My name is Josh, and I'm a software engineer. Habitat Builder is what I wished existed back then—a tool built by a keeper, for keepers, that helps you provide proper care without the stress, second-guessing, and conflicting information. Because your animal deserves the best, and you deserve to feel confident you're giving it to them.
-          </p>
-
-          {/* Frog Photo */}
-          <div className="mt-6 overflow-hidden rounded-xl shadow-lg border-4 border-emerald-300 dark:border-emerald-700">
-            <img 
-              src="/animals/whites-tree-frog/whites-tree-frog-6.jpg" 
-              alt="Three White's Tree Frogs named Mango, Kiwi, and Fig"
-              className="w-full h-64 sm:h-80 object-cover"
-              loading="lazy"
-              decoding="async"
-              onError={(e) => {
-                e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="400"%3E%3Crect width="800" height="400" fill="%2322c55e"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="24" fill="white"%3EMango, Kiwi, and Fig%3C/text%3E%3C/svg%3E';
-              }}
-            />
-            <div className="bg-gradient-to-r from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/30 px-4 py-3 border-t-2 border-emerald-200 dark:border-emerald-800">
-              <p className="text-center text-sm text-gray-700 dark:text-gray-300 font-medium italic">
-                 Mango, Kiwi, and Fig—happy, healthy, and thriving
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -1032,6 +1039,50 @@ export function Home() {
         </div>
       </section>
 
+      {/* Personal Story Section */}
+      <section className="bg-gradient-to-br from-emerald-50 via-teal-50 to-green-50 dark:from-gray-800 dark:via-gray-800 dark:to-gray-800 border-2 border-emerald-200 dark:border-emerald-800 rounded-2xl shadow-lg p-8 md:p-10">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+          Why I Built This
+        </h2>
+        
+        <div className="max-w-3xl mx-auto space-y-4 text-gray-700 dark:text-gray-300">
+          <p className="text-lg leading-relaxed">
+            When I got my White's Tree Frogs, I wasn't just excited - I was <em>determined</em> to give them the best possible life. I wanted to get <strong className="text-gray-900 dark:text-white">everything right.</strong>
+          </p>
+          
+          <p className="text-lg leading-relaxed">
+            Research got overwhelming fast. One source said 10 gallons was fine, another insisted on 20 minimum. Screen enclosures? UVB? Every answer conflicted.
+          </p>
+          
+          <p className="text-lg leading-relaxed">
+            I didn't want guesswork - I wanted to know <strong className="text-emerald-600 dark:text-emerald-400">what my frogs actually needed to thrive.</strong> So I built Habitat Builder: a tool made by a keeper, for keepers, that turns real care requirements into a clear plan.
+          </p>
+          
+          <p className="text-lg leading-relaxed">
+            My name is Josh, and I'm a software engineer. If you're a first-time keeper, this is what I wish existed for me.
+          </p>
+
+          {/* Frog Photo */}
+          <div className="mt-6 overflow-hidden rounded-xl shadow-lg border-4 border-emerald-300 dark:border-emerald-700">
+            <img 
+              src="/animals/whites-tree-frog/whites-tree-frog-6.jpg" 
+              alt="Three White's Tree Frogs named Mango, Kiwi, and Fig"
+              className="w-full h-64 sm:h-80 object-cover"
+              loading="lazy"
+              decoding="async"
+              onError={(e) => {
+                e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="400"%3E%3Crect width="800" height="400" fill="%2322c55e"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="24" fill="white"%3EMango, Kiwi, and Fig%3C/text%3E%3C/svg%3E';
+              }}
+            />
+            <div className="bg-gradient-to-r from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/30 px-4 py-3 border-t-2 border-emerald-200 dark:border-emerald-800">
+              <p className="text-center text-sm text-gray-700 dark:text-gray-300 font-medium italic">
+                 Mango, Kiwi, and Fig—happy, healthy, and thriving
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Choose Your Path */}
       <section className="max-w-5xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 dark:text-white mb-3">
@@ -1144,6 +1195,9 @@ export function Home() {
             <BookOpen className="w-6 h-6" />
             I Want to Read First
           </Link>
+        </div>
+        <div className="sm:hidden rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/70 dark:bg-emerald-900/20 p-3 text-center text-xs text-emerald-800 dark:text-emerald-200">
+          Install this as an app from your browser menu (Add to Home Screen).
         </div>
         
         <p className="text-sm text-gray-500 dark:text-gray-400 flex items-center justify-center gap-2">

@@ -1,4 +1,4 @@
-import whitestreefrog from './whites-tree-frog.json';
+import basicCare from './basic-care.json';
 
 export interface CareTemplate {
   animalId: string;
@@ -13,7 +13,7 @@ export interface CareTemplate {
 }
 
 export const careTemplates: Record<string, CareTemplate> = {
-  'whites-tree-frog': whitestreefrog as CareTemplate,
+  'basic-care': basicCare as CareTemplate,
 };
 
 export function getTemplateForAnimal(animalId: string): CareTemplate | null {

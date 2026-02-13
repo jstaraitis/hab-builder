@@ -16,6 +16,12 @@ export function PremiumExplainerPage() {
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Your care, simplified: reminders when it matters, organized animal profiles, and clear progress over time.
           </p>
+          <div className="text-sm text-emerald-700 dark:text-emerald-300 font-semibold">
+            $5/mo or $39/yr (save {savings}%)
+          </div>
+          <p className="text-xs text-gray-500 dark:text-gray-400">
+            Built by a keeper to reduce stress and improve animal care consistency.
+          </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               to="/upgrade"
@@ -35,6 +41,36 @@ export function PremiumExplainerPage() {
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">What premium includes</h2>
           <p className="text-sm text-gray-600 dark:text-gray-400">Three focused tools that keep care consistent and visible.</p>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-3">
+          <div className="rounded-2xl border border-emerald-200/70 dark:border-emerald-700/60 bg-white dark:bg-gray-800 p-5 shadow-sm">
+            <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-300">
+              <ShieldCheck className="w-4 h-4" />
+              <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Never miss a task</h3>
+            </div>
+            <p className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+              Reminders and schedules keep feeding, misting, and cleanings consistent.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-emerald-200/70 dark:border-emerald-700/60 bg-white dark:bg-gray-800 p-5 shadow-sm">
+            <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-300">
+              <PawPrint className="w-4 h-4" />
+              <h3 className="text-sm font-semibold text-gray-900 dark:text-white">See health trends</h3>
+            </div>
+            <p className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+              Track weight and care history so changes are easy to spot.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-emerald-200/70 dark:border-emerald-700/60 bg-white dark:bg-gray-800 p-5 shadow-sm">
+            <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-300">
+              <Package className="w-4 h-4" />
+              <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Stay stocked</h3>
+            </div>
+            <p className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+              Inventory reminders help you avoid running out of essentials.
+            </p>
+          </div>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">
@@ -73,6 +109,9 @@ export function PremiumExplainerPage() {
                 <span>Manage multiple enclosures in one dashboard</span>
               </li>
             </ul>
+            <p className="mt-3 text-[11px] text-gray-500 dark:text-gray-400">
+              Notifications work best when the app is installed as a PWA on mobile.
+            </p>
           </div>
 
           <div className="rounded-2xl border border-emerald-200/70 dark:border-emerald-700/60 bg-white dark:bg-gray-800 p-6 shadow-sm">
@@ -211,6 +250,28 @@ export function PremiumExplainerPage() {
           </div>
         </div>
 
+        <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 shadow-sm">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-center">Free vs Premium</h3>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <div className="rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+              <h4 className="text-sm font-semibold text-gray-900 dark:text-white">Free</h4>
+              <ul className="mt-3 space-y-2 text-xs text-gray-600 dark:text-gray-400">
+                <li>Unlimited build plans and shopping lists</li>
+                <li>Access to care guides and animal profiles</li>
+                <li>Plan previews and layout guidance</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-emerald-200 dark:border-emerald-700 bg-emerald-50/60 dark:bg-emerald-900/20 p-4">
+              <h4 className="text-sm font-semibold text-gray-900 dark:text-white">Premium</h4>
+              <ul className="mt-3 space-y-2 text-xs text-gray-700 dark:text-gray-300">
+                <li>Care calendar with reminders and logs</li>
+                <li>Animal profiles, weight tracking, and insights</li>
+                <li>Inventory tracking and maintenance alerts</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <div className="grid gap-4 md:grid-cols-3">
           <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 shadow-sm">
             <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-300">
@@ -298,6 +359,27 @@ export function PremiumExplainerPage() {
           <p className="text-xs text-emerald-800/70 dark:text-emerald-200/70">
             No long-term commitment required. Your plan can be cancelled at any time.
           </p>
+        </div>
+
+        <div className="text-center space-y-3">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Ready for premium care?</h2>
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            Start now and keep your routine consistent.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              to="/upgrade"
+              className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-emerald-700"
+            >
+              See pricing
+            </Link>
+            <Link
+              to="/blog"
+              className="text-sm font-semibold text-emerald-700 dark:text-emerald-300 underline"
+            >
+              Browse free care guides
+            </Link>
+          </div>
         </div>
 
         <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 shadow-sm">

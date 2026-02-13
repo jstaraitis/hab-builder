@@ -115,6 +115,34 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
         {/* In Progress */}
         <section>
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+            <CheckCircle2 className="w-6 h-6 text-emerald-500" />
+            Recently Completed
+          </h2>
+          <div className="space-y-3">
+            <RoadmapItem
+              title="Animal Browser"
+              description="Browse species with filters for experience level, space requirements, and care difficulty to find your perfect match."
+              status="completed"
+              icon={<ListTree className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />}
+            />
+            <RoadmapItem
+              title="Care Checklists"
+              description="Daily, weekly, and monthly maintenance tasks tailored to your animal and setup type."
+              status="completed"
+              icon={<ClipboardCheck className="w-5 h-5 text-teal-600 dark:text-teal-400" />}
+            />
+            <RoadmapItem
+              title="Care Guide Library"
+              description="Species-specific guides that cover setup, substrate, heating, feeding, and safety."
+              status="completed"
+              icon={<HelpCircle className="w-5 h-5 text-amber-600 dark:text-amber-400" />}
+            />
+          </div>
+        </section>
+
+        {/* In Progress */}
+        <section>
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
             <Wrench className="w-6 h-6 text-blue-500" />
             Currently Building
           </h2>
@@ -134,13 +162,6 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
               icon={<Image className="w-5 h-5 text-purple-600 dark:text-purple-400" />}
             />
             <RoadmapItem
-              title="FAQ & Guides"
-              description="Quick answers to common questions about sizing, equipment choices, bioactive setups, and troubleshooting."
-              status="in-progress"
-              priority="high"
-              icon={<HelpCircle className="w-5 h-5 text-amber-600 dark:text-amber-400" />}
-            />
-            <RoadmapItem
               title="Mobile Experience Polish"
               description="Making the mobile app buttery smooth with better layouts, faster loading, and bug fixes based on your feedback."
               status="in-progress"
@@ -157,13 +178,6 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
             Up Next
           </h2>
           <div className="space-y-3">
-            <RoadmapItem
-              title="Animal Browser"
-              description="Browse all species with filters for experience level, space requirements, and care difficulty—find your perfect match."
-              status="planned"
-              priority="high"
-              icon={<ListTree className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />}
-            />
             <RoadmapItem
               title="Budget Calculator"
               description="See how much your setup will actually cost before you buy anything—no more surprise expenses."
@@ -184,13 +198,6 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
               status="planned"
               priority="medium"
               icon={<Box className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />}
-            />
-            <RoadmapItem
-              title="Care Checklists"
-              description="Daily, weekly, and monthly maintenance tasks tailored to your specific animal and setup type."
-              status="planned"
-              priority="medium"
-              icon={<ClipboardCheck className="w-5 h-5 text-teal-600 dark:text-teal-400" />}
             />
             <RoadmapItem
               title="Community Gallery"
