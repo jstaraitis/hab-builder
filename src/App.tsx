@@ -1,8 +1,8 @@
-import { useMemo, useState, useEffect, lazy, Suspense } from 'react';
-import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
+import { useMemo, useState, useEffect, useCallback, lazy, Suspense } from 'react';
+import { Routes, Route, Link, useNavigate, useLocation, useParams } from 'react-router-dom';
 import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, Instagram, Calendar, LogOut, User, Package, Turtle, Ruler, ChevronDown, ZoomIn, ZoomOut, Loader2 } from 'lucide-react';
 import { useAuth } from './contexts/AuthContext';
-import type { EnclosureInput, BuildPlan } from './engine/types';
+import type { EnclosureInput, BuildPlan, AnimalProfile } from './engine/types';
 import { generatePlan } from './engine/generatePlan';
 import { FeedbackModal } from './components/FeedbackModal/FeedbackModal';
 
@@ -228,13 +228,13 @@ function App() {
 
   const profileCareTargets = selectedProfile?.careTargets;
 
-  const handleAnimalSelect = (animalId: string) => {
+  const handleAnimalSelect = useCallback((animalId: string) => {
     const profile = animalProfiles[animalId as keyof typeof animalProfiles];
     const minSize = profile?.minEnclosureSize;
     const isAquatic = profile?.equipmentNeeds?.waterFeature === 'fully-aquatic';
-    
-    setInput({ 
-      ...input, 
+
+    setInput((prev) => ({ 
+      ...prev, 
       animal: animalId,
       // Auto-populate dimensions from animal's minimum enclosure size
       ...(minSize && {
@@ -248,9 +248,15 @@ function App() {
         bioactive: false,
         substratePreference: undefined,
       })
-    });
+    }));
     setPlan(null); // reset plan when animal changes
-  };
+  }, []);
+
+  const handleAnimalSelectWithUrl = useCallback((animalId: string) => {
+    const normalizedId = animalId.toLowerCase();
+    handleAnimalSelect(normalizedId);
+    navigate(`/animal/${normalizedId}`);
+  }, [handleAnimalSelect, navigate]);
 
   const handleGenerate = () => {
     try {
@@ -265,11 +271,18 @@ function App() {
     }
   };
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => {
+    if (path === '/animal') {
+      return location.pathname === '/animal' || location.pathname.startsWith('/animal/');
+    }
+    return location.pathname === path;
+  };
+
+  const isAnimalRoute = location.pathname === '/animal' || location.pathname.startsWith('/animal/');
 
   // Determine current step for progress indicator
   const getCurrentStep = () => {
-    if (location.pathname === '/animal') return 1;
+    if (location.pathname === '/animal' || location.pathname.startsWith('/animal/')) return 1;
     if (location.pathname === '/design') return 2;
     if (location.pathname === '/supplies') return 3;
     if (location.pathname === '/plan') return 4;
@@ -521,7 +534,7 @@ function App() {
       </header>
 
       {/* Mobile progress indicator - shown only on main flow pages */}
-      {['/animal', '/design', '/supplies', '/plan'].includes(location.pathname) && (
+      {(isAnimalRoute || ['/design', '/supplies', '/plan'].includes(location.pathname)) && (
         <ProgressIndicator 
           currentStep={getCurrentStep()} 
           totalSteps={4}
@@ -534,6 +547,20 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
+            path="/animal/:animalId"
+            element={
+              <AnimalSelectRoute
+                input={input}
+                selectedProfile={selectedProfile}
+                profileCareTargets={profileCareTargets}
+                plan={plan}
+                onSelect={handleAnimalSelectWithUrl}
+                onSelectFromRoute={handleAnimalSelect}
+                onContinue={() => navigate('/design')}
+              />
+            }
+          />
+          <Route
             path="/animal"
             element={
               <AnimalSelectView
@@ -541,7 +568,7 @@ function App() {
                 selectedProfile={selectedProfile}
                 profileCareTargets={profileCareTargets}
                 plan={plan}
-                onSelect={handleAnimalSelect}
+                onSelect={handleAnimalSelectWithUrl}
                 onContinue={() => navigate('/design')}
               />
             }
@@ -697,6 +724,42 @@ function App() {
         </div>
       </footer>
     </div>
+  );
+}
+
+interface AnimalSelectRouteProps {
+  readonly input: EnclosureInput;
+  readonly selectedProfile?: AnimalProfile;
+  readonly profileCareTargets?: AnimalProfile['careTargets'];
+  readonly plan: BuildPlan | null;
+  readonly onSelect: (id: string) => void;
+  readonly onSelectFromRoute: (id: string) => void;
+  readonly onContinue: () => void;
+}
+
+function AnimalSelectRoute({ input, selectedProfile, profileCareTargets, plan, onSelect, onSelectFromRoute, onContinue }: AnimalSelectRouteProps) {
+  const { animalId } = useParams();
+
+  useEffect(() => {
+    if (!animalId) {
+      return;
+    }
+
+    const normalizedId = animalId.toLowerCase();
+    if (normalizedId !== input.animal && animalProfiles[normalizedId as keyof typeof animalProfiles]) {
+      onSelectFromRoute(normalizedId);
+    }
+  }, [animalId, input.animal, onSelectFromRoute]);
+
+  return (
+    <AnimalSelectView
+      input={input}
+      selectedProfile={selectedProfile}
+      profileCareTargets={profileCareTargets}
+      plan={plan}
+      onSelect={onSelect}
+      onContinue={onContinue}
+    />
   );
 }
 

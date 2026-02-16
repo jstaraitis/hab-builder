@@ -87,7 +87,12 @@ export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<Mobil
   const [dragY, setDragY] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startY, setStartY] = useState(0);
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => {
+    if (path === '/animal') {
+      return location.pathname === '/animal' || location.pathname.startsWith('/animal/');
+    }
+    return location.pathname === path;
+  };
 
   const normalizeOrder = (order: string[]) => {
     const validIds = new Set(NAV_ITEMS.map((item) => item.id));
