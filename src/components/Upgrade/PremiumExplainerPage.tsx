@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import { Bell, LineChart, PawPrint, ShieldCheck, CheckCircle, Package, Calendar } from 'lucide-react';
 
 export function PremiumExplainerPage() {
-  const monthlyPrice = 5.0;
-  const annualPrice = 39.0;
+  const monthlyPrice = 2.99;
+  const annualPrice = 23.0;
   const savings = Math.round(((monthlyPrice * 12 - annualPrice) / (monthlyPrice * 12)) * 100);
 
   return (
@@ -17,7 +17,7 @@ export function PremiumExplainerPage() {
             Your care, simplified: reminders when it matters, organized animal profiles, and clear progress over time.
           </p>
           <div className="text-sm text-emerald-700 dark:text-emerald-300 font-semibold">
-            $5/mo or $39/yr (save {savings}%)
+            $2.99/mo or $23/yr (save {savings}%)
           </div>
           <p className="text-xs text-gray-500 dark:text-gray-400">
             Built by a keeper to reduce stress and improve animal care consistency.

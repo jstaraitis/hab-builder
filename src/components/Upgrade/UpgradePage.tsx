@@ -48,8 +48,8 @@ export function UpgradePage() {
     }
   };
 
-  const monthlyPrice = 5.00;
-  const annualPrice = 39.00; // ~$3.25/month
+  const monthlyPrice = 2.99;
+  const annualPrice = 23.00; // ~$1.92/month
   const savings = ((monthlyPrice * 12 - annualPrice) / (monthlyPrice * 12) * 100).toFixed(0);
 
   return (
@@ -107,7 +107,7 @@ export function UpgradePage() {
             </div>
             {billingCycle === 'annual' && (
               <p className="text-sm text-emerald-600 dark:text-emerald-400 font-medium">
-                Just $3.25/month when billed annually
+                Just $1.92/month when billed annually
               </p>
             )}
           </div>

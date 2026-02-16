@@ -56,10 +56,10 @@ export function PremiumPaywall() {
         {/* Pricing */}
         <div className="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-6 mb-6">
           <div className="text-4xl font-bold text-gray-900 dark:text-white mb-1">
-            $5.00<span className="text-xl text-gray-500 dark:text-gray-400 font-normal">/month</span>
+            $2.99<span className="text-xl text-gray-500 dark:text-gray-400 font-normal">/month</span>
           </div>
           <div className="text-sm text-emerald-600 dark:text-emerald-400 font-medium">
-            or $39.00/year (save 35%)
+            or $23.00/year (save 36%)
           </div>
         </div>
 
