@@ -65,7 +65,20 @@ export class SupabaseCareService implements ICareTaskService {
   async getTasks(userId?: string): Promise<CareTask[]> {
     let query = supabase
       .from('care_tasks')
-      .select('*')
+      .select(`
+        *,
+        enclosure_animals (
+          id,
+          name,
+          animal_number,
+          enclosures (
+            id,
+            name,
+            animal_id,
+            animal_name
+          )
+        )
+      `)
       .eq('is_active', true)
       .order('next_due_at', { ascending: true });
 
@@ -100,7 +113,18 @@ export class SupabaseCareService implements ICareTaskService {
       .from('care_tasks')
       .select(`
         *,
-        care_logs (*)
+        care_logs (*),
+        enclosure_animals (
+          id,
+          name,
+          animal_number,
+          enclosures (
+            id,
+            name,
+            animal_id,
+            animal_name
+          )
+        )
       `)
       .eq('is_active', true)
       .order('next_due_at', { ascending: true });

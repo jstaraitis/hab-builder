@@ -279,18 +279,19 @@ export function AddAnimalView() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Birthday/Hatch Date
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Birthday
                 </label>
-              <input
-                type="date"
-                value={formData.birthday}
-                onChange={(e) => setFormData(prev => ({ ...prev, birthday: e.target.value }))}
-                max={new Date().toISOString().split('T')[0]}
-                className="w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
-                style={{ colorScheme: 'light' }}
-              />
-            </div>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-1.5">Birth/hatch date (optional)</p>
+                <input
+                  type="date"
+                  value={formData.birthday}
+                  onChange={(e) => setFormData(prev => ({ ...prev, birthday: e.target.value }))}
+                  max={new Date().toISOString().split('T')[0]}
+                  className="w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+                  style={{ colorScheme: 'light' }}
+                />
+              </div>
           </div>
 
           <div>

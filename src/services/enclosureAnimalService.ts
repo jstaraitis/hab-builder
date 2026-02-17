@@ -14,7 +14,23 @@ class EnclosureAnimalService {
   async getAnimalsByEnclosure(enclosureId: string): Promise<EnclosureAnimal[]> {
     const { data, error } = await supabase
       .from('enclosure_animals')
-      .select('*')
+      .select(`
+        *,
+        enclosures (
+          id,
+          user_id,
+          name,
+          animal_id,
+          animal_name,
+          animal_age,
+          animal_birthday,
+          substrate_type,
+          setup_date,
+          is_active,
+          created_at,
+          updated_at
+        )
+      `)
       .eq('enclosure_id', enclosureId)
       .eq('is_active', true)
       .order('created_at', { ascending: true });
@@ -29,11 +45,28 @@ class EnclosureAnimalService {
 
   /**
    * Get all animals for current user
+   * Includes enclosure data via join to eliminate N+1 queries
    */
   async getAllUserAnimals(userId: string): Promise<EnclosureAnimal[]> {
     const { data, error } = await supabase
       .from('enclosure_animals')
-      .select('*')
+      .select(`
+        *,
+        enclosures (
+          id,
+          user_id,
+          name,
+          animal_id,
+          animal_name,
+          animal_age,
+          animal_birthday,
+          substrate_type,
+          setup_date,
+          is_active,
+          created_at,
+          updated_at
+        )
+      `)
       .eq('user_id', userId)
       .eq('is_active', true)
       .order('created_at', { ascending: true });
@@ -48,11 +81,28 @@ class EnclosureAnimalService {
 
   /**
    * Get a single animal by ID
+   * Includes enclosure data via join to eliminate N+1 queries
    */
   async getAnimalById(id: string): Promise<EnclosureAnimal | null> {
     const { data, error } = await supabase
       .from('enclosure_animals')
-      .select('*')
+      .select(`
+        *,
+        enclosures (
+          id,
+          user_id,
+          name,
+          animal_id,
+          animal_name,
+          animal_age,
+          animal_birthday,
+          substrate_type,
+          setup_date,
+          is_active,
+          created_at,
+          updated_at
+        )
+      `)
       .eq('id', id)
       .single();
 

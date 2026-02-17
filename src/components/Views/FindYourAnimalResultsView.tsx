@@ -1,6 +1,7 @@
+import { useState, memo } from 'react';
 import { ArrowLeft, AlertCircle, Star, CheckCircle } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import { recommendAnimals, categorizeRecommendations } from '../../engine/recommendAnimals';
 import { AnimalGuides } from '../Blog/AnimalGuides';
@@ -15,8 +16,8 @@ interface AnimalRecommendationCardProps {
   isSelectedForComparison?: boolean;
   comparisonMode?: boolean;
 }
-
-function AnimalRecommendationCard({ recommendation, onSelect, onToggleComparison, isSelectedForComparison, comparisonMode }: AnimalRecommendationCardProps) {
+// Memoized recommendation card to prevent unnecessary re-renders
+const AnimalRecommendationCard = memo(({ recommendation, onSelect, onToggleComparison, isSelectedForComparison, comparisonMode }: AnimalRecommendationCardProps) => {
   const { profile, compatibilityScore, reasons, warnings } = recommendation;
 
   const getScoreColor = (score: number) => {
@@ -106,7 +107,9 @@ function AnimalRecommendationCard({ recommendation, onSelect, onToggleComparison
       </div>
     </div>
   );
-}
+});
+
+AnimalRecommendationCard.displayName = 'AnimalRecommendationCard';
 
 interface FindYourAnimalResultsViewProps {
   onAnimalSelected: (animalId: string) => void;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { 
   Pencil, 
   Check, 
@@ -40,6 +40,196 @@ import type { CareTaskWithLogs, TaskType, CareTask, CareLog, Enclosure, Enclosur
 
 type ViewMode = 'all' | 'today' | 'week' | 'analytics';
 type TimeBlock = 'overdue' | 'morning' | 'afternoon' | 'evening' | 'night' | 'tomorrow' | 'week' | 'future';
+
+// Memoized Task Item Component for better list performance
+const TaskItem = memo(({ 
+  task, 
+  isOverdue, 
+  isDueToday,
+  selectionMode,
+  selectedTasks,
+  swipedTask,
+  swipeOffset,
+  getTaskIcon,
+  getEnclosureName,
+  getAnimalName,
+  formatTime,
+  onToggleSelection,
+  onEdit,
+  onComplete,
+  onTouchStart,
+  onTouchMove,
+  onTouchEnd,
+}: {
+  task: CareTaskWithLogs;
+  isOverdue: boolean;
+  isDueToday: boolean;
+  selectionMode: boolean;
+  selectedTasks: Set<string>;
+  swipedTask: string | null;
+  swipeOffset: number;
+  getTaskIcon: (type: TaskType) => LucideIcon;
+  getEnclosureName: (id?: string) => string | null;
+  getAnimalName: (id?: string) => string | null;
+  formatTime: (time: string) => string;
+  onToggleSelection: (id: string) => void;
+  onEdit: (id: string) => void;
+  onComplete: (id: string) => void;
+  onTouchStart: (e: React.TouchEvent, id: string) => void;
+  onTouchMove: (e: React.TouchEvent) => void;
+  onTouchEnd: (e: React.TouchEvent, id: string) => void;
+}) => {
+  const isBeingSwiped = swipedTask === task.id;
+  const swipeTransform = isBeingSwiped ? `translateX(${swipeOffset}px)` : 'translateX(0)';
+  
+  return (
+    <div className="relative overflow-hidden">
+      {/* Swipe Action Background */}
+      <div className="absolute inset-0 sm:hidden flex items-center justify-end px-4 bg-emerald-500">
+        <div className="flex items-center gap-2 text-white font-semibold">
+          <Check className="w-5 h-5" />
+          <span>Complete</span>
+        </div>
+      </div>
+      
+      {/* Task Content (swipeable) */}
+      <div
+        className="relative bg-white dark:bg-gray-900 p-3 transition-colors touch-pan-y"
+        style={{ 
+          transform: swipeTransform,
+          transition: isBeingSwiped ? 'none' : 'transform 0.3s ease'
+        }}
+        onTouchStart={(e) => onTouchStart(e, task.id)}
+        onTouchMove={onTouchMove}
+        onTouchEnd={(e) => onTouchEnd(e, task.id)}
+      >
+        <div className="flex items-start gap-3">
+          {/* Checkbox for selection mode */}
+          {selectionMode && (
+            <input
+              type="checkbox"
+              checked={selectedTasks.has(task.id)}
+              onChange={() => onToggleSelection(task.id)}
+              className="mt-2 w-4 h-4 text-emerald-600 border-gray-300 rounded focus:ring-emerald-500"
+            />
+          )}
+
+          {/* Icon */}
+          <div className={`p-2 rounded-lg shrink-0 ${
+            isOverdue 
+              ? 'bg-red-100 dark:bg-red-900/30' 
+              : isDueToday
+              ? 'bg-emerald-100 dark:bg-emerald-900/30'
+              : 'bg-gray-100 dark:bg-gray-700'
+          }`}>
+            {React.createElement(getTaskIcon(task.type), { 
+              className: `w-4 h-4 ${
+                isOverdue 
+                  ? 'text-red-600 dark:text-red-400' 
+                  : isDueToday
+                  ? 'text-emerald-600 dark:text-emerald-400'
+                  : 'text-gray-600 dark:text-gray-400'
+              }` 
+            })}
+          </div>
+
+          {/* Content */}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-start justify-between gap-2 mb-1">
+              <div className="flex-1 min-w-0">
+                <h3 className="text-sm font-semibold text-gray-900 dark:text-white truncate">
+                  {task.title || 'Untitled Task'}
+                </h3>
+                <div className="flex items-center gap-1.5 text-xs text-gray-600 dark:text-gray-400 flex-wrap">
+                  {task.enclosureId && (
+                    <span>{getEnclosureName(task.enclosureId)}</span>
+                  )}
+                  {task.enclosureAnimalId && (() => {
+                    const animalName = getAnimalName(task.enclosureAnimalId);
+                    return (
+                      <>
+                        <span>•</span>
+                        <span className="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full font-medium">
+                          {animalName}
+                        </span>
+                      </>
+                    );
+                  })()}
+                  {task.scheduledTime && (
+                    <>
+                      <span>•</span>
+                      <span>{formatTime(task.scheduledTime)}</span>
+                    </>
+                  )}
+                  {task.lastCompleted && (
+                    <>
+                      <span>•</span>
+                      <span>
+                        Last: {new Date(task.lastCompleted).toLocaleDateString()}
+                      </span>
+                    </>
+                  )}
+                  {task.streak > 0 && (
+                    <>
+                      <span>•</span>
+                      <span className="inline-flex items-center gap-1 text-orange-600 dark:text-orange-400 font-semibold">
+                        <Flame className="w-3 h-3" />
+                        {task.streak} day streak!
+                      </span>
+                    </>
+                  )}
+                  {task.description && (
+                    <>
+                      <span>•</span>
+                      <span className="truncate">{task.description}</span>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Actions */}
+          <div className="flex items-center gap-2 shrink-0">
+            {!selectionMode && (
+              <>
+                <button
+                  onClick={() => onEdit(task.id)}
+                  className="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                >
+                  <Pencil className="w-3.5 h-3.5 text-gray-400" />
+                </button>
+                <button
+                  onClick={() => onComplete(task.id)}
+                  className="p-1.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg transition-colors flex items-center justify-center"
+                  title="Mark as done"
+                >
+                  <Check className="w-4 h-4" />
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+
+        {/* Additional Details */}
+        {!selectionMode && task.notes && (
+          <div className="mt-2 pt-2 border-t border-gray-200 dark:border-gray-700 space-y-2">
+            {/* Notes */}
+            {task.notes && (
+              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-2 border-l-2 border-blue-400">
+                <p className="text-xs text-gray-700 dark:text-gray-300">
+                  <span className="font-medium">Note: </span>{task.notes}
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+});
+
+TaskItem.displayName = 'TaskItem';
 
 export function CareCalendar() {
   const { user, loading: authLoading } = useAuth();
@@ -717,158 +907,28 @@ export function CareCalendar() {
                     <div className='divide-y divide-gray-200 dark:divide-gray-700'>
                       {blockTasks.map(task => {
                         const isDueToday = task.nextDueAt.toDateString() === new Date().toDateString();
-                          // Compact List View
-                          const isBeingSwiped = swipedTask === task.id;
-                          const swipeTransform = isBeingSwiped ? `translateX(${swipeOffset}px)` : 'translateX(0)';
-                          
-                          return (
-                            <div
-                              key={task.id}
-                              className="relative overflow-hidden"
-                            >
-                              {/* Swipe Action Background */}
-                              <div className="absolute inset-0 sm:hidden flex items-center justify-end px-4 bg-emerald-500">
-                                <div className="flex items-center gap-2 text-white font-semibold">
-                                  <Check className="w-5 h-5" />
-                                  <span>Complete</span>
-                                </div>
-                              </div>
-                              
-                              {/* Task Content (swipeable) */}
-                              <div
-                                className="relative bg-white dark:bg-gray-900 p-3 transition-colors touch-pan-y"
-                                style={{ 
-                                  transform: swipeTransform,
-                                  transition: isBeingSwiped ? 'none' : 'transform 0.3s ease'
-                                }}
-                                onTouchStart={(e) => handleTouchStart(e, task.id)}
-                                onTouchMove={handleTouchMove}
-                                onTouchEnd={(e) => handleTouchEnd(e, task.id)}
-                              >
-                              <div className="flex items-start gap-3">
-                                {/* Checkbox for selection mode */}
-                                {selectionMode && (
-                                  <input
-                                    type="checkbox"
-                                    checked={selectedTasks.has(task.id)}
-                                    onChange={() => toggleTaskSelection(task.id)}
-                                    className="mt-2 w-4 h-4 text-emerald-600 border-gray-300 rounded focus:ring-emerald-500"
-                                  />
-                                )}
-
-                                {/* Icon */}
-                                <div className={`p-2 rounded-lg shrink-0 ${
-                                  isOverdue 
-                                    ? 'bg-red-100 dark:bg-red-900/30' 
-                                    : isDueToday
-                                    ? 'bg-emerald-100 dark:bg-emerald-900/30'
-                                    : 'bg-gray-100 dark:bg-gray-700'
-                                }`}>
-                                  {React.createElement(getTaskIcon(task.type), { 
-                                    className: `w-4 h-4 ${
-                                      isOverdue 
-                                        ? 'text-red-600 dark:text-red-400' 
-                                        : isDueToday
-                                        ? 'text-emerald-600 dark:text-emerald-400'
-                                        : 'text-gray-600 dark:text-gray-400'
-                                    }` 
-                                  })}
-                                </div>
-
-                                {/* Content */}
-                                <div className="flex-1 min-w-0">
-                                  <div className="flex items-start justify-between gap-2 mb-1">
-                                    <div className="flex-1 min-w-0">
-                                      <h3 className="text-sm font-semibold text-gray-900 dark:text-white truncate">
-                                        {task.title || 'Untitled Task'}
-                                      </h3>
-                                      <div className="flex items-center gap-1.5 text-xs text-gray-600 dark:text-gray-400 flex-wrap">
-                                        {task.enclosureId && (
-                                          <span>{getEnclosureName(task.enclosureId)}</span>
-                                        )}
-                                        {task.enclosureAnimalId && (() => {
-                                          const animalName = getAnimalName(task.enclosureAnimalId);
-                                          return (
-                                            <>
-                                              <span>•</span>
-                                              <span className="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full font-medium">
-                                                {animalName}
-                                              </span>
-                                            </>
-                                          );
-                                        })()}
-                                        {task.scheduledTime && (
-                                          <>
-                                            <span>•</span>
-                                            <span>{formatTime(task.scheduledTime)}</span>
-                                          </>
-                                        )}
-                                        {task.lastCompleted && (
-                                          <>
-                                            <span>•</span>
-                                            <span>
-                                              Last: {new Date(task.lastCompleted).toLocaleDateString()}
-                                            </span>
-                                          </>
-                                        )}
-                                        {task.streak > 0 && (
-                                          <>
-                                            <span>•</span>
-                                            <span className="inline-flex items-center gap-1 text-orange-600 dark:text-orange-400 font-semibold">
-                                              <Flame className="w-3 h-3" />
-                                              {task.streak} day streak!
-                                            </span>
-                                          </>
-                                        )}
-                                        {task.description && (
-                                          <>
-                                            <span>•</span>
-                                            <span className="truncate">{task.description}</span>
-                                          </>
-                                        )}
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-
-                                {/* Actions */}
-                                <div className="flex items-center gap-2 shrink-0">
-                                  {!selectionMode && (
-                                    <>
-                                      <button
-                                        onClick={() => navigate(`/care-calendar/tasks/edit/${task.id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-                                        className="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                                      >
-                                        <Pencil className="w-3.5 h-3.5 text-gray-400" />
-                                      </button>
-                                      <button
-                                        onClick={() => handleCompleteTask(task.id)}
-                                        className="p-1.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg transition-colors flex items-center justify-center"
-                                        title="Mark as done"
-                                      >
-                                        <Check className="w-4 h-4" />
-                                      </button>
-                                    </>
-                                  )}
-                                </div>
-                              </div>
-
-                              {/* Additional Details */}
-                              {!selectionMode && task.notes && (
-                                <div className="mt-2 pt-2 border-t border-gray-200 dark:border-gray-700 space-y-2">
-                                  {/* Notes */}
-                                  {task.notes && (
-                                    <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-2 border-l-2 border-blue-400">
-                                      <p className="text-xs text-gray-700 dark:text-gray-300">
-                                        <span className="font-medium">Note: </span>{task.notes}
-                                      </p>
-                                    </div>
-                                  )}
-                                </div>
-                              )}
-                              </div>
-                            </div>
-                          );
+                        return (
+                          <TaskItem
+                            key={task.id}
+                            task={task}
+                            isOverdue={isOverdue}
+                            isDueToday={isDueToday}
+                            selectionMode={selectionMode}
+                            selectedTasks={selectedTasks}
+                            swipedTask={swipedTask}
+                            swipeOffset={swipeOffset}
+                            getTaskIcon={getTaskIcon}
+                            getEnclosureName={getEnclosureName}
+                            getAnimalName={getAnimalName}
+                            formatTime={formatTime}
+                            onToggleSelection={toggleTaskSelection}
+                            onEdit={(id) => navigate(`/care-calendar/tasks/edit/${id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
+                            onComplete={handleCompleteTask}
+                            onTouchStart={handleTouchStart}
+                            onTouchMove={handleTouchMove}
+                            onTouchEnd={handleTouchEnd}
+                          />
+                        );
                       })}
                     </div>
                   )}

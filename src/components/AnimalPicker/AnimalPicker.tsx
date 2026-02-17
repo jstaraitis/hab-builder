@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, memo } from 'react';
 import { animalList } from '../../data/animals';
 import { FileText, CheckCircle, Sliders, Zap, Star, Clock } from 'lucide-react';
 
@@ -95,6 +95,98 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
     }
     return null;
   };
+
+  // Memoized animal card component to prevent unnecessary re-renders
+  const AnimalCard = memo(({ animal, selected, onSelect }: {
+    animal: typeof animalList[0];
+    selected: string;
+    onSelect: (id: string) => void;
+  }) => {
+    const getCareLevelColors = () => {
+      if (animal.careLevel === 'beginner') {
+        return {
+          border: 'border-green-400',
+          bg: 'bg-green-50 dark:bg-green-900/20',
+          accent: 'bg-green-400',
+          text: 'text-green-700 dark:text-green-300'
+        };
+      } else if (animal.careLevel === 'intermediate') {
+        return {
+          border: 'border-orange-400',
+          bg: 'bg-orange-50 dark:bg-orange-900/20',
+          accent: 'bg-orange-400',
+          text: 'text-orange-700 dark:text-orange-300'
+        };
+      } else {
+        return {
+          border: 'border-red-400',
+          bg: 'bg-red-50 dark:bg-red-900/20',
+          accent: 'bg-red-400',
+          text: 'text-red-700 dark:text-red-300'
+        };
+      }
+    };
+
+    const colors = getCareLevelColors();
+    const isDraft = animal.completionStatus === 'draft';
+
+    return (
+      <button
+        onClick={() => !isDraft && onSelect(animal.id)}
+        disabled={isDraft}
+        aria-disabled={isDraft}
+        title={isDraft ? `${animal.name} (Draft - not selectable)` : `Select ${animal.name}`}
+        tabIndex={isDraft ? -1 : 0}
+        className={`group relative overflow-hidden rounded-xl transition-all duration-300 text-left ${
+          selected === animal.id
+            ? `${colors.bg} ring-4 ${colors.border} shadow-xl scale-[1.02]`
+            : 'bg-white dark:bg-gray-800 hover:shadow-lg hover:scale-[1.01]'
+        } ${isDraft ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'}`}
+      >
+        {/* Image with colored border and text overlay */}
+        <div className="p-2 sm:p-2 md:p-2.5">
+          <div className={`relative w-full aspect-[4/3] rounded-lg overflow-hidden border-2 md:border-4 ${colors.border} transition-all duration-300`}>
+            {animal.imageUrl ? (
+              <img 
+                src={animal.imageUrl} 
+                alt={animal.name}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+                <div className="text-5xl group-hover:scale-110 transition-transform duration-300">{animal.image}</div>
+              </div>
+            )}
+            
+            {/* Dark gradient overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
+            
+            {/* Status Ribbon - Top Right Corner */}
+            {animal.completionStatus && getStatusBadge(animal.completionStatus)}
+
+            {/* Text overlay at bottom */}
+            <div className="absolute bottom-0 left-0 right-0 p-2.5 md:p-3 space-y-0.5">
+              {/* Common Name - Bold and Prominent */}
+              <h3 className="font-bold text-sm md:text-base text-white leading-tight tracking-tight line-clamp-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                {animal.name}
+              </h3>
+              
+              {/* Scientific Name - Prominent italic */}
+              {animal.scientificName && (
+                <p className="text-[11px] md:text-xs font-medium italic text-white/95 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                  {animal.scientificName}
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+      </button>
+    );
+  });
+
+  AnimalCard.displayName = 'AnimalCard';
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-3 sm:p-6">

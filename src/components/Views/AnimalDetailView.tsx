@@ -131,7 +131,7 @@ export function AnimalDetailView() {
       setLoading(true);
       setError(null);
 
-      // Load animal data first
+      // Load animal data (now includes joined enclosure data)
       const animalData = await enclosureAnimalService.getAnimalById(animalId);
       if (!animalData) {
         setError('Animal not found');
@@ -140,19 +140,27 @@ export function AnimalDetailView() {
       }
       setAnimal(animalData);
 
-      // Load enclosure if animal has one
+      // Load related data in parallel
       if (animalData.enclosureId) {
-        const enclosureData = await enclosureService.getEnclosureById(animalData.enclosureId);
-        setEnclosure(enclosureData);
-
-        // Load tasks and weight logs in parallel
-        const [allTasks, weightData] = await Promise.all([
+        const [enclosureData, allTasks, weightData] = await Promise.all([
+          enclosureService.getEnclosureById(animalData.enclosureId),
           careTaskService.getTasksWithLogs(user.id),
           weightTrackingService.getWeightLogs(animalId)
         ]);
 
+        setEnclosure(enclosureData);
         const enclosureTasks = allTasks.filter(task => task.enclosureId === animalData.enclosureId);
         setTasks(enclosureTasks);
+        setWeightLogs(weightData);
+      } else {
+        // Load tasks and weight logs even if no enclosure
+        const [allTasks, weightData] = await Promise.all([
+          careTaskService.getTasksWithLogs(user.id),
+          weightTrackingService.getWeightLogs(animalId)
+        ]);
+        
+        const animalTasks = allTasks.filter(task => task.enclosureAnimalId === animalData.id);
+        setTasks(animalTasks);
         setWeightLogs(weightData);
       }
 

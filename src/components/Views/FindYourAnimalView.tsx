@@ -1,6 +1,6 @@
 import { ArrowLeft, AlertCircle, CheckCircle, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import type { EnclosureInput } from '../../engine/types';
 import { recommendAnimals, categorizeRecommendations } from '../../engine/recommendAnimals';
 import { EnclosureForm } from '../EnclosureForm/EnclosureForm';
@@ -244,7 +244,8 @@ interface AnimalRecommendationCardProps {
   onSelect: (animalId: string) => void;
 }
 
-function AnimalRecommendationCard({ recommendation, onSelect }: AnimalRecommendationCardProps) {
+// Memoized recommendation card to prevent unnecessary re-renders
+const AnimalRecommendationCard = memo(({ recommendation, onSelect }: AnimalRecommendationCardProps) => {
   const { profile, compatibilityScore, reasons, warnings } = recommendation;
 
   const getScoreColor = (score: number) => {
@@ -323,4 +324,6 @@ function AnimalRecommendationCard({ recommendation, onSelect }: AnimalRecommenda
       </div>
     </div>
   );
-}
+});
+
+AnimalRecommendationCard.displayName = 'AnimalRecommendationCard';

@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, memo } from 'react';
 import { Home, Wrench, Layers, Image, Leaf, Bug, ChevronRight, ShoppingBag, Utensils, Gauge, Sparkles } from 'lucide-react';
 import type { ShoppingItem, SetupTier, EnclosureInput } from '../../engine/types';
 import { generateAmazonLink } from '../../utils/amazonLinks';
@@ -63,6 +63,109 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
     }));
   };
 
+  // Memoized shopping item component
+  const ShoppingItem = memo(({ item, itemKey, selectedTier, input, affiliateTag, isExpanded, onToggle }: {
+    item: ShoppingItem;
+    itemKey: string;
+    selectedTier: SetupTier;
+    input: EnclosureInput;
+    affiliateTag?: string;
+    isExpanded: boolean;
+    onToggle: (key: string) => void;
+  }) => {
+    const tierOption = item.setupTierOptions?.[selectedTier];
+    
+    return (
+      <div className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/30 transition-colors">
+        {/* Compact Row */}
+        <div className="p-2.5 sm:p-3">
+          <div className="flex items-start justify-between gap-1 sm:gap-3">
+            <button
+              onClick={() => onToggle(itemKey)}
+              className="flex-1 text-left"
+            >
+              <div className="flex items-start gap-2">
+                {/* Importance Badge */}
+                {item.importance === 'required' && (
+                  <span className="w-2 h-2 rounded-full bg-red-500 flex-shrink-0 mt-1.5"></span>
+                )}
+                {item.importance === 'recommended' && (
+                  <span className="w-2 h-2 rounded-full bg-cyan-500 flex-shrink-0 mt-1.5"></span>
+                )}
+                {item.importance === 'conditional' && (
+                  <span className="w-2 h-2 rounded-full bg-yellow-500 flex-shrink-0 mt-1.5"></span>
+                )}
+                <div className="flex-1">
+                  <h5 className="font-medium text-sm sm:text-base text-gray-900 dark:text-white inline">
+                    {item.name}
+                  </h5>
+                  <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 ml-2 whitespace-nowrap">
+                    × {item.quantity}
+                  </span>
+                </div>
+              </div>
+            </button>
+            
+            {/* Buy Now Button */}
+            {tierOption?.searchQuery && (
+              <a
+                href={generateAmazonLink(tierOption.searchQuery, input, affiliateTag)}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex-shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-medium rounded-lg transition-colors active:scale-95"
+              >
+                <ShoppingBag className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
+                <span className="hidden sm:inline">Buy Now</span>
+                <ChevronRight className="w-3 h-3 sm:hidden" />
+              </a>
+            )}
+          </div>
+        </div>
+
+        {/* Expanded Details */}
+        {isExpanded && (
+          <div className="px-2.5 pb-2.5 sm:px-3 sm:pb-3 space-y-1.5 border-t border-gray-100 dark:border-gray-700 pt-2">
+            {tierOption && (
+              <div className="space-y-1">
+                <p className="text-xs lg:text-sm text-gray-700 dark:text-gray-300">
+                  {tierOption.description}
+                </p>
+                {item.sizing && (
+                  <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400">
+                    {item.sizing}
+                  </p>
+                )}
+                {item.notes && (
+                  <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400">
+                    {item.notes}
+                  </p>
+                )}
+              </div>
+            )}
+            {item.importance && (
+              <p className="text-xs font-medium">
+                <span className={`${
+                  item.importance === 'required' ? 'text-red-600 dark:text-red-400' :
+                  item.importance === 'recommended' ? 'text-cyan-500 dark:text-cyan-400' :
+                  item.importance === 'conditional' ? 'text-yellow-600 dark:text-yellow-400' :
+                  'text-gray-600 dark:text-gray-400'
+                }`}>
+                  {item.importance === 'required' ? '● Required' :
+                  item.importance === 'recommended' ? '● Recommended' :
+                  item.importance === 'conditional' ? '● Conditional' :
+                  'Optional'}
+                </span>
+              </p>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  });
+
+  ShoppingItem.displayName = 'ShoppingItem';
+
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md px-0 py-3 sm:px-2 sm:py-4">
       {showHeader && (
@@ -118,99 +221,18 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
               {isExpanded && (
                 <div className="divide-y divide-gray-200 dark:divide-gray-700">
                   {categoryItems.map((item, index) => {
-                    const tierOption = item.setupTierOptions?.[selectedTier];
                     const itemKey = item.uid ?? `${category}-${item.id}-${index}`;
-                    const isItemExpanded = expandedItems[itemKey];
-                    
                     return (
-                      <div
+                      <ShoppingItem
                         key={itemKey}
-                        className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/30 transition-colors"
-                      >
-                        {/* Compact Row */}
-                        <div className="p-2.5 sm:p-3">
-                          <div className="flex items-start justify-between gap-1 sm:gap-3">
-                            <button
-                              onClick={() => toggleItem(itemKey)}
-                              className="flex-1 text-left"
-                            >
-                              <div className="flex items-start gap-2">
-                                {/* Importance Badge */}
-                                {item.importance === 'required' && (
-                                  <span className="w-2 h-2 rounded-full bg-red-500 flex-shrink-0 mt-1.5"></span>
-                                )}
-                                {item.importance === 'recommended' && (
-                                  <span className="w-2 h-2 rounded-full bg-cyan-500 flex-shrink-0 mt-1.5"></span>
-                                )}
-                                {item.importance === 'conditional' && (
-                                  <span className="w-2 h-2 rounded-full bg-yellow-500 flex-shrink-0 mt-1.5"></span>
-                                )}
-                                <div className="flex-1">
-                                  <h5 className="font-medium text-sm sm:text-base text-gray-900 dark:text-white inline">
-                                    {item.name}
-                                  </h5>
-                                  <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 ml-2 whitespace-nowrap">
-                                    × {item.quantity}
-                                  </span>
-                                </div>
-                              </div>
-                            </button>
-                            
-                            {/* Buy Now Button */}
-                            {tierOption?.searchQuery && (
-                              <a
-                                href={generateAmazonLink(tierOption.searchQuery, input, affiliateTag)}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={(e) => e.stopPropagation()}
-                                className="flex-shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-medium rounded-lg transition-colors active:scale-95"
-                              >
-                                <ShoppingBag className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
-                                <span className="hidden sm:inline">Buy Now</span>
-                                <ChevronRight className="w-3 h-3 sm:hidden" />
-                              </a>
-                            )}
-                          </div>
-                        </div>
-
-                        {/* Expanded Details */}
-                        {isItemExpanded && (
-                          <div className="px-2.5 pb-2.5 sm:px-3 sm:pb-3 space-y-1.5 border-t border-gray-100 dark:border-gray-700 pt-2">
-                            {tierOption && (
-                              <div className="space-y-1">
-                                <p className="text-xs lg:text-sm text-gray-700 dark:text-gray-300">
-                                  {tierOption.description}
-                                </p>
-                                {item.sizing && (
-                                  <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400">
-                                    {item.sizing}
-                                  </p>
-                                )}
-                                {item.notes && (
-                                  <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400">
-                                    {item.notes}
-                                  </p>
-                                )}
-                              </div>
-                            )}
-                            {item.importance && (
-                              <p className="text-xs font-medium">
-                                <span className={`${
-                                  item.importance === 'required' ? 'text-red-600 dark:text-red-400' :
-                                  item.importance === 'recommended' ? 'text-cyan-500 dark:text-cyan-400' :
-                                  item.importance === 'conditional' ? 'text-yellow-600 dark:text-yellow-400' :
-                                  'text-gray-600 dark:text-gray-400'
-                                }`}>
-                                  {item.importance === 'required' ? '● Required' :
-                                  item.importance === 'recommended' ? '● Recommended' :
-                                  item.importance === 'conditional' ? '● Conditional' :
-                                  'Optional'}
-                                </span>
-                              </p>
-                            )}
-                          </div>
-                        )}
-                      </div>
+                        item={item}
+                        itemKey={itemKey}
+                        selectedTier={selectedTier}
+                        input={input}
+                        affiliateTag={affiliateTag}
+                        isExpanded={expandedItems[itemKey]}
+                        onToggle={toggleItem}
+                      />
                     );
                   })}
                 </div>

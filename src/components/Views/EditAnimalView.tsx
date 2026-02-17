@@ -340,9 +340,10 @@ export function EditAnimalView() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
-                  Birthday/Hatch Date 
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Birthday
                 </label>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-1.5">Birth/hatch date (optional)</p>
                 <input
                   type="date"
                   value={formData.birthday}

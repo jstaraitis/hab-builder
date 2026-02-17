@@ -4,7 +4,7 @@
  * Displays and manages all animals across all enclosures for the current user
  */
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import { Calendar, Scale, MapPin, Plus, Pencil, Trash2, Turtle } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
@@ -28,8 +28,8 @@ function calculateAge(birthday: Date): string {
   return `${years}y ${remainingMonths}m`;
 }
 
-// Animal Card Component - Extracted and memoized to prevent remounting on scroll
-const AnimalCard = ({ 
+// Animal Card Component - Memoized to prevent unnecessary re-renders
+const AnimalCard = memo(({ 
   animal, 
   enclosure, 
   onNavigate,
@@ -143,7 +143,9 @@ const AnimalCard = ({
       </div>
     </div>
   </div>
-);
+));
+
+AnimalCard.displayName = 'AnimalCard';
 
 export function MyAnimals() {
   const { user } = useAuth();
@@ -168,7 +170,8 @@ export function MyAnimals() {
       setLoading(true);
       setError(null);
 
-      // Load animals and enclosures in parallel
+      // Load animals and enclosures in parallel (animals now include joined enclosure data)
+      // Both queries needed since MyAnimals displays enclosure-level info
       const [animalsData, enclosuresData] = await Promise.all([
         enclosureAnimalService.getAllUserAnimals(user!.id),
         enclosureService.getEnclosures(user!.id),
