@@ -5,6 +5,7 @@ import { useAuth } from './contexts/AuthContext';
 import type { EnclosureInput, BuildPlan, AnimalProfile } from './engine/types';
 import { generatePlan } from './engine/generatePlan';
 import { FeedbackModal } from './components/FeedbackModal/FeedbackModal';
+import { notificationService } from './services/notificationService';
 
 // Lazy load route components for better performance
 const AnimalSelectView = lazy(() => import('./components/Views/AnimalSelectView').then(m => ({ default: m.AnimalSelectView })));
@@ -126,6 +127,12 @@ function App() {
     };
 
     loadProfile();
+    
+    // Validate and cleanup push notification subscriptions
+    // This handles cases where the PWA was reinstalled and got a new endpoint
+    notificationService.validateAndCleanup().catch((error) => {
+      console.error('Error validating push subscriptions:', error);
+    });
   }, [user]);
 
   // Header visibility control based on scroll

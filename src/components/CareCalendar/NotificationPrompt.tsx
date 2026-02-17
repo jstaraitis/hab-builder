@@ -11,12 +11,25 @@ interface NotificationPromptProps {
 export function NotificationPrompt({ show, onClose }: NotificationPromptProps) {
   const { success, error } = useToast();
   const [permission, setPermission] = useState<NotificationPermission>('default');
+  const [isSubscribed, setIsSubscribed] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!notificationService.isSupported()) return;
-    const currentPermission = notificationService.getPermissionStatus();
-    setPermission(currentPermission);
+    
+    const checkStatus = async () => {
+      const currentPermission = notificationService.getPermissionStatus();
+      const subscribed = await notificationService.isSubscribed();
+      console.log('[NotificationPrompt] Status:', {
+        permission: currentPermission,
+        isSubscribed: subscribed,
+        show
+      });
+      setPermission(currentPermission);
+      setIsSubscribed(subscribed);
+    };
+    
+    checkStatus();
   }, [show]);
 
   const handleEnable = async () => {
@@ -24,6 +37,7 @@ export function NotificationPrompt({ show, onClose }: NotificationPromptProps) {
     try {
       await notificationService.subscribe();
       setPermission('granted');
+      setIsSubscribed(true);
       onClose();
       localStorage.setItem('notification-prompt-seen', 'true');
       success('🔔 Notifications enabled! You\'ll receive reminders for your care tasks.', 5000);
@@ -41,7 +55,13 @@ export function NotificationPrompt({ show, onClose }: NotificationPromptProps) {
     sessionStorage.setItem('notification-prompt-dismissed', 'true');
   };
 
-  if (!show || permission !== 'default') return null;
+  // Show if permission not granted OR if granted but not subscribed (e.g., after PWA reinstall)
+  if (!show || (permission === 'granted' && isSubscribed)) {
+    console.log('[NotificationPrompt] Not showing:', { show, permission, isSubscribed });
+    return null;
+  }
+
+  console.log('[NotificationPrompt] Showing prompt');
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 animate-fade-in">
@@ -60,10 +80,12 @@ export function NotificationPrompt({ show, onClose }: NotificationPromptProps) {
           </div>
           <div className="flex-1">
             <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
-               Enable notifications to get reminders
+              {permission === 'granted' ? 'Reconnect notifications' : 'Enable notifications to get reminders'}
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              You enabled a notification for this task, but push notifications aren't set up yet. Enable now to receive reminders when your care tasks are due.
+              {permission === 'granted' 
+                ? 'Your notifications need to be reconnected. This may happen after reinstalling the app or updating your browser.'
+                : 'You enabled a notification for this task, but push notifications aren\'t set up yet. Enable now to receive reminders when your care tasks are due.'}
             </p>
           </div>
         </div>

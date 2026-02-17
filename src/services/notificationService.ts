@@ -7,6 +7,7 @@ export interface INotificationService {
   subscribe(): Promise<void>;
   unsubscribe(): Promise<void>;
   isSubscribed(): Promise<boolean>;
+  validateAndCleanup(): Promise<void>;
 }
 
 class WebNotificationService implements INotificationService {
@@ -45,6 +46,9 @@ class WebNotificationService implements INotificationService {
 
     const registration = await navigator.serviceWorker.ready;
 
+    // Clean up any old subscriptions first (e.g., from previous PWA install)
+    await this.cleanupOldSubscriptions();
+
     const subscription = await registration.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey: this.urlBase64ToUint8Array(this.vapidPublicKey) as BufferSource
@@ -78,6 +82,58 @@ class WebNotificationService implements INotificationService {
     } catch (error) {
       console.error('Error checking subscription status:', error);
       return false;
+    }
+  }
+async validateAndCleanup(): Promise<void> {
+    if (!this.isSupported()) return;
+
+    try {
+      const { data: userData } = await supabase.auth.getUser();
+      if (!userData.user?.id) return;
+
+      // Check if we have a valid browser subscription
+      const registration = await navigator.serviceWorker.ready;
+      const browserSubscription = await registration.pushManager.getSubscription();
+
+      if (!browserSubscription) {
+        // No browser subscription, clean up any orphaned database entries
+        await this.cleanupOldSubscriptions();
+        return;
+      }
+
+      // Get all database subscriptions for this user
+      const { data: dbSubscriptions, error } = await supabase
+        .from('push_subscriptions')
+        .select('endpoint')
+        .eq('user_id', userData.user.id);
+
+      if (error) {
+        console.error('Error fetching subscriptions:', error);
+        return;
+      }
+
+      const browserEndpoint = browserSubscription.toJSON().endpoint;
+
+      // If database has subscriptions but none match the current browser endpoint
+      if (dbSubscriptions && dbSubscriptions.length > 0) {
+        const hasMatchingEndpoint = dbSubscriptions.some(
+          (sub) => sub.endpoint === browserEndpoint
+        );
+
+        if (!hasMatchingEndpoint) {
+          // Clean up old subscriptions and save the current one
+          console.log('Detected subscription mismatch, cleaning up and resubscribing...');
+          await this.cleanupOldSubscriptions();
+          await this.saveSubscription(browserSubscription);
+        }
+      } else if (!dbSubscriptions || dbSubscriptions.length === 0) {
+        // User has browser subscription but nothing in database
+        // This happens after PWA reinstall - save the subscription
+        console.log('Detected browser subscription with no database entry, saving...');
+        await this.saveSubscription(browserSubscription);
+      }
+    } catch (error) {
+      console.error('Error validating subscriptions:', error);
     }
   }
 
@@ -114,6 +170,32 @@ class WebNotificationService implements INotificationService {
       .eq('endpoint', subscriptionData.endpoint!);
 
     if (error) throw error;
+  }
+
+  private async cleanupOldSubscriptions(): Promise<void> {
+    try {
+      const { data: userData } = await supabase.auth.getUser();
+      
+      if (!userData.user?.id) {
+        console.warn('Cannot clean up subscriptions: User not authenticated');
+        return;
+      }
+
+      // Delete all existing subscriptions for this user
+      // This handles the case where the PWA was reinstalled and got a new endpoint
+      const { error } = await supabase
+        .from('push_subscriptions')
+        .delete()
+        .eq('user_id', userData.user.id);
+
+      if (error) {
+        console.error('Error cleaning up old subscriptions:', error);
+        // Don't throw - allow subscription to continue even if cleanup fails
+      }
+    } catch (error) {
+      console.error('Error cleaning up old subscriptions:', error);
+      // Don't throw - allow subscription to continue
+    }
   }
 
   private urlBase64ToUint8Array(base64String: string): Uint8Array {

@@ -175,13 +175,29 @@ export function TaskCreationModal({
       // Check if any tasks had notifications enabled and prompt user if notifications not set up
       const hasNotifications = tasks.some(t => t.notificationEnabled);
       const notificationPermission = notificationService.getPermissionStatus();
-      const hasSeenPrompt = sessionStorage.getItem('notification-prompt-dismissed');
+      const isSubscribed = await notificationService.isSubscribed();
+      
+      console.log('[TaskCreation] Notification check:', {
+        hasNotifications,
+        notificationPermission,
+        isSubscribed
+      });
 
-      if (hasNotifications && notificationPermission === 'default' && !hasSeenPrompt && onNotificationPromptNeeded) {
-        // Trigger notification prompt after a brief delay so modal closes first
-        setTimeout(() => {
-          onNotificationPromptNeeded();
-        }, 500);
+      // Clear any previous dismissals so prompt can show again
+      if (hasNotifications && !isSubscribed) {
+        sessionStorage.removeItem('notification-prompt-dismissed');
+      }
+
+      // Show prompt if notifications needed but not properly set up
+      // This includes: permission not granted OR permission granted but no active subscription
+      if (hasNotifications && onNotificationPromptNeeded) {
+        if (notificationPermission === 'default' || (notificationPermission === 'granted' && !isSubscribed)) {
+          console.log('[TaskCreation] Triggering notification prompt');
+          // Trigger notification prompt after a brief delay so modal closes first
+          setTimeout(() => {
+            onNotificationPromptNeeded();
+          }, 500);
+        }
       }
 
       onTaskCreated();

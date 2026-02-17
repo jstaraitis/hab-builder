@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { User, CreditCard, Lock } from 'lucide-react';
+import { User, CreditCard, Lock, Bell } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Auth } from '../Auth';
 import { profileService } from '../../services/profileService';
 import { stripeService } from '../../services/stripeService';
 import { supabase } from '../../lib/supabase';
+import { notificationService } from '../../services/notificationService';
 
 interface ProfileFormState {
   displayName: string;
@@ -21,9 +22,12 @@ export function ProfilePage() {
   const [saving, setSaving] = useState(false);
   const [changingPassword, setChangingPassword] = useState(false);
   const [managingSubscription, setManagingSubscription] = useState(false);
+  const [reconnectingNotifications, setReconnectingNotifications] = useState(false);
+  const [notificationStatus, setNotificationStatus] = useState<'not-supported' | 'denied' | 'not-subscribed' | 'subscribed'>('not-subscribed');
   const [error, setError] = useState<string | null>(null);
   const [passwordError, setPasswordError] = useState<string | null>(null);
   const [passwordSuccess, setPasswordSuccess] = useState<string | null>(null);
+  const [notificationSuccess, setNotificationSuccess] = useState<string | null>(null);
   const [status, setStatus] = useState<'free' | 'premium'>('free');
   const [cancelDate, setCancelDate] = useState<string | null>(null);
   const [form, setForm] = useState<ProfileFormState>({ displayName: '' });
@@ -43,6 +47,9 @@ export function ProfilePage() {
         setForm({ displayName: profile?.displayName || '' });
         setStatus(profile?.isPremium ? 'premium' : 'free');
         setCancelDate(profile?.subscriptionCancelAt || null);
+        
+        // Check notification status
+        await checkNotificationStatus();
       } catch (err) {
         console.error('Failed to load profile:', err);
         setError('Failed to load profile.');
@@ -53,6 +60,22 @@ export function ProfilePage() {
 
     loadProfile();
   }, [user]);
+
+  const checkNotificationStatus = async () => {
+    if (!notificationService.isSupported()) {
+      setNotificationStatus('not-supported');
+      return;
+    }
+
+    const permission = notificationService.getPermissionStatus();
+    if (permission === 'denied') {
+      setNotificationStatus('denied');
+      return;
+    }
+
+    const isSubscribed = await notificationService.isSubscribed();
+    setNotificationStatus(isSubscribed ? 'subscribed' : 'not-subscribed');
+  };
 
   const handleSave = async () => {
     if (!user) return;
@@ -126,6 +149,31 @@ export function ProfilePage() {
       console.error('Failed to open customer portal:', err);
       setError('Failed to open subscription management. Please try again.');
       setManagingSubscription(false);
+    }
+  };
+
+  const handleReconnectNotifications = async () => {
+    setNotificationSuccess(null);
+    
+    try {
+      setReconnectingNotifications(true);
+      
+      // Clear any blocking flags
+      sessionStorage.removeItem('notification-prompt-dismissed');
+      localStorage.removeItem('notification-prompt-seen');
+      
+      // Subscribe/resubscribe
+      await notificationService.subscribe();
+      
+      setNotificationStatus('subscribed');
+      setNotificationSuccess('✓ Notifications reconnected successfully!');
+    } catch (err: any) {
+      console.error('Failed to reconnect notifications:', err);
+      const errorMessage = err instanceof Error ? err.message : 'Failed to reconnect notifications';
+      setError(errorMessage);
+      await checkNotificationStatus();
+    } finally {
+      setReconnectingNotifications(false);
     }
   };
 
@@ -215,6 +263,46 @@ export function ProfilePage() {
                   {managingSubscription ? 'Opening portal...' : 'Manage Subscription'}
                 </button>
               )}
+            </div>
+
+            <div className="rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-4">
+              <div className="flex items-center gap-2 mb-3">
+                <Bell className="w-4 h-4 text-gray-600 dark:text-gray-400" />
+                <div className="text-sm font-semibold text-gray-800 dark:text-gray-100">Push Notifications</div>
+              </div>
+              
+              <div className="space-y-3">
+                <div className="text-xs text-gray-600 dark:text-gray-400 mb-2">
+                  {notificationStatus === 'not-supported' && 'Push notifications are not supported on this device.'}
+                  {notificationStatus === 'denied' && 'Notification permission was denied. Please enable in your browser settings.'}
+                  {notificationStatus === 'subscribed' && 'Notifications are active. You\'ll receive care task reminders.'}
+                  {notificationStatus === 'not-subscribed' && 'Notifications are not set up. Click below to enable.'}
+                </div>
+                
+                {notificationStatus !== 'not-supported' && notificationStatus !== 'denied' && (
+                  <button
+                    onClick={handleReconnectNotifications}
+                    disabled={reconnectingNotifications}
+                    className={`w-full px-4 py-2 rounded-lg text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed ${
+                      notificationStatus === 'subscribed'
+                        ? 'bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300'
+                        : 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                    }`}
+                  >
+                    {reconnectingNotifications 
+                      ? 'Reconnecting...' 
+                      : notificationStatus === 'subscribed'
+                        ? 'Refresh Connection'
+                        : 'Enable Notifications'}
+                  </button>
+                )}
+
+                {notificationSuccess && (
+                  <div className="p-2 rounded bg-emerald-50 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-200 text-xs">
+                    {notificationSuccess}
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className="rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-4">
