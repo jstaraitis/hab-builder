@@ -148,7 +148,7 @@ export class SupabaseCareService implements ICareTaskService {
         ...task,
         logs,
         lastCompleted,
-        streak: this.calculateStreak(logs),
+        streak: this.calculateStreak(task, logs),
       };
     });
   }
@@ -334,24 +334,32 @@ export class SupabaseCareService implements ICareTaskService {
     return next;
   }
 
-  // Helper: Calculate completion streak
-  private calculateStreak(logs: CareLog[]): number {
+  // Helper: Calculate completion streak based on task frequency interval
+  private calculateStreak(task: CareTask, logs: CareLog[]): number {
     if (logs.length === 0) return 0;
 
-    const completedLogs = logs
+    const completedDates = logs
       .filter(l => !l.skipped)
-      .sort((a, b) => b.completedAt.getTime() - a.completedAt.getTime());
+      .map(l => {
+        const date = new Date(l.completedAt);
+        date.setHours(0, 0, 0, 0);
+        return date;
+      })
+      .sort((a, b) => b.getTime() - a.getTime())
+      .filter((date, index, arr) => index === 0 || date.getTime() !== arr[index - 1].getTime());
 
-    if (completedLogs.length === 0) return 0;
+    if (completedDates.length === 0) return 0;
+
+    const intervalDays = this.getFrequencyIntervalDays(task);
 
     let streak = 1;
-    let currentDate = new Date(completedLogs[0].completedAt);
+    let currentDate = completedDates[0];
 
-    for (let i = 1; i < completedLogs.length; i++) {
-      const logDate = new Date(completedLogs[i].completedAt);
+    for (let i = 1; i < completedDates.length; i++) {
+      const logDate = completedDates[i];
       const dayDiff = Math.floor((currentDate.getTime() - logDate.getTime()) / (1000 * 60 * 60 * 24));
 
-      if (dayDiff <= 1) {
+      if (dayDiff <= intervalDays) {
         streak++;
         currentDate = logDate;
       } else {
@@ -360,6 +368,29 @@ export class SupabaseCareService implements ICareTaskService {
     }
 
     return streak;
+  }
+
+  private getFrequencyIntervalDays(task: CareTask): number {
+    switch (task.frequency) {
+      case 'daily':
+        return 1;
+      case 'every-other-day':
+        return 2;
+      case 'twice-weekly':
+        return 3;
+      case 'weekly':
+        return 7;
+      case 'bi-weekly':
+        return 14;
+      case 'monthly':
+        return 31;
+      case 'custom':
+        return task.customFrequencyDays && task.customFrequencyDays > 0
+          ? task.customFrequencyDays
+          : 1;
+      default:
+        return 1;
+    }
   }
 
   // Database mapping helpers

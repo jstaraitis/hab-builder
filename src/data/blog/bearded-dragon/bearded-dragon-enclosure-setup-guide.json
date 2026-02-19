@@ -6,7 +6,13 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
-  "tags": ["bearded dragon", "enclosure", "setup", "habitat", "pogona vitticeps"],
+  "tags": [
+    "bearded dragon",
+    "enclosure",
+    "setup",
+    "habitat",
+    "pogona vitticeps"
+  ],
   "image": "/animals/bearded-dragon/bearded-dragon-1.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "Minimum Enclosure Dimensions"
+      "heading": "Minimum Enclosure Dimensions"
     },
     {
       "type": "text",
@@ -29,12 +35,37 @@
     },
     {
       "type": "table",
-      "headers": ["Life Stage", "Minimum Dimensions (LxWxH)", "Floor Space", "Notes"],
+      "headers": [
+        "Life Stage",
+        "Minimum Dimensions (LxWxH)",
+        "Floor Space",
+        "Notes"
+      ],
       "rows": [
-        ["Hatchling (0-6 months)", "36x18x18 inches", "4.5 sq ft", "Can start in 40-gallon breeder"],
-        ["Juvenile (6-12 months)", "48x24x24 inches", "8 sq ft", "Upgrade before reaching 12 inches"],
-        ["Adult (12+ months)", "72x24x24 inches", "12 sq ft", "Minimum 120-gallon equivalent"],
-        ["Large Adult (18+ inches)", "96x24x24 inches", "16 sq ft", "Recommended for males 20+ inches"]
+        [
+          "Hatchling (0-6 months)",
+          "36x18x18 inches",
+          "4.5 sq ft",
+          "Can start in 40-gallon breeder"
+        ],
+        [
+          "Juvenile (6-12 months)",
+          "48x24x24 inches",
+          "8 sq ft",
+          "Upgrade before reaching 12 inches"
+        ],
+        [
+          "Adult (12+ months)",
+          "72x24x24 inches",
+          "12 sq ft",
+          "Minimum 120-gallon equivalent"
+        ],
+        [
+          "Large Adult (18+ inches)",
+          "96x24x24 inches",
+          "16 sq ft",
+          "Recommended for males 20+ inches"
+        ]
       ]
     },
     {
@@ -44,7 +75,7 @@
     },
     {
       "type": "section",
-      "title": "Enclosure Type Selection"
+      "heading": "Enclosure Type Selection"
     },
     {
       "type": "text",
@@ -56,12 +87,37 @@
     },
     {
       "type": "table",
-      "headers": ["Material", "Temperature Control", "Humidity Management", "Best Application"],
+      "headers": [
+        "Material",
+        "Temperature Control",
+        "Humidity Management",
+        "Best Application"
+      ],
       "rows": [
-        ["Glass (front-opening)", "Good retention", "Low humidity (ideal)", "Standard choice, widely available"],
-        ["PVC (custom enclosures)", "Excellent retention", "Very low humidity", "Premium option, best insulation"],
-        ["Wood (custom builds)", "Good retention", "Moderate humidity", "DIY builds, requires sealing"],
-        ["Screen cages", "Poor retention", "Extremely low humidity", "NOT recommended"]
+        [
+          "Glass (front-opening)",
+          "Good retention",
+          "Low humidity (ideal)",
+          "Standard choice, widely available"
+        ],
+        [
+          "PVC (custom enclosures)",
+          "Excellent retention",
+          "Very low humidity",
+          "Premium option, best insulation"
+        ],
+        [
+          "Wood (custom builds)",
+          "Good retention",
+          "Moderate humidity",
+          "DIY builds, requires sealing"
+        ],
+        [
+          "Screen cages",
+          "Poor retention",
+          "Extremely low humidity",
+          "NOT recommended"
+        ]
       ]
     },
     {
@@ -70,7 +126,7 @@
     },
     {
       "type": "section",
-      "title": "Bearded Dragon Specific Requirements"
+      "heading": "Bearded Dragon Specific Requirements"
     },
     {
       "type": "text",
@@ -82,7 +138,7 @@
     },
     {
       "type": "section",
-      "title": "Substrate Selection"
+      "heading": "Substrate Selection"
     },
     {
       "type": "text",
@@ -94,13 +150,43 @@
     },
     {
       "type": "table",
-      "headers": ["Substrate Type", "Maintenance Level", "Enrichment Value", "Best For"],
+      "headers": [
+        "Substrate Type",
+        "Maintenance Level",
+        "Enrichment Value",
+        "Best For"
+      ],
       "rows": [
-        ["Ceramic tile", "Low (spot clean)", "Minimal (no digging)", "Sterile setups, quarantine"],
-        ["Natural stone (slate)", "Low (spot clean)", "Minimal (no digging)", "Heat retention, easy cleaning"],
-        ["Topsoil/sand mix (4-6\\\")", "Moderate (spot clean)", "High (digging, burrowing)", "Natural behavior, bioactive"],
-        ["Bioactive substrate", "Low (self-cleaning)", "High (natural ecosystem)", "Advanced keepers, enrichment"],
-        ["Reptile carpet", "High (launder weekly)", "None (suppresses behaviors)", "NOT recommended"]
+        [
+          "Ceramic tile",
+          "Low (spot clean)",
+          "Minimal (no digging)",
+          "Sterile setups, quarantine"
+        ],
+        [
+          "Natural stone (slate)",
+          "Low (spot clean)",
+          "Minimal (no digging)",
+          "Heat retention, easy cleaning"
+        ],
+        [
+          "Topsoil/sand mix (4-6\\\")",
+          "Moderate (spot clean)",
+          "High (digging, burrowing)",
+          "Natural behavior, bioactive"
+        ],
+        [
+          "Bioactive substrate",
+          "Low (self-cleaning)",
+          "High (natural ecosystem)",
+          "Advanced keepers, enrichment"
+        ],
+        [
+          "Reptile carpet",
+          "High (launder weekly)",
+          "None (suppresses behaviors)",
+          "NOT recommended"
+        ]
       ]
     },
     {
@@ -110,7 +196,7 @@
     },
     {
       "type": "section",
-      "title": "Decor & Enrichment Placement"
+      "heading": "Decor & Enrichment Placement"
     },
     {
       "type": "text",
@@ -118,14 +204,42 @@
     },
     {
       "type": "table",
-      "headers": ["Decor Type", "Quantity", "Placement Guidelines"],
+      "headers": [
+        "Decor Type",
+        "Quantity",
+        "Placement Guidelines"
+      ],
       "rows": [
-        ["Basking rock/platform", "1 primary", "Directly under heat + UVB, 8-10\" from bulb"],
-        ["Hide caves", "2-3", "Distribute across thermal gradient"],
-        ["Climbing branches", "2-4", "Horizontal orientation, stable anchoring"],
-        ["Background ledges", "Optional", "Attached to back wall, wide platforms"],
-        ["Live/artificial plants", "3-5", "Cool side, partial shade creation"],
-        ["Food dish", "1", "Warm side, stable base, 2-3\\\" tall sides"]
+        [
+          "Basking rock/platform",
+          "1 primary",
+          "Directly under heat + UVB, 8-10\" from bulb"
+        ],
+        [
+          "Hide caves",
+          "2-3",
+          "Distribute across thermal gradient"
+        ],
+        [
+          "Climbing branches",
+          "2-4",
+          "Horizontal orientation, stable anchoring"
+        ],
+        [
+          "Background ledges",
+          "Optional",
+          "Attached to back wall, wide platforms"
+        ],
+        [
+          "Live/artificial plants",
+          "3-5",
+          "Cool side, partial shade creation"
+        ],
+        [
+          "Food dish",
+          "1",
+          "Warm side, stable base, 2-3\\\" tall sides"
+        ]
       ]
     },
     {
@@ -134,7 +248,7 @@
     },
     {
       "type": "section",
-      "title": "Common Setup Errors"
+      "heading": "Common Setup Errors"
     },
     {
       "type": "text",
@@ -142,20 +256,52 @@
     },
     {
       "type": "table",
-      "headers": ["Error", "Consequence", "Correction"],
+      "headers": [
+        "Error",
+        "Consequence",
+        "Correction"
+      ],
       "rows": [
-        ["Undersized enclosure (<4x2x2)", "Chronic stress, obesity, aggression", "Upgrade to minimum adult size"],
-        ["No thermal gradient", "Inability to thermoregulate", "Position heat source at one end only"],
-        ["Basking platform too low", "Insufficient heat exposure", "Raise platform 8-10\" from heat bulb"],
-        ["Overcrowded decor", "Restricted movement, stress", "Maintain 50%+ open floor space"],
-        ["All hides on cool side", "Insufficient retreat options", "Place hides in each thermal zone"],
-        ["Heat source centered", "No cool retreat available", "Position heat at one end exclusively"],
-        ["Reflective backgrounds", "Stress from perceived rivals", "Use matte backgrounds or cover sides"]
+        [
+          "Undersized enclosure (<4x2x2)",
+          "Chronic stress, obesity, aggression",
+          "Upgrade to minimum adult size"
+        ],
+        [
+          "No thermal gradient",
+          "Inability to thermoregulate",
+          "Position heat source at one end only"
+        ],
+        [
+          "Basking platform too low",
+          "Insufficient heat exposure",
+          "Raise platform 8-10\" from heat bulb"
+        ],
+        [
+          "Overcrowded decor",
+          "Restricted movement, stress",
+          "Maintain 50%+ open floor space"
+        ],
+        [
+          "All hides on cool side",
+          "Insufficient retreat options",
+          "Place hides in each thermal zone"
+        ],
+        [
+          "Heat source centered",
+          "No cool retreat available",
+          "Position heat at one end exclusively"
+        ],
+        [
+          "Reflective backgrounds",
+          "Stress from perceived rivals",
+          "Use matte backgrounds or cover sides"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Setup Timeline & Testing"
+      "heading": "Setup Timeline & Testing"
     },
     {
       "type": "text",
@@ -163,12 +309,32 @@
     },
     {
       "type": "table",
-      "headers": ["Day", "Task", "Success Criteria"],
+      "headers": [
+        "Day",
+        "Task",
+        "Success Criteria"
+      ],
       "rows": [
-        ["1-2", "Install equipment, test heating/lighting", "All fixtures operational, bulbs at correct distance"],
-        ["3-4", "Monitor temperatures across gradient", "Basking 100-110F, cool side 75-80F, stable nighttime drop"],
-        ["5-6", "Verify UVB levels (if Solarmeter available)", "UVI 4.0-6.0 at basking surface"],
-        ["7", "Final checks: timer schedules, stability tests", "12-14hr photoperiod, all decor secure, no hot spots >115F"]
+        [
+          "1-2",
+          "Install equipment, test heating/lighting",
+          "All fixtures operational, bulbs at correct distance"
+        ],
+        [
+          "3-4",
+          "Monitor temperatures across gradient",
+          "Basking 100-110F, cool side 75-80F, stable nighttime drop"
+        ],
+        [
+          "5-6",
+          "Verify UVB levels (if Solarmeter available)",
+          "UVI 4.0-6.0 at basking surface"
+        ],
+        [
+          "7",
+          "Final checks: timer schedules, stability tests",
+          "12-14hr photoperiod, all decor secure, no hot spots >115F"
+        ]
       ]
     },
     {

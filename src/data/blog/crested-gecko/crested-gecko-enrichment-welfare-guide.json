@@ -6,7 +6,13 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-30",
   "category": "Care Guides",
-  "tags": ["crested gecko", "enrichment", "welfare", "arboreal", "correlophus ciliatus"],
+  "tags": [
+    "crested gecko",
+    "enrichment",
+    "welfare",
+    "arboreal",
+    "correlophus ciliatus"
+  ],
   "image": "/animals/crested-gecko/crested-gecko-1.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "What Is Enrichment?"
+      "heading": "What Is Enrichment?"
     },
     {
       "type": "text",
@@ -29,7 +35,7 @@
     },
     {
       "type": "section",
-      "title": "Three Core Requirements for Crested Gecko Enrichment"
+      "heading": "Three Core Requirements for Crested Gecko Enrichment"
     },
     {
       "type": "text",
@@ -45,7 +51,7 @@
     },
     {
       "type": "section",
-      "title": "Understanding Natural Behaviors"
+      "heading": "Understanding Natural Behaviors"
     },
     {
       "type": "text",
@@ -61,7 +67,7 @@
     },
     {
       "type": "section",
-      "title": "Environmental Enrichment: Building the Perfect Arboreal Habitat"
+      "heading": "Environmental Enrichment: Building the Perfect Arboreal Habitat"
     },
     {
       "type": "text",
@@ -69,7 +75,7 @@
     },
     {
       "type": "section",
-      "title": "Essential Decor Items"
+      "heading": "Essential Decor Items"
     },
     {
       "type": "text",
@@ -91,7 +97,7 @@
     },
     {
       "type": "section",
-      "title": "Creating Vertical Pathways"
+      "heading": "Creating Vertical Pathways"
     },
     {
       "type": "text",
@@ -117,7 +123,7 @@
     },
     {
       "type": "section",
-      "title": "Live Plants vs. Artificial Plants"
+      "heading": "Live Plants vs. Artificial Plants"
     },
     {
       "type": "text",
@@ -125,7 +131,7 @@
     },
     {
       "type": "section",
-      "title": "Artificial Plants"
+      "heading": "Artificial Plants"
     },
     {
       "type": "text",
@@ -156,7 +162,7 @@
     },
     {
       "type": "section",
-      "title": "Live Plants"
+      "heading": "Live Plants"
     },
     {
       "type": "list",
@@ -174,7 +180,7 @@
     },
     {
       "type": "section",
-      "title": "Gecko-Safe Live Plant List"
+      "heading": "Gecko-Safe Live Plant List"
     },
     {
       "type": "text",
@@ -199,7 +205,7 @@
     },
     {
       "type": "section",
-      "title": "Water Accumulation for Natural Drinking"
+      "heading": "Water Accumulation for Natural Drinking"
     },
     {
       "type": "highlight",
@@ -207,7 +213,7 @@
     },
     {
       "type": "section",
-      "title": "Best Surfaces for Water Collection"
+      "heading": "Best Surfaces for Water Collection"
     },
     {
       "type": "list",
@@ -220,7 +226,7 @@
     },
     {
       "type": "section",
-      "title": "Misting Strategy for Enrichment"
+      "heading": "Misting Strategy for Enrichment"
     },
     {
       "type": "list",
@@ -238,7 +244,7 @@
     },
     {
       "type": "section",
-      "title": "Rearranging for Ongoing Enrichment"
+      "heading": "Rearranging for Ongoing Enrichment"
     },
     {
       "type": "text",
@@ -250,20 +256,36 @@
     },
     {
       "type": "section",
-      "title": "Rearrangement Guidelines"
+      "heading": "Rearrangement Guidelines"
     },
     {
       "type": "table",
-      "headers": ["Frequency", "What to Change", "What to Keep Stable"],
+      "headers": [
+        "Frequency",
+        "What to Change",
+        "What to Keep Stable"
+      ],
       "rows": [
-        ["Every 6-8 weeks", "Branch angles and positions, vine routing, plant locations", "One primary hide location, general layout theme"],
-        ["Every 2-3 months", "Magnetic ledge placement, hide positions (maintain height options)", "Food ledge accessibility, safe zone retreat"],
-        ["Every 4-6 months", "Add new plant or branch, remove old/worn d°cor", "Core climbing pathways, 2+ familiar structures"]
+        [
+          "Every 6-8 weeks",
+          "Branch angles and positions, vine routing, plant locations",
+          "One primary hide location, general layout theme"
+        ],
+        [
+          "Every 2-3 months",
+          "Magnetic ledge placement, hide positions (maintain height options)",
+          "Food ledge accessibility, safe zone retreat"
+        ],
+        [
+          "Every 4-6 months",
+          "Add new plant or branch, remove old/worn d°cor",
+          "Core climbing pathways, 2+ familiar structures"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Safe Rearrangement Checklist"
+      "heading": "Safe Rearrangement Checklist"
     },
     {
       "type": "list",
@@ -281,7 +303,7 @@
     },
     {
       "type": "section",
-      "title": "Outside the Enclosure: Supervised Enrichment"
+      "heading": "Outside the Enclosure: Supervised Enrichment"
     },
     {
       "type": "text",
@@ -289,7 +311,7 @@
     },
     {
       "type": "section",
-      "title": "Floor Time Considerations"
+      "heading": "Floor Time Considerations"
     },
     {
       "type": "warning",
@@ -312,7 +334,7 @@
     },
     {
       "type": "section",
-      "title": "Enrichment Through Feeding"
+      "heading": "Enrichment Through Feeding"
     },
     {
       "type": "text",
@@ -320,7 +342,7 @@
     },
     {
       "type": "section",
-      "title": "Varied Food Placement"
+      "heading": "Varied Food Placement"
     },
     {
       "type": "text",
@@ -345,7 +367,7 @@
     },
     {
       "type": "section",
-      "title": "Flavor Rotation"
+      "heading": "Flavor Rotation"
     },
     {
       "type": "text",
@@ -361,7 +383,7 @@
     },
     {
       "type": "section",
-      "title": "Signs of Effective Enrichment"
+      "heading": "Signs of Effective Enrichment"
     },
     {
       "type": "text",
@@ -379,7 +401,7 @@
     },
     {
       "type": "section",
-      "title": "Signs of Poor Welfare or Boredom"
+      "heading": "Signs of Poor Welfare or Boredom"
     },
     {
       "type": "warning",
@@ -398,7 +420,7 @@
     },
     {
       "type": "section",
-      "title": "Budget-Friendly Enrichment Ideas"
+      "heading": "Budget-Friendly Enrichment Ideas"
     },
     {
       "type": "text",
@@ -417,7 +439,7 @@
     },
     {
       "type": "section",
-      "title": "Creating an Enrichment Schedule"
+      "heading": "Creating an Enrichment Schedule"
     },
     {
       "type": "text",
@@ -425,18 +447,42 @@
     },
     {
       "type": "table",
-      "headers": ["Frequency", "Enrichment Activity", "Type"],
+      "headers": [
+        "Frequency",
+        "Enrichment Activity",
+        "Type"
+      ],
       "rows": [
-        ["Daily", "Evening misting for water droplets", "Environmental"],
-        ["2-3x per week", "Live insect hunting", "Behavioral"],
-        ["Weekly", "Rotate CGD flavors or feeding locations", "Sensory/Cognitive"],
-        ["Every 6-8 weeks", "Enclosure rearrangement (50% change)", "Environmental"],
-        ["Every 2-3 months", "Add new plant or branch", "Environmental"]
+        [
+          "Daily",
+          "Evening misting for water droplets",
+          "Environmental"
+        ],
+        [
+          "2-3x per week",
+          "Live insect hunting",
+          "Behavioral"
+        ],
+        [
+          "Weekly",
+          "Rotate CGD flavors or feeding locations",
+          "Sensory/Cognitive"
+        ],
+        [
+          "Every 6-8 weeks",
+          "Enclosure rearrangement (50% change)",
+          "Environmental"
+        ],
+        [
+          "Every 2-3 months",
+          "Add new plant or branch",
+          "Environmental"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Final Recommendations"
+      "heading": "Final Recommendations"
     },
     {
       "type": "text",

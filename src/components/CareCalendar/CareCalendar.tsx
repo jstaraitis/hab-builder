@@ -174,7 +174,7 @@ const TaskItem = memo(({
                       <span>•</span>
                       <span className="inline-flex items-center gap-1 text-orange-600 dark:text-orange-400 font-semibold">
                         <Flame className="w-3 h-3" />
-                        {task.streak} day streak!
+                        {task.streak} consecutive completion{task.streak === 1 ? '' : 's'}
                       </span>
                     </>
                   )}
@@ -697,7 +697,7 @@ export function CareCalendar() {
                   <strong>Step 2:</strong> Add care tasks for that pet
                 </p>
                 <p>
-                  <strong>Step 3:</strong> Track completions and build your care streak!
+                  <strong>Step 3:</strong> Track completions and build your completion streak!
                 </p>
               </div>
             </div>

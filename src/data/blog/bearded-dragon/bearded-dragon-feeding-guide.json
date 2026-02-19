@@ -6,7 +6,14 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
-  "tags": ["bearded dragon", "feeding", "diet", "nutrition", "insects", "vegetables"],
+  "tags": [
+    "bearded dragon",
+    "feeding",
+    "diet",
+    "nutrition",
+    "insects",
+    "vegetables"
+  ],
   "image": "/animals/bearded-dragon/bearded-dragon-3.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +24,7 @@
     },
     {
       "type": "section",
-      "title": "Age-Based Feeding Protocol"
+      "heading": "Age-Based Feeding Protocol"
     },
     {
       "type": "text",
@@ -29,12 +36,37 @@
     },
     {
       "type": "table",
-      "headers": ["Life Stage", "Insect Frequency", "Vegetable Frequency", "Protein Ratio"],
+      "headers": [
+        "Life Stage",
+        "Insect Frequency",
+        "Vegetable Frequency",
+        "Protein Ratio"
+      ],
       "rows": [
-        ["Hatchling (0-6 months)", "Twice daily", "Daily (small portions)", "60-80%"],
-        ["Juvenile (6-12 months)", "Once daily", "Daily (increasing portions)", "50-60%"],
-        ["Subadult (12-18 months)", "3-4 times weekly", "Daily (primary diet)", "30-40%"],
-        ["Adult (18+ months)", "2-3 times weekly", "Daily (staple diet)", "20-30%"]
+        [
+          "Hatchling (0-6 months)",
+          "Twice daily",
+          "Daily (small portions)",
+          "60-80%"
+        ],
+        [
+          "Juvenile (6-12 months)",
+          "Once daily",
+          "Daily (increasing portions)",
+          "50-60%"
+        ],
+        [
+          "Subadult (12-18 months)",
+          "3-4 times weekly",
+          "Daily (primary diet)",
+          "30-40%"
+        ],
+        [
+          "Adult (18+ months)",
+          "2-3 times weekly",
+          "Daily (staple diet)",
+          "20-30%"
+        ]
       ]
     },
     {
@@ -43,7 +75,7 @@
     },
     {
       "type": "section",
-      "title": "Feeder Insect Selection"
+      "heading": "Feeder Insect Selection"
     },
     {
       "type": "text",
@@ -55,15 +87,55 @@
     },
     {
       "type": "table",
-      "headers": ["Feeder Species", "Protein Content", "Fat Content", "Usage Recommendation"],
+      "headers": [
+        "Feeder Species",
+        "Protein Content",
+        "Fat Content",
+        "Usage Recommendation"
+      ],
       "rows": [
-        ["Dubia roaches", "High (36%)", "Moderate (7%)", "Excellent daily staple"],
-        ["Discoid roaches", "High (35%)", "Moderate (8%)", "Alternative to dubias"],
-        ["Black soldier fly larvae", "Moderate (17%)", "High (14%)", "High calcium, no gut-load needed"],
-        ["Crickets", "Moderate (21%)", "Low (6%)", "Widely available, noisy"],
-        ["Hornworms", "Low (9%)", "Low (3%)", "Hydrating treat, occasional"],
-        ["Silkworms", "Moderate (14%)", "Low (3%)", "Soft-bodied, highly digestible"],
-        ["Mealworms", "Moderate (20%)", "High (13%)", "Limit due to chitin content"]
+        [
+          "Dubia roaches",
+          "High (36%)",
+          "Moderate (7%)",
+          "Excellent daily staple"
+        ],
+        [
+          "Discoid roaches",
+          "High (35%)",
+          "Moderate (8%)",
+          "Alternative to dubias"
+        ],
+        [
+          "Black soldier fly larvae",
+          "Moderate (17%)",
+          "High (14%)",
+          "High calcium, no gut-load needed"
+        ],
+        [
+          "Crickets",
+          "Moderate (21%)",
+          "Low (6%)",
+          "Widely available, noisy"
+        ],
+        [
+          "Hornworms",
+          "Low (9%)",
+          "Low (3%)",
+          "Hydrating treat, occasional"
+        ],
+        [
+          "Silkworms",
+          "Moderate (14%)",
+          "Low (3%)",
+          "Soft-bodied, highly digestible"
+        ],
+        [
+          "Mealworms",
+          "Moderate (20%)",
+          "High (13%)",
+          "Limit due to chitin content"
+        ]
       ]
     },
     {
@@ -73,7 +145,7 @@
     },
     {
       "type": "section",
-      "title": "Vegetable & Greens Selection"
+      "heading": "Vegetable & Greens Selection"
     },
     {
       "type": "text",
@@ -85,15 +157,55 @@
     },
     {
       "type": "table",
-      "headers": ["Vegetable/Green", "Ca:P Ratio", "Frequency", "Key Nutrients"],
+      "headers": [
+        "Vegetable/Green",
+        "Ca:P Ratio",
+        "Frequency",
+        "Key Nutrients"
+      ],
       "rows": [
-        ["Collard greens", "14.5:1", "Daily staple", "Calcium, vitamin A, fiber"],
-        ["Mustard greens", "2.4:1", "Daily staple", "Calcium, vitamin K"],
-        ["Turnip greens", "4.5:1", "Daily staple", "Calcium, vitamin C"],
-        ["Dandelion greens", "2.8:1", "Frequent rotation", "Calcium, beta-carotene"],
-        ["Butternut squash", "2.7:1", "Several times weekly", "Vitamin A, fiber"],
-        ["Bell peppers", "0.5:1", "Moderate rotation", "Vitamin C, variety"],
-        ["Cactus pads (nopales)", "2.3:1", "Several times weekly", "Hydration, fiber"]
+        [
+          "Collard greens",
+          "14.5:1",
+          "Daily staple",
+          "Calcium, vitamin A, fiber"
+        ],
+        [
+          "Mustard greens",
+          "2.4:1",
+          "Daily staple",
+          "Calcium, vitamin K"
+        ],
+        [
+          "Turnip greens",
+          "4.5:1",
+          "Daily staple",
+          "Calcium, vitamin C"
+        ],
+        [
+          "Dandelion greens",
+          "2.8:1",
+          "Frequent rotation",
+          "Calcium, beta-carotene"
+        ],
+        [
+          "Butternut squash",
+          "2.7:1",
+          "Several times weekly",
+          "Vitamin A, fiber"
+        ],
+        [
+          "Bell peppers",
+          "0.5:1",
+          "Moderate rotation",
+          "Vitamin C, variety"
+        ],
+        [
+          "Cactus pads (nopales)",
+          "2.3:1",
+          "Several times weekly",
+          "Hydration, fiber"
+        ]
       ]
     },
     {
@@ -103,7 +215,7 @@
     },
     {
       "type": "section",
-      "title": "Dietary Restrictions & Contraindications"
+      "heading": "Dietary Restrictions & Contraindications"
     },
     {
       "type": "text",
@@ -111,20 +223,52 @@
     },
     {
       "type": "table",
-      "headers": ["Food Item", "Restriction Level", "Reason"],
+      "headers": [
+        "Food Item",
+        "Restriction Level",
+        "Reason"
+      ],
       "rows": [
-        ["Avocado", "TOXIC - Never feed", "Persin toxicity, potentially fatal"],
-        ["Rhubarb", "TOXIC - Never feed", "Oxalic acid poisoning"],
-        ["Fireflies/Lightning bugs", "TOXIC - Never feed", "Lucibufagins cause cardiac arrest"],
-        ["Spinach", "Limit (monthly only)", "High oxalates bind calcium"],
-        ["Kale", "Limit (weekly maximum)", "Goitrogens interfere with thyroid"],
-        ["Fruit (any type)", "Limit (weekly treat)", "High sugar causes obesity, dysbiosis"],
-        ["Iceberg lettuce", "Avoid (no nutrition)", "95% water, negligible nutrients"]
+        [
+          "Avocado",
+          "TOXIC - Never feed",
+          "Persin toxicity, potentially fatal"
+        ],
+        [
+          "Rhubarb",
+          "TOXIC - Never feed",
+          "Oxalic acid poisoning"
+        ],
+        [
+          "Fireflies/Lightning bugs",
+          "TOXIC - Never feed",
+          "Lucibufagins cause cardiac arrest"
+        ],
+        [
+          "Spinach",
+          "Limit (monthly only)",
+          "High oxalates bind calcium"
+        ],
+        [
+          "Kale",
+          "Limit (weekly maximum)",
+          "Goitrogens interfere with thyroid"
+        ],
+        [
+          "Fruit (any type)",
+          "Limit (weekly treat)",
+          "High sugar causes obesity, dysbiosis"
+        ],
+        [
+          "Iceberg lettuce",
+          "Avoid (no nutrition)",
+          "95% water, negligible nutrients"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Supplementation Protocol"
+      "heading": "Supplementation Protocol"
     },
     {
       "type": "text",
@@ -136,11 +280,31 @@
     },
     {
       "type": "table",
-      "headers": ["Supplement Type", "Active Ingredients", "Frequency", "Application"],
+      "headers": [
+        "Supplement Type",
+        "Active Ingredients",
+        "Frequency",
+        "Application"
+      ],
       "rows": [
-        ["Calcium (with D3)", "Calcium carbonate/citrate", "Most insect feedings", "Light dusting on feeders"],
-        ["Multivitamin", "Vitamins A, D3, E, B-complex", "1-2x weekly", "Light dusting on feeders"],
-        ["All-in-one formula", "Calcium + vitamins + trace minerals", "Alternative to separate", "Repashy Calcium Plus LoD, Arcadia EarthPro-A"]
+        [
+          "Calcium (with D3)",
+          "Calcium carbonate/citrate",
+          "Most insect feedings",
+          "Light dusting on feeders"
+        ],
+        [
+          "Multivitamin",
+          "Vitamins A, D3, E, B-complex",
+          "1-2x weekly",
+          "Light dusting on feeders"
+        ],
+        [
+          "All-in-one formula",
+          "Calcium + vitamins + trace minerals",
+          "Alternative to separate",
+          "Repashy Calcium Plus LoD, Arcadia EarthPro-A"
+        ]
       ]
     },
     {
@@ -150,7 +314,7 @@
     },
     {
       "type": "section",
-      "title": "Gut-Loading Methodology"
+      "heading": "Gut-Loading Methodology"
     },
     {
       "type": "text",
@@ -162,12 +326,32 @@
     },
     {
       "type": "table",
-      "headers": ["Gut-Load Category", "Examples", "Nutritional Purpose"],
+      "headers": [
+        "Gut-Load Category",
+        "Examples",
+        "Nutritional Purpose"
+      ],
       "rows": [
-        ["Calcium-rich greens", "Collard, mustard, dandelion greens", "Increase calcium content"],
-        ["Beta-carotene sources", "Carrots, sweet potato, squash", "Vitamin A precursor"],
-        ["Commercial gut-load", "Cricket Crack, Repashy Bug Burger", "Balanced micronutrients"],
-        ["Bee pollen", "Fresh granules (small amounts)", "Amino acids, trace minerals"]
+        [
+          "Calcium-rich greens",
+          "Collard, mustard, dandelion greens",
+          "Increase calcium content"
+        ],
+        [
+          "Beta-carotene sources",
+          "Carrots, sweet potato, squash",
+          "Vitamin A precursor"
+        ],
+        [
+          "Commercial gut-load",
+          "Cricket Crack, Repashy Bug Burger",
+          "Balanced micronutrients"
+        ],
+        [
+          "Bee pollen",
+          "Fresh granules (small amounts)",
+          "Amino acids, trace minerals"
+        ]
       ]
     },
     {
@@ -176,7 +360,7 @@
     },
     {
       "type": "section",
-      "title": "Hydration Management"
+      "heading": "Hydration Management"
     },
     {
       "type": "text",
@@ -188,13 +372,37 @@
     },
     {
       "type": "table",
-      "headers": ["Hydration Method", "Effectiveness", "Implementation"],
+      "headers": [
+        "Hydration Method",
+        "Effectiveness",
+        "Implementation"
+      ],
       "rows": [
-        ["Fresh water dish", "Moderate (if recognized)", "Shallow dish changed daily"],
-        ["Misting vegetables", "High (natural behavior)", "Spray greens before offering"],
-        ["Drip method", "High (triggers drinking)", "Drip water on snout until licking"],
-        ["Syringe feeding", "High (during handling)", "Offer water via needleless syringe, not for beginners"],
-        ["Hydrating foods", "Moderate (supplemental)", "Hornworms, cucumber, cactus pads"]
+        [
+          "Fresh water dish",
+          "Moderate (if recognized)",
+          "Shallow dish changed daily"
+        ],
+        [
+          "Misting vegetables",
+          "High (natural behavior)",
+          "Spray greens before offering"
+        ],
+        [
+          "Drip method",
+          "High (triggers drinking)",
+          "Drip water on snout until licking"
+        ],
+        [
+          "Syringe feeding",
+          "High (during handling)",
+          "Offer water via needleless syringe, not for beginners"
+        ],
+        [
+          "Hydrating foods",
+          "Moderate (supplemental)",
+          "Hornworms, cucumber, cactus pads"
+        ]
       ]
     },
     {
@@ -204,7 +412,7 @@
     },
     {
       "type": "section",
-      "title": "Common Nutritional Errors"
+      "heading": "Common Nutritional Errors"
     },
     {
       "type": "text",
@@ -212,21 +420,57 @@
     },
     {
       "type": "table",
-      "headers": ["Error", "Consequence", "Correction"],
+      "headers": [
+        "Error",
+        "Consequence",
+        "Correction"
+      ],
       "rows": [
-        ["Oversized prey items", "Impaction, spinal injury", "Feeders no wider than eye spacing"],
-        ["Excessive fruit intake", "Obesity, hepatic lipidosis", "Limit fruit to weekly treat only"],
-        ["Monotonous diet (single feeder)", "Nutritional deficiency", "Rotate 3+ feeder species weekly"],
-        ["Daily D3 supplementation", "Hypervitaminosis D3 toxicity", "D3 supplementation 1-2x weekly max"],
-        ["Adult fed juvenile diet", "Obesity, metabolic disease", "Reduce insects, increase vegetables"],
-        ["Pesticide-exposed wild insects", "Chemical poisoning", "Only wild-catch from verified safe areas"],
-        ["Old/nutritionally depleted feeders", "Poor nutritional value", "Gut-load 24-48hrs before feeding"],
-        ["Leaving uneaten insects in enclosure", "Stress, physical injury from bites", "Remove uneaten insects after 15-20 min"]
+        [
+          "Oversized prey items",
+          "Impaction, spinal injury",
+          "Feeders no wider than eye spacing"
+        ],
+        [
+          "Excessive fruit intake",
+          "Obesity, hepatic lipidosis",
+          "Limit fruit to weekly treat only"
+        ],
+        [
+          "Monotonous diet (single feeder)",
+          "Nutritional deficiency",
+          "Rotate 3+ feeder species weekly"
+        ],
+        [
+          "Daily D3 supplementation",
+          "Hypervitaminosis D3 toxicity",
+          "D3 supplementation 1-2x weekly max"
+        ],
+        [
+          "Adult fed juvenile diet",
+          "Obesity, metabolic disease",
+          "Reduce insects, increase vegetables"
+        ],
+        [
+          "Pesticide-exposed wild insects",
+          "Chemical poisoning",
+          "Only wild-catch from verified safe areas"
+        ],
+        [
+          "Old/nutritionally depleted feeders",
+          "Poor nutritional value",
+          "Gut-load 24-48hrs before feeding"
+        ],
+        [
+          "Leaving uneaten insects in enclosure",
+          "Stress, physical injury from bites",
+          "Remove uneaten insects after 15-20 min"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Health Assessment Criteria"
+      "heading": "Health Assessment Criteria"
     },
     {
       "type": "text",
@@ -238,19 +482,47 @@
     },
     {
       "type": "table",
-      "headers": ["Assessment Parameter", "Healthy Presentation", "Deficiency Indicators"],
+      "headers": [
+        "Assessment Parameter",
+        "Healthy Presentation",
+        "Deficiency Indicators"
+      ],
       "rows": [
-        ["Activity level", "Alert, responsive, active daily", "Lethargy, prolonged basking, weakness"],
-        ["Body condition", "Visible fat pads at tail base, ribs not prominent", "Emaciation or obesity (fat pads >1cm)"],
-        ["Skeletal structure", "Straight limbs, no tremors", "Bowed legs, jaw deformities, trembling"],
-        ["Fecal output", "Regular (3-5x weekly), formed, brown with white urate", "Runny, black, bloody, or absent"],
-        ["Integument", "Bright coloration, complete sheds", "Dull color, retained sheds, skin lesions"],
-        ["Growth rate (juveniles)", "Steady increase in size/weight", "Stunted growth, failure to gain weight"]
+        [
+          "Activity level",
+          "Alert, responsive, active daily",
+          "Lethargy, prolonged basking, weakness"
+        ],
+        [
+          "Body condition",
+          "Visible fat pads at tail base, ribs not prominent",
+          "Emaciation or obesity (fat pads >1cm)"
+        ],
+        [
+          "Skeletal structure",
+          "Straight limbs, no tremors",
+          "Bowed legs, jaw deformities, trembling"
+        ],
+        [
+          "Fecal output",
+          "Regular (3-5x weekly), formed, brown with white urate",
+          "Runny, black, bloody, or absent"
+        ],
+        [
+          "Integument",
+          "Bright coloration, complete sheds",
+          "Dull color, retained sheds, skin lesions"
+        ],
+        [
+          "Growth rate (juveniles)",
+          "Steady increase in size/weight",
+          "Stunted growth, failure to gain weight"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Sample Weekly Feeding Schedule (Adult)"
+      "heading": "Sample Weekly Feeding Schedule (Adult)"
     },
     {
       "type": "text",
@@ -262,15 +534,55 @@
     },
     {
       "type": "table",
-      "headers": ["Day", "Vegetables/Greens", "Insects", "Supplements"],
+      "headers": [
+        "Day",
+        "Vegetables/Greens",
+        "Insects",
+        "Supplements"
+      ],
       "rows": [
-        ["Monday", "Collard greens + mustard greens", "Dubia roaches (10-15)", "Calcium (no D3)"],
-        ["Tuesday", "Dandelion greens + arugula + butternut squash", "None", "None"],
-        ["Wednesday", "Turnip greens + bell pepper", "Black soldier fly larvae (15-20)", "Multivitamin (with D3)"],
-        ["Thursday", "Mustard greens + cactus pad + carrot", "None", "None"],
-        ["Friday", "Collard greens + bok choy + squash", "None", "None"],
-        ["Saturday", "Spring mix + dandelion greens", "Crickets (12-15)", "Calcium (no D3)"],
-        ["Sunday", "Turnip greens + bell pepper", "Hornworms (3-4, treat only)", "None"]
+        [
+          "Monday",
+          "Collard greens + mustard greens",
+          "Dubia roaches (10-15)",
+          "Calcium (no D3)"
+        ],
+        [
+          "Tuesday",
+          "Dandelion greens + arugula + butternut squash",
+          "None",
+          "None"
+        ],
+        [
+          "Wednesday",
+          "Turnip greens + bell pepper",
+          "Black soldier fly larvae (15-20)",
+          "Multivitamin (with D3)"
+        ],
+        [
+          "Thursday",
+          "Mustard greens + cactus pad + carrot",
+          "None",
+          "None"
+        ],
+        [
+          "Friday",
+          "Collard greens + bok choy + squash",
+          "None",
+          "None"
+        ],
+        [
+          "Saturday",
+          "Spring mix + dandelion greens",
+          "Crickets (12-15)",
+          "Calcium (no D3)"
+        ],
+        [
+          "Sunday",
+          "Turnip greens + bell pepper",
+          "Hornworms (3-4, treat only)",
+          "None"
+        ]
       ]
     },
     {

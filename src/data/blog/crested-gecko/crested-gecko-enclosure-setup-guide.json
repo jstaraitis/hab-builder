@@ -6,7 +6,13 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
-  "tags": ["crested-gecko", "enclosure", "housing", "arboreal", "terrarium"],
+  "tags": [
+    "crested-gecko",
+    "enclosure",
+    "housing",
+    "arboreal",
+    "terrarium"
+  ],
   "image": "/animals/crested-gecko/crested-gecko-enclosure.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "Enclosure Dimensions by Life Stage"
+      "heading": "Enclosure Dimensions by Life Stage"
     },
     {
       "type": "text",
@@ -29,12 +35,37 @@
     },
     {
       "type": "table",
-      "headers": ["Life Stage", "Weight/Age", "Minimum Dimensions", "Rationale"],
+      "headers": [
+        "Life Stage",
+        "Weight/Age",
+        "Minimum Dimensions",
+        "Rationale"
+      ],
       "rows": [
-        ["Hatchling/Juvenile", "Under 12g or 0-4 months", "8\"L  8\"W  12\"H", "Small grow-out enclosure improves feeding success"],
-        ["Large Juvenile", "12-25g or 4-12 months", "12\"L  12\"W  18\"H", "Transition size before adult housing"],
-        ["Adult", "Over 25g or 12+ months", "18\"L  18\"W  24\"H", "Minimum for proper thermoregulation and exercise"],
-        ["Adult (Preferred)", "12+ months", "18\"L  18\"W  36\"H or larger", "More climbing space improves enrichment and activity"]
+        [
+          "Hatchling/Juvenile",
+          "Under 12g or 0-4 months",
+          "8\"L  8\"W  12\"H",
+          "Small grow-out enclosure improves feeding success"
+        ],
+        [
+          "Large Juvenile",
+          "12-25g or 4-12 months",
+          "12\"L  12\"W  18\"H",
+          "Transition size before adult housing"
+        ],
+        [
+          "Adult",
+          "Over 25g or 12+ months",
+          "18\"L  18\"W  24\"H",
+          "Minimum for proper thermoregulation and exercise"
+        ],
+        [
+          "Adult (Preferred)",
+          "12+ months",
+          "18\"L  18\"W  36\"H or larger",
+          "More climbing space improves enrichment and activity"
+        ]
       ]
     },
     {
@@ -44,7 +75,7 @@
     },
     {
       "type": "section",
-      "title": "Enclosure Material Comparison"
+      "heading": "Enclosure Material Comparison"
     },
     {
       "type": "text",
@@ -56,12 +87,37 @@
     },
     {
       "type": "table",
-      "headers": ["Material", "Humidity Retention", "Ventilation", "Best For"],
+      "headers": [
+        "Material",
+        "Humidity Retention",
+        "Ventilation",
+        "Best For"
+      ],
       "rows": [
-        ["Glass Terrarium (front-opening)", "Excellent (80-90%)", "Moderate with screen top", "Beginners, stable humidity, easy viewing"],
-        ["Screen/Mesh Enclosure", "Poor (40-50%)", "Excessive", "Possible with extra humidity management, but harder for beginners"],
-        ["PVC/Plastic Hybrid", "Excellent (85-95%)", "Adjustable vents", "Advanced keepers, bioactive setups, maximum humidity control"],
-        ["Custom Wood/Glass", "Good (75-85%)", "Variable", "Naturalistic builds, custom dimensions"]
+        [
+          "Glass Terrarium (front-opening)",
+          "Excellent (80-90%)",
+          "Moderate with screen top",
+          "Beginners, stable humidity, easy viewing"
+        ],
+        [
+          "Screen/Mesh Enclosure",
+          "Poor (40-50%)",
+          "Excessive",
+          "Possible with extra humidity management, but harder for beginners"
+        ],
+        [
+          "PVC/Plastic Hybrid",
+          "Excellent (85-95%)",
+          "Adjustable vents",
+          "Advanced keepers, bioactive setups, maximum humidity control"
+        ],
+        [
+          "Custom Wood/Glass",
+          "Good (75-85%)",
+          "Variable",
+          "Naturalistic builds, custom dimensions"
+        ]
       ]
     },
     {
@@ -70,7 +126,7 @@
     },
     {
       "type": "section",
-      "title": "Substrate Selection"
+      "heading": "Substrate Selection"
     },
     {
       "type": "text",
@@ -82,13 +138,37 @@
     },
     {
       "type": "table",
-      "headers": ["Substrate Type", "Humidity Retention", "Best For"],
+      "headers": [
+        "Substrate Type",
+        "Humidity Retention",
+        "Best For"
+      ],
       "rows": [
-        ["DIY Tropical Mix (60% topsoil + 40% coco fiber)", "Excellent", "Budget-friendly, mimics natural forest floor"],
-        ["Lugarti Natural Reptile Bedding", "Excellent", "Ready-to-use tropical blend"],
-        ["Zoo Med Reptisoil", "Good", "Commercial option with added nutrients"],
-        ["The Bio Dude Terra Fauna", "Excellent", "Premium bioactive substrate with microfauna"],
-        ["Leaf Litter (top layer)", "Good", "Natural appearance, foraging enrichment, CUC habitat"]
+        [
+          "DIY Tropical Mix (60% topsoil + 40% coco fiber)",
+          "Excellent",
+          "Budget-friendly, mimics natural forest floor"
+        ],
+        [
+          "Lugarti Natural Reptile Bedding",
+          "Excellent",
+          "Ready-to-use tropical blend"
+        ],
+        [
+          "Zoo Med Reptisoil",
+          "Good",
+          "Commercial option with added nutrients"
+        ],
+        [
+          "The Bio Dude Terra Fauna",
+          "Excellent",
+          "Premium bioactive substrate with microfauna"
+        ],
+        [
+          "Leaf Litter (top layer)",
+          "Good",
+          "Natural appearance, foraging enrichment, CUC habitat"
+        ]
       ]
     },
     {
@@ -98,7 +178,7 @@
     },
     {
       "type": "section",
-      "title": "Climbing Structures & Decor"
+      "heading": "Climbing Structures & Decor"
     },
     {
       "type": "text",
@@ -110,15 +190,47 @@
     },
     {
       "type": "table",
-      "headers": ["Item Type", "Quantity for 18x18x24", "Placement Strategy"],
+      "headers": [
+        "Item Type",
+        "Quantity for 18x18x24",
+        "Placement Strategy"
+      ],
       "rows": [
-        ["Cork bark branches", "2-3 pieces", "Diagonal from bottom to top, intersecting for pathways"],
-        ["Bamboo poles", "2-4 pieces", "Vertical and horizontal, create highway system"],
-        ["Bendable vines", "3-5 vines", "Weave through branches, connect all vertical zones"],
-        ["Live/Artificial Plants", "4-6 plants", "Dense foliage at top (cover) and mid-levels (security)"],
-        ["Magnetic feeding ledge", "1-2 ledges", "Mid to upper level, easily accessible from vines"],
-        ["Arboreal hide", "1-2 hides", "Upper level near basking zone for daytime sleep"],
-        ["Spanish moss", "Handful", "Draped over branches, increases humidity and cover"]
+        [
+          "Cork bark branches",
+          "2-3 pieces",
+          "Diagonal from bottom to top, intersecting for pathways"
+        ],
+        [
+          "Bamboo poles",
+          "2-4 pieces",
+          "Vertical and horizontal, create highway system"
+        ],
+        [
+          "Bendable vines",
+          "3-5 vines",
+          "Weave through branches, connect all vertical zones"
+        ],
+        [
+          "Live/Artificial Plants",
+          "4-6 plants",
+          "Dense foliage at top (cover) and mid-levels (security)"
+        ],
+        [
+          "Magnetic feeding ledge",
+          "1-2 ledges",
+          "Mid to upper level, easily accessible from vines"
+        ],
+        [
+          "Arboreal hide",
+          "1-2 hides",
+          "Upper level near basking zone for daytime sleep"
+        ],
+        [
+          "Spanish moss",
+          "Handful",
+          "Draped over branches, increases humidity and cover"
+        ]
       ]
     },
     {
@@ -127,7 +239,7 @@
     },
     {
       "type": "section",
-      "title": "Setup Timeline"
+      "heading": "Setup Timeline"
     },
     {
       "type": "text",
@@ -135,19 +247,47 @@
     },
     {
       "type": "table",
-      "headers": ["Day", "Task", "Details"],
+      "headers": [
+        "Day",
+        "Task",
+        "Details"
+      ],
       "rows": [
-        ["Day 1", "Equipment assembly", "Install lights, heat lamp, thermometers. Test all equipment without gecko."],
-        ["Day 2", "Hardscape & substrate", "Add substrate (2-4\"), position branches/cork bark, secure with substrate."],
-        ["Day 3", "Plants & vines", "Install live plants (if using), arrange artificial plants, weave vines through hardscape."],
-        ["Day 4-5", "Temperature/humidity testing", "Run setup for 48 hours. Verify basking temp 82-85F, humidity 60-80%."],
-        ["Day 6", "Feeding station setup", "Install magnetic ledges, place feeding cups, add water features if applicable."],
-        ["Day 7", "Introduce gecko", "Place gecko in enclosure during evening hours (their active time). Monitor for 24-48 hours."]
+        [
+          "Day 1",
+          "Equipment assembly",
+          "Install lights, heat lamp, thermometers. Test all equipment without gecko."
+        ],
+        [
+          "Day 2",
+          "Hardscape & substrate",
+          "Add substrate (2-4\"), position branches/cork bark, secure with substrate."
+        ],
+        [
+          "Day 3",
+          "Plants & vines",
+          "Install live plants (if using), arrange artificial plants, weave vines through hardscape."
+        ],
+        [
+          "Day 4-5",
+          "Temperature/humidity testing",
+          "Run setup for 48 hours. Verify basking temp 82-85F, humidity 60-80%."
+        ],
+        [
+          "Day 6",
+          "Feeding station setup",
+          "Install magnetic ledges, place feeding cups, add water features if applicable."
+        ],
+        [
+          "Day 7",
+          "Introduce gecko",
+          "Place gecko in enclosure during evening hours (their active time). Monitor for 24-48 hours."
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Common Setup Mistakes"
+      "heading": "Common Setup Mistakes"
     },
     {
       "type": "text",
@@ -155,19 +295,47 @@
     },
     {
       "type": "table",
-      "headers": ["Mistake", "Problem", "Solution"],
+      "headers": [
+        "Mistake",
+        "Problem",
+        "Solution"
+      ],
       "rows": [
-        ["Using screen/mesh enclosure", "Cannot maintain 60-80% humidity", "Use glass terrarium with screen top only"],
-        ["Sparse decor (empty tank)", "Stress, refusal to eat, hiding constantly", "Add dense foliage, aim for 70%+ coverage"],
-        ["No temperature gradient", "Cannot thermoregulate properly", "Heat lamp at top only, cool zone at bottom"],
-        ["Top-opening enclosure only", "Hand-from-above triggers predator response", "Choose front-opening or add front access"],
-        ["Oversized enclosure for juveniles", "Can't find food, stress from exposure", "Use 5-10 gallon grow-out tank until 12g+"],
-        ["Glass walls only (no background)", "Gecko tries to escape through glass", "Add foam background or dense plants on back wall"]
+        [
+          "Using screen/mesh enclosure",
+          "Cannot maintain 60-80% humidity",
+          "Use glass terrarium with screen top only"
+        ],
+        [
+          "Sparse decor (empty tank)",
+          "Stress, refusal to eat, hiding constantly",
+          "Add dense foliage, aim for 70%+ coverage"
+        ],
+        [
+          "No temperature gradient",
+          "Cannot thermoregulate properly",
+          "Heat lamp at top only, cool zone at bottom"
+        ],
+        [
+          "Top-opening enclosure only",
+          "Hand-from-above triggers predator response",
+          "Choose front-opening or add front access"
+        ],
+        [
+          "Oversized enclosure for juveniles",
+          "Can't find food, stress from exposure",
+          "Use 5-10 gallon grow-out tank until 12g+"
+        ],
+        [
+          "Glass walls only (no background)",
+          "Gecko tries to escape through glass",
+          "Add foam background or dense plants on back wall"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Cohabitation Considerations"
+      "heading": "Cohabitation Considerations"
     },
     {
       "type": "text",
@@ -179,12 +347,37 @@
     },
     {
       "type": "table",
-      "headers": ["Scenario", "Enclosure Size", "Success Rate", "Risk Factors"],
+      "headers": [
+        "Scenario",
+        "Enclosure Size",
+        "Success Rate",
+        "Risk Factors"
+      ],
       "rows": [
-        ["Single gecko (recommended)", "18x18x24\" minimum", "100%", "None, ideal for beginners"],
-        ["Two females", "24x18x36\" minimum", "70% success", "Size difference, competition for basking, food aggression"],
-        ["One male + multiple females", "36x18x36\" minimum", "50% success", "Breeding stress, male aggression, dominance issues"],
-        ["Two males (NEVER)", "Any size", "0% success", "Severe fighting, injuries, tail loss, death"]
+        [
+          "Single gecko (recommended)",
+          "18x18x24\" minimum",
+          "100%",
+          "None, ideal for beginners"
+        ],
+        [
+          "Two females",
+          "24x18x36\" minimum",
+          "70% success",
+          "Size difference, competition for basking, food aggression"
+        ],
+        [
+          "One male + multiple females",
+          "36x18x36\" minimum",
+          "50% success",
+          "Breeding stress, male aggression, dominance issues"
+        ],
+        [
+          "Two males (NEVER)",
+          "Any size",
+          "0% success",
+          "Severe fighting, injuries, tail loss, death"
+        ]
       ]
     },
     {

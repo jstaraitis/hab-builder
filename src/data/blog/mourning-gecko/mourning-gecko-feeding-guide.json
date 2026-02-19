@@ -6,7 +6,13 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-28",
   "category": "Care Guides",
-  "tags": ["mourning gecko", "feeding", "nutrition", "diet", "supplements"],
+  "tags": [
+    "mourning gecko",
+    "feeding",
+    "nutrition",
+    "diet",
+    "supplements"
+  ],
   "image": "/animals/mourning-gecko/mourning-gecko-1.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "Primary Diet: Crested Gecko Diet (CGD)"
+      "heading": "Primary Diet: Crested Gecko Diet (CGD)"
     },
     {
       "type": "text",
@@ -29,13 +35,43 @@
     },
     {
       "type": "table",
-      "headers": ["Brand", "Protein Content", "Flavor Varieties", "Notes"],
+      "headers": [
+        "Brand",
+        "Protein Content",
+        "Flavor Varieties",
+        "Notes"
+      ],
       "rows": [
-        ["Pangea", "18-25% (varies by formula)", "8+ flavors", "Most popular, high quality, insects optional"],
-        ["Repashy", "20-22%", "Multiple formulas", "Powder + water = gel consistency"],
-        ["Black Panther Zoological", "20%+", "3+ varieties", "High protein, good for breeding colonies"],
-        ["Gecko Pro", "18-20%", "Several flavors", "Premium ingredients, pricier"],
-        ["Zoo Med", "15-18%", "3 varieties", "Budget-friendly, widely available"]
+        [
+          "Pangea",
+          "18-25% (varies by formula)",
+          "8+ flavors",
+          "Most popular, high quality, insects optional"
+        ],
+        [
+          "Repashy",
+          "20-22%",
+          "Multiple formulas",
+          "Powder + water = gel consistency"
+        ],
+        [
+          "Black Panther Zoological",
+          "20%+",
+          "3+ varieties",
+          "High protein, good for breeding colonies"
+        ],
+        [
+          "Gecko Pro",
+          "18-20%",
+          "Several flavors",
+          "Premium ingredients, pricier"
+        ],
+        [
+          "Zoo Med",
+          "15-18%",
+          "3 varieties",
+          "Budget-friendly, widely available"
+        ]
       ]
     },
     {
@@ -48,7 +84,7 @@
     },
     {
       "type": "section",
-      "title": "Feeding Schedule"
+      "heading": "Feeding Schedule"
     },
     {
       "type": "text",
@@ -60,15 +96,55 @@
     },
     {
       "type": "table",
-      "headers": ["Day", "Food Type", "Quantity", "Notes"],
+      "headers": [
+        "Day",
+        "Food Type",
+        "Quantity",
+        "Notes"
+      ],
       "rows": [
-        ["Monday", "Fresh CGD", "Fill feeding ledges/cups", "Replace old CGD from weekend"],
-        ["Tuesday", "CGD (same batch)", "Check levels, refill if needed", "CGD lasts 24-48 hours"],
-        ["Wednesday", "Fresh CGD + Insects", "New CGD + 2-3 insects per gecko", "Dust insects with calcium"],
-        ["Thursday", "CGD (same batch)", "Monitor consumption", "CGD still good for 48h"],
-        ["Friday", "Fresh CGD", "Replace with new batch", "Discard Thursday batch"],
-        ["Saturday", "CGD (same batch)", "Check levels", "Weekend feeding"],
-        ["Sunday", "Fresh CGD + Insects (optional)", "New CGD + insects if desired", "2nd insect feeding optional"]
+        [
+          "Monday",
+          "Fresh CGD",
+          "Fill feeding ledges/cups",
+          "Replace old CGD from weekend"
+        ],
+        [
+          "Tuesday",
+          "CGD (same batch)",
+          "Check levels, refill if needed",
+          "CGD lasts 24-48 hours"
+        ],
+        [
+          "Wednesday",
+          "Fresh CGD + Insects",
+          "New CGD + 2-3 insects per gecko",
+          "Dust insects with calcium"
+        ],
+        [
+          "Thursday",
+          "CGD (same batch)",
+          "Monitor consumption",
+          "CGD still good for 48h"
+        ],
+        [
+          "Friday",
+          "Fresh CGD",
+          "Replace with new batch",
+          "Discard Thursday batch"
+        ],
+        [
+          "Saturday",
+          "CGD (same batch)",
+          "Check levels",
+          "Weekend feeding"
+        ],
+        [
+          "Sunday",
+          "Fresh CGD + Insects (optional)",
+          "New CGD + insects if desired",
+          "2nd insect feeding optional"
+        ]
       ]
     },
     {
@@ -82,7 +158,7 @@
     },
     {
       "type": "section",
-      "title": "Feeder Insects"
+      "heading": "Feeder Insects"
     },
     {
       "type": "text",
@@ -94,14 +170,49 @@
     },
     {
       "type": "table",
-      "headers": ["Insect Type", "Size Range", "Frequency", "Notes"],
+      "headers": [
+        "Insect Type",
+        "Size Range",
+        "Frequency",
+        "Notes"
+      ],
       "rows": [
-        ["Fruit flies (D. melanogaster)", "1-2mm (flightless)", "2-3x weekly", "BEST for tiny geckos, easy hunting"],
-        ["Pinhead crickets", "1-2mm", "1-2x weekly", "Good protein, ensure proper size"],
-        ["Small crickets (1/8\")", "3-4mm", "1x weekly", "For adult geckos only"],
-        ["Baby dubia roaches", "1/4\" or smaller", "1x weekly", "High protein, slower moving"],
-        ["Springtails (wild)", "1mm", "Continuous in bioactive", "Natural prey in enclosure"],
-        ["Very small mealworms", "Under 1/4\"", "Occasional treat only", "High fat, use sparingly"]
+        [
+          "Fruit flies (D. melanogaster)",
+          "1-2mm (flightless)",
+          "2-3x weekly",
+          "BEST for tiny geckos, easy hunting"
+        ],
+        [
+          "Pinhead crickets",
+          "1-2mm",
+          "1-2x weekly",
+          "Good protein, ensure proper size"
+        ],
+        [
+          "Small crickets (1/8\")",
+          "3-4mm",
+          "1x weekly",
+          "For adult geckos only"
+        ],
+        [
+          "Baby dubia roaches",
+          "1/4\" or smaller",
+          "1x weekly",
+          "High protein, slower moving"
+        ],
+        [
+          "Springtails (wild)",
+          "1mm",
+          "Continuous in bioactive",
+          "Natural prey in enclosure"
+        ],
+        [
+          "Very small mealworms",
+          "Under 1/4\"",
+          "Occasional treat only",
+          "High fat, use sparingly"
+        ]
       ]
     },
     {
@@ -115,7 +226,7 @@
     },
     {
       "type": "section",
-      "title": "Insect Supplementation"
+      "heading": "Insect Supplementation"
     },
     {
       "type": "text",
@@ -127,11 +238,31 @@
     },
     {
       "type": "table",
-      "headers": ["Supplement Type", "Recommended Products", "Frequency", "Purpose"],
+      "headers": [
+        "Supplement Type",
+        "Recommended Products",
+        "Frequency",
+        "Purpose"
+      ],
       "rows": [
-        ["Calcium WITHOUT D3", "Arcadia CalciumPro Mg, MinerAll Outdoor, Repashy SuperCal NoD", "Every insect feeding", "Balances insect Ca:P ratio"],
-        ["Calcium WITH D3", "NOT needed if using UVB", "Skip if UVB present", "Only if no UVB lighting"],
-        ["Multivitamin", "NOT needed with CGD", "Skip entirely", "CGD already fortified"]
+        [
+          "Calcium WITHOUT D3",
+          "Arcadia CalciumPro Mg, MinerAll Outdoor, Repashy SuperCal NoD",
+          "Every insect feeding",
+          "Balances insect Ca:P ratio"
+        ],
+        [
+          "Calcium WITH D3",
+          "NOT needed if using UVB",
+          "Skip if UVB present",
+          "Only if no UVB lighting"
+        ],
+        [
+          "Multivitamin",
+          "NOT needed with CGD",
+          "Skip entirely",
+          "CGD already fortified"
+        ]
       ]
     },
     {
@@ -144,7 +275,7 @@
     },
     {
       "type": "section",
-      "title": "Feeding Methods"
+      "heading": "Feeding Methods"
     },
     {
       "type": "text",
@@ -156,12 +287,37 @@
     },
     {
       "type": "table",
-      "headers": ["Method", "Best For", "Pros", "Cons"],
+      "headers": [
+        "Method",
+        "Best For",
+        "Pros",
+        "Cons"
+      ],
       "rows": [
-        ["Magnetic feeding ledges", "CGD primary feeding", "Elevated (prevents substrate contamination), multiple stations possible", "Must purchase separately"],
-        ["Small gecko feeding cups", "CGD + insect containment", "Reusable, easy to clean, prevents food waste", "Need multiple for colonies"],
-        ["Direct pour (insects)", "Fruit flies, springtails", "Allows natural hunting behavior", "Harder to control quantity"],
-        ["Cork bark ledges", "Natural CGD placement", "Aesthetic, multi-level feeding", "Harder to clean, CGD drips"]
+        [
+          "Magnetic feeding ledges",
+          "CGD primary feeding",
+          "Elevated (prevents substrate contamination), multiple stations possible",
+          "Must purchase separately"
+        ],
+        [
+          "Small gecko feeding cups",
+          "CGD + insect containment",
+          "Reusable, easy to clean, prevents food waste",
+          "Need multiple for colonies"
+        ],
+        [
+          "Direct pour (insects)",
+          "Fruit flies, springtails",
+          "Allows natural hunting behavior",
+          "Harder to control quantity"
+        ],
+        [
+          "Cork bark ledges",
+          "Natural CGD placement",
+          "Aesthetic, multi-level feeding",
+          "Harder to clean, CGD drips"
+        ]
       ]
     },
     {
@@ -170,7 +326,7 @@
     },
     {
       "type": "section",
-      "title": "Breeding Colony Nutrition"
+      "heading": "Breeding Colony Nutrition"
     },
     {
       "type": "text",
@@ -182,13 +338,37 @@
     },
     {
       "type": "table",
-      "headers": ["Nutritional Need", "Standard Protocol", "Breeding Enhancement"],
+      "headers": [
+        "Nutritional Need",
+        "Standard Protocol",
+        "Breeding Enhancement"
+      ],
       "rows": [
-        ["CGD availability", "Replace every 24-48h", "Ensure continuous availability - never empty"],
-        ["Insect frequency", "1-2x weekly", "Increase to 2-3x weekly during laying season"],
-        ["Calcium supplementation", "Dust insects", "Ensure every insect feeding is dusted"],
-        ["UVB exposure", "Recommended", "ESSENTIAL - aids calcium absorption for egg development"],
-        ["Protein-rich CGD", "Any quality brand", "Use high-protein formulas (20%+ protein)"]
+        [
+          "CGD availability",
+          "Replace every 24-48h",
+          "Ensure continuous availability - never empty"
+        ],
+        [
+          "Insect frequency",
+          "1-2x weekly",
+          "Increase to 2-3x weekly during laying season"
+        ],
+        [
+          "Calcium supplementation",
+          "Dust insects",
+          "Ensure every insect feeding is dusted"
+        ],
+        [
+          "UVB exposure",
+          "Recommended",
+          "ESSENTIAL - aids calcium absorption for egg development"
+        ],
+        [
+          "Protein-rich CGD",
+          "Any quality brand",
+          "Use high-protein formulas (20%+ protein)"
+        ]
       ]
     },
     {
@@ -198,7 +378,7 @@
     },
     {
       "type": "section",
-      "title": "Water & Hydration"
+      "heading": "Water & Hydration"
     },
     {
       "type": "text",
@@ -210,12 +390,32 @@
     },
     {
       "type": "table",
-      "headers": ["Source", "Delivery Method", "Frequency"],
+      "headers": [
+        "Source",
+        "Delivery Method",
+        "Frequency"
+      ],
       "rows": [
-        ["Misting (primary)", "Pump-style sprayer, 2x daily", "Morning + evening - coat foliage heavily"],
-        ["CGD moisture content", "Water mixed into powder", "Every time CGD is provided"],
-        ["Water dish", "NOT USED - drowning risk", "Do not provide standing water"],
-        ["Humid substrate", "Supplemental moisture", "Maintain 60-80% humidity"]
+        [
+          "Misting (primary)",
+          "Pump-style sprayer, 2x daily",
+          "Morning + evening - coat foliage heavily"
+        ],
+        [
+          "CGD moisture content",
+          "Water mixed into powder",
+          "Every time CGD is provided"
+        ],
+        [
+          "Water dish",
+          "NOT USED - drowning risk",
+          "Do not provide standing water"
+        ],
+        [
+          "Humid substrate",
+          "Supplemental moisture",
+          "Maintain 60-80% humidity"
+        ]
       ]
     },
     {
@@ -224,7 +424,7 @@
     },
     {
       "type": "section",
-      "title": "Monitoring Food Consumption"
+      "heading": "Monitoring Food Consumption"
     },
     {
       "type": "text",
@@ -236,18 +436,42 @@
     },
     {
       "type": "table",
-      "headers": ["Observation", "What It Means", "Action"],
+      "headers": [
+        "Observation",
+        "What It Means",
+        "Action"
+      ],
       "rows": [
-        ["CGD completely empty within 24h", "Colony is eating well, may need more food", "Increase CGD amount or add extra feeding station"],
-        ["CGD barely touched after 48h", "Too much food, not hungry, or illness", "Reduce portion size, monitor geckos for health issues"],
-        ["Some geckos visibly thin", "Dominant geckos monopolizing food", "Add more feeding stations at different heights"],
-        ["Insects ignored", "Not hungry or insects too large", "Reduce CGD slightly or ensure insects are tiny"],
-        ["Mold on CGD before 48h", "Enclosure too humid or CGD expired", "Replace CGD more frequently (24h max), check humidity"]
+        [
+          "CGD completely empty within 24h",
+          "Colony is eating well, may need more food",
+          "Increase CGD amount or add extra feeding station"
+        ],
+        [
+          "CGD barely touched after 48h",
+          "Too much food, not hungry, or illness",
+          "Reduce portion size, monitor geckos for health issues"
+        ],
+        [
+          "Some geckos visibly thin",
+          "Dominant geckos monopolizing food",
+          "Add more feeding stations at different heights"
+        ],
+        [
+          "Insects ignored",
+          "Not hungry or insects too large",
+          "Reduce CGD slightly or ensure insects are tiny"
+        ],
+        [
+          "Mold on CGD before 48h",
+          "Enclosure too humid or CGD expired",
+          "Replace CGD more frequently (24h max), check humidity"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Foods to Avoid"
+      "heading": "Foods to Avoid"
     },
     {
       "type": "text",
@@ -259,15 +483,39 @@
     },
     {
       "type": "table",
-      "headers": ["Food", "Why Avoid"],
+      "headers": [
+        "Food",
+        "Why Avoid"
+      ],
       "rows": [
-        ["Baby food (human)", "Nutritionally inadequate, lacks calcium, high sugar"],
-        ["Fruit jelly cups", "Empty calories, high sugar, no protein or calcium"],
-        ["Adult crickets (over 1/4\")", "Choking/impaction risk, too large for tiny geckos"],
-        ["Superworms", "Far too large, aggressive, can bite geckos"],
-        ["Waxworms", "Extremely high fat, addictive, nutritionally poor"],
-        ["Wild-caught insects", "Pesticide exposure risk, parasite transmission"],
-        ["Honey or pure fruit", "Sticky, high sugar, no nutritional value"]
+        [
+          "Baby food (human)",
+          "Nutritionally inadequate, lacks calcium, high sugar"
+        ],
+        [
+          "Fruit jelly cups",
+          "Empty calories, high sugar, no protein or calcium"
+        ],
+        [
+          "Adult crickets (over 1/4\")",
+          "Choking/impaction risk, too large for tiny geckos"
+        ],
+        [
+          "Superworms",
+          "Far too large, aggressive, can bite geckos"
+        ],
+        [
+          "Waxworms",
+          "Extremely high fat, addictive, nutritionally poor"
+        ],
+        [
+          "Wild-caught insects",
+          "Pesticide exposure risk, parasite transmission"
+        ],
+        [
+          "Honey or pure fruit",
+          "Sticky, high sugar, no nutritional value"
+        ]
       ]
     },
     {
@@ -277,7 +525,7 @@
     },
     {
       "type": "section",
-      "title": "Body Condition Assessment"
+      "heading": "Body Condition Assessment"
     },
     {
       "type": "text",
@@ -289,11 +537,27 @@
     },
     {
       "type": "table",
-      "headers": ["Body Condition", "Visual Signs", "Feeding Adjustment"],
+      "headers": [
+        "Body Condition",
+        "Visual Signs",
+        "Feeding Adjustment"
+      ],
       "rows": [
-        ["Underweight", "Visible ribs, thin tail base, prominent hip bones", "Increase CGD amount, add 3rd insect feeding weekly, check for bullying"],
-        ["Ideal", "Tail base thick, body rounded, ribs not visible, active", "Maintain current feeding schedule"],
-        ["Overweight", "Excessive tail fat, swollen body, reduced activity", "Reduce CGD portions slightly, maintain insects, increase enclosure enrichment"]
+        [
+          "Underweight",
+          "Visible ribs, thin tail base, prominent hip bones",
+          "Increase CGD amount, add 3rd insect feeding weekly, check for bullying"
+        ],
+        [
+          "Ideal",
+          "Tail base thick, body rounded, ribs not visible, active",
+          "Maintain current feeding schedule"
+        ],
+        [
+          "Overweight",
+          "Excessive tail fat, swollen body, reduced activity",
+          "Reduce CGD portions slightly, maintain insects, increase enclosure enrichment"
+        ]
       ]
     },
     {
@@ -302,7 +566,7 @@
     },
     {
       "type": "section",
-      "title": "Common Feeding Mistakes"
+      "heading": "Common Feeding Mistakes"
     },
     {
       "type": "text",
@@ -310,15 +574,47 @@
     },
     {
       "type": "table",
-      "headers": ["Mistake", "Problem", "Solution"],
+      "headers": [
+        "Mistake",
+        "Problem",
+        "Solution"
+      ],
       "rows": [
-        ["Only one feeding station for colony", "Dominant geckos monopolize food", "Provide 2-3 stations at different heights"],
-        ["Leaving CGD longer than 48h", "Mold growth, bacterial contamination", "Replace every 24-48 hours maximum"],
-        ["Oversized insects", "Choking, impaction, stress", "Use only fruit flies, pinheads, or baby insects"],
-        ["No calcium dusting", "Metabolic bone disease, poor egg quality", "Dust ALL insects with plain calcium powder"],
-        ["Providing water dish", "Drowning risk", "Remove dish - mist for hydration instead"],
-        ["Using baby food instead of CGD", "Nutritional deficiencies, MBD, illness", "Switch to proper commercial CGD"],
-        ["Not monitoring consumption", "Missing illness/bullying/competition", "Check feeding stations daily, observe all geckos"]
+        [
+          "Only one feeding station for colony",
+          "Dominant geckos monopolize food",
+          "Provide 2-3 stations at different heights"
+        ],
+        [
+          "Leaving CGD longer than 48h",
+          "Mold growth, bacterial contamination",
+          "Replace every 24-48 hours maximum"
+        ],
+        [
+          "Oversized insects",
+          "Choking, impaction, stress",
+          "Use only fruit flies, pinheads, or baby insects"
+        ],
+        [
+          "No calcium dusting",
+          "Metabolic bone disease, poor egg quality",
+          "Dust ALL insects with plain calcium powder"
+        ],
+        [
+          "Providing water dish",
+          "Drowning risk",
+          "Remove dish - mist for hydration instead"
+        ],
+        [
+          "Using baby food instead of CGD",
+          "Nutritional deficiencies, MBD, illness",
+          "Switch to proper commercial CGD"
+        ],
+        [
+          "Not monitoring consumption",
+          "Missing illness/bullying/competition",
+          "Check feeding stations daily, observe all geckos"
+        ]
       ]
     }
   ]

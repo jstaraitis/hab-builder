@@ -6,7 +6,13 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-28",
   "category": "Care Guides",
-  "tags": ["mourning gecko", "enrichment", "welfare", "behavior", "social"],
+  "tags": [
+    "mourning gecko",
+    "enrichment",
+    "welfare",
+    "behavior",
+    "social"
+  ],
   "image": "/animals/mourning-gecko/mourning-gecko-1.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "Vertical Climbing Enrichment"
+      "heading": "Vertical Climbing Enrichment"
     },
     {
       "type": "text",
@@ -29,14 +35,49 @@
     },
     {
       "type": "table",
-      "headers": ["Feature Type", "Quantity (12°12°18)", "Purpose", "Placement"],
+      "headers": [
+        "Feature Type",
+        "Quantity (12°12°18)",
+        "Purpose",
+        "Placement"
+      ],
       "rows": [
-        ["Diagonal branches (3-6mm diameter)", "4-6 pieces", "Primary climbing highways between levels", "Zigzag from bottom to top at various angles"],
-        ["Horizontal perches (near-vertical)", "3-4 pieces", "Resting spots, basking surfaces", "Top third near heat source, various heights"],
-        ["Bendable vines (artificial/natural)", "3-5 strands", "Create climbing pathways, connect zones", "Weave throughout all levels"],
-        ["Cork bark (flat or rounds)", "2-3 pieces", "Vertical climbing surfaces, hides", "Lean against walls at 45-70° angles"],
-        ["Live/artificial plants", "4-6 plants", "Leaf surface coverage, security", "Distributed at top, middle, bottom"],
-        ["Bamboo sections (optional)", "1-2 pieces", "Novel texture, hollow hides", "Mid-level, angled or vertical"]
+        [
+          "Diagonal branches (3-6mm diameter)",
+          "4-6 pieces",
+          "Primary climbing highways between levels",
+          "Zigzag from bottom to top at various angles"
+        ],
+        [
+          "Horizontal perches (near-vertical)",
+          "3-4 pieces",
+          "Resting spots, basking surfaces",
+          "Top third near heat source, various heights"
+        ],
+        [
+          "Bendable vines (artificial/natural)",
+          "3-5 strands",
+          "Create climbing pathways, connect zones",
+          "Weave throughout all levels"
+        ],
+        [
+          "Cork bark (flat or rounds)",
+          "2-3 pieces",
+          "Vertical climbing surfaces, hides",
+          "Lean against walls at 45-70° angles"
+        ],
+        [
+          "Live/artificial plants",
+          "4-6 plants",
+          "Leaf surface coverage, security",
+          "Distributed at top, middle, bottom"
+        ],
+        [
+          "Bamboo sections (optional)",
+          "1-2 pieces",
+          "Novel texture, hollow hides",
+          "Mid-level, angled or vertical"
+        ]
       ]
     },
     {
@@ -49,7 +90,7 @@
     },
     {
       "type": "section",
-      "title": "Foliage & Cover Enrichment"
+      "heading": "Foliage & Cover Enrichment"
     },
     {
       "type": "text",
@@ -61,14 +102,42 @@
     },
     {
       "type": "table",
-      "headers": ["Plant Type", "Coverage Level", "Enrichment Benefit"],
+      "headers": [
+        "Plant Type",
+        "Coverage Level",
+        "Enrichment Benefit"
+      ],
       "rows": [
-        ["Pothos (Epipremnum aureum)", "All levels - trailing vines", "Climbing surfaces, broad leaves for droplet drinking, hiding spots"],
-        ["Ferns (various species)", "Lower to mid levels", "Dense coverage, moisture retention, naturalistic appearance"],
-        ["Bromeliads (small varieties)", "Mid to upper levels", "Water-holding cups (extra hydration), interesting textures"],
-        ["Creeping fig (Ficus pumila)", "Background coverage", "Creates vertical green wall, dense hiding network"],
-        ["Snake plant (small Sansevieria)", "Ground level", "Structural interest, low-maintenance, hardy"],
-        ["Artificial vines with leaves", "All levels", "Easy maintenance, no plant care needed, immediate coverage"]
+        [
+          "Pothos (Epipremnum aureum)",
+          "All levels - trailing vines",
+          "Climbing surfaces, broad leaves for droplet drinking, hiding spots"
+        ],
+        [
+          "Ferns (various species)",
+          "Lower to mid levels",
+          "Dense coverage, moisture retention, naturalistic appearance"
+        ],
+        [
+          "Bromeliads (small varieties)",
+          "Mid to upper levels",
+          "Water-holding cups (extra hydration), interesting textures"
+        ],
+        [
+          "Creeping fig (Ficus pumila)",
+          "Background coverage",
+          "Creates vertical green wall, dense hiding network"
+        ],
+        [
+          "Snake plant (small Sansevieria)",
+          "Ground level",
+          "Structural interest, low-maintenance, hardy"
+        ],
+        [
+          "Artificial vines with leaves",
+          "All levels",
+          "Easy maintenance, no plant care needed, immediate coverage"
+        ]
       ]
     },
     {
@@ -82,7 +151,7 @@
     },
     {
       "type": "section",
-      "title": "Substrate & Ground Level Enrichment"
+      "heading": "Substrate & Ground Level Enrichment"
     },
     {
       "type": "text",
@@ -94,13 +163,37 @@
     },
     {
       "type": "table",
-      "headers": ["Element", "Purpose", "Enrichment Value"],
+      "headers": [
+        "Element",
+        "Purpose",
+        "Enrichment Value"
+      ],
       "rows": [
-        ["Leaf litter (1-2 inch layer)", "Foraging opportunities, cleanup crew habitat, naturalistic appearance", "HIGH - geckos explore leaves hunting springtails"],
-        ["Cork bark pieces (scattered)", "Ground-level hides, climbing launch points", "MEDIUM - provides security, dimensional complexity"],
-        ["Moss patches (live/artificial)", "Moisture microhabitats, soft resting spots", "MEDIUM - textural variety, humidity gradients"],
-        ["Small river rocks (scattered)", "Visual interest, thermal mass for humidity", "LOW - aesthetic, minimal behavioral impact"],
-        ["Cleanup crew (isopods/springtails)", "Bioactive enrichment - living prey items", "HIGH - natural hunting, ecosystem simulation"]
+        [
+          "Leaf litter (1-2 inch layer)",
+          "Foraging opportunities, cleanup crew habitat, naturalistic appearance",
+          "HIGH - geckos explore leaves hunting springtails"
+        ],
+        [
+          "Cork bark pieces (scattered)",
+          "Ground-level hides, climbing launch points",
+          "MEDIUM - provides security, dimensional complexity"
+        ],
+        [
+          "Moss patches (live/artificial)",
+          "Moisture microhabitats, soft resting spots",
+          "MEDIUM - textural variety, humidity gradients"
+        ],
+        [
+          "Small river rocks (scattered)",
+          "Visual interest, thermal mass for humidity",
+          "LOW - aesthetic, minimal behavioral impact"
+        ],
+        [
+          "Cleanup crew (isopods/springtails)",
+          "Bioactive enrichment - living prey items",
+          "HIGH - natural hunting, ecosystem simulation"
+        ]
       ]
     },
     {
@@ -109,7 +202,7 @@
     },
     {
       "type": "section",
-      "title": "Feeding Enrichment Strategies"
+      "heading": "Feeding Enrichment Strategies"
     },
     {
       "type": "text",
@@ -121,14 +214,49 @@
     },
     {
       "type": "table",
-      "headers": ["Method", "Frequency", "Enrichment Benefit", "Best For"],
+      "headers": [
+        "Method",
+        "Frequency",
+        "Enrichment Benefit",
+        "Best For"
+      ],
       "rows": [
-        ["Magnetic feeding ledges (2-3 stations)", "Daily CGD", "Reduces competition, allows territory establishment", "Staple feeding - prevents dominant monopolization"],
-        ["Cup feeding (rotating locations)", "2-3x weekly", "Exploration - geckos search for food location", "CGD variety - promotes enclosure exploration"],
-        ["Free-roaming fruit flies", "2x weekly", "Natural hunting behavior, active chasing", "Live insect feeding - mental/physical stimulation"],
-        ["Cup-contained insects", "1x weekly", "Controlled feeding, prevents escapees", "Crickets/roaches - easier cleanup"],
-        ["Tong feeding (careful!)", "Occasional treat", "Interaction enrichment, precision feeding", "Breeding females needing extra nutrition"],
-        ["Bioactive prey (springtails/isopods)", "Continuous", "24/7 natural foraging opportunities", "Ongoing low-level hunting enrichment"]
+        [
+          "Magnetic feeding ledges (2-3 stations)",
+          "Daily CGD",
+          "Reduces competition, allows territory establishment",
+          "Staple feeding - prevents dominant monopolization"
+        ],
+        [
+          "Cup feeding (rotating locations)",
+          "2-3x weekly",
+          "Exploration - geckos search for food location",
+          "CGD variety - promotes enclosure exploration"
+        ],
+        [
+          "Free-roaming fruit flies",
+          "2x weekly",
+          "Natural hunting behavior, active chasing",
+          "Live insect feeding - mental/physical stimulation"
+        ],
+        [
+          "Cup-contained insects",
+          "1x weekly",
+          "Controlled feeding, prevents escapees",
+          "Crickets/roaches - easier cleanup"
+        ],
+        [
+          "Tong feeding (careful!)",
+          "Occasional treat",
+          "Interaction enrichment, precision feeding",
+          "Breeding females needing extra nutrition"
+        ],
+        [
+          "Bioactive prey (springtails/isopods)",
+          "Continuous",
+          "24/7 natural foraging opportunities",
+          "Ongoing low-level hunting enrichment"
+        ]
       ]
     },
     {
@@ -142,7 +270,7 @@
     },
     {
       "type": "section",
-      "title": "Social Enrichment & Colony Dynamics"
+      "heading": "Social Enrichment & Colony Dynamics"
     },
     {
       "type": "text",
@@ -154,16 +282,52 @@
     },
     {
       "type": "table",
-      "headers": ["Behavior", "What It Indicates", "Status"],
+      "headers": [
+        "Behavior",
+        "What It Indicates",
+        "Status"
+      ],
       "rows": [
-        ["Geckos basking together (touching or near)", "Social bonding, shared thermoregulation", "NORMAL - healthy social behavior"],
-        ["Multiple geckos on same branch (not touching)", "Peaceful coexistence, established hierarchy", "NORMAL - stable colony"],
-        ["Occasional tail waving at each other", "Communication, mild territorial display", "NORMAL - establishing personal space"],
-        ["Geckos sleeping in different zones", "Individual preferences respected", "NORMAL - healthy space distribution"],
-        ["Synchronized activity (all become active together)", "Social cuing, colony cohesion", "NORMAL - strong social bonds"],
-        ["One gecko consistently alone, away from group", "Possible bullying, illness, or just independent", "MONITOR - may be normal or concerning"],
-        ["Chasing/biting (aggression)", "Resource competition, overcrowding", "ABNORMAL - requires intervention"],
-        ["Constant avoidance (fleeing from others)", "Fear, bullying, stress", "ABNORMAL - reassess colony composition"]
+        [
+          "Geckos basking together (touching or near)",
+          "Social bonding, shared thermoregulation",
+          "NORMAL - healthy social behavior"
+        ],
+        [
+          "Multiple geckos on same branch (not touching)",
+          "Peaceful coexistence, established hierarchy",
+          "NORMAL - stable colony"
+        ],
+        [
+          "Occasional tail waving at each other",
+          "Communication, mild territorial display",
+          "NORMAL - establishing personal space"
+        ],
+        [
+          "Geckos sleeping in different zones",
+          "Individual preferences respected",
+          "NORMAL - healthy space distribution"
+        ],
+        [
+          "Synchronized activity (all become active together)",
+          "Social cuing, colony cohesion",
+          "NORMAL - strong social bonds"
+        ],
+        [
+          "One gecko consistently alone, away from group",
+          "Possible bullying, illness, or just independent",
+          "MONITOR - may be normal or concerning"
+        ],
+        [
+          "Chasing/biting (aggression)",
+          "Resource competition, overcrowding",
+          "ABNORMAL - requires intervention"
+        ],
+        [
+          "Constant avoidance (fleeing from others)",
+          "Fear, bullying, stress",
+          "ABNORMAL - reassess colony composition"
+        ]
       ]
     },
     {
@@ -172,7 +336,7 @@
     },
     {
       "type": "section",
-      "title": "Environmental Complexity & Novelty"
+      "heading": "Environmental Complexity & Novelty"
     },
     {
       "type": "text",
@@ -184,14 +348,49 @@
     },
     {
       "type": "table",
-      "headers": ["Change Type", "Frequency", "Implementation", "Stress Level"],
+      "headers": [
+        "Change Type",
+        "Frequency",
+        "Implementation",
+        "Stress Level"
+      ],
       "rows": [
-        ["Feeding station relocation", "Every 3-4 days", "Move magnetic ledges to different positions", "MINIMAL - quick adaptation"],
-        ["Add new branch/vine", "Every 4-6 weeks", "Introduce one new climbing element", "LOW - curious exploration"],
-        ["Rearrange existing d°cor", "Every 2-3 months", "Move 2-3 items to new positions (not entire setup)", "MODERATE - brief disorientation"],
-        ["Replace worn foliage", "Every 2-4 months", "Swap out damaged artificial plants or trim live plants", "MINIMAL - gradual change"],
-        ["Substrate refresh (top layer)", "Every 1-2 months", "Add new leaf litter, freshen top inch", "LOW - familiar base remains"],
-        ["Complete enclosure overhaul", "AVOID", "Never do total redesign - too stressful", "SEVERE - destroys territories"]
+        [
+          "Feeding station relocation",
+          "Every 3-4 days",
+          "Move magnetic ledges to different positions",
+          "MINIMAL - quick adaptation"
+        ],
+        [
+          "Add new branch/vine",
+          "Every 4-6 weeks",
+          "Introduce one new climbing element",
+          "LOW - curious exploration"
+        ],
+        [
+          "Rearrange existing d°cor",
+          "Every 2-3 months",
+          "Move 2-3 items to new positions (not entire setup)",
+          "MODERATE - brief disorientation"
+        ],
+        [
+          "Replace worn foliage",
+          "Every 2-4 months",
+          "Swap out damaged artificial plants or trim live plants",
+          "MINIMAL - gradual change"
+        ],
+        [
+          "Substrate refresh (top layer)",
+          "Every 1-2 months",
+          "Add new leaf litter, freshen top inch",
+          "LOW - familiar base remains"
+        ],
+        [
+          "Complete enclosure overhaul",
+          "AVOID",
+          "Never do total redesign - too stressful",
+          "SEVERE - destroys territories"
+        ]
       ]
     },
     {
@@ -200,7 +399,7 @@
     },
     {
       "type": "section",
-      "title": "Thermal & Humidity Gradients as Enrichment"
+      "heading": "Thermal & Humidity Gradients as Enrichment"
     },
     {
       "type": "text",
@@ -212,13 +411,37 @@
     },
     {
       "type": "table",
-      "headers": ["Zone Type", "Location", "Gecko Choice Benefit"],
+      "headers": [
+        "Zone Type",
+        "Location",
+        "Gecko Choice Benefit"
+      ],
       "rows": [
-        ["Warm-dry basking (80-85°F, 60% humidity)", "Top corner under heat lamp", "Active warming, digestion boost, breeding motivation"],
-        ["Warm-humid canopy (78-80°F, 70% humidity)", "Top opposite corner with dense foliage", "Warm without extreme dryness, shedding support"],
-        ["Mid-level moderate (75-78°F, 65-70% humidity)", "Middle branches/vines", "Activity zone - hunting, exploring, socializing"],
-        ["Cool-humid retreat (70-75°F, 75-80% humidity)", "Lower third near substrate", "Thermoregulation downshift, high-humidity refuge"],
-        ["Ground-level moisture (70-72°F, 80% humidity)", "Substrate surface in corners", "Maximum moisture if dehydrated, rarely used"]
+        [
+          "Warm-dry basking (80-85°F, 60% humidity)",
+          "Top corner under heat lamp",
+          "Active warming, digestion boost, breeding motivation"
+        ],
+        [
+          "Warm-humid canopy (78-80°F, 70% humidity)",
+          "Top opposite corner with dense foliage",
+          "Warm without extreme dryness, shedding support"
+        ],
+        [
+          "Mid-level moderate (75-78°F, 65-70% humidity)",
+          "Middle branches/vines",
+          "Activity zone - hunting, exploring, socializing"
+        ],
+        [
+          "Cool-humid retreat (70-75°F, 75-80% humidity)",
+          "Lower third near substrate",
+          "Thermoregulation downshift, high-humidity refuge"
+        ],
+        [
+          "Ground-level moisture (70-72°F, 80% humidity)",
+          "Substrate surface in corners",
+          "Maximum moisture if dehydrated, rarely used"
+        ]
       ]
     },
     {
@@ -227,7 +450,7 @@
     },
     {
       "type": "section",
-      "title": "Lighting & Photoperiod Enrichment"
+      "heading": "Lighting & Photoperiod Enrichment"
     },
     {
       "type": "text",
@@ -239,13 +462,37 @@
     },
     {
       "type": "table",
-      "headers": ["Light Period", "Gecko Response", "Enrichment Value"],
+      "headers": [
+        "Light Period",
+        "Gecko Response",
+        "Enrichment Value"
+      ],
       "rows": [
-        ["Dawn simulation (lights turn on)", "Increased activity, morning hunting period", "HIGH - triggers crepuscular behavior peak"],
-        ["Full daylight (mid-day)", "Reduced activity, resting/sleeping", "MODERATE - allows rest cycle"],
-        ["Dusk simulation (lights turn off)", "Peak activity period - hunting, socializing, breeding", "VERY HIGH - primary active enrichment time"],
-        ["Nighttime darkness", "Continued activity (first 2-3 hours), then sleep", "HIGH - nocturnal exploration phase"],
-        ["Inconsistent schedule (no timer)", "Disrupted circadian rhythm, reduced activity", "NEGATIVE - causes stress and lethargy"]
+        [
+          "Dawn simulation (lights turn on)",
+          "Increased activity, morning hunting period",
+          "HIGH - triggers crepuscular behavior peak"
+        ],
+        [
+          "Full daylight (mid-day)",
+          "Reduced activity, resting/sleeping",
+          "MODERATE - allows rest cycle"
+        ],
+        [
+          "Dusk simulation (lights turn off)",
+          "Peak activity period - hunting, socializing, breeding",
+          "VERY HIGH - primary active enrichment time"
+        ],
+        [
+          "Nighttime darkness",
+          "Continued activity (first 2-3 hours), then sleep",
+          "HIGH - nocturnal exploration phase"
+        ],
+        [
+          "Inconsistent schedule (no timer)",
+          "Disrupted circadian rhythm, reduced activity",
+          "NEGATIVE - causes stress and lethargy"
+        ]
       ]
     },
     {
@@ -255,7 +502,7 @@
     },
     {
       "type": "section",
-      "title": "Breeding Behavior Enrichment"
+      "heading": "Breeding Behavior Enrichment"
     },
     {
       "type": "text",
@@ -267,14 +514,42 @@
     },
     {
       "type": "table",
-      "headers": ["Breeding Element", "How to Provide", "Welfare Benefit"],
+      "headers": [
+        "Breeding Element",
+        "How to Provide",
+        "Welfare Benefit"
+      ],
       "rows": [
-        ["Egg-laying sites", "Cork bark hollows, bamboo sections, behind branches", "Allows natural nesting behavior, reduces stress"],
-        ["Visual privacy for laying", "Dense foliage clusters, leaf coverage", "Security during vulnerable laying process"],
-        ["Multiple egg sites (3-4 options)", "Distribute hides at various heights", "Choice reduces competition if multiple geckos laying"],
-        ["Leaf litter (egg burial option)", "Deep leaf litter layer on substrate", "Some geckos bury eggs - natural behavior outlet"],
-        ["Adequate calcium access", "Calcium-dusted insects 2-3x weekly, UVB", "Prevents egg binding, supports healthy egg development"],
-        ["Post-laying recovery space", "Quiet zones away from basking area", "Allows females to rest after energy-intensive laying"]
+        [
+          "Egg-laying sites",
+          "Cork bark hollows, bamboo sections, behind branches",
+          "Allows natural nesting behavior, reduces stress"
+        ],
+        [
+          "Visual privacy for laying",
+          "Dense foliage clusters, leaf coverage",
+          "Security during vulnerable laying process"
+        ],
+        [
+          "Multiple egg sites (3-4 options)",
+          "Distribute hides at various heights",
+          "Choice reduces competition if multiple geckos laying"
+        ],
+        [
+          "Leaf litter (egg burial option)",
+          "Deep leaf litter layer on substrate",
+          "Some geckos bury eggs - natural behavior outlet"
+        ],
+        [
+          "Adequate calcium access",
+          "Calcium-dusted insects 2-3x weekly, UVB",
+          "Prevents egg binding, supports healthy egg development"
+        ],
+        [
+          "Post-laying recovery space",
+          "Quiet zones away from basking area",
+          "Allows females to rest after energy-intensive laying"
+        ]
       ]
     },
     {
@@ -287,7 +562,7 @@
     },
     {
       "type": "section",
-      "title": "Sensory Enrichment"
+      "heading": "Sensory Enrichment"
     },
     {
       "type": "text",
@@ -299,14 +574,42 @@
     },
     {
       "type": "table",
-      "headers": ["Sense", "Enrichment Method", "Example Implementation"],
+      "headers": [
+        "Sense",
+        "Enrichment Method",
+        "Example Implementation"
+      ],
       "rows": [
-        ["Vision (primary sense)", "Varied branch shapes, plant textures, moving prey", "Use twisted branches vs straight, live insects for movement"],
-        ["Chemoreception (smell/taste)", "Leaf litter, live plants, bioactive microbes", "Natural scents from organic materials, gecko pheromones on surfaces"],
-        ["Tactile (surface texture)", "Cork bark, smooth branches, leaves, substrate", "Mix rough cork, smooth bamboo, soft moss, papery leaves"],
-        ["Spatial awareness (proprioception)", "Complex 3D climbing routes", "Zigzagging pathways requiring body awareness and balance"],
-        ["Thermal sense", "Temperature gradients across vertical space", "Allows thermoregulation through movement choice"],
-        ["Moisture detection", "Humidity gradients, water droplets after misting", "Finding drinking spots, selecting humidity preference"]
+        [
+          "Vision (primary sense)",
+          "Varied branch shapes, plant textures, moving prey",
+          "Use twisted branches vs straight, live insects for movement"
+        ],
+        [
+          "Chemoreception (smell/taste)",
+          "Leaf litter, live plants, bioactive microbes",
+          "Natural scents from organic materials, gecko pheromones on surfaces"
+        ],
+        [
+          "Tactile (surface texture)",
+          "Cork bark, smooth branches, leaves, substrate",
+          "Mix rough cork, smooth bamboo, soft moss, papery leaves"
+        ],
+        [
+          "Spatial awareness (proprioception)",
+          "Complex 3D climbing routes",
+          "Zigzagging pathways requiring body awareness and balance"
+        ],
+        [
+          "Thermal sense",
+          "Temperature gradients across vertical space",
+          "Allows thermoregulation through movement choice"
+        ],
+        [
+          "Moisture detection",
+          "Humidity gradients, water droplets after misting",
+          "Finding drinking spots, selecting humidity preference"
+        ]
       ]
     },
     {
@@ -315,7 +618,7 @@
     },
     {
       "type": "section",
-      "title": "Behavioral Welfare Monitoring"
+      "heading": "Behavioral Welfare Monitoring"
     },
     {
       "type": "text",
@@ -327,22 +630,82 @@
     },
     {
       "type": "table",
-      "headers": ["Behavior", "Status", "Meaning / Action Required"],
+      "headers": [
+        "Behavior",
+        "Status",
+        "Meaning / Action Required"
+      ],
       "rows": [
-        ["Active 1-2 hours after lights-off", "NORMAL", "Peak crepuscular activity - hunting, exploring, socializing"],
-        ["Sleeping on vertical surfaces (branches/walls)", "NORMAL", "Arboreal rest posture - completely natural"],
-        ["Licking surfaces after misting", "NORMAL", "Drinking droplets - healthy hydration behavior"],
-        ["Chirping/vocalizations occasionally", "NORMAL", "Communication between geckos - social interaction"],
-        ["Exploring entire enclosure height", "NORMAL", "Confident, enriched behavior - using all space"],
-        ["Brief tail waving at other geckos", "NORMAL", "Mild territorial display - establishing space boundaries"],
-        ["Rarely on ground (95% on vertical surfaces)", "NORMAL", "Typical arboreal behavior - ground use is minimal"],
-        ["Constant hiding, never visible", "ABNORMAL", "Stress, illness, inadequate cover (paradoxically), or excessive disturbance"],
-        ["Glass surfing (repeatedly climbing glass)", "ABNORMAL", "Stress, overcrowding, inadequate climbing surfaces, or environmental issues"],
-        ["Refusing food for 5+ days", "ABNORMAL", "Illness, stress, improper temperatures (too cold), or dehydration"],
-        ["Aggressive chasing/biting", "ABNORMAL", "Overcrowding, insufficient feeding stations, territorial conflict"],
-        ["Lethargy during normal active hours", "ABNORMAL", "Too cold, illness, malnutrition, or parasites - check temps and husbandry"],
-        ["Consistent isolation from colony", "MONITOR", "May be bullying victim, illness, or simply independent personality"],
-        ["Gaping mouth (not eating)", "ABNORMAL - EMERGENCY", "Respiratory distress or severe heat stress - vet immediately"]
+        [
+          "Active 1-2 hours after lights-off",
+          "NORMAL",
+          "Peak crepuscular activity - hunting, exploring, socializing"
+        ],
+        [
+          "Sleeping on vertical surfaces (branches/walls)",
+          "NORMAL",
+          "Arboreal rest posture - completely natural"
+        ],
+        [
+          "Licking surfaces after misting",
+          "NORMAL",
+          "Drinking droplets - healthy hydration behavior"
+        ],
+        [
+          "Chirping/vocalizations occasionally",
+          "NORMAL",
+          "Communication between geckos - social interaction"
+        ],
+        [
+          "Exploring entire enclosure height",
+          "NORMAL",
+          "Confident, enriched behavior - using all space"
+        ],
+        [
+          "Brief tail waving at other geckos",
+          "NORMAL",
+          "Mild territorial display - establishing space boundaries"
+        ],
+        [
+          "Rarely on ground (95% on vertical surfaces)",
+          "NORMAL",
+          "Typical arboreal behavior - ground use is minimal"
+        ],
+        [
+          "Constant hiding, never visible",
+          "ABNORMAL",
+          "Stress, illness, inadequate cover (paradoxically), or excessive disturbance"
+        ],
+        [
+          "Glass surfing (repeatedly climbing glass)",
+          "ABNORMAL",
+          "Stress, overcrowding, inadequate climbing surfaces, or environmental issues"
+        ],
+        [
+          "Refusing food for 5+ days",
+          "ABNORMAL",
+          "Illness, stress, improper temperatures (too cold), or dehydration"
+        ],
+        [
+          "Aggressive chasing/biting",
+          "ABNORMAL",
+          "Overcrowding, insufficient feeding stations, territorial conflict"
+        ],
+        [
+          "Lethargy during normal active hours",
+          "ABNORMAL",
+          "Too cold, illness, malnutrition, or parasites - check temps and husbandry"
+        ],
+        [
+          "Consistent isolation from colony",
+          "MONITOR",
+          "May be bullying victim, illness, or simply independent personality"
+        ],
+        [
+          "Gaping mouth (not eating)",
+          "ABNORMAL - EMERGENCY",
+          "Respiratory distress or severe heat stress - vet immediately"
+        ]
       ]
     },
     {
@@ -352,7 +715,7 @@
     },
     {
       "type": "section",
-      "title": "Body Condition & Health Checks"
+      "heading": "Body Condition & Health Checks"
     },
     {
       "type": "text",
@@ -364,16 +727,52 @@
     },
     {
       "type": "table",
-      "headers": ["Body Area", "Healthy Signs", "Concerning Signs"],
+      "headers": [
+        "Body Area",
+        "Healthy Signs",
+        "Concerning Signs"
+      ],
       "rows": [
-        ["Tail base thickness", "Plump, rounded base (fat storage)", "Very thin, pinched appearance (malnutrition, illness)"],
-        ["Body shape", "Slightly rounded, smooth sides", "Visible ribs/hip bones OR excessive bloating"],
-        ["Eyes", "Clear, alert, normal size", "Sunken (dehydration) or bulging (infection)"],
-        ["Skin", "Smooth, intact, sheds completely", "Stuck shed, lesions, discoloration, rough texture"],
-        ["Toes/feet", "All digits present, no constrictions", "Stuck shed on toes (can cut off circulation), missing toes"],
-        ["Activity level", "Active at dusk/dawn, responsive", "Lethargic 24/7, unresponsive to stimuli"],
-        ["Appetite", "Eats regularly, shows interest in food", "Refuses food 5+ days, ignores insects"],
-        ["Droppings", "Regular small dark feces with white urate", "Very dry urates, bloody feces, no droppings for week+"]
+        [
+          "Tail base thickness",
+          "Plump, rounded base (fat storage)",
+          "Very thin, pinched appearance (malnutrition, illness)"
+        ],
+        [
+          "Body shape",
+          "Slightly rounded, smooth sides",
+          "Visible ribs/hip bones OR excessive bloating"
+        ],
+        [
+          "Eyes",
+          "Clear, alert, normal size",
+          "Sunken (dehydration) or bulging (infection)"
+        ],
+        [
+          "Skin",
+          "Smooth, intact, sheds completely",
+          "Stuck shed, lesions, discoloration, rough texture"
+        ],
+        [
+          "Toes/feet",
+          "All digits present, no constrictions",
+          "Stuck shed on toes (can cut off circulation), missing toes"
+        ],
+        [
+          "Activity level",
+          "Active at dusk/dawn, responsive",
+          "Lethargic 24/7, unresponsive to stimuli"
+        ],
+        [
+          "Appetite",
+          "Eats regularly, shows interest in food",
+          "Refuses food 5+ days, ignores insects"
+        ],
+        [
+          "Droppings",
+          "Regular small dark feces with white urate",
+          "Very dry urates, bloody feces, no droppings for week+"
+        ]
       ]
     },
     {
@@ -382,7 +781,7 @@
     },
     {
       "type": "section",
-      "title": "Handling & Human Interaction"
+      "heading": "Handling & Human Interaction"
     },
     {
       "type": "text",
@@ -394,16 +793,52 @@
     },
     {
       "type": "table",
-      "headers": ["Activity", "Acceptable?", "Best Practice"],
+      "headers": [
+        "Activity",
+        "Acceptable?",
+        "Best Practice"
+      ],
       "rows": [
-        ["Passive observation", "YES - encouraged", "Watch during evening activity, use dim red light if needed"],
-        ["Photography (no flash)", "YES - minimal stress", "Quick photos from outside enclosure, avoid flash/bright lights"],
-        ["Misting while geckos present", "YES - part of routine", "Geckos quickly learn misting = drinking time, often approach"],
-        ["Feeding with tongs", "OCCASIONAL ONLY", "High stress - only for critical situations (weak/recovering gecko)"],
-        ["Cupping to move gecko", "RARELY - when necessary", "Use small container to gently guide, never grab with hands"],
-        ["Handling with hands", "AVOID ENTIRELY", "Extreme stress, injury risk, oils on skin harmful"],
-        ["Removing from enclosure", "ONLY FOR VET/EMERGENCY", "Causes severe stress - minimize to life-saving situations only"],
-        ["Children handling", "ABSOLUTELY NOT", "Crushing risk, escape risk, stress to animal"]
+        [
+          "Passive observation",
+          "YES - encouraged",
+          "Watch during evening activity, use dim red light if needed"
+        ],
+        [
+          "Photography (no flash)",
+          "YES - minimal stress",
+          "Quick photos from outside enclosure, avoid flash/bright lights"
+        ],
+        [
+          "Misting while geckos present",
+          "YES - part of routine",
+          "Geckos quickly learn misting = drinking time, often approach"
+        ],
+        [
+          "Feeding with tongs",
+          "OCCASIONAL ONLY",
+          "High stress - only for critical situations (weak/recovering gecko)"
+        ],
+        [
+          "Cupping to move gecko",
+          "RARELY - when necessary",
+          "Use small container to gently guide, never grab with hands"
+        ],
+        [
+          "Handling with hands",
+          "AVOID ENTIRELY",
+          "Extreme stress, injury risk, oils on skin harmful"
+        ],
+        [
+          "Removing from enclosure",
+          "ONLY FOR VET/EMERGENCY",
+          "Causes severe stress - minimize to life-saving situations only"
+        ],
+        [
+          "Children handling",
+          "ABSOLUTELY NOT",
+          "Crushing risk, escape risk, stress to animal"
+        ]
       ]
     },
     {
@@ -413,7 +848,7 @@
     },
     {
       "type": "section",
-      "title": "Long-Term Colony Enrichment"
+      "heading": "Long-Term Colony Enrichment"
     },
     {
       "type": "text",
@@ -425,14 +860,49 @@
     },
     {
       "type": "table",
-      "headers": ["Colony Stage", "Timeline", "Enrichment Needs", "Action Required"],
+      "headers": [
+        "Colony Stage",
+        "Timeline",
+        "Enrichment Needs",
+        "Action Required"
+      ],
       "rows": [
-        ["Founding colony (2-4 adults)", "Months 0-3", "Establish territories, bonding time", "Provide multiple feeding stations, minimize changes"],
-        ["First breeding cycle", "Months 3-6", "Egg-laying sites, nesting privacy", "Add cork hollows, dense foliage for laying"],
-        ["Hatchling integration", "Months 6-12", "Separate hatchling zones, size-appropriate climbing", "Add small-diameter branches, finer foliage"],
-        ["Growing population (8-12 geckos)", "Months 12-18", "Increased space requirements", "UPGRADE to 18°18°24 or larger enclosure"],
-        ["Mature colony (10-20 geckos)", "Months 18+", "Complex social dynamics, multiple territories", "Large enclosure (24°18°36+), extensive d°cor"],
-        ["Population control phase", "Ongoing", "Remove eggs or separate offspring", "Decide breeding goals, manage population actively"]
+        [
+          "Founding colony (2-4 adults)",
+          "Months 0-3",
+          "Establish territories, bonding time",
+          "Provide multiple feeding stations, minimize changes"
+        ],
+        [
+          "First breeding cycle",
+          "Months 3-6",
+          "Egg-laying sites, nesting privacy",
+          "Add cork hollows, dense foliage for laying"
+        ],
+        [
+          "Hatchling integration",
+          "Months 6-12",
+          "Separate hatchling zones, size-appropriate climbing",
+          "Add small-diameter branches, finer foliage"
+        ],
+        [
+          "Growing population (8-12 geckos)",
+          "Months 12-18",
+          "Increased space requirements",
+          "UPGRADE to 18°18°24 or larger enclosure"
+        ],
+        [
+          "Mature colony (10-20 geckos)",
+          "Months 18+",
+          "Complex social dynamics, multiple territories",
+          "Large enclosure (24°18°36+), extensive d°cor"
+        ],
+        [
+          "Population control phase",
+          "Ongoing",
+          "Remove eggs or separate offspring",
+          "Decide breeding goals, manage population actively"
+        ]
       ]
     },
     {
@@ -441,7 +911,7 @@
     },
     {
       "type": "section",
-      "title": "Enrichment Budget Priorities"
+      "heading": "Enrichment Budget Priorities"
     },
     {
       "type": "text",
@@ -453,17 +923,67 @@
     },
     {
       "type": "table",
-      "headers": ["Enrichment Type", "Cost", "Impact", "Priority"],
+      "headers": [
+        "Enrichment Type",
+        "Cost",
+        "Impact",
+        "Priority"
+      ],
       "rows": [
-        ["Vertical climbing surfaces (branches, vines)", "LOW ($10-30)", "VERY HIGH", "ESSENTIAL - foundation of enrichment"],
-        ["Multiple feeding stations (magnetic ledges)", "LOW ($20-40)", "VERY HIGH", "ESSENTIAL - prevents food aggression"],
-        ["Bioactive substrate with cleanup crew", "MEDIUM ($40-80)", "HIGH", "HIGHLY RECOMMENDED - continuous enrichment"],
-        ["Live plants", "MEDIUM ($30-60)", "HIGH", "HIGHLY RECOMMENDED - superior to artificial"],
-        ["Automatic misting system", "HIGH ($80-200)", "HIGH", "RECOMMENDED - consistency is key enrichment"],
-        ["UVB lighting", "MEDIUM ($30-60)", "MEDIUM-HIGH", "RECOMMENDED - especially for breeders"],
-        ["Larger enclosure (18°18°24+)", "HIGH ($100-200)", "VERY HIGH (for 5+ geckos)", "REQUIRED for population growth"],
-        ["Cork bark & natural d°cor", "LOW-MEDIUM ($20-50)", "MEDIUM-HIGH", "RECOMMENDED - aesthetic + functional"],
-        ["Decorative elements (aesthetic only)", "LOW ($10-30)", "LOW", "OPTIONAL - minimal behavioral benefit"]
+        [
+          "Vertical climbing surfaces (branches, vines)",
+          "LOW ($10-30)",
+          "VERY HIGH",
+          "ESSENTIAL - foundation of enrichment"
+        ],
+        [
+          "Multiple feeding stations (magnetic ledges)",
+          "LOW ($20-40)",
+          "VERY HIGH",
+          "ESSENTIAL - prevents food aggression"
+        ],
+        [
+          "Bioactive substrate with cleanup crew",
+          "MEDIUM ($40-80)",
+          "HIGH",
+          "HIGHLY RECOMMENDED - continuous enrichment"
+        ],
+        [
+          "Live plants",
+          "MEDIUM ($30-60)",
+          "HIGH",
+          "HIGHLY RECOMMENDED - superior to artificial"
+        ],
+        [
+          "Automatic misting system",
+          "HIGH ($80-200)",
+          "HIGH",
+          "RECOMMENDED - consistency is key enrichment"
+        ],
+        [
+          "UVB lighting",
+          "MEDIUM ($30-60)",
+          "MEDIUM-HIGH",
+          "RECOMMENDED - especially for breeders"
+        ],
+        [
+          "Larger enclosure (18°18°24+)",
+          "HIGH ($100-200)",
+          "VERY HIGH (for 5+ geckos)",
+          "REQUIRED for population growth"
+        ],
+        [
+          "Cork bark & natural d°cor",
+          "LOW-MEDIUM ($20-50)",
+          "MEDIUM-HIGH",
+          "RECOMMENDED - aesthetic + functional"
+        ],
+        [
+          "Decorative elements (aesthetic only)",
+          "LOW ($10-30)",
+          "LOW",
+          "OPTIONAL - minimal behavioral benefit"
+        ]
       ]
     },
     {
@@ -472,7 +992,7 @@
     },
     {
       "type": "section",
-      "title": "Daily Enrichment Checklist"
+      "heading": "Daily Enrichment Checklist"
     },
     {
       "type": "text",
@@ -500,7 +1020,7 @@
     },
     {
       "type": "section",
-      "title": "Signs of Excellent Enrichment"
+      "heading": "Signs of Excellent Enrichment"
     },
     {
       "type": "text",

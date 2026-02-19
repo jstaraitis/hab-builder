@@ -7,7 +7,12 @@
   "date": "2026-02-11",
   "publishDate": "2026-02-11",
   "category": "Care Guides",
-  "tags": ["uromastyx", "feeding", "nutrition", "diet"],
+  "tags": [
+    "uromastyx",
+    "feeding",
+    "nutrition",
+    "diet"
+  ],
   "image": "/animals/uromastyx/uromastyx-1.jpg",
   "status": "community-reviewed",
   "content": [
@@ -18,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "Age-Based Feeding Protocol"
+      "heading": "Age-Based Feeding Protocol"
     },
     {
       "type": "text",
@@ -30,12 +35,37 @@
     },
     {
       "type": "table",
-      "headers": ["Life Stage", "Age Range", "Feeding Frequency", "Meal Composition"],
+      "headers": [
+        "Life Stage",
+        "Age Range",
+        "Feeding Frequency",
+        "Meal Composition"
+      ],
       "rows": [
-        ["Juvenile", "0-12 months", "Daily", "Greens daily, small seed portion weekly"],
-        ["Sub-adult", "12-24 months", "5-6x per week", "Greens plus vegetables"],
-        ["Adult", "24+ months", "4-5x per week", "Large salads with variety"],
-        ["Breeding adults", "Seasonal", "5x per week", "Slightly larger salads"]
+        [
+          "Juvenile",
+          "0-12 months",
+          "Daily",
+          "Greens daily, small seed portion weekly"
+        ],
+        [
+          "Sub-adult",
+          "12-24 months",
+          "5-6x per week",
+          "Greens plus vegetables"
+        ],
+        [
+          "Adult",
+          "24+ months",
+          "4-5x per week",
+          "Large salads with variety"
+        ],
+        [
+          "Breeding adults",
+          "Seasonal",
+          "5x per week",
+          "Slightly larger salads"
+        ]
       ]
     },
     {
@@ -45,7 +75,7 @@
     },
     {
       "type": "section",
-      "title": "Primary Food Sources (Leafy Greens)"
+      "heading": "Primary Food Sources (Leafy Greens)"
     },
     {
       "type": "text",
@@ -57,13 +87,43 @@
     },
     {
       "type": "table",
-      "headers": ["Food Item", "Nutritional Value", "Size Guideline", "Frequency"],
+      "headers": [
+        "Food Item",
+        "Nutritional Value",
+        "Size Guideline",
+        "Frequency"
+      ],
       "rows": [
-        ["Collard greens", "High calcium", "Chopped bite-size", "Frequent"],
-        ["Mustard greens", "Good vitamins", "Chopped", "Frequent"],
-        ["Turnip greens", "High calcium", "Chopped", "Frequent"],
-        ["Dandelion greens", "Mineral rich", "Chopped", "Frequent"],
-        ["Arugula or endive", "Balanced", "Chopped", "Rotation"]
+        [
+          "Collard greens",
+          "High calcium",
+          "Chopped bite-size",
+          "Frequent"
+        ],
+        [
+          "Mustard greens",
+          "Good vitamins",
+          "Chopped",
+          "Frequent"
+        ],
+        [
+          "Turnip greens",
+          "High calcium",
+          "Chopped",
+          "Frequent"
+        ],
+        [
+          "Dandelion greens",
+          "Mineral rich",
+          "Chopped",
+          "Frequent"
+        ],
+        [
+          "Arugula or endive",
+          "Balanced",
+          "Chopped",
+          "Rotation"
+        ]
       ]
     },
     {
@@ -72,7 +132,7 @@
     },
     {
       "type": "section",
-      "title": "Secondary Food Sources"
+      "heading": "Secondary Food Sources"
     },
     {
       "type": "text",
@@ -84,13 +144,43 @@
     },
     {
       "type": "table",
-      "headers": ["Food Item", "Notes", "Frequency", "Preparation"],
+      "headers": [
+        "Food Item",
+        "Notes",
+        "Frequency",
+        "Preparation"
+      ],
       "rows": [
-        ["Squash", "Good fiber", "2-3x per week", "Shredded"],
-        ["Carrot", "Beta carotene", "1-2x per week", "Shredded"],
-        ["Green beans", "Low sugar", "2-3x per week", "Chopped"],
-        ["Hibiscus flowers", "Calcium rich", "Weekly", "Fresh petals"],
-        ["Opuntia cactus pads", "Hydrating", "Weekly", "De-spined, chopped"]
+        [
+          "Squash",
+          "Good fiber",
+          "2-3x per week",
+          "Shredded"
+        ],
+        [
+          "Carrot",
+          "Beta carotene",
+          "1-2x per week",
+          "Shredded"
+        ],
+        [
+          "Green beans",
+          "Low sugar",
+          "2-3x per week",
+          "Chopped"
+        ],
+        [
+          "Hibiscus flowers",
+          "Calcium rich",
+          "Weekly",
+          "Fresh petals"
+        ],
+        [
+          "Opuntia cactus pads",
+          "Hydrating",
+          "Weekly",
+          "De-spined, chopped"
+        ]
       ]
     },
     {
@@ -100,7 +190,7 @@
     },
     {
       "type": "section",
-      "title": "Seeds and Dry Foods"
+      "heading": "Seeds and Dry Foods"
     },
     {
       "type": "text",
@@ -108,16 +198,36 @@
     },
     {
       "type": "table",
-      "headers": ["Item", "Role", "Frequency", "Notes"],
+      "headers": [
+        "Item",
+        "Role",
+        "Frequency",
+        "Notes"
+      ],
       "rows": [
-        ["Lentils or millet", "Protein and fat", "1x per week", "Small portion"],
-        ["Herbivore pellets", "Supplemental variety", "1-2x per week", "Soak if needed"],
-        ["Dried hay blends", "Fiber", "Occasional", "Mix with greens"]
+        [
+          "Lentils or millet",
+          "Protein and fat",
+          "1x per week",
+          "Small portion"
+        ],
+        [
+          "Herbivore pellets",
+          "Supplemental variety",
+          "1-2x per week",
+          "Soak if needed"
+        ],
+        [
+          "Dried hay blends",
+          "Fiber",
+          "Occasional",
+          "Mix with greens"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Supplementation Schedule"
+      "heading": "Supplementation Schedule"
     },
     {
       "type": "text",
@@ -125,11 +235,31 @@
     },
     {
       "type": "table",
-      "headers": ["Supplement", "Active Ingredients", "Frequency", "Notes"],
+      "headers": [
+        "Supplement",
+        "Active Ingredients",
+        "Frequency",
+        "Notes"
+      ],
       "rows": [
-        ["Calcium (no D3)", "Calcium carbonate", "2x per week", "Use with strong UVB"],
-        ["Multivitamin", "Vitamin A, trace minerals", "1x per week", "Do not overuse"],
-        ["Carotenoid booster", "Beta carotene", "Optional", "For color support"]
+        [
+          "Calcium (no D3)",
+          "Calcium carbonate",
+          "2x per week",
+          "Use with strong UVB"
+        ],
+        [
+          "Multivitamin",
+          "Vitamin A, trace minerals",
+          "1x per week",
+          "Do not overuse"
+        ],
+        [
+          "Carotenoid booster",
+          "Beta carotene",
+          "Optional",
+          "For color support"
+        ]
       ]
     },
     {
@@ -138,43 +268,103 @@
     },
     {
       "type": "section",
-      "title": "Hydration Through Diet"
+      "heading": "Hydration Through Diet"
     },
     {
       "type": "table",
-      "headers": ["Food Item", "Water Content", "Frequency", "Hydration Benefit"],
+      "headers": [
+        "Food Item",
+        "Water Content",
+        "Frequency",
+        "Hydration Benefit"
+      ],
       "rows": [
-        ["Cactus pads", "High", "Weekly", "Supports hydration without raising humidity"],
-        ["Leafy greens", "Moderate", "Daily", "Baseline moisture"],
-        ["Squash", "Moderate", "2-3x per week", "Adds variety and moisture"]
+        [
+          "Cactus pads",
+          "High",
+          "Weekly",
+          "Supports hydration without raising humidity"
+        ],
+        [
+          "Leafy greens",
+          "Moderate",
+          "Daily",
+          "Baseline moisture"
+        ],
+        [
+          "Squash",
+          "Moderate",
+          "2-3x per week",
+          "Adds variety and moisture"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Body Condition Assessment"
+      "heading": "Body Condition Assessment"
     },
     {
       "type": "table",
-      "headers": ["Body Condition", "Signs", "Adjustment"],
+      "headers": [
+        "Body Condition",
+        "Signs",
+        "Adjustment"
+      ],
       "rows": [
-        ["Underweight", "Flat tail base, prominent hip bones", "Increase meal size and check temps"],
-        ["Ideal", "Full tail base, smooth hips", "Maintain current plan"],
-        ["Overweight", "Bulging belly, heavy fat pads", "Reduce seeds and high-calorie items"]
+        [
+          "Underweight",
+          "Flat tail base, prominent hip bones",
+          "Increase meal size and check temps"
+        ],
+        [
+          "Ideal",
+          "Full tail base, smooth hips",
+          "Maintain current plan"
+        ],
+        [
+          "Overweight",
+          "Bulging belly, heavy fat pads",
+          "Reduce seeds and high-calorie items"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Common Feeding Mistakes"
+      "heading": "Common Feeding Mistakes"
     },
     {
       "type": "table",
-      "headers": ["Mistake", "Health Consequence", "Correct Approach"],
+      "headers": [
+        "Mistake",
+        "Health Consequence",
+        "Correct Approach"
+      ],
       "rows": [
-        ["Too much protein", "Kidney stress, obesity", "Limit insects and seeds"],
-        ["Low variety greens", "Nutrient gaps", "Rotate multiple greens weekly"],
-        ["No supplements", "Bone issues", "Use calcium and multivitamin schedule"],
-        ["Overfeeding fruit", "Weight gain", "Use as rare treat only"],
-        ["Feeding in cool temps", "Poor digestion", "Ensure proper basking heat"]
+        [
+          "Too much protein",
+          "Kidney stress, obesity",
+          "Limit insects and seeds"
+        ],
+        [
+          "Low variety greens",
+          "Nutrient gaps",
+          "Rotate multiple greens weekly"
+        ],
+        [
+          "No supplements",
+          "Bone issues",
+          "Use calcium and multivitamin schedule"
+        ],
+        [
+          "Overfeeding fruit",
+          "Weight gain",
+          "Use as rare treat only"
+        ],
+        [
+          "Feeding in cool temps",
+          "Poor digestion",
+          "Ensure proper basking heat"
+        ]
       ]
     }
   ]

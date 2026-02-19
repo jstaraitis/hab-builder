@@ -6,7 +6,13 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
-  "tags": ["bearded dragon", "hydration", "water", "dehydration", "care"],
+  "tags": [
+    "bearded dragon",
+    "hydration",
+    "water",
+    "dehydration",
+    "care"
+  ],
   "image": "/animals/bearded-dragon/bearded-dragon-3.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "Natural Hydration Behaviors"
+      "heading": "Natural Hydration Behaviors"
     },
     {
       "type": "text",
@@ -25,12 +31,32 @@
     },
     {
       "type": "table",
-      "headers": ["Hydration Source", "Natural Frequency", "Captive Equivalent"],
+      "headers": [
+        "Hydration Source",
+        "Natural Frequency",
+        "Captive Equivalent"
+      ],
       "rows": [
-        ["Prey moisture content", "Daily (insects, small animals)", "Gut-loaded feeder insects"],
-        ["Vegetation dew/moisture", "Morning, sporadic rainfall", "Fresh misted vegetables"],
-        ["Direct rainfall/puddles", "Rare (seasonal)", "Bathing, drip method"],
-        ["Metabolic water", "Continuous (from digestion)", "Proper basking temperature for digestion"]
+        [
+          "Prey moisture content",
+          "Daily (insects, small animals)",
+          "Gut-loaded feeder insects"
+        ],
+        [
+          "Vegetation dew/moisture",
+          "Morning, sporadic rainfall",
+          "Fresh misted vegetables"
+        ],
+        [
+          "Direct rainfall/puddles",
+          "Rare (seasonal)",
+          "Bathing, drip method"
+        ],
+        [
+          "Metabolic water",
+          "Continuous (from digestion)",
+          "Proper basking temperature for digestion"
+        ]
       ]
     },
     {
@@ -39,7 +65,7 @@
     },
     {
       "type": "section",
-      "title": "Primary Hydration Methods"
+      "heading": "Primary Hydration Methods"
     },
     {
       "type": "text",
@@ -51,14 +77,49 @@
     },
     {
       "type": "table",
-      "headers": ["Method", "Effectiveness", "Frequency", "Implementation"],
+      "headers": [
+        "Method",
+        "Effectiveness",
+        "Frequency",
+        "Implementation"
+      ],
       "rows": [
-        ["Fresh vegetables (misted)", "High (natural behavior)", "Daily", "Spray greens immediately before feeding"],
-        ["Hydrating foods", "High (passive intake)", "Several times weekly", "Hornworms, cucumber, cactus pads in diet"],
-        ["Drip method", "High (triggers licking)", "As needed", "Drip water on snout until licking response"],
-        ["Shallow water dish", "Moderate (if recognized)", "Optional daily", "3-4\" diameter, <1\\ deep, changed daily"],
-        ["Bathing/soaking", "Low (assisted)", "Weekly or as needed", "10-15 min in shallow lukewarm water"],
-        ["Misting body", "Low (may cause stress)", "Not recommended", "Use only if other methods fail"]
+        [
+          "Fresh vegetables (misted)",
+          "High (natural behavior)",
+          "Daily",
+          "Spray greens immediately before feeding"
+        ],
+        [
+          "Hydrating foods",
+          "High (passive intake)",
+          "Several times weekly",
+          "Hornworms, cucumber, cactus pads in diet"
+        ],
+        [
+          "Drip method",
+          "High (triggers licking)",
+          "As needed",
+          "Drip water on snout until licking response"
+        ],
+        [
+          "Shallow water dish",
+          "Moderate (if recognized)",
+          "Optional daily",
+          "3-4\" diameter, <1\\ deep, changed daily"
+        ],
+        [
+          "Bathing/soaking",
+          "Low (assisted)",
+          "Weekly or as needed",
+          "10-15 min in shallow lukewarm water"
+        ],
+        [
+          "Misting body",
+          "Low (may cause stress)",
+          "Not recommended",
+          "Use only if other methods fail"
+        ]
       ]
     },
     {
@@ -68,7 +129,7 @@
     },
     {
       "type": "section",
-      "title": "Water Dish Setup (Optional)"
+      "heading": "Water Dish Setup (Optional)"
     },
     {
       "type": "text",
@@ -76,14 +137,42 @@
     },
     {
       "type": "table",
-      "headers": ["Parameter", "Specification", "Reasoning"],
+      "headers": [
+        "Parameter",
+        "Specification",
+        "Reasoning"
+      ],
       "rows": [
-        ["Dish size", "4-6\" diameter", "Large enough to soak head/shoulders"],
-        ["Water depth", "0.5-1\" maximum", "Prevents drowning, especially juveniles"],
-        ["Placement", "Cool side of enclosure", "Reduces evaporation, avoids rapid heating"],
-        ["Material", "Ceramic, glass, or heavy plastic", "Prevents tipping during activity"],
-        ["Water change", "Daily minimum", "Prevents bacterial growth, fecal contamination"],
-        ["Cleaning", "Hot water scrub every 2-3 days", "Removes biofilm, mineral deposits"]
+        [
+          "Dish size",
+          "4-6\" diameter",
+          "Large enough to soak head/shoulders"
+        ],
+        [
+          "Water depth",
+          "0.5-1\" maximum",
+          "Prevents drowning, especially juveniles"
+        ],
+        [
+          "Placement",
+          "Cool side of enclosure",
+          "Reduces evaporation, avoids rapid heating"
+        ],
+        [
+          "Material",
+          "Ceramic, glass, or heavy plastic",
+          "Prevents tipping during activity"
+        ],
+        [
+          "Water change",
+          "Daily minimum",
+          "Prevents bacterial growth, fecal contamination"
+        ],
+        [
+          "Cleaning",
+          "Hot water scrub every 2-3 days",
+          "Removes biofilm, mineral deposits"
+        ]
       ]
     },
     {
@@ -92,7 +181,7 @@
     },
     {
       "type": "section",
-      "title": "Drip Method Protocol"
+      "heading": "Drip Method Protocol"
     },
     {
       "type": "text",
@@ -100,13 +189,37 @@
     },
     {
       "type": "table",
-      "headers": ["Step", "Action", "Duration"],
+      "headers": [
+        "Step",
+        "Action",
+        "Duration"
+      ],
       "rows": [
-        ["1. Preparation", "Fill spray bottle or syringe with lukewarm dechlorinated water", ""],
-        ["2. Positioning", "Hold dragon securely or allow to remain in enclosure", ""],
-        ["3. Application", "Gently drip 1-2 drops on tip of snout", "Until licking begins"],
-        ["4. Continuation", "Continue dripping as long as dragon licks actively", "5-10 minutes"],
-        ["5. Termination", "Stop when dragon turns away or stops licking", ""]
+        [
+          "1. Preparation",
+          "Fill spray bottle or syringe with lukewarm dechlorinated water",
+          ""
+        ],
+        [
+          "2. Positioning",
+          "Hold dragon securely or allow to remain in enclosure",
+          ""
+        ],
+        [
+          "3. Application",
+          "Gently drip 1-2 drops on tip of snout",
+          "Until licking begins"
+        ],
+        [
+          "4. Continuation",
+          "Continue dripping as long as dragon licks actively",
+          "5-10 minutes"
+        ],
+        [
+          "5. Termination",
+          "Stop when dragon turns away or stops licking",
+          ""
+        ]
       ]
     },
     {
@@ -116,7 +229,7 @@
     },
     {
       "type": "section",
-      "title": "Bathing & Soaking Protocol"
+      "heading": "Bathing & Soaking Protocol"
     },
     {
       "type": "text",
@@ -124,14 +237,42 @@
     },
     {
       "type": "table",
-      "headers": ["Parameter", "Specification", "Safety Notes"],
+      "headers": [
+        "Parameter",
+        "Specification",
+        "Safety Notes"
+      ],
       "rows": [
-        ["Water temperature", "90-95F (lukewarm)", "Test with thermometer, never hot"],
-        ["Water depth", "Belly-deep (chest level max)", "NEVER allow water above shoulders, drowning risk"],
-        ["Container size", "Large enough to move freely", "Smooth-sided tub prevents escape injuries"],
-        ["Duration", "10-15 minutes maximum", "Remove immediately if signs of stress"],
-        ["Frequency", "Weekly or as needed", "Daily bathing unnecessary and stressful"],
-        ["Supervision", "Constant, never leave alone", "Bearded dragons can drown in shallow water"]
+        [
+          "Water temperature",
+          "90-95F (lukewarm)",
+          "Test with thermometer, never hot"
+        ],
+        [
+          "Water depth",
+          "Belly-deep (chest level max)",
+          "NEVER allow water above shoulders, drowning risk"
+        ],
+        [
+          "Container size",
+          "Large enough to move freely",
+          "Smooth-sided tub prevents escape injuries"
+        ],
+        [
+          "Duration",
+          "10-15 minutes maximum",
+          "Remove immediately if signs of stress"
+        ],
+        [
+          "Frequency",
+          "Weekly or as needed",
+          "Daily bathing unnecessary and stressful"
+        ],
+        [
+          "Supervision",
+          "Constant, never leave alone",
+          "Bearded dragons can drown in shallow water"
+        ]
       ]
     },
     {
@@ -141,7 +282,7 @@
     },
     {
       "type": "section",
-      "title": "Hydrating Food Sources"
+      "heading": "Hydrating Food Sources"
     },
     {
       "type": "text",
@@ -153,14 +294,49 @@
     },
     {
       "type": "table",
-      "headers": ["Food Item", "Water Content", "Feeding Frequency", "Notes"],
+      "headers": [
+        "Food Item",
+        "Water Content",
+        "Feeding Frequency",
+        "Notes"
+      ],
       "rows": [
-        ["Hornworms", "~85%", "1-2 per week", "Excellent hydration, low fat"],
-        ["Cactus pads (nopales)", "~88%", "2-3 times weekly", "High fiber, hydrating vegetable"],
-        ["Cucumber", "~95%", "1-2 times weekly", "Very high water, low nutrition"],
-        ["Bell peppers", "~92%", "Daily rotation", "Good vitamin C, moderate water"],
-        ["Butternut squash", "~86%", "Several times weekly", "Moderate water, vitamin A"],
-        ["Collard greens (misted)", "~90% when fresh", "Daily staple", "Primary vegetable + hydration"]
+        [
+          "Hornworms",
+          "~85%",
+          "1-2 per week",
+          "Excellent hydration, low fat"
+        ],
+        [
+          "Cactus pads (nopales)",
+          "~88%",
+          "2-3 times weekly",
+          "High fiber, hydrating vegetable"
+        ],
+        [
+          "Cucumber",
+          "~95%",
+          "1-2 times weekly",
+          "Very high water, low nutrition"
+        ],
+        [
+          "Bell peppers",
+          "~92%",
+          "Daily rotation",
+          "Good vitamin C, moderate water"
+        ],
+        [
+          "Butternut squash",
+          "~86%",
+          "Several times weekly",
+          "Moderate water, vitamin A"
+        ],
+        [
+          "Collard greens (misted)",
+          "~90% when fresh",
+          "Daily staple",
+          "Primary vegetable + hydration"
+        ]
       ]
     },
     {
@@ -169,7 +345,7 @@
     },
     {
       "type": "section",
-      "title": "Recognizing Dehydration"
+      "heading": "Recognizing Dehydration"
     },
     {
       "type": "text",
@@ -181,14 +357,42 @@
     },
     {
       "type": "table",
-      "headers": ["Assessment Method", "Normal Presentation", "Dehydration Signs"],
+      "headers": [
+        "Assessment Method",
+        "Normal Presentation",
+        "Dehydration Signs"
+      ],
       "rows": [
-        ["Urate color", "White/off-white", "Yellow, orange, or brown (concentrated)"],
-        ["Skin turgor test", "Skin snaps back immediately", "Skin remains tented >2 seconds"],
-        ["Eye appearance", "Full, bright, alert", "Sunken, dull, recessed into socket"],
-        ["Activity level", "Normal movement, basking", "Lethargy, weakness, staying in one spot"],
-        ["Appetite", "Regular feeding response", "Reduced or absent appetite"],
-        ["Fecal consistency", "Formed, moist", "Dry, hard, or absent defecation"]
+        [
+          "Urate color",
+          "White/off-white",
+          "Yellow, orange, or brown (concentrated)"
+        ],
+        [
+          "Skin turgor test",
+          "Skin snaps back immediately",
+          "Skin remains tented >2 seconds"
+        ],
+        [
+          "Eye appearance",
+          "Full, bright, alert",
+          "Sunken, dull, recessed into socket"
+        ],
+        [
+          "Activity level",
+          "Normal movement, basking",
+          "Lethargy, weakness, staying in one spot"
+        ],
+        [
+          "Appetite",
+          "Regular feeding response",
+          "Reduced or absent appetite"
+        ],
+        [
+          "Fecal consistency",
+          "Formed, moist",
+          "Dry, hard, or absent defecation"
+        ]
       ]
     },
     {
@@ -198,7 +402,7 @@
     },
     {
       "type": "section",
-      "title": "Life Stage Considerations"
+      "heading": "Life Stage Considerations"
     },
     {
       "type": "text",
@@ -206,17 +410,42 @@
     },
     {
       "type": "table",
-      "headers": ["Life Stage", "Hydration Frequency", "Preferred Methods", "Notes"],
+      "headers": [
+        "Life Stage",
+        "Hydration Frequency",
+        "Preferred Methods",
+        "Notes"
+      ],
       "rows": [
-        ["Hatchling (0-6 months)", "Daily active hydration", "Drip method + misted vegetables daily", "Higher surface area:volume ratio increases dehydration risk"],
-        ["Juvenile (6-12 months)", "Daily monitoring", "Misted vegetables + drip method 3-4x weekly", "Growth period with high water turnover"],
-        ["Adult (12+ months)", "Every 2-3 days", "Misted vegetables + drip method as needed", "Lower hydration frequency, monitor urates"],
-        ["Senior (6+ years)", "Daily monitoring", "Misted vegetables + assisted drip method", "Reduced mobility may require assistance"]
+        [
+          "Hatchling (0-6 months)",
+          "Daily active hydration",
+          "Drip method + misted vegetables daily",
+          "Higher surface area:volume ratio increases dehydration risk"
+        ],
+        [
+          "Juvenile (6-12 months)",
+          "Daily monitoring",
+          "Misted vegetables + drip method 3-4x weekly",
+          "Growth period with high water turnover"
+        ],
+        [
+          "Adult (12+ months)",
+          "Every 2-3 days",
+          "Misted vegetables + drip method as needed",
+          "Lower hydration frequency, monitor urates"
+        ],
+        [
+          "Senior (6+ years)",
+          "Daily monitoring",
+          "Misted vegetables + assisted drip method",
+          "Reduced mobility may require assistance"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Common Hydration Mistakes"
+      "heading": "Common Hydration Mistakes"
     },
     {
       "type": "text",
@@ -224,20 +453,52 @@
     },
     {
       "type": "table",
-      "headers": ["Mistake", "Consequence", "Correction"],
+      "headers": [
+        "Mistake",
+        "Consequence",
+        "Correction"
+      ],
       "rows": [
-        ["Daily bathing", "Stress, time waste, potential drowning", "Bathe only weekly or as needed"],
-        ["Deep water dishes", "Drowning risk, humidity increase", "Use shallow dishes <1\" deep only"],
-        ["Relying solely on water dish", "Dehydration if dragon doesn't drink", "Use multiple hydration methods"],
-        ["Over-misting enclosure", "High humidity, respiratory infections", "Mist vegetables only, not enclosure"],
-        ["Ignoring urate color", "Missed dehydration warning signs", "Monitor urates at every defecation"],
-        ["Forcing water via syringe", "Aspiration pneumonia risk", "Use drip method on snout instead"],
-        ["Cold water", "Thermal shock, digestive upset", "Always use lukewarm (90-95F) water"]
+        [
+          "Daily bathing",
+          "Stress, time waste, potential drowning",
+          "Bathe only weekly or as needed"
+        ],
+        [
+          "Deep water dishes",
+          "Drowning risk, humidity increase",
+          "Use shallow dishes <1\" deep only"
+        ],
+        [
+          "Relying solely on water dish",
+          "Dehydration if dragon doesn't drink",
+          "Use multiple hydration methods"
+        ],
+        [
+          "Over-misting enclosure",
+          "High humidity, respiratory infections",
+          "Mist vegetables only, not enclosure"
+        ],
+        [
+          "Ignoring urate color",
+          "Missed dehydration warning signs",
+          "Monitor urates at every defecation"
+        ],
+        [
+          "Forcing water via syringe",
+          "Aspiration pneumonia risk",
+          "Use drip method on snout instead"
+        ],
+        [
+          "Cold water",
+          "Thermal shock, digestive upset",
+          "Always use lukewarm (90-95F) water"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Water Quality Considerations"
+      "heading": "Water Quality Considerations"
     },
     {
       "type": "text",
@@ -245,12 +506,32 @@
     },
     {
       "type": "table",
-      "headers": ["Water Treatment", "Method", "Purpose"],
+      "headers": [
+        "Water Treatment",
+        "Method",
+        "Purpose"
+      ],
       "rows": [
-        ["Dechlorination", "Reptile-safe water conditioner", "Removes chlorine, chloramines"],
-        ["Filtration", "Carbon filter or RO system", "Removes heavy metals, chemicals"],
-        ["Temperature adjustment", "Mix hot/cold to 90-95F", "Prevents thermal shock"],
-        ["Mineral content", "Use conditioned tap or remineralized RO", "Maintains electrolyte balance"]
+        [
+          "Dechlorination",
+          "Reptile-safe water conditioner",
+          "Removes chlorine, chloramines"
+        ],
+        [
+          "Filtration",
+          "Carbon filter or RO system",
+          "Removes heavy metals, chemicals"
+        ],
+        [
+          "Temperature adjustment",
+          "Mix hot/cold to 90-95F",
+          "Prevents thermal shock"
+        ],
+        [
+          "Mineral content",
+          "Use conditioned tap or remineralized RO",
+          "Maintains electrolyte balance"
+        ]
       ]
     },
     {

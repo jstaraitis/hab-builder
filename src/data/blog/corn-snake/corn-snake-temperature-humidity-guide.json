@@ -21,7 +21,7 @@
     },
     {
       "type": "section",
-      "title": "Temperature Requirements"
+      "heading": "Temperature Requirements"
     },
     {
       "type": "text",
@@ -67,7 +67,7 @@
     },
     {
       "type": "section",
-      "title": "Humidity Requirements"
+      "heading": "Humidity Requirements"
     },
     {
       "type": "text",
@@ -104,7 +104,7 @@
     },
     {
       "type": "section",
-      "title": "Thermal Gradient Setup"
+      "heading": "Thermal Gradient Setup"
     },
     {
       "type": "text",
@@ -112,7 +112,7 @@
     },
     {
       "type": "section",
-      "title": "Heating Equipment"
+      "heading": "Heating Equipment"
     },
     {
       "type": "text",
@@ -120,7 +120,7 @@
     },
     {
       "type": "section",
-      "title": "Humidity Management"
+      "heading": "Humidity Management"
     },
     {
       "type": "text",
@@ -128,7 +128,7 @@
     },
     {
       "type": "section",
-      "title": "Monitoring Equipment"
+      "heading": "Monitoring Equipment"
     },
     {
       "type": "text",
@@ -136,7 +136,7 @@
     },
     {
       "type": "section",
-      "title": "Seasonal Adjustments"
+      "heading": "Seasonal Adjustments"
     },
     {
       "type": "text",

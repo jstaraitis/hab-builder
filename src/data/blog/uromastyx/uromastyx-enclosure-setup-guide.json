@@ -7,7 +7,12 @@
   "date": "2026-02-11",
   "publishDate": "2026-02-11",
   "category": "Care Guides",
-  "tags": ["uromastyx", "enclosure", "setup", "habitat"],
+  "tags": [
+    "uromastyx",
+    "enclosure",
+    "setup",
+    "habitat"
+  ],
   "image": "/animals/uromastyx/uromastyx-1.jpg",
   "status": "community-reviewed",
   "content": [
@@ -18,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "Minimum Enclosure Dimensions"
+      "heading": "Minimum Enclosure Dimensions"
     },
     {
       "type": "text",
@@ -30,12 +35,37 @@
     },
     {
       "type": "table",
-      "headers": ["Adult Length", "Minimum Dimensions (LxWxH)", "Floor Space", "Notes"],
+      "headers": [
+        "Adult Length",
+        "Minimum Dimensions (LxWxH)",
+        "Floor Space",
+        "Notes"
+      ],
       "rows": [
-        ["Up to 18 in", "48x24x24 in", "8 sq ft", "Good baseline for most common species"],
-        ["18-24 in", "72x24x24 in", "12 sq ft", "Provide a longer thermal gradient"],
-        ["24-30 in", "96x48x48 in", "32 sq ft", "Large species require much more space"],
-        ["Oversized adults", "96x48x48 in or larger", "32+ sq ft", "Plan custom builds for giant species"]
+        [
+          "Up to 18 in",
+          "48x24x24 in",
+          "8 sq ft",
+          "Good baseline for most common species"
+        ],
+        [
+          "18-24 in",
+          "72x24x24 in",
+          "12 sq ft",
+          "Provide a longer thermal gradient"
+        ],
+        [
+          "24-30 in",
+          "96x48x48 in",
+          "32 sq ft",
+          "Large species require much more space"
+        ],
+        [
+          "Oversized adults",
+          "96x48x48 in or larger",
+          "32+ sq ft",
+          "Plan custom builds for giant species"
+        ]
       ]
     },
     {
@@ -45,7 +75,7 @@
     },
     {
       "type": "section",
-      "title": "Enclosure Type Selection"
+      "heading": "Enclosure Type Selection"
     },
     {
       "type": "text",
@@ -57,12 +87,37 @@
     },
     {
       "type": "table",
-      "headers": ["Material", "Temperature Control", "Humidity Management", "Best Application"],
+      "headers": [
+        "Material",
+        "Temperature Control",
+        "Humidity Management",
+        "Best Application"
+      ],
       "rows": [
-        ["PVC (vented)", "Excellent", "Dry and stable", "Best for heat retention with adjustable vents"],
-        ["Glass (front-opening)", "Good", "Moderate", "Works well with strong overhead heat"],
-        ["Screen/mesh", "Poor", "Too dry and loses heat", "Only for very hot rooms or as a top panel"],
-        ["Wood (sealed)", "Good", "Dry and stable", "Custom builds with protected surfaces"]
+        [
+          "PVC (vented)",
+          "Excellent",
+          "Dry and stable",
+          "Best for heat retention with adjustable vents"
+        ],
+        [
+          "Glass (front-opening)",
+          "Good",
+          "Moderate",
+          "Works well with strong overhead heat"
+        ],
+        [
+          "Screen/mesh",
+          "Poor",
+          "Too dry and loses heat",
+          "Only for very hot rooms or as a top panel"
+        ],
+        [
+          "Wood (sealed)",
+          "Good",
+          "Dry and stable",
+          "Custom builds with protected surfaces"
+        ]
       ]
     },
     {
@@ -71,7 +126,7 @@
     },
     {
       "type": "section",
-      "title": "Internal Layout Design"
+      "heading": "Internal Layout Design"
     },
     {
       "type": "text",
@@ -83,12 +138,37 @@
     },
     {
       "type": "table",
-      "headers": ["Zone", "Location", "Temperature", "Features"],
+      "headers": [
+        "Zone",
+        "Location",
+        "Temperature",
+        "Features"
+      ],
       "rows": [
-        ["Basking zone", "Warm end, under heat and UVB", "120-130 deg F surface", "Stacked rock or retes-style platform"],
-        ["Warm mid zone", "Middle third", "95-105 deg F", "Open space and low hides"],
-        ["Cool zone", "Opposite end", "82-88 deg F", "Primary hide and water dish"],
-        ["Humid burrow", "Cool end under substrate", "Localized humidity", "Slightly damp lower substrate"]
+        [
+          "Basking zone",
+          "Warm end, under heat and UVB",
+          "120-130 deg F surface",
+          "Stacked rock or retes-style platform"
+        ],
+        [
+          "Warm mid zone",
+          "Middle third",
+          "95-105 deg F",
+          "Open space and low hides"
+        ],
+        [
+          "Cool zone",
+          "Opposite end",
+          "82-88 deg F",
+          "Primary hide and water dish"
+        ],
+        [
+          "Humid burrow",
+          "Cool end under substrate",
+          "Localized humidity",
+          "Slightly damp lower substrate"
+        ]
       ]
     },
     {
@@ -98,7 +178,7 @@
     },
     {
       "type": "section",
-      "title": "Essential Equipment Checklist"
+      "heading": "Essential Equipment Checklist"
     },
     {
       "type": "text",
@@ -110,15 +190,47 @@
     },
     {
       "type": "table",
-      "headers": ["Category", "Items", "Purpose"],
+      "headers": [
+        "Category",
+        "Items",
+        "Purpose"
+      ],
       "rows": [
-        ["Heating", "Halogen flood bulbs with dimmer", "Create 120-130 deg F basking surface"],
-        ["UVB", "T5 HO 12-14% linear fixture", "UVI 4.5-6 at basking"],
-        ["Visible light", "Bright 6500K LED bar", "Activity and appetite support"],
-        ["Substrate", "Packed sand or sandy soil", "Digging and burrow structure"],
-        ["Monitoring", "IR temp gun, probe thermometer, hygrometer", "Verify surface and ambient ranges"],
-        ["Automation", "Timers and dimmers", "Consistent photoperiod and heat"],
-        ["Hides and decor", "Stone, cork, or sealed wood", "Security and enrichment"]
+        [
+          "Heating",
+          "Halogen flood bulbs with dimmer",
+          "Create 120-130 deg F basking surface"
+        ],
+        [
+          "UVB",
+          "T5 HO 12-14% linear fixture",
+          "UVI 4.5-6 at basking"
+        ],
+        [
+          "Visible light",
+          "Bright 6500K LED bar",
+          "Activity and appetite support"
+        ],
+        [
+          "Substrate",
+          "Packed sand or sandy soil",
+          "Digging and burrow structure"
+        ],
+        [
+          "Monitoring",
+          "IR temp gun, probe thermometer, hygrometer",
+          "Verify surface and ambient ranges"
+        ],
+        [
+          "Automation",
+          "Timers and dimmers",
+          "Consistent photoperiod and heat"
+        ],
+        [
+          "Hides and decor",
+          "Stone, cork, or sealed wood",
+          "Security and enrichment"
+        ]
       ]
     },
     {
@@ -127,7 +239,7 @@
     },
     {
       "type": "section",
-      "title": "Common Setup Errors"
+      "heading": "Common Setup Errors"
     },
     {
       "type": "text",
@@ -135,18 +247,42 @@
     },
     {
       "type": "table",
-      "headers": ["Error", "Consequence", "Correction"],
+      "headers": [
+        "Error",
+        "Consequence",
+        "Correction"
+      ],
       "rows": [
-        ["Basking surface below 120 deg F", "Poor digestion and appetite", "Raise platform or increase heat output"],
-        ["Over-humid enclosure", "Respiratory issues", "Increase ventilation and keep surface substrate dry"],
-        ["UVB too weak or too short", "Metabolic bone disease risk", "Use high-output T5 HO spanning half the enclosure"],
-        ["Sparse decor", "Stress and hiding", "Add secure crevices and a cool hide"],
-        ["Shallow substrate", "No burrowing", "Provide 4+ inches of packed sand or soil"]
+        [
+          "Basking surface below 120 deg F",
+          "Poor digestion and appetite",
+          "Raise platform or increase heat output"
+        ],
+        [
+          "Over-humid enclosure",
+          "Respiratory issues",
+          "Increase ventilation and keep surface substrate dry"
+        ],
+        [
+          "UVB too weak or too short",
+          "Metabolic bone disease risk",
+          "Use high-output T5 HO spanning half the enclosure"
+        ],
+        [
+          "Sparse decor",
+          "Stress and hiding",
+          "Add secure crevices and a cool hide"
+        ],
+        [
+          "Shallow substrate",
+          "No burrowing",
+          "Provide 4+ inches of packed sand or soil"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Setup Timeline and Testing"
+      "heading": "Setup Timeline and Testing"
     },
     {
       "type": "text",
@@ -154,12 +290,32 @@
     },
     {
       "type": "table",
-      "headers": ["Day", "Task", "Success Criteria"],
+      "headers": [
+        "Day",
+        "Task",
+        "Success Criteria"
+      ],
       "rows": [
-        ["1-2", "Install equipment and decor", "Basking platform is secure and stable"],
-        ["3-4", "Measure temps at multiple heights", "Surface 120-130 deg F, cool side 82-88 deg F"],
-        ["5-6", "Verify UVB coverage and brightness", "UVI 4.5-6 at basking, bright visible light"],
-        ["7", "Final adjustments", "Stable day and night ranges before arrival"]
+        [
+          "1-2",
+          "Install equipment and decor",
+          "Basking platform is secure and stable"
+        ],
+        [
+          "3-4",
+          "Measure temps at multiple heights",
+          "Surface 120-130 deg F, cool side 82-88 deg F"
+        ],
+        [
+          "5-6",
+          "Verify UVB coverage and brightness",
+          "UVI 4.5-6 at basking, bright visible light"
+        ],
+        [
+          "7",
+          "Final adjustments",
+          "Stable day and night ranges before arrival"
+        ]
       ]
     }
   ]

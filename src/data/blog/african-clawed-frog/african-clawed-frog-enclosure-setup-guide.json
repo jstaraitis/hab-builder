@@ -21,7 +21,7 @@
     },
     {
       "type": "section",
-      "title": "Tank Size Requirements"
+      "heading": "Tank Size Requirements"
     },
     {
       "type": "text",
@@ -61,7 +61,7 @@
     },
     {
       "type": "section",
-      "title": "Enclosure Type Selection"
+      "heading": "Enclosure Type Selection"
     },
     {
       "type": "text",
@@ -69,7 +69,7 @@
     },
     {
       "type": "section",
-      "title": "Essential Equipment List"
+      "heading": "Essential Equipment List"
     },
     {
       "type": "text",
@@ -77,7 +77,7 @@
     },
     {
       "type": "section",
-      "title": "Setup Steps"
+      "heading": "Setup Steps"
     },
     {
       "type": "text",
@@ -85,7 +85,7 @@
     },
     {
       "type": "section",
-      "title": "Initial Cycling/Preparation"
+      "heading": "Initial Cycling/Preparation"
     },
     {
       "type": "text",
@@ -93,7 +93,7 @@
     },
     {
       "type": "section",
-      "title": "Adding Your Animal"
+      "heading": "Adding Your Animal"
     },
     {
       "type": "text",
@@ -101,7 +101,7 @@
     },
     {
       "type": "section",
-      "title": "Maintenance Schedule"
+      "heading": "Maintenance Schedule"
     },
     {
       "type": "text",

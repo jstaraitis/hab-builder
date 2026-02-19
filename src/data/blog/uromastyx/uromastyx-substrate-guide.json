@@ -18,7 +18,7 @@
     },
     {
       "type": "section",
-      "title": "Natural Habitat Considerations"
+      "heading": "Natural Habitat Considerations"
     },
     {
       "type": "text",
@@ -30,7 +30,7 @@
     },
     {
       "type": "section",
-      "title": "Recommended Substrates"
+      "heading": "Recommended Substrates"
     },
     {
       "type": "text",
@@ -52,7 +52,7 @@
     },
     {
       "type": "section",
-      "title": "DIY Substrate Recipe"
+      "heading": "DIY Substrate Recipe"
     },
     {
       "type": "text",
@@ -78,7 +78,7 @@
     },
     {
       "type": "section",
-      "title": "Impaction Risk Management"
+      "heading": "Impaction Risk Management"
     },
     {
       "type": "text",
@@ -104,7 +104,7 @@
     },
     {
       "type": "section",
-      "title": "Contraindications for Loose Substrate"
+      "heading": "Contraindications for Loose Substrate"
     },
     {
       "type": "text",
@@ -131,7 +131,7 @@
     },
     {
       "type": "section",
-      "title": "Bioactive Substrate Setup"
+      "heading": "Bioactive Substrate Setup"
     },
     {
       "type": "text",
@@ -156,7 +156,7 @@
     },
     {
       "type": "section",
-      "title": "Depth Requirements"
+      "heading": "Depth Requirements"
     },
     {
       "type": "table",
@@ -170,7 +170,7 @@
     },
     {
       "type": "section",
-      "title": "Maintenance and Cleaning"
+      "heading": "Maintenance and Cleaning"
     },
     {
       "type": "text",
@@ -188,7 +188,7 @@
     },
     {
       "type": "section",
-      "title": "Substrates to Avoid"
+      "heading": "Substrates to Avoid"
     },
     {
       "type": "text",

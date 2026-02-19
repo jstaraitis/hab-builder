@@ -6,7 +6,13 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-28",
   "category": "Care Guides",
-  "tags": ["mourning gecko", "enclosure", "setup", "habitat", "lepidodactylus lugubris"],
+  "tags": [
+    "mourning gecko",
+    "enclosure",
+    "setup",
+    "habitat",
+    "lepidodactylus lugubris"
+  ],
   "image": "/animals/mourning-gecko/mourning-gecko-1.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "Minimum Enclosure Dimensions"
+      "heading": "Minimum Enclosure Dimensions"
     },
     {
       "type": "text",
@@ -29,12 +35,37 @@
     },
     {
       "type": "table",
-      "headers": ["Group Size", "Minimum Dimensions (L°W°H)", "Volume", "Notes"],
+      "headers": [
+        "Group Size",
+        "Minimum Dimensions (L°W°H)",
+        "Volume",
+        "Notes"
+      ],
       "rows": [
-        ["2-4 geckos", "12°12°18 inches", "~10 gallons", "Standard minimum for small colony"],
-        ["5-6 geckos", "18°18°24 inches", "~20 gallons", "Better for breeding colonies"],
-        ["7-10 geckos", "18°18°36 inches", "~30 gallons", "Population growth accommodation"],
-        ["10+ geckos", "24°18°36+ inches", "40+ gallons", "Established colonies with offspring"]
+        [
+          "2-4 geckos",
+          "12°12°18 inches",
+          "~10 gallons",
+          "Standard minimum for small colony"
+        ],
+        [
+          "5-6 geckos",
+          "18°18°24 inches",
+          "~20 gallons",
+          "Better for breeding colonies"
+        ],
+        [
+          "7-10 geckos",
+          "18°18°36 inches",
+          "~30 gallons",
+          "Population growth accommodation"
+        ],
+        [
+          "10+ geckos",
+          "24°18°36+ inches",
+          "40+ gallons",
+          "Established colonies with offspring"
+        ]
       ]
     },
     {
@@ -44,7 +75,7 @@
     },
     {
       "type": "section",
-      "title": "Enclosure Type Selection"
+      "heading": "Enclosure Type Selection"
     },
     {
       "type": "text",
@@ -56,12 +87,37 @@
     },
     {
       "type": "table",
-      "headers": ["Material", "Temperature Control", "Humidity Management", "Best Application"],
+      "headers": [
+        "Material",
+        "Temperature Control",
+        "Humidity Management",
+        "Best Application"
+      ],
       "rows": [
-        ["Glass (front-opening)", "Excellent retention", "High retention (60-80% ideal)", "BEST for mourning geckos - maintains tropical conditions"],
-        ["PVC (custom)", "Excellent insulation", "Excellent retention", "Good alternative, harder to source in 12°12°18 size"],
-        ["Screen/mesh", "Poor retention", "Too dry (30-40%)", "AVOID - cannot maintain humidity requirements"],
-        ["Wood (sealed)", "Good insulation", "Good retention", "Possible but heavy, requires waterproofing"]
+        [
+          "Glass (front-opening)",
+          "Excellent retention",
+          "High retention (60-80% ideal)",
+          "BEST for mourning geckos - maintains tropical conditions"
+        ],
+        [
+          "PVC (custom)",
+          "Excellent insulation",
+          "Excellent retention",
+          "Good alternative, harder to source in 12°12°18 size"
+        ],
+        [
+          "Screen/mesh",
+          "Poor retention",
+          "Too dry (30-40%)",
+          "AVOID - cannot maintain humidity requirements"
+        ],
+        [
+          "Wood (sealed)",
+          "Good insulation",
+          "Good retention",
+          "Possible but heavy, requires waterproofing"
+        ]
       ]
     },
     {
@@ -70,7 +126,7 @@
     },
     {
       "type": "section",
-      "title": "Internal Layout Design"
+      "heading": "Internal Layout Design"
     },
     {
       "type": "text",
@@ -82,12 +138,37 @@
     },
     {
       "type": "table",
-      "headers": ["Zone", "Location", "Temperature", "Features"],
+      "headers": [
+        "Zone",
+        "Location",
+        "Temperature",
+        "Features"
+      ],
       "rows": [
-        ["Basking/warm zone", "Top third (under heat lamp)", "80-85°F", "Horizontal branches, leaf canopy, feeding ledge"],
-        ["Mid-range zone", "Middle third", "75-78°F", "Diagonal branches, vines, cork bark hides"],
-        ["Cool zone", "Bottom third", "70-75°F", "Ground cover, leaf litter, humid hides"],
-        ["Nighttime", "All zones", "65-72°F", "No temperature drop below 65°F"]
+        [
+          "Basking/warm zone",
+          "Top third (under heat lamp)",
+          "80-85°F",
+          "Horizontal branches, leaf canopy, feeding ledge"
+        ],
+        [
+          "Mid-range zone",
+          "Middle third",
+          "75-78°F",
+          "Diagonal branches, vines, cork bark hides"
+        ],
+        [
+          "Cool zone",
+          "Bottom third",
+          "70-75°F",
+          "Ground cover, leaf litter, humid hides"
+        ],
+        [
+          "Nighttime",
+          "All zones",
+          "65-72°F",
+          "No temperature drop below 65°F"
+        ]
       ]
     },
     {
@@ -97,7 +178,7 @@
     },
     {
       "type": "section",
-      "title": "Assembly Instructions"
+      "heading": "Assembly Instructions"
     },
     {
       "type": "text",
@@ -122,7 +203,7 @@
     },
     {
       "type": "section",
-      "title": "Common Setup Mistakes"
+      "heading": "Common Setup Mistakes"
     },
     {
       "type": "text",
@@ -130,20 +211,52 @@
     },
     {
       "type": "table",
-      "headers": ["Mistake", "Problem", "Solution"],
+      "headers": [
+        "Mistake",
+        "Problem",
+        "Solution"
+      ],
       "rows": [
-        ["Housing only 1 gecko", "Severe stress, abnormal behavior, shortened lifespan", "Always keep groups of 2+ (they're social!)"],
-        ["All-screen enclosure", "Humidity drops to 30-40%, dehydration", "Use glass terrarium with screen top only"],
-        ["Excessive heat wattage", "Overheating above 85°F = lethal", "Start with 25w + dimmer, measure with temp gun"],
-        ["No UVB", "Weak bones, egg binding, metabolic issues", "Provide 5.0 UVB even though they're nocturnal"],
-        ["Insufficient climbing surfaces", "Limited territory, increased aggression", "Add branches/vines at all heights"],
-        ["Only 1 feeding station", "Dominant geckos monopolize food", "Provide multiple feeding ledges"],
-        ["No population planning", "Colony outgrows enclosure in 6-12 months", "Start larger or prepare to upgrade"]
+        [
+          "Housing only 1 gecko",
+          "Severe stress, abnormal behavior, shortened lifespan",
+          "Always keep groups of 2+ (they're social!)"
+        ],
+        [
+          "All-screen enclosure",
+          "Humidity drops to 30-40%, dehydration",
+          "Use glass terrarium with screen top only"
+        ],
+        [
+          "Excessive heat wattage",
+          "Overheating above 85°F = lethal",
+          "Start with 25w + dimmer, measure with temp gun"
+        ],
+        [
+          "No UVB",
+          "Weak bones, egg binding, metabolic issues",
+          "Provide 5.0 UVB even though they're nocturnal"
+        ],
+        [
+          "Insufficient climbing surfaces",
+          "Limited territory, increased aggression",
+          "Add branches/vines at all heights"
+        ],
+        [
+          "Only 1 feeding station",
+          "Dominant geckos monopolize food",
+          "Provide multiple feeding ledges"
+        ],
+        [
+          "No population planning",
+          "Colony outgrows enclosure in 6-12 months",
+          "Start larger or prepare to upgrade"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Maintenance Schedule"
+      "heading": "Maintenance Schedule"
     },
     {
       "type": "text",
@@ -151,15 +264,47 @@
     },
     {
       "type": "table",
-      "headers": ["Task", "Frequency", "Notes"],
+      "headers": [
+        "Task",
+        "Frequency",
+        "Notes"
+      ],
       "rows": [
-        ["Mist enclosure", "Morning + evening", "Use tap/spring water (not distilled)"],
-        ["Remove old CGD", "Every 24-48 hours", "Prevent mold growth"],
-        ["Spot clean waste", "Daily", "Remove visible feces/urates"],
-        ["Check temperatures", "Daily", "Basking 80-85°F, cool zone 70-75°F"],
-        ["Rotate feeding ledges", "Every 3-4 days", "Prevent territorial guarding"],
-        ["Full substrate change", "Every 1-3 months", "Or go bioactive for less maintenance"],
-        ["Replace UVB bulb", "Every 6-12 months", "Even if still producing light"]
+        [
+          "Mist enclosure",
+          "Morning + evening",
+          "Use tap/spring water (not distilled)"
+        ],
+        [
+          "Remove old CGD",
+          "Every 24-48 hours",
+          "Prevent mold growth"
+        ],
+        [
+          "Spot clean waste",
+          "Daily",
+          "Remove visible feces/urates"
+        ],
+        [
+          "Check temperatures",
+          "Daily",
+          "Basking 80-85°F, cool zone 70-75°F"
+        ],
+        [
+          "Rotate feeding ledges",
+          "Every 3-4 days",
+          "Prevent territorial guarding"
+        ],
+        [
+          "Full substrate change",
+          "Every 1-3 months",
+          "Or go bioactive for less maintenance"
+        ],
+        [
+          "Replace UVB bulb",
+          "Every 6-12 months",
+          "Even if still producing light"
+        ]
       ]
     },
     {

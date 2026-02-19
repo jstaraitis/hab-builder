@@ -6,7 +6,13 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
-  "tags": ["crested-gecko", "hydration", "water", "misting", "humidity"],
+  "tags": [
+    "crested-gecko",
+    "hydration",
+    "water",
+    "misting",
+    "humidity"
+  ],
   "image": "/animals/crested-gecko/crested-gecko-hydration.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "Natural Hydration Behaviors"
+      "heading": "Natural Hydration Behaviors"
     },
     {
       "type": "text",
@@ -29,12 +35,32 @@
     },
     {
       "type": "table",
-      "headers": ["Water Source", "Availability Pattern", "Drinking Method"],
+      "headers": [
+        "Water Source",
+        "Availability Pattern",
+        "Drinking Method"
+      ],
       "rows": [
-        ["Rain droplets on leaves", "Daily (tropical climate)", "Licking droplets from plant surfaces"],
-        ["Morning dew/fog", "Daily at dawn", "Licking accumulated moisture from leaves and bark"],
-        ["High ambient humidity", "Constant 70-90%", "Passive absorption through skin, respiratory moisture"],
-        ["Occasional puddles", "After heavy rain", "Surface drinking (uncommon behavior)"]
+        [
+          "Rain droplets on leaves",
+          "Daily (tropical climate)",
+          "Licking droplets from plant surfaces"
+        ],
+        [
+          "Morning dew/fog",
+          "Daily at dawn",
+          "Licking accumulated moisture from leaves and bark"
+        ],
+        [
+          "High ambient humidity",
+          "Constant 70-90%",
+          "Passive absorption through skin, respiratory moisture"
+        ],
+        [
+          "Occasional puddles",
+          "After heavy rain",
+          "Surface drinking (uncommon behavior)"
+        ]
       ]
     },
     {
@@ -43,7 +69,7 @@
     },
     {
       "type": "section",
-      "title": "Primary Hydration Methods"
+      "heading": "Primary Hydration Methods"
     },
     {
       "type": "text",
@@ -55,13 +81,43 @@
     },
     {
       "type": "table",
-      "headers": ["Method", "Effectiveness", "Maintenance Level", "Best Use Case"],
+      "headers": [
+        "Method",
+        "Effectiveness",
+        "Maintenance Level",
+        "Best Use Case"
+      ],
       "rows": [
-        ["Manual misting (pressure sprayer)", "High (95% of geckos drink)", "Moderate (2x daily, 1-2 min)", "Primary method, must-have for all setups"],
-        ["Automated misting system", "High (consistent delivery)", "Low (weekly refill)", "Ideal for multiple enclosures or busy schedules"],
-        ["Water dish (standing water)", "Low-Moderate (30-40% drink)", "Daily (change water)", "Supplemental only, never sole water source"],
-        ["Drip system", "Moderate (moving water more attractive)", "Moderate (daily setup/cleanup)", "Supplemental enrichment, not primary method"],
-        ["Fogger (ultrasonic)", "Moderate (atmospheric humidity)", "Moderate (daily water changes)", "Humidity boost, minimal direct drinking"]
+        [
+          "Manual misting (pressure sprayer)",
+          "High (95% of geckos drink)",
+          "Moderate (2x daily, 1-2 min)",
+          "Primary method, must-have for all setups"
+        ],
+        [
+          "Automated misting system",
+          "High (consistent delivery)",
+          "Low (weekly refill)",
+          "Ideal for multiple enclosures or busy schedules"
+        ],
+        [
+          "Water dish (standing water)",
+          "Low-Moderate (30-40% drink)",
+          "Daily (change water)",
+          "Supplemental only, never sole water source"
+        ],
+        [
+          "Drip system",
+          "Moderate (moving water more attractive)",
+          "Moderate (daily setup/cleanup)",
+          "Supplemental enrichment, not primary method"
+        ],
+        [
+          "Fogger (ultrasonic)",
+          "Moderate (atmospheric humidity)",
+          "Moderate (daily water changes)",
+          "Humidity boost, minimal direct drinking"
+        ]
       ]
     },
     {
@@ -71,7 +127,7 @@
     },
     {
       "type": "section",
-      "title": "Misting Protocol (Manual)"
+      "heading": "Misting Protocol (Manual)"
     },
     {
       "type": "text",
@@ -83,11 +139,31 @@
     },
     {
       "type": "table",
-      "headers": ["Session", "Timing", "Duration", "Target Coverage"],
+      "headers": [
+        "Session",
+        "Timing",
+        "Duration",
+        "Target Coverage"
+      ],
       "rows": [
-        ["Morning misting", "7-9 AM (before lights/heat turn on)", "30-45 seconds", "All walls, plants, branches, visible droplets on all surfaces"],
-        ["Evening misting", "7-9 PM (primary drinking opportunity)", "60-90 seconds", "Heavy misting, substrate should feel moist 1\" down, large droplets on leaves"],
-        ["Optional midday (if needed)", "12-2 PM (only if humidity <50%)", "15-20 seconds", "Light refresher mist on plants only"]
+        [
+          "Morning misting",
+          "7-9 AM (before lights/heat turn on)",
+          "30-45 seconds",
+          "All walls, plants, branches, visible droplets on all surfaces"
+        ],
+        [
+          "Evening misting",
+          "7-9 PM (primary drinking opportunity)",
+          "60-90 seconds",
+          "Heavy misting, substrate should feel moist 1\" down, large droplets on leaves"
+        ],
+        [
+          "Optional midday (if needed)",
+          "12-2 PM (only if humidity <50%)",
+          "15-20 seconds",
+          "Light refresher mist on plants only"
+        ]
       ]
     },
     {
@@ -96,13 +172,37 @@
     },
     {
       "type": "table",
-      "headers": ["Step", "Action", "Goal"],
+      "headers": [
+        "Step",
+        "Action",
+        "Goal"
+      ],
       "rows": [
-        ["1. Start high", "Spray ceiling/upper walls first", "Droplets run down naturally like rain"],
-        ["2. Cover plants", "Mist all foliage heavily", "Creates drinking surfaces at all vertical levels"],
-        ["3. Coat branches/vines", "Ensure climbing surfaces are wet", "Provides drinking opportunities while gecko moves"],
-        ["4. Light substrate misting", "Spray substrate surface (not soaking)", "Humidity buffering without waterlogging"],
-        ["5. Verify droplets", "Check for visible beads of water on leaves", "If water runs off instantly, mist lighter/shorter bursts"]
+        [
+          "1. Start high",
+          "Spray ceiling/upper walls first",
+          "Droplets run down naturally like rain"
+        ],
+        [
+          "2. Cover plants",
+          "Mist all foliage heavily",
+          "Creates drinking surfaces at all vertical levels"
+        ],
+        [
+          "3. Coat branches/vines",
+          "Ensure climbing surfaces are wet",
+          "Provides drinking opportunities while gecko moves"
+        ],
+        [
+          "4. Light substrate misting",
+          "Spray substrate surface (not soaking)",
+          "Humidity buffering without waterlogging"
+        ],
+        [
+          "5. Verify droplets",
+          "Check for visible beads of water on leaves",
+          "If water runs off instantly, mist lighter/shorter bursts"
+        ]
       ]
     },
     {
@@ -111,7 +211,7 @@
     },
     {
       "type": "section",
-      "title": "Automated Misting Systems"
+      "heading": "Automated Misting Systems"
     },
     {
       "type": "text",
@@ -123,13 +223,43 @@
     },
     {
       "type": "table",
-      "headers": ["System", "Price Range", "Capacity", "Best For"],
+      "headers": [
+        "System",
+        "Price Range",
+        "Capacity",
+        "Best For"
+      ],
       "rows": [
-        ["MistKing Starter Kit", "$150-200", "1-4 enclosures", "Hobbyists, single-rack setups, highly reliable"],
-        ["Exo Terra Monsoon", "$60-100", "1-2 enclosures", "Budget option, basic programmability"],
-        ["Climist", "$100-150", "1-3 enclosures", "Mid-range, good for bioactive setups"],
-        ["DIY Arduino/timer system", "$40-80", "Custom", "Tech-savvy keepers, fully customizable"],
-        ["Fogger (as supplement)", "$30-60", "1 enclosure", "Not misting replacement, adds humidity only"]
+        [
+          "MistKing Starter Kit",
+          "$150-200",
+          "1-4 enclosures",
+          "Hobbyists, single-rack setups, highly reliable"
+        ],
+        [
+          "Exo Terra Monsoon",
+          "$60-100",
+          "1-2 enclosures",
+          "Budget option, basic programmability"
+        ],
+        [
+          "Climist",
+          "$100-150",
+          "1-3 enclosures",
+          "Mid-range, good for bioactive setups"
+        ],
+        [
+          "DIY Arduino/timer system",
+          "$40-80",
+          "Custom",
+          "Tech-savvy keepers, fully customizable"
+        ],
+        [
+          "Fogger (as supplement)",
+          "$30-60",
+          "1 enclosure",
+          "Not misting replacement, adds humidity only"
+        ]
       ]
     },
     {
@@ -138,12 +268,32 @@
     },
     {
       "type": "table",
-      "headers": ["Time", "Duration", "Purpose"],
+      "headers": [
+        "Time",
+        "Duration",
+        "Purpose"
+      ],
       "rows": [
-        ["7:00 AM", "30-45 seconds", "Morning hydration opportunity, humidity boost"],
-        ["1:00 PM (optional)", "15 seconds", "Midday humidity maintenance if ambient <50%"],
-        ["8:00 PM", "60 seconds", "Primary drinking session during active period"],
-        ["11:00 PM (optional)", "20 seconds", "Late-night humidity for geckos active past midnight"]
+        [
+          "7:00 AM",
+          "30-45 seconds",
+          "Morning hydration opportunity, humidity boost"
+        ],
+        [
+          "1:00 PM (optional)",
+          "15 seconds",
+          "Midday humidity maintenance if ambient <50%"
+        ],
+        [
+          "8:00 PM",
+          "60 seconds",
+          "Primary drinking session during active period"
+        ],
+        [
+          "11:00 PM (optional)",
+          "20 seconds",
+          "Late-night humidity for geckos active past midnight"
+        ]
       ]
     },
     {
@@ -153,7 +303,7 @@
     },
     {
       "type": "section",
-      "title": "Water Dish Setup (Supplemental)"
+      "heading": "Water Dish Setup (Supplemental)"
     },
     {
       "type": "text",
@@ -165,13 +315,37 @@
     },
     {
       "type": "table",
-      "headers": ["Parameter", "Specification", "Rationale"],
+      "headers": [
+        "Parameter",
+        "Specification",
+        "Rationale"
+      ],
       "rows": [
-        ["Dish size", "2-3\" diameter, shallow depth", "Prevents drowning, easy access for small geckos"],
-        ["Water depth", "0.5-1\" maximum", "Crested geckos are not aquatic, shallow prevents stress"],
-        ["Placement", "Mid-level on magnetic ledge or stable branch", "Arboreal species prefer elevated water sources"],
-        ["Material", "Glass or ceramic (heavy)", "Won't tip over when gecko climbs on edge"],
-        ["Water change frequency", "Daily", "Prevents bacterial growth, fecal contamination"]
+        [
+          "Dish size",
+          "2-3\" diameter, shallow depth",
+          "Prevents drowning, easy access for small geckos"
+        ],
+        [
+          "Water depth",
+          "0.5-1\" maximum",
+          "Crested geckos are not aquatic, shallow prevents stress"
+        ],
+        [
+          "Placement",
+          "Mid-level on magnetic ledge or stable branch",
+          "Arboreal species prefer elevated water sources"
+        ],
+        [
+          "Material",
+          "Glass or ceramic (heavy)",
+          "Won't tip over when gecko climbs on edge"
+        ],
+        [
+          "Water change frequency",
+          "Daily",
+          "Prevents bacterial growth, fecal contamination"
+        ]
       ]
     },
     {
@@ -181,7 +355,7 @@
     },
     {
       "type": "section",
-      "title": "Water Quality & Source"
+      "heading": "Water Quality & Source"
     },
     {
       "type": "text",
@@ -193,12 +367,37 @@
     },
     {
       "type": "table",
-      "headers": ["Water Source", "Suitability for Misting", "Mineral Content", "Notes"],
+      "headers": [
+        "Water Source",
+        "Suitability for Misting",
+        "Mineral Content",
+        "Notes"
+      ],
       "rows": [
-        ["Tap water (dechlorinated)", "Excellent (RECOMMENDED)", "Contains beneficial calcium/magnesium", "Let sit 24 hours to off-gas chlorine, or use dechlorinator"],
-        ["Spring water (bottled)", "Good", "Moderate minerals", "Expensive for daily misting, but safe"],
-        ["Distilled water", "Poor (avoid)", "Zero minerals (leaches from gecko)", "Can cause mineral deficiencies long-term"],
-        ["Reverse osmosis (RO)", "Poor-Fair", "Near-zero minerals", "Requires remineralization for reptile use"]
+        [
+          "Tap water (dechlorinated)",
+          "Excellent (RECOMMENDED)",
+          "Contains beneficial calcium/magnesium",
+          "Let sit 24 hours to off-gas chlorine, or use dechlorinator"
+        ],
+        [
+          "Spring water (bottled)",
+          "Good",
+          "Moderate minerals",
+          "Expensive for daily misting, but safe"
+        ],
+        [
+          "Distilled water",
+          "Poor (avoid)",
+          "Zero minerals (leaches from gecko)",
+          "Can cause mineral deficiencies long-term"
+        ],
+        [
+          "Reverse osmosis (RO)",
+          "Poor-Fair",
+          "Near-zero minerals",
+          "Requires remineralization for reptile use"
+        ]
       ]
     },
     {
@@ -207,7 +406,7 @@
     },
     {
       "type": "section",
-      "title": "Dehydration Recognition"
+      "heading": "Dehydration Recognition"
     },
     {
       "type": "text",
@@ -219,11 +418,31 @@
     },
     {
       "type": "table",
-      "headers": ["Severity", "Physical Signs", "Behavioral Signs", "Action Required"],
+      "headers": [
+        "Severity",
+        "Physical Signs",
+        "Behavioral Signs",
+        "Action Required"
+      ],
       "rows": [
-        ["Mild (5-7% deficit)", "Slightly sunken eyes, sticky saliva when yawning", "Lethargic, less active than usual", "Increase misting to 3x daily, verify humidity 60-80%"],
-        ["Moderate (8-10% deficit)", "Sunken eyes, skin loses elasticity (tent test), wrinkled skin", "Refuses food, stays in one spot, closes eyes during day", "Heavy misting 3-4x daily, increase humidity to 70-90%, monitor 48 hours"],
-        ["Severe (>10% deficit)", "Eyes deeply sunken, skin wrinkled/dry, weight loss visible", "Unresponsive, difficulty moving, respiratory distress", "VETERINARY EMERGENCY, subcutaneous fluids needed, mist enclosure heavily"]
+        [
+          "Mild (5-7% deficit)",
+          "Slightly sunken eyes, sticky saliva when yawning",
+          "Lethargic, less active than usual",
+          "Increase misting to 3x daily, verify humidity 60-80%"
+        ],
+        [
+          "Moderate (8-10% deficit)",
+          "Sunken eyes, skin loses elasticity (tent test), wrinkled skin",
+          "Refuses food, stays in one spot, closes eyes during day",
+          "Heavy misting 3-4x daily, increase humidity to 70-90%, monitor 48 hours"
+        ],
+        [
+          "Severe (>10% deficit)",
+          "Eyes deeply sunken, skin wrinkled/dry, weight loss visible",
+          "Unresponsive, difficulty moving, respiratory distress",
+          "VETERINARY EMERGENCY, subcutaneous fluids needed, mist enclosure heavily"
+        ]
       ]
     },
     {
@@ -232,12 +451,32 @@
     },
     {
       "type": "table",
-      "headers": ["Method", "Procedure", "Normal vs Dehydrated"],
+      "headers": [
+        "Method",
+        "Procedure",
+        "Normal vs Dehydrated"
+      ],
       "rows": [
-        ["Skin tent test", "Gently pinch skin on back, release, observe speed of return", "Normal: snaps back instantly | Dehydrated: tents for 2-3 seconds or stays raised"],
-        ["Eye appearance", "Look at eyes from side profile", "Normal: eyes level with head contour | Dehydrated: eyes sunken into skull"],
-        ["Urate quality", "Examine urate (white part of feces)", "Normal: soft, white, moist | Dehydrated: hard, yellow/orange, chalky"],
-        ["Weight monitoring", "Weigh weekly during suspected dehydration", "Normal: stable weight | Dehydrated: 5-10% weight loss over 1-2 weeks"]
+        [
+          "Skin tent test",
+          "Gently pinch skin on back, release, observe speed of return",
+          "Normal: snaps back instantly | Dehydrated: tents for 2-3 seconds or stays raised"
+        ],
+        [
+          "Eye appearance",
+          "Look at eyes from side profile",
+          "Normal: eyes level with head contour | Dehydrated: eyes sunken into skull"
+        ],
+        [
+          "Urate quality",
+          "Examine urate (white part of feces)",
+          "Normal: soft, white, moist | Dehydrated: hard, yellow/orange, chalky"
+        ],
+        [
+          "Weight monitoring",
+          "Weigh weekly during suspected dehydration",
+          "Normal: stable weight | Dehydrated: 5-10% weight loss over 1-2 weeks"
+        ]
       ]
     },
     {
@@ -247,7 +486,7 @@
     },
     {
       "type": "section",
-      "title": "Hydration Through Diet"
+      "heading": "Hydration Through Diet"
     },
     {
       "type": "text",
@@ -259,12 +498,32 @@
     },
     {
       "type": "table",
-      "headers": ["Food Source", "Water Content", "Hydration Role"],
+      "headers": [
+        "Food Source",
+        "Water Content",
+        "Hydration Role"
+      ],
       "rows": [
-        ["CGD (proper consistency)", "60-70%", "Provides 30-40% of daily water needs, significant but not sole source"],
-        ["Feeder insects (live)", "60-75%", "Minor contribution, insects eaten 1-2x/week only"],
-        ["Direct misting/droplets", "100%", "Primary hydration source, provides 60-70% of daily water needs"],
-        ["Ambient humidity (passive)", "Absorbed through skin/respiratory", "Supports hydration but cannot replace drinking"]
+        [
+          "CGD (proper consistency)",
+          "60-70%",
+          "Provides 30-40% of daily water needs, significant but not sole source"
+        ],
+        [
+          "Feeder insects (live)",
+          "60-75%",
+          "Minor contribution, insects eaten 1-2x/week only"
+        ],
+        [
+          "Direct misting/droplets",
+          "100%",
+          "Primary hydration source, provides 60-70% of daily water needs"
+        ],
+        [
+          "Ambient humidity (passive)",
+          "Absorbed through skin/respiratory",
+          "Supports hydration but cannot replace drinking"
+        ]
       ]
     },
     {
@@ -273,7 +532,7 @@
     },
     {
       "type": "section",
-      "title": "Humidity & Hydration Connection"
+      "heading": "Humidity & Hydration Connection"
     },
     {
       "type": "text",
@@ -285,12 +544,32 @@
     },
     {
       "type": "table",
-      "headers": ["Humidity Level", "Water Loss Rate", "Effect on Gecko"],
+      "headers": [
+        "Humidity Level",
+        "Water Loss Rate",
+        "Effect on Gecko"
+      ],
       "rows": [
-        ["<40% (too low)", "Rapid evaporative loss", "Dehydration within 2-3 days, stuck sheds, sunken eyes"],
-        ["40-60% (low-moderate)", "Moderate evaporative loss", "Increased drinking needed, risk of dehydration if misting insufficient"],
-        ["60-80% (ideal)", "Minimal evaporative loss", "Normal water balance, shedding goes well, healthy appearance"],
-        ["80-100% (high)", "Near-zero evaporative loss", "Reduced drinking frequency OK, but must allow dry-out periods for enclosure health"]
+        [
+          "<40% (too low)",
+          "Rapid evaporative loss",
+          "Dehydration within 2-3 days, stuck sheds, sunken eyes"
+        ],
+        [
+          "40-60% (low-moderate)",
+          "Moderate evaporative loss",
+          "Increased drinking needed, risk of dehydration if misting insufficient"
+        ],
+        [
+          "60-80% (ideal)",
+          "Minimal evaporative loss",
+          "Normal water balance, shedding goes well, healthy appearance"
+        ],
+        [
+          "80-100% (high)",
+          "Near-zero evaporative loss",
+          "Reduced drinking frequency OK, but must allow dry-out periods for enclosure health"
+        ]
       ]
     },
     {
@@ -300,7 +579,7 @@
     },
     {
       "type": "section",
-      "title": "Life Stage Considerations"
+      "heading": "Life Stage Considerations"
     },
     {
       "type": "text",
@@ -312,17 +591,42 @@
     },
     {
       "type": "table",
-      "headers": ["Life Stage", "Hydration Needs", "Misting Frequency", "Monitoring Frequency"],
+      "headers": [
+        "Life Stage",
+        "Hydration Needs",
+        "Misting Frequency",
+        "Monitoring Frequency"
+      ],
       "rows": [
-        ["Hatchling (0-3 months)", "Very high (dehydrate in 24-36 hours)", "3x daily minimum (morning, midday, evening)", "Check eyes daily for early dehydration signs"],
-        ["Juvenile (3-12 months)", "High (dehydrate in 2-3 days)", "2-3x daily (morning + evening, optional midday)", "Check eyes 2-3x per week"],
-        ["Sub-Adult (12-18 months)", "Moderate-high", "2x daily (morning + evening)", "Weekly eye/skin checks"],
-        ["Adult (18+ months)", "Moderate (dehydrate in 3-5 days)", "2x daily standard (can occasionally skip 1 day if emergency)", "Bi-weekly checks unless shedding"]
+        [
+          "Hatchling (0-3 months)",
+          "Very high (dehydrate in 24-36 hours)",
+          "3x daily minimum (morning, midday, evening)",
+          "Check eyes daily for early dehydration signs"
+        ],
+        [
+          "Juvenile (3-12 months)",
+          "High (dehydrate in 2-3 days)",
+          "2-3x daily (morning + evening, optional midday)",
+          "Check eyes 2-3x per week"
+        ],
+        [
+          "Sub-Adult (12-18 months)",
+          "Moderate-high",
+          "2x daily (morning + evening)",
+          "Weekly eye/skin checks"
+        ],
+        [
+          "Adult (18+ months)",
+          "Moderate (dehydrate in 3-5 days)",
+          "2x daily standard (can occasionally skip 1 day if emergency)",
+          "Bi-weekly checks unless shedding"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Common Hydration Mistakes"
+      "heading": "Common Hydration Mistakes"
     },
     {
       "type": "text",
@@ -330,20 +634,52 @@
     },
     {
       "type": "table",
-      "headers": ["Mistake", "Why It's Problematic", "Correct Approach"],
+      "headers": [
+        "Mistake",
+        "Why It's Problematic",
+        "Correct Approach"
+      ],
       "rows": [
-        ["Relying only on water dish", "60% of crested geckos don't drink from standing water", "Misting 2x daily is mandatory, water dish is supplemental only"],
-        ["Using distilled/RO water exclusively", "Leaches minerals from gecko, causes deficiencies", "Use dechlorinated tap water for beneficial minerals"],
-        ["Misting only once daily", "Insufficient hydration opportunities, humidity drops too low", "Minimum 2x daily, morning and evening sessions"],
-        ["Misting too lightly (no droplets)", "Geckos can't drink mist vapor, need visible droplets", "Mist until water beads visibly on leaves and walls"],
-        ["Over-misting (constant 95%+ humidity)", "Mold, respiratory infections, skin infections", "Allow humidity to drop to 50-60% midday between mistings"],
-        ["Ignoring sunken eyes", "Early dehydration progresses to severe stage", "Sunken eyes = increase misting immediately to 3-4x daily"],
-        ["Misting only substrate (not plants/walls)", "No drinking surfaces created for arboreal gecko", "Focus misting on vertical surfaces, walls, leaves, branches"]
+        [
+          "Relying only on water dish",
+          "60% of crested geckos don't drink from standing water",
+          "Misting 2x daily is mandatory, water dish is supplemental only"
+        ],
+        [
+          "Using distilled/RO water exclusively",
+          "Leaches minerals from gecko, causes deficiencies",
+          "Use dechlorinated tap water for beneficial minerals"
+        ],
+        [
+          "Misting only once daily",
+          "Insufficient hydration opportunities, humidity drops too low",
+          "Minimum 2x daily, morning and evening sessions"
+        ],
+        [
+          "Misting too lightly (no droplets)",
+          "Geckos can't drink mist vapor, need visible droplets",
+          "Mist until water beads visibly on leaves and walls"
+        ],
+        [
+          "Over-misting (constant 95%+ humidity)",
+          "Mold, respiratory infections, skin infections",
+          "Allow humidity to drop to 50-60% midday between mistings"
+        ],
+        [
+          "Ignoring sunken eyes",
+          "Early dehydration progresses to severe stage",
+          "Sunken eyes = increase misting immediately to 3-4x daily"
+        ],
+        [
+          "Misting only substrate (not plants/walls)",
+          "No drinking surfaces created for arboreal gecko",
+          "Focus misting on vertical surfaces, walls, leaves, branches"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Emergency Hydration Interventions"
+      "heading": "Emergency Hydration Interventions"
     },
     {
       "type": "text",
@@ -355,13 +691,37 @@
     },
     {
       "type": "table",
-      "headers": ["Intervention", "When to Use", "Procedure"],
+      "headers": [
+        "Intervention",
+        "When to Use",
+        "Procedure"
+      ],
       "rows": [
-        ["Intensive misting", "Mild dehydration (slightly sunken eyes)", "Mist 3-4x daily for 2-3 days, verify humidity stays 70-80%"],
-        ["Sauna box treatment", "Moderate dehydration (sunken eyes + lethargy)", "Place gecko in small container with damp paper towels for 30-60 min, 2x daily"],
-        ["Dropper water administration", "Moderate dehydration, gecko won't drink", "Drip 1-2 drops water on nose, gecko should lick off. Do NOT force into mouth."],
-        ["Pedialyte misting (diluted 50%)", "Moderate dehydration + electrolyte loss", "Mix 50/50 Pedialyte:water, mist enclosure, provides electrolytes through skin absorption"],
-        ["Veterinary subcutaneous fluids", "Severe dehydration (deeply sunken eyes, unresponsive)", "CANNOT BE DONE AT HOME, vet injects fluids under skin, rehydrates in hours"]
+        [
+          "Intensive misting",
+          "Mild dehydration (slightly sunken eyes)",
+          "Mist 3-4x daily for 2-3 days, verify humidity stays 70-80%"
+        ],
+        [
+          "Sauna box treatment",
+          "Moderate dehydration (sunken eyes + lethargy)",
+          "Place gecko in small container with damp paper towels for 30-60 min, 2x daily"
+        ],
+        [
+          "Dropper water administration",
+          "Moderate dehydration, gecko won't drink",
+          "Drip 1-2 drops water on nose, gecko should lick off. Do NOT force into mouth."
+        ],
+        [
+          "Pedialyte misting (diluted 50%)",
+          "Moderate dehydration + electrolyte loss",
+          "Mix 50/50 Pedialyte:water, mist enclosure, provides electrolytes through skin absorption"
+        ],
+        [
+          "Veterinary subcutaneous fluids",
+          "Severe dehydration (deeply sunken eyes, unresponsive)",
+          "CANNOT BE DONE AT HOME, vet injects fluids under skin, rehydrates in hours"
+        ]
       ]
     },
     {
@@ -371,7 +731,7 @@
     },
     {
       "type": "section",
-      "title": "Complete Equipment Checklist"
+      "heading": "Complete Equipment Checklist"
     },
     {
       "type": "text",
@@ -379,14 +739,42 @@
     },
     {
       "type": "table",
-      "headers": ["Equipment", "Specification", "Purpose"],
+      "headers": [
+        "Equipment",
+        "Specification",
+        "Purpose"
+      ],
       "rows": [
-        ["Pressure sprayer", "1-2 liter pump-style with adjustable nozzle", "Manual misting 2x daily (primary hydration method)"],
-        ["Digital hygrometer", "Probe-style, accurate , 3%", "Monitor humidity levels (target 60-80%)"],
-        ["Water dish (optional)", "2-3\" diameter, shallow ceramic or glass", "Supplemental water source for geckos that drink standing water"],
-        ["Dechlorinator (optional)", "Aquarium-grade water conditioner", "Remove chlorine if letting tap water sit 24h not feasible"],
-        ["Automated misting system (optional)", "MistKing or Exo Terra Monsoon", "Hands-free consistent misting for busy schedules"],
-        ["Gram scale", "Digital, 0.1g accuracy", "Weekly weight monitoring during suspected dehydration"]
+        [
+          "Pressure sprayer",
+          "1-2 liter pump-style with adjustable nozzle",
+          "Manual misting 2x daily (primary hydration method)"
+        ],
+        [
+          "Digital hygrometer",
+          "Probe-style, accurate , 3%",
+          "Monitor humidity levels (target 60-80%)"
+        ],
+        [
+          "Water dish (optional)",
+          "2-3\" diameter, shallow ceramic or glass",
+          "Supplemental water source for geckos that drink standing water"
+        ],
+        [
+          "Dechlorinator (optional)",
+          "Aquarium-grade water conditioner",
+          "Remove chlorine if letting tap water sit 24h not feasible"
+        ],
+        [
+          "Automated misting system (optional)",
+          "MistKing or Exo Terra Monsoon",
+          "Hands-free consistent misting for busy schedules"
+        ],
+        [
+          "Gram scale",
+          "Digital, 0.1g accuracy",
+          "Weekly weight monitoring during suspected dehydration"
+        ]
       ]
     },
     {
@@ -395,7 +783,7 @@
     },
     {
       "type": "section",
-      "title": "Seasonal Adjustments"
+      "heading": "Seasonal Adjustments"
     },
     {
       "type": "text",
@@ -403,12 +791,32 @@
     },
     {
       "type": "table",
-      "headers": ["Season", "Environmental Challenge", "Adjustment Strategy"],
+      "headers": [
+        "Season",
+        "Environmental Challenge",
+        "Adjustment Strategy"
+      ],
       "rows": [
-        ["Summer (hot/humid)", "High ambient humidity may reduce misting needs", "Monitor humidity, may reduce to 1-2x daily if room stays >60% naturally"],
-        ["Winter (cold/dry)", "Indoor heating drastically lowers humidity", "Increase to 3x daily, add humid hide, consider room humidifier"],
-        ["Spring/Fall (variable)", "Day-to-day fluctuations", "Monitor daily, adjust frequency based on hygrometer readings"],
-        ["Dry climates (year-round)", "Naturally low humidity (<30% ambient)", "3x daily misting minimum, deeper substrate (4\"), consider automated system"]
+        [
+          "Summer (hot/humid)",
+          "High ambient humidity may reduce misting needs",
+          "Monitor humidity, may reduce to 1-2x daily if room stays >60% naturally"
+        ],
+        [
+          "Winter (cold/dry)",
+          "Indoor heating drastically lowers humidity",
+          "Increase to 3x daily, add humid hide, consider room humidifier"
+        ],
+        [
+          "Spring/Fall (variable)",
+          "Day-to-day fluctuations",
+          "Monitor daily, adjust frequency based on hygrometer readings"
+        ],
+        [
+          "Dry climates (year-round)",
+          "Naturally low humidity (<30% ambient)",
+          "3x daily misting minimum, deeper substrate (4\"), consider automated system"
+        ]
       ]
     }
   ]

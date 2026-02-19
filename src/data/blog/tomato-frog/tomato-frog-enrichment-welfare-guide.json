@@ -21,7 +21,7 @@
     },
     {
       "type": "section",
-      "title": "Species Overview"
+      "heading": "Species Overview"
     },
     {
       "type": "text",
@@ -29,7 +29,7 @@
     },
     {
       "type": "section",
-      "title": "Quick Facts"
+      "heading": "Quick Facts"
     },
     {
       "type": "text",
@@ -37,7 +37,7 @@
     },
     {
       "type": "section",
-      "title": "Critical Care Requirements"
+      "heading": "Critical Care Requirements"
     },
     {
       "type": "text",
@@ -74,7 +74,7 @@
     },
     {
       "type": "section",
-      "title": "Enclosure Enrichment"
+      "heading": "Enclosure Enrichment"
     },
     {
       "type": "text",
@@ -82,7 +82,7 @@
     },
     {
       "type": "section",
-      "title": "Behavioral Needs"
+      "heading": "Behavioral Needs"
     },
     {
       "type": "text",
@@ -90,7 +90,7 @@
     },
     {
       "type": "section",
-      "title": "Common Welfare Issues"
+      "heading": "Common Welfare Issues"
     },
     {
       "type": "text",
@@ -98,7 +98,7 @@
     },
     {
       "type": "section",
-      "title": "Getting Started Checklist"
+      "heading": "Getting Started Checklist"
     },
     {
       "type": "text",

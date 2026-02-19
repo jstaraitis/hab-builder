@@ -6,7 +6,13 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
-  "tags": ["crested-gecko", "temperature", "humidity", "heating", "climate"],
+  "tags": [
+    "crested-gecko",
+    "temperature",
+    "humidity",
+    "heating",
+    "climate"
+  ],
   "image": "/animals/crested-gecko/crested-gecko-temperature.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "Temperature Zones"
+      "heading": "Temperature Zones"
     },
     {
       "type": "text",
@@ -29,12 +35,37 @@
     },
     {
       "type": "table",
-      "headers": ["Zone", "Daytime Temp", "Nighttime Temp", "Location"],
+      "headers": [
+        "Zone",
+        "Daytime Temp",
+        "Nighttime Temp",
+        "Location"
+      ],
       "rows": [
-        ["Upper Zone", "74-78F (23-26C)", "70-74F (21-23C)", "Top third of enclosure"],
-        ["Mid-Level (activity zone)", "72-76F (22-24C)", "68-72F (20-22C)", "Middle third of enclosure"],
-        ["Cool Zone", "70-74F (21-23C)", "65-70F (18-21C)", "Bottom third of enclosure"],
-        ["Substrate Surface", "68-72F (20-22C)", "65-68F (18-20C)", "Floor level"]
+        [
+          "Upper Zone",
+          "74-78F (23-26C)",
+          "70-74F (21-23C)",
+          "Top third of enclosure"
+        ],
+        [
+          "Mid-Level (activity zone)",
+          "72-76F (22-24C)",
+          "68-72F (20-22C)",
+          "Middle third of enclosure"
+        ],
+        [
+          "Cool Zone",
+          "70-74F (21-23C)",
+          "65-70F (18-21C)",
+          "Bottom third of enclosure"
+        ],
+        [
+          "Substrate Surface",
+          "68-72F (20-22C)",
+          "65-68F (18-20C)",
+          "Floor level"
+        ]
       ]
     },
     {
@@ -48,7 +79,7 @@
     },
     {
       "type": "section",
-      "title": "Humidity Requirements"
+      "heading": "Humidity Requirements"
     },
     {
       "type": "text",
@@ -60,14 +91,42 @@
     },
     {
       "type": "table",
-      "headers": ["Time of Day", "Target Range", "Natural Pattern"],
+      "headers": [
+        "Time of Day",
+        "Target Range",
+        "Natural Pattern"
+      ],
       "rows": [
-        ["Morning (after misting)", "80-100%", "Simulates morning dew/fog in rainforest"],
-        ["Midday (dried out)", "50-60%", "Allows enclosure to breathe, prevents mold"],
-        ["Evening (after misting)", "70-85%", "Provides drinking water, increases comfort"],
-        ["Nighttime (peak)", "70-85%", "Natural increase as temperatures drop"],
-        ["Overall Minimum", "50%", "Humidity should not drop below this"],
-        ["Overall Average", "60-80%", "Daily average balances hydration and drying"]
+        [
+          "Morning (after misting)",
+          "80-100%",
+          "Simulates morning dew/fog in rainforest"
+        ],
+        [
+          "Midday (dried out)",
+          "50-60%",
+          "Allows enclosure to breathe, prevents mold"
+        ],
+        [
+          "Evening (after misting)",
+          "70-85%",
+          "Provides drinking water, increases comfort"
+        ],
+        [
+          "Nighttime (peak)",
+          "70-85%",
+          "Natural increase as temperatures drop"
+        ],
+        [
+          "Overall Minimum",
+          "50%",
+          "Humidity should not drop below this"
+        ],
+        [
+          "Overall Average",
+          "60-80%",
+          "Daily average balances hydration and drying"
+        ]
       ]
     },
     {
@@ -77,7 +136,7 @@
     },
     {
       "type": "section",
-      "title": "Humidity Management Techniques"
+      "heading": "Humidity Management Techniques"
     },
     {
       "type": "text",
@@ -89,14 +148,42 @@
     },
     {
       "type": "table",
-      "headers": ["Method", "Frequency", "Effect on Humidity"],
+      "headers": [
+        "Method",
+        "Frequency",
+        "Effect on Humidity"
+      ],
       "rows": [
-        ["Manual misting (pressure sprayer)", "2x daily (morning & evening)", "Raises humidity 20-30% for 2-4 hours"],
-        ["Live plants", "Constant presence", "Transpiration adds 5-10% continuous humidity"],
-        ["Deep substrate (3-4\")", "Set and maintain", "Moisture reservoir adds 10-15% baseline humidity"],
-        ["Water bowl/feature", "Keep filled", "Evaporation adds 5-8% continuous humidity"],
-        ["Automated misting system", "2-3x daily (timed)", "Consistent, hands-off humidity spikes"],
-        ["Fogger (ultrasonic)", "1-2 hours at dawn", "Simulates morning fog, +30-40% humidity surge"]
+        [
+          "Manual misting (pressure sprayer)",
+          "2x daily (morning & evening)",
+          "Raises humidity 20-30% for 2-4 hours"
+        ],
+        [
+          "Live plants",
+          "Constant presence",
+          "Transpiration adds 5-10% continuous humidity"
+        ],
+        [
+          "Deep substrate (3-4\")",
+          "Set and maintain",
+          "Moisture reservoir adds 10-15% baseline humidity"
+        ],
+        [
+          "Water bowl/feature",
+          "Keep filled",
+          "Evaporation adds 5-8% continuous humidity"
+        ],
+        [
+          "Automated misting system",
+          "2-3x daily (timed)",
+          "Consistent, hands-off humidity spikes"
+        ],
+        [
+          "Fogger (ultrasonic)",
+          "1-2 hours at dawn",
+          "Simulates morning fog, +30-40% humidity surge"
+        ]
       ]
     },
     {
@@ -105,11 +192,31 @@
     },
     {
       "type": "table",
-      "headers": ["Session", "Timing", "Duration", "Target Coverage"],
+      "headers": [
+        "Session",
+        "Timing",
+        "Duration",
+        "Target Coverage"
+      ],
       "rows": [
-        ["Morning misting", "7-9 AM (before heat lamp warms enclosure)", "30-45 seconds", "All walls, plants, and decor (visible droplets)"],
-        ["Evening misting", "7-9 PM (after heat lamp off 1-2 hours)", "45-60 seconds", "Heavy misting, substrate should feel damp 1\" down"],
-        ["Optional midday (if needed)", "12-2 PM (only if humidity <50%)", "15-20 seconds", "Light mist on plants only, not substrate"]
+        [
+          "Morning misting",
+          "7-9 AM (before heat lamp warms enclosure)",
+          "30-45 seconds",
+          "All walls, plants, and decor (visible droplets)"
+        ],
+        [
+          "Evening misting",
+          "7-9 PM (after heat lamp off 1-2 hours)",
+          "45-60 seconds",
+          "Heavy misting, substrate should feel damp 1\" down"
+        ],
+        [
+          "Optional midday (if needed)",
+          "12-2 PM (only if humidity <50%)",
+          "15-20 seconds",
+          "Light mist on plants only, not substrate"
+        ]
       ]
     },
     {
@@ -118,7 +225,7 @@
     },
     {
       "type": "section",
-      "title": "Seasonal Adjustments"
+      "heading": "Seasonal Adjustments"
     },
     {
       "type": "text",
@@ -130,17 +237,37 @@
     },
     {
       "type": "table",
-      "headers": ["Season", "Typical Challenge", "Adjustment Strategy"],
+      "headers": [
+        "Season",
+        "Typical Challenge",
+        "Adjustment Strategy"
+      ],
       "rows": [
-        ["Summer (hot/humid)", "Overheating risk (>85,F), excessive humidity", "Reduce heat lamp wattage or remove entirely if room >78F; reduce misting to 1x daily"],
-        ["Winter (cold/dry)", "Difficulty maintaining warmth/humidity", "Increase heat lamp wattage; add CHE for nighttime; increase misting to 3x daily"],
-        ["Spring/Fall (moderate)", "Variable conditions day-to-day", "Monitor daily, adjust dimmer as needed; standard 2x misting usually sufficient"],
-        ["Monsoon/rainy climate", "Excess ambient humidity year-round", "Increase ventilation, reduce misting frequency, ensure substrate dries between sessions"]
+        [
+          "Summer (hot/humid)",
+          "Overheating risk (>85,F), excessive humidity",
+          "Reduce heat lamp wattage or remove entirely if room >78F; reduce misting to 1x daily"
+        ],
+        [
+          "Winter (cold/dry)",
+          "Difficulty maintaining warmth/humidity",
+          "Increase heat lamp wattage; add CHE for nighttime; increase misting to 3x daily"
+        ],
+        [
+          "Spring/Fall (moderate)",
+          "Variable conditions day-to-day",
+          "Monitor daily, adjust dimmer as needed; standard 2x misting usually sufficient"
+        ],
+        [
+          "Monsoon/rainy climate",
+          "Excess ambient humidity year-round",
+          "Increase ventilation, reduce misting frequency, ensure substrate dries between sessions"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Troubleshooting Climate Issues"
+      "heading": "Troubleshooting Climate Issues"
     },
     {
       "type": "text",
@@ -148,19 +275,47 @@
     },
     {
       "type": "table",
-      "headers": ["Problem", "Symptoms", "Solution"],
+      "headers": [
+        "Problem",
+        "Symptoms",
+        "Solution"
+      ],
       "rows": [
-        ["Enclosure too hot", "Gecko always on floor, gaping mouth, lethargy", "Lower wattage, use dimmer, increase ventilation, relocate away from windows"],
-        ["Enclosure too cold", "Gecko inactive, not eating, dark coloration", "Increase wattage to 50-60w, add CHE for nighttime, check room temperature"],
-        ["Humidity too low (<50%)", "Stuck shed, sunken eyes, dry substrate", "Increase misting to 3x daily, add live plants, increase substrate depth to 4\""],
-        ["Humidity too high (>90% constantly)", "Mold growth, respiratory wheezing, lethargy", "Reduce misting to 1x daily, improve ventilation, decrease substrate moisture"],
-        ["No temperature gradient", "Gecko seems uncomfortable, stays in one spot", "Ensure heat lamp is on top only, verify cool zone is 10-15F cooler than basking"],
-        ["Extreme night drops (<60F)", "Gecko very pale at night, not active at dusk", "Add low-wattage CHE on timer (night only), insulate enclosure sides"]
+        [
+          "Enclosure too hot",
+          "Gecko always on floor, gaping mouth, lethargy",
+          "Lower wattage, use dimmer, increase ventilation, relocate away from windows"
+        ],
+        [
+          "Enclosure too cold",
+          "Gecko inactive, not eating, dark coloration",
+          "Increase wattage to 50-60w, add CHE for nighttime, check room temperature"
+        ],
+        [
+          "Humidity too low (<50%)",
+          "Stuck shed, sunken eyes, dry substrate",
+          "Increase misting to 3x daily, add live plants, increase substrate depth to 4\""
+        ],
+        [
+          "Humidity too high (>90% constantly)",
+          "Mold growth, respiratory wheezing, lethargy",
+          "Reduce misting to 1x daily, improve ventilation, decrease substrate moisture"
+        ],
+        [
+          "No temperature gradient",
+          "Gecko seems uncomfortable, stays in one spot",
+          "Ensure heat lamp is on top only, verify cool zone is 10-15F cooler than basking"
+        ],
+        [
+          "Extreme night drops (<60F)",
+          "Gecko very pale at night, not active at dusk",
+          "Add low-wattage CHE on timer (night only), insulate enclosure sides"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Emergency Temperature Protocols"
+      "heading": "Emergency Temperature Protocols"
     },
     {
       "type": "text",
@@ -172,13 +327,37 @@
     },
     {
       "type": "table",
-      "headers": ["Emergency", "Immediate Action", "Duration Safe"],
+      "headers": [
+        "Emergency",
+        "Immediate Action",
+        "Duration Safe"
+      ],
       "rows": [
-        ["Power outage (cold)", "Hand warmers wrapped in towel near (not in) enclosure, blanket over 3 sides", "24-48 hours (crested geckos tolerate cold better than heat)"],
-        ["Power outage (summer heat)", "Move enclosure to coolest room, frozen water bottles outside enclosure, increase air flow", "12-24 hours (heat is more dangerous than cold)"],
-        ["Heater failure (winter)", "Temporary space heater in room (not enclosure), emergency bulb replacement", "Replace within 24 hours"],
-        ["Heat wave (>90F room)", "Remove all heat sources, relocate to air-conditioned room, ice packs outside enclosure", "Critical, relocate immediately"],
-        ["Humidity system failure", "Manual misting 4x daily, damp towel over portion of screen top", "Several days (not ideal but survivable)"]
+        [
+          "Power outage (cold)",
+          "Hand warmers wrapped in towel near (not in) enclosure, blanket over 3 sides",
+          "24-48 hours (crested geckos tolerate cold better than heat)"
+        ],
+        [
+          "Power outage (summer heat)",
+          "Move enclosure to coolest room, frozen water bottles outside enclosure, increase air flow",
+          "12-24 hours (heat is more dangerous than cold)"
+        ],
+        [
+          "Heater failure (winter)",
+          "Temporary space heater in room (not enclosure), emergency bulb replacement",
+          "Replace within 24 hours"
+        ],
+        [
+          "Heat wave (>90F room)",
+          "Remove all heat sources, relocate to air-conditioned room, ice packs outside enclosure",
+          "Critical, relocate immediately"
+        ],
+        [
+          "Humidity system failure",
+          "Manual misting 4x daily, damp towel over portion of screen top",
+          "Several days (not ideal but survivable)"
+        ]
       ]
     },
     {
@@ -188,7 +367,7 @@
     },
     {
       "type": "section",
-      "title": "Complete Climate Equipment List"
+      "heading": "Complete Climate Equipment List"
     },
     {
       "type": "text",
@@ -196,16 +375,52 @@
     },
     {
       "type": "table",
-      "headers": ["Equipment", "Specification", "Purpose"],
+      "headers": [
+        "Equipment",
+        "Specification",
+        "Purpose"
+      ],
       "rows": [
-        ["Heat bulb", "40w white incandescent", "Daytime basking zone heat"],
-        ["Dome fixture", "5.5\" ceramic socket", "Houses heat bulb safely"],
-        ["Lamp dimmer", "Plug-in dimmer switch", "Temperature fine-tuning"],
-        ["Infrared thermometer", "Etekcity 774 or similar", "Spot-check temps throughout enclosure"],
-        ["Digital probe thermometer", "Reptile-brand or aquarium", "Continuous basking zone monitoring"],
-        ["Digital hygrometer with probe", "Accurate 3% models", "Track humidity levels"],
-        ["Pressure sprayer", "1-2 liter pump sprayer", "Manual misting 2x daily"],
-        ["Light/heat timer", "Digital timer (2 needed)", "Automate 12-hour photoperiod"]
+        [
+          "Heat bulb",
+          "40w white incandescent",
+          "Daytime basking zone heat"
+        ],
+        [
+          "Dome fixture",
+          "5.5\" ceramic socket",
+          "Houses heat bulb safely"
+        ],
+        [
+          "Lamp dimmer",
+          "Plug-in dimmer switch",
+          "Temperature fine-tuning"
+        ],
+        [
+          "Infrared thermometer",
+          "Etekcity 774 or similar",
+          "Spot-check temps throughout enclosure"
+        ],
+        [
+          "Digital probe thermometer",
+          "Reptile-brand or aquarium",
+          "Continuous basking zone monitoring"
+        ],
+        [
+          "Digital hygrometer with probe",
+          "Accurate 3% models",
+          "Track humidity levels"
+        ],
+        [
+          "Pressure sprayer",
+          "1-2 liter pump sprayer",
+          "Manual misting 2x daily"
+        ],
+        [
+          "Light/heat timer",
+          "Digital timer (2 needed)",
+          "Automate 12-hour photoperiod"
+        ]
       ]
     },
     {

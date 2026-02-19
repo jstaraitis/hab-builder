@@ -6,7 +6,12 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-28",
   "category": "Care Guides",
-  "tags": ["mourning gecko", "substrate", "bioactive", "tropical"],
+  "tags": [
+    "mourning gecko",
+    "substrate",
+    "bioactive",
+    "tropical"
+  ],
   "image": "/animals/mourning-gecko/mourning-gecko-1.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +22,7 @@
     },
     {
       "type": "section",
-      "title": "Natural Habitat Considerations"
+      "heading": "Natural Habitat Considerations"
     },
     {
       "type": "text",
@@ -33,7 +38,7 @@
     },
     {
       "type": "section",
-      "title": "Recommended Commercial Substrates"
+      "heading": "Recommended Commercial Substrates"
     },
     {
       "type": "text",
@@ -45,18 +50,48 @@
     },
     {
       "type": "table",
-      "headers": ["Product", "Type", "Best For", "Depth Requirement"],
+      "headers": [
+        "Product",
+        "Type",
+        "Best For",
+        "Depth Requirement"
+      ],
       "rows": [
-        ["Zoo Med Reptisoil", "Organic soil blend", "Simple non-bioactive setups", "2-3 inches"],
-        ["Lugarti Natural Reptile Bedding", "Sphagnum/coco blend", "High humidity retention", "2-3 inches"],
-        ["The Bio Dude Terra Fauna", "Complete bioactive kit", "Advanced bioactive systems", "3-4 inches + drainage"],
-        ["Exo Terra Plantation Soil", "Compressed coco fiber", "Budget-friendly option", "2-3 inches (hydrate before use)"],
-        ["Josh's Frogs ABG Mix", "Advanced bioactive blend", "Plant growth + cleanup crew", "3-4 inches"]
+        [
+          "Zoo Med Reptisoil",
+          "Organic soil blend",
+          "Simple non-bioactive setups",
+          "2-3 inches"
+        ],
+        [
+          "Lugarti Natural Reptile Bedding",
+          "Sphagnum/coco blend",
+          "High humidity retention",
+          "2-3 inches"
+        ],
+        [
+          "The Bio Dude Terra Fauna",
+          "Complete bioactive kit",
+          "Advanced bioactive systems",
+          "3-4 inches + drainage"
+        ],
+        [
+          "Exo Terra Plantation Soil",
+          "Compressed coco fiber",
+          "Budget-friendly option",
+          "2-3 inches (hydrate before use)"
+        ],
+        [
+          "Josh's Frogs ABG Mix",
+          "Advanced bioactive blend",
+          "Plant growth + cleanup crew",
+          "3-4 inches"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "DIY Substrate Formula"
+      "heading": "DIY Substrate Formula"
     },
     {
       "type": "text",
@@ -68,12 +103,32 @@
     },
     {
       "type": "table",
-      "headers": ["Ingredient", "Ratio", "Purpose"],
+      "headers": [
+        "Ingredient",
+        "Ratio",
+        "Purpose"
+      ],
       "rows": [
-        ["Organic topsoil (pesticide-free)", "60%", "Base structure, plant roots, moisture retention"],
-        ["Coconut fiber (coco coir)", "40%", "Increases water holding capacity, prevents compaction"],
-        ["Sphagnum moss (optional)", "5-10% additive", "Boosts humidity, prevents substrate drying"],
-        ["Play sand (optional)", "5-10% additive", "Improves drainage, prevents waterlogging"]
+        [
+          "Organic topsoil (pesticide-free)",
+          "60%",
+          "Base structure, plant roots, moisture retention"
+        ],
+        [
+          "Coconut fiber (coco coir)",
+          "40%",
+          "Increases water holding capacity, prevents compaction"
+        ],
+        [
+          "Sphagnum moss (optional)",
+          "5-10% additive",
+          "Boosts humidity, prevents substrate drying"
+        ],
+        [
+          "Play sand (optional)",
+          "5-10% additive",
+          "Improves drainage, prevents waterlogging"
+        ]
       ]
     },
     {
@@ -82,7 +137,7 @@
     },
     {
       "type": "section",
-      "title": "Safety Considerations"
+      "heading": "Safety Considerations"
     },
     {
       "type": "text",
@@ -94,12 +149,32 @@
     },
     {
       "type": "table",
-      "headers": ["Concern", "Prevention", "Notes"],
+      "headers": [
+        "Concern",
+        "Prevention",
+        "Notes"
+      ],
       "rows": [
-        ["Substrate ingestion", "Feed on magnetic ledges/elevated cups", "Geckos rarely descend to ground for food"],
-        ["Mold growth", "Maintain 60-80% humidity (not 90%+), good ventilation", "Screen top prevents oversaturation"],
-        ["Bacterial blooms", "Spot clean waste daily, add cleanup crew", "Bioactive systems self-regulate"],
-        ["Toxic chemicals", "Use organic topsoil, avoid Miracle-Gro or fertilizers", "Read labels - \"pesticide-free\" required"]
+        [
+          "Substrate ingestion",
+          "Feed on magnetic ledges/elevated cups",
+          "Geckos rarely descend to ground for food"
+        ],
+        [
+          "Mold growth",
+          "Maintain 60-80% humidity (not 90%+), good ventilation",
+          "Screen top prevents oversaturation"
+        ],
+        [
+          "Bacterial blooms",
+          "Spot clean waste daily, add cleanup crew",
+          "Bioactive systems self-regulate"
+        ],
+        [
+          "Toxic chemicals",
+          "Use organic topsoil, avoid Miracle-Gro or fertilizers",
+          "Read labels - \"pesticide-free\" required"
+        ]
       ]
     },
     {
@@ -108,7 +183,7 @@
     },
     {
       "type": "section",
-      "title": "Bioactive Substrate Setup"
+      "heading": "Bioactive Substrate Setup"
     },
     {
       "type": "text",
@@ -120,12 +195,37 @@
     },
     {
       "type": "table",
-      "headers": ["Layer", "Material", "Depth", "Purpose"],
+      "headers": [
+        "Layer",
+        "Material",
+        "Depth",
+        "Purpose"
+      ],
       "rows": [
-        ["Drainage layer", "Hydroballs or LECA", "1-2 inches", "Prevents root rot, water overflow management"],
-        ["Mesh barrier", "Weed fabric or fiberglass mesh", "Single layer", "Keeps substrate separate from drainage"],
-        ["Substrate layer", "DIY tropical mix or Terra Fauna", "3-4 inches", "Plant roots, cleanup crew habitat, humidity"],
-        ["Leaf litter top", "Magnolia, oak, or catappa leaves", "1 inch", "Microfauna breeding ground, naturalistic look"]
+        [
+          "Drainage layer",
+          "Hydroballs or LECA",
+          "1-2 inches",
+          "Prevents root rot, water overflow management"
+        ],
+        [
+          "Mesh barrier",
+          "Weed fabric or fiberglass mesh",
+          "Single layer",
+          "Keeps substrate separate from drainage"
+        ],
+        [
+          "Substrate layer",
+          "DIY tropical mix or Terra Fauna",
+          "3-4 inches",
+          "Plant roots, cleanup crew habitat, humidity"
+        ],
+        [
+          "Leaf litter top",
+          "Magnolia, oak, or catappa leaves",
+          "1 inch",
+          "Microfauna breeding ground, naturalistic look"
+        ]
       ]
     },
     {
@@ -138,7 +238,7 @@
     },
     {
       "type": "section",
-      "title": "Depth Requirements"
+      "heading": "Depth Requirements"
     },
     {
       "type": "text",
@@ -146,17 +246,42 @@
     },
     {
       "type": "table",
-      "headers": ["Setup Type", "Minimum Depth", "Recommended Depth", "Benefit"],
+      "headers": [
+        "Setup Type",
+        "Minimum Depth",
+        "Recommended Depth",
+        "Benefit"
+      ],
       "rows": [
-        ["Non-bioactive", "2 inches", "3 inches", "Adequate humidity, easier to replace"],
-        ["Bioactive", "3 inches", "4 inches", "Supports cleanup crew populations"],
-        ["With live plants", "3 inches", "4-5 inches", "Root establishment, plant health"],
-        ["Minimal substrate (not recommended)", "1 inch", "°", "Insufficient humidity, inadequate cushioning"]
+        [
+          "Non-bioactive",
+          "2 inches",
+          "3 inches",
+          "Adequate humidity, easier to replace"
+        ],
+        [
+          "Bioactive",
+          "3 inches",
+          "4 inches",
+          "Supports cleanup crew populations"
+        ],
+        [
+          "With live plants",
+          "3 inches",
+          "4-5 inches",
+          "Root establishment, plant health"
+        ],
+        [
+          "Minimal substrate (not recommended)",
+          "1 inch",
+          "°",
+          "Insufficient humidity, inadequate cushioning"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Leaf Litter Layer"
+      "heading": "Leaf Litter Layer"
     },
     {
       "type": "text",
@@ -168,12 +293,32 @@
     },
     {
       "type": "table",
-      "headers": ["Leaf Type", "Benefits", "Longevity"],
+      "headers": [
+        "Leaf Type",
+        "Benefits",
+        "Longevity"
+      ],
       "rows": [
-        ["Magnolia leaves", "Large, slow decomposition, attractive", "6-12 months"],
-        ["Oak leaves", "Medium size, moderate breakdown", "3-6 months"],
-        ["Indian almond (catappa)", "Small, tannin release (antimicrobial)", "2-4 months"],
-        ["Commercial reptile leaf litter", "Pre-cleaned, pesticide-free guaranteed", "Varies by type"]
+        [
+          "Magnolia leaves",
+          "Large, slow decomposition, attractive",
+          "6-12 months"
+        ],
+        [
+          "Oak leaves",
+          "Medium size, moderate breakdown",
+          "3-6 months"
+        ],
+        [
+          "Indian almond (catappa)",
+          "Small, tannin release (antimicrobial)",
+          "2-4 months"
+        ],
+        [
+          "Commercial reptile leaf litter",
+          "Pre-cleaned, pesticide-free guaranteed",
+          "Varies by type"
+        ]
       ]
     },
     {
@@ -183,7 +328,7 @@
     },
     {
       "type": "section",
-      "title": "Maintenance & Cleaning"
+      "heading": "Maintenance & Cleaning"
     },
     {
       "type": "text",
@@ -195,20 +340,52 @@
     },
     {
       "type": "table",
-      "headers": ["Task", "Non-Bioactive Frequency", "Bioactive Frequency"],
+      "headers": [
+        "Task",
+        "Non-Bioactive Frequency",
+        "Bioactive Frequency"
+      ],
       "rows": [
-        ["Spot cleaning (visible waste)", "Daily", "Optional (cleanup crew handles)"],
-        ["Mist substrate edges", "Morning + evening", "Morning + evening"],
-        ["Remove moldy food", "As needed", "As needed"],
-        ["Replenish leaf litter", "Monthly", "Every 2-3 months"],
-        ["Partial substrate change (top inch)", "Every 1-2 months", "Rarely needed"],
-        ["Complete substrate change", "Every 3-4 months", "Never (established ecosystem)"],
-        ["Cleanup crew monitoring", "N/A", "Monthly (check populations)"]
+        [
+          "Spot cleaning (visible waste)",
+          "Daily",
+          "Optional (cleanup crew handles)"
+        ],
+        [
+          "Mist substrate edges",
+          "Morning + evening",
+          "Morning + evening"
+        ],
+        [
+          "Remove moldy food",
+          "As needed",
+          "As needed"
+        ],
+        [
+          "Replenish leaf litter",
+          "Monthly",
+          "Every 2-3 months"
+        ],
+        [
+          "Partial substrate change (top inch)",
+          "Every 1-2 months",
+          "Rarely needed"
+        ],
+        [
+          "Complete substrate change",
+          "Every 3-4 months",
+          "Never (established ecosystem)"
+        ],
+        [
+          "Cleanup crew monitoring",
+          "N/A",
+          "Monthly (check populations)"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Moisture Management"
+      "heading": "Moisture Management"
     },
     {
       "type": "text",
@@ -220,12 +397,32 @@
     },
     {
       "type": "table",
-      "headers": ["Test Method", "Ideal Result", "Action if Wrong"],
+      "headers": [
+        "Test Method",
+        "Ideal Result",
+        "Action if Wrong"
+      ],
       "rows": [
-        ["Squeeze test", "Forms clump, no water drips", "Too dry: mist substrate. Too wet: increase ventilation"],
-        ["Hygrometer reading", "60-80% ambient humidity", "Adjust misting frequency"],
-        ["Visual inspection", "Substrate appears damp but not muddy", "Redistribute moisture with stirring stick"],
-        ["Condensation check", "Light fog on glass mornings, clears by afternoon", "Too much: reduce misting. Too little: mist more"]
+        [
+          "Squeeze test",
+          "Forms clump, no water drips",
+          "Too dry: mist substrate. Too wet: increase ventilation"
+        ],
+        [
+          "Hygrometer reading",
+          "60-80% ambient humidity",
+          "Adjust misting frequency"
+        ],
+        [
+          "Visual inspection",
+          "Substrate appears damp but not muddy",
+          "Redistribute moisture with stirring stick"
+        ],
+        [
+          "Condensation check",
+          "Light fog on glass mornings, clears by afternoon",
+          "Too much: reduce misting. Too little: mist more"
+        ]
       ]
     },
     {
@@ -234,7 +431,7 @@
     },
     {
       "type": "section",
-      "title": "Substrates to Avoid"
+      "heading": "Substrates to Avoid"
     },
     {
       "type": "text",
@@ -246,14 +443,35 @@
     },
     {
       "type": "table",
-      "headers": ["Substrate", "Why Avoid"],
+      "headers": [
+        "Substrate",
+        "Why Avoid"
+      ],
       "rows": [
-        ["Paper towels", "Cannot maintain 60-80% humidity, aesthetically poor"],
-        ["Reptile carpet", "Traps bacteria, impossible to clean with waste accumulation"],
-        ["Pure sand", "Insufficient moisture retention, inappropriate for tropical species"],
-        ["Cedar/pine shavings", "Toxic aromatic oils, wrong habitat type"],
-        ["Calcium sand", "Desert substrate, wrong climate simulation"],
-        ["Bare bottom (no substrate)", "Zero humidity retention, no fall cushioning"]
+        [
+          "Paper towels",
+          "Cannot maintain 60-80% humidity, aesthetically poor"
+        ],
+        [
+          "Reptile carpet",
+          "Traps bacteria, impossible to clean with waste accumulation"
+        ],
+        [
+          "Pure sand",
+          "Insufficient moisture retention, inappropriate for tropical species"
+        ],
+        [
+          "Cedar/pine shavings",
+          "Toxic aromatic oils, wrong habitat type"
+        ],
+        [
+          "Calcium sand",
+          "Desert substrate, wrong climate simulation"
+        ],
+        [
+          "Bare bottom (no substrate)",
+          "Zero humidity retention, no fall cushioning"
+        ]
       ]
     },
     {

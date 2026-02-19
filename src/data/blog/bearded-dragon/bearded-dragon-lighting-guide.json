@@ -6,7 +6,13 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
-  "tags": ["bearded dragon", "lighting", "UVB", "full spectrum", "pogona vitticeps"],
+  "tags": [
+    "bearded dragon",
+    "lighting",
+    "UVB",
+    "full spectrum",
+    "pogona vitticeps"
+  ],
   "image": "/animals/bearded-dragon/bearded-dragon-1.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "UVB Lighting Requirements"
+      "heading": "UVB Lighting Requirements"
     },
     {
       "type": "text",
@@ -29,11 +35,27 @@
     },
     {
       "type": "table",
-      "headers": ["Parameter", "Target Value", "Measurement Location"],
+      "headers": [
+        "Parameter",
+        "Target Value",
+        "Measurement Location"
+      ],
       "rows": [
-        ["UVI (UV Index)", "4.0-6.0", "Basking zone surface"],
-        ["Ferguson Zone", "Zone 3-4", "Desert species classification"],
-        ["Coverage Area", "50-75% of length", "Allows thermal self-regulation"]
+        [
+          "UVI (UV Index)",
+          "4.0-6.0",
+          "Basking zone surface"
+        ],
+        [
+          "Ferguson Zone",
+          "Zone 3-4",
+          "Desert species classification"
+        ],
+        [
+          "Coverage Area",
+          "50-75% of length",
+          "Allows thermal self-regulation"
+        ]
       ]
     },
     {
@@ -43,7 +65,7 @@
     },
     {
       "type": "section",
-      "title": "UVB Equipment Selection"
+      "heading": "UVB Equipment Selection"
     },
     {
       "type": "text",
@@ -55,11 +77,31 @@
     },
     {
       "type": "table",
-      "headers": ["Product", "UVB Output", "Length", "Replacement Interval"],
+      "headers": [
+        "Product",
+        "UVB Output",
+        "Length",
+        "Replacement Interval"
+      ],
       "rows": [
-        ["Arcadia Desert 12% T5 HO", "12%", "34\" (for 48\" enclosures)", "12 months"],
-        ["Zoo Med ReptiSun 10.0 T5 HO", "10%", "34\" (for 48\" enclosures)", "12 months"],
-        ["Arcadia Pro T5 Kit", "12%", "34-46\" options", "Bulb: 12 months"]
+        [
+          "Arcadia Desert 12% T5 HO",
+          "12%",
+          "34\" (for 48\" enclosures)",
+          "12 months"
+        ],
+        [
+          "Zoo Med ReptiSun 10.0 T5 HO",
+          "10%",
+          "34\" (for 48\" enclosures)",
+          "12 months"
+        ],
+        [
+          "Arcadia Pro T5 Kit",
+          "12%",
+          "34-46\" options",
+          "Bulb: 12 months"
+        ]
       ]
     },
     {
@@ -69,7 +111,7 @@
     },
     {
       "type": "section",
-      "title": "UVB Placement Guidelines"
+      "heading": "UVB Placement Guidelines"
     },
     {
       "type": "text",
@@ -81,10 +123,22 @@
     },
     {
       "type": "table",
-      "headers": ["Mounting Configuration", "Distance to Basking Surface", "UVI Range (Arcadia 12%)"],
+      "headers": [
+        "Mounting Configuration",
+        "Distance to Basking Surface",
+        "UVI Range (Arcadia 12%)"
+      ],
       "rows": [
-        ["External (over mesh screen)", "11-13 inches", "4.0-6.0 (30% loss through mesh)"],
-        ["Internal (inside enclosure)", "16-19 inches", "4.0-6.0 (no mesh interference)"]
+        [
+          "External (over mesh screen)",
+          "11-13 inches",
+          "4.0-6.0 (30% loss through mesh)"
+        ],
+        [
+          "Internal (inside enclosure)",
+          "16-19 inches",
+          "4.0-6.0 (no mesh interference)"
+        ]
       ]
     },
     {
@@ -93,7 +147,7 @@
     },
     {
       "type": "section",
-      "title": "Full-Spectrum Illumination Requirements"
+      "heading": "Full-Spectrum Illumination Requirements"
     },
     {
       "type": "text",
@@ -109,17 +163,37 @@
     },
     {
       "type": "table",
-      "headers": ["Product Type", "Color Temperature", "Coverage Recommendation"],
+      "headers": [
+        "Product Type",
+        "Color Temperature",
+        "Coverage Recommendation"
+      ],
       "rows": [
-        ["Arcadia Jungle Dawn LED Bar", "6500K", "75-100% of enclosure length"],
-        ["Bio Dude Glow & Grow LED", "6500K", "Supports live plants + lighting"],
-        ["6500K LED Grow Light", "6500K", "Budget option, similar output"],
-        ["T5 HO 6500K Fluorescent", "6500K", "Traditional option, less efficient"]
+        [
+          "Arcadia Jungle Dawn LED Bar",
+          "6500K",
+          "75-100% of enclosure length"
+        ],
+        [
+          "Bio Dude Glow & Grow LED",
+          "6500K",
+          "Supports live plants + lighting"
+        ],
+        [
+          "6500K LED Grow Light",
+          "6500K",
+          "Budget option, similar output"
+        ],
+        [
+          "T5 HO 6500K Fluorescent",
+          "6500K",
+          "Traditional option, less efficient"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Photoperiod Management"
+      "heading": "Photoperiod Management"
     },
     {
       "type": "text",
@@ -131,11 +205,27 @@
     },
     {
       "type": "table",
-      "headers": ["Season", "Light Duration", "Biological Purpose"],
+      "headers": [
+        "Season",
+        "Light Duration",
+        "Biological Purpose"
+      ],
       "rows": [
-        ["Spring/Summer (Active)", "12-14 hours", "Peak activity, feeding, growth"],
-        ["Fall/Winter (Brumation)", "10-12 hours", "Natural dormancy period (optional)"],
-        ["Nighttime (Year-round)", "Complete darkness", "Melatonin production, sleep quality"]
+        [
+          "Spring/Summer (Active)",
+          "12-14 hours",
+          "Peak activity, feeding, growth"
+        ],
+        [
+          "Fall/Winter (Brumation)",
+          "10-12 hours",
+          "Natural dormancy period (optional)"
+        ],
+        [
+          "Nighttime (Year-round)",
+          "Complete darkness",
+          "Melatonin production, sleep quality"
+        ]
       ]
     },
     {
@@ -145,7 +235,7 @@
     },
     {
       "type": "section",
-      "title": "Maintenance & Replacement Schedule"
+      "heading": "Maintenance & Replacement Schedule"
     },
     {
       "type": "text",
@@ -157,12 +247,32 @@
     },
     {
       "type": "table",
-      "headers": ["Equipment Type", "Replacement Interval", "Degradation Pattern"],
+      "headers": [
+        "Equipment Type",
+        "Replacement Interval",
+        "Degradation Pattern"
+      ],
       "rows": [
-        ["T5 HO UVB (12%/10.0)", "Every 12 months", "UVB output drops 30% by month 12"],
-        ["T8 UVB (if used)", "Every 6 months", "Faster degradation than T5"],
-        ["LED Full-Spectrum", "3-5 years", "Replace when visibly dimmed"],
-        ["Fluorescent Full-Spectrum", "12-18 months", "Gradual lumen reduction"]
+        [
+          "T5 HO UVB (12%/10.0)",
+          "Every 12 months",
+          "UVB output drops 30% by month 12"
+        ],
+        [
+          "T8 UVB (if used)",
+          "Every 6 months",
+          "Faster degradation than T5"
+        ],
+        [
+          "LED Full-Spectrum",
+          "3-5 years",
+          "Replace when visibly dimmed"
+        ],
+        [
+          "Fluorescent Full-Spectrum",
+          "12-18 months",
+          "Gradual lumen reduction"
+        ]
       ]
     },
     {
@@ -171,7 +281,7 @@
     },
     {
       "type": "section",
-      "title": "Common Setup Errors to Avoid"
+      "heading": "Common Setup Errors to Avoid"
     },
     {
       "type": "text",
@@ -179,20 +289,52 @@
     },
     {
       "type": "table",
-      "headers": ["Mistake", "Consequence", "Solution"],
+      "headers": [
+        "Mistake",
+        "Consequence",
+        "Solution"
+      ],
       "rows": [
-        ["Using compact/coil UVB", "Poor coverage, short lifespan", "Use T5 HO linear bulbs"],
-        ["Excessive UVB distance", "Low UVI, MBD risk", "Verify with Solarmeter 6.5"],
-        ["Screen mesh blocking UVB", "30-50% UVB loss", "Mount fixtures internally"],
-        ["No full-spectrum lighting", "Behavioral suppression", "Add 6500K LED/fluorescent"],
-        ["Delayed bulb replacement", "Gradual UV deficiency", "Replace on 12-month schedule"],
-        ["24/7 light exposure", "Circadian disruption", "Use timers, ensure darkness"],
-        ["Non-reptile UVB products", "No measurable UVB output", "Use reptile-specific brands"]
+        [
+          "Using compact/coil UVB",
+          "Poor coverage, short lifespan",
+          "Use T5 HO linear bulbs"
+        ],
+        [
+          "Excessive UVB distance",
+          "Low UVI, MBD risk",
+          "Verify with Solarmeter 6.5"
+        ],
+        [
+          "Screen mesh blocking UVB",
+          "30-50% UVB loss",
+          "Mount fixtures internally"
+        ],
+        [
+          "No full-spectrum lighting",
+          "Behavioral suppression",
+          "Add 6500K LED/fluorescent"
+        ],
+        [
+          "Delayed bulb replacement",
+          "Gradual UV deficiency",
+          "Replace on 12-month schedule"
+        ],
+        [
+          "24/7 light exposure",
+          "Circadian disruption",
+          "Use timers, ensure darkness"
+        ],
+        [
+          "Non-reptile UVB products",
+          "No measurable UVB output",
+          "Use reptile-specific brands"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Complete Equipment Checklist"
+      "heading": "Complete Equipment Checklist"
     },
     {
       "type": "text",
@@ -200,13 +342,37 @@
     },
     {
       "type": "table",
-      "headers": ["Equipment", "Specification", "Quantity"],
+      "headers": [
+        "Equipment",
+        "Specification",
+        "Quantity"
+      ],
       "rows": [
-        ["UVB Bulb", "34\" Arcadia Desert 12% or Zoo Med 10.0 T5 HO", "1"],
-        ["UVB Fixture", "34\" T5 HO with reflector", "1"],
-        ["Full-Spectrum Light", "48-72\" LED grow light (6500K) or T5 fluorescent", "1-2"],
-        ["Digital Timer", "Programmable with surge protection", "2"],
-        ["Solarmeter 6.5", "UVI measurement device (optional but recommended)", "1"]
+        [
+          "UVB Bulb",
+          "34\" Arcadia Desert 12% or Zoo Med 10.0 T5 HO",
+          "1"
+        ],
+        [
+          "UVB Fixture",
+          "34\" T5 HO with reflector",
+          "1"
+        ],
+        [
+          "Full-Spectrum Light",
+          "48-72\" LED grow light (6500K) or T5 fluorescent",
+          "1-2"
+        ],
+        [
+          "Digital Timer",
+          "Programmable with surge protection",
+          "2"
+        ],
+        [
+          "Solarmeter 6.5",
+          "UVI measurement device (optional but recommended)",
+          "1"
+        ]
       ]
     },
     {

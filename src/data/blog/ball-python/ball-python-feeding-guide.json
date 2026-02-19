@@ -21,7 +21,7 @@
     },
     {
       "type": "section",
-      "title": "Age-Based Feeding Schedule"
+      "heading": "Age-Based Feeding Schedule"
     },
     {
       "type": "text",
@@ -53,7 +53,7 @@
     },
     {
       "type": "section",
-      "title": "Feeder Options"
+      "heading": "Feeder Options"
     },
     {
       "type": "text",
@@ -85,7 +85,7 @@
     },
     {
       "type": "section",
-      "title": "Dietary Requirements"
+      "heading": "Dietary Requirements"
     },
     {
       "type": "text",
@@ -122,7 +122,7 @@
     },
     {
       "type": "section",
-      "title": "Supplementation"
+      "heading": "Supplementation"
     },
     {
       "type": "text",
@@ -130,7 +130,7 @@
     },
     {
       "type": "section",
-      "title": "Gut-Loading"
+      "heading": "Gut-Loading"
     },
     {
       "type": "text",
@@ -138,7 +138,7 @@
     },
     {
       "type": "section",
-      "title": "Foods to Avoid"
+      "heading": "Foods to Avoid"
     },
     {
       "type": "text",
@@ -151,7 +151,7 @@
     },
     {
       "type": "section",
-      "title": "Common Feeding Mistakes"
+      "heading": "Common Feeding Mistakes"
     },
     {
       "type": "text",

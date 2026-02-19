@@ -6,7 +6,13 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
-  "tags": ["crested-gecko", "substrate", "bedding", "humidity", "bioactive"],
+  "tags": [
+    "crested-gecko",
+    "substrate",
+    "bedding",
+    "humidity",
+    "bioactive"
+  ],
   "image": "/animals/crested-gecko/crested-gecko-substrate.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "Natural Habitat Context"
+      "heading": "Natural Habitat Context"
     },
     {
       "type": "text",
@@ -29,13 +35,37 @@
     },
     {
       "type": "table",
-      "headers": ["Feature", "Natural Habitat", "Captive Replication"],
+      "headers": [
+        "Feature",
+        "Natural Habitat",
+        "Captive Replication"
+      ],
       "rows": [
-        ["Composition", "Decomposing leaves, organic soil, moss", "Topsoil mix + coco fiber + leaf litter"],
-        ["Moisture Retention", "High (70-90% saturation)", "Moist but not waterlogged (60-70%)"],
-        ["Depth", "Several inches of leaf litter + soil", "2-4\" substrate + 1-2\" leaf litter"],
-        ["pH Level", "Slightly acidic (5.5-6.5)", "Organic substrates naturally acidic"],
-        ["Texture", "Loose, friable, easy to burrow", "Fine particles, not compacted"]
+        [
+          "Composition",
+          "Decomposing leaves, organic soil, moss",
+          "Topsoil mix + coco fiber + leaf litter"
+        ],
+        [
+          "Moisture Retention",
+          "High (70-90% saturation)",
+          "Moist but not waterlogged (60-70%)"
+        ],
+        [
+          "Depth",
+          "Several inches of leaf litter + soil",
+          "2-4\" substrate + 1-2\" leaf litter"
+        ],
+        [
+          "pH Level",
+          "Slightly acidic (5.5-6.5)",
+          "Organic substrates naturally acidic"
+        ],
+        [
+          "Texture",
+          "Loose, friable, easy to burrow",
+          "Fine particles, not compacted"
+        ]
       ]
     },
     {
@@ -48,7 +78,7 @@
     },
     {
       "type": "section",
-      "title": "Recommended Substrate Options"
+      "heading": "Recommended Substrate Options"
     },
     {
       "type": "text",
@@ -60,14 +90,49 @@
     },
     {
       "type": "table",
-      "headers": ["Substrate", "Humidity Retention", "Cost", "Best For"],
+      "headers": [
+        "Substrate",
+        "Humidity Retention",
+        "Cost",
+        "Best For"
+      ],
       "rows": [
-        ["DIY Tropical Mix (60% organic topsoil + 40% coco fiber)", "Excellent (8-10 days)", "$10-15 for large bag", "Budget-conscious, bioactive setups, customizable"],
-        ["Lugarti Natural Reptile Bedding", "Excellent (7-9 days)", "$20-25 per bag", "Ready-to-use convenience, consistent quality"],
-        ["Zoo Med Reptisoil", "Good (5-7 days)", "$15-20 per bag", "Beginner-friendly commercial option"],
-        ["The Bio Dude Terra Fauna", "Excellent (10+ days)", "$35-50 per bag", "Premium bioactive substrate with beneficial microbes"],
-        ["Coco fiber (alone)", "Moderate (3-5 days)", "$8-12 per brick", "Temporary use, not ideal long-term"],
-        ["Sphagnum moss", "Excellent (10+ days)", "$15-20 per bag", "Added moisture layer, not sole substrate"]
+        [
+          "DIY Tropical Mix (60% organic topsoil + 40% coco fiber)",
+          "Excellent (8-10 days)",
+          "$10-15 for large bag",
+          "Budget-conscious, bioactive setups, customizable"
+        ],
+        [
+          "Lugarti Natural Reptile Bedding",
+          "Excellent (7-9 days)",
+          "$20-25 per bag",
+          "Ready-to-use convenience, consistent quality"
+        ],
+        [
+          "Zoo Med Reptisoil",
+          "Good (5-7 days)",
+          "$15-20 per bag",
+          "Beginner-friendly commercial option"
+        ],
+        [
+          "The Bio Dude Terra Fauna",
+          "Excellent (10+ days)",
+          "$35-50 per bag",
+          "Premium bioactive substrate with beneficial microbes"
+        ],
+        [
+          "Coco fiber (alone)",
+          "Moderate (3-5 days)",
+          "$8-12 per brick",
+          "Temporary use, not ideal long-term"
+        ],
+        [
+          "Sphagnum moss",
+          "Excellent (10+ days)",
+          "$15-20 per bag",
+          "Added moisture layer, not sole substrate"
+        ]
       ]
     },
     {
@@ -77,7 +142,7 @@
     },
     {
       "type": "section",
-      "title": "DIY Substrate Formula"
+      "heading": "DIY Substrate Formula"
     },
     {
       "type": "text",
@@ -89,12 +154,37 @@
     },
     {
       "type": "table",
-      "headers": ["Ingredient", "Ratio", "Purpose", "Where to Source"],
+      "headers": [
+        "Ingredient",
+        "Ratio",
+        "Purpose",
+        "Where to Source"
+      ],
       "rows": [
-        ["Organic topsoil (additive-free)", "60%", "Moisture retention, plant nutrients, structure", "Garden centers (check ingredients - no fertilizers/pesticides)"],
-        ["Coconut fiber/coir", "40%", "Drainage, aeration, moisture buffering", "Reptile stores or garden centers (compressed bricks)"],
-        ["Leaf litter (top layer)", "1-2\" layer", "Naturalistic appearance, microfauna habitat", "Collect from pesticide-free areas or purchase magnolia leaves"],
-        ["Sphagnum moss (optional)", "10-15% mixed in", "Extra moisture retention, anti-microbial properties", "Craft stores or reptile suppliers"]
+        [
+          "Organic topsoil (additive-free)",
+          "60%",
+          "Moisture retention, plant nutrients, structure",
+          "Garden centers (check ingredients - no fertilizers/pesticides)"
+        ],
+        [
+          "Coconut fiber/coir",
+          "40%",
+          "Drainage, aeration, moisture buffering",
+          "Reptile stores or garden centers (compressed bricks)"
+        ],
+        [
+          "Leaf litter (top layer)",
+          "1-2\" layer",
+          "Naturalistic appearance, microfauna habitat",
+          "Collect from pesticide-free areas or purchase magnolia leaves"
+        ],
+        [
+          "Sphagnum moss (optional)",
+          "10-15% mixed in",
+          "Extra moisture retention, anti-microbial properties",
+          "Craft stores or reptile suppliers"
+        ]
       ]
     },
     {
@@ -103,13 +193,37 @@
     },
     {
       "type": "table",
-      "headers": ["Step", "Action", "Notes"],
+      "headers": [
+        "Step",
+        "Action",
+        "Notes"
+      ],
       "rows": [
-        ["1. Prepare coco fiber", "Hydrate compressed brick per instructions", "Usually 4-5 liters water per brick, let expand 15 min"],
-        ["2. Mix dry ingredients", "Combine topsoil and expanded coco fiber in large tub", "Mix thoroughly until uniform consistency"],
-        ["3. Add moisture", "Spray with water while mixing, test consistency", "Should clump when squeezed but not drip water"],
-        ["4. Add to enclosure", "Spread 2-4 inches deep, slightly higher at back", "Allows for planting depth variation"],
-        ["5. Top with leaf litter", "Add 1-2 inch layer of leaves on surface", "Provides naturalistic cover and foraging opportunities"]
+        [
+          "1. Prepare coco fiber",
+          "Hydrate compressed brick per instructions",
+          "Usually 4-5 liters water per brick, let expand 15 min"
+        ],
+        [
+          "2. Mix dry ingredients",
+          "Combine topsoil and expanded coco fiber in large tub",
+          "Mix thoroughly until uniform consistency"
+        ],
+        [
+          "3. Add moisture",
+          "Spray with water while mixing, test consistency",
+          "Should clump when squeezed but not drip water"
+        ],
+        [
+          "4. Add to enclosure",
+          "Spread 2-4 inches deep, slightly higher at back",
+          "Allows for planting depth variation"
+        ],
+        [
+          "5. Top with leaf litter",
+          "Add 1-2 inch layer of leaves on surface",
+          "Provides naturalistic cover and foraging opportunities"
+        ]
       ]
     },
     {
@@ -118,7 +232,7 @@
     },
     {
       "type": "section",
-      "title": "Bioactive Substrate Setup"
+      "heading": "Bioactive Substrate Setup"
     },
     {
       "type": "text",
@@ -130,12 +244,37 @@
     },
     {
       "type": "table",
-      "headers": ["Layer", "Material", "Depth", "Purpose"],
+      "headers": [
+        "Layer",
+        "Material",
+        "Depth",
+        "Purpose"
+      ],
       "rows": [
-        ["1. Drainage Layer", "Hydro balls or LECA", "1-2\"", "Prevents substrate waterlogging, provides water reservoir"],
-        ["2. Screen Barrier", "Mesh or landscape fabric", "Single layer", "Keeps substrate from falling into drainage layer"],
-        ["3. Substrate Layer", "Tropical mix (60% soil + 40% coco)", "3-4\"", "Plant roots, CUC habitat, moisture retention"],
-        ["4. Leaf Litter", "Magnolia, oak, or live oak leaves", "1-2\"", "CUC food source, naturalistic appearance, foraging enrichment"]
+        [
+          "1. Drainage Layer",
+          "Hydro balls or LECA",
+          "1-2\"",
+          "Prevents substrate waterlogging, provides water reservoir"
+        ],
+        [
+          "2. Screen Barrier",
+          "Mesh or landscape fabric",
+          "Single layer",
+          "Keeps substrate from falling into drainage layer"
+        ],
+        [
+          "3. Substrate Layer",
+          "Tropical mix (60% soil + 40% coco)",
+          "3-4\"",
+          "Plant roots, CUC habitat, moisture retention"
+        ],
+        [
+          "4. Leaf Litter",
+          "Magnolia, oak, or live oak leaves",
+          "1-2\"",
+          "CUC food source, naturalistic appearance, foraging enrichment"
+        ]
       ]
     },
     {
@@ -144,12 +283,32 @@
     },
     {
       "type": "table",
-      "headers": ["CUC Species", "Quantity (18x18x24 tank)", "Role"],
+      "headers": [
+        "CUC Species",
+        "Quantity (18x18x24 tank)",
+        "Role"
+      ],
       "rows": [
-        ["Dwarf white isopods", "20-30", "Consume feces, dead plant matter, mold"],
-        ["Powder orange isopods", "10-20", "More aggressive decomposers, faster breeding"],
-        ["Tropical springtails", "50-100", "Mold control, break down organic matter"],
-        ["Earthworms (optional)", "3-5", "Aerate substrate, process organic waste"]
+        [
+          "Dwarf white isopods",
+          "20-30",
+          "Consume feces, dead plant matter, mold"
+        ],
+        [
+          "Powder orange isopods",
+          "10-20",
+          "More aggressive decomposers, faster breeding"
+        ],
+        [
+          "Tropical springtails",
+          "50-100",
+          "Mold control, break down organic matter"
+        ],
+        [
+          "Earthworms (optional)",
+          "3-5",
+          "Aerate substrate, process organic waste"
+        ]
       ]
     },
     {
@@ -159,7 +318,7 @@
     },
     {
       "type": "section",
-      "title": "Unsafe Substrate Options"
+      "heading": "Unsafe Substrate Options"
     },
     {
       "type": "text",
@@ -171,14 +330,42 @@
     },
     {
       "type": "table",
-      "headers": ["Substrate", "Problem", "Why It's Harmful"],
+      "headers": [
+        "Substrate",
+        "Problem",
+        "Why It's Harmful"
+      ],
       "rows": [
-        ["Paper towels/newspaper", "Zero humidity retention", "Enclosure dries out within hours, requires 5+ mistings daily"],
-        ["Reptile carpet", "Toe/claw entanglement", "Fiber loops catch on gecko feet, can cause injury or toe loss"],
-        ["Sand or calcium sand", "No humidity, impaction risk", "Doesn't hold moisture, can cause gut impaction if ingested"],
-        ["Pine or cedar shavings", "Toxic aromatic oils", "Respiratory irritation, liver damage from phenols"],
-        ["Pure peat moss", "Too acidic, compacts", "Can cause skin irritation, compacts into solid mass when wet"],
-        ["Bark chips or mulch", "Too coarse, no humidity", "Sharp edges, doesn't retain moisture adequately"]
+        [
+          "Paper towels/newspaper",
+          "Zero humidity retention",
+          "Enclosure dries out within hours, requires 5+ mistings daily"
+        ],
+        [
+          "Reptile carpet",
+          "Toe/claw entanglement",
+          "Fiber loops catch on gecko feet, can cause injury or toe loss"
+        ],
+        [
+          "Sand or calcium sand",
+          "No humidity, impaction risk",
+          "Doesn't hold moisture, can cause gut impaction if ingested"
+        ],
+        [
+          "Pine or cedar shavings",
+          "Toxic aromatic oils",
+          "Respiratory irritation, liver damage from phenols"
+        ],
+        [
+          "Pure peat moss",
+          "Too acidic, compacts",
+          "Can cause skin irritation, compacts into solid mass when wet"
+        ],
+        [
+          "Bark chips or mulch",
+          "Too coarse, no humidity",
+          "Sharp edges, doesn't retain moisture adequately"
+        ]
       ]
     },
     {
@@ -188,7 +375,7 @@
     },
     {
       "type": "section",
-      "title": "Maintenance Schedule"
+      "heading": "Maintenance Schedule"
     },
     {
       "type": "text",
@@ -200,15 +387,47 @@
     },
     {
       "type": "table",
-      "headers": ["Task", "Frequency", "Procedure"],
+      "headers": [
+        "Task",
+        "Frequency",
+        "Procedure"
+      ],
       "rows": [
-        ["Spot clean feces/urates", "Daily", "Remove visible waste with scooper or paper towel, replace substrate in that area"],
-        ["Remove uneaten food", "After 24 hours", "Discard any CGD or insects not consumed to prevent mold/odor"],
-        ["Substrate moisture check", "Every 2-3 days", "Squeeze test - should hold shape but not drip. Mist if too dry."],
-        ["Leaf litter replacement", "Monthly", "Add fresh leaf litter, remove heavily decomposed leaves"],
-        ["Partial substrate change", "Every 2-3 months", "Replace top 1-2 inches, stir remaining substrate"],
-        ["Complete substrate change", "Every 6-12 months (non-bioactive)", "Remove all substrate, sanitize enclosure, add fresh mix"],
-        ["Bioactive maintenance", "Minimal after established", "Add leaf litter quarterly, CUC population manages waste"]
+        [
+          "Spot clean feces/urates",
+          "Daily",
+          "Remove visible waste with scooper or paper towel, replace substrate in that area"
+        ],
+        [
+          "Remove uneaten food",
+          "After 24 hours",
+          "Discard any CGD or insects not consumed to prevent mold/odor"
+        ],
+        [
+          "Substrate moisture check",
+          "Every 2-3 days",
+          "Squeeze test - should hold shape but not drip. Mist if too dry."
+        ],
+        [
+          "Leaf litter replacement",
+          "Monthly",
+          "Add fresh leaf litter, remove heavily decomposed leaves"
+        ],
+        [
+          "Partial substrate change",
+          "Every 2-3 months",
+          "Replace top 1-2 inches, stir remaining substrate"
+        ],
+        [
+          "Complete substrate change",
+          "Every 6-12 months (non-bioactive)",
+          "Remove all substrate, sanitize enclosure, add fresh mix"
+        ],
+        [
+          "Bioactive maintenance",
+          "Minimal after established",
+          "Add leaf litter quarterly, CUC population manages waste"
+        ]
       ]
     },
     {
@@ -217,7 +436,7 @@
     },
     {
       "type": "section",
-      "title": "Troubleshooting Substrate Issues"
+      "heading": "Troubleshooting Substrate Issues"
     },
     {
       "type": "text",
@@ -225,19 +444,47 @@
     },
     {
       "type": "table",
-      "headers": ["Problem", "Cause", "Solution"],
+      "headers": [
+        "Problem",
+        "Cause",
+        "Solution"
+      ],
       "rows": [
-        ["White fuzzy mold growth", "Excess moisture, poor ventilation", "Reduce misting frequency, increase air circulation, add springtails"],
-        ["Foul ammonia smell", "Waste buildup, insufficient CUC (bioactive)", "Spot clean more frequently, increase CUC population by 50%"],
-        ["Substrate too dry (dusty)", "Insufficient misting or depth", "Increase substrate depth to 3-4\", mist more thoroughly 2x daily"],
-        ["Substrate waterlogged (swampy)", "Over-misting, no drainage layer", "Reduce misting, add drainage layer in bioactive, stir substrate to aerate"],
-        ["Fungus gnats", "Decaying organic matter, moisture", "Reduce organic matter, add predatory mites, let top layer dry slightly"],
-        ["Substrate compaction", "Trampling, lack of aeration", "Stir substrate monthly (non-bioactive), add earthworms (bioactive)"]
+        [
+          "White fuzzy mold growth",
+          "Excess moisture, poor ventilation",
+          "Reduce misting frequency, increase air circulation, add springtails"
+        ],
+        [
+          "Foul ammonia smell",
+          "Waste buildup, insufficient CUC (bioactive)",
+          "Spot clean more frequently, increase CUC population by 50%"
+        ],
+        [
+          "Substrate too dry (dusty)",
+          "Insufficient misting or depth",
+          "Increase substrate depth to 3-4\", mist more thoroughly 2x daily"
+        ],
+        [
+          "Substrate waterlogged (swampy)",
+          "Over-misting, no drainage layer",
+          "Reduce misting, add drainage layer in bioactive, stir substrate to aerate"
+        ],
+        [
+          "Fungus gnats",
+          "Decaying organic matter, moisture",
+          "Reduce organic matter, add predatory mites, let top layer dry slightly"
+        ],
+        [
+          "Substrate compaction",
+          "Trampling, lack of aeration",
+          "Stir substrate monthly (non-bioactive), add earthworms (bioactive)"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Substrate Depth Guidelines"
+      "heading": "Substrate Depth Guidelines"
     },
     {
       "type": "text",
@@ -249,12 +496,37 @@
     },
     {
       "type": "table",
-      "headers": ["Setup Type", "Minimum Depth", "Ideal Depth", "Rationale"],
+      "headers": [
+        "Setup Type",
+        "Minimum Depth",
+        "Ideal Depth",
+        "Rationale"
+      ],
       "rows": [
-        ["Non-bioactive (standard)", "2\"", "3-4\"", "Adequate humidity retention, cushioning for falls"],
-        ["Bioactive (no drainage)", "3\"", "4-5\"", "CUC habitat depth, plant root space, moisture buffer"],
-        ["Bioactive (with drainage)", "3\" substrate + 1.5\" drainage", "4\" substrate + 2\" drainage", "Total 6\" depth prevents waterlogging while maximizing humidity"],
-        ["Grow-out tank (juveniles)", "1-2\"", "2-3\"", "Proportional to enclosure size, easier navigation for small geckos"]
+        [
+          "Non-bioactive (standard)",
+          "2\"",
+          "3-4\"",
+          "Adequate humidity retention, cushioning for falls"
+        ],
+        [
+          "Bioactive (no drainage)",
+          "3\"",
+          "4-5\"",
+          "CUC habitat depth, plant root space, moisture buffer"
+        ],
+        [
+          "Bioactive (with drainage)",
+          "3\" substrate + 1.5\" drainage",
+          "4\" substrate + 2\" drainage",
+          "Total 6\" depth prevents waterlogging while maximizing humidity"
+        ],
+        [
+          "Grow-out tank (juveniles)",
+          "1-2\"",
+          "2-3\"",
+          "Proportional to enclosure size, easier navigation for small geckos"
+        ]
       ]
     },
     {

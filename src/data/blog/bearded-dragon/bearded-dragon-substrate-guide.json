@@ -6,7 +6,13 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-20",
   "category": "Care Guides",
-  "tags": ["bearded dragon", "substrate", "sand", "bedding", "pogona vitticeps"],
+  "tags": [
+    "bearded dragon",
+    "substrate",
+    "sand",
+    "bedding",
+    "pogona vitticeps"
+  ],
   "image": "/animals/bearded-dragon/bearded-dragon-2.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "Natural Habitat Considerations"
+      "heading": "Natural Habitat Considerations"
     },
     {
       "type": "text",
@@ -33,7 +39,7 @@
     },
     {
       "type": "section",
-      "title": "Recommended Commercial Substrates"
+      "heading": "Recommended Commercial Substrates"
     },
     {
       "type": "text",
@@ -41,18 +47,42 @@
     },
     {
       "type": "table",
-      "headers": ["Product", "Type", "Best For"],
+      "headers": [
+        "Product",
+        "Type",
+        "Best For"
+      ],
       "rows": [
-        ["Jurassic Natural Desert Dragon Habitat", "Premixed sand/soil", "Plug-and-play solution"],
-        ["The Bio Dude Terra Sahara", "Bioactive mix", "Living ecosystems"],
-        ["Zoo Med ReptiSand", "Fine sand", "Budget-friendly option"],
-        ["Jurassic Reptile Substrate", "Desert mix", "Natural appearance"],
-        ["Washed play sand", "Pure sand", "DIY base ingredient"]
+        [
+          "Jurassic Natural Desert Dragon Habitat",
+          "Premixed sand/soil",
+          "Plug-and-play solution"
+        ],
+        [
+          "The Bio Dude Terra Sahara",
+          "Bioactive mix",
+          "Living ecosystems"
+        ],
+        [
+          "Zoo Med ReptiSand",
+          "Fine sand",
+          "Budget-friendly option"
+        ],
+        [
+          "Jurassic Reptile Substrate",
+          "Desert mix",
+          "Natural appearance"
+        ],
+        [
+          "Washed play sand",
+          "Pure sand",
+          "DIY base ingredient"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "DIY Substrate Formula"
+      "heading": "DIY Substrate Formula"
     },
     {
       "type": "text",
@@ -60,11 +90,27 @@
     },
     {
       "type": "table",
-      "headers": ["Ingredient", "Ratio", "Purpose"],
+      "headers": [
+        "Ingredient",
+        "Ratio",
+        "Purpose"
+      ],
       "rows": [
-        ["Washed play sand", "50%", "Base material, digging medium"],
-        ["Organic topsoil", "30%", "Nutrient content, compaction"],
-        ["Excavator clay", "20%", "Binding agent, burrow stability"]
+        [
+          "Washed play sand",
+          "50%",
+          "Base material, digging medium"
+        ],
+        [
+          "Organic topsoil",
+          "30%",
+          "Nutrient content, compaction"
+        ],
+        [
+          "Excavator clay",
+          "20%",
+          "Binding agent, burrow stability"
+        ]
       ]
     },
     {
@@ -73,7 +119,7 @@
     },
     {
       "type": "section",
-      "title": "Understanding Impaction Risk"
+      "heading": "Understanding Impaction Risk"
     },
     {
       "type": "text",
@@ -81,13 +127,31 @@
     },
     {
       "type": "table",
-      "headers": ["Contributing Factor", "Impact on Digestion"],
+      "headers": [
+        "Contributing Factor",
+        "Impact on Digestion"
+      ],
       "rows": [
-        ["Low basking temperature (<95F)", "Slows metabolism and digestion"],
-        ["Inadequate UVB exposure", "Reduces appetite and gut motility"],
-        ["Chronic dehydration", "Causes constipation and blockages"],
-        ["Oversized prey items", "Difficult to digest fully"],
-        ["Calcium sand substrates", "Forms cement-like masses when wet"]
+        [
+          "Low basking temperature (<95F)",
+          "Slows metabolism and digestion"
+        ],
+        [
+          "Inadequate UVB exposure",
+          "Reduces appetite and gut motility"
+        ],
+        [
+          "Chronic dehydration",
+          "Causes constipation and blockages"
+        ],
+        [
+          "Oversized prey items",
+          "Difficult to digest fully"
+        ],
+        [
+          "Calcium sand substrates",
+          "Forms cement-like masses when wet"
+        ]
       ]
     },
     {
@@ -96,7 +160,7 @@
     },
     {
       "type": "section",
-      "title": "Contraindications for Loose Substrate"
+      "heading": "Contraindications for Loose Substrate"
     },
     {
       "type": "text",
@@ -104,13 +168,37 @@
     },
     {
       "type": "table",
-      "headers": ["Situation", "Duration", "Alternative"],
+      "headers": [
+        "Situation",
+        "Duration",
+        "Alternative"
+      ],
       "rows": [
-        ["Illness or injury", "Until recovered", "Paper towels or tile"],
-        ["Post-surgical recovery", "2-4 weeks", "Paper towels or tile"],
-        ["Suspected impaction", "Until resolved", "Paper towels or tile"],
-        ["Hatchlings (<3 months)", "Until eating consistently", "Paper towels or tile"],
-        ["Quarantine period", "30-90 days", "Paper towels or tile"]
+        [
+          "Illness or injury",
+          "Until recovered",
+          "Paper towels or tile"
+        ],
+        [
+          "Post-surgical recovery",
+          "2-4 weeks",
+          "Paper towels or tile"
+        ],
+        [
+          "Suspected impaction",
+          "Until resolved",
+          "Paper towels or tile"
+        ],
+        [
+          "Hatchlings (<3 months)",
+          "Until eating consistently",
+          "Paper towels or tile"
+        ],
+        [
+          "Quarantine period",
+          "30-90 days",
+          "Paper towels or tile"
+        ]
       ]
     },
     {
@@ -119,7 +207,7 @@
     },
     {
       "type": "section",
-      "title": "Substrates to AVOID"
+      "heading": "Substrates to AVOID"
     },
     {
       "type": "warning",
@@ -138,7 +226,7 @@
     },
     {
       "type": "section",
-      "title": "Substrate Depth & Maintenance"
+      "heading": "Substrate Depth & Maintenance"
     },
     {
       "type": "highlight",
@@ -159,7 +247,7 @@
     },
     {
       "type": "section",
-      "title": "Cleaning & Replacement Schedule"
+      "heading": "Cleaning & Replacement Schedule"
     },
     {
       "type": "text",
@@ -176,7 +264,7 @@
     },
     {
       "type": "section",
-      "title": "Non-Loose Substrate Alternatives"
+      "heading": "Non-Loose Substrate Alternatives"
     },
     {
       "type": "text",
@@ -198,7 +286,7 @@
     },
     {
       "type": "section",
-      "title": "Final Recommendations"
+      "heading": "Final Recommendations"
     },
     {
       "type": "text",

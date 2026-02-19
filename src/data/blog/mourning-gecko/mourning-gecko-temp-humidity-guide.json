@@ -6,7 +6,13 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-28",
   "category": "Care Guides",
-  "tags": ["mourning gecko", "temperature", "humidity", "heating", "misting"],
+  "tags": [
+    "mourning gecko",
+    "temperature",
+    "humidity",
+    "heating",
+    "misting"
+  ],
   "image": "/animals/mourning-gecko/mourning-gecko-1.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "Target Temperature Ranges"
+      "heading": "Target Temperature Ranges"
     },
     {
       "type": "text",
@@ -29,12 +35,37 @@
     },
     {
       "type": "table",
-      "headers": ["Zone", "Temperature Range", "Measurement Point", "Purpose"],
+      "headers": [
+        "Zone",
+        "Temperature Range",
+        "Measurement Point",
+        "Purpose"
+      ],
       "rows": [
-        ["Basking spot (top perch)", "80-85°F", "Surface directly under heat lamp", "Brief warming sessions, digestion boost"],
-        ["Warm zone ambient (upper third)", "75-78°F", "Air temp near top branches", "Active hunting, normal activity"],
-        ["Cool zone ambient (lower third)", "70-75°F", "Air temp near substrate", "Retreat zone, temperature regulation"],
-        ["Nighttime (all zones)", "65-72°F", "Ambient throughout enclosure", "Sleep period, metabolic rest"]
+        [
+          "Basking spot (top perch)",
+          "80-85°F",
+          "Surface directly under heat lamp",
+          "Brief warming sessions, digestion boost"
+        ],
+        [
+          "Warm zone ambient (upper third)",
+          "75-78°F",
+          "Air temp near top branches",
+          "Active hunting, normal activity"
+        ],
+        [
+          "Cool zone ambient (lower third)",
+          "70-75°F",
+          "Air temp near substrate",
+          "Retreat zone, temperature regulation"
+        ],
+        [
+          "Nighttime (all zones)",
+          "65-72°F",
+          "Ambient throughout enclosure",
+          "Sleep period, metabolic rest"
+        ]
       ]
     },
     {
@@ -49,7 +80,7 @@
     },
     {
       "type": "section",
-      "title": "Heating Equipment Selection"
+      "heading": "Heating Equipment Selection"
     },
     {
       "type": "text",
@@ -61,12 +92,37 @@
     },
     {
       "type": "table",
-      "headers": ["Heat Source", "Wattage Range", "Light Output", "Best Application"],
+      "headers": [
+        "Heat Source",
+        "Wattage Range",
+        "Light Output",
+        "Best Application"
+      ],
       "rows": [
-        ["Incandescent bulb (white)", "25w", "Visible light (diurnal cycle)", "BEST - mimics natural sunlight, gentle heat"],
-        ["Halogen bulb", "20-25w", "Bright visible light", "Good alternative, slightly more efficient"],
-        ["Ceramic heat emitter (CHE)", "25-40w", "No light (invisible heat)", "Nighttime supplemental heat only if needed"],
-        ["Heat mat (NOT recommended)", "5-15w", "No light", "Insufficient for arboreal species (can't reach top)"]
+        [
+          "Incandescent bulb (white)",
+          "25w",
+          "Visible light (diurnal cycle)",
+          "BEST - mimics natural sunlight, gentle heat"
+        ],
+        [
+          "Halogen bulb",
+          "20-25w",
+          "Bright visible light",
+          "Good alternative, slightly more efficient"
+        ],
+        [
+          "Ceramic heat emitter (CHE)",
+          "25-40w",
+          "No light (invisible heat)",
+          "Nighttime supplemental heat only if needed"
+        ],
+        [
+          "Heat mat (NOT recommended)",
+          "5-15w",
+          "No light",
+          "Insufficient for arboreal species (can't reach top)"
+        ]
       ]
     },
     {
@@ -75,7 +131,7 @@
     },
     {
       "type": "section",
-      "title": "Heat Lamp Setup & Placement"
+      "heading": "Heat Lamp Setup & Placement"
     },
     {
       "type": "text",
@@ -87,13 +143,37 @@
     },
     {
       "type": "table",
-      "headers": ["Element", "Specification", "Reason"],
+      "headers": [
+        "Element",
+        "Specification",
+        "Reason"
+      ],
       "rows": [
-        ["Lamp position", "Over one upper corner (not center)", "Creates gradient - warm side vs cool side"],
-        ["Distance from perch", "4-6 inches from basking surface", "Achieves 80-85°F without burning"],
-        ["Basking perch", "Horizontal branch or leaf cluster", "Comfortable resting spot directly under lamp"],
-        ["Screen barrier", "Lamp sits on screen top", "Prevents direct contact burns"],
-        ["Fixture type", "Dome with ceramic socket (NOT plastic)", "Plastic melts, ceramic handles heat safely"]
+        [
+          "Lamp position",
+          "Over one upper corner (not center)",
+          "Creates gradient - warm side vs cool side"
+        ],
+        [
+          "Distance from perch",
+          "4-6 inches from basking surface",
+          "Achieves 80-85°F without burning"
+        ],
+        [
+          "Basking perch",
+          "Horizontal branch or leaf cluster",
+          "Comfortable resting spot directly under lamp"
+        ],
+        [
+          "Screen barrier",
+          "Lamp sits on screen top",
+          "Prevents direct contact burns"
+        ],
+        [
+          "Fixture type",
+          "Dome with ceramic socket (NOT plastic)",
+          "Plastic melts, ceramic handles heat safely"
+        ]
       ]
     },
     {
@@ -103,7 +183,7 @@
     },
     {
       "type": "section",
-      "title": "Dimmer & Thermostat Use"
+      "heading": "Dimmer & Thermostat Use"
     },
     {
       "type": "text",
@@ -115,11 +195,27 @@
     },
     {
       "type": "table",
-      "headers": ["Control Type", "Function", "Best Use Case"],
+      "headers": [
+        "Control Type",
+        "Function",
+        "Best Use Case"
+      ],
       "rows": [
-        ["Plug-in dimmer", "Manual voltage reduction, instant adjustment", "BEST for low-wattage bulbs (25w), prevents overheating"],
-        ["Dimming thermostat", "Automated dimming based on probe reading", "Advanced option if room temps fluctuate significantly"],
-        ["On/off thermostat", "Cycles power on/off to maintain temperature", "Not ideal for low-wattage bulbs (causes flickering)"]
+        [
+          "Plug-in dimmer",
+          "Manual voltage reduction, instant adjustment",
+          "BEST for low-wattage bulbs (25w), prevents overheating"
+        ],
+        [
+          "Dimming thermostat",
+          "Automated dimming based on probe reading",
+          "Advanced option if room temps fluctuate significantly"
+        ],
+        [
+          "On/off thermostat",
+          "Cycles power on/off to maintain temperature",
+          "Not ideal for low-wattage bulbs (causes flickering)"
+        ]
       ]
     },
     {
@@ -128,7 +224,7 @@
     },
     {
       "type": "section",
-      "title": "Temperature Measurement Protocol"
+      "heading": "Temperature Measurement Protocol"
     },
     {
       "type": "text",
@@ -140,12 +236,32 @@
     },
     {
       "type": "table",
-      "headers": ["Tool", "Purpose", "How to Use"],
+      "headers": [
+        "Tool",
+        "Purpose",
+        "How to Use"
+      ],
       "rows": [
-        ["Infrared thermometer (temp gun)", "Measure surface temperatures", "Point at basking perch, substrate, branches - instant reading"],
-        ["Digital probe thermometer", "Continuous basking temp monitoring", "Secure probe to basking surface with heat-safe tape"],
-        ["Digital hygrometer with temp probe", "Ambient air temperature + humidity", "Place probe mid-height in center of enclosure"],
-        ["Stick-on analog gauges (avoid)", "Poor accuracy", "DO NOT USE - readings often 5-10°F off"]
+        [
+          "Infrared thermometer (temp gun)",
+          "Measure surface temperatures",
+          "Point at basking perch, substrate, branches - instant reading"
+        ],
+        [
+          "Digital probe thermometer",
+          "Continuous basking temp monitoring",
+          "Secure probe to basking surface with heat-safe tape"
+        ],
+        [
+          "Digital hygrometer with temp probe",
+          "Ambient air temperature + humidity",
+          "Place probe mid-height in center of enclosure"
+        ],
+        [
+          "Stick-on analog gauges (avoid)",
+          "Poor accuracy",
+          "DO NOT USE - readings often 5-10°F off"
+        ]
       ]
     },
     {
@@ -154,7 +270,7 @@
     },
     {
       "type": "section",
-      "title": "Nighttime Temperature Management"
+      "heading": "Nighttime Temperature Management"
     },
     {
       "type": "text",
@@ -166,12 +282,32 @@
     },
     {
       "type": "table",
-      "headers": ["Room Temperature", "Action Required", "Equipment"],
+      "headers": [
+        "Room Temperature",
+        "Action Required",
+        "Equipment"
+      ],
       "rows": [
-        ["65-75°F", "No supplemental heat needed", "Turn off all lights and heat"],
-        ["60-64°F", "Optional ceramic heat emitter", "25w CHE on dimmer (no light output)"],
-        ["Below 60°F", "Ceramic heat emitter required", "40w CHE + thermostat set to 65°F minimum"],
-        ["Above 75°F", "May need cooling", "Increase ventilation, use small fan nearby (not directly on enclosure)"]
+        [
+          "65-75°F",
+          "No supplemental heat needed",
+          "Turn off all lights and heat"
+        ],
+        [
+          "60-64°F",
+          "Optional ceramic heat emitter",
+          "25w CHE on dimmer (no light output)"
+        ],
+        [
+          "Below 60°F",
+          "Ceramic heat emitter required",
+          "40w CHE + thermostat set to 65°F minimum"
+        ],
+        [
+          "Above 75°F",
+          "May need cooling",
+          "Increase ventilation, use small fan nearby (not directly on enclosure)"
+        ]
       ]
     },
     {
@@ -180,7 +316,7 @@
     },
     {
       "type": "section",
-      "title": "Humidity Requirements"
+      "heading": "Humidity Requirements"
     },
     {
       "type": "text",
@@ -192,12 +328,32 @@
     },
     {
       "type": "table",
-      "headers": ["Time Period", "Humidity Range", "Notes"],
+      "headers": [
+        "Time Period",
+        "Humidity Range",
+        "Notes"
+      ],
       "rows": [
-        ["Daytime baseline", "60-70%", "After morning misting, gradual decline throughout day"],
-        ["Post-misting peak", "75-85%", "Immediately after misting (morning/evening)"],
-        ["Nighttime", "70-80%", "Naturally rises as temperature drops"],
-        ["Shedding period", "75-85%", "Increase misting frequency when geckos appear dull"]
+        [
+          "Daytime baseline",
+          "60-70%",
+          "After morning misting, gradual decline throughout day"
+        ],
+        [
+          "Post-misting peak",
+          "75-85%",
+          "Immediately after misting (morning/evening)"
+        ],
+        [
+          "Nighttime",
+          "70-80%",
+          "Naturally rises as temperature drops"
+        ],
+        [
+          "Shedding period",
+          "75-85%",
+          "Increase misting frequency when geckos appear dull"
+        ]
       ]
     },
     {
@@ -207,7 +363,7 @@
     },
     {
       "type": "section",
-      "title": "Misting Protocol"
+      "heading": "Misting Protocol"
     },
     {
       "type": "text",
@@ -219,11 +375,31 @@
     },
     {
       "type": "table",
-      "headers": ["Time of Day", "Duration", "Target Areas", "Purpose"],
+      "headers": [
+        "Time of Day",
+        "Duration",
+        "Target Areas",
+        "Purpose"
+      ],
       "rows": [
-        ["Morning (7-9 AM)", "15-30 seconds", "Foliage, branches, walls", "Drinking opportunity, raise humidity after night"],
-        ["Evening (6-8 PM)", "20-40 seconds", "All surfaces, substrate edges", "Drinking opportunity, boost nighttime humidity"],
-        ["Midday (optional)", "10-15 seconds", "Foliage only", "Only if humidity drops below 55% in dry climates"]
+        [
+          "Morning (7-9 AM)",
+          "15-30 seconds",
+          "Foliage, branches, walls",
+          "Drinking opportunity, raise humidity after night"
+        ],
+        [
+          "Evening (6-8 PM)",
+          "20-40 seconds",
+          "All surfaces, substrate edges",
+          "Drinking opportunity, boost nighttime humidity"
+        ],
+        [
+          "Midday (optional)",
+          "10-15 seconds",
+          "Foliage only",
+          "Only if humidity drops below 55% in dry climates"
+        ]
       ]
     },
     {
@@ -236,7 +412,7 @@
     },
     {
       "type": "section",
-      "title": "Troubleshooting Common Issues"
+      "heading": "Troubleshooting Common Issues"
     },
     {
       "type": "text",
@@ -244,15 +420,47 @@
     },
     {
       "type": "table",
-      "headers": ["Problem", "Likely Cause", "Solution"],
+      "headers": [
+        "Problem",
+        "Likely Cause",
+        "Solution"
+      ],
       "rows": [
-        ["Basking area exceeds 85°F", "Wattage too high or dimmer setting too high", "Lower dimmer setting or switch to lower wattage bulb (15-20w)"],
-        ["Entire enclosure too warm (>78°F)", "Room too hot or insufficient ventilation", "Increase ventilation, use small fan nearby, lower ambient AC"],
-        ["Cool zone below 70°F daytime", "Insufficient heat or oversized enclosure", "Increase dimmer setting or add secondary low-wattage heat source"],
-        ["Humidity drops below 50%", "Insufficient misting or too much ventilation", "Increase misting frequency, partially cover screen top with glass"],
-        ["Humidity above 90% constantly", "Oversaturation or poor ventilation", "Reduce misting amount, ensure screen top is not covered, add small fan"],
-        ["Geckos gaping/panting", "HEAT STRESS - temperature too high", "IMMEDIATE: Turn off heat, mist heavily, lower ambient temp. Check basking temp!"],
-        ["Geckos lethargic at night", "Too cold", "Ensure daytime temps reach 75-78°F, check nighttime doesn't drop below 65°F"]
+        [
+          "Basking area exceeds 85°F",
+          "Wattage too high or dimmer setting too high",
+          "Lower dimmer setting or switch to lower wattage bulb (15-20w)"
+        ],
+        [
+          "Entire enclosure too warm (>78°F)",
+          "Room too hot or insufficient ventilation",
+          "Increase ventilation, use small fan nearby, lower ambient AC"
+        ],
+        [
+          "Cool zone below 70°F daytime",
+          "Insufficient heat or oversized enclosure",
+          "Increase dimmer setting or add secondary low-wattage heat source"
+        ],
+        [
+          "Humidity drops below 50%",
+          "Insufficient misting or too much ventilation",
+          "Increase misting frequency, partially cover screen top with glass"
+        ],
+        [
+          "Humidity above 90% constantly",
+          "Oversaturation or poor ventilation",
+          "Reduce misting amount, ensure screen top is not covered, add small fan"
+        ],
+        [
+          "Geckos gaping/panting",
+          "HEAT STRESS - temperature too high",
+          "IMMEDIATE: Turn off heat, mist heavily, lower ambient temp. Check basking temp!"
+        ],
+        [
+          "Geckos lethargic at night",
+          "Too cold",
+          "Ensure daytime temps reach 75-78°F, check nighttime doesn't drop below 65°F"
+        ]
       ]
     },
     {
@@ -262,7 +470,7 @@
     },
     {
       "type": "section",
-      "title": "Seasonal Adjustments"
+      "heading": "Seasonal Adjustments"
     },
     {
       "type": "text",
@@ -274,12 +482,32 @@
     },
     {
       "type": "table",
-      "headers": ["Season", "Common Issue", "Adjustment"],
+      "headers": [
+        "Season",
+        "Common Issue",
+        "Adjustment"
+      ],
       "rows": [
-        ["Summer (hot)", "Basking area too warm, difficulty cooling", "Lower dimmer setting, increase ventilation, AC if needed"],
-        ["Winter (cold)", "Entire enclosure too cool, high nighttime drop", "Increase dimmer setting, add nighttime CHE if needed"],
-        ["Spring/Fall transitions", "Fluctuating temps throughout day", "Check temps daily, adjust dimmer as needed"],
-        ["Dry winter air", "Humidity drops rapidly between mistings", "Increase misting frequency, add moisture-retaining d°cor (live plants)"]
+        [
+          "Summer (hot)",
+          "Basking area too warm, difficulty cooling",
+          "Lower dimmer setting, increase ventilation, AC if needed"
+        ],
+        [
+          "Winter (cold)",
+          "Entire enclosure too cool, high nighttime drop",
+          "Increase dimmer setting, add nighttime CHE if needed"
+        ],
+        [
+          "Spring/Fall transitions",
+          "Fluctuating temps throughout day",
+          "Check temps daily, adjust dimmer as needed"
+        ],
+        [
+          "Dry winter air",
+          "Humidity drops rapidly between mistings",
+          "Increase misting frequency, add moisture-retaining d°cor (live plants)"
+        ]
       ]
     },
     {

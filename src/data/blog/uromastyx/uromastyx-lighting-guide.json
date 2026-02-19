@@ -7,7 +7,12 @@
   "date": "2026-02-11",
   "publishDate": "2026-02-11",
   "category": "Care Guides",
-  "tags": ["uromastyx", "UVB", "lighting", "photoperiod"],
+  "tags": [
+    "uromastyx",
+    "UVB",
+    "lighting",
+    "photoperiod"
+  ],
   "image": "/animals/uromastyx/uromastyx-1.jpg",
   "status": "community-reviewed",
   "content": [
@@ -18,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "UVB Requirements"
+      "heading": "UVB Requirements"
     },
     {
       "type": "text",
@@ -30,12 +35,32 @@
     },
     {
       "type": "table",
-      "headers": ["Parameter", "Target Value", "Measurement Location"],
+      "headers": [
+        "Parameter",
+        "Target Value",
+        "Measurement Location"
+      ],
       "rows": [
-        ["UVI (UV Index)", "4.5-6.0", "Basking surface"],
-        ["Ferguson Zone", "Zone 4", "Full-sun basking species"],
-        ["Coverage Area", "50-70% of enclosure", "Warm side"],
-        ["Shade access", "Required", "Cool side and hides"]
+        [
+          "UVI (UV Index)",
+          "4.5-6.0",
+          "Basking surface"
+        ],
+        [
+          "Ferguson Zone",
+          "Zone 4",
+          "Full-sun basking species"
+        ],
+        [
+          "Coverage Area",
+          "50-70% of enclosure",
+          "Warm side"
+        ],
+        [
+          "Shade access",
+          "Required",
+          "Cool side and hides"
+        ]
       ]
     },
     {
@@ -45,7 +70,7 @@
     },
     {
       "type": "section",
-      "title": "UVB Equipment Selection"
+      "heading": "UVB Equipment Selection"
     },
     {
       "type": "text",
@@ -57,11 +82,31 @@
     },
     {
       "type": "table",
-      "headers": ["Bulb Type", "UVB Output", "Length", "Replacement Interval"],
+      "headers": [
+        "Bulb Type",
+        "UVB Output",
+        "Length",
+        "Replacement Interval"
+      ],
       "rows": [
-        ["T5 HO high output", "12-14%", "Half enclosure length", "12 months"],
-        ["T5 HO mid output", "10%", "Half enclosure length", "10-12 months"],
-        ["T8 linear", "Not preferred", "Longer length needed", "6-8 months"]
+        [
+          "T5 HO high output",
+          "12-14%",
+          "Half enclosure length",
+          "12 months"
+        ],
+        [
+          "T5 HO mid output",
+          "10%",
+          "Half enclosure length",
+          "10-12 months"
+        ],
+        [
+          "T8 linear",
+          "Not preferred",
+          "Longer length needed",
+          "6-8 months"
+        ]
       ]
     },
     {
@@ -71,7 +116,7 @@
     },
     {
       "type": "section",
-      "title": "UVB Placement Guidelines"
+      "heading": "UVB Placement Guidelines"
     },
     {
       "type": "text",
@@ -83,11 +128,27 @@
     },
     {
       "type": "table",
-      "headers": ["Configuration", "Distance to Basking", "Notes"],
+      "headers": [
+        "Configuration",
+        "Distance to Basking",
+        "Notes"
+      ],
       "rows": [
-        ["Over mesh", "8-12 in", "Mesh reduces UVB output"],
-        ["Inside enclosure", "14-19 in", "No mesh loss, adjust for UVI target"],
-        ["Through glass", "Avoid", "Glass blocks UVB"]
+        [
+          "Over mesh",
+          "8-12 in",
+          "Mesh reduces UVB output"
+        ],
+        [
+          "Inside enclosure",
+          "14-19 in",
+          "No mesh loss, adjust for UVI target"
+        ],
+        [
+          "Through glass",
+          "Avoid",
+          "Glass blocks UVB"
+        ]
       ]
     },
     {
@@ -96,7 +157,7 @@
     },
     {
       "type": "section",
-      "title": "Full-Spectrum Illumination"
+      "heading": "Full-Spectrum Illumination"
     },
     {
       "type": "text",
@@ -104,11 +165,27 @@
     },
     {
       "type": "table",
-      "headers": ["Light Type", "Color Temperature", "Coverage Recommendation"],
+      "headers": [
+        "Light Type",
+        "Color Temperature",
+        "Coverage Recommendation"
+      ],
       "rows": [
-        ["LED bar", "6500K", "Most of enclosure length"],
-        ["T5 daylight tube", "6500K", "Supplementary brightness"],
-        ["Additional spot LED", "5000-6500K", "Boost basking zone brightness"]
+        [
+          "LED bar",
+          "6500K",
+          "Most of enclosure length"
+        ],
+        [
+          "T5 daylight tube",
+          "6500K",
+          "Supplementary brightness"
+        ],
+        [
+          "Additional spot LED",
+          "5000-6500K",
+          "Boost basking zone brightness"
+        ]
       ]
     },
     {
@@ -117,15 +194,31 @@
     },
     {
       "type": "section",
-      "title": "Photoperiod Management"
+      "heading": "Photoperiod Management"
     },
     {
       "type": "table",
-      "headers": ["Season", "Light Duration", "Purpose"],
+      "headers": [
+        "Season",
+        "Light Duration",
+        "Purpose"
+      ],
       "rows": [
-        ["Spring and summer", "12-14 hours", "Peak activity and growth"],
-        ["Fall and winter", "10-12 hours", "Rest period"],
-        ["Night", "Complete darkness", "Sleep and circadian rhythm"]
+        [
+          "Spring and summer",
+          "12-14 hours",
+          "Peak activity and growth"
+        ],
+        [
+          "Fall and winter",
+          "10-12 hours",
+          "Rest period"
+        ],
+        [
+          "Night",
+          "Complete darkness",
+          "Sleep and circadian rhythm"
+        ]
       ]
     },
     {
@@ -135,29 +228,65 @@
     },
     {
       "type": "section",
-      "title": "Maintenance and Replacement"
+      "heading": "Maintenance and Replacement"
     },
     {
       "type": "table",
-      "headers": ["Equipment", "Replacement Interval", "Notes"],
+      "headers": [
+        "Equipment",
+        "Replacement Interval",
+        "Notes"
+      ],
       "rows": [
-        ["T5 HO UVB", "Every 12 months", "UVB declines before light output does"],
-        ["LED bars", "Every 2-3 years", "Replace if brightness drops"],
-        ["Timers", "As needed", "Test monthly"]
+        [
+          "T5 HO UVB",
+          "Every 12 months",
+          "UVB declines before light output does"
+        ],
+        [
+          "LED bars",
+          "Every 2-3 years",
+          "Replace if brightness drops"
+        ],
+        [
+          "Timers",
+          "As needed",
+          "Test monthly"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Common Setup Errors"
+      "heading": "Common Setup Errors"
     },
     {
       "type": "table",
-      "headers": ["Mistake", "Consequence", "Solution"],
+      "headers": [
+        "Mistake",
+        "Consequence",
+        "Solution"
+      ],
       "rows": [
-        ["Short UVB fixture", "No gradient", "Use a longer T5 HO fixture"],
-        ["UVB too far", "Low UVI", "Raise basking platform or lower fixture"],
-        ["No visible light", "Low activity", "Add a bright daylight LED bar"],
-        ["No shade", "Overexposure risk", "Provide hides and cool zone"]
+        [
+          "Short UVB fixture",
+          "No gradient",
+          "Use a longer T5 HO fixture"
+        ],
+        [
+          "UVB too far",
+          "Low UVI",
+          "Raise basking platform or lower fixture"
+        ],
+        [
+          "No visible light",
+          "Low activity",
+          "Add a bright daylight LED bar"
+        ],
+        [
+          "No shade",
+          "Overexposure risk",
+          "Provide hides and cool zone"
+        ]
       ]
     }
   ]

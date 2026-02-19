@@ -7,7 +7,12 @@
   "date": "2026-02-11",
   "publishDate": "2026-02-11",
   "category": "Care Guides",
-  "tags": ["uromastyx", "hydration", "water", "arid"],
+  "tags": [
+    "uromastyx",
+    "hydration",
+    "water",
+    "arid"
+  ],
   "image": "/animals/uromastyx/uromastyx-1.jpg",
   "status": "community-reviewed",
   "content": [
@@ -18,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "Natural Hydration Behaviors"
+      "heading": "Natural Hydration Behaviors"
     },
     {
       "type": "text",
@@ -30,12 +35,32 @@
     },
     {
       "type": "table",
-      "headers": ["Water Source", "Availability", "Drinking Method"],
+      "headers": [
+        "Water Source",
+        "Availability",
+        "Drinking Method"
+      ],
       "rows": [
-        ["Plant moisture", "Daily", "Eating hydrated greens"],
-        ["Occasional rain", "Seasonal", "Surface drinking"],
-        ["Dew on surfaces", "Morning", "Licking droplets"],
-        ["Burrow humidity", "Ongoing", "Passive moisture balance"]
+        [
+          "Plant moisture",
+          "Daily",
+          "Eating hydrated greens"
+        ],
+        [
+          "Occasional rain",
+          "Seasonal",
+          "Surface drinking"
+        ],
+        [
+          "Dew on surfaces",
+          "Morning",
+          "Licking droplets"
+        ],
+        [
+          "Burrow humidity",
+          "Ongoing",
+          "Passive moisture balance"
+        ]
       ]
     },
     {
@@ -44,7 +69,7 @@
     },
     {
       "type": "section",
-      "title": "Primary Hydration Methods"
+      "heading": "Primary Hydration Methods"
     },
     {
       "type": "text",
@@ -56,12 +81,37 @@
     },
     {
       "type": "table",
-      "headers": ["Method", "Effectiveness", "Maintenance", "Best Use"],
+      "headers": [
+        "Method",
+        "Effectiveness",
+        "Maintenance",
+        "Best Use"
+      ],
       "rows": [
-        ["Water dish", "Medium", "Daily change", "Always available"],
-        ["Hydrating greens", "High", "Daily", "Primary moisture source"],
-        ["Humid burrow", "Medium", "Occasional refresh", "Shedding support"],
-        ["Misting", "Low", "Rare", "Only for burrow maintenance"]
+        [
+          "Water dish",
+          "Medium",
+          "Daily change",
+          "Always available"
+        ],
+        [
+          "Hydrating greens",
+          "High",
+          "Daily",
+          "Primary moisture source"
+        ],
+        [
+          "Humid burrow",
+          "Medium",
+          "Occasional refresh",
+          "Shedding support"
+        ],
+        [
+          "Misting",
+          "Low",
+          "Rare",
+          "Only for burrow maintenance"
+        ]
       ]
     },
     {
@@ -71,7 +121,7 @@
     },
     {
       "type": "section",
-      "title": "Water Dish Setup"
+      "heading": "Water Dish Setup"
     },
     {
       "type": "text",
@@ -79,10 +129,25 @@
     },
     {
       "type": "table",
-      "headers": ["Life Stage", "Dish Diameter", "Water Depth", "Placement"],
+      "headers": [
+        "Life Stage",
+        "Dish Diameter",
+        "Water Depth",
+        "Placement"
+      ],
       "rows": [
-        ["Juvenile", "3-4 in", "Shallow", "Cool side"],
-        ["Adult", "4-6 in", "Shallow", "Cool side"]
+        [
+          "Juvenile",
+          "3-4 in",
+          "Shallow",
+          "Cool side"
+        ],
+        [
+          "Adult",
+          "4-6 in",
+          "Shallow",
+          "Cool side"
+        ]
       ]
     },
     {
@@ -91,11 +156,27 @@
     },
     {
       "type": "table",
-      "headers": ["Task", "Frequency", "Procedure"],
+      "headers": [
+        "Task",
+        "Frequency",
+        "Procedure"
+      ],
       "rows": [
-        ["Complete water change", "Daily", "Rinse dish and refill with dechlorinated water"],
-        ["Dish sanitization", "Weekly", "Wash with reptile-safe cleaner"],
-        ["Water quality check", "Daily", "Remove sand and debris"]
+        [
+          "Complete water change",
+          "Daily",
+          "Rinse dish and refill with dechlorinated water"
+        ],
+        [
+          "Dish sanitization",
+          "Weekly",
+          "Wash with reptile-safe cleaner"
+        ],
+        [
+          "Water quality check",
+          "Daily",
+          "Remove sand and debris"
+        ]
       ]
     },
     {
@@ -104,7 +185,7 @@
     },
     {
       "type": "section",
-      "title": "Humid Burrow Strategy"
+      "heading": "Humid Burrow Strategy"
     },
     {
       "type": "text",
@@ -112,17 +193,37 @@
     },
     {
       "type": "table",
-      "headers": ["Step", "Action", "Goal"],
+      "headers": [
+        "Step",
+        "Action",
+        "Goal"
+      ],
       "rows": [
-        ["1", "Moisten lower 1-2 inches only", "Create stable burrow humidity"],
-        ["2", "Pack substrate firmly", "Prevent collapse"],
-        ["3", "Keep surface dry", "Avoid raising ambient humidity"],
-        ["4", "Refresh monthly", "Maintain structure"]
+        [
+          "1",
+          "Moisten lower 1-2 inches only",
+          "Create stable burrow humidity"
+        ],
+        [
+          "2",
+          "Pack substrate firmly",
+          "Prevent collapse"
+        ],
+        [
+          "3",
+          "Keep surface dry",
+          "Avoid raising ambient humidity"
+        ],
+        [
+          "4",
+          "Refresh monthly",
+          "Maintain structure"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "Soaking Protocol"
+      "heading": "Soaking Protocol"
     },
     {
       "type": "text",
@@ -135,16 +236,36 @@
     },
     {
       "type": "section",
-      "title": "Dehydration Recognition"
+      "heading": "Dehydration Recognition"
     },
     {
       "type": "table",
-      "headers": ["Sign", "Severity", "Action"],
+      "headers": [
+        "Sign",
+        "Severity",
+        "Action"
+      ],
       "rows": [
-        ["Slightly wrinkled skin", "Mild", "Increase hydrating greens"],
-        ["Thick, dry urates", "Moderate", "Check water access and temps"],
-        ["Sunken eyes", "Serious", "Consult a reptile vet"],
-        ["Lethargy", "Serious", "Verify temps and seek vet advice"]
+        [
+          "Slightly wrinkled skin",
+          "Mild",
+          "Increase hydrating greens"
+        ],
+        [
+          "Thick, dry urates",
+          "Moderate",
+          "Check water access and temps"
+        ],
+        [
+          "Sunken eyes",
+          "Serious",
+          "Consult a reptile vet"
+        ],
+        [
+          "Lethargy",
+          "Serious",
+          "Verify temps and seek vet advice"
+        ]
       ]
     },
     {

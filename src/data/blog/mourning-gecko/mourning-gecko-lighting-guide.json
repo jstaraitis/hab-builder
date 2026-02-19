@@ -6,7 +6,13 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-28",
   "category": "Care Guides",
-  "tags": ["mourning gecko", "UVB", "lighting", "photoperiod", "vitamin-d3"],
+  "tags": [
+    "mourning gecko",
+    "UVB",
+    "lighting",
+    "photoperiod",
+    "vitamin-d3"
+  ],
   "image": "/animals/mourning-gecko/mourning-gecko-1.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "UVB Requirements"
+      "heading": "UVB Requirements"
     },
     {
       "type": "text",
@@ -29,11 +35,27 @@
     },
     {
       "type": "table",
-      "headers": ["Parameter", "Target Value", "Measurement Location"],
+      "headers": [
+        "Parameter",
+        "Target Value",
+        "Measurement Location"
+      ],
       "rows": [
-        ["UVI (UV Index)", "1.0-2.0", "At highest perch (basking area)"],
-        ["Ferguson Zone", "Zone 1-2 (low to moderate partial sun)", "Tropical forest edge/canopy"],
-        ["Coverage Area", "30-50% of enclosure top", "Allows self-regulation - geckos can choose exposure"]
+        [
+          "UVI (UV Index)",
+          "1.0-2.0",
+          "At highest perch (basking area)"
+        ],
+        [
+          "Ferguson Zone",
+          "Zone 1-2 (low to moderate partial sun)",
+          "Tropical forest edge/canopy"
+        ],
+        [
+          "Coverage Area",
+          "30-50% of enclosure top",
+          "Allows self-regulation - geckos can choose exposure"
+        ]
       ]
     },
     {
@@ -43,7 +65,7 @@
     },
     {
       "type": "section",
-      "title": "UVB Equipment Selection"
+      "heading": "UVB Equipment Selection"
     },
     {
       "type": "text",
@@ -55,12 +77,37 @@
     },
     {
       "type": "table",
-      "headers": ["Product", "UVB Output", "Enclosure Size", "Replacement Interval"],
+      "headers": [
+        "Product",
+        "UVB Output",
+        "Enclosure Size",
+        "Replacement Interval"
+      ],
       "rows": [
-        ["Zoo Med ReptiSun 5.0 Compact (26w)", "5% UVB", "12°12°18\" to 18°18°24\"", "Every 6-12 months"],
-        ["Arcadia ShadeDweller Kit", "7% UVB (low wattage)", "12°12°18\" (perfect for single colony)", "Every 12 months"],
-        ["Zoo Med ReptiSun 5.0 T8 Linear (14-18\")", "5% UVB", "18°18°24\" to 36°18°18\"", "Every 12 months"],
-        ["Arcadia Forest 6% T5 HO (12-24\")", "6% UVB", "Larger colonies (24\"+ enclosures)", "Every 12 months"]
+        [
+          "Zoo Med ReptiSun 5.0 Compact (26w)",
+          "5% UVB",
+          "12°12°18\" to 18°18°24\"",
+          "Every 6-12 months"
+        ],
+        [
+          "Arcadia ShadeDweller Kit",
+          "7% UVB (low wattage)",
+          "12°12°18\" (perfect for single colony)",
+          "Every 12 months"
+        ],
+        [
+          "Zoo Med ReptiSun 5.0 T8 Linear (14-18\")",
+          "5% UVB",
+          "18°18°24\" to 36°18°18\"",
+          "Every 12 months"
+        ],
+        [
+          "Arcadia Forest 6% T5 HO (12-24\")",
+          "6% UVB",
+          "Larger colonies (24\"+ enclosures)",
+          "Every 12 months"
+        ]
       ]
     },
     {
@@ -70,7 +117,7 @@
     },
     {
       "type": "section",
-      "title": "UVB Placement Guidelines"
+      "heading": "UVB Placement Guidelines"
     },
     {
       "type": "text",
@@ -82,12 +129,37 @@
     },
     {
       "type": "table",
-      "headers": ["Bulb Type", "Mounting Location", "Distance to Basking", "Expected UVI"],
+      "headers": [
+        "Bulb Type",
+        "Mounting Location",
+        "Distance to Basking",
+        "Expected UVI"
+      ],
       "rows": [
-        ["26w ReptiSun 5.0 Compact", "On top of screen, hood with side mount", "2-4 inches through screen", "1.0-2.0"],
-        ["ShadeDweller Kit", "Inside enclosure top (integrated fixture)", "3-4 inches direct", "1.5-2.5"],
-        ["14\" T8 ReptiSun 5.0 Linear", "On top of screen", "4-6 inches through screen", "1.0-1.5"],
-        ["12\" T5 HO Arcadia Forest 6%", "On top of screen or inside", "6-8 inches", "2.0-3.0 (high end of range)"]
+        [
+          "26w ReptiSun 5.0 Compact",
+          "On top of screen, hood with side mount",
+          "2-4 inches through screen",
+          "1.0-2.0"
+        ],
+        [
+          "ShadeDweller Kit",
+          "Inside enclosure top (integrated fixture)",
+          "3-4 inches direct",
+          "1.5-2.5"
+        ],
+        [
+          "14\" T8 ReptiSun 5.0 Linear",
+          "On top of screen",
+          "4-6 inches through screen",
+          "1.0-1.5"
+        ],
+        [
+          "12\" T5 HO Arcadia Forest 6%",
+          "On top of screen or inside",
+          "6-8 inches",
+          "2.0-3.0 (high end of range)"
+        ]
       ]
     },
     {
@@ -100,7 +172,7 @@
     },
     {
       "type": "section",
-      "title": "Full-Spectrum Illumination"
+      "heading": "Full-Spectrum Illumination"
     },
     {
       "type": "text",
@@ -112,12 +184,32 @@
     },
     {
       "type": "table",
-      "headers": ["Light Source", "Purpose", "Recommendation"],
+      "headers": [
+        "Light Source",
+        "Purpose",
+        "Recommendation"
+      ],
       "rows": [
-        ["Heat bulb (25w incandescent)", "Basking warmth + visible light", "Provides adequate daytime illumination"],
-        ["UVB bulb (5.0)", "UVB provision + some visible light", "Adds to overall brightness"],
-        ["LED grow light (optional)", "Plant growth in bioactive setups", "Low-intensity 6500K if using live plants"],
-        ["Room ambient light", "Supplemental illumination", "Natural window light acceptable (not direct sun)"]
+        [
+          "Heat bulb (25w incandescent)",
+          "Basking warmth + visible light",
+          "Provides adequate daytime illumination"
+        ],
+        [
+          "UVB bulb (5.0)",
+          "UVB provision + some visible light",
+          "Adds to overall brightness"
+        ],
+        [
+          "LED grow light (optional)",
+          "Plant growth in bioactive setups",
+          "Low-intensity 6500K if using live plants"
+        ],
+        [
+          "Room ambient light",
+          "Supplemental illumination",
+          "Natural window light acceptable (not direct sun)"
+        ]
       ]
     },
     {
@@ -127,7 +219,7 @@
     },
     {
       "type": "section",
-      "title": "Photoperiod Schedule"
+      "heading": "Photoperiod Schedule"
     },
     {
       "type": "text",
@@ -139,12 +231,32 @@
     },
     {
       "type": "table",
-      "headers": ["Time", "Lights Status", "Purpose"],
+      "headers": [
+        "Time",
+        "Lights Status",
+        "Purpose"
+      ],
       "rows": [
-        ["7:00 AM", "All lights ON (heat + UVB)", "Simulates sunrise - morning activity period"],
-        ["7:00 AM - 7:00 PM", "Lights remain ON", "12 hours of daylight"],
-        ["7:00 PM", "All lights OFF", "Simulates sunset - evening activity period"],
-        ["7:00 PM - 7:00 AM", "Lights remain OFF", "12 hours of darkness for sleep"]
+        [
+          "7:00 AM",
+          "All lights ON (heat + UVB)",
+          "Simulates sunrise - morning activity period"
+        ],
+        [
+          "7:00 AM - 7:00 PM",
+          "Lights remain ON",
+          "12 hours of daylight"
+        ],
+        [
+          "7:00 PM",
+          "All lights OFF",
+          "Simulates sunset - evening activity period"
+        ],
+        [
+          "7:00 PM - 7:00 AM",
+          "Lights remain OFF",
+          "12 hours of darkness for sleep"
+        ]
       ]
     },
     {
@@ -157,7 +269,7 @@
     },
     {
       "type": "section",
-      "title": "Nighttime Lighting"
+      "heading": "Nighttime Lighting"
     },
     {
       "type": "text",
@@ -169,13 +281,37 @@
     },
     {
       "type": "table",
-      "headers": ["Light Type", "Acceptable?", "Reason"],
+      "headers": [
+        "Light Type",
+        "Acceptable?",
+        "Reason"
+      ],
       "rows": [
-        ["Complete darkness", "YES - IDEAL", "Natural sleep environment, allows nighttime temp drop"],
-        ["Ambient room light (dim)", "YES - acceptable", "Low light from hallway/windows is fine"],
-        ["Red heat bulb", "NO - avoid", "Visible to geckos, disrupts circadian rhythm"],
-        ["Blue \"moonlight\" LED", "NO - avoid", "Unnecessary, disrupts natural behavior"],
-        ["Ceramic heat emitter", "YES - if needed", "Provides heat without light for cold rooms"]
+        [
+          "Complete darkness",
+          "YES - IDEAL",
+          "Natural sleep environment, allows nighttime temp drop"
+        ],
+        [
+          "Ambient room light (dim)",
+          "YES - acceptable",
+          "Low light from hallway/windows is fine"
+        ],
+        [
+          "Red heat bulb",
+          "NO - avoid",
+          "Visible to geckos, disrupts circadian rhythm"
+        ],
+        [
+          "Blue \"moonlight\" LED",
+          "NO - avoid",
+          "Unnecessary, disrupts natural behavior"
+        ],
+        [
+          "Ceramic heat emitter",
+          "YES - if needed",
+          "Provides heat without light for cold rooms"
+        ]
       ]
     },
     {
@@ -185,7 +321,7 @@
     },
     {
       "type": "section",
-      "title": "UVB Bulb Maintenance"
+      "heading": "UVB Bulb Maintenance"
     },
     {
       "type": "text",
@@ -197,12 +333,32 @@
     },
     {
       "type": "table",
-      "headers": ["Bulb Type", "Replacement Interval", "How to Track"],
+      "headers": [
+        "Bulb Type",
+        "Replacement Interval",
+        "How to Track"
+      ],
       "rows": [
-        ["Compact coil (ReptiSun 5.0)", "Every 6-12 months", "Write installation date on fixture with marker"],
-        ["T8 linear tubes", "Every 12 months", "Set calendar reminder for annual replacement"],
-        ["T5 HO linear tubes", "Every 12-18 months", "Longer lifespan but still track replacement"],
-        ["Arcadia bulbs (all types)", "Every 12 months", "Consistent replacement interval across products"]
+        [
+          "Compact coil (ReptiSun 5.0)",
+          "Every 6-12 months",
+          "Write installation date on fixture with marker"
+        ],
+        [
+          "T8 linear tubes",
+          "Every 12 months",
+          "Set calendar reminder for annual replacement"
+        ],
+        [
+          "T5 HO linear tubes",
+          "Every 12-18 months",
+          "Longer lifespan but still track replacement"
+        ],
+        [
+          "Arcadia bulbs (all types)",
+          "Every 12 months",
+          "Consistent replacement interval across products"
+        ]
       ]
     },
     {
@@ -211,7 +367,7 @@
     },
     {
       "type": "section",
-      "title": "Signs of Inadequate UVB"
+      "heading": "Signs of Inadequate UVB"
     },
     {
       "type": "text",
@@ -223,13 +379,37 @@
     },
     {
       "type": "table",
-      "headers": ["Symptom", "Likely Cause", "Solution"],
+      "headers": [
+        "Symptom",
+        "Likely Cause",
+        "Solution"
+      ],
       "rows": [
-        ["Soft/rubbery eggs", "Calcium deficiency from low D3", "Add/improve UVB, increase calcium supplementation"],
-        ["Egg binding", "Poor calcium absorption", "Ensure UVB is functioning, vet visit required"],
-        ["Kinked tail in hatchlings", "Metabolic bone disease (MBD)", "Mother had inadequate UVB/calcium during egg development"],
-        ["Lethargy, reduced feeding", "General nutritional deficiency", "Check UVB bulb age, ensure proper diet"],
-        ["Thin/fragile bones (advanced)", "Severe MBD", "Veterinary intervention needed, improve UVB immediately"]
+        [
+          "Soft/rubbery eggs",
+          "Calcium deficiency from low D3",
+          "Add/improve UVB, increase calcium supplementation"
+        ],
+        [
+          "Egg binding",
+          "Poor calcium absorption",
+          "Ensure UVB is functioning, vet visit required"
+        ],
+        [
+          "Kinked tail in hatchlings",
+          "Metabolic bone disease (MBD)",
+          "Mother had inadequate UVB/calcium during egg development"
+        ],
+        [
+          "Lethargy, reduced feeding",
+          "General nutritional deficiency",
+          "Check UVB bulb age, ensure proper diet"
+        ],
+        [
+          "Thin/fragile bones (advanced)",
+          "Severe MBD",
+          "Veterinary intervention needed, improve UVB immediately"
+        ]
       ]
     },
     {
@@ -239,7 +419,7 @@
     },
     {
       "type": "section",
-      "title": "Lighting Setup Examples"
+      "heading": "Lighting Setup Examples"
     },
     {
       "type": "text",
@@ -251,12 +431,37 @@
     },
     {
       "type": "table",
-      "headers": ["Enclosure Size", "Heat Lamp", "UVB Source", "Timer Setup"],
+      "headers": [
+        "Enclosure Size",
+        "Heat Lamp",
+        "UVB Source",
+        "Timer Setup"
+      ],
       "rows": [
-        ["12°12°18 (2-4 geckos)", "25w incandescent in 5.5\" dome", "26w ReptiSun 5.0 compact in 12\" hood", "Both plugged into single timer"],
-        ["18°18°24 (5-7 geckos)", "25w incandescent in dome", "14\" ReptiSun 5.0 T8 linear in hood", "Both plugged into single timer"],
-        ["18°18°36 (8-10 geckos)", "25-40w incandescent (may need higher wattage)", "18\" ReptiSun 5.0 T8 or 12\" T5 HO", "Both plugged into single timer"],
-        ["24°18°36+ (large colony)", "40w incandescent or halogen", "24\" Arcadia Forest 6% T5 HO", "Both plugged into single timer"]
+        [
+          "12°12°18 (2-4 geckos)",
+          "25w incandescent in 5.5\" dome",
+          "26w ReptiSun 5.0 compact in 12\" hood",
+          "Both plugged into single timer"
+        ],
+        [
+          "18°18°24 (5-7 geckos)",
+          "25w incandescent in dome",
+          "14\" ReptiSun 5.0 T8 linear in hood",
+          "Both plugged into single timer"
+        ],
+        [
+          "18°18°36 (8-10 geckos)",
+          "25-40w incandescent (may need higher wattage)",
+          "18\" ReptiSun 5.0 T8 or 12\" T5 HO",
+          "Both plugged into single timer"
+        ],
+        [
+          "24°18°36+ (large colony)",
+          "40w incandescent or halogen",
+          "24\" Arcadia Forest 6% T5 HO",
+          "Both plugged into single timer"
+        ]
       ]
     },
     {
@@ -265,7 +470,7 @@
     },
     {
       "type": "section",
-      "title": "Troubleshooting Lighting Issues"
+      "heading": "Troubleshooting Lighting Issues"
     },
     {
       "type": "text",
@@ -273,14 +478,42 @@
     },
     {
       "type": "table",
-      "headers": ["Problem", "Likely Cause", "Solution"],
+      "headers": [
+        "Problem",
+        "Likely Cause",
+        "Solution"
+      ],
       "rows": [
-        ["UVB bulb won't turn on", "Bulb burned out or poor socket contact", "Check socket connection, replace bulb if old"],
-        ["Enclosure too dark", "Insufficient wattage or bulbs burned out", "Add LED grow light or ensure heat lamp is on"],
-        ["Geckos hiding all day", "Too bright or stressed (not lighting issue)", "Ensure adequate foliage cover, check temps"],
-        ["Plants dying despite light", "Insufficient intensity for plant species", "Add dedicated LED grow light or switch to low-light plants"],
-        ["Basking area too hot", "Heat lamp + UVB generating excessive heat", "Lower heat lamp wattage or increase distance"],
-        ["Geckos avoiding top of enclosure", "UVB too intense (wrong bulb strength)", "Switch to 5.0 from 10.0, increase distance"]
+        [
+          "UVB bulb won't turn on",
+          "Bulb burned out or poor socket contact",
+          "Check socket connection, replace bulb if old"
+        ],
+        [
+          "Enclosure too dark",
+          "Insufficient wattage or bulbs burned out",
+          "Add LED grow light or ensure heat lamp is on"
+        ],
+        [
+          "Geckos hiding all day",
+          "Too bright or stressed (not lighting issue)",
+          "Ensure adequate foliage cover, check temps"
+        ],
+        [
+          "Plants dying despite light",
+          "Insufficient intensity for plant species",
+          "Add dedicated LED grow light or switch to low-light plants"
+        ],
+        [
+          "Basking area too hot",
+          "Heat lamp + UVB generating excessive heat",
+          "Lower heat lamp wattage or increase distance"
+        ],
+        [
+          "Geckos avoiding top of enclosure",
+          "UVB too intense (wrong bulb strength)",
+          "Switch to 5.0 from 10.0, increase distance"
+        ]
       ]
     },
     {

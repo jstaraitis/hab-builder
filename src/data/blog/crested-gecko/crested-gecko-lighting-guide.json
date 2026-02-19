@@ -6,7 +6,13 @@
   "author": "Habitat Builder",
   "publishDate": "2026-01-26",
   "category": "Care Guides",
-  "tags": ["crested-gecko", "UVB", "lighting", "photoperiod", "vitamin-d3"],
+  "tags": [
+    "crested-gecko",
+    "UVB",
+    "lighting",
+    "photoperiod",
+    "vitamin-d3"
+  ],
   "image": "/animals/crested-gecko/crested-gecko-lighting.jpg",
   "status": "community-reviewed",
   "content": [
@@ -17,7 +23,7 @@
     },
     {
       "type": "section",
-      "title": "UVB Requirements"
+      "heading": "UVB Requirements"
     },
     {
       "type": "text",
@@ -29,11 +35,27 @@
     },
     {
       "type": "table",
-      "headers": ["Parameter", "Target Value", "Measurement Location"],
+      "headers": [
+        "Parameter",
+        "Target Value",
+        "Measurement Location"
+      ],
       "rows": [
-        ["UVI (UV Index)", "0.5-1.0", "At highest perch (top 6-8\" of enclosure)"],
-        ["Ferguson Zone", "Zone 2 (Shade Dweller)", "Low UVB, filtered/indirect exposure"],
-        ["Coverage Area", "50-70% of enclosure length", "Allows self-regulation - gecko can choose UVB or shade"]
+        [
+          "UVI (UV Index)",
+          "0.5-1.0",
+          "At highest perch (top 6-8\" of enclosure)"
+        ],
+        [
+          "Ferguson Zone",
+          "Zone 2 (Shade Dweller)",
+          "Low UVB, filtered/indirect exposure"
+        ],
+        [
+          "Coverage Area",
+          "50-70% of enclosure length",
+          "Allows self-regulation - gecko can choose UVB or shade"
+        ]
       ]
     },
     {
@@ -43,7 +65,7 @@
     },
     {
       "type": "section",
-      "title": "UVB Equipment Selection"
+      "heading": "UVB Equipment Selection"
     },
     {
       "type": "text",
@@ -55,12 +77,37 @@
     },
     {
       "type": "table",
-      "headers": ["Product", "UVB Output", "Length", "Replacement Interval"],
+      "headers": [
+        "Product",
+        "UVB Output",
+        "Length",
+        "Replacement Interval"
+      ],
       "rows": [
-        ["Arcadia ShadeDweller ProT5 Kit", "7% UVB (low)", "7\" fixture", "12 months"],
-        ["Zoo Med ReptiSun 5.0 T8", "5% UVB", "12\" bulb", "6-8 months"],
-        ["Arcadia T8 6%", "6% UVB", "12\" bulb", "12 months"],
-        ["Zoo Med ReptiSun 5.0 T5 HO", "5% UVB (high output)", "12\" bulb", "12 months (use with caution, measure UVI)"]
+        [
+          "Arcadia ShadeDweller ProT5 Kit",
+          "7% UVB (low)",
+          "7\" fixture",
+          "12 months"
+        ],
+        [
+          "Zoo Med ReptiSun 5.0 T8",
+          "5% UVB",
+          "12\" bulb",
+          "6-8 months"
+        ],
+        [
+          "Arcadia T8 6%",
+          "6% UVB",
+          "12\" bulb",
+          "12 months"
+        ],
+        [
+          "Zoo Med ReptiSun 5.0 T5 HO",
+          "5% UVB (high output)",
+          "12\" bulb",
+          "12 months (use with caution, measure UVI)"
+        ]
       ]
     },
     {
@@ -70,7 +117,7 @@
     },
     {
       "type": "section",
-      "title": "UVB Placement Guidelines"
+      "heading": "UVB Placement Guidelines"
     },
     {
       "type": "text",
@@ -82,12 +129,32 @@
     },
     {
       "type": "table",
-      "headers": ["Mounting Configuration", "Distance to Basking/Perch", "Expected UVI"],
+      "headers": [
+        "Mounting Configuration",
+        "Distance to Basking/Perch",
+        "Expected UVI"
+      ],
       "rows": [
-        ["T8 bulb over mesh top (external)", "6-8\" from bulb to perch", "0.8-1.5 UVI (mesh blocks ~30%)"],
-        ["T8 bulb inside enclosure (internal)", "8-10\" from bulb to perch", "1.0-2.0 UVI (no obstruction)"],
-        ["T5 HO over mesh (external)", "10-12\" from bulb to perch", "1.5-2.5 UVI (more intense, needs greater distance)"],
-        ["Arcadia ShadeDweller (all-in-one kit)", "Mounts inside, 6\" from perch", "1.0-1.5 UVI (designed for close proximity)"]
+        [
+          "T8 bulb over mesh top (external)",
+          "6-8\" from bulb to perch",
+          "0.8-1.5 UVI (mesh blocks ~30%)"
+        ],
+        [
+          "T8 bulb inside enclosure (internal)",
+          "8-10\" from bulb to perch",
+          "1.0-2.0 UVI (no obstruction)"
+        ],
+        [
+          "T5 HO over mesh (external)",
+          "10-12\" from bulb to perch",
+          "1.5-2.5 UVI (more intense, needs greater distance)"
+        ],
+        [
+          "Arcadia ShadeDweller (all-in-one kit)",
+          "Mounts inside, 6\" from perch",
+          "1.0-1.5 UVI (designed for close proximity)"
+        ]
       ]
     },
     {
@@ -96,7 +163,7 @@
     },
     {
       "type": "section",
-      "title": "Full-Spectrum Illumination"
+      "heading": "Full-Spectrum Illumination"
     },
     {
       "type": "text",
@@ -108,12 +175,32 @@
     },
     {
       "type": "table",
-      "headers": ["Product Type", "Color Temperature", "Coverage Recommendation"],
+      "headers": [
+        "Product Type",
+        "Color Temperature",
+        "Coverage Recommendation"
+      ],
       "rows": [
-        ["6500K LED grow light", "6500K (daylight white)", "Full enclosure length, supports live plants"],
-        ["Jungle Dawn LED Bar", "6500K", "Excellent for bioactive, intense PAR for plant growth"],
-        ["White incandescent (heat lamp)", "2700K (warm)", "Provides both visible light and basking heat"],
-        ["Arcadia JungleDawn LED", "6500K", "Premium option, simulates rainforest canopy light"]
+        [
+          "6500K LED grow light",
+          "6500K (daylight white)",
+          "Full enclosure length, supports live plants"
+        ],
+        [
+          "Jungle Dawn LED Bar",
+          "6500K",
+          "Excellent for bioactive, intense PAR for plant growth"
+        ],
+        [
+          "White incandescent (heat lamp)",
+          "2700K (warm)",
+          "Provides both visible light and basking heat"
+        ],
+        [
+          "Arcadia JungleDawn LED",
+          "6500K",
+          "Premium option, simulates rainforest canopy light"
+        ]
       ]
     },
     {
@@ -122,7 +209,7 @@
     },
     {
       "type": "section",
-      "title": "Photoperiod Management"
+      "heading": "Photoperiod Management"
     },
     {
       "type": "text",
@@ -134,11 +221,27 @@
     },
     {
       "type": "table",
-      "headers": ["Season/Time", "Light Duration", "Biological Purpose"],
+      "headers": [
+        "Season/Time",
+        "Light Duration",
+        "Biological Purpose"
+      ],
       "rows": [
-        ["Spring/Summer (Active Season)", "12-13 hours light, 11-12 hours dark", "Peak activity, breeding season, maximum feeding"],
-        ["Fall/Winter (Rest Period)", "10-11 hours light, 13-14 hours dark", "Natural rest period, optional (not required for crested geckos)"],
-        ["Nighttime Year-Round", "Complete darkness (no lights)", "Melatonin production, natural activity peak, hunting behavior"]
+        [
+          "Spring/Summer (Active Season)",
+          "12-13 hours light, 11-12 hours dark",
+          "Peak activity, breeding season, maximum feeding"
+        ],
+        [
+          "Fall/Winter (Rest Period)",
+          "10-11 hours light, 13-14 hours dark",
+          "Natural rest period, optional (not required for crested geckos)"
+        ],
+        [
+          "Nighttime Year-Round",
+          "Complete darkness (no lights)",
+          "Melatonin production, natural activity peak, hunting behavior"
+        ]
       ]
     },
     {
@@ -148,7 +251,7 @@
     },
     {
       "type": "section",
-      "title": "Light Spectrum & Behavior"
+      "heading": "Light Spectrum & Behavior"
     },
     {
       "type": "text",
@@ -160,13 +263,37 @@
     },
     {
       "type": "table",
-      "headers": ["Light Type", "Wavelength Focus", "Behavioral Effect"],
+      "headers": [
+        "Light Type",
+        "Wavelength Focus",
+        "Behavioral Effect"
+      ],
       "rows": [
-        ["White/Daylight (6500K)", "Full spectrum", "Natural activity rhythm, supports plant growth, enhances coloration"],
-        ["Warm White (2700-3000K)", "Yellow-red spectrum", "Calming, pairs well with basking heat, less intense"],
-        ["Blue LED (nighttime viewing)", "450-490nm blue", "AVOID, suppresses melatonin, disrupts sleep, causes stress"],
-        ["Red LED (nighttime viewing)", "620-750nm red", "AVOID, Better than blue but still disturbs natural darkness"],
-        ["Complete darkness", "No light", "IDEAL for nighttime, crested geckos have excellent night vision, don't need light"]
+        [
+          "White/Daylight (6500K)",
+          "Full spectrum",
+          "Natural activity rhythm, supports plant growth, enhances coloration"
+        ],
+        [
+          "Warm White (2700-3000K)",
+          "Yellow-red spectrum",
+          "Calming, pairs well with basking heat, less intense"
+        ],
+        [
+          "Blue LED (nighttime viewing)",
+          "450-490nm blue",
+          "AVOID, suppresses melatonin, disrupts sleep, causes stress"
+        ],
+        [
+          "Red LED (nighttime viewing)",
+          "620-750nm red",
+          "AVOID, Better than blue but still disturbs natural darkness"
+        ],
+        [
+          "Complete darkness",
+          "No light",
+          "IDEAL for nighttime, crested geckos have excellent night vision, don't need light"
+        ]
       ]
     },
     {
@@ -176,7 +303,7 @@
     },
     {
       "type": "section",
-      "title": "Maintenance & Replacement Schedule"
+      "heading": "Maintenance & Replacement Schedule"
     },
     {
       "type": "text",
@@ -188,13 +315,37 @@
     },
     {
       "type": "table",
-      "headers": ["Equipment Type", "Replacement Interval", "Degradation Pattern"],
+      "headers": [
+        "Equipment Type",
+        "Replacement Interval",
+        "Degradation Pattern"
+      ],
       "rows": [
-        ["T5 HO UVB (Zoo Med, Arcadia)", "12 months", "Gradual decline, 70% output by 12 months"],
-        ["T8 UVB (Zoo Med ReptiSun 5.0)", "6-8 months", "Faster degradation, 50-60% output by 9 months"],
-        ["Arcadia T8 6%", "12 months", "Slower degradation due to better phosphor coating"],
-        ["LED Full-Spectrum (Jungle Dawn)", "3-5 years", "Gradual dimming, no UVB so replacement less critical"],
-        ["White incandescent heat bulb", "As needed (burns out)", "Stops working entirely rather than degrading"]
+        [
+          "T5 HO UVB (Zoo Med, Arcadia)",
+          "12 months",
+          "Gradual decline, 70% output by 12 months"
+        ],
+        [
+          "T8 UVB (Zoo Med ReptiSun 5.0)",
+          "6-8 months",
+          "Faster degradation, 50-60% output by 9 months"
+        ],
+        [
+          "Arcadia T8 6%",
+          "12 months",
+          "Slower degradation due to better phosphor coating"
+        ],
+        [
+          "LED Full-Spectrum (Jungle Dawn)",
+          "3-5 years",
+          "Gradual dimming, no UVB so replacement less critical"
+        ],
+        [
+          "White incandescent heat bulb",
+          "As needed (burns out)",
+          "Stops working entirely rather than degrading"
+        ]
       ]
     },
     {
@@ -203,7 +354,7 @@
     },
     {
       "type": "section",
-      "title": "Common Setup Errors"
+      "heading": "Common Setup Errors"
     },
     {
       "type": "text",
@@ -211,20 +362,52 @@
     },
     {
       "type": "table",
-      "headers": ["Mistake", "Consequence", "Solution"],
+      "headers": [
+        "Mistake",
+        "Consequence",
+        "Solution"
+      ],
       "rows": [
-        ["Using compact coil UVB bulbs", "Uneven UVB distribution, potential eye damage", "Switch to linear T8/T5 bulbs that spread UVB evenly"],
-        ["UVB bulb too close (<4\" from gecko)", "UVB overexposure, eye irritation, skin issues", "Maintain 6-10\" distance, measure UVI with Solarmeter"],
-        ["Glass or plastic between UVB and gecko", "Glass blocks 90-100% of UVB", "Ensure only mesh screen between bulb and gecko"],
-        ["Desert-strength UVB (10.0/12%)", "Excessive UVB for shade-dwelling species", "Use 5.0-6% \"tropical\" strength bulbs only"],
-        ["No photoperiod (lights on 24/7)", "Disrupts circadian rhythm, chronic stress", "Use timers for consistent 12-hour light/dark cycle"],
-        ["Blue/moonlight LEDs at night", "Suppresses melatonin, stress, sleep deprivation", "Complete darkness at night - no LEDs or viewing lights"],
-        ["Not replacing UVB bulbs on schedule", "Gecko receives little/no UVB despite bulb still lighting", "Replace T8 every 6-8 months, T5 every 12 months"]
+        [
+          "Using compact coil UVB bulbs",
+          "Uneven UVB distribution, potential eye damage",
+          "Switch to linear T8/T5 bulbs that spread UVB evenly"
+        ],
+        [
+          "UVB bulb too close (<4\" from gecko)",
+          "UVB overexposure, eye irritation, skin issues",
+          "Maintain 6-10\" distance, measure UVI with Solarmeter"
+        ],
+        [
+          "Glass or plastic between UVB and gecko",
+          "Glass blocks 90-100% of UVB",
+          "Ensure only mesh screen between bulb and gecko"
+        ],
+        [
+          "Desert-strength UVB (10.0/12%)",
+          "Excessive UVB for shade-dwelling species",
+          "Use 5.0-6% \"tropical\" strength bulbs only"
+        ],
+        [
+          "No photoperiod (lights on 24/7)",
+          "Disrupts circadian rhythm, chronic stress",
+          "Use timers for consistent 12-hour light/dark cycle"
+        ],
+        [
+          "Blue/moonlight LEDs at night",
+          "Suppresses melatonin, stress, sleep deprivation",
+          "Complete darkness at night - no LEDs or viewing lights"
+        ],
+        [
+          "Not replacing UVB bulbs on schedule",
+          "Gecko receives little/no UVB despite bulb still lighting",
+          "Replace T8 every 6-8 months, T5 every 12 months"
+        ]
       ]
     },
     {
       "type": "section",
-      "title": "UVB vs Dietary D3 Debate"
+      "heading": "UVB vs Dietary D3 Debate"
     },
     {
       "type": "text",
@@ -236,14 +419,42 @@
     },
     {
       "type": "table",
-      "headers": ["Factor", "UVB Lighting", "Dietary D3 Only"],
+      "headers": [
+        "Factor",
+        "UVB Lighting",
+        "Dietary D3 Only"
+      ],
       "rows": [
-        ["D3 Source", "Synthesized in skin from UVB exposure", "Pre-formed D3 in crested gecko diet powder"],
-        ["Regulation", "Gecko self-regulates (seeks/avoids UVB)", "Fixed dose, risk of over/under supplementation"],
-        ["Metabolic Pathway", "Natural D3 synthesis pathway", "Dietary D3 processed by liver (less efficient)"],
-        ["Observed Health Outcomes", "Improved appetite, bone density, activity levels", "Adequate for survival, but some deficiencies seen long-term"],
-        ["Cost", "$40-70 initial + $15-30/year for bulbs", "No additional cost (D3 already in CGD)"],
-        ["Research Consensus", "Recommended as best practice since ~2015", "Acceptable but not optimal"]
+        [
+          "D3 Source",
+          "Synthesized in skin from UVB exposure",
+          "Pre-formed D3 in crested gecko diet powder"
+        ],
+        [
+          "Regulation",
+          "Gecko self-regulates (seeks/avoids UVB)",
+          "Fixed dose, risk of over/under supplementation"
+        ],
+        [
+          "Metabolic Pathway",
+          "Natural D3 synthesis pathway",
+          "Dietary D3 processed by liver (less efficient)"
+        ],
+        [
+          "Observed Health Outcomes",
+          "Improved appetite, bone density, activity levels",
+          "Adequate for survival, but some deficiencies seen long-term"
+        ],
+        [
+          "Cost",
+          "$40-70 initial + $15-30/year for bulbs",
+          "No additional cost (D3 already in CGD)"
+        ],
+        [
+          "Research Consensus",
+          "Recommended as best practice since ~2015",
+          "Acceptable but not optimal"
+        ]
       ]
     },
     {
@@ -252,7 +463,7 @@
     },
     {
       "type": "section",
-      "title": "Complete Equipment Checklist"
+      "heading": "Complete Equipment Checklist"
     },
     {
       "type": "text",
@@ -260,14 +471,42 @@
     },
     {
       "type": "table",
-      "headers": ["Equipment", "Specification", "Purpose"],
+      "headers": [
+        "Equipment",
+        "Specification",
+        "Purpose"
+      ],
       "rows": [
-        ["UVB Bulb", "12\" Zoo Med ReptiSun 5.0 T8 OR Arcadia 6% T8", "Low-level UVB for vitamin D3 synthesis"],
-        ["UVB Fixture", "14\" T8 fluorescent hood with reflector", "Houses UVB bulb, reflector increases efficiency by 30-50%"],
-        ["Heat Lamp (also provides light)", "40w white incandescent + dome", "Visible light + basking heat (dual purpose)"],
-        ["LED Grow Light (optional)", "6500K full-spectrum LED bar", "Enhances plant growth in bioactive, bright viewing"],
-        ["Timer(s)", "Digital plug-in timer (2x)", "Automate 12-hour photoperiod for consistency"],
-        ["Solarmeter 6.5 (optional but recommended)", "UVI measurement device", "Verify UVB levels at basking area (target 1.0-2.0)"]
+        [
+          "UVB Bulb",
+          "12\" Zoo Med ReptiSun 5.0 T8 OR Arcadia 6% T8",
+          "Low-level UVB for vitamin D3 synthesis"
+        ],
+        [
+          "UVB Fixture",
+          "14\" T8 fluorescent hood with reflector",
+          "Houses UVB bulb, reflector increases efficiency by 30-50%"
+        ],
+        [
+          "Heat Lamp (also provides light)",
+          "40w white incandescent + dome",
+          "Visible light + basking heat (dual purpose)"
+        ],
+        [
+          "LED Grow Light (optional)",
+          "6500K full-spectrum LED bar",
+          "Enhances plant growth in bioactive, bright viewing"
+        ],
+        [
+          "Timer(s)",
+          "Digital plug-in timer (2x)",
+          "Automate 12-hour photoperiod for consistency"
+        ],
+        [
+          "Solarmeter 6.5 (optional but recommended)",
+          "UVI measurement device",
+          "Verify UVB levels at basking area (target 1.0-2.0)"
+        ]
       ]
     },
     {
@@ -276,7 +515,7 @@
     },
     {
       "type": "section",
-      "title": "Troubleshooting Lighting Issues"
+      "heading": "Troubleshooting Lighting Issues"
     },
     {
       "type": "text",
@@ -284,14 +523,42 @@
     },
     {
       "type": "table",
-      "headers": ["Problem", "Possible Cause", "Solution"],
+      "headers": [
+        "Problem",
+        "Possible Cause",
+        "Solution"
+      ],
       "rows": [
-        ["Gecko avoids basking area entirely", "UVB too intense, or area too hot", "Measure UVI (should be 1.0-2.0, not 3.0+), check basking temp (should be 82-85F max)"],
-        ["Gecko appears pale/washed out", "Insufficient full-spectrum light", "Add 6500K LED or brighter heat lamp for better color rendering"],
-        ["Stuck shed problems despite humidity", "Possible vitamin D deficiency", "Add low-level UVB (1.0-2.0 UVI) to improve calcium metabolism and skin health"],
-        ["Lights buzzing/flickering", "Ballast failure or incompatible bulb", "Replace fixture ballast or entire fixture if old (T8 fixtures degrade after 3-5 years)"],
-        ["UVB bulb still lights but gecko seems lethargic", "UVB output degraded (>6-12 months old)", "Replace bulb even though it still produces visible light, UVB degrades faster than visible light"],
-        ["Enclosure too bright (gecko stressed)", "Excessive lighting, no shade options", "Add more foliage for shade, reduce to one light source, gecko should have choice to avoid light"]
+        [
+          "Gecko avoids basking area entirely",
+          "UVB too intense, or area too hot",
+          "Measure UVI (should be 1.0-2.0, not 3.0+), check basking temp (should be 82-85F max)"
+        ],
+        [
+          "Gecko appears pale/washed out",
+          "Insufficient full-spectrum light",
+          "Add 6500K LED or brighter heat lamp for better color rendering"
+        ],
+        [
+          "Stuck shed problems despite humidity",
+          "Possible vitamin D deficiency",
+          "Add low-level UVB (1.0-2.0 UVI) to improve calcium metabolism and skin health"
+        ],
+        [
+          "Lights buzzing/flickering",
+          "Ballast failure or incompatible bulb",
+          "Replace fixture ballast or entire fixture if old (T8 fixtures degrade after 3-5 years)"
+        ],
+        [
+          "UVB bulb still lights but gecko seems lethargic",
+          "UVB output degraded (>6-12 months old)",
+          "Replace bulb even though it still produces visible light, UVB degrades faster than visible light"
+        ],
+        [
+          "Enclosure too bright (gecko stressed)",
+          "Excessive lighting, no shade options",
+          "Add more foliage for shade, reduce to one light source, gecko should have choice to avoid light"
+        ]
       ]
     }
   ]

@@ -81,7 +81,7 @@ export interface CareLog {
 export interface CareTaskWithLogs extends CareTask {
   logs: CareLog[];
   lastCompleted?: Date;
-  streak?: number; // Days in a row completed
+  streak?: number; // Consecutive scheduled completions
 }
 
 /**
