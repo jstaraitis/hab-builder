@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Zap, Sun, Cpu, Droplet, Home, Layers, Image, Leaf, Mountain, Plus, Thermometer, Clock, Settings, Lightbulb, ChevronRight } from 'lucide-react';
+import type { SyntheticEvent } from 'react';
+import { Zap, Sun, Cpu, Droplet, Home, Layers, Image, Leaf, Mountain, Plus, Lightbulb, ChevronRight } from 'lucide-react';
 
 interface EquipmentLibraryProps {
   onAddItem: (type: string, variant?: string) => void;
@@ -18,111 +19,20 @@ interface EquipmentCategory {
 
 const equipmentCategories: EquipmentCategory[] = [
   {
-    name: 'Heating',
-    icon: '',
-    items: [
-      { type: 'heat', name: 'Heat Lamp', description: 'Basking heat source' },
-      { type: 'heat', name: 'Ceramic Heater', description: 'Non-light heat' },
-      { type: 'heat', name: 'Heat Mat', description: 'Under-tank heating' },
-      { type: 'heat', name: 'Deep Heat Projector', description: 'DHP radiant heat' },
-      { type: 'heat', name: 'Radiant Heat Panel', description: 'RHP overhead heat' },
-    ]
-  },
-  {
-    name: 'Lighting',
-    icon: '',
-    items: [
-      { type: 'uvb', name: 'UVB Fixture', description: 'T5 HO UVB lighting' },
-      { type: 'uvb', name: 'LED Light', description: 'Plant growth light' },
-      { type: 'uvb', name: 'Halogen Bulb', description: 'Basking with IR-A' },
-      { type: 'uvb', name: 'Compact UVB', description: 'Small UVB bulb' },
-    ]
-  },
-  {
-    name: 'Monitoring',
-    icon: '',
-    items: [
-      { type: 'decor', name: 'Thermometer/Hygrometer', variant: 'monitor', description: 'Temp & humidity gauge' },
-      { type: 'decor', name: 'Digital Probe', variant: 'probe', description: 'Temperature probe' },
-      { type: 'decor', name: 'Timer Switch', variant: 'timer', description: 'Lighting timer' },
-      { type: 'decor', name: 'Thermostat', variant: 'thermostat', description: 'Heat controller' },
-    ]
-  },
-  {
-    name: 'Water & Humidity',
-    icon: '',
-    items: [
-      { type: 'water', name: 'Water Dish', description: 'Drinking water' },
-      { type: 'water', name: 'Water Feature', description: 'Waterfall/fountain' },
-      { type: 'water', name: 'Misting System', description: 'Humidity control' },
-      { type: 'water', name: 'Fogger Unit', description: 'Fog generator' },
-      { type: 'water', name: 'Automatic Mister', description: 'Timed misting' },
-      { type: 'water', name: 'Humidity Box', description: 'Shedding chamber' },
-    ]
-  },
-  {
     name: 'Hides & Shelter',
     icon: '',
     items: [
-      { type: 'hide', name: 'Cork Hide', description: 'Natural hide' },
-      { type: 'hide', name: 'Cave', description: 'Rock/resin cave' },
-      { type: 'hide', name: 'Humid Hide', description: 'Shedding box' },
-      { type: 'hide', name: 'Half Log', description: 'Log hide' },
-      { type: 'hide', name: 'Leaf Litter Pile', description: 'Natural cover' },
-      { type: 'hide', name: 'Burrow Entrance', description: 'Underground entrance' },
-      { type: 'hide', name: 'Multi-Level Hide', description: 'Stacked hide' },
+      { type: 'hide', name: 'Cork Hide',variant: 'hide', description: 'Natural hide' },
+      { type: 'hide', name: 'Cave', variant: 'hide1',description: 'Rock/resin cave' }
     ]
   },
-  {
-    name: 'Climbing Structures',
-    icon: '',
-    items: [
-      { type: 'decor', name: 'Cork Bark Tube', variant: 'cork-tube', description: 'Hollow cork log' },
-      { type: 'decor', name: 'Cork Bark Flat', variant: 'cork-flat', description: 'Flat cork panel' },
-      { type: 'decor', name: 'Driftwood', variant: 'driftwood', description: 'Natural wood' },
-      { type: 'decor', name: 'Bamboo Poles', variant: 'bamboo', description: 'Bamboo branches' },
-      { type: 'decor', name: 'Climbing Net', variant: 'net', description: 'Mesh climbing surface' },
-      { type: 'decor', name: 'Hammock', variant: 'hammock', description: 'Hanging platform' },
-    ]
-  },
+
   {
     name: 'Basking & Platforms',
     icon: '',
     items: [
-      { type: 'decor', name: 'Basking Stone', variant: 'basking-stone', description: 'Flat basking rock' },
-      { type: 'decor', name: 'Basking Platform', variant: 'platform', description: 'Elevated platform' },
-      { type: 'decor', name: 'Magnetic Ledge', variant: 'ledge', description: 'Magnetic shelf' },
-      { type: 'decor', name: 'Corner Shelf', variant: 'corner-shelf', description: 'Corner platform' },
-    ]
-  },
-  {
-    name: 'Feeding',
-    icon: '',
-    items: [
-      { type: 'decor', name: 'Food Dish', variant: 'food-dish', description: 'Feeding bowl' },
-      { type: 'decor', name: 'Feeding Ledge', variant: 'feeding-ledge', description: 'Elevated feeding platform' },
-      { type: 'decor', name: 'Worm Dish', variant: 'worm-dish', description: 'Escape-proof dish' },
-      { type: 'decor', name: 'Supplement Dish', variant: 'supplement-dish', description: 'Calcium dish' },
-    ]
-  },
-  {
-    name: 'Substrate',
-    icon: '',
-    items: [
-      { type: 'substrate', name: 'Substrate Layer', description: 'Soil/bedding' },
-      { type: 'substrate', name: 'Drainage Layer', description: 'LECA/hydroballs' },
-      { type: 'substrate', name: 'Leaf Litter', description: 'Natural leaf cover' },
-      { type: 'substrate', name: 'Sphagnum Moss', description: 'Moisture retention' },
-    ]
-  },
-  {
-    name: 'Backgrounds',
-    icon: '',
-    items: [
-      { type: 'decor', name: 'Cork Background', variant: 'cork-bg', description: 'Cork panel background' },
-      { type: 'decor', name: 'Foam Background', variant: 'foam-bg', description: 'Carved foam background' },
-      { type: 'decor', name: 'Rock Wall Panel', variant: 'rock-wall', description: 'Stone background' },
-      { type: 'decor', name: 'Mesh Surface', variant: 'mesh', description: 'Climbing mesh' },
+      { type: 'decor', name: 'Basking Stone', variant: 'ledge', description: 'Flat basking rock' },
+      { type: 'decor', name: 'Basking Platform', variant: 'baskingledge', description: 'Elevated platform' }
     ]
   },
   {
@@ -132,38 +42,125 @@ const equipmentCategories: EquipmentCategory[] = [
       { type: 'decor', name: 'Pothos', variant: 'pothos', description: 'Climbing vine plant' },
       { type: 'decor', name: 'Snake Plant', variant: 'snake-plant', description: 'Tall succulent' },
       { type: 'decor', name: 'Fern', variant: 'fern', description: 'Fern plant' },
-      { type: 'decor', name: 'Bromeliad', variant: 'bromeliad', description: 'Tropical plant' },
-      { type: 'decor', name: 'Air Plant', variant: 'air-plant', description: 'Epiphyte plant' },
-      { type: 'decor', name: 'Succulent', variant: 'succulent', description: 'Desert plant' },
-      { type: 'decor', name: 'Moss Patch', variant: 'moss', description: 'Sheet moss' },
+      { type: 'decor', name: 'Ficus', variant: 'ficus', description: 'Tropical plant' },
+      { type: 'decor', name: 'Philodendron', variant: 'philodendron', description: 'Climbing vine plant' },
+      { type: 'decor', name: 'Snake Plant 2', variant: 'snake-plant-single', description: 'Tall succulent' },
+      { type: 'decor', name: 'Large Plant', variant: 'plant', description: 'Tall plant' },
+      { type: 'decor', name: 'Large Plant', variant: 'plant1', description: 'Tall plant' },
+      { type: 'decor', name: 'Large Plant', variant: 'plant2', description: 'Tall plant' },
+      { type: 'decor', name: 'Large Plant', variant: 'plant3', description: 'Tall plant' },
+      { type: 'decor', name: 'Large Plant', variant: 'plant4', description: 'Tall plant' },
+      { type: 'decor', name: 'Large Plant', variant: 'plant5', description: 'Tall plant' },
+      { type: 'decor', name: 'Large Plant', variant: 'plant6', description: 'Tall plant' },
+      { type: 'decor', name: 'Large Plant', variant: 'plant7', description: 'Tall plant' },
+
+
     ]
   },
   {
     name: 'Plants - Trees & Shrubs',
     icon: '',
     items: [
-      { type: 'decor', name: 'Tree', variant: 'tree', description: 'Large tree' },
-      { type: 'decor', name: 'Bush', variant: 'bush', description: 'Bushy plant' },
-      { type: 'decor', name: 'Vine', variant: 'vine', description: 'Climbing vine' },
-      { type: 'decor', name: 'Grass', variant: 'grass', description: 'Ground cover' },
-    ]
-  },
-  {
-    name: 'Landscaping',
-    icon: '',
-    items: [
-      { type: 'decor', name: 'Large Rock', variant: 'large-rock', description: 'Rock formation' },
-      { type: 'decor', name: 'Log/Stump', variant: 'log', description: 'Natural wood stump' },
-      { type: 'decor', name: 'Stone Pile', variant: 'stone-pile', description: 'Stacked stones' },
-      { type: 'decor', name: 'Centerpiece Wood', variant: 'centerpiece', description: 'Feature driftwood' },
-      { type: 'decor', name: 'Branch', description: 'Climbing branch' },
-      { type: 'decor', name: 'Rock', description: 'Decorative rock' },
+      { type: 'decor', name: 'Tree', variant: 'tree', description: 'Branch 1' },
+      { type: 'decor', name: 'Tree', variant: 'tree1', description: 'Branch 2' },
+      { type: 'decor', name: 'Tree', variant: 'tree2', description: 'Branch 3' },
+      { type: 'decor', name: 'Tree', variant: 'tree3', description: 'Branch 4' },
+      { type: 'decor', name: 'Tree', variant: 'tree4', description: 'Branch 5' },
+      { type: 'decor', name: 'Tree', variant: 'tree7', description: 'Branch 6' },
+      { type: 'decor', name: 'Vine', variant: 'tree5', description: 'Vine 1' },
+      { type: 'decor', name: 'Vine', variant: 'tree6', description: 'Vine 2' }
+
     ]
   },
 ];
 
-export function EquipmentLibrary({ onAddItem }: EquipmentLibraryProps) {
+export function EquipmentLibrary({ onAddItem }: Readonly<EquipmentLibraryProps>) {
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
+
+  const toKebabCase = (value: string) => {
+    let slug = '';
+    let previousWasDash = false;
+
+    for (const char of value.toLowerCase()) {
+      const isAlphanumeric =
+        (char >= 'a' && char <= 'z') ||
+        (char >= '0' && char <= '9');
+
+      if (isAlphanumeric) {
+        slug += char;
+        previousWasDash = false;
+      } else if (!previousWasDash && slug.length > 0) {
+        slug += '-';
+        previousWasDash = true;
+      }
+    }
+
+    if (slug.endsWith('-')) {
+      slug = slug.slice(0, -1);
+    }
+
+    return slug;
+  };
+
+  const getItemImagePath = (item: EquipmentCategory['items'][number]) => {
+    const imageKey = item.variant || toKebabCase(item.name);
+    return imageKey ? `/equiptment/${imageKey}.png` : null;
+  };
+
+  const getItemImageCandidates = (item: EquipmentCategory['items'][number]) => {
+    const imageKey = item.variant || toKebabCase(item.name);
+
+    if (!imageKey) {
+      return [];
+    }
+
+    return [
+      `/equiptment/${imageKey}.png`,
+      `/equiptment/${imageKey}.webp`,
+      `/equipment/${imageKey}.png`,
+      `/equipment/${imageKey}.webp`,
+      `/equipment/plants/${imageKey}.png`,
+      `/equipment/decor/${imageKey}.png`,
+    ];
+  };
+
+  const handleThumbnailError = (
+    e: SyntheticEvent<HTMLImageElement>,
+    sources: string[]
+  ) => {
+    const imageEl = e.currentTarget;
+    const currentIndex = Number(imageEl.dataset.sourceIndex || '0');
+    const nextIndex = currentIndex + 1;
+
+    if (nextIndex < sources.length) {
+      imageEl.dataset.sourceIndex = String(nextIndex);
+      imageEl.src = sources[nextIndex];
+      return;
+    }
+
+    imageEl.style.display = 'none';
+    const fallback = imageEl.nextElementSibling as HTMLElement | null;
+    if (fallback) {
+      fallback.style.display = 'flex';
+    }
+  };
+
+  const getTypeIcon = (type: EquipmentCategory['items'][number]['type']) => {
+    switch (type) {
+      case 'heat':
+        return <Zap size={16} />;
+      case 'uvb':
+        return <Sun size={16} />;
+      case 'water':
+        return <Droplet size={16} />;
+      case 'hide':
+        return <Home size={16} />;
+      case 'substrate':
+        return <Layers size={16} />;
+      default:
+        return <Image size={16} />;
+    }
+  };
 
   const toggleCategory = (categoryName: string) => {
     setExpandedCategories(prev => {
@@ -180,10 +177,7 @@ export function EquipmentLibrary({ onAddItem }: EquipmentLibraryProps) {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col" style={{ height: '600px' }}>
       <div className="p-4 border-b border-gray-200 dark:border-gray-700">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">Equipment Library</h3>
-        <p className="text-xs text-gray-600 dark:text-gray-400">
-          Click items to add them to your enclosure
-        </p>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Equipment Library</h3>
       </div>
       
       <div className="flex-1 overflow-y-auto p-4">
@@ -222,45 +216,40 @@ export function EquipmentLibrary({ onAddItem }: EquipmentLibraryProps) {
               </span>
             </button>
             {isExpanded && (
-            <div className="space-y-1">
-              {category.items.map((item) => (
+            <div className="grid grid-cols-3 gap-2">
+              {category.items.map((item, index) => {
+                const imageCandidates = getItemImageCandidates(item);
+                const imageSrc = imageCandidates[0] || getItemImagePath(item);
+
+                return (
                 <button
-                  key={`${item.type}-${item.name}`}
+                  key={`${item.type}-${item.name}-${item.variant || 'default'}-${index}`}
                   onClick={() => onAddItem(item.type, item.variant)}
-                  className="w-full text-left px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-600 hover:border-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors group"
+                  className="w-full aspect-square rounded-lg border border-gray-200 dark:border-gray-600 hover:border-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors group p-1.5"
+                  title={item.name}
+                  aria-label={`Add ${item.name}`}
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <p className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-green-700 dark:group-hover:text-green-400 flex items-center gap-2">
-                        {(() => {
-                          const name = item.name || '';
-                          const vmap: Record<string, React.ReactNode> = {
-                            'monitor': <Cpu size={16} />,
-                            'probe': <Thermometer size={16} />,
-                            'timer': <Clock size={16} />,
-                            'thermostat': <Settings size={16} />,
-                          };
-                          if (item.variant && vmap[item.variant]) {
-                            return (
-                              <>
-                                <span className="inline-flex items-center justify-center w-6 h-6 bg-gray-100 dark:bg-gray-700 rounded-full">{vmap[item.variant]}</span>
-                                <span>{name}</span>
-                              </>
-                            );
-                          }
-                          return <span>{name}</span>;
-                        })()}
-                      </p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
-                        {item.description}
-                      </p>
+                  <div className="w-full h-full rounded-md overflow-hidden bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 flex items-center justify-center">
+                    {imageSrc ? (
+                      <img
+                        src={imageSrc}
+                        alt={item.name}
+                        className="w-full h-full object-contain"
+                        loading="lazy"
+                        data-source-index="0"
+                        onError={(e) => handleThumbnailError(e, imageCandidates)}
+                      />
+                    ) : null}
+                    <div
+                      style={{ display: imageSrc ? 'none' : 'flex' }}
+                      className="w-full h-full items-center justify-center text-gray-500 dark:text-gray-300"
+                    >
+                      {getTypeIcon(item.type)}
                     </div>
-                    <span className="text-green-600 dark:text-green-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Plus size={16} />
-                    </span>
                   </div>
                 </button>
-              ))}
+                );
+              })}
             </div>
             )}
           </div>

@@ -63,9 +63,29 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
 
   // Handle deselection
   const handleDeselect = useCallback((e: any) => {
-    // Check if clicked on empty area
-    const clickedOnEmpty = e.target === e.target.getStage();
-    if (clickedOnEmpty) {
+    const clickedNode = e.target;
+    let currentNode = clickedNode;
+    let clickedOnEquipment = false;
+    let clickedOnTransformer = false;
+
+    while (currentNode) {
+      if (typeof currentNode.getClassName === 'function' && currentNode.getClassName() === 'Transformer') {
+        clickedOnTransformer = true;
+        break;
+      }
+
+      if (typeof currentNode.id === 'function') {
+        const nodeId = currentNode.id();
+        if (typeof nodeId === 'string' && nodeId.startsWith('item-')) {
+          clickedOnEquipment = true;
+          break;
+        }
+      }
+
+      currentNode = typeof currentNode.getParent === 'function' ? currentNode.getParent() : null;
+    }
+
+    if (!clickedOnEquipment && !clickedOnTransformer) {
       setSelectedId(null);
     }
   }, []);
@@ -346,78 +366,96 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
               💡 Click to select • Drag to move • Handles to rotate/resize
             </p>
           </div>
-          {selectedId && (
-            <div className="text-sm text-blue-900 dark:text-blue-200">
-              <strong className="text-green-700 dark:text-green-400">Selected:</strong>{' '}
-              <span className="break-all">{equipment.find(e => e.id === selectedId)?.name}</span>
-            </div>
-          )}
+          <div className="text-sm text-blue-900 dark:text-blue-200 min-h-[20px]">
+            {selectedId ? (
+              <>
+                <strong className="text-green-700 dark:text-green-400">Selected:</strong>{' '}
+                <span className="break-all">{equipment.find(e => e.id === selectedId)?.name}</span>
+              </>
+            ) : (
+              <span className="text-blue-700/80 dark:text-blue-300/80">Selected: None</span>
+            )}
+          </div>
         </div>
       </div>
 
       {/* Selected Item Controls */}
-      {selectedItem && (
-        <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-lg p-4 shadow-md border-2 border-indigo-200 dark:border-indigo-800">
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <div className="flex items-center gap-3">
-              <div className="text-sm font-semibold text-indigo-900 dark:text-indigo-200">
-                Selected: <span className="text-purple-700 dark:text-purple-300">{selectedItem.name}</span>
-              </div>
-              <div className="text-xs text-gray-600 dark:text-gray-400">
-                Size: {Math.round(selectedItem.width)}×{Math.round(selectedItem.height)} |
-                Rotation: {Math.round(selectedItem.rotation)}°
-              </div>
+      <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-lg p-4 shadow-md border-2 border-indigo-200 dark:border-indigo-800 min-h-[74px]">
+        <div className="flex items-center justify-between flex-wrap gap-4">
+          <div className="flex items-center gap-3">
+            <div className="text-sm font-semibold text-indigo-900 dark:text-indigo-200">
+              Selected:{' '}
+              {selectedItem ? (
+                <span className="text-purple-700 dark:text-purple-300">{selectedItem.name}</span>
+              ) : (
+                <span className="text-indigo-500 dark:text-indigo-400">None</span>
+              )}
             </div>
-            
-            <div className="flex gap-2 flex-wrap">
-              {/* Rotation Controls */}
-              <div className="flex items-center gap-1 bg-white dark:bg-gray-800 rounded-lg px-2 py-1 shadow-sm">
-                <span className="text-xs font-medium text-gray-600 dark:text-gray-400 mr-1">Rotate:</span>
-                <button
-                  onClick={() => handleRotate(-15)}
-                  className="px-3 py-1 bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-900/40 dark:hover:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 rounded text-sm font-semibold transition-all"
-                  title="Rotate 15° counter-clockwise"
-                >
-                  ↶ 15°
-                </button>
-                <button
-                  onClick={() => handleRotate(15)}
-                  className="px-3 py-1 bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-900/40 dark:hover:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 rounded text-sm font-semibold transition-all"
-                  title="Rotate 15° clockwise"
-                >
-                  ↷ 15°
-                </button>
-                <button
-                  onClick={handleResetRotation}
-                  className="px-3 py-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded text-sm font-semibold transition-all"
-                  title="Reset rotation to 0°"
-                >
-                  ⟲ Reset
-                </button>
-              </div>
+            <div className="text-xs text-gray-600 dark:text-gray-400">
+              {selectedItem ? (
+                <>
+                  Size: {Math.round(selectedItem.width)}×{Math.round(selectedItem.height)} |
+                  Rotation: {Math.round(selectedItem.rotation)}°
+                </>
+              ) : (
+                'Select an item to rotate or resize'
+              )}
+            </div>
+          </div>
+          
+          <div className="flex gap-2 flex-wrap">
+            {/* Rotation Controls */}
+            <div className="flex items-center gap-1 bg-white dark:bg-gray-800 rounded-lg px-2 py-1 shadow-sm">
+              <span className="text-xs font-medium text-gray-600 dark:text-gray-400 mr-1">Rotate:</span>
+              <button
+                onClick={() => handleRotate(-15)}
+                disabled={!selectedItem}
+                className="px-3 py-1 bg-indigo-100 hover:bg-indigo-200 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed dark:bg-indigo-900/40 dark:hover:bg-indigo-900/60 dark:disabled:bg-gray-700 dark:disabled:text-gray-500 text-indigo-700 dark:text-indigo-300 rounded text-sm font-semibold transition-all"
+                title="Rotate 15° counter-clockwise"
+              >
+                ↶ 15°
+              </button>
+              <button
+                onClick={() => handleRotate(15)}
+                disabled={!selectedItem}
+                className="px-3 py-1 bg-indigo-100 hover:bg-indigo-200 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed dark:bg-indigo-900/40 dark:hover:bg-indigo-900/60 dark:disabled:bg-gray-700 dark:disabled:text-gray-500 text-indigo-700 dark:text-indigo-300 rounded text-sm font-semibold transition-all"
+                title="Rotate 15° clockwise"
+              >
+                ↷ 15°
+              </button>
+              <button
+                onClick={handleResetRotation}
+                disabled={!selectedItem}
+                className="px-3 py-1 bg-gray-100 hover:bg-gray-200 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed dark:bg-gray-700 dark:hover:bg-gray-600 dark:disabled:bg-gray-700 dark:disabled:text-gray-500 text-gray-700 dark:text-gray-300 rounded text-sm font-semibold transition-all"
+                title="Reset rotation to 0°"
+              >
+                ⟲ Reset
+              </button>
+            </div>
 
-              {/* Size Controls */}
-              <div className="flex items-center gap-1 bg-white dark:bg-gray-800 rounded-lg px-2 py-1 shadow-sm">
-                <span className="text-xs font-medium text-gray-600 dark:text-gray-400 mr-1">Size:</span>
-                <button
-                  onClick={() => handleScale(0.9)}
-                  className="px-3 py-1 bg-purple-100 hover:bg-purple-200 dark:bg-purple-900/40 dark:hover:bg-purple-900/60 text-purple-700 dark:text-purple-300 rounded text-sm font-semibold transition-all"
-                  title="Decrease size by 10%"
-                >
-                  − 10%
-                </button>
-                <button
-                  onClick={() => handleScale(1.1)}
-                  className="px-3 py-1 bg-purple-100 hover:bg-purple-200 dark:bg-purple-900/40 dark:hover:bg-purple-900/60 text-purple-700 dark:text-purple-300 rounded text-sm font-semibold transition-all"
-                  title="Increase size by 10%"
-                >
-                  + 10%
-                </button>
-              </div>
+            {/* Size Controls */}
+            <div className="flex items-center gap-1 bg-white dark:bg-gray-800 rounded-lg px-2 py-1 shadow-sm">
+              <span className="text-xs font-medium text-gray-600 dark:text-gray-400 mr-1">Size:</span>
+              <button
+                onClick={() => handleScale(0.9)}
+                disabled={!selectedItem}
+                className="px-3 py-1 bg-purple-100 hover:bg-purple-200 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed dark:bg-purple-900/40 dark:hover:bg-purple-900/60 dark:disabled:bg-gray-700 dark:disabled:text-gray-500 text-purple-700 dark:text-purple-300 rounded text-sm font-semibold transition-all"
+                title="Decrease size by 10%"
+              >
+                − 10%
+              </button>
+              <button
+                onClick={() => handleScale(1.1)}
+                disabled={!selectedItem}
+                className="px-3 py-1 bg-purple-100 hover:bg-purple-200 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed dark:bg-purple-900/40 dark:hover:bg-purple-900/60 dark:disabled:bg-gray-700 dark:disabled:text-gray-500 text-purple-700 dark:text-purple-300 rounded text-sm font-semibold transition-all"
+                title="Increase size by 10%"
+              >
+                + 10%
+              </button>
             </div>
           </div>
         </div>
-      )}
+      </div>
 
       {/* Main Layout: Canvas + Equipment Library */}
       <div className="grid lg:grid-cols-4 gap-4">
@@ -500,25 +538,13 @@ function generateEquipmentFromShoppingList(
   shoppingList: ShoppingItem[],
   canvasWidth: number
 ): EquipmentItem[] {
-  // Items to exclude from the canvas designer
-  const excludedItems = [
-    'enclosure',
-    'terrarium',
-    'spray bottle',
-    'mister',
-    'water dechlorinator',
-    'dechlorinator',
-    'feeder insects',
-    'insects',
-    'crickets',
-    'dubia',
-    'mealworms',
-    'supplement',
-    'calcium',
-    'vitamin',
-    'tongs',
-    'feeding tongs',
-  ];
+  // Exact shopping item IDs that should auto-populate on the canvas.
+  // Edit this set to control your "super important" default items.
+  const superImportantItemIds = new Set([
+    'heat-lamp',
+    'uvb-fixture-forest',
+    'uvb-fixture-desert'
+  ]);
 
   const items: EquipmentItem[] = [];
   let yOffset = 100;
@@ -526,10 +552,11 @@ function generateEquipmentFromShoppingList(
 
   shoppingList.forEach((item, idx) => {
     const name = item.name.toLowerCase();
+    const itemId = item.id.toLowerCase();
     
-    // Skip excluded items
-    const shouldExclude = excludedItems.some(excluded => name.includes(excluded));
-    if (shouldExclude) {
+    // Skip items not on the super-important allowlist
+    const shouldInclude = superImportantItemIds.has(itemId);
+    if (!shouldInclude) {
       return; // Skip this item
     }
 

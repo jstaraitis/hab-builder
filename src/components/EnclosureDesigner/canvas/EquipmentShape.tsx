@@ -14,14 +14,57 @@ export function EquipmentShape({ item, isSelected, onSelect, onDragEnd, showLabe
   const shapeRef = useRef<any>(null);
   const [image, setImage] = useState<HTMLImageElement | null>(null);
 
-  // Load image if it's a tree
+  // Load image for matching equipment variants from a flat image folder
+  // Preferred location: public/equiptment/{variant}.png
   useEffect(() => {
-    if (item.type === 'decor' && item.variant === 'tree') {
-      const img = new window.Image();
-      img.src = '/equipment/plants/tree.png';
-      img.onload = () => setImage(img);
-      img.onerror = () => setImage(null);
+    if (!item.variant) {
+      setImage(null);
+      return;
     }
+
+    const variant = item.variant.toLowerCase();
+
+    const candidatePaths = [
+      `/equiptment/${variant}.png`,
+      `/equipment/${variant}.png`,
+      `/equipment/plants/${variant}.png`,
+      `/equipment/decor/${variant}.png`,
+    ].filter(Boolean);
+
+    if (candidatePaths.length === 0) {
+      setImage(null);
+      return;
+    }
+
+    let isCancelled = false;
+    let currentIndex = 0;
+
+    const tryLoad = () => {
+      if (currentIndex >= candidatePaths.length) {
+        if (!isCancelled) {
+          setImage(null);
+        }
+        return;
+      }
+
+      const img = new globalThis.Image();
+      img.onload = () => {
+        if (!isCancelled) {
+          setImage(img);
+        }
+      };
+      img.onerror = () => {
+        currentIndex += 1;
+        tryLoad();
+      };
+      img.src = candidatePaths[currentIndex];
+    };
+
+    tryLoad();
+
+    return () => {
+      isCancelled = true;
+    };
   }, [item.type, item.variant]);
 
   const renderShape = () => {
@@ -36,8 +79,8 @@ export function EquipmentShape({ item, isSelected, onSelect, onDragEnd, showLabe
       shadowOffsetY: 2,
     };
 
-    // If tree with loaded image, render it
-    if (item.type === 'decor' && item.variant === 'tree' && image) {
+    // If a variant image exists, render it
+    if (item.variant && image) {
       return (
         <KonvaImage
           image={image}
@@ -45,6 +88,7 @@ export function EquipmentShape({ item, isSelected, onSelect, onDragEnd, showLabe
           height={item.height}
           offsetX={item.width / 2}
           offsetY={item.height / 2}
+          fillEnabled={false}
           {...baseProps}
         />
       );
