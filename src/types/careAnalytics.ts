@@ -18,8 +18,10 @@ export interface CareLogAnalytics {
   logsAllTime: number;
   
   // Streak tracking
-  currentStreak: number; // Days in a row with at least one completion
-  longestStreak: number;
+  currentStreak: number; // Consecutive scheduled completions (max current task streak)
+  longestStreak: number; // Best per-task streak across history
+  currentStreakTask?: TaskStreakSummary;
+  longestStreakTask?: TaskStreakSummary;
   
   // Task type breakdown
   taskTypeStats: TaskTypeStats[];
@@ -29,6 +31,12 @@ export interface CareLogAnalytics {
   
   // Calendar heatmap data
   heatmapData: HeatmapDay[];
+}
+
+export interface TaskStreakSummary {
+  taskId: string;
+  taskTitle: string;
+  streak: number;
 }
 
 export interface TaskTypeStats {

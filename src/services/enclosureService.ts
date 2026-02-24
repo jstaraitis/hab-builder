@@ -101,6 +101,7 @@ class SupabaseEnclosureService implements IEnclosureService {
       name: row.name,
       animalId: row.animal_id,
       animalName: row.animal_name,
+      photoUrl: row.photo_url,
       description: row.description,
       setupDate: row.setup_date ? new Date(row.setup_date) : undefined,
       animalBirthday: row.animal_birthday ? new Date(row.animal_birthday) : undefined,
@@ -123,6 +124,7 @@ class SupabaseEnclosureService implements IEnclosureService {
     if (enclosure.name !== undefined) mapped.name = enclosure.name;
     if (enclosure.animalId !== undefined) mapped.animal_id = enclosure.animalId;
     if (enclosure.animalName !== undefined) mapped.animal_name = enclosure.animalName;
+    if (enclosure.photoUrl !== undefined) mapped.photo_url = enclosure.photoUrl;
     if (enclosure.description !== undefined) mapped.description = enclosure.description;
     if (enclosure.setupDate !== undefined) mapped.setup_date = enclosure.setupDate?.toISOString().split('T')[0];
     if (enclosure.animalBirthday !== undefined) mapped.animal_birthday = enclosure.animalBirthday?.toISOString().split('T')[0];

@@ -38,6 +38,7 @@ const Home = lazy(() => import('./components/Home/Home').then(m => ({ default: m
 const EquipmentTagsBuilder = lazy(() => import('./components/Admin/EquipmentTagsBuilder'));
 const UpgradePage = lazy(() => import('./components/Upgrade/UpgradePage').then(m => ({ default: m.UpgradePage })));
 const PremiumExplainerPage = lazy(() => import('./components/Upgrade/PremiumExplainerPage').then(m => ({ default: m.PremiumExplainerPage })));
+const InstallAppView = lazy(() => import('./components/Views/InstallAppView').then(m => ({ default: m.InstallAppView })));
 import { PremiumRoute } from './components/Auth/PremiumRoute';
 import { animalProfiles } from './data/animals';
 import { profileService } from './services/profileService';
@@ -646,6 +647,7 @@ function App() {
           <Route path="/supplies" element={<SuppliesView plan={plan} input={input} />} />
           <Route path="/premium" element={<PremiumExplainerPage />} />
           <Route path="/upgrade" element={<UpgradePage />} />
+          <Route path="/install" element={<InstallAppView />} />
           <Route path="/care-calendar" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><CareCalendarView /></PremiumRoute>} />
           <Route path="/care-calendar/tasks/add" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><TaskCreationView /></PremiumRoute>} />
           <Route path="/care-calendar/tasks/edit/:id" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><TaskEditView /></PremiumRoute>} />

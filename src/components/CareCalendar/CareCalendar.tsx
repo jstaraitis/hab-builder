@@ -34,7 +34,6 @@ import { careTaskService } from '../../services/careTaskService';
 import { enclosureService } from '../../services/enclosureService';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { FeedingLogModal } from './FeedingLogModal';
-import { EnclosureManager } from './EnclosureManager';
 import { CareAnalyticsDashboard } from '../CareAnalytics';
 import type { CareTaskWithLogs, TaskType, CareTask, CareLog, Enclosure, EnclosureAnimal } from '../../types/careCalendar';
 
@@ -702,11 +701,6 @@ export function CareCalendar() {
               </div>
             </div>
           )}
-
-      {/* Enclosure Manager Section */}
-      <div className="mb-12">
-        <EnclosureManager onEnclosuresChanged={loadEnclosures} />
-      </div>
 
       {/* Tasks Section */}
       <div className="pt-8 border-t border-gray-200 dark:border-gray-700">

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
-import { Worm, Search, BookOpen, CheckCircle, ShieldAlert, ShoppingCart, ClipboardList, DollarSign, Sparkles, Quote, Star, Bell, GraduationCap, Palette, Package, BarChart3, Turtle } from 'lucide-react';
+import { Worm, Search, BookOpen, CheckCircle, ShieldAlert, ShoppingCart, ClipboardList, DollarSign, Sparkles, Quote, Star, Bell, GraduationCap, Palette, Package, BarChart3, Turtle, Download } from 'lucide-react';
 
 export function Home() {
   const [activeBenefitCard, setActiveBenefitCard] = useState(0);
@@ -98,6 +98,13 @@ export function Home() {
           >
             <Search className="w-5 h-5" />
             Help Me Choose
+          </Link>
+          <Link
+            to="/install"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-emerald-50 dark:bg-emerald-900/20 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 text-emerald-800 dark:text-emerald-200 font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all border-2 border-emerald-200 dark:border-emerald-800 w-full sm:w-auto"
+          >
+            <Download className="w-5 h-5" />
+            Install on Phone
           </Link>
         </div>
 

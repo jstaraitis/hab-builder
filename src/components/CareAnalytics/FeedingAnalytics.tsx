@@ -384,11 +384,14 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
                 />
                 <Tooltip 
                   contentStyle={{ 
-                    backgroundColor: '#1f2937', 
-                    border: '1px solid #374151',
+                    backgroundColor: 'rgba(17, 24, 39, 0.95)',
+                    border: '1px solid #1f2937',
                     borderRadius: '8px',
-                    color: '#fff'
+                    color: '#e5e7eb'
                   }}
+                  labelStyle={{ color: '#e5e7eb' }}
+                  itemStyle={{ color: '#e5e7eb' }}
+                  cursor={{ fill: 'rgba(16, 185, 129, 0.08)' }}
                 />
                 <Bar dataKey="count" name="Feedings" fill="#10b981" />
               </BarChart>

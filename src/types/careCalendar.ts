@@ -113,6 +113,7 @@ export interface Enclosure {
   name: string; // e.g., "Main Frog Tank", "Gecko Enclosure #1"
   animalId: string; // Species ID (e.g., 'whites-tree-frog')
   animalName: string; // Species name (e.g., "White's Tree Frog")
+  photoUrl?: string; // Optional enclosure photo URL
   description?: string;
   setupDate?: Date;
   animalBirthday?: Date; // Birth date of the animal in the enclosure

@@ -1,5 +1,5 @@
 ﻿import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Calendar, MoreHorizontal, X, Info, MessageCircle, Package, ChevronUp, ChevronDown, SlidersHorizontal, User, Turtle, Ruler, ZoomIn, ZoomOut, Gem, type LucideIcon } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Calendar, MoreHorizontal, X, Info, MessageCircle, Package, ChevronUp, ChevronDown, SlidersHorizontal, User, Turtle, Ruler, ZoomIn, ZoomOut, Gem, Download, type LucideIcon } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useUnits } from '../../contexts/UnitsContext';
@@ -28,6 +28,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'design', path: '/design', icon: Pencil, label: 'Design', requires: 'animal' },
   { id: 'supplies', path: '/supplies', icon: ShoppingCart, label: 'Shop', requires: 'plan' },
   { id: 'plan', path: '/plan', icon: ClipboardList, label: 'Plan', requires: 'plan' },
+  { id: 'install', path: '/install', icon: Download, label: 'Install', description: 'Add to Home Screen' },
   { id: 'premium', path: '/premium', icon: Gem, label: 'Premium', description: 'Premium overview', showWhen: 'guest' },
   { id: 'care-calendar', path: '/care-calendar', icon: Calendar, label: 'Care Tasks', description: 'Track pet care tasks' },
   { id: 'my-animals', path: '/my-animals', icon: Turtle, label: 'My Animals', description: 'View all your animals' },

@@ -5,7 +5,7 @@ interface AnalyticsOverviewProps {
   analytics: CareLogAnalytics;
 }
 
-export function AnalyticsOverview({ analytics }: AnalyticsOverviewProps) {
+export function AnalyticsOverview({ analytics }: Readonly<AnalyticsOverviewProps>) {
   return (
     <div className="grid grid-cols-2 lg:grid-cols-5 gap-2 sm:gap-4">
       {/* Total Completions */}
@@ -40,34 +40,44 @@ export function AnalyticsOverview({ analytics }: AnalyticsOverviewProps) {
       <div className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-lg border border-orange-200 dark:border-orange-800 p-3 sm:p-4">
         <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
           <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-600 dark:text-orange-400" />
-          <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">Streak</span>
+          <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">Task Streak</span>
         </div>
         <p className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
           {analytics.currentStreak}
           <span className="text-sm sm:text-base font-normal text-gray-600 dark:text-gray-400 ml-0.5 sm:ml-1">
-            {analytics.currentStreak === 1 ? 'day' : 'days'}
+            {analytics.currentStreak === 1 ? 'completion' : 'completions'}
           </span>
         </p>
         <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5 sm:mt-1">
-          Keep it up! 🔥
+          Current best per-task streak
         </p>
+        {analytics.currentStreakTask?.taskTitle && (
+          <p className="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 mt-1 truncate">
+            {analytics.currentStreakTask.taskTitle}
+          </p>
+        )}
       </div>
 
       {/* Longest Streak */}
       <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-3 sm:p-4">
         <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
           <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-600 dark:text-purple-400" />
-          <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Best</span>
+          <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Best Task</span>
         </div>
         <p className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
           {analytics.longestStreak}
           <span className="text-sm sm:text-base font-normal text-gray-600 dark:text-gray-400 ml-0.5 sm:ml-1">
-            {analytics.longestStreak === 1 ? 'day' : 'days'}
+            {analytics.longestStreak === 1 ? 'completion' : 'completions'}
           </span>
         </p>
         <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 sm:mt-1">
-          Personal best
+          Best per-task streak
         </p>
+        {analytics.longestStreakTask?.taskTitle && (
+          <p className="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 mt-1 truncate">
+            {analytics.longestStreakTask.taskTitle}
+          </p>
+        )}
       </div>
 
       {/* Last 7 Days */}

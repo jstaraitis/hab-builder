@@ -92,7 +92,7 @@ export function ActivityHeatmap({ heatmapData }: ActivityHeatmapProps) {
       </div>
 
       <p className="text-xs text-gray-500 dark:text-gray-400 mt-3 sm:mt-4">
-        Each square represents a day. Darker colors mean more completed tasks.
+        Each square represents a day. Lighter colors mean more completed tasks.
       </p>
     </div>
   );

@@ -63,13 +63,17 @@ export function TaskTypeBreakdown({ taskTypeStats }: TaskTypeBreakdownProps) {
               className="text-xs fill-gray-600 dark:fill-gray-400"
               tick={{ fontSize: 11 }}
             />
-            <Tooltip 
-              contentStyle={{ 
-                backgroundColor: 'rgba(255, 255, 255, 0.95)', 
-                border: '1px solid #e5e7eb',
+            <Tooltip
+              contentStyle={{
+                backgroundColor: 'rgba(17, 24, 39, 0.95)',
+                border: '1px solid #1f2937',
                 borderRadius: '0.5rem',
-                fontSize: '0.875rem'
+                fontSize: '0.875rem',
+                color: '#e5e7eb',
               }}
+              labelStyle={{ color: '#e5e7eb' }}
+              itemStyle={{ color: '#e5e7eb' }}
+              cursor={{ fill: 'rgba(16, 185, 129, 0.08)' }}
             />
             <Bar dataKey="completions" radius={[4, 4, 0, 0]} />
           </BarChart>

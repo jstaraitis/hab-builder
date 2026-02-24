@@ -10,6 +10,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { enclosureService } from '../../services/enclosureService';
+import { EnclosureManager } from './EnclosureManager';
 import type { EnclosureAnimal, Enclosure } from '../../types/careCalendar';
 
 // Helper function to calculate age display string
@@ -257,22 +258,13 @@ export function MyAnimals() {
     <div className="max-w-7xl mx-auto p-4 sm:p-8">
       {/* Header */}
       <div className="mb-8">
-        <div className="flex items-center justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-              My Animals
-            </h1>
-            <p className="text-gray-600 dark:text-gray-400">
-              {animals.length} {animals.length === 1 ? 'animal' : 'animals'} total
-            </p>
-          </div>
-          <button
-            onClick={() => navigate(`/my-animals/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-            className="p-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors flex items-center justify-center"
-            title="Add Animal"
-          >
-            <Plus className="w-5 h-5" />
-          </button>
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+            My Animals
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400">
+            {animals.length} {animals.length === 1 ? 'animal' : 'animals'} total
+          </p>
         </div>
       </div>
 
@@ -280,6 +272,26 @@ export function MyAnimals() {
       {error && (
         <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3 text-red-800 dark:text-red-200 text-sm mb-6">
           {error}
+        </div>
+      )}
+
+      <div className="mb-8">
+        <EnclosureManager onEnclosuresChanged={loadData} />
+      </div>
+
+      {/* Animals Section Header */}
+      {animals.length > 0 && (
+        <div className="flex items-center justify-between gap-3 mb-4">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+            My Animals
+          </h3>
+          <button
+            onClick={() => navigate(`/my-animals/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
+            className="p-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 transition-colors"
+            title="Add Animal"
+          >
+            <Plus className="w-5 h-5" />
+          </button>
         </div>
       )}
 

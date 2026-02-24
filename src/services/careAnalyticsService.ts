@@ -7,6 +7,7 @@ import type {
   CareLogWithTask,
   HeatmapDay,
   CareLogFilters,
+  TaskStreakSummary,
 } from '../types/careAnalytics';
 import { TASK_TYPE_CONFIG } from '../types/careAnalytics';
 
@@ -23,6 +24,8 @@ class CareAnalyticsService {
   async getAnalytics(userId: string, filters?: CareLogFilters): Promise<CareLogAnalytics> {
     const logs = await this.getUserLogs(userId, filters);
     const tasks = await careTaskService.getTasks(userId);
+    const currentStreakTask = this.getBestCurrentStreakTask(logs, tasks);
+    const longestStreakTask = this.getBestLongestStreakTask(logs, tasks);
     
     const analytics: CareLogAnalytics = {
       totalCompletions: logs.filter(l => !l.skipped).length,
@@ -31,8 +34,10 @@ class CareAnalyticsService {
       logsLast7Days: this.countLogsInRange(logs, 7),
       logsLast30Days: this.countLogsInRange(logs, 30),
       logsAllTime: logs.length,
-      currentStreak: await this.calculateCurrentStreak(logs),
-      longestStreak: await this.calculateLongestStreak(logs),
+      currentStreak: currentStreakTask?.streak ?? 0,
+      longestStreak: longestStreakTask?.streak ?? 0,
+      currentStreakTask,
+      longestStreakTask,
       taskTypeStats: await this.calculateTaskTypeStats(logs, tasks),
       recentLogs: await this.enrichLogsWithTaskInfo(logs.slice(0, 20)),
       heatmapData: this.generateHeatmapData(logs),
@@ -105,38 +110,76 @@ class CareAnalyticsService {
     return logs.filter(l => l.completedAt >= cutoff).length;
   }
 
-  /**
-   * Calculate current streak (consecutive days with at least one completion)
-   */
-  private async calculateCurrentStreak(logs: CareLog[]): Promise<number> {
-    if (logs.length === 0) return 0;
+  private getBestCurrentStreakTask(logs: CareLog[], tasks: CareTask[]): TaskStreakSummary | undefined {
+    if (logs.length === 0 || tasks.length === 0) return undefined;
 
-    const completedLogs = logs.filter(l => !l.skipped);
-    if (completedLogs.length === 0) return 0;
+    const logsByTask = this.groupLogsByTask(logs);
+    let best: TaskStreakSummary | undefined;
 
-    let streak = 0;
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    // Group logs by day
-    const logsByDay = new Map<string, CareLog[]>();
-    completedLogs.forEach(log => {
-      const day = new Date(log.completedAt);
-      day.setHours(0, 0, 0, 0);
-      const key = day.toISOString();
-      if (!logsByDay.has(key)) {
-        logsByDay.set(key, []);
+    tasks.forEach(task => {
+      const taskLogs = logsByTask.get(task.id) || [];
+      const streak = this.calculateTaskCurrentStreak(task, taskLogs);
+      if (!best || streak > best.streak) {
+        best = {
+          taskId: task.id,
+          taskTitle: task.title,
+          streak,
+        };
       }
-      logsByDay.get(key)!.push(log);
     });
 
-    // Check each day backwards from today
-    let currentDate = new Date(today);
-    while (true) {
-      const key = currentDate.toISOString();
-      if (logsByDay.has(key)) {
+    return best?.streak ? best : undefined;
+  }
+
+  private getBestLongestStreakTask(logs: CareLog[], tasks: CareTask[]): TaskStreakSummary | undefined {
+    if (logs.length === 0 || tasks.length === 0) return undefined;
+
+    const logsByTask = this.groupLogsByTask(logs);
+    let best: TaskStreakSummary | undefined;
+
+    tasks.forEach(task => {
+      const taskLogs = logsByTask.get(task.id) || [];
+      const streak = this.calculateTaskLongestStreak(task, taskLogs);
+      if (!best || streak > best.streak) {
+        best = {
+          taskId: task.id,
+          taskTitle: task.title,
+          streak,
+        };
+      }
+    });
+
+    return best?.streak ? best : undefined;
+  }
+
+  private groupLogsByTask(logs: CareLog[]): Map<string, CareLog[]> {
+    const grouped = new Map<string, CareLog[]>();
+    logs.forEach(log => {
+      if (log.skipped) return;
+      const current = grouped.get(log.taskId) || [];
+      current.push(log);
+      grouped.set(log.taskId, current);
+    });
+    return grouped;
+  }
+
+  private calculateTaskCurrentStreak(task: CareTask, logs: CareLog[]): number {
+    if (logs.length === 0) return 0;
+
+    const completedDates = this.getUniqueCompletionDates(logs);
+    if (completedDates.length === 0) return 0;
+
+    const intervalDays = this.getFrequencyIntervalDays(task);
+    let streak = 1;
+    let currentDate = completedDates[0];
+
+    for (let i = 1; i < completedDates.length; i++) {
+      const logDate = completedDates[i];
+      const dayDiff = Math.floor((currentDate.getTime() - logDate.getTime()) / (1000 * 60 * 60 * 24));
+
+      if (dayDiff <= intervalDays) {
         streak++;
-        currentDate.setDate(currentDate.getDate() - 1);
+        currentDate = logDate;
       } else {
         break;
       }
@@ -145,54 +188,64 @@ class CareAnalyticsService {
     return streak;
   }
 
-  /**
-   * Calculate longest streak ever
-   */
-  private async calculateLongestStreak(logs: CareLog[]): Promise<number> {
+  private calculateTaskLongestStreak(task: CareTask, logs: CareLog[]): number {
     if (logs.length === 0) return 0;
 
-    const completedLogs = logs.filter(l => !l.skipped);
-    if (completedLogs.length === 0) return 0;
+    const completedDates = this.getUniqueCompletionDates(logs).slice().reverse();
+    if (completedDates.length === 0) return 0;
 
-    // Group logs by day
-    const logsByDay = new Map<string, CareLog[]>();
-    completedLogs.forEach(log => {
-      const day = new Date(log.completedAt);
-      day.setHours(0, 0, 0, 0);
-      const key = day.toISOString();
-      if (!logsByDay.has(key)) {
-        logsByDay.set(key, []);
-      }
-      logsByDay.get(key)!.push(log);
-    });
+    const intervalDays = this.getFrequencyIntervalDays(task);
+    let maxStreak = 1;
+    let currentStreak = 1;
 
-    // Sort days
-    const sortedDays = Array.from(logsByDay.keys()).sort();
-    
-    let maxStreak = 0;
-    let currentStreak = 0;
-    let previousDate: Date | null = null;
+    for (let i = 1; i < completedDates.length; i++) {
+      const currentDate = completedDates[i];
+      const previousDate = completedDates[i - 1];
+      const dayDiff = Math.floor((currentDate.getTime() - previousDate.getTime()) / (1000 * 60 * 60 * 24));
 
-    sortedDays.forEach(dayKey => {
-      const currentDate = new Date(dayKey);
-      
-      if (previousDate) {
-        const daysDiff = Math.floor((currentDate.getTime() - previousDate.getTime()) / (1000 * 60 * 60 * 24));
-        if (daysDiff === 1) {
-          currentStreak++;
-        } else {
-          maxStreak = Math.max(maxStreak, currentStreak);
-          currentStreak = 1;
-        }
+      if (dayDiff <= intervalDays) {
+        currentStreak++;
       } else {
+        maxStreak = Math.max(maxStreak, currentStreak);
         currentStreak = 1;
       }
-      
-      previousDate = currentDate;
-    });
+    }
 
-    maxStreak = Math.max(maxStreak, currentStreak);
-    return maxStreak;
+    return Math.max(maxStreak, currentStreak);
+  }
+
+  private getUniqueCompletionDates(logs: CareLog[]): Date[] {
+    return logs
+      .map(log => {
+        const day = new Date(log.completedAt);
+        day.setHours(0, 0, 0, 0);
+        return day;
+      })
+      .sort((a, b) => b.getTime() - a.getTime())
+      .filter((date, index, arr) => index === 0 || date.getTime() !== arr[index - 1].getTime());
+  }
+
+  private getFrequencyIntervalDays(task: CareTask): number {
+    switch (task.frequency) {
+      case 'daily':
+        return 1;
+      case 'every-other-day':
+        return 2;
+      case 'twice-weekly':
+        return 3;
+      case 'weekly':
+        return 7;
+      case 'bi-weekly':
+        return 14;
+      case 'monthly':
+        return 31;
+      case 'custom':
+        return task.customFrequencyDays && task.customFrequencyDays > 0
+          ? task.customFrequencyDays
+          : 1;
+      default:
+        return 1;
+    }
   }
 
   /**
