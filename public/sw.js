@@ -1,4 +1,4 @@
-const CACHE_NAME = 'habitat-builder-v14';
+const CACHE_NAME = 'habitat-builder-v1';
 const OFFLINE_URL = '/offline.html';
 
 // Assets to cache on install
@@ -80,6 +80,20 @@ self.addEventListener('fetch', (event) => {
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
+
+    // Reply via MessageChannel when available
+    if (event.ports && event.ports[0]) {
+      event.ports[0].postMessage({ type: 'SKIP_WAITING_SUCCESS' });
+    }
+
+    // Also broadcast to all clients so direct postMessage callers are covered
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clientList) => {
+      clientList.forEach((client) => {
+        client.postMessage({ type: 'SKIP_WAITING_SUCCESS' });
+      });
+    });
+
+    return;
   }
   
   if (event.data && event.data.type === 'CACHE_PLAN') {
@@ -144,11 +158,4 @@ self.addEventListener('notificationclick', (event) => {
   );
 });
 
-// Message handler for update prompts
-self.addEventListener('message', (event) => {
-  if (event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-    // Notify client that update is proceeding
-    event.ports[0].postMessage({ type: 'SKIP_WAITING_SUCCESS' });
-  }
-});
+// Message handler is consolidated above

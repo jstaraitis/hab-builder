@@ -7,6 +7,7 @@ import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { notificationService } from '../../services/notificationService';
 import { getTemplateForAnimal, type CareTemplate } from '../../data/care-templates';
 import type { TaskType, TaskFrequency, CareTask, Enclosure, EnclosureAnimal } from '../../types/careCalendar';
+import { getNextDateForCustomWeekdays, WEEKDAY_OPTIONS } from '../../utils/customTaskFrequency';
 
 interface TaskCreationModalProps {
   isOpen: boolean;
@@ -22,6 +23,7 @@ interface TaskFormData {
   description: string;
   type: TaskType;
   frequency: TaskFrequency;
+  customFrequencyWeekdays?: number[];
   startDate?: string; // ISO date string (YYYY-MM-DD)
   scheduledTime: string;
   notificationEnabled: boolean;
@@ -100,6 +102,7 @@ export function TaskCreationModal({
           description: t.description,
           type: t.type as TaskType,
           frequency: t.frequency as TaskFrequency,
+          customFrequencyWeekdays: undefined,
           startDate: undefined,
           scheduledTime: t.scheduledTime,
           notificationEnabled: true,
@@ -114,6 +117,15 @@ export function TaskCreationModal({
   const handleCreateTasks = async () => {
     if (!user) {
       setError('You must be logged in to create tasks');
+      return;
+    }
+
+    const invalidCustomTaskIndex = tasks.findIndex(task => (
+      task.frequency === 'custom' && (!task.customFrequencyWeekdays || task.customFrequencyWeekdays.length === 0)
+    ));
+
+    if (invalidCustomTaskIndex >= 0) {
+      setError(`Task ${invalidCustomTaskIndex + 1}: select at least one weekday for custom frequency.`);
       return;
     }
 
@@ -152,6 +164,15 @@ export function TaskCreationModal({
           nextDueAt.setHours(9, 0, 0, 0);
         }
 
+        if (taskData.frequency === 'custom' && taskData.customFrequencyWeekdays && taskData.customFrequencyWeekdays.length > 0) {
+          const isMatchingDay = taskData.customFrequencyWeekdays.includes(nextDueAt.getDay());
+          if (!isMatchingDay || nextDueAt <= now) {
+            const nextWeekday = getNextDateForCustomWeekdays(nextDueAt, taskData.customFrequencyWeekdays);
+            nextWeekday.setHours(nextDueAt.getHours(), nextDueAt.getMinutes(), 0, 0);
+            nextDueAt = nextWeekday;
+          }
+        }
+
         const newTask: Omit<CareTask, 'id' | 'createdAt' | 'updatedAt'> = {
           userId: user.id,
           enclosureId: selectedEnclosure || undefined,
@@ -161,6 +182,9 @@ export function TaskCreationModal({
           description: taskData.description,
           type: taskData.type,
           frequency: taskData.frequency,
+          customFrequencyWeekdays: taskData.frequency === 'custom'
+            ? (taskData.customFrequencyWeekdays || [1, 3, 5])
+            : undefined,
           scheduledTime: taskData.scheduledTime,
           startDate: taskData.startDate ? new Date(taskData.startDate) : undefined,
           nextDueAt,
@@ -213,10 +237,50 @@ export function TaskCreationModal({
     }
   };
 
-  const updateTask = (index: number, field: keyof TaskFormData, value: string) => {
+  const updateTask = <K extends keyof TaskFormData>(index: number, field: K, value: TaskFormData[K]) => {
     setTasks(prev => {
       const updated = [...prev];
       updated[index] = { ...updated[index], [field]: value };
+      return updated;
+    });
+  };
+
+  const updateTaskFrequency = (index: number, frequencyValue: string) => {
+    const frequency = frequencyValue as TaskFrequency;
+
+    setTasks(prev => {
+      const updated = [...prev];
+      const current = updated[index];
+
+      updated[index] = {
+        ...current,
+        frequency,
+        customFrequencyWeekdays: frequency === 'custom'
+          ? (current.customFrequencyWeekdays && current.customFrequencyWeekdays.length > 0
+            ? current.customFrequencyWeekdays
+            : [1, 3, 5])
+          : undefined,
+      };
+
+      return updated;
+    });
+  };
+
+  const toggleCustomWeekday = (index: number, day: number) => {
+    setTasks(prev => {
+      const updated = [...prev];
+      const current = updated[index];
+      const currentDays = current.customFrequencyWeekdays || [];
+      const hasDay = currentDays.includes(day);
+      const nextDays = hasDay
+        ? currentDays.filter(d => d !== day)
+        : [...currentDays, day].sort((a, b) => a - b);
+
+      updated[index] = {
+        ...current,
+        customFrequencyWeekdays: nextDays,
+      };
+
       return updated;
     });
   };
@@ -371,6 +435,7 @@ export function TaskCreationModal({
                       description: '',
                       type: 'custom',
                       frequency: 'daily',
+                        customFrequencyWeekdays: undefined,
                       startDate: undefined,
                       scheduledTime: '09:00',
                       notificationEnabled: true,
@@ -461,6 +526,7 @@ export function TaskCreationModal({
                         description: '',
                         type: 'custom',
                         frequency: 'daily',
+                        customFrequencyWeekdays: undefined,
                         startDate: undefined,
                         scheduledTime: '09:00',
                         notificationEnabled: true,
@@ -565,7 +631,7 @@ export function TaskCreationModal({
                         </label>
                         <select
                           value={task.frequency}
-                          onChange={(e) => updateTask(index, 'frequency', e.target.value)}
+                          onChange={(e) => updateTaskFrequency(index, e.target.value)}
                           className="w-full px-2 sm:px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
                         >
                           <option value="daily">Daily</option>
@@ -574,8 +640,41 @@ export function TaskCreationModal({
                           <option value="weekly">Weekly</option>
                           <option value="bi-weekly">Bi-weekly</option>
                           <option value="monthly">Monthly</option>
+                          <option value="custom">Custom Days</option>
                         </select>
                       </div>
+
+                      {task.frequency === 'custom' && (
+                        <div className="sm:col-span-2">
+                          <label className="block text-[11px] sm:text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                            Weekdays
+                          </label>
+                          <div className="flex flex-wrap gap-2">
+                            {WEEKDAY_OPTIONS.map((weekday) => {
+                              const isSelected = (task.customFrequencyWeekdays || []).includes(weekday.value);
+                              return (
+                                <button
+                                  key={weekday.value}
+                                  type="button"
+                                  onClick={() => toggleCustomWeekday(index, weekday.value)}
+                                  className={`px-2.5 py-1 text-xs sm:text-sm rounded-md border transition-colors ${
+                                    isSelected
+                                      ? 'bg-emerald-600 border-emerald-600 text-white'
+                                      : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200'
+                                  }`}
+                                >
+                                  {weekday.shortLabel}
+                                </button>
+                              );
+                            })}
+                          </div>
+                          {(task.customFrequencyWeekdays || []).length === 0 && (
+                            <p className="text-[11px] sm:text-xs text-amber-700 dark:text-amber-300 mt-1">
+                              Select at least one day.
+                            </p>
+                          )}
+                        </div>
+                      )}
 
                       <div>
                         <label className="block text-[11px] sm:text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
@@ -691,7 +790,7 @@ export function TaskCreationModal({
               </button>
               <button
                 onClick={handleCreateTasks}
-                disabled={loading || tasks.length === 0}
+                disabled={loading || tasks.length === 0 || tasks.some(task => task.frequency === 'custom' && (!task.customFrequencyWeekdays || task.customFrequencyWeekdays.length === 0))}
                 className="flex-1 sm:flex-none px-4 sm:px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
               >
                 {loading ? 'Creating...' : `Create ${tasks.length} Task${tasks.length !== 1 ? 's' : ''}`}

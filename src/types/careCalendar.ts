@@ -38,6 +38,7 @@ export interface CareTask {
   type: TaskType;
   frequency: TaskFrequency;
   customFrequencyDays?: number; // For custom frequency
+  customFrequencyWeekdays?: number[]; // JS day indices (0=Sun ... 6=Sat) for custom weekday schedules
   
   // Scheduling
   scheduledTime?: string; // HH:MM format (e.g., "09:00")

@@ -1,5 +1,6 @@
 import { supabase } from '../lib/supabase';
 import { careTaskService } from './careTaskService';
+import { getCustomWeekdayIntervalDays } from '../utils/customTaskFrequency';
 import type { CareLog, CareTask, TaskType, Enclosure, EnclosureAnimal } from '../types/careCalendar';
 import type {
   CareLogAnalytics,
@@ -240,6 +241,9 @@ class CareAnalyticsService {
       case 'monthly':
         return 31;
       case 'custom':
+        if (task.customFrequencyWeekdays && task.customFrequencyWeekdays.length > 0) {
+          return getCustomWeekdayIntervalDays(task.customFrequencyWeekdays);
+        }
         return task.customFrequencyDays && task.customFrequencyDays > 0
           ? task.customFrequencyDays
           : 1;

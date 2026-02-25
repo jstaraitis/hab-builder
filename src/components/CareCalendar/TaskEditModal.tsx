@@ -3,6 +3,7 @@ import { X, Trash2, Check } from 'lucide-react';
 import { careTaskService } from '../../services/careTaskService';
 import { enclosureService } from '../../services/enclosureService';
 import type { CareTask, Enclosure } from '../../types/careCalendar';
+import { WEEKDAY_OPTIONS } from '../../utils/customTaskFrequency';
 
 interface TaskEditModalProps {
   task: CareTask | null;
@@ -31,6 +32,8 @@ export function TaskEditModal({
         description: task.description,
         type: task.type,
         frequency: task.frequency,
+        customFrequencyDays: task.customFrequencyDays,
+        customFrequencyWeekdays: task.customFrequencyWeekdays,
         scheduledTime: task.scheduledTime,
         startDate: task.startDate,
         notes: task.notes,
@@ -57,6 +60,11 @@ export function TaskEditModal({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!task) return;
+
+    if (formData.frequency === 'custom' && (!formData.customFrequencyWeekdays || formData.customFrequencyWeekdays.length === 0)) {
+      setError('Select at least one weekday for custom frequency.');
+      return;
+    }
 
     setLoading(true);
     setError(null);
@@ -105,8 +113,38 @@ export function TaskEditModal({
     }
   };
 
-  const updateField = (field: keyof CareTask, value: string) => {
+  const updateField = <K extends keyof CareTask>(field: K, value: CareTask[K]) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const updateFrequency = (value: string) => {
+    const frequency = value as CareTask['frequency'];
+
+    setFormData(prev => ({
+      ...prev,
+      frequency,
+      customFrequencyDays: frequency === 'custom' ? prev.customFrequencyDays : undefined,
+      customFrequencyWeekdays: frequency === 'custom'
+        ? (prev.customFrequencyWeekdays && prev.customFrequencyWeekdays.length > 0
+          ? prev.customFrequencyWeekdays
+          : [1, 3, 5])
+        : undefined,
+    }));
+  };
+
+  const toggleCustomWeekday = (day: number) => {
+    setFormData(prev => {
+      const currentDays = prev.customFrequencyWeekdays || [];
+      const hasDay = currentDays.includes(day);
+      const nextDays = hasDay
+        ? currentDays.filter(d => d !== day)
+        : [...currentDays, day].sort((a, b) => a - b);
+
+      return {
+        ...prev,
+        customFrequencyWeekdays: nextDays,
+      };
+    });
   };
 
   if (!task) return null;
@@ -227,7 +265,7 @@ export function TaskEditModal({
               <select
                 id="frequency"
                 value={formData.frequency || ''}
-                onChange={(e) => updateField('frequency', e.target.value)}
+                onChange={(e) => updateFrequency(e.target.value)}
                 className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base"
                 required
               >
@@ -237,8 +275,41 @@ export function TaskEditModal({
                 <option value="weekly">Weekly</option>
                 <option value="bi-weekly">Bi-weekly</option>
                 <option value="monthly">Monthly</option>
+                <option value="custom">Custom Days</option>
               </select>
             </div>
+
+            {formData.frequency === 'custom' && (
+              <div className="col-span-2 sm:col-span-3">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Weekdays
+                </label>
+                <div className="flex flex-wrap gap-2">
+                  {WEEKDAY_OPTIONS.map((weekday) => {
+                    const isSelected = (formData.customFrequencyWeekdays || []).includes(weekday.value);
+                    return (
+                      <button
+                        key={weekday.value}
+                        type="button"
+                        onClick={() => toggleCustomWeekday(weekday.value)}
+                        className={`px-3 py-1.5 text-sm rounded-md border transition-colors ${
+                          isSelected
+                            ? 'bg-emerald-600 border-emerald-600 text-white'
+                            : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200'
+                        }`}
+                      >
+                        {weekday.shortLabel}
+                      </button>
+                    );
+                  })}
+                </div>
+                {(formData.customFrequencyWeekdays || []).length === 0 && (
+                  <p className="text-xs text-amber-700 dark:text-amber-300 mt-1">
+                    Select at least one day.
+                  </p>
+                )}
+              </div>
+            )}
 
             <div className="col-span-2 sm:col-span-1">
               <label htmlFor="scheduledTime" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">

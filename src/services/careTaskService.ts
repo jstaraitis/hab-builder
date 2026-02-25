@@ -1,5 +1,11 @@
 import { supabase } from '../lib/supabase';
 import type { CareTask, CareLog, CareTaskWithLogs } from '../types/careCalendar';
+import {
+  decodeCustomWeekdaysFromStorage,
+  encodeCustomWeekdaysForStorage,
+  getCustomWeekdayIntervalDays,
+  getNextDateForCustomWeekdays,
+} from '../utils/customTaskFrequency';
 
 /**
  * Care Task Service Interface
@@ -321,7 +327,12 @@ export class SupabaseCareService implements ICareTaskService {
         next.setMonth(next.getMonth() + 1);
         break;
       case 'custom':
-        next.setDate(next.getDate() + (task.customFrequencyDays || 1));
+        if (task.customFrequencyWeekdays && task.customFrequencyWeekdays.length > 0) {
+          const customNext = getNextDateForCustomWeekdays(next, task.customFrequencyWeekdays);
+          next.setTime(customNext.getTime());
+        } else {
+          next.setDate(next.getDate() + (task.customFrequencyDays || 1));
+        }
         break;
     }
 
@@ -385,6 +396,9 @@ export class SupabaseCareService implements ICareTaskService {
       case 'monthly':
         return 31;
       case 'custom':
+        if (task.customFrequencyWeekdays && task.customFrequencyWeekdays.length > 0) {
+          return getCustomWeekdayIntervalDays(task.customFrequencyWeekdays);
+        }
         return task.customFrequencyDays && task.customFrequencyDays > 0
           ? task.customFrequencyDays
           : 1;
@@ -395,6 +409,9 @@ export class SupabaseCareService implements ICareTaskService {
 
   // Database mapping helpers
   private mapTaskFromDb(row: any): CareTask {
+    const customFrequencyWeekdays = decodeCustomWeekdaysFromStorage(row.custom_frequency_days);
+    const customFrequencyDays = customFrequencyWeekdays ? undefined : row.custom_frequency_days;
+
     return {
       id: row.id,
       userId: row.user_id,
@@ -405,7 +422,8 @@ export class SupabaseCareService implements ICareTaskService {
       description: row.description,
       type: row.type,
       frequency: row.frequency,
-      customFrequencyDays: row.custom_frequency_days,
+      customFrequencyDays,
+      customFrequencyWeekdays,
       scheduledTime: row.scheduled_time,
       nextDueAt: new Date(row.next_due_at),
       notes: row.notes,
@@ -433,7 +451,13 @@ export class SupabaseCareService implements ICareTaskService {
     if (task.description !== undefined) mapped.description = task.description;
     if (task.type !== undefined) mapped.type = task.type;
     if (task.frequency !== undefined) mapped.frequency = task.frequency;
-    if (task.customFrequencyDays !== undefined) mapped.custom_frequency_days = task.customFrequencyDays;
+    if (task.customFrequencyWeekdays !== undefined) {
+      mapped.custom_frequency_days = task.customFrequencyWeekdays.length > 0
+        ? encodeCustomWeekdaysForStorage(task.customFrequencyWeekdays)
+        : null;
+    } else if (task.customFrequencyDays !== undefined) {
+      mapped.custom_frequency_days = task.customFrequencyDays;
+    }
     if (task.scheduledTime !== undefined) mapped.scheduled_time = task.scheduledTime;
     if (task.nextDueAt !== undefined) mapped.next_due_at = task.nextDueAt.toISOString();
     if (task.notes !== undefined) mapped.notes = task.notes;

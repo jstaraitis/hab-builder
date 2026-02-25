@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useToast } from '../contexts/ToastContext';
 
+let updateToastShown = false;
+
 /**
  * Hook to detect and prompt users when a new PWA version is available
  * Integrates with the Toast context to show update notifications
@@ -15,6 +17,49 @@ export function usePWAUpdate() {
 
     let updateCheckInterval: NodeJS.Timeout;
 
+    const handleServiceWorkerMessage = (event: MessageEvent) => {
+      if (event.data?.type === 'SKIP_WAITING_SUCCESS') {
+        globalThis.location.reload();
+      }
+    };
+
+    const showUpdateToast = (worker: ServiceWorker) => {
+      if (updateToastShown) {
+        return;
+      }
+
+      updateToastShown = true;
+      toast.info('A new version is available.', 0, {
+        actionLabel: 'Reload now',
+        actionOnClick: () => {
+          worker.postMessage({ type: 'SKIP_WAITING' });
+        },
+        secondaryActionLabel: "See What's New",
+        secondaryActionHref: '/whats-new',
+      });
+    };
+
+    const handleWorkerStateChange = (worker: ServiceWorker) => {
+      if (worker.state !== 'installed') {
+        return;
+      }
+
+      if (!navigator.serviceWorker.controller) {
+        return;
+      }
+
+      showUpdateToast(worker);
+    };
+
+    const handleUpdateFound = (registration: ServiceWorkerRegistration) => {
+      const newWorker = registration.installing;
+      if (!newWorker) {
+        return;
+      }
+
+      newWorker.addEventListener('statechange', () => handleWorkerStateChange(newWorker));
+    };
+
     const checkForUpdate = async () => {
       try {
         const registration = await navigator.serviceWorker.ready;
@@ -26,38 +71,11 @@ export function usePWAUpdate() {
       }
     };
 
+    navigator.serviceWorker.addEventListener('message', handleServiceWorkerMessage);
+
     // Listen for a new service worker being installed
     navigator.serviceWorker.ready.then((registration) => {
-      registration.addEventListener('updatefound', () => {
-        const newWorker = registration.installing;
-        
-        if (!newWorker) return;
-
-        newWorker.addEventListener('statechange', () => {
-          // New service worker installed and waiting to activate
-          if (
-            newWorker.state === 'installed' &&
-            navigator.serviceWorker.controller
-          ) {
-            // Show update prompt to user
-            toast.info(
-              'A new version is available! Refresh to update.',
-              0 // No auto-dismiss, user must dismiss or refresh
-            );
-
-            // Listen for messages from service worker
-            navigator.serviceWorker.addEventListener('message', (event) => {
-              if (event.data.type === 'SKIP_WAITING_SUCCESS') {
-                // Clear the toast and refresh
-                window.location.reload();
-              }
-            });
-
-            // Add click handler to refresh button if needed
-            // (This would be in your Toast component to handle custom actions)
-          }
-        });
-      });
+      registration.addEventListener('updatefound', () => handleUpdateFound(registration));
 
       // Check for updates immediately
       registration.update().catch(() => {
@@ -70,6 +88,7 @@ export function usePWAUpdate() {
 
     return () => {
       clearInterval(updateCheckInterval);
+      navigator.serviceWorker.removeEventListener('message', handleServiceWorkerMessage);
     };
   }, [toast]);
 }

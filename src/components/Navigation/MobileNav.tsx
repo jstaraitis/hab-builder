@@ -1,5 +1,5 @@
 ﻿import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Calendar, MoreHorizontal, X, Info, MessageCircle, Package, ChevronUp, ChevronDown, SlidersHorizontal, User, Turtle, Ruler, ZoomIn, ZoomOut, Gem, Download, type LucideIcon } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Calendar, MoreHorizontal, X, Info, MessageCircle, Package, ChevronUp, ChevronDown, SlidersHorizontal, User, Turtle, Ruler, ZoomIn, ZoomOut, Gem, Download, Sparkles, type LucideIcon } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useUnits } from '../../contexts/UnitsContext';
@@ -34,6 +34,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'my-animals', path: '/my-animals', icon: Turtle, label: 'My Animals', description: 'View all your animals' },
   { id: 'inventory', path: '/inventory', icon: Package, label: 'Inventory', description: 'Consumables & buy again' },
   { id: 'blog', path: '/blog', icon: BookOpen, label: 'Guides', description: 'Care guides & tips' },
+  { id: 'whats-new', path: '/whats-new', icon: Sparkles, label: "What's New", description: 'Latest app updates' },
   { id: 'about', path: '/about', icon: Info, label: 'About', description: 'About Habitat Builder' },
   { id: 'profile', path: '/profile', icon: User, label: 'Profile', description: 'Name & subscription' },
 ];

@@ -5,11 +5,17 @@ export interface ToastItem {
   message: string;
   type: ToastType;
   duration?: number;
+  actionLabel?: string;
+  actionHref?: string;
+  actionOnClick?: () => void;
+  secondaryActionLabel?: string;
+  secondaryActionHref?: string;
+  secondaryActionOnClick?: () => void;
 }
 
 interface ToastContainerProps {
-  toasts: ToastItem[];
-  onRemove: (id: string) => void;
+  readonly toasts: ToastItem[];
+  readonly onRemove: (id: string) => void;
 }
 
 export function ToastContainer({ toasts, onRemove }: ToastContainerProps) {
@@ -23,6 +29,12 @@ export function ToastContainer({ toasts, onRemove }: ToastContainerProps) {
           message={toast.message}
           type={toast.type}
           duration={toast.duration}
+          actionLabel={toast.actionLabel}
+          actionHref={toast.actionHref}
+          actionOnClick={toast.actionOnClick}
+          secondaryActionLabel={toast.secondaryActionLabel}
+          secondaryActionHref={toast.secondaryActionHref}
+          secondaryActionOnClick={toast.secondaryActionOnClick}
           onClose={() => onRemove(toast.id)}
         />
       ))}

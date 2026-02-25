@@ -33,12 +33,46 @@ import { Auth } from '../Auth';
 import { careTaskService } from '../../services/careTaskService';
 import { enclosureService } from '../../services/enclosureService';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
+import { estimateCustomWeekdayOccurrences, WEEKDAY_OPTIONS } from '../../utils/customTaskFrequency';
 import { FeedingLogModal } from './FeedingLogModal';
 import { CareAnalyticsDashboard } from '../CareAnalytics';
 import type { CareTaskWithLogs, TaskType, CareTask, CareLog, Enclosure, EnclosureAnimal } from '../../types/careCalendar';
 
 type ViewMode = 'all' | 'today' | 'week' | 'analytics';
 type TimeBlock = 'overdue' | 'morning' | 'afternoon' | 'evening' | 'night' | 'tomorrow' | 'week' | 'future';
+
+const formatTaskFrequencySummary = (task: CareTaskWithLogs): string => {
+  switch (task.frequency) {
+    case 'daily':
+      return 'Daily';
+    case 'every-other-day':
+      return 'Every Other Day';
+    case 'twice-weekly':
+      return 'Twice Weekly';
+    case 'weekly':
+      return 'Weekly';
+    case 'bi-weekly':
+      return 'Bi-weekly';
+    case 'monthly':
+      return 'Monthly';
+    case 'custom': {
+      if (task.customFrequencyWeekdays && task.customFrequencyWeekdays.length > 0) {
+        const dayLabels = [...task.customFrequencyWeekdays]
+          .sort((a, b) => a - b)
+          .map(day => WEEKDAY_OPTIONS.find(option => option.value === day)?.shortLabel || String(day));
+        return `Custom: ${dayLabels.join('/')}`;
+      }
+
+      if (task.customFrequencyDays && task.customFrequencyDays > 0) {
+        return `Every ${task.customFrequencyDays} day${task.customFrequencyDays === 1 ? '' : 's'}`;
+      }
+
+      return 'Custom';
+    }
+    default:
+      return 'Custom';
+  }
+};
 
 // Memoized Task Item Component for better list performance
 const TaskItem = memo(({ 
@@ -160,6 +194,10 @@ const TaskItem = memo(({
                       <span>{formatTime(task.scheduledTime)}</span>
                     </>
                   )}
+                  <span>•</span>
+                  <span className="px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium">
+                    {formatTaskFrequencySummary(task)}
+                  </span>
                   {task.lastCompleted && (
                     <>
                       <span>•</span>
@@ -593,6 +631,9 @@ export function CareCalendar() {
       case 'monthly':
         return 1;
       case 'custom':
+        if (task.customFrequencyWeekdays && task.customFrequencyWeekdays.length > 0) {
+          return estimateCustomWeekdayOccurrences(days, task.customFrequencyWeekdays);
+        }
         return Math.max(1, Math.ceil(days / (task.customFrequencyDays ?? 7)));
       default:
         return 0;

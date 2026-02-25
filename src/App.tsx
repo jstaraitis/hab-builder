@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { Routes, Route, Link, useNavigate, useLocation, useParams } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, Instagram, Calendar, LogOut, User, Package, Turtle, Ruler, ChevronDown, ZoomIn, ZoomOut, Loader2 } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, Instagram, Calendar, LogOut, User, Package, Turtle, Ruler, ChevronDown, ZoomIn, ZoomOut, Loader2, Sparkles } from 'lucide-react';
 import { useAuth } from './contexts/AuthContext';
 import type { EnclosureInput, BuildPlan, AnimalProfile } from './engine/types';
 import { generatePlan } from './engine/generatePlan';
@@ -47,6 +47,7 @@ import { useUnits } from './contexts/UnitsContext';
 import { usePWAUpdate } from './hooks/usePWAUpdate';
 import { MobileNav } from './components/Navigation/MobileNav';
 import { ProgressIndicator } from './components/Navigation/ProgressIndicator';
+const WhatsNewView = lazy(() => import('./components/Views/WhatsNewView').then(m => ({ default: m.WhatsNewView })));
 
 // Loading component for lazy-loaded routes
 const LoadingFallback = () => (
@@ -106,7 +107,6 @@ function App() {
     setZoom(100);
   };
 
-  // Load user profile to check premium status
   useEffect(() => {
     if (!user) {
       setIsPremium(false);
@@ -475,6 +475,13 @@ function App() {
                   >
                     <Info className="w-4 h-4 inline mr-2" /> About
                   </Link>
+                  <Link
+                    to="/whats-new"
+                    onClick={() => setOpenDropdown(null)}
+                    className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    <Sparkles className="w-4 h-4 inline mr-2" /> What&apos;s New
+                  </Link>
                   <button
                     onClick={() => {
                       setIsFeedbackOpen(true);
@@ -647,6 +654,7 @@ function App() {
           <Route path="/supplies" element={<SuppliesView plan={plan} input={input} />} />
           <Route path="/premium" element={<PremiumExplainerPage />} />
           <Route path="/upgrade" element={<UpgradePage />} />
+          <Route path="/whats-new" element={<WhatsNewView />} />
           <Route path="/install" element={<InstallAppView />} />
           <Route path="/care-calendar" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><CareCalendarView /></PremiumRoute>} />
           <Route path="/care-calendar/tasks/add" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><TaskCreationView /></PremiumRoute>} />
