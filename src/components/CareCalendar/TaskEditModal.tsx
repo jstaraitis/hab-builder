@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { X, Trash2, Check } from 'lucide-react';
 import { careTaskService } from '../../services/careTaskService';
 import { enclosureService } from '../../services/enclosureService';
-import type { CareTask, Enclosure } from '../../types/careCalendar';
+import type { CareTask, Enclosure, TaskType } from '../../types/careCalendar';
 import { WEEKDAY_OPTIONS } from '../../utils/customTaskFrequency';
 
 interface TaskEditModalProps {
@@ -242,7 +242,7 @@ export function TaskEditModal({
               <select
                 id="type"
                 value={formData.type || ''}
-                onChange={(e) => updateField('type', e.target.value)}
+                onChange={(e) => updateField('type', e.target.value as TaskType)}
                 className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base"
                 required
               >

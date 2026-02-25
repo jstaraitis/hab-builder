@@ -25,8 +25,8 @@
     <!-- Verification tags (add your own) -->
     <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" /> -->
     <!-- <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" /> -->
-    <script type="module" crossorigin src="/assets/index-BQp3qFCT.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-8PxbuVOn.css">
+    <script type="module" crossorigin src="/assets/index-BofYK5cZ.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CNKyQ-gp.css">
   </head>
   <body>
     <div id="root"></div>
@@ -38,20 +38,6 @@
           navigator.serviceWorker.register('/sw.js')
             .then((registration) => {
               console.log('Service Worker registered:', registration.scope);
-              
-              // Check for updates
-              registration.addEventListener('updatefound', () => {
-                const newWorker = registration.installing;
-                newWorker.addEventListener('statechange', () => {
-                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                    // New service worker available, prompt user to refresh
-                    if (confirm('New version available! Reload to update?')) {
-                      newWorker.postMessage({ type: 'SKIP_WAITING' });
-                      window.location.reload();
-                    }
-                  }
-                });
-              });
             })
             .catch((error) => {
               console.log('Service Worker registration failed:', error);
