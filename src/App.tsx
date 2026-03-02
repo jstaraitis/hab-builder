@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { Routes, Route, Link, useNavigate, useLocation, useParams } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, Instagram, Calendar, LogOut, User, Package, Turtle, Ruler, ChevronDown, ZoomIn, ZoomOut, Loader2, Sparkles } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, Home as HomeIcon, ShieldAlert, CheckCircle, Instagram, Calendar, LogOut, User, Package, Turtle, Ruler, ChevronDown, ZoomIn, ZoomOut, Loader2, Sparkles, LayoutDashboard } from 'lucide-react';
 import { useAuth } from './contexts/AuthContext';
 import type { EnclosureInput, BuildPlan, AnimalProfile } from './engine/types';
 import { generatePlan } from './engine/generatePlan';
@@ -39,9 +39,12 @@ const EquipmentTagsBuilder = lazy(() => import('./components/Admin/EquipmentTags
 const UpgradePage = lazy(() => import('./components/Upgrade/UpgradePage').then(m => ({ default: m.UpgradePage })));
 const PremiumExplainerPage = lazy(() => import('./components/Upgrade/PremiumExplainerPage').then(m => ({ default: m.PremiumExplainerPage })));
 const InstallAppView = lazy(() => import('./components/Views/InstallAppView').then(m => ({ default: m.InstallAppView })));
+const OwnerDashboardView = lazy(() => import('./components/Views/OwnerDashboardView').then(m => ({ default: m.OwnerDashboardView })));
 import { PremiumRoute } from './components/Auth/PremiumRoute';
+import { OwnerRoute } from './components/Auth/OwnerRoute';
 import { animalProfiles } from './data/animals';
 import { profileService } from './services/profileService';
+import { isOwner } from './utils/ownerAccess';
 import { useTheme } from './hooks/useTheme';
 import { useUnits } from './contexts/UnitsContext';
 import { usePWAUpdate } from './hooks/usePWAUpdate';
@@ -228,6 +231,7 @@ function App() {
 
   const [plan, setPlan] = useState<BuildPlan | null>(null);
   const [error, setError] = useState<string>('');
+  const isOwnerUser = isOwner(user);
 
   const selectedProfile = useMemo(() => {
     const profile = animalProfiles[input.animal as keyof typeof animalProfiles];
@@ -448,7 +452,7 @@ function App() {
             <div className="relative">
               <button
                 onClick={() => setOpenDropdown(openDropdown === 'settings' ? null : 'settings')}
-                className={`px-4 py-2 rounded-lg border whitespace-nowrap flex items-center ${['/profile', '/about'].includes(location.pathname) ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-indigo-400'}`}
+                className={`px-4 py-2 rounded-lg border whitespace-nowrap flex items-center ${['/profile', '/about', '/owner-dashboard'].includes(location.pathname) ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-indigo-400'}`}
               >
                 <User className="w-4 h-4 inline mr-1.5" /> Account
                 <ChevronDown className="w-3 h-3 ml-1" />
@@ -482,6 +486,15 @@ function App() {
                   >
                     <Sparkles className="w-4 h-4 inline mr-2" /> What&apos;s New
                   </Link>
+                  {isOwnerUser && (
+                    <Link
+                      to="/owner-dashboard"
+                      onClick={() => setOpenDropdown(null)}
+                      className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                    >
+                      <LayoutDashboard className="w-4 h-4 inline mr-2" /> Dashboard
+                    </Link>
+                  )}
                   <button
                     onClick={() => {
                       setIsFeedbackOpen(true);
@@ -656,6 +669,7 @@ function App() {
           <Route path="/upgrade" element={<UpgradePage />} />
           <Route path="/whats-new" element={<WhatsNewView />} />
           <Route path="/install" element={<InstallAppView />} />
+          <Route path="/owner-dashboard" element={<OwnerRoute><OwnerDashboardView /></OwnerRoute>} />
           <Route path="/care-calendar" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><CareCalendarView /></PremiumRoute>} />
           <Route path="/care-calendar/tasks/add" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><TaskCreationView /></PremiumRoute>} />
           <Route path="/care-calendar/tasks/edit/:id" element={<PremiumRoute isPremium={isPremium} profileLoading={profileLoading}><TaskEditView /></PremiumRoute>} />

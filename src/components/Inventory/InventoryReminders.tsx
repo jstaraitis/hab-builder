@@ -21,8 +21,6 @@ const CATEGORY_OPTIONS: { value: InventoryCategory; label: string }[] = [
   { value: 'other', label: 'Other' },
 ];
 
-const AMAZON_AFFILIATE_TAG = 'habitatbuil08-20';
-
 export function InventoryReminders() {
   const { user, loading: authLoading } = useAuth();
   const [items, setItems] = useState<InventoryItem[]>([]);
@@ -97,7 +95,7 @@ export function InventoryReminders() {
 
   const getBuyAgainUrl = (item: InventoryItem): string | null => {
     if (item.buyAgainUrl) {
-      return appendAmazonAffiliateTag(item.buyAgainUrl, AMAZON_AFFILIATE_TAG);
+      return appendAmazonAffiliateTag(item.buyAgainUrl);
     }
 
     const categoryLabel = CATEGORY_OPTIONS.find(option => option.value === item.category)?.label || '';
@@ -105,7 +103,7 @@ export function InventoryReminders() {
     const query = `${brandPart}${item.title} ${categoryLabel}`.trim();
     if (!query) return null;
 
-    return generateAmazonSearchLink(query, AMAZON_AFFILIATE_TAG);
+    return generateAmazonSearchLink(query);
   };
 
   if (authLoading) {

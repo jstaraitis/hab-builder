@@ -35,7 +35,12 @@ VITE_VAPID_PUBLIC_KEY=your-vapid-public-key
 VITE_STRIPE_PUBLISHABLE_KEY=pk_test_xxx
 VITE_STRIPE_PRICE_ID_MONTHLY=price_xxx
 VITE_STRIPE_PRICE_ID_ANNUAL=price_xxx
+VITE_AMAZON_ASSOCIATE_TAG=yourtag-20
+VITE_OWNER_USER_IDS=your-supabase-user-id
+VITE_OWNER_EMAILS=your@email.com
 ```
+
+Owner dashboard route is `/owner-dashboard` and requires one of the owner env vars above.
 
 ## Project Structure (High Level)
 ```
@@ -50,6 +55,7 @@ src/
 
 ## Helpful Docs
 - Setup: [SETUP.md](SETUP.md)
+- Owner dashboard setup: [docs/OWNER_DASHBOARD_SETUP.md](docs/OWNER_DASHBOARD_SETUP.md)
 - AI guidance: [.github/copilot-instructions.md](.github/copilot-instructions.md)
 - Monetization plan: [docs/MONETIZATION_STRATEGY.md](docs/MONETIZATION_STRATEGY.md)
 - Premium payments: [docs/PAYMENT_SETUP.md](docs/PAYMENT_SETUP.md)

@@ -10,6 +10,8 @@ interface SuppliesViewProps {
   readonly input: EnclosureInput;
 }
 
+const AMAZON_AFFILIATE_TAG = import.meta.env.VITE_AMAZON_ASSOCIATE_TAG || 'habitatbuil00-20';
+
 export function SuppliesView({ plan, input }: SuppliesViewProps) {
   if (!plan) {
     return (
@@ -68,7 +70,13 @@ export function SuppliesView({ plan, input }: SuppliesViewProps) {
           <h3 className="text-xl font-bold text-gray-900 dark:text-white">Equipment & Supplies</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Complete list of items needed for your build</p>
         </div>
-        <ShoppingList items={plan.shoppingList} selectedTier={input.setupTier || 'recommended'} input={input} showHeader={false} affiliateTag="habitatbuil08-20" />
+        <ShoppingList
+          items={plan.shoppingList}
+          selectedTier={input.setupTier || 'recommended'}
+          input={input}
+          showHeader={false}
+          affiliateTag={AMAZON_AFFILIATE_TAG}
+        />
       </div>
 
       <div className="flex justify-center mt-6">

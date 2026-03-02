@@ -1,5 +1,17 @@
 import type { EnclosureInput } from '../engine/types';
 
+const DEFAULT_AFFILIATE_TAG = 'habitatbuil00-20';
+
+function resolveAffiliateTag(affiliateTag?: string): string | undefined {
+  const tag = affiliateTag?.trim() || import.meta.env.VITE_AMAZON_ASSOCIATE_TAG?.trim() || DEFAULT_AFFILIATE_TAG;
+  return tag || undefined;
+}
+
+function isAmazonHostname(hostname: string): boolean {
+  const normalized = hostname.toLowerCase();
+  return normalized.includes('amazon.') || normalized === 'amzn.to' || normalized.endsWith('.amzn.to');
+}
+
 /**
  * Calculate approximate gallons for aquarium searches
  */
@@ -38,6 +50,7 @@ export function generateAmazonLink(
   input: EnclosureInput,
   affiliateTag?: string
 ): string {
+  const tag = resolveAffiliateTag(affiliateTag);
   const gallons = calculateGallons(input);
   
   // Replace placeholders with actual values
@@ -52,7 +65,7 @@ export function generateAmazonLink(
   const baseUrl = 'https://www.amazon.com/s';
   const params = new URLSearchParams({
     k: processedQuery,
-    ...(affiliateTag && { tag: affiliateTag })
+    ...(tag && { tag })
   });
   
   return `${baseUrl}?${params.toString()}`;
@@ -65,10 +78,11 @@ export function generateAmazonSearchLink(
   searchQuery: string,
   affiliateTag?: string
 ): string {
+  const tag = resolveAffiliateTag(affiliateTag);
   const baseUrl = 'https://www.amazon.com/s';
   const params = new URLSearchParams({
     k: searchQuery,
-    ...(affiliateTag && { tag: affiliateTag })
+    ...(tag && { tag })
   });
 
   return `${baseUrl}?${params.toString()}`;
@@ -78,12 +92,16 @@ export function generateAmazonSearchLink(
  * Append an Amazon affiliate tag to a product or search URL if not present.
  */
 export function appendAmazonAffiliateTag(url: string, affiliateTag?: string): string {
-  if (!affiliateTag) return url;
+  const tag = resolveAffiliateTag(affiliateTag);
+  if (!tag) return url;
 
   try {
     const parsed = new URL(url);
+    if (!isAmazonHostname(parsed.hostname)) {
+      return url;
+    }
     if (!parsed.searchParams.get('tag')) {
-      parsed.searchParams.set('tag', affiliateTag);
+      parsed.searchParams.set('tag', tag);
     }
     return parsed.toString();
   } catch {

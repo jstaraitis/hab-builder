@@ -1,9 +1,10 @@
 ﻿import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Calendar, MoreHorizontal, X, Info, MessageCircle, Package, ChevronUp, ChevronDown, SlidersHorizontal, User, Turtle, Ruler, ZoomIn, ZoomOut, Gem, Download, Sparkles, type LucideIcon } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Calendar, MoreHorizontal, X, Info, MessageCircle, Package, ChevronUp, ChevronDown, SlidersHorizontal, User, Turtle, Ruler, ZoomIn, ZoomOut, Gem, Download, Sparkles, LayoutDashboard, type LucideIcon } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useUnits } from '../../contexts/UnitsContext';
 import { profileService } from '../../services/profileService';
+import { isOwner } from '../../utils/ownerAccess';
 
 interface MobileNavProps {
   hasAnimal: boolean;
@@ -20,7 +21,7 @@ interface NavItem {
   icon: LucideIcon;
   description?: string;
   requires?: NavRequirement;
-  showWhen?: 'guest' | 'auth';
+  showWhen?: 'guest' | 'auth' | 'owner';
 }
 
 const NAV_ITEMS: NavItem[] = [
@@ -37,12 +38,14 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'whats-new', path: '/whats-new', icon: Sparkles, label: "What's New", description: 'Latest app updates' },
   { id: 'about', path: '/about', icon: Info, label: 'About', description: 'About Habitat Builder' },
   { id: 'profile', path: '/profile', icon: User, label: 'Profile', description: 'Name & subscription' },
+  { id: 'owner-dashboard', path: '/owner-dashboard', icon: LayoutDashboard, label: 'Dashboard', description: 'Owner app stats', showWhen: 'owner' },
 ];
 
 const DEFAULT_ORDER = NAV_ITEMS.map((item) => item.id);
 
 export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<MobileNavProps>) {
   const { user } = useAuth();
+  const isOwnerUser = isOwner(user);
   const { toggleUnits, isMetric } = useUnits();
   const location = useLocation();
   const navigate = useNavigate();
@@ -111,11 +114,12 @@ export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<Mobil
       .filter((item) => {
         if (item.showWhen === 'guest') return !user;
         if (item.showWhen === 'auth') return Boolean(user);
+          if (item.showWhen === 'owner') return isOwnerUser;
         if (item.requires === 'animal') return hasAnimal;
         if (item.requires === 'plan') return hasPlan;
         return true;
       });
-  }, [navOrder, user, hasAnimal, hasPlan]);
+        }, [navOrder, user, isOwnerUser, hasAnimal, hasPlan]);
 
   const bottomItems = orderedItems.slice(0, 4);
   const moreItems = orderedItems.slice(4);

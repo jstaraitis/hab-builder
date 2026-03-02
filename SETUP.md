@@ -22,7 +22,12 @@ VITE_VAPID_PUBLIC_KEY=your-vapid-public-key
 VITE_STRIPE_PUBLISHABLE_KEY=pk_test_xxx
 VITE_STRIPE_PRICE_ID_MONTHLY=price_xxx
 VITE_STRIPE_PRICE_ID_ANNUAL=price_xxx
+VITE_AMAZON_ASSOCIATE_TAG=yourtag-20
+VITE_OWNER_USER_IDS=your-supabase-user-id
+VITE_OWNER_EMAILS=your@email.com
 ```
+
+The owner-only dashboard is available at `/owner-dashboard`.
 
 ## Core Flows to Test
 - Plan generation: choose animal -> enter dimensions -> generate plan

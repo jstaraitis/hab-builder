@@ -42,7 +42,7 @@ export function SubmitSetup() {
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-6">
           <p className="text-sm text-blue-900 dark:text-blue-200 font-medium mb-2"><Mail className="inline-block w-5 h-5 mr-2"/> Email Your Submission</p>
           <p className="text-sm text-blue-800 dark:text-blue-300 mb-3">
-            Send us your setup photos and details at <strong>submissions@habitatbuilder.com</strong>
+            Send us your setup photos and details at <strong>josh.habitat.builder@gmail.com</strong>
           </p>
           <p className="text-xs text-blue-700 dark:text-blue-400">
             Include: Species name, enclosure dimensions, setup type (bioactive/standard), and 2-5 high-quality photos
@@ -157,7 +157,7 @@ export function SubmitSetup() {
 
         <div className="flex gap-3 pt-4">
           <a
-            href="mailto:submissions@habitatbuilder.com?subject=Enclosure Setup Submission"
+            href="mailto:josh.habitat.builder@gmail.com?subject=Enclosure Setup Submission"
             className="flex-1 px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all text-center"
           >
             <Mail className="inline-block w-4 h-4 mr-2"/> Send via Email

@@ -3,6 +3,7 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { inventoryService } from '../../services/inventoryService';
 import type { InventoryCategory, InventoryFrequency, InventoryItem } from '../../types/inventory';
 import { useAuth } from '../../contexts/AuthContext';
+import { appendAmazonAffiliateTag } from '../../utils/amazonLinks';
 
 const CATEGORY_OPTIONS: { value: InventoryCategory; label: string }[] = [
   { value: 'supplement', label: 'Supplement' },
@@ -189,7 +190,9 @@ export function EditInventoryItemView() {
       reminderTime: form.reminderTime || undefined,
       nextDueAt,
       lastReplacedAt: form.lastReplacedAt ? new Date(form.lastReplacedAt) : undefined,
-      buyAgainUrl: form.buyAgainUrl.trim() || undefined,
+      buyAgainUrl: form.buyAgainUrl.trim()
+        ? appendAmazonAffiliateTag(form.buyAgainUrl.trim())
+        : undefined,
       isActive: true
     };
 
