@@ -4,6 +4,8 @@ import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
 import { ToastProvider } from './contexts/ToastContext'
 import { UnitsProvider } from './contexts/UnitsContext'
+import { PremiumProvider } from './contexts/PremiumContext'
+import { PlannerProvider } from './contexts/PlannerContext'
 import App from './App.tsx'
 import './index.css'
 
@@ -16,11 +18,15 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <ToastProvider>
-          <UnitsProvider>
-            <App />
-          </UnitsProvider>
-        </ToastProvider>
+        <PremiumProvider>
+          <ToastProvider>
+            <UnitsProvider>
+              <PlannerProvider>
+                <App />
+              </PlannerProvider>
+            </UnitsProvider>
+          </ToastProvider>
+        </PremiumProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,

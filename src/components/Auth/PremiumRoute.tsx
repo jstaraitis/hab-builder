@@ -3,22 +3,24 @@
  * 
  * Wraps routes that require authentication + premium subscription.
  * Handles the 3-state guard: unauthenticated → Auth, loading → spinner, non-premium → paywall.
+ * 
+ * Premium state is sourced from PremiumContext — no props needed.
  */
 
 import { ReactNode } from 'react';
 import { Loader2 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
+import { usePremium } from '../../contexts/PremiumContext';
 import { Auth } from './index';
 import { PremiumPaywall } from '../Upgrade/PremiumPaywall';
 
 interface PremiumRouteProps {
   readonly children: ReactNode;
-  readonly isPremium: boolean;
-  readonly profileLoading: boolean;
 }
 
-export function PremiumRoute({ children, isPremium, profileLoading }: PremiumRouteProps) {
+export function PremiumRoute({ children }: PremiumRouteProps) {
   const { user } = useAuth();
+  const { isPremium, profileLoading } = usePremium();
 
   if (!user) {
     return (
