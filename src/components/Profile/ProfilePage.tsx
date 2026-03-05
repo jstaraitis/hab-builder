@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
-import { User, CreditCard, Lock, Bell } from 'lucide-react';
+import { useEffect, useState, useCallback } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { User, CreditCard, Lock, Bell, CheckCircle } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
+import { usePremium } from '../../contexts/PremiumContext';
 import { Auth } from '../Auth';
 import { profileService } from '../../services/profileService';
 import { stripeService } from '../../services/stripeService';
@@ -18,6 +20,8 @@ interface PasswordFormState {
 
 export function ProfilePage() {
   const { user, loading: authLoading, signOut } = useAuth();
+  const { refreshProfile } = usePremium();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [changingPassword, setChangingPassword] = useState(false);
@@ -28,6 +32,7 @@ export function ProfilePage() {
   const [passwordError, setPasswordError] = useState<string | null>(null);
   const [passwordSuccess, setPasswordSuccess] = useState<string | null>(null);
   const [notificationSuccess, setNotificationSuccess] = useState<string | null>(null);
+  const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [status, setStatus] = useState<'free' | 'premium'>('free');
   const [cancelDate, setCancelDate] = useState<string | null>(null);
   const [form, setForm] = useState<ProfileFormState>({ displayName: '' });
@@ -35,6 +40,49 @@ export function ProfilePage() {
     newPassword: '',
     confirmPassword: '',
   });
+
+  // Detect payment success redirect and refresh premium status
+  const handlePaymentSuccess = useCallback(async () => {
+    if (!user) return;
+
+    // Remove ?success=true from URL immediately
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      next.delete('success');
+      return next;
+    }, { replace: true });
+
+    // Poll for premium status (webhook may take a few seconds)
+    const maxAttempts = 6;
+    const delayMs = 2000;
+    for (let attempt = 0; attempt < maxAttempts; attempt++) {
+      try {
+        const profile = await profileService.getProfile(user.id);
+        if (profile?.isPremium) {
+          setStatus('premium');
+          setPaymentSuccess(true);
+          await refreshProfile(); // Sync context so the rest of the app updates
+          return;
+        }
+      } catch {
+        // ignore, will retry
+      }
+      if (attempt < maxAttempts - 1) {
+        await new Promise((r) => globalThis.setTimeout(r, delayMs));
+      }
+    }
+
+    // If we still haven't detected premium after all retries, show success anyway
+    // (the webhook may just be slow; the next page load will pick it up)
+    setPaymentSuccess(true);
+    await refreshProfile();
+  }, [user, refreshProfile, setSearchParams]);
+
+  useEffect(() => {
+    if (searchParams.get('success') === 'true') {
+      handlePaymentSuccess();
+    }
+  }, [searchParams, handlePaymentSuccess]);
 
   useEffect(() => {
     if (!user) return;
@@ -207,6 +255,16 @@ export function ProfilePage() {
           <p className="text-sm text-gray-600 dark:text-gray-400">Manage your name and subscription status.</p>
         </div>
       </div>
+
+      {paymentSuccess && (
+        <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-200 rounded-lg p-4 flex items-center gap-3">
+          <CheckCircle className="w-5 h-5 flex-shrink-0" />
+          <div>
+            <p className="font-medium">Payment successful!</p>
+            <p className="text-sm opacity-80">Your premium features are now active. Thank you for supporting Habitat Builder!</p>
+          </div>
+        </div>
+      )}
 
       {error && (
         <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-200 rounded-lg p-4">
