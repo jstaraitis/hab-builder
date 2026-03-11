@@ -6,6 +6,17 @@ export interface ChangelogEntry {
 }
 
 export const changelogEntries: ChangelogEntry[] = [
+  {
+    version: '2026.03.11',
+    date: '2026-03-11',
+    title: 'Beta Program Closing Soon',
+    highlights: [
+      'The Animal Care Notifications beta period is coming to a close. Beta Premium accounts will be transitioned to the free tier in the near future.',
+      'Your existing notifications will be preserved, but continued access will require an active Premium subscription.',
+      'For questions or feedback, please reach out at josh.habitat.builder@gmail.com.',
+      'A sincere thank you to everyone who participated in the beta — your feedback has been invaluable.',
+    ],
+  },
     {
     version: '2026.02.26',
     date: '2026-02-26',
