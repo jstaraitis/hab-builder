@@ -41,7 +41,8 @@ workflows:
           keychain initialize
           app-store-connect fetch-signing-files $BUNDLE_ID \
             --type IOS_APP_STORE \
-            --create
+            --create \
+            --verbose
           keychain add-certificates
           xcode-project use-profiles --project "ios/App/App.xcodeproj"
 
