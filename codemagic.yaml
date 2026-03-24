@@ -48,6 +48,11 @@ workflows:
           cp /tmp/profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
           xcode-project use-profiles --project "ios/App/App.xcodeproj"
 
+      - name: Increment build number
+        script: |
+          cd ios/App
+          agvtool new-version -all $BUILD_NUMBER
+
       - name: Build and archive iOS app
         script: |
           xcode-project build-ipa \
