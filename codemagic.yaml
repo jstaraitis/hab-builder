@@ -39,14 +39,17 @@ workflows:
       - name: Set up code signing
         script: |
           keychain initialize
+          echo "Fetching signing files for $BUNDLE_ID..."
           app-store-connect fetch-signing-files $BUNDLE_ID \
             --type IOS_APP_STORE \
             --create \
             --api-key "$APP_STORE_CONNECT_PRIVATE_KEY" \
             --key-id "$APP_STORE_CONNECT_KEY_IDENTIFIER" \
             --issuer-id "$APP_STORE_CONNECT_ISSUER_ID"
+          echo "Adding certificates to keychain..."
           keychain add-certificates
-          xcode-project use-profiles
+          echo "Applying profiles to Xcode project..."
+          xcode-project use-profiles --project "ios/App/App.xcodeproj"
 
       - name: Build and archive iOS app
         script: |
