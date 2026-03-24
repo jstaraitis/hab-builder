@@ -7,15 +7,18 @@ workflows:
     environment:
       node: 22.14.0
       xcode: latest
-      cocoapods: default
       vars:
-        # BUNDLE_ID and APPLE_ID are non-secret — set here directly
         BUNDLE_ID: com.habitatbuilder.app
-        APP_STORE_APPLE_ID: "6761064884" # Replace with your App Store app numeric ID after creating it in App Store Connect
-      # All secrets below must be added in Codemagic UI under
-      # App settings → Environment variables → Secure
+        APP_STORE_APPLE_ID: "6761064884"
       groups:
-        - app_store_credentials  # CERTIFICATE_PRIVATE_KEY, ISSUER_ID, KEY_IDENTIFIER, APP_STORE_CONNECT_API_KEY
+        - app_store_credentials
+      app_store_connect:
+        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
+        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.habitatbuilder.app
 
     triggering:
       events:
@@ -40,15 +43,6 @@ workflows:
       - name: Sync Capacitor
         script: npx cap sync ios
 
-      - name: Set up code signing
-        script: |
-          keychain initialize
-          app-store-connect fetch-signing-files $BUNDLE_ID \
-            --type IOS_APP_STORE \
-            --create
-          keychain add-certificates
-          xcode-project use-profiles
-
       - name: Build and archive iOS app
         script: |
           xcode-project build-ipa \
@@ -62,9 +56,9 @@ workflows:
 
     publishing:
       app_store_connect:
-        api_key: $APP_STORE_CONNECT_API_KEY
-        key_id: $KEY_IDENTIFIER
-        issuer_id: $ISSUER_ID
+        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
+        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
         submit_to_testflight: true
         beta_groups:
           - "Internal Testers"
