@@ -29,6 +29,11 @@ dist-ssr
 # Apple credentials - NEVER commit these
 *.p8
 AuthKey_*.p8
+*.p12
+*.cer
+*.pem
+distribution.key
+*.csr
 
 # Capacitor - keep ios/ tracked but exclude CocoaPods cache and build artifacts
 ios/App/Pods/
