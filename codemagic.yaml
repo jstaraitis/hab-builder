@@ -52,9 +52,8 @@ workflows:
       - name: Build and archive iOS app
         script: |
           xcode-project build-ipa \
-            --workspace "ios/App/App.xcworkspace" \
-            --scheme "App" \
-            --export-options-plist "/Users/builder/export_options.plist"
+            --workspace "ios/App/App.xcodeproj/project.xcworkspace" \
+            --scheme "App"
 
     artifacts:
       - build/ios/ipa/*.ipa
