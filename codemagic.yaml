@@ -30,11 +30,6 @@ workflows:
 
       - name: Build web app
         script: npm run build
-        env:
-          # These must be set as secure env vars in Codemagic UI
-          VITE_SUPABASE_URL: $VITE_SUPABASE_URL
-          VITE_SUPABASE_ANON_KEY: $VITE_SUPABASE_ANON_KEY
-          VITE_VAPID_PUBLIC_KEY: $VITE_VAPID_PUBLIC_KEY
 
       - name: Add iOS platform (if not already present)
         script: |
