@@ -15,9 +15,18 @@
     "export-equipment-needs": "node scripts/export-equipment-needs.js",
     "format-for-word": "node scripts/format-for-word.js",
     "compress-images": "node scripts/compress-images.js",
-    "generate-blog": "node scripts/generate-blog-content.cjs"
+    "generate-blog": "node scripts/generate-blog-content.cjs",
+    "cap:sync": "npm run build && npx cap sync ios",
+    "cap:add-ios": "npx cap add ios",
+    "cap:open": "npx cap open ios",
+    "cap:copy": "npx cap copy ios"
   },
   "dependencies": {
+    "@capacitor/app": "^8.0.1",
+    "@capacitor/cli": "^8.2.0",
+    "@capacitor/core": "^8.2.0",
+    "@capacitor/ios": "^8.2.0",
+    "@capacitor/push-notifications": "^8.0.2",
     "@stripe/stripe-js": "^8.7.0",
     "@supabase/supabase-js": "^2.95.3",
     "@types/pdfmake": "^0.3.0",

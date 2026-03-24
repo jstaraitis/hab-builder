@@ -25,3 +25,14 @@ dist-ssr
 
 # Local Netlify folder
 .netlify
+
+# Apple credentials - NEVER commit these
+*.p8
+AuthKey_*.p8
+
+# Capacitor - keep ios/ tracked but exclude CocoaPods cache and build artifacts
+ios/App/Pods/
+ios/App/App.xcworkspace/xcshareddata/
+ios/App/build/
+ios/App/DerivedData/
+*.xcuserstate
