@@ -12,10 +12,6 @@ workflows:
         APP_STORE_APPLE_ID: "6761064884"
       groups:
         - app_store_credentials
-      app_store_connect:
-        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
-        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
-        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.habitatbuilder.app
