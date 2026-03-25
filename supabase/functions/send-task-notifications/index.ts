@@ -117,7 +117,9 @@ async function createApnsJwt(teamId: string, keyId: string, privateKeyPem: strin
   return `${signingInput}.${sigB64}`;
 }
 
-// Send APNs notification to a native iOS device token
+// Send APNs notification to a native iOS device token.
+// Returns: 'sent' | 'expired' | 'failed'
+// Only 'expired' should cause the token to be deleted from the database.
 async function sendApns(
   deviceToken: string,
   title: string,
@@ -128,7 +130,7 @@ async function sendApns(
   apnsBundleId: string,
   apnsPrivateKey: string,
   production = true
-): Promise<boolean> {
+): Promise<'sent' | 'expired' | 'failed'> {
   try {
     const jwt = await createApnsJwt(apnsTeamId, apnsKeyId, apnsPrivateKey);
     const host = production ? 'api.push.apple.com' : 'api.sandbox.push.apple.com';
@@ -150,14 +152,22 @@ async function sendApns(
       body: JSON.stringify(notification),
     });
 
-    if (response.status === 200) return true;
+    if (response.status === 200) return 'sent';
 
     const result = await response.json().catch(() => ({}));
+    const reason = result?.reason ?? '';
     console.error('APNs error:', response.status, result);
-    return false;
+
+    // Only delete the token when Apple confirms it is no longer valid
+    if (response.status === 410 || reason === 'BadDeviceToken' || reason === 'Unregistered') {
+      return 'expired';
+    }
+
+    // Config errors (TopicDisallowed, InvalidProviderToken, etc.) — keep the token
+    return 'failed';
   } catch (error: any) {
     console.error('APNs send error:', error);
-    return false;
+    return 'failed';
   }
 }
 
@@ -185,6 +195,13 @@ serve(async (req) => {
     const apnsBundleId = Deno.env.get('APNS_BUNDLE_ID') || 'com.habitatbuilder.app';
     const apnsPrivateKey = Deno.env.get('APNS_PRIVATE_KEY'); // contents of .p8 file
     const apnsProduction = Deno.env.get('APNS_PRODUCTION') !== 'false'; // default true
+
+    // Diagnostic — helps identify secret mismatches without exposing key contents
+    console.log('[APNs config] keyId:', apnsKeyId ?? '(not set)');
+    console.log('[APNs config] teamId:', apnsTeamId ?? '(not set)');
+    console.log('[APNs config] bundleId:', apnsBundleId);
+    console.log('[APNs config] production:', apnsProduction);
+    console.log('[APNs config] privateKey set:', !!apnsPrivateKey, '| length:', apnsPrivateKey?.length ?? 0);
 
     // Get current time
     const now = new Date();
@@ -325,7 +342,7 @@ serve(async (req) => {
 
         if (!nativeError && nativeTokens?.length) {
           for (const tokenRow of nativeTokens as NativePushToken[]) {
-            const success = await sendApns(
+            const result = await sendApns(
               tokenRow.device_token,
               notificationTitle,
               notificationBody,
@@ -336,11 +353,14 @@ serve(async (req) => {
               apnsPrivateKey,
               apnsProduction
             );
-            if (success) {
+            if (result === 'sent') {
               notificationsSent++;
-            } else {
+            } else if (result === 'expired') {
               notificationsFailed++;
               expiredNativeTokens.push(tokenRow.id);
+            } else {
+              // 'failed' = config/transient error — count as failed but keep the token
+              notificationsFailed++;
             }
           }
         }
