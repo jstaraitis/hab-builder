@@ -1,3 +1,5 @@
+import { Capacitor } from '@capacitor/core';
+import { PushNotifications } from '@capacitor/push-notifications';
 import { supabase } from '../lib/supabase';
 
 export interface INotificationService {
@@ -214,4 +216,117 @@ async validateAndCleanup(): Promise<void> {
   }
 }
 
-export const notificationService = new WebNotificationService();
+// ---------------------------------------------------------------------------
+// Native (iOS/Android) push via Capacitor PushNotifications + APNs
+// Device tokens are stored in the `native_push_tokens` table.
+// ---------------------------------------------------------------------------
+
+class NativeNotificationService implements INotificationService {
+  isSupported(): boolean {
+    return Capacitor.isNativePlatform();
+  }
+
+  getPermissionStatus(): NotificationPermission {
+    // Capacitor permission check is async; return 'default' for the sync interface.
+    // Callers should use requestPermission() or isSubscribed() for real status.
+    return 'default';
+  }
+
+  async requestPermission(): Promise<NotificationPermission> {
+    const result = await PushNotifications.requestPermissions();
+    return result.receive === 'granted' ? 'granted' : 'denied';
+  }
+
+  async subscribe(): Promise<void> {
+    const permResult = await PushNotifications.requestPermissions();
+    if (permResult.receive !== 'granted') {
+      throw new Error('Notification permission denied');
+    }
+
+    return new Promise((resolve, reject) => {
+      // Register one-shot listeners before calling register()
+      PushNotifications.addListener('registration', async (token) => {
+        try {
+          await this.saveDeviceToken(token.value);
+          resolve();
+        } catch (err) {
+          reject(err);
+        }
+      });
+
+      PushNotifications.addListener('registrationError', (err) => {
+        reject(new Error(String(err.error)));
+      });
+
+      PushNotifications.register();
+    });
+  }
+
+  async unsubscribe(): Promise<void> {
+    const { data: userData } = await supabase.auth.getUser();
+    if (!userData.user?.id) return;
+
+    await supabase
+      .from('native_push_tokens')
+      .delete()
+      .eq('user_id', userData.user.id);
+  }
+
+  async isSubscribed(): Promise<boolean> {
+    try {
+      const { data: userData } = await supabase.auth.getUser();
+      if (!userData.user?.id) return false;
+
+      const { data } = await supabase
+        .from('native_push_tokens')
+        .select('id')
+        .eq('user_id', userData.user.id)
+        .maybeSingle();
+
+      return data !== null;
+    } catch {
+      return false;
+    }
+  }
+
+  async validateAndCleanup(): Promise<void> {
+    // Re-register if no token is stored yet (e.g. after a fresh install)
+    try {
+      const subscribed = await this.isSubscribed();
+      if (!subscribed) {
+        const perm = await PushNotifications.checkPermissions();
+        if (perm.receive === 'granted') {
+          await PushNotifications.register();
+        }
+      }
+    } catch (error) {
+      console.error('Error validating native push token:', error);
+    }
+  }
+
+  private async saveDeviceToken(token: string): Promise<void> {
+    const { data: userData } = await supabase.auth.getUser();
+    if (!userData.user?.id) throw new Error('User not authenticated');
+
+    const { error } = await supabase
+      .from('native_push_tokens')
+      .upsert({
+        user_id: userData.user.id,
+        device_token: token,
+        platform: Capacitor.getPlatform(), // 'ios' or 'android'
+        updated_at: new Date().toISOString(),
+      }, {
+        onConflict: 'user_id,platform',
+      });
+
+    if (error) throw error;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Export the correct service based on runtime platform
+// ---------------------------------------------------------------------------
+export const notificationService: INotificationService =
+  Capacitor.isNativePlatform()
+    ? new NativeNotificationService()
+    : new WebNotificationService();

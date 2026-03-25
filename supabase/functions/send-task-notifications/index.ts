@@ -15,6 +15,14 @@ interface PushSubscription {
   auth: string;
 }
 
+interface NativePushToken {
+  id: string;
+  user_id: string;
+  device_token: string;
+  platform: string;
+}
+
+
 interface Task {
   id: string;
   user_id: string;
@@ -74,6 +82,87 @@ async function sendWebPush(
   }
 }
 
+// Build an ES256 JWT for APNs token-based auth (no external library needed)
+async function createApnsJwt(teamId: string, keyId: string, privateKeyPem: string): Promise<string> {
+  const pemBody = privateKeyPem
+    .replace(/-----BEGIN PRIVATE KEY-----/, '')
+    .replace(/-----END PRIVATE KEY-----/, '')
+    .replace(/\s/g, '');
+
+  const keyData = Uint8Array.from(atob(pemBody), c => c.charCodeAt(0));
+  const privateKey = await crypto.subtle.importKey(
+    'pkcs8',
+    keyData,
+    { name: 'ECDSA', namedCurve: 'P-256' },
+    false,
+    ['sign']
+  );
+
+  const b64url = (obj: object) =>
+    btoa(JSON.stringify(obj)).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+
+  const header = b64url({ alg: 'ES256', kid: keyId });
+  const payload = b64url({ iss: teamId, iat: Math.floor(Date.now() / 1000) });
+  const signingInput = `${header}.${payload}`;
+
+  const signature = await crypto.subtle.sign(
+    { name: 'ECDSA', hash: 'SHA-256' },
+    privateKey,
+    new TextEncoder().encode(signingInput)
+  );
+
+  const sigB64 = btoa(String.fromCharCode(...new Uint8Array(signature)))
+    .replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+
+  return `${signingInput}.${sigB64}`;
+}
+
+// Send APNs notification to a native iOS device token
+async function sendApns(
+  deviceToken: string,
+  title: string,
+  body: string,
+  extraPayload: Record<string, unknown>,
+  apnsKeyId: string,
+  apnsTeamId: string,
+  apnsBundleId: string,
+  apnsPrivateKey: string,
+  production = true
+): Promise<boolean> {
+  try {
+    const jwt = await createApnsJwt(apnsTeamId, apnsKeyId, apnsPrivateKey);
+    const host = production ? 'api.push.apple.com' : 'api.sandbox.push.apple.com';
+    const url = `https://${host}/3/device/${deviceToken}`;
+
+    const notification = {
+      aps: { alert: { title, body }, badge: 1, sound: 'default' },
+      ...extraPayload,
+    };
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'authorization': `bearer ${jwt}`,
+        'apns-topic': apnsBundleId,
+        'apns-push-type': 'alert',
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(notification),
+    });
+
+    if (response.status === 200) return true;
+
+    const result = await response.json().catch(() => ({}));
+    console.error('APNs error:', response.status, result);
+    return false;
+  } catch (error: any) {
+    console.error('APNs send error:', error);
+    return false;
+  }
+}
+
+
+
 serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
@@ -90,9 +179,12 @@ serve(async (req) => {
     const vapidPrivateKey = Deno.env.get('VAPID_PRIVATE_KEY');
     const vapidEmail = Deno.env.get('VAPID_EMAIL') || 'mailto:your-email@example.com';
 
-    if (!vapidPublicKey || !vapidPrivateKey) {
-      throw new Error('VAPID keys not configured');
-    }
+    // APNs credentials for iOS native push
+    const apnsKeyId = Deno.env.get('APNS_KEY_ID');
+    const apnsTeamId = Deno.env.get('APNS_TEAM_ID');
+    const apnsBundleId = Deno.env.get('APNS_BUNDLE_ID') || 'com.habitatbuilder.app';
+    const apnsPrivateKey = Deno.env.get('APNS_PRIVATE_KEY'); // contents of .p8 file
+    const apnsProduction = Deno.env.get('APNS_PRODUCTION') !== 'false'; // default true
 
     // Get current time
     const now = new Date();
@@ -168,85 +260,109 @@ serve(async (req) => {
 
     let notificationsSent = 0;
     let notificationsFailed = 0;
-    const expiredSubscriptions: string[] = [];
+    const expiredWebSubscriptions: string[] = [];
+    const expiredNativeTokens: string[] = [];
 
     // Send notifications for each user
     for (const [userId, tasks] of Object.entries(tasksByUser)) {
-      // Get user's push subscriptions
-      const { data: subscriptions, error: subsError } = await supabaseClient
-        .from('push_subscriptions')
-        .select('*')
-        .eq('user_id', userId);
+      // Build notification content (shared across web + native)
+      const firstTask = tasks[0];
+      if (!firstTask) continue;
 
-      if (subsError) {
-        console.error(`Error fetching subscriptions for user ${userId}:`, subsError);
-        continue;
+      const enclosureName = firstTask.enclosure_id && enclosuresMap[firstTask.enclosure_id]
+        ? enclosuresMap[firstTask.enclosure_id]
+        : (firstTask.enclosure_id ? 'Your Enclosure' : 'Your Pet');
+      const taskTitles = tasks.map(t => t.title);
+
+      const notificationTitle = tasks.length === 1
+        ? `🦎 Habitat Builder - Care Reminder`
+        : `🦎 Habitat Builder - ${tasks.length} Care Reminders`;
+
+      const notificationBody = tasks.length === 1
+        ? `${enclosureName}: ${firstTask.title}`
+        : `${enclosureName}: ` + taskTitles.slice(0, 3).join(', ') + (tasks.length > 3 ? '...' : '');
+
+      const notificationExtra = {
+        url: '/care-calendar',
+        taskId: tasks.length === 1 ? firstTask.id : null,
+        taskCount: tasks.length,
+      };
+
+      // --- Web push subscriptions ---
+      if (vapidPublicKey && vapidPrivateKey) {
+        const { data: webSubscriptions, error: webSubsError } = await supabaseClient
+          .from('push_subscriptions')
+          .select('*')
+          .eq('user_id', userId);
+
+        if (!webSubsError && webSubscriptions?.length) {
+          const webPayload = JSON.stringify({
+            title: notificationTitle,
+            body: notificationBody,
+            tag: tasks.length === 1 ? `task-${firstTask.id}` : 'multiple-tasks',
+            ...notificationExtra,
+          });
+
+          for (const subscription of webSubscriptions) {
+            const success = await sendWebPush(subscription, webPayload, vapidPublicKey, vapidPrivateKey, vapidEmail);
+            if (success) {
+              notificationsSent++;
+            } else {
+              notificationsFailed++;
+              expiredWebSubscriptions.push(subscription.id);
+            }
+          }
+        }
       }
 
-      if (!subscriptions || subscriptions.length === 0) {
-        console.log(`No subscriptions found for user ${userId}`);
-        continue;
-      }
+      // --- Native (iOS) push tokens ---
+      if (apnsKeyId && apnsTeamId && apnsPrivateKey) {
+        const { data: nativeTokens, error: nativeError } = await supabaseClient
+          .from('native_push_tokens')
+          .select('*')
+          .eq('user_id', userId)
+          .eq('platform', 'ios');
 
-      // Send notification to each subscription
-      for (const subscription of subscriptions) {
-        console.log(`Processing subscription for user ${userId}:`, subscription.endpoint);
-        
-        // Group multiple tasks into one notification if there are many
-        const firstTask = tasks[0];
-        if (!firstTask) continue; // Skip if no tasks (shouldn't happen)
-        
-        const enclosureName = firstTask.enclosure_id && enclosuresMap[firstTask.enclosure_id]
-          ? enclosuresMap[firstTask.enclosure_id]
-          : (firstTask.enclosure_id ? 'Your Enclosure' : 'Your Pet');
-        const taskTitles = tasks.map(t => t.title);
-        
-        const notificationTitle = tasks.length === 1
-          ? `🦎 Habitat Builder - Care Reminder`
-          : `🦎 Habitat Builder - ${tasks.length} Care Reminders`;
-        
-        const notificationBody = tasks.length === 1
-          ? `${enclosureName}: ${firstTask.title}`
-          : `${enclosureName}: ` + taskTitles.slice(0, 3).join(', ') + (tasks.length > 3 ? '...' : '');
-
-        const payload = JSON.stringify({
-          title: notificationTitle,
-          body: notificationBody,
-          tag: tasks.length === 1 ? `task-${firstTask.id}` : 'multiple-tasks',
-          url: '/care-calendar',
-          taskId: tasks.length === 1 ? firstTask.id : null,
-          taskCount: tasks.length
-        });
-
-        console.log('Sending push with payload:', payload);
-
-        const success = await sendWebPush(
-          subscription,
-          payload,
-          vapidPublicKey,
-          vapidPrivateKey,
-          vapidEmail
-        );
-
-        console.log(`Push notification result for ${subscription.endpoint}: ${success ? 'SUCCESS' : 'FAILED'}`);
-
-        if (success) {
-          notificationsSent++;
-        } else {
-          notificationsFailed++;
-          expiredSubscriptions.push(subscription.id);
+        if (!nativeError && nativeTokens?.length) {
+          for (const tokenRow of nativeTokens as NativePushToken[]) {
+            const success = await sendApns(
+              tokenRow.device_token,
+              notificationTitle,
+              notificationBody,
+              notificationExtra,
+              apnsKeyId,
+              apnsTeamId,
+              apnsBundleId,
+              apnsPrivateKey,
+              apnsProduction
+            );
+            if (success) {
+              notificationsSent++;
+            } else {
+              notificationsFailed++;
+              expiredNativeTokens.push(tokenRow.id);
+            }
+          }
         }
       }
     }
 
-    // Clean up expired subscriptions
-    if (expiredSubscriptions.length > 0) {
+    // Clean up expired web subscriptions
+    if (expiredWebSubscriptions.length > 0) {
       await supabaseClient
         .from('push_subscriptions')
         .delete()
-        .in('id', expiredSubscriptions);
-      
-      console.log(`Removed ${expiredSubscriptions.length} expired subscriptions`);
+        .in('id', expiredWebSubscriptions);
+      console.log(`Removed ${expiredWebSubscriptions.length} expired web subscriptions`);
+    }
+
+    // Clean up expired native tokens
+    if (expiredNativeTokens.length > 0) {
+      await supabaseClient
+        .from('native_push_tokens')
+        .delete()
+        .in('id', expiredNativeTokens);
+      console.log(`Removed ${expiredNativeTokens.length} expired native tokens`);
     }
 
     return new Response(
@@ -255,7 +371,8 @@ serve(async (req) => {
         tasksFound: tasksToNotify.length,
         notificationsSent,
         notificationsFailed,
-        expiredSubscriptionsRemoved: expiredSubscriptions.length
+        expiredWebSubscriptionsRemoved: expiredWebSubscriptions.length,
+        expiredNativeTokensRemoved: expiredNativeTokens.length,
       }),
       { headers: { ...corsHeaders, 'Content-Type': 'application/json' }, status: 200 }
     );
