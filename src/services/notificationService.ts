@@ -243,9 +243,12 @@ class NativeNotificationService implements INotificationService {
       throw new Error('Notification permission denied');
     }
 
+    // Remove any stale listeners from previous calls before adding new ones
+    await PushNotifications.removeAllListeners();
+
     return new Promise((resolve, reject) => {
-      // Register one-shot listeners before calling register()
       PushNotifications.addListener('registration', async (token) => {
+        await PushNotifications.removeAllListeners();
         try {
           await this.saveDeviceToken(token.value);
           resolve();
@@ -254,7 +257,8 @@ class NativeNotificationService implements INotificationService {
         }
       });
 
-      PushNotifications.addListener('registrationError', (err) => {
+      PushNotifications.addListener('registrationError', async (err) => {
+        await PushNotifications.removeAllListeners();
         reject(new Error(String(err.error)));
       });
 
