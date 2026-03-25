@@ -42,5 +42,15 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addVariant }) {
+      // Use these prefixes to target native app platforms:
+      //   ios:    → only when running as the Capacitor iOS app
+      //   android: → only when running as the Capacitor Android app
+      //   native:  → any Capacitor native app (ios or android)
+      addVariant('ios', '.ios-app &');
+      addVariant('android', '.android-app &');
+      addVariant('native', '.native-app &');
+    },
+  ],
 }

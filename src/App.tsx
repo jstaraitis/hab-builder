@@ -8,6 +8,7 @@ import { notificationService } from './services/notificationService';
 import { useTheme } from './hooks/useTheme';
 import { usePWAUpdate } from './hooks/usePWAUpdate';
 import { useZoom } from './hooks/useZoom';
+import { usePlatform } from './hooks/usePlatform';
 import { MobileNav } from './components/Navigation/MobileNav';
 import { DesktopNav } from './components/Navigation/DesktopNav';
 import { ProgressIndicator } from './components/Navigation/ProgressIndicator';
@@ -20,6 +21,7 @@ function App() {
   useTheme(); // Apply dark mode
   usePWAUpdate(); // Check for PWA updates
   const { zoom } = useZoom();
+  const { isIOS, isNative } = usePlatform();
 
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -83,20 +85,20 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800 pb-20 lg:pb-0">
+    <div className={`min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800 ${isNative ? 'pb-20' : 'pb-20 lg:pb-0'}`}>
       {/* Header */}
       <header className={`bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-30 transition-transform duration-300 ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="max-w-7xl mx-auto px-4 py-2 lg:py-6">
-          {/* Mobile: Simple header */}
-          <div className="lg:hidden flex flex-col items-center text-center">
+          {/* Mobile: Simple header (also shown on native iOS/Android regardless of screen size) */}
+          <div className={`flex flex-col items-center text-center ${isNative ? 'block' : 'lg:hidden'}`}>
             <Link to="/" className="block">
               <h1 className="text-2xl font-bold text-green-700 dark:text-green-400 hover:text-green-600 dark:hover:text-green-300 transition-colors cursor-pointer">🦎 Habitat Builder</h1>
               <p className="text-xs text-gray-600 dark:text-gray-400">Custom enclosure plans for reptiles & amphibians</p>
             </Link>
           </div>
 
-          {/* Desktop: Full header with navigation */}
-          <div className="hidden lg:block">
+          {/* Desktop: Full header with navigation (hidden on native apps) */}
+          <div className={isNative ? 'hidden' : 'hidden lg:block'}>
             <div className="text-center mb-4">
               <Link to="/">
                 <h1 className="text-4xl font-bold text-green-700 dark:text-green-400 hover:text-green-600 dark:hover:text-green-300 transition-colors cursor-pointer">🦎 Habitat Builder</h1>
@@ -122,11 +124,11 @@ function App() {
         <AppRoutes onOpenFeedback={() => setIsFeedbackOpen(true)} />
       </main>
 
-      <MobileNav hasAnimal={!!input.animal} hasPlan={!!plan} onOpenFeedback={() => setIsFeedbackOpen(true)} />
+      <MobileNav hasAnimal={!!input.animal} hasPlan={!!plan} onOpenFeedback={() => setIsFeedbackOpen(true)} isNative={isNative} isIOS={isIOS} />
       <FeedbackModal isOpen={isFeedbackOpen} onClose={() => setIsFeedbackOpen(false)} />
 
-      {/* Footer */}
-      <footer className="hidden lg:block bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-12 lg:mt-16">
+      {/* Footer — hidden on native apps */}
+      <footer className={`bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-12 lg:mt-16 ${isNative ? 'hidden' : 'hidden lg:block'}`}>
         <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 text-center">
           <div className="flex items-center justify-center gap-2 mb-3 md:mb-4">
             <span className="text-xl md:text-2xl">🦎</span>

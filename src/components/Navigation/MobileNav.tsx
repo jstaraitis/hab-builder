@@ -10,6 +10,8 @@ interface MobileNavProps {
   hasAnimal: boolean;
   hasPlan: boolean;
   onOpenFeedback?: () => void;
+  isNative?: boolean;
+  isIOS?: boolean;
 }
 
 type NavRequirement = 'animal' | 'plan';
@@ -43,7 +45,7 @@ const NAV_ITEMS: NavItem[] = [
 
 const DEFAULT_ORDER = NAV_ITEMS.map((item) => item.id);
 
-export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<MobileNavProps>) {
+export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback, isNative = false, isIOS = false }: Readonly<MobileNavProps>) {
   const { user } = useAuth();
   const isOwnerUser = isOwner(user);
   const { toggleUnits, isMetric } = useUnits();
@@ -112,6 +114,8 @@ export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<Mobil
       .map((id) => map.get(id))
       .filter((item): item is NavItem => Boolean(item))
       .filter((item) => {
+        // Hide the Install prompt when already running as a native app
+        if (item.id === 'install' && isNative) return false;
         if (item.showWhen === 'guest') return !user;
         if (item.showWhen === 'auth') return Boolean(user);
           if (item.showWhen === 'owner') return isOwnerUser;
@@ -119,7 +123,7 @@ export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<Mobil
         if (item.requires === 'plan') return hasPlan;
         return true;
       });
-        }, [navOrder, user, isOwnerUser, hasAnimal, hasPlan]);
+        }, [navOrder, user, isOwnerUser, hasAnimal, hasPlan, isNative]);
 
   const bottomItems = orderedItems.slice(0, 4);
   const moreItems = orderedItems.slice(4);
@@ -235,7 +239,7 @@ export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<Mobil
         <button
           type="button"
           aria-label="Close more menu"
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden animate-in fade-in duration-200"
+          className={`fixed inset-0 bg-black/50 z-40 ${isNative ? 'block' : 'lg:hidden'} animate-in fade-in duration-200`}
           onClick={() => setShowMoreMenu(false)}
         />
       )}
@@ -244,14 +248,14 @@ export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<Mobil
         <button
           type="button"
           aria-label="Close customize menu"
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden animate-in fade-in duration-200"
+          className={`fixed inset-0 bg-black/50 z-40 ${isNative ? 'block' : 'lg:hidden'} animate-in fade-in duration-200`}
           onClick={() => setShowCustomizeMenu(false)}
         />
       )}
 
       {/* Bottom Sheet Menu */}
       {showMoreMenu && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden animate-in slide-in-from-bottom duration-300">
+        <div className={`fixed bottom-0 left-0 right-0 z-50 ${isNative ? 'block' : 'lg:hidden'} animate-in slide-in-from-bottom duration-300`}>
           <div 
             className="bg-white dark:bg-gray-800 rounded-t-3xl shadow-2xl border-t-2 border-gray-200 dark:border-gray-700 pb-20 transition-transform"
             style={{ 
@@ -411,7 +415,7 @@ export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<Mobil
       )}
 
       {showCustomizeMenu && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden animate-in slide-in-from-bottom duration-300">
+        <div className={`fixed bottom-0 left-0 right-0 z-50 ${isNative ? 'block' : 'lg:hidden'} animate-in slide-in-from-bottom duration-300`}>
           <div 
             className="bg-white dark:bg-gray-800 rounded-t-3xl shadow-2xl border-t-2 border-gray-200 dark:border-gray-700 pb-20 transition-transform"
             style={{ 
@@ -504,7 +508,7 @@ export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback }: Readonly<Mobil
       )}
 
       {/* Main Navigation Bar */}
-      <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-gradient-to-t from-white/95 to-gray-50/90 dark:from-gray-800/95 dark:to-gray-900/90 backdrop-blur-md border-t-2 border-gray-200/50 dark:border-gray-700/50 shadow-2xl z-50 safe-area-inset-bottom">
+      <nav className={`fixed bottom-0 left-0 right-0 bg-gradient-to-t from-white/95 to-gray-50/90 dark:from-gray-800/95 dark:to-gray-900/90 backdrop-blur-md border-t-2 border-gray-200/50 dark:border-gray-700/50 shadow-2xl z-50 ${isNative ? 'block' : 'lg:hidden'} ${isIOS ? 'pb-safe' : 'safe-area-inset-bottom'}`}>
         <div className="grid grid-cols-5 gap-0.5 px-1 py-2">
           {bottomItems.map((item) => {
             const active = isActive(item.path);
