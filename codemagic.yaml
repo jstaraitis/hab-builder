@@ -48,6 +48,20 @@ workflows:
           cp /tmp/profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
           xcode-project use-profiles --project "ios/App/App.xcodeproj"
 
+      - name: Set Push Notifications entitlement
+        script: |
+          gem install xcodeproj --no-document 2>/dev/null || true
+          ruby - <<'EOF'
+          require 'xcodeproj'
+          project = Xcodeproj::Project.open('ios/App/App.xcodeproj')
+          target = project.targets.find { |t| t.name == 'App' }
+          target.build_configurations.each do |config|
+            config.build_settings['CODE_SIGN_ENTITLEMENTS'] = 'App/App.entitlements'
+          end
+          project.save
+          puts "CODE_SIGN_ENTITLEMENTS set successfully"
+          EOF
+
       - name: Increment build number
         script: |
           cd ios/App
