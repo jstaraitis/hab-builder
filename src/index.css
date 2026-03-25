@@ -14,9 +14,13 @@
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
   }
-  /* Bottom-nav bar: adds safe-area space on top of its own padding */
+  /* Bottom-nav bar: pure safe area, no extra (items have their own py padding) */
   .pb-safe {
-    padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  /* Page wrapper: clears the bottom nav bar + home indicator on iOS */
+  .pb-safe-page {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
   }
 
   /* Hide scrollbar for Chrome, Safari and Opera */

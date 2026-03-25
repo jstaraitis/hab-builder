@@ -15,7 +15,8 @@ const config: CapacitorConfig = {
     },
   },
   ios: {
-    contentInset: 'automatic',
+    // No contentInset — web view fills full screen (including behind status bar).
+    // We use env(safe-area-inset-top) in CSS to push content below the status bar.
     scrollEnabled: true,
     allowsLinkPreview: false,
   },

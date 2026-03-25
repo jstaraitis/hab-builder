@@ -509,7 +509,7 @@ export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback, isNative = false
 
       {/* Main Navigation Bar */}
       <nav className={`fixed bottom-0 left-0 right-0 bg-gradient-to-t from-white/95 to-gray-50/90 dark:from-gray-800/95 dark:to-gray-900/90 backdrop-blur-md border-t-2 border-gray-200/50 dark:border-gray-700/50 shadow-2xl z-50 ${isNative ? 'block' : 'lg:hidden'} ${isIOS ? 'pb-safe' : 'safe-area-inset-bottom'}`}>
-        <div className="grid grid-cols-5 gap-0.5 px-1 py-2">
+        <div className="grid grid-cols-5 gap-0.5 px-1 pt-2 pb-1">
           {bottomItems.map((item) => {
             const active = isActive(item.path);
             const enabled = getEnabled(item);
