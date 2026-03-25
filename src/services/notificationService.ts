@@ -238,7 +238,10 @@ class NativeNotificationService implements INotificationService {
   }
 
   async subscribe(): Promise<void> {
+    console.log('[NativeNotifications] Requesting permissions...');
     const permResult = await PushNotifications.requestPermissions();
+    console.log('[NativeNotifications] Permission result:', permResult.receive);
+
     if (permResult.receive !== 'granted') {
       throw new Error('Notification permission denied');
     }
@@ -247,8 +250,16 @@ class NativeNotificationService implements INotificationService {
     await PushNotifications.removeAllListeners();
 
     return new Promise((resolve, reject) => {
-      PushNotifications.addListener('registration', async (token) => {
+      // 10 second timeout — if register() never fires, surface a useful error
+      const timeout = setTimeout(async () => {
         await PushNotifications.removeAllListeners();
+        reject(new Error('APNs registration timed out. Make sure Push Notifications capability is enabled in Xcode under Signing & Capabilities.'));
+      }, 10000);
+
+      PushNotifications.addListener('registration', async (token) => {
+        clearTimeout(timeout);
+        await PushNotifications.removeAllListeners();
+        console.log('[NativeNotifications] Got APNs token:', token.value.slice(0, 10) + '...');
         try {
           await this.saveDeviceToken(token.value);
           resolve();
@@ -258,10 +269,13 @@ class NativeNotificationService implements INotificationService {
       });
 
       PushNotifications.addListener('registrationError', async (err) => {
+        clearTimeout(timeout);
         await PushNotifications.removeAllListeners();
-        reject(new Error(String(err.error)));
+        console.error('[NativeNotifications] Registration error:', err);
+        reject(new Error(`APNs registration failed: ${String(err.error)}`));
       });
 
+      console.log('[NativeNotifications] Calling PushNotifications.register()...');
       PushNotifications.register();
     });
   }
