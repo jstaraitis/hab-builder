@@ -211,6 +211,9 @@ export function About({ onOpenFeedback }: AboutProps) {
         {/* Footer Note */}
         <div className="text-center text-gray-500 dark:text-gray-400 text-sm pb-8">
           <p className="mt-2">Last updated: January 2026</p>
+          <p className="mt-2">
+            <Link to="/privacy-policy" className="text-emerald-600 dark:text-emerald-400 underline hover:no-underline">Privacy Policy</Link>
+          </p>
         </div>
       </div>
     </>

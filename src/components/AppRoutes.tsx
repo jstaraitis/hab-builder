@@ -40,6 +40,7 @@ const PremiumExplainerPage = lazy(() => import('./Upgrade/PremiumExplainerPage')
 const InstallAppView = lazy(() => import('./Views/InstallAppView').then(m => ({ default: m.InstallAppView })));
 const OwnerDashboardView = lazy(() => import('./Views/OwnerDashboardView').then(m => ({ default: m.OwnerDashboardView })));
 const WhatsNewView = lazy(() => import('./Views/WhatsNewView').then(m => ({ default: m.WhatsNewView })));
+const PrivacyPolicy = lazy(() => import('./PrivacyPolicy/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
 
 const LoadingFallback = () => (
   <div className="flex items-center justify-center min-h-[400px]">
@@ -178,6 +179,7 @@ export function AppRoutes({ onOpenFeedback }: AppRoutesProps) {
         <Route path="/roadmap" element={<Roadmap onOpenFeedback={onOpenFeedback} />} />
         <Route path="/blog" element={<BlogList selectedAnimal={input.animal} />} />
         <Route path="/blog/:postId" element={<BlogPost />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/dev/animals" element={<AnimalProfilePreview />} />
         <Route path="/dev/equipment-tags" element={<EquipmentTagsBuilder />} />
       </Routes>
