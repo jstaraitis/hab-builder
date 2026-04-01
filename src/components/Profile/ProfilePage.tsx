@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { User, CreditCard, Lock, Bell, CheckCircle } from 'lucide-react';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import { User, CreditCard, Lock, Bell, CheckCircle, Trash2 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { usePremium } from '../../contexts/PremiumContext';
 import { Auth } from '../Auth';
@@ -22,11 +22,15 @@ export function ProfilePage() {
   const { user, loading: authLoading, signOut } = useAuth();
   const { refreshProfile } = usePremium();
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [changingPassword, setChangingPassword] = useState(false);
   const [managingSubscription, setManagingSubscription] = useState(false);
   const [reconnectingNotifications, setReconnectingNotifications] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [deletingAccount, setDeletingAccount] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
   const [notificationStatus, setNotificationStatus] = useState<'not-supported' | 'denied' | 'not-subscribed' | 'subscribed'>('not-subscribed');
   const [error, setError] = useState<string | null>(null);
   const [passwordError, setPasswordError] = useState<string | null>(null);
@@ -197,6 +201,43 @@ export function ProfilePage() {
       console.error('Failed to open customer portal:', err);
       setError('Failed to open subscription management. Please try again.');
       setManagingSubscription(false);
+    }
+  };
+
+  const handleDeleteAccount = async () => {
+    if (!user) return;
+
+    try {
+      setDeletingAccount(true);
+      setDeleteError(null);
+
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.access_token) throw new Error('No active session');
+
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+      const response = await fetch(`${supabaseUrl}/functions/v1/delete-account`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabaseAnonKey}`,
+          'apikey': supabaseAnonKey,
+        },
+        body: JSON.stringify({ userToken: session.access_token }),
+      });
+
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        throw new Error(body.error || 'Failed to delete account');
+      }
+
+      // User is already deleted server-side — clear local session only to avoid a 403 on logout
+      await supabase.auth.signOut({ scope: 'local' });
+      navigate('/');
+    } catch (err: any) {
+      console.error('Failed to delete account:', err);
+      setDeleteError(err.message || 'Failed to delete account. Please try again.');
+      setDeletingAccount(false);
     }
   };
 
@@ -437,9 +478,62 @@ export function ProfilePage() {
                 {saving ? 'Saving...' : 'Save'}
               </button>
             </div>
+
+            <div className="rounded-lg border border-red-200 dark:border-red-900/50 px-4 py-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Trash2 className="w-4 h-4 text-red-500" />
+                <div className="text-sm font-semibold text-red-600 dark:text-red-400">Danger Zone</div>
+              </div>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+                Permanently delete your account and all associated data. This cannot be undone.
+              </p>
+              {deleteError && (
+                <div className="mb-3 p-2 rounded bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200 text-xs">
+                  {deleteError}
+                </div>
+              )}
+              <button
+                onClick={() => setShowDeleteConfirm(true)}
+                className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white text-sm font-medium"
+              >
+                Delete Account
+              </button>
+            </div>
           </>
         )}
       </div>
+
+      {showDeleteConfirm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-xl p-6 w-full max-w-sm">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="p-2 rounded-xl bg-red-100 dark:bg-red-900/30">
+                <Trash2 className="w-5 h-5 text-red-600" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">Delete Account</h3>
+            </div>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-5">
+              This will permanently delete your account and all of your data — animals, care tasks, logs, and settings. <strong>This action cannot be undone.</strong>
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => { setShowDeleteConfirm(false); setDeleteError(null); }}
+                disabled={deletingAccount}
+                className="flex-1 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900 disabled:opacity-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleDeleteAccount}
+                disabled={deletingAccount}
+                className="flex-1 px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white text-sm font-semibold disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {deletingAccount ? 'Deleting...' : 'Yes, Delete'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
