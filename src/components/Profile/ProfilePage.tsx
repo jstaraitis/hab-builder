@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { User, CreditCard, Lock, Bell, CheckCircle, Trash2 } from 'lucide-react';
+import { User, CreditCard, Lock, Bell, CheckCircle, Trash2, Sparkles } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { usePremium } from '../../contexts/PremiumContext';
 import { Auth } from '../Auth';
@@ -352,7 +352,7 @@ export function ProfilePage() {
                 </span>
               </div>
               
-              {status === 'premium' && (
+              {status === 'premium' ? (
                 <button
                   onClick={handleManageSubscription}
                   disabled={managingSubscription}
@@ -360,6 +360,14 @@ export function ProfilePage() {
                 >
                   <CreditCard className="w-4 h-4" />
                   {managingSubscription ? 'Opening portal...' : 'Manage Subscription'}
+                </button>
+              ) : (
+                <button
+                  onClick={() => navigate('/upgrade')}
+                  className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold"
+                >
+                  <Sparkles className="w-4 h-4" />
+                  Upgrade to Premium
                 </button>
               )}
             </div>
