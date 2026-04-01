@@ -27,6 +27,7 @@
     "@capacitor/core": "^8.2.0",
     "@capacitor/ios": "^8.2.0",
     "@capacitor/push-notifications": "^8.0.2",
+    "@revenuecat/purchases-capacitor": "^12.3.0",
     "@stripe/stripe-js": "^8.7.0",
     "@supabase/supabase-js": "^2.95.3",
     "@types/pdfmake": "^0.3.0",

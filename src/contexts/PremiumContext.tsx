@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect, useCallback, useMemo, type ReactNode } from 'react';
 import { useAuth } from './AuthContext';
 import { profileService } from '../services/profileService';
+import { purchaseService } from '../services/purchaseService';
 
 interface PremiumContextType {
   isPremium: boolean;
@@ -24,8 +25,23 @@ export function PremiumProvider({ children }: { readonly children: ReactNode }) 
 
     try {
       setProfileLoading(true);
+
+      // Initialize RevenueCat on native iOS and link to this user
+      await purchaseService.initialize(user.id);
+
       const profile = await profileService.getProfile(user.id);
-      setIsPremium(profile?.isPremium ?? false);
+      let premium = profile?.isPremium ?? false;
+
+      // On iOS, also check RevenueCat entitlements as authoritative source
+      if (purchaseService.isNative() && !premium) {
+        premium = await purchaseService.checkEntitlement();
+        if (premium) {
+          // Sync the confirmed entitlement back to Supabase
+          await purchaseService.syncPremiumToSupabase();
+        }
+      }
+
+      setIsPremium(premium);
     } catch (error) {
       console.error('Failed to load profile:', error);
       setIsPremium(false);

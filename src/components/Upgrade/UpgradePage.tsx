@@ -2,7 +2,9 @@
 import { useNavigate } from 'react-router-dom';
 import { Check, Sparkles, Calendar, TrendingUp, Package, Bell, Zap } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
+import { usePremium } from '../../contexts/PremiumContext';
 import { stripeService } from '../../services/stripeService';
+import { purchaseService } from '../../services/purchaseService';
 import { supabase } from '../../lib/supabase';
 
 // Stripe Price IDs - from environment variables
@@ -13,14 +15,16 @@ const PRICE_IDS = {
 
 export function UpgradePage() {
   const { user } = useAuth();
+  const { refreshProfile } = usePremium();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
   const [error, setError] = useState<string | null>(null);
+  const isNative = purchaseService.isNative();
 
   const handleUpgrade = async () => {
     if (!user) {
-      navigate('/profile'); // Redirect to login
+      navigate('/profile');
       return;
     }
 
@@ -28,22 +32,56 @@ export function UpgradePage() {
     setError(null);
 
     try {
-      // Get user's JWT token for secure authentication
-      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
-      
-      if (sessionError || !session) {
-        throw new Error('Unable to authenticate. Please try logging in again.');
+      if (isNative) {
+        // iOS — use Apple In-App Purchase via RevenueCat
+        const hasPremium = await purchaseService.purchase(billingCycle);
+        if (hasPremium) {
+          await purchaseService.syncPremiumToSupabase();
+          await refreshProfile();
+          navigate('/profile');
+        }
+      } else {
+        // Web — use Stripe
+        const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+        if (sessionError || !session) {
+          throw new Error('Unable to authenticate. Please try logging in again.');
+        }
+        await stripeService.redirectToCheckout({
+          priceId: PRICE_IDS[billingCycle],
+          userId: user.id,
+          userEmail: user.email || '',
+          userToken: session.access_token,
+        });
       }
-
-      await stripeService.redirectToCheckout({
-        priceId: PRICE_IDS[billingCycle],
-        userId: user.id,
-        userEmail: user.email || '',
-        userToken: session.access_token,
-      });
-    } catch (err) {
+    } catch (err: any) {
+      // RevenueCat throws with userCancelled when user dismisses the sheet — don't show an error
+      if (err?.userCancelled) {
+        setLoading(false);
+        return;
+      }
       console.error('Upgrade error:', err);
       setError(err instanceof Error ? err.message : 'Failed to start checkout. Please try again.');
+      setLoading(false);
+    }
+  };
+
+  const handleRestore = async () => {
+    if (!isNative) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const hasPremium = await purchaseService.restorePurchases();
+      if (hasPremium) {
+        await purchaseService.syncPremiumToSupabase();
+        await refreshProfile();
+        navigate('/profile');
+      } else {
+        setError('No previous purchases found for this Apple ID.');
+      }
+    } catch (err) {
+      console.error('Restore error:', err);
+      setError('Failed to restore purchases. Please try again.');
+    } finally {
       setLoading(false);
     }
   };
@@ -165,13 +203,25 @@ export function UpgradePage() {
             ) : (
               <>
                 <Sparkles className="w-5 h-5" />
-                Upgrade Now
+                {isNative ? 'Subscribe with Apple' : 'Upgrade Now'}
               </>
             )}
           </button>
 
-          <p className="text-xs text-gray-500 dark:text-gray-400 text-center mt-4">
-            Cancel anytime. No questions asked.
+          {isNative && (
+            <button
+              onClick={handleRestore}
+              disabled={loading}
+              className="w-full py-2 text-sm text-emerald-600 dark:text-emerald-400 hover:underline disabled:opacity-50"
+            >
+              Restore Purchases
+            </button>
+          )}
+
+          <p className="text-xs text-gray-500 dark:text-gray-400 text-center mt-2">
+            {isNative
+              ? 'Payment will be charged to your Apple ID. Cancel anytime in your App Store subscriptions.'
+              : 'Cancel anytime. No questions asked.'}
           </p>
         </div>
 
