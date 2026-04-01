@@ -10,7 +10,7 @@ workflows:
       vars:
         BUNDLE_ID: com.habitatbuilder.app
         APP_STORE_APPLE_ID: "6761064884"
-        VITE_REVENUECAT_API_KEY: test_HkJqcBlYkabEwkEgyLvgmehzINa
+        VITE_REVENUECAT_API_KEY: appl_ROqBzyNmbeeEUfneCuPCBXQDRbW
       groups:
         - app_store_credentials
 
