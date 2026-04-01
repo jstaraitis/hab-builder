@@ -15,7 +15,7 @@ const PRICE_IDS = {
 
 export function UpgradePage() {
   const { user } = useAuth();
-  const { refreshProfile, rcError } = usePremium();
+  const { refreshProfile } = usePremium();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
@@ -33,7 +33,8 @@ export function UpgradePage() {
 
     try {
       if (isNative) {
-        // iOS — use Apple In-App Purchase via RevenueCat
+        // Initialize RC just-in-time so startup is never affected
+        await purchaseService.initialize(user.id);
         const hasPremium = await purchaseService.purchase(billingCycle);
         if (hasPremium) {
           await purchaseService.syncPremiumToSupabase();
@@ -70,6 +71,7 @@ export function UpgradePage() {
     setLoading(true);
     setError(null);
     try {
+      await purchaseService.initialize(user?.id ?? '');
       const hasPremium = await purchaseService.restorePurchases();
       if (hasPremium) {
         await purchaseService.syncPremiumToSupabase();
@@ -93,13 +95,6 @@ export function UpgradePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        {/* RC debug error — visible on device to diagnose native SDK issues */}
-        {isNative && rcError && (
-          <div className="mb-6 p-4 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-300 dark:border-red-700 text-red-800 dark:text-red-200 text-sm font-mono break-all">
-            <strong>RC Init Error:</strong> {rcError}
-          </div>
-        )}
-
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full text-sm font-medium mb-4">
