@@ -35,7 +35,10 @@ class PurchaseService {
     }
 
     this.initPromise = (async () => {
-      // Use VERBOSE in dev so native RC logs are visible in Xcode console
+      // Fail fast with a clear message if the API key was not injected at build time
+      if (!REVENUECAT_API_KEY) {
+        throw new Error('[RC] VITE_REVENUECAT_API_KEY is undefined — add it to your Codemagic environment vars');
+      }
       await Purchases.setLogLevel({ level: LOG_LEVEL.VERBOSE });
 
       if (!this.configured) {
