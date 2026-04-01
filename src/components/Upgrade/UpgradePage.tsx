@@ -20,7 +20,23 @@ export function UpgradePage() {
   const [loading, setLoading] = useState(false);
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
   const [error, setError] = useState<string | null>(null);
+  const [debugLog, setDebugLog] = useState<string | null>(null);
   const isNative = purchaseService.isNative();
+
+  const handleDebugCheck = async () => {
+    if (!user) { setDebugLog('No user logged in'); return; }
+    setDebugLog('Initializing RC...');
+    try {
+      await purchaseService.initialize(user.id);
+      setDebugLog('RC initialized. Fetching offerings...');
+      const offering = await purchaseService.getOffering();
+      setDebugLog(offering
+        ? `✅ Offering found: ${offering.identifier}\nMonthly: ${offering.monthly?.product?.identifier ?? 'null'}\nAnnual: ${offering.annual?.product?.identifier ?? 'null'}`
+        : '⚠️ getOffering() returned null/undefined');
+    } catch (err: any) {
+      setDebugLog(`❌ Error: ${err?.message ?? JSON.stringify(err)}`);
+    }
+  };
 
   const handleUpgrade = async () => {
     if (!user) {
@@ -218,6 +234,22 @@ export function UpgradePage() {
             >
               Restore Purchases
             </button>
+          )}
+
+          {isNative && (
+            <div className="mt-4">
+              <button
+                onClick={handleDebugCheck}
+                className="w-full py-2 text-xs text-gray-400 dark:text-gray-500 border border-dashed border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700"
+              >
+                Debug: Check RC Offerings
+              </button>
+              {debugLog && (
+                <pre className="mt-2 p-3 bg-gray-100 dark:bg-gray-900 rounded-lg text-xs text-gray-700 dark:text-gray-300 whitespace-pre-wrap break-all">
+                  {debugLog}
+                </pre>
+              )}
+            </div>
           )}
 
           <p className="text-xs text-gray-500 dark:text-gray-400 text-center mt-2">
