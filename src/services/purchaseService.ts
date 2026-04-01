@@ -28,33 +28,42 @@ class PurchaseService {
 
     this.initPromise = (async () => {
       await Purchases.setLogLevel({ level: LOG_LEVEL.ERROR });
-      await Purchases.configure({ apiKey: REVENUECAT_API_KEY });
-      await Purchases.logIn({ appUserID: userId });
+      // Pass appUserID directly in configure — avoids a separate logIn() call
+      // and eliminates any race condition between configure and logIn on native
+      await Purchases.configure({ apiKey: REVENUECAT_API_KEY, appUserID: userId });
       this.initialized = true;
     })();
 
-    await this.initPromise;
-    this.initPromise = null;
+    try {
+      await this.initPromise;
+    } finally {
+      // Always clean up so failed attempts can be retried
+      this.initPromise = null;
+    }
   }
 
   private async ensureInitialized(): Promise<void> {
     if (!this.isNative()) return;
     if (this.initialized) return;
 
-    // initialize was never called with a userId — configure without login as fallback
+    // If initialize(userId) is in-flight, wait for it
     if (this.initPromise) {
       await this.initPromise;
       return;
     }
 
+    // Fallback: no userId available — configure anonymously
     this.initPromise = (async () => {
       await Purchases.setLogLevel({ level: LOG_LEVEL.ERROR });
       await Purchases.configure({ apiKey: REVENUECAT_API_KEY });
       this.initialized = true;
     })();
 
-    await this.initPromise;
-    this.initPromise = null;
+    try {
+      await this.initPromise;
+    } finally {
+      this.initPromise = null;
+    }
   }
 
   async getOffering() {
