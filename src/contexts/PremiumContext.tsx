@@ -6,6 +6,7 @@ import { purchaseService } from '../services/purchaseService';
 interface PremiumContextType {
   isPremium: boolean;
   profileLoading: boolean;
+  rcError: string | null;
   refreshProfile: () => Promise<void>;
 }
 
@@ -15,6 +16,7 @@ export function PremiumProvider({ children }: { readonly children: ReactNode }) 
   const { user } = useAuth();
   const [isPremium, setIsPremium] = useState(false);
   const [profileLoading, setProfileLoading] = useState(true);
+  const [rcError, setRcError] = useState<string | null>(null);
 
   const loadProfile = useCallback(async () => {
     if (!user) {
@@ -25,19 +27,32 @@ export function PremiumProvider({ children }: { readonly children: ReactNode }) 
 
     try {
       setProfileLoading(true);
+      setRcError(null);
 
       // Initialize RevenueCat on native iOS and link to this user
-      await purchaseService.initialize(user.id);
+      try {
+        await purchaseService.initialize(user.id);
+      } catch (rcErr: any) {
+        const msg = rcErr?.message ?? String(rcErr);
+        console.error('[RC] initialize failed:', msg);
+        setRcError(msg);
+        // Fall through — still load Supabase premium status
+      }
 
       const profile = await profileService.getProfile(user.id);
       let premium = profile?.isPremium ?? false;
 
       // On iOS, also check RevenueCat entitlements as authoritative source
-      if (purchaseService.isNative() && !premium) {
-        premium = await purchaseService.checkEntitlement();
-        if (premium) {
-          // Sync the confirmed entitlement back to Supabase
-          await purchaseService.syncPremiumToSupabase();
+      if (purchaseService.isNative() && !premium && !rcError) {
+        try {
+          premium = await purchaseService.checkEntitlement();
+          if (premium) {
+            await purchaseService.syncPremiumToSupabase();
+          }
+        } catch (rcErr: any) {
+          const msg = rcErr?.message ?? String(rcErr);
+          console.error('[RC] checkEntitlement failed:', msg);
+          setRcError(msg);
         }
       }
 
@@ -61,8 +76,9 @@ export function PremiumProvider({ children }: { readonly children: ReactNode }) 
   const value = useMemo<PremiumContextType>(() => ({
     isPremium,
     profileLoading,
+    rcError,
     refreshProfile,
-  }), [isPremium, profileLoading, refreshProfile]);
+  }), [isPremium, profileLoading, rcError, refreshProfile]);
 
   return (
     <PremiumContext.Provider value={value}>
