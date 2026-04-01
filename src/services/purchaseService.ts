@@ -1,34 +1,63 @@
 import { Capacitor } from '@capacitor/core';
-import { Purchases } from '@revenuecat/purchases-capacitor';
+import { Purchases, LOG_LEVEL } from '@revenuecat/purchases-capacitor';
 import { supabase } from '../lib/supabase';
 
+const REVENUECAT_API_KEY = import.meta.env.VITE_REVENUECAT_API_KEY as string;
 const OFFERING_ID = 'habitatbuilder';
 
 export type PurchaseBillingCycle = 'monthly' | 'annual';
 
 class PurchaseService {
-  // On native iOS, RevenueCat is configured in AppDelegate.swift before any JS runs.
-  // JS only needs to call logIn() once the user ID is known.
+  private configured = false;
   private loggedIn = false;
+  // Single shared promise so concurrent callers all wait on the same initialization
+  private initPromise: Promise<void> | null = null;
 
   isNative(): boolean {
     return Capacitor.isNativePlatform();
   }
 
-  /** No-op — configure() is handled natively in AppDelegate.swift. */
-  configureEarly(): void {
-    // Intentionally empty. RevenueCat.configure() is called in AppDelegate.swift
-    // before any JavaScript executes, so no JS-side configure is needed.
-  }
+  /** No-op kept for call-site compatibility. */
+  configureEarly(): void {}
 
   /**
-   * Links the authenticated Supabase user ID to RevenueCat.
-   * The SDK is already configured natively; this just calls logIn().
+   * Configures RevenueCat and links the user ID.
+   * Called from PremiumContext once auth is resolved.
    */
   async initialize(userId: string): Promise<void> {
-    if (!this.isNative() || this.loggedIn) return;
-    await Purchases.logIn({ appUserID: userId });
-    this.loggedIn = true;
+    if (!this.isNative()) return;
+    if (this.loggedIn) return;
+
+    // If already in-flight, wait for the same promise instead of running twice
+    if (this.initPromise) {
+      await this.initPromise;
+      return;
+    }
+
+    this.initPromise = (async () => {
+      // Use VERBOSE in dev so native RC logs are visible in Xcode console
+      await Purchases.setLogLevel({ level: LOG_LEVEL.VERBOSE });
+
+      if (!this.configured) {
+        // Pass appUserID in configure so logIn() is implicit — single bridge call
+        await Purchases.configure({
+          apiKey: REVENUECAT_API_KEY,
+          appUserID: userId,
+        });
+        this.configured = true;
+      }
+
+      if (!this.loggedIn) {
+        await Purchases.logIn({ appUserID: userId });
+        this.loggedIn = true;
+      }
+    })();
+
+    try {
+      await this.initPromise;
+    } finally {
+      this.initPromise = null;
+    }
   }
 
   async getOffering() {

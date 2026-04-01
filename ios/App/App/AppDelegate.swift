@@ -1,6 +1,5 @@
 import UIKit
 import Capacitor
-import RevenueCat
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -8,10 +7,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Configure RevenueCat before any JavaScript or UI code runs.
-        // This guarantees the SDK singleton is ready before any JS bridge call.
-        Purchases.logLevel = .error
-        Purchases.configure(withAPIKey: "test_HkJqcBlYkabEwkEgyLvgmehzINa")
+        // Override point for customization after application launch.
         return true
     }
 
