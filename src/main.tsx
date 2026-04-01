@@ -6,8 +6,14 @@ import { ToastProvider } from './contexts/ToastContext'
 import { UnitsProvider } from './contexts/UnitsContext'
 import { PremiumProvider } from './contexts/PremiumContext'
 import { PlannerProvider } from './contexts/PlannerContext'
+import { purchaseService } from './services/purchaseService'
 import App from './App.tsx'
 import './index.css'
+
+// Kick off RevenueCat configure immediately before React renders.
+// This ensures the native iOS SDK singleton is fully ready long before
+// any component calls getCustomerInfo(), getOfferings(), etc.
+purchaseService.configureEarly();
 
 // Disable browser's automatic scroll restoration
 if ('scrollRestoration' in history) {

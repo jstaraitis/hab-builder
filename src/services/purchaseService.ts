@@ -8,72 +8,90 @@ const OFFERING_ID = 'habitatbuilder';
 export type PurchaseBillingCycle = 'monthly' | 'annual';
 
 class PurchaseService {
-  private initialized = false;
+  // Tracks the early configure promise kicked off in main.tsx before React renders
+  private earlyConfigurePromise: Promise<void> | null = null;
+  private configured = false;
+  private loggedIn = false;
   private initPromise: Promise<void> | null = null;
 
   isNative(): boolean {
     return Capacitor.isNativePlatform();
   }
 
+  /**
+   * Call this as early as possible (before React renders) so the native SDK
+   * singleton is ready long before any user interaction.
+   */
+  configureEarly(): void {
+    if (!this.isNative() || this.earlyConfigurePromise || this.configured) return;
+
+    this.earlyConfigurePromise = (async () => {
+      await Purchases.setLogLevel({ level: LOG_LEVEL.ERROR });
+      await Purchases.configure({ apiKey: REVENUECAT_API_KEY });
+      this.configured = true;
+    })().catch((err) => {
+      // Clear so it can be retried if something went wrong
+      this.earlyConfigurePromise = null;
+      console.error('[RC] Early configure failed:', err);
+    }) as Promise<void>;
+  }
+
+  /**
+   * Called once the authenticated user ID is known. Awaits the early configure
+   * then logs in to link the RevenueCat anonymous user to the Supabase user.
+   */
   async initialize(userId: string): Promise<void> {
     if (!this.isNative()) return;
 
-    // If already initializing, wait for that to finish
+    // Wait for the early configure to finish first
+    if (this.earlyConfigurePromise) {
+      await this.earlyConfigurePromise;
+    } else if (!this.configured) {
+      // configureEarly() was never called — do it now as a fallback
+      await Purchases.setLogLevel({ level: LOG_LEVEL.ERROR });
+      await Purchases.configure({ apiKey: REVENUECAT_API_KEY });
+      this.configured = true;
+    }
+
+    if (this.loggedIn) return;
     if (this.initPromise) {
       await this.initPromise;
       return;
     }
 
-    if (this.initialized) return;
-
     this.initPromise = (async () => {
-      await Purchases.setLogLevel({ level: LOG_LEVEL.ERROR });
-      // Pass appUserID directly in configure — avoids a separate logIn() call
-      // and eliminates any race condition between configure and logIn on native
-      await Purchases.configure({ apiKey: REVENUECAT_API_KEY, appUserID: userId });
-      this.initialized = true;
+      await Purchases.logIn({ appUserID: userId });
+      this.loggedIn = true;
     })();
 
     try {
       await this.initPromise;
     } finally {
-      // Always clean up so failed attempts can be retried
       this.initPromise = null;
     }
   }
 
-  private async ensureInitialized(): Promise<void> {
+  private async ensureConfigure(): Promise<void> {
     if (!this.isNative()) return;
-    if (this.initialized) return;
-
-    // If initialize(userId) is in-flight, wait for it
-    if (this.initPromise) {
-      await this.initPromise;
+    if (this.configured) return;
+    if (this.earlyConfigurePromise) {
+      await this.earlyConfigurePromise;
       return;
     }
-
-    // Fallback: no userId available — configure anonymously
-    this.initPromise = (async () => {
-      await Purchases.setLogLevel({ level: LOG_LEVEL.ERROR });
-      await Purchases.configure({ apiKey: REVENUECAT_API_KEY });
-      this.initialized = true;
-    })();
-
-    try {
-      await this.initPromise;
-    } finally {
-      this.initPromise = null;
-    }
+    // Last resort — configure now
+    await Purchases.setLogLevel({ level: LOG_LEVEL.ERROR });
+    await Purchases.configure({ apiKey: REVENUECAT_API_KEY });
+    this.configured = true;
   }
 
   async getOffering() {
-    await this.ensureInitialized();
+    await this.ensureConfigure();
     const offerings = await Purchases.getOfferings();
     return offerings.all[OFFERING_ID] ?? offerings.current;
   }
 
   async purchase(cycle: PurchaseBillingCycle): Promise<boolean> {
-    await this.ensureInitialized();
+    await this.ensureConfigure();
     const offering = await this.getOffering();
     const pkg = cycle === 'monthly' ? offering?.monthly : offering?.annual;
     if (!pkg) throw new Error(`${cycle} package not available`);
@@ -84,13 +102,13 @@ class PurchaseService {
 
   async checkEntitlement(): Promise<boolean> {
     if (!this.isNative()) return false;
-    await this.ensureInitialized();
+    await this.ensureConfigure();
     const { customerInfo } = await Purchases.getCustomerInfo();
     return !!customerInfo.entitlements.active['premium'];
   }
 
   async restorePurchases(): Promise<boolean> {
-    await this.ensureInitialized();
+    await this.ensureConfigure();
     const { customerInfo } = await Purchases.restorePurchases();
     return !!customerInfo.entitlements.active['premium'];
   }
