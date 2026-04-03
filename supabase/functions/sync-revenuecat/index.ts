@@ -62,7 +62,7 @@ serve(async (req) => {
 
     const subscriber = await rcResponse.json()
     const entitlements = subscriber?.subscriber?.entitlements ?? {}
-    const premiumEntitlement = entitlements['premium']
+    const premiumEntitlement = entitlements['Habitat Builder Premium']
     const isPremium = premiumEntitlement != null &&
       (premiumEntitlement.expires_date == null ||
         new Date(premiumEntitlement.expires_date) > new Date())

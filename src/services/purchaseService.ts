@@ -4,6 +4,7 @@ import { supabase } from '../lib/supabase';
 
 const REVENUECAT_API_KEY = import.meta.env.VITE_REVENUECAT_API_KEY as string;
 const OFFERING_ID = 'habitatbuilder';
+const ENTITLEMENT_ID = 'Habitat Builder Premium';
 
 export type PurchaseBillingCycle = 'monthly' | 'annual';
 
@@ -17,43 +18,51 @@ class PurchaseService {
     return Capacitor.isNativePlatform();
   }
 
-  /** No-op kept for call-site compatibility. */
-  configureEarly(): void {}
+  /**
+   * Configures RC anonymously at app startup (no appUserID).
+   * Called early — before auth resolves — so RC is ready to receive purchases.
+   * Anonymous sessions allow RC to track any in-progress purchases and later
+   * merge them when logIn() is called with the real user ID.
+   */
+  async configureEarly(): Promise<void> {
+    if (!this.isNative()) return;
+    if (this.configured) return;
+    if (!REVENUECAT_API_KEY) return; // silently skip if key not injected yet
+    await Purchases.setLogLevel({ level: LOG_LEVEL.VERBOSE });
+    await Purchases.configure({ apiKey: REVENUECAT_API_KEY });
+    this.configured = true;
+  }
 
   /**
-   * Configures RevenueCat and links the user ID.
-   * Called from PremiumContext once auth is resolved.
+   * Links the authenticated user ID to the RC session via logIn().
+   * RC will merge any anonymous-session purchases onto the logged-in subscriber.
+   * Called from PremiumContext once auth resolves.
    */
   async initialize(userId: string): Promise<void> {
     if (!this.isNative()) return;
     if (this.loggedIn) return;
 
     // If already in-flight, wait for the same promise instead of running twice
-    if (this.initPromise) {
+    if (this.initPromise !== null) {
       await this.initPromise;
       return;
     }
 
     this.initPromise = (async () => {
-      // Fail fast with a clear message if the API key was not injected at build time
       if (!REVENUECAT_API_KEY) {
         throw new Error('[RC] VITE_REVENUECAT_API_KEY is undefined — add it to your Codemagic environment vars');
       }
-      await Purchases.setLogLevel({ level: LOG_LEVEL.VERBOSE });
 
+      // Ensure configured (in case configureEarly wasn't awaited)
       if (!this.configured) {
-        // Pass appUserID in configure so logIn() is implicit — single bridge call
-        await Purchases.configure({
-          apiKey: REVENUECAT_API_KEY,
-          appUserID: userId,
-        });
+        await Purchases.setLogLevel({ level: LOG_LEVEL.VERBOSE });
+        await Purchases.configure({ apiKey: REVENUECAT_API_KEY });
         this.configured = true;
       }
 
-      if (!this.loggedIn) {
-        await Purchases.logIn({ appUserID: userId });
-        this.loggedIn = true;
-      }
+      // logIn() triggers RC identity merge: anonymous purchases transfer to this user
+      await Purchases.logIn({ appUserID: userId });
+      this.loggedIn = true;
     })();
 
     try {
@@ -74,18 +83,18 @@ class PurchaseService {
     if (!pkg) throw new Error(`${cycle} package not available`);
 
     const { customerInfo } = await Purchases.purchasePackage({ aPackage: pkg });
-    return !!customerInfo.entitlements.active['premium'];
+    return !!customerInfo.entitlements.active[ENTITLEMENT_ID];
   }
 
   async checkEntitlement(): Promise<boolean> {
     if (!this.isNative()) return false;
     const { customerInfo } = await Purchases.getCustomerInfo();
-    return !!customerInfo.entitlements.active['premium'];
+    return !!customerInfo.entitlements.active[ENTITLEMENT_ID];
   }
 
   async restorePurchases(): Promise<boolean> {
     const { customerInfo } = await Purchases.restorePurchases();
-    return !!customerInfo.entitlements.active['premium'];
+    return !!customerInfo.entitlements.active[ENTITLEMENT_ID];
   }
 
   /** Returns a debug string showing all active entitlements from RC. */

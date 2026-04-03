@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect, useCallback, useMemo, type ReactNode } from 'react';
 import { useAuth } from './AuthContext';
 import { profileService } from '../services/profileService';
+import { purchaseService } from '../services/purchaseService';
 
 interface PremiumContextType {
   isPremium: boolean;
@@ -14,6 +15,19 @@ export function PremiumProvider({ children }: { readonly children: ReactNode }) 
   const { user } = useAuth();
   const [isPremium, setIsPremium] = useState(false);
   const [profileLoading, setProfileLoading] = useState(true);
+
+  // Configure RC anonymously at mount so it's ready before auth resolves.
+  // This ensures any in-progress purchases are tracked and can be merged later.
+  useEffect(() => {
+    purchaseService.configureEarly();
+  }, []);
+
+  // Once a user is authenticated, logIn() to RC to merge any anonymous purchases.
+  useEffect(() => {
+    if (user) {
+      purchaseService.initialize(user.id).catch(console.error);
+    }
+  }, [user?.id]);
 
   const loadProfile = useCallback(async () => {
     if (!user) {
