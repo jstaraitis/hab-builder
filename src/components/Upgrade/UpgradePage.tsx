@@ -56,6 +56,17 @@ export function UpgradePage() {
           await purchaseService.syncPremiumToSupabase();
           await refreshProfile();
           navigate('/profile');
+        } else {
+          // Apple confirmed the purchase but the entitlement isn't active yet —
+          // sync server-side anyway and re-check to catch propagation delays.
+          const syncedPremium = await purchaseService.syncPremiumToSupabase();
+          if (syncedPremium) {
+            await refreshProfile();
+            navigate('/profile');
+          } else {
+            setError('Purchase completed, but premium activation is delayed. Please tap "Restore Purchases" in a moment.');
+            setLoading(false);
+          }
         }
       } else {
         // Web — use Stripe
