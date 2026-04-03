@@ -47,14 +47,14 @@ serve(async (req) => {
         headers: {
           'Authorization': `Bearer ${revenueCatSecretKey}`,
           'Content-Type': 'application/json',
-          'X-Platform': 'ios',
         },
       }
     )
 
     if (!rcResponse.ok) {
-      console.error('RevenueCat API error:', rcResponse.status)
-      return new Response(JSON.stringify({ error: 'Failed to verify purchase' }), {
+      const rcBody = await rcResponse.text()
+      console.error('RevenueCat API error:', rcResponse.status, rcBody)
+      return new Response(JSON.stringify({ error: 'Failed to verify purchase', status: rcResponse.status, detail: rcBody }), {
         status: 502,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       })
@@ -70,13 +70,25 @@ serve(async (req) => {
     // expires_date = end of current billing period (null = lifetime/no expiry)
     const expiresDate = premiumEntitlement?.expires_date ?? null
 
-    // Update the Supabase profile
+    // Always update is_premium first — guaranteed columns only
+    const { error: coreError } = await adminClient
+      .from('profiles')
+      .upsert(
+        { id: user.id, is_premium: isPremium, updated_at: new Date().toISOString() },
+        { onConflict: 'id' }
+      )
+
+    if (coreError) {
+      console.error('Failed to update is_premium:', coreError)
+      throw new Error(`Profile update failed: ${coreError.message}`)
+    }
+
+    // Best-effort: write subscription detail columns (requires migration to have run)
     await adminClient
       .from('profiles')
       .upsert(
         {
           id: user.id,
-          is_premium: isPremium,
           subscription_platform: isPremium ? 'ios' : null,
           subscription_status: isPremium ? 'active' : 'canceled',
           subscription_cancel_at: expiresDate,
@@ -84,6 +96,9 @@ serve(async (req) => {
         },
         { onConflict: 'id' }
       )
+      .then(({ error }) => {
+        if (error) console.warn('subscription detail columns not updated (migration may not have run):', error.message)
+      })
 
     return new Response(JSON.stringify({ isPremium }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
