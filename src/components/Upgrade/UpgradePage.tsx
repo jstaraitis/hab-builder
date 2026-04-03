@@ -105,7 +105,10 @@ export function UpgradePage() {
         await refreshProfile();
         navigate('/profile');
       } else {
-        setError('No previous purchases found for this Apple ID.');
+        // Show what RC actually returned so we can diagnose entitlement key mismatches
+        const debugInfo = await purchaseService.debugRestorePurchases();
+        setDebugLog(`Restore returned no premium.\n${debugInfo}`);
+        setError('No previous purchases found for this Apple ID. See debug info below.');
       }
     } catch (err) {
       console.error('Restore error:', err);

@@ -88,6 +88,14 @@ class PurchaseService {
     return !!customerInfo.entitlements.active['premium'];
   }
 
+  /** Returns a debug string showing all active entitlements from RC. */
+  async debugRestorePurchases(): Promise<string> {
+    const { customerInfo } = await Purchases.restorePurchases();
+    const activeKeys = Object.keys(customerInfo.entitlements.active);
+    const allKeys = Object.keys(customerInfo.entitlements.all);
+    return `Active entitlements: [${activeKeys.join(', ') || 'none'}]\nAll entitlements: [${allKeys.join(', ') || 'none'}]\nOriginal app user ID: ${customerInfo.originalAppUserId}`;
+  }
+
   /**
    * Calls the sync-revenuecat edge function to verify entitlements
    * server-side and update the Supabase profile.

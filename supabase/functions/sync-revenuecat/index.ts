@@ -67,11 +67,21 @@ serve(async (req) => {
       (premiumEntitlement.expires_date == null ||
         new Date(premiumEntitlement.expires_date) > new Date())
 
+    // expires_date = end of current billing period (null = lifetime/no expiry)
+    const expiresDate = premiumEntitlement?.expires_date ?? null
+
     // Update the Supabase profile
     await adminClient
       .from('profiles')
       .upsert(
-        { id: user.id, is_premium: isPremium, updated_at: new Date().toISOString() },
+        {
+          id: user.id,
+          is_premium: isPremium,
+          subscription_platform: isPremium ? 'ios' : null,
+          subscription_status: isPremium ? 'active' : 'canceled',
+          subscription_cancel_at: expiresDate,
+          updated_at: new Date().toISOString(),
+        },
         { onConflict: 'id' }
       )
 
