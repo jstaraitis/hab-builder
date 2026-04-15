@@ -393,7 +393,7 @@ export function SEO({
           'Complete species profiles with detailed care guidance',
           'Interactive animal finder based on enclosure dimensions and care level',
           'Dark mode support',
-          'Mobile-responsive design with full PWA installability'
+          'Mobile-responsive design with native iOS app and full PWA installability'
         ]
       };
 

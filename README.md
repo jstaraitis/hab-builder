@@ -2,6 +2,12 @@
 
 Habitat Builder is a React web app that generates custom enclosure build plans for reptile and amphibian keepers. Users input dimensions and species; the app outputs a complete plan with layout visualizations, shopping lists, care parameters, and build steps. Think "habitat designer" not "care sheet aggregator."
 
+## Get the App
+
+- **iOS App Store**: [Download on the App Store](https://apps.apple.com/app/habitat-builder/id6761064884)
+- **Web**: [habitat-builder.com](https://habitat-builder.com)
+- **Android / PWA**: Open in Chrome and tap Add to Home Screen
+
 ## Key Features
 - Deterministic rule engine that generates build plans from enclosure inputs
 - Species-aware care targets, warnings, and layout guidance

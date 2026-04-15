@@ -28,7 +28,7 @@ class PurchaseService {
     if (!this.isNative()) return;
     if (this.configured) return;
     if (!REVENUECAT_API_KEY) return; // silently skip if key not injected yet
-    await Purchases.setLogLevel({ level: LOG_LEVEL.VERBOSE });
+    await Purchases.setLogLevel({ level: LOG_LEVEL.ERROR });
     await Purchases.configure({ apiKey: REVENUECAT_API_KEY });
     this.configured = true;
   }
@@ -55,7 +55,7 @@ class PurchaseService {
 
       // Ensure configured (in case configureEarly wasn't awaited)
       if (!this.configured) {
-        await Purchases.setLogLevel({ level: LOG_LEVEL.VERBOSE });
+        await Purchases.setLogLevel({ level: LOG_LEVEL.ERROR });
         await Purchases.configure({ apiKey: REVENUECAT_API_KEY });
         this.configured = true;
       }

@@ -104,7 +104,7 @@ export function Home() {
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-emerald-50 dark:bg-emerald-900/20 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 text-emerald-800 dark:text-emerald-200 font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all border-2 border-emerald-200 dark:border-emerald-800 w-full sm:w-auto"
           >
             <Download className="w-5 h-5" />
-            Install on Phone
+            Get the App
           </Link>
         </div>
 
@@ -1204,7 +1204,7 @@ export function Home() {
           </Link>
         </div>
         <div className="sm:hidden rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/70 dark:bg-emerald-900/20 p-3 text-center text-xs text-emerald-800 dark:text-emerald-200">
-          Install this as an app from your browser menu (Add to Home Screen).
+          Now on the iOS App Store! Android users can also add to home screen from the browser menu.
         </div>
         
         <p className="text-sm text-gray-500 dark:text-gray-400 flex items-center justify-center gap-2">

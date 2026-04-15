@@ -47,14 +47,13 @@
       "type": "list",
       "items": [
         "Add to Home Screen: Open Habitat Builder in your browser, tap the menu icon, and select 'Add to Home Screen' (exact wording varies by browser).",
-        "Offline Access: The app works even if your internet connection drops, so you can still check tasks and mark them complete.",
         "Native-Like Experience: Get an app-like interface without needing to download from an app store.",
         "Better Notifications: Installed PWAs receive richer notifications with better formatting and more reliable delivery."
       ]
     },
     {
       "type": "text",
-      "text": "Installing the PWA is optional - you can use Habitat Builder just fine in your regular browser. But if you want the best notification experience and offline access, installing it is highly recommended."
+      "text": "Installing the PWA is optional - you can use Habitat Builder just fine in your regular browser. But if you want the best notification experience, installing it is highly recommended."
     },
     {
       "type": "section",

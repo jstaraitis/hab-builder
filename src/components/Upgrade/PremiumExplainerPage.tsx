@@ -110,7 +110,7 @@ export function PremiumExplainerPage() {
               </li>
             </ul>
             <p className="mt-3 text-[11px] text-gray-500 dark:text-gray-400">
-              Notifications work best when the app is installed as a PWA on mobile.
+              Notifications work best with the native iOS app (App Store) or when the web app is installed as a PWA on mobile.
             </p>
           </div>
 

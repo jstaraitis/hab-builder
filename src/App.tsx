@@ -158,7 +158,7 @@ function App() {
                 </svg>
               </a>
             </div>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Install this site as an app from your browser menu (Add to Home Screen).</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">Available on the <a href="https://apps.apple.com/app/habitat-builder/id6761064884" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-700 dark:hover:text-gray-300">iOS App Store</a>. Android users can add to home screen from the browser menu.</p>
             <p className="text-xs text-gray-500 dark:text-gray-500">Not a substitute for veterinary advice</p>
           </div>
         </div>
