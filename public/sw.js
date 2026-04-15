@@ -1,4 +1,4 @@
-const CACHE_NAME = 'habitat-builder-2026.03.11';
+const CACHE_NAME = 'habitat-builder-2026.04.15';
 const OFFLINE_URL = '/offline.html';
 
 // Assets to cache on install

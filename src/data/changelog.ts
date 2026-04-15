@@ -7,6 +7,14 @@ export interface ChangelogEntry {
 
 export const changelogEntries: ChangelogEntry[] = [
   {
+    version: '2026.04.15',
+    date: '2026-04-15',
+    title: 'Apple iOS app released',
+    highlights: [
+      'Apple iOS release! Check us out on the app store!',
+    ],
+  },
+  {
     version: '2026.03.11',
     date: '2026-03-11',
     title: 'Beta Program Closing Soon',
