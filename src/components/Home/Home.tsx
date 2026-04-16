@@ -84,6 +84,15 @@ export function Home() {
           </span>
         </div>
 
+        {/* Free tier callout */}
+        <div className="inline-flex flex-wrap items-center justify-center gap-x-4 gap-y-2 px-5 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm text-sm text-gray-600 dark:text-gray-400 max-w-lg mx-auto">
+          <span className="font-semibold text-gray-900 dark:text-white">Free account includes:</span>
+          <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>1 enclosure</span>
+          <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>1 animal</span>
+          <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>2 care tasks</span>
+          <Link to="/upgrade" className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline whitespace-nowrap">Upgrade for unlimited &rarr;</Link>
+        </div>
+
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
           <Link
             to="/animal"

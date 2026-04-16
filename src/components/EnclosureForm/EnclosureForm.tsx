@@ -245,6 +245,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
           </button>
           <input
             type="number"
+            inputMode="numeric"
             value={value.quantity}
             onChange={(e) => {
               const num = parseInt(e.target.value) || 1;
@@ -346,6 +347,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
               </label>
               <input
                 type="number"
+                inputMode="decimal"
                 value={isMetric && value.width ? Math.round(inchesToCm(value.width)) : value.width || ''}
                 onChange={(e) => handleDimensionChange('width', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
@@ -359,6 +361,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
               </label>
               <input
                 type="number"
+                inputMode="decimal"
                 value={isMetric && value.depth ? Math.round(inchesToCm(value.depth)) : value.depth || ''}
                 onChange={(e) => handleDimensionChange('depth', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
@@ -372,6 +375,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
               </label>
               <input
                 type="number"
+                inputMode="decimal"
                 value={isMetric && value.height ? Math.round(inchesToCm(value.height)) : value.height || ''}
                 onChange={(e) => handleDimensionChange('height', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
@@ -909,6 +913,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
           </button>
           <input
             type="number"
+            inputMode="numeric"
             value={value.numberOfHides}
             onChange={(e) => {
               const num = parseInt(e.target.value) || 1;
@@ -991,6 +996,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
             </button>
             <input
               type="number"
+              inputMode="numeric"
               value={value.numberOfLedges}
               onChange={(e) => {
                 const num = parseInt(e.target.value) || 0;

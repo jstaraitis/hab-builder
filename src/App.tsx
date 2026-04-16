@@ -87,7 +87,7 @@ function App() {
   return (
     <div className={`min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800 ${isIOS ? 'pb-safe-page' : isNative ? 'pb-20' : 'pb-20 lg:pb-0'}`}>
       {/* Header */}
-      <header className={`bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-30 transition-transform duration-300 ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+      <header className={`bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 transition-transform duration-300 ${isNative ? 'hidden' : 'sticky top-0 z-30'} ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div
           className="max-w-7xl mx-auto px-4 py-2 lg:py-6"
           style={isIOS ? { paddingTop: 'env(safe-area-inset-top)' } : undefined}

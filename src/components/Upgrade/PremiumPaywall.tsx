@@ -12,11 +12,19 @@ export function PremiumPaywall() {
 
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Premium Feature
+          Upgrade to Premium
         </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
-          Upgrade to Premium to unlock care tracking, health monitoring, and smart reminders
+        <p className="text-lg text-gray-600 dark:text-gray-400 mb-3">
+          Unlock unlimited animals, enclosures, and care tasks—plus health tracking and smart reminders.
         </p>
+        <div className="inline-flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 px-4 py-2.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-600 dark:text-gray-300 mb-6">
+          <span className="font-medium text-gray-700 dark:text-gray-200">Your free plan includes:</span>
+          <span>1 enclosure</span>
+          <span className="text-gray-300 dark:text-gray-600">·</span>
+          <span>1 animal</span>
+          <span className="text-gray-300 dark:text-gray-600">·</span>
+          <span>2 care tasks</span>
+        </div>
 
         {/* Feature Highlights */}
         <div className="grid md:grid-cols-2 gap-4 mb-8 text-left">

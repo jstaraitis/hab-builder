@@ -20,8 +20,8 @@ interface SEOProps {
 }
 
 const DEFAULT_SEO = {
-  title: 'Habitat Builder - Reptile & Amphibian Enclosure Planner with Care Reminders',
-  description: 'Design the perfect reptile or amphibian enclosure, then keep care consistent with built-in reminders. Habitat Builder includes a care calendar, recurring reminder schedules, feeding reminders, misting reminders, water change reminders, supplement reminders, UVB bulb replacement reminders, and enclosure cleaning reminders with optional push notifications. Track completion history, monitor care streaks, review missed-task trends, and manage daily, weekly, and monthly husbandry routines for 18+ species. Plan the habitat, shop the setup, and stay on schedule with reminder-driven care management.',
+  title: 'Habitat Builder - Reptile & Amphibian Enclosure Planner',
+  description: 'Plan the perfect reptile or amphibian enclosure in minutes. Get a custom shopping list, step-by-step build guide, and care calendar for 18+ species. Free to use.',
   keywords: [
     // Core tool keywords
     'reptile enclosure planner',
@@ -287,6 +287,8 @@ export function SEO({
       { property: 'og:type', content: ogType },
       { property: 'og:url', content: canonicalUrl },
       { property: 'og:image', content: imageUrl },
+      { property: 'og:image:alt', content: 'Habitat Builder - Reptile & Amphibian Enclosure Planner' },
+      { property: 'og:locale', content: 'en_US' },
       { property: 'og:site_name', content: 'Habitat Builder' },
       
       // Twitter Card
@@ -368,11 +370,20 @@ export function SEO({
         url: DEFAULT_SEO.canonical,
         applicationCategory: 'DesignApplication',
         operatingSystem: 'Web',
-        offers: {
-          '@type': 'Offer',
-          price: '0',
-          priceCurrency: 'USD'
-        },
+        offers: [
+          {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD',
+            description: 'Free — enclosure planner, shopping list, and care guides'
+          },
+          {
+            '@type': 'Offer',
+            price: '2.99',
+            priceCurrency: 'USD',
+            description: 'Premium — care calendar, animal tracking, weight logs, and inventory'
+          }
+        ],
         featureList: [
           'Custom enclosure design with interactive visual designer',
           'Species-specific care parameters and warnings',

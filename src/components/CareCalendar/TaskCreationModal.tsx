@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { X, ClipboardList, Edit3 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
+import { usePremium } from '../../contexts/PremiumContext';
 import { careTaskService } from '../../services/careTaskService';
 import { enclosureService } from '../../services/enclosureService';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
@@ -38,6 +39,7 @@ export function TaskCreationModal({
   layout = 'modal'
 }: TaskCreationModalProps) {
   const { user } = useAuth();
+  const { isPremium } = usePremium();
   const [enclosures, setEnclosures] = useState<Enclosure[]>([]);
   const [selectedEnclosure, setSelectedEnclosure] = useState<string>('');
   const [animals, setAnimals] = useState<EnclosureAnimal[]>([]);
@@ -118,6 +120,21 @@ export function TaskCreationModal({
     if (!user) {
       setError('You must be logged in to create tasks');
       return;
+    }
+
+    // Free tier: max 2 active care tasks
+    if (!isPremium) {
+      const existingTasks = await careTaskService.getTasks(user.id);
+      const activeTasks = existingTasks.filter(t => t.isActive);
+      if (activeTasks.length + tasks.length > 2) {
+        const remaining = Math.max(0, 2 - activeTasks.length);
+        setError(
+          remaining === 0
+            ? 'Free plan limit reached (2 tasks). Upgrade to Premium to add unlimited care tasks.'
+            : `Free plan allows 2 tasks total. You can add ${remaining} more. Upgrade for unlimited tasks.`
+        );
+        return;
+      }
     }
 
     const invalidCustomTaskIndex = tasks.findIndex(task => (

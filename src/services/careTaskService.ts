@@ -163,7 +163,6 @@ export class SupabaseCareService implements ICareTaskService {
     const now = new Date();
     const dbTask = this.mapTaskToDb({
       ...taskData,
-      id: crypto.randomUUID(),
       createdAt: now,
       updatedAt: now,
     });

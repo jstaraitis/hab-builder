@@ -1,18 +1,22 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import { usePremium } from '../../contexts/PremiumContext';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { uploadAnimalPhoto } from '../../services/animalPhotoService';
 import { enclosureService } from '../../services/enclosureService';
 import type { Enclosure, EnclosureAnimal } from '../../types/careCalendar';
 import { AnimalForm, type AnimalFormData } from '../Forms/AnimalForm';
+import { PremiumPaywall } from '../Upgrade/PremiumPaywall';
 
 export function AddAnimalView() {
   const { user } = useAuth();
+  const { isPremium } = usePremium();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [enclosures, setEnclosures] = useState<Enclosure[]>([]);
   const [loading, setLoading] = useState(true);
+  const [atAnimalLimit, setAtAnimalLimit] = useState(false);
 
   const speciesName = searchParams.get('speciesName') || '';
   const returnTo = searchParams.get('returnTo') || '';
@@ -29,8 +33,16 @@ export function AddAnimalView() {
 
       try {
         setLoading(true);
-        const data = await enclosureService.getEnclosures(user.id);
-        if (isMounted) setEnclosures(data);
+        const [data, existingAnimals] = await Promise.all([
+          enclosureService.getEnclosures(user.id),
+          enclosureAnimalService.getAllUserAnimals(user.id),
+        ]);
+        if (isMounted) {
+          setEnclosures(data);
+          if (!isPremium && existingAnimals.length >= 1) {
+            setAtAnimalLimit(true);
+          }
+        }
       } catch {
         // enclosures are optional, silently fail
       } finally {
@@ -79,6 +91,10 @@ export function AddAnimalView() {
         </div>
       </div>
     );
+  }
+
+  if (atAnimalLimit) {
+    return <PremiumPaywall />;
   }
 
   return (

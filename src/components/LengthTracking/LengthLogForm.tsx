@@ -139,6 +139,7 @@ export function LengthLogForm({ animal, onSuccess, onCancel, initialData }: Leng
           <div className={fieldLayouts.inputWithSelectInput}>
             <input
               type="number"
+              inputMode="decimal"
               step="any"
               value={length}
               onChange={(e) => setLength(e.target.value)}

@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, HomeIcon, Turtle, Ruler, ChevronDown, ZoomIn, ZoomOut, Calendar, LogOut, User, Package, Sparkles, LayoutDashboard } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, HomeIcon, Turtle, ChevronDown, ZoomIn, ZoomOut, Calendar, LogOut, User, Package, Sparkles, LayoutDashboard } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { usePlanner } from '../../contexts/PlannerContext';
-import { useUnits } from '../../contexts/UnitsContext';
 import { useZoom } from '../../hooks/useZoom';
 import { isOwner } from '../../utils/ownerAccess';
 
@@ -15,7 +14,6 @@ export function DesktopNav({ onOpenFeedback }: DesktopNavProps) {
   const location = useLocation();
   const { user, signOut } = useAuth();
   const { input, plan } = usePlanner();
-  const { toggleUnits, isMetric } = useUnits();
   const { zoom, handleZoomIn, handleZoomOut, handleResetZoom } = useZoom();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const isOwnerUser = isOwner(user);
@@ -221,12 +219,7 @@ export function DesktopNav({ onOpenFeedback }: DesktopNavProps) {
             >
               <MessageSquare className="w-4 h-4 inline mr-2" /> Feedback
             </button>
-            <button
-              onClick={toggleUnits}
-              className="block w-full text-left px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            >
-              <Ruler className="w-4 h-4 inline mr-2" /> {isMetric ? 'Metric' : 'Imperial'} Units
-            </button>
+
 
             {/* Zoom controls */}
             <div className="border-t border-gray-200 dark:border-gray-700 my-1"></div>

@@ -3,6 +3,7 @@ import { Routes, Route, Link, useNavigate, useParams } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import { usePlanner } from '../contexts/PlannerContext';
 import { PremiumRoute } from './Auth/PremiumRoute';
+import { AuthRoute } from './Auth/AuthRoute';
 import { OwnerRoute } from './Auth/OwnerRoute';
 import { animalProfiles } from '../data/animals';
 
@@ -161,16 +162,16 @@ export function AppRoutes({ onOpenFeedback }: AppRoutesProps) {
         <Route path="/whats-new" element={<WhatsNewView />} />
         <Route path="/install" element={<InstallAppView />} />
         <Route path="/owner-dashboard" element={<OwnerRoute><OwnerDashboardView /></OwnerRoute>} />
-        <Route path="/care-calendar" element={<PremiumRoute><CareCalendarView /></PremiumRoute>} />
-        <Route path="/care-calendar/tasks/add" element={<PremiumRoute><TaskCreationView /></PremiumRoute>} />
-        <Route path="/care-calendar/tasks/edit/:id" element={<PremiumRoute><TaskEditView /></PremiumRoute>} />
-        <Route path="/my-animals" element={<PremiumRoute><MyAnimalsView /></PremiumRoute>} />
+        <Route path="/care-calendar" element={<AuthRoute><CareCalendarView /></AuthRoute>} />
+        <Route path="/care-calendar/tasks/add" element={<AuthRoute><TaskCreationView /></AuthRoute>} />
+        <Route path="/care-calendar/tasks/edit/:id" element={<AuthRoute><TaskEditView /></AuthRoute>} />
+        <Route path="/my-animals" element={<AuthRoute><MyAnimalsView /></AuthRoute>} />
         <Route path="/weight-tracker/:id" element={<PremiumRoute><WeightTrackerView /></PremiumRoute>} />
-        <Route path="/my-animals/:animalId" element={<PremiumRoute><AnimalDetailView /></PremiumRoute>} />
-        <Route path="/my-animals/edit/:id" element={<PremiumRoute><EditAnimalView /></PremiumRoute>} />
-        <Route path="/my-animals/add" element={<PremiumRoute><AddAnimalView /></PremiumRoute>} />
-        <Route path="/care-calendar/enclosures/add" element={<PremiumRoute><AddEnclosureView /></PremiumRoute>} />
-        <Route path="/care-calendar/enclosures/edit/:id" element={<PremiumRoute><EditEnclosureView /></PremiumRoute>} />
+        <Route path="/my-animals/:animalId" element={<AuthRoute><AnimalDetailView /></AuthRoute>} />
+        <Route path="/my-animals/edit/:id" element={<AuthRoute><EditAnimalView /></AuthRoute>} />
+        <Route path="/my-animals/add" element={<AuthRoute><AddAnimalView /></AuthRoute>} />
+        <Route path="/care-calendar/enclosures/add" element={<AuthRoute><AddEnclosureView /></AuthRoute>} />
+        <Route path="/care-calendar/enclosures/edit/:id" element={<AuthRoute><EditEnclosureView /></AuthRoute>} />
         <Route path="/inventory" element={<PremiumRoute><InventoryView /></PremiumRoute>} />
         <Route path="/inventory/add" element={<PremiumRoute><AddInventoryItemView /></PremiumRoute>} />
         <Route path="/inventory/edit/:id" element={<PremiumRoute><EditInventoryItemView /></PremiumRoute>} />

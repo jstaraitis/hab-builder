@@ -118,6 +118,7 @@ export function WeightLogForm({ animal, onSuccess, onCancel, initialData }: Weig
           <div className={fieldLayouts.inputWithSelectInput}>
             <input
               type="number"
+              inputMode="decimal"
               step="any"
               value={weight}
               onChange={(e) => setWeight(e.target.value)}

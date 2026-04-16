@@ -1,15 +1,31 @@
+import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import { usePremium } from '../../contexts/PremiumContext';
 import { enclosureService } from '../../services/enclosureService';
 import { uploadEnclosurePhoto } from '../../services/enclosurePhotoService';
 import { animalList } from '../../data/animals';
 import { EnclosureFormCRUD, type EnclosureFormData } from '../Forms/EnclosureFormCRUD';
+import { PremiumPaywall } from '../Upgrade/PremiumPaywall';
 
 export function AddEnclosureView() {
   const { user } = useAuth();
+  const { isPremium } = usePremium();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const returnTo = searchParams.get('returnTo') || '';
+  const [atEnclosureLimit, setAtEnclosureLimit] = useState(false);
+  const [limitChecked, setLimitChecked] = useState(false);
+
+  useEffect(() => {
+    if (!user) return;
+    enclosureService.getEnclosures(user.id).then(enclosures => {
+      if (!isPremium && enclosures.length >= 1) {
+        setAtEnclosureLimit(true);
+      }
+      setLimitChecked(true);
+    }).catch(() => setLimitChecked(true));
+  }, [user, isPremium]);
 
   const handleCancel = () => {
     if (returnTo) { navigate(returnTo); } else { navigate(-1); }
@@ -43,6 +59,12 @@ export function AddEnclosureView() {
 
     navigate(returnTo || '/care-calendar');
   };
+
+  if (!limitChecked) return null;
+
+  if (atEnclosureLimit) {
+    return <PremiumPaywall />;
+  }
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6">

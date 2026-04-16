@@ -8,6 +8,7 @@ import { useEffect, useState, memo } from 'react';
 import { Calendar, Scale, MapPin, Plus, Pencil, Trash2, Turtle } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import { usePremium } from '../../contexts/PremiumContext';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { enclosureService } from '../../services/enclosureService';
 import { EnclosureManager } from './EnclosureManager';
@@ -150,6 +151,7 @@ AnimalCard.displayName = 'AnimalCard';
 
 export function MyAnimals() {
   const { user } = useAuth();
+  const { isPremium } = usePremium();
   const [animals, setAnimals] = useState<EnclosureAnimal[]>([]);
   const [enclosures, setEnclosures] = useState<Enclosure[]>([]);
   const [loading, setLoading] = useState(true);
@@ -264,6 +266,15 @@ export function MyAnimals() {
           </h1>
           <p className="text-gray-600 dark:text-gray-400">
             {animals.length} {animals.length === 1 ? 'animal' : 'animals'} total
+            {!isPremium && (
+              <span className={`ml-2 text-xs font-medium px-2 py-0.5 rounded-full ${
+                animals.length >= 1
+                  ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'
+                  : 'bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400'
+              }`}>
+                {animals.length}/1 free
+              </span>
+            )}
           </p>
         </div>
       </div>
@@ -276,31 +287,36 @@ export function MyAnimals() {
       )}
 
       <div className="mb-8">
-        <EnclosureManager onEnclosuresChanged={loadData} />
+        <EnclosureManager onEnclosuresChanged={loadData} isPremium={isPremium} />
       </div>
 
       {/* Animals Section Header */}
-      {animals.length > 0 && (
-        <div className="flex items-center justify-between gap-3 mb-4">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-            My Animals
-          </h3>
-          <button
-            onClick={() => navigate(`/my-animals/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-            className="p-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 transition-colors"
-            title="Add Animal"
-          >
-            <Plus className="w-5 h-5" />
-          </button>
-        </div>
-      )}
+      <div className="flex items-center justify-between gap-3 mb-4">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+          My Animals
+        </h3>
+        <button
+          onClick={() => navigate(`/my-animals/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
+          className="p-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 transition-colors"
+          title={!isPremium && animals.length >= 1 ? 'Upgrade to add more animals' : 'Add Animal'}
+        >
+          <Plus className="w-5 h-5" />
+        </button>
+      </div>
 
       {/* Animals Grid */}
       {animals.length === 0 ? (
         <div className="text-center py-12 bg-gray-50 dark:bg-gray-800 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600">
-          <p className="text-gray-500 dark:text-gray-400 mb-4">
-            No animals added yet. Click "Add Animal" to start tracking.
+          <p className="text-gray-500 dark:text-gray-400 mb-3">
+            No animals added yet.
           </p>
+          <button
+            onClick={() => navigate(`/my-animals/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-lg transition-colors"
+          >
+            <Plus className="w-4 h-4" />
+            Add Animal
+          </button>
         </div>
       ) : (
         <div className="space-y-8">

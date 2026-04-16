@@ -29,6 +29,7 @@ import {
 } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import { usePremium } from '../../contexts/PremiumContext';
 import { Auth } from '../Auth';
 import { careTaskService } from '../../services/careTaskService';
 import { enclosureService } from '../../services/enclosureService';
@@ -270,6 +271,7 @@ TaskItem.displayName = 'TaskItem';
 
 export function CareCalendar() {
   const { user, loading: authLoading } = useAuth();
+  const { isPremium } = usePremium();
   const navigate = useNavigate();
   const location = useLocation();
   const [tasks, setTasks] = useState<CareTaskWithLogs[]>([]);
@@ -843,6 +845,15 @@ export function CareCalendar() {
                 >
                   <Plus className="w-4 h-4" />
                   Add Task
+                  {!isPremium && (
+                    <span className={`text-xs font-medium px-1.5 py-0.5 rounded-full ${
+                      tasks.filter(t => t.isActive).length >= 2
+                        ? 'bg-amber-400/30 text-amber-100'
+                        : 'bg-white/20 text-white/90'
+                    }`}>
+                      {tasks.filter(t => t.isActive).length}/2
+                    </span>
+                  )}
                 </button>
               </div>
             </div>

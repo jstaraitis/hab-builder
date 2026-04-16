@@ -245,10 +245,10 @@ export function UpgradePage() {
           </h3>
           <div className="text-sm text-gray-600 dark:text-gray-400 space-y-3">
             <p>
-              <strong>Free plan:</strong> Generate unlimited build plans, browse care guides, use the designer (no save/export)
+              <strong>Free plan:</strong> Unlimited build plans, care guides, and the enclosure designer. Plus 1 enclosure, 1 animal, and 2 care tasks to get started.
             </p>
             <p>
-              <strong>Premium plan:</strong> Everything above PLUS care tracking, health monitoring, smart reminders, and unlimited cloud-synced animals
+              <strong>Premium plan:</strong> Everything above PLUS unlimited animals &amp; enclosures, unlimited care tasks, health tracking, smart reminders, push notifications, and inventory management.
             </p>
             <p>
               Premium helps us keep the lights on while providing world-class care tools. 100% of proceeds go toward improving the app and adding new species.

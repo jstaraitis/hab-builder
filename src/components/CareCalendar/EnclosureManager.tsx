@@ -7,9 +7,10 @@ import type { Enclosure } from '../../types/careCalendar';
 
 interface EnclosureManagerProps {
   readonly onEnclosuresChanged?: () => void;
+  readonly isPremium?: boolean;
 }
 
-export function EnclosureManager({ onEnclosuresChanged }: Readonly<EnclosureManagerProps>) {
+export function EnclosureManager({ onEnclosuresChanged, isPremium }: Readonly<EnclosureManagerProps>) {
   const { user } = useAuth();
   const [enclosures, setEnclosures] = useState<Enclosure[]>([]);
   const [loading, setLoading] = useState(true);
@@ -66,7 +67,7 @@ export function EnclosureManager({ onEnclosuresChanged }: Readonly<EnclosureMana
         <button
           onClick={() => navigate(`/care-calendar/enclosures/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
           className="p-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 transition-colors"
-          title="Add Enclosure"
+          title={!isPremium && enclosures.length >= 1 ? 'Upgrade to add more enclosures' : 'Add Enclosure'}
         >
           <Plus className="w-5 h-5" />
         </button>

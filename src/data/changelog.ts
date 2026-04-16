@@ -7,6 +7,15 @@ export interface ChangelogEntry {
 
 export const changelogEntries: ChangelogEntry[] = [
   {
+    version: '2026.04.16',
+    date: '2026-04-16',
+    title: 'Free tier limits & nav cleanup',
+    highlights: [
+      'Free accounts now include 1 enclosure, 1 animal, and 2 care tasks — upgrade to Premium for unlimited access.',
+      'Free tier limits are now clearly shown on the Home page, Premium page, Upgrade page, and paywall.',
+    ],
+  },
+  {
     version: '2026.04.15',
     date: '2026-04-15',
     title: 'Apple iOS app released',
