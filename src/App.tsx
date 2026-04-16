@@ -123,7 +123,14 @@ function App() {
         />
       )}
 
-      <main className="max-w-7xl mx-auto px-4 py-4 lg:py-8" style={{ transform: `scale(${zoom / 100})`, transformOrigin: 'top center' }}>
+      <main
+        className="max-w-7xl mx-auto px-4 py-4 lg:py-8"
+        style={{
+          transform: `scale(${zoom / 100})`,
+          transformOrigin: 'top center',
+          paddingTop: isIOS ? 'calc(env(safe-area-inset-top) + 1rem)' : undefined,
+        }}
+      >
         <AppRoutes onOpenFeedback={() => setIsFeedbackOpen(true)} />
       </main>
 
