@@ -23,6 +23,16 @@
     padding-bottom: calc(5rem + env(safe-area-inset-bottom));
   }
 
+  /* Main content padding so fixed mobile nav never overlaps page content. */
+  .pb-mobile-nav {
+    padding-bottom: calc(6.5rem + env(safe-area-inset-bottom));
+  }
+
+  /* Bottom sheet safe-area padding for iOS home indicator. */
+  .pb-mobile-sheet {
+    padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+  }
+
   /* Hide scrollbar for Chrome, Safari and Opera */
   .scrollbar-hide::-webkit-scrollbar {
     display: none;

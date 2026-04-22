@@ -224,7 +224,6 @@ export function CareCalendar() {
   const [feedingTask, setFeedingTask] = useState<CareTask | null>(null);
   const [showFeedingModal, setShowFeedingModal] = useState(false);
   const [viewMode, setViewMode] = useState<ViewMode>('week');
-  const [expandedSections, setExpandedSections] = useState<Set<TimeBlock>>(new Set(['overdue', 'morning', 'afternoon', 'evening']));
   const [selectedTasks, setSelectedTasks] = useState<Set<string>>(new Set());
   const [selectionMode, setSelectionMode] = useState(false);
   const [swipedTask, setSwipedTask] = useState<string | null>(null);
@@ -419,18 +418,6 @@ export function CareCalendar() {
       future: Calendar,
     };
     return icons[block];
-  };
-
-  const toggleSection = (block: TimeBlock) => {
-    setExpandedSections(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(block)) {
-        newSet.delete(block);
-      } else {
-        newSet.add(block);
-      }
-      return newSet;
-    });
   };
 
   const completeBulkTasks = async (taskIds: string[]) => {
@@ -777,17 +764,14 @@ export function CareCalendar() {
             <div className="space-y-3 px-4">
               {visibleBlocks.map(block => {
                 const blockTasks = groupedTasks[block];
-                const isExpanded = expandedSections.has(block);
+                const isExpanded = true;
                 const isOverdue = block === 'overdue';
 
                 return (
                   <div key={block} className={`bg-card border rounded-2xl overflow-hidden ${isOverdue ? 'border-red-500/40' : 'border-divider'}`}>
                     {/* Section header */}
                     <div className={`flex items-center justify-between px-4 pt-3.5 pb-3 ${isExpanded ? 'border-b border-divider' : ''}`}>
-                      <button
-                        onClick={() => toggleSection(block)}
-                        className="flex items-center gap-2 flex-1 text-left"
-                      >
+                      <div className="flex items-center gap-2 flex-1 text-left">
                         {React.createElement(getTimeBlockIcon(block), {
                           className: `w-4 h-4 ${isOverdue ? 'text-red-400' : 'text-muted'}`
                         })}
@@ -795,8 +779,8 @@ export function CareCalendar() {
                           {getTimeBlockLabel(block)}
                         </span>
                         <span className="text-xs text-muted">({blockTasks.length})</span>
-                        <ChevronDown className={`w-4 h-4 text-muted transition-transform ml-auto ${isExpanded ? 'rotate-0' : '-rotate-90'}`} />
-                      </button>
+                        <ChevronDown className="w-4 h-4 text-muted ml-auto" />
+                      </div>
                       {isExpanded && blockTasks.length > 1 && (
                         <button
                           onClick={() => selectionMode

@@ -99,7 +99,7 @@ function App() {
       {/* Mobile progress indicator — hidden now, planner uses its own internal breadcrumb */}
 
       <main
-        className="max-w-7xl mx-auto px-4 py-4 lg:py-8"
+        className={`max-w-7xl mx-auto px-4 py-4 lg:py-8 ${isNative ? 'pb-mobile-nav' : ''}`}
         style={{
           transform: `scale(${zoom / 100})`,
           transformOrigin: 'top center',

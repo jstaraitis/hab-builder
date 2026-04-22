@@ -137,6 +137,11 @@ function getDaysAgoLabel(dateString: string): string {
   return `${diff}d ago`;
 }
 
+function isRecent(dateValue: Date | string, maxAgeDays: number): boolean {
+  const diff = Math.floor((Date.now() - new Date(dateValue).getTime()) / 86_400_000);
+  return diff <= maxAgeDays;
+}
+
 // sub-components
 interface EnvironmentSnapshotProps {
   enclosureName?: string;
@@ -321,14 +326,20 @@ interface AnimalHeroCardProps {
   age: string;
   weight: string;
   lastFed: string;
+  healthStatus: 'on-track' | 'needs-check';
+  healthStatusReason: string;
   onTap: () => void;
 }
 
-function AnimalHeroCard({ animal, speciesName, age, weight, lastFed, onTap }: AnimalHeroCardProps) {
+function AnimalHeroCard({ animal, speciesName, age, weight, lastFed, healthStatus, healthStatusReason, onTap }: AnimalHeroCardProps) {
   const displayName = animal.name || `Animal #${animal.animalNumber ?? 1}`;
   const gender = animal.gender?.toLowerCase();
   const genderIcon = gender === 'male' ? '♂' : gender === 'female' ? '♀' : null;
   const genderColor = gender === 'male' ? 'text-blue-400' : gender === 'female' ? 'text-pink-400' : 'text-muted';
+  const statusLabel = healthStatus === 'on-track' ? 'On-Track' : 'Needs Check';
+  const statusClassName = healthStatus === 'on-track'
+    ? 'text-accent bg-accent/15'
+    : 'text-amber-300 bg-amber-500/15';
 
   const stats = [
     { icon: <Calendar className="w-3.5 h-3.5 text-muted" />, label: 'Age', value: age },
@@ -355,7 +366,10 @@ function AnimalHeroCard({ animal, speciesName, age, weight, lastFed, onTap }: An
             <Heart className="w-3.5 h-3.5 text-accent flex-shrink-0" />
           </div>
           {speciesName && <p className="text-xs text-muted mb-2 truncate">{speciesName}</p>}
-          <span className="inline-block text-xs font-semibold text-accent bg-accent/15 px-2.5 py-0.5 rounded-full">Healthy</span>
+          <span className={`inline-block text-xs font-semibold px-2.5 py-0.5 rounded-full ${statusClassName}`}>{statusLabel}</span>
+          {healthStatus === 'needs-check' && (
+            <p className="mt-1 text-[11px] text-amber-200/90 truncate" title={healthStatusReason}>{healthStatusReason}</p>
+          )}
         </div>
       </div>
 
@@ -693,6 +707,36 @@ export function DashboardView() {
   const latestHumidityLog = humidityLogs.length > 0 ? humidityLogs[0] : null;
   const latestUvbLog = uvbLogs.length > 0 ? uvbLogs[0] : null;
 
+  const latestFeedingCompletion = animalTasks
+    .filter((t) => t.type === 'feeding' && t.lastCompleted)
+    .map((t) => t.lastCompleted)
+    .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())[0];
+  const latestWeightDate = weightLogs[0]?.measurementDate ? new Date(weightLogs[0].measurementDate) : null;
+  const latestPoopDate = poopLogs[0]?.loggedAt || null;
+  const logFreshnessDays = 14;
+  const healthCheckReasons: string[] = [];
+
+  if (!latestFeedingCompletion) {
+    healthCheckReasons.push('Missing feeding log');
+  } else if (!isRecent(latestFeedingCompletion, logFreshnessDays)) {
+    healthCheckReasons.push(`Feeding log is older than ${logFreshnessDays} days`);
+  }
+
+  if (!latestWeightDate) {
+    healthCheckReasons.push('Missing weight log');
+  } else if (!isRecent(latestWeightDate, logFreshnessDays)) {
+    healthCheckReasons.push(`Weight log is older than ${logFreshnessDays} days`);
+  }
+
+  if (!latestPoopDate) {
+    healthCheckReasons.push('Missing poop log');
+  } else if (!isRecent(latestPoopDate, logFreshnessDays)) {
+    healthCheckReasons.push(`Poop log is older than ${logFreshnessDays} days`);
+  }
+
+  const healthStatus: 'on-track' | 'needs-check' = healthCheckReasons.length === 0 ? 'on-track' : 'needs-check';
+  const healthStatusReason = healthStatus === 'on-track' ? `All core logs are recent (${logFreshnessDays}d)` : healthCheckReasons.join(' • ');
+
   if (loading) {
     return (
       <div className="min-h-screen bg-surface pb-28">
@@ -764,7 +808,7 @@ export function DashboardView() {
             onOpen={() => navigate(`/care-calendar/enclosures/${selectedEnclosure.id}/environment`)}
           />
         )}
-        <AnimalHeroCard animal={selectedAnimal} speciesName={speciesName} age={age} weight={weight} lastFed={lastFed} onTap={() => navigate(`/my-animals/${selectedAnimal.id}`)} />
+        <AnimalHeroCard animal={selectedAnimal} speciesName={speciesName} age={age} weight={weight} lastFed={lastFed} healthStatus={healthStatus} healthStatusReason={healthStatusReason} onTap={() => navigate(`/my-animals/${selectedAnimal.id}`)} />
         <TodayCarePlan tasks={animalTasks} completedIds={completedIds} onComplete={handleCompleteTask} />
         <HealthWellness
           weight={weight}

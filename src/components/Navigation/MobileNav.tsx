@@ -16,13 +16,18 @@ import {
   Download,
   Gem,
   Scale,
-  Leaf,
+  Ruler,
+  Stethoscope,
+  UtensilsCrossed,
+  ClipboardList,
   BarChart2,
   type LucideIcon,
 } from 'lucide-react';
-import { useState, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { isOwner } from '../../utils/ownerAccess';
+import { enclosureAnimalService } from '../../services/enclosureAnimalService';
+import type { EnclosureAnimal } from '../../types/careCalendar';
 
 interface MobileNavProps {
   onOpenFeedback?: () => void;
@@ -34,41 +39,62 @@ interface MobileNavProps {
    Quick-action FAB sheet items
 ──────────────────────────────────────────────────────────────────── */
 interface FabAction {
+  id: 'new-task' | 'log-feeding' | 'log-weight' | 'log-length' | 'log-poop' | 'log-shedding' | 'log-medical';
   label: string;
   description: string;
   icon: LucideIcon;
   color: string;
-  path: string;
 }
 
 const FAB_ACTIONS: FabAction[] = [
   {
-    label: 'Log Feeding',
-    description: 'Record what your animal ate',
-    icon: Scale,
-    color: 'bg-amber-500/20 text-amber-400',
-    path: '/care-calendar',
+    id: 'new-task',
+    label: 'New Task',
+    description: 'Create a care task quickly',
+    icon: CalendarCheck,
+    color: 'bg-accent/20 text-accent',
   },
   {
+    id: 'log-feeding',
+    label: 'Log Feeding',
+    description: 'Jump to feeding logs',
+    icon: UtensilsCrossed,
+    color: 'bg-amber-500/20 text-amber-400',
+  },
+  {
+    id: 'log-weight',
     label: 'Log Weight',
-    description: 'Track growth over time',
+    description: 'Open weight entry form',
     icon: Scale,
     color: 'bg-blue-500/20 text-blue-400',
-    path: '/my-animals',
   },
   {
-    label: 'Log Shed',
-    description: 'Record a shedding event',
-    icon: Leaf,
-    color: 'bg-purple-500/20 text-purple-400',
-    path: '/my-animals',
+    id: 'log-length',
+    label: 'Log Length',
+    description: 'Open length entry form',
+    icon: Ruler,
+    color: 'bg-violet-500/20 text-violet-300',
   },
   {
-    label: 'Start a New Plan',
-    description: 'Build an enclosure plan',
-    icon: Worm,
-    color: 'bg-accent/20 text-accent',
-    path: '/animal',
+    id: 'log-poop',
+    label: 'Log Poop',
+    description: 'Open poop log form',
+    icon: ClipboardList,
+    color: 'bg-emerald-500/20 text-emerald-300',
+  },
+  {
+    id: 'log-shedding',
+    label: 'Log Shedding',
+    description: 'Open shedding log form',
+    icon: Sparkles,
+    color: 'bg-indigo-500/20 text-indigo-300',
+  },
+  {
+    id: 'log-medical',
+    label: 'Log Medical',
+    description: 'Open medical record form',
+    icon: Stethoscope,
+    color: 'bg-rose-500/20 text-rose-300',
   },
 ];
 
@@ -106,6 +132,10 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
 
   const [showMore, setShowMore] = useState(false);
   const [showFab, setShowFab] = useState(false);
+  const [showAnimalPicker, setShowAnimalPicker] = useState(false);
+  const [pickerAction, setPickerAction] = useState<Exclude<FabAction['id'], 'new-task'> | null>(null);
+  const [animals, setAnimals] = useState<EnclosureAnimal[]>([]);
+  const [animalsLoading, setAnimalsLoading] = useState(false);
 
   const dragStartY = useRef(0);
   const [dragY, setDragY] = useState(0);
@@ -148,21 +178,165 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
     transition: dragging ? 'none' : 'transform 0.3s ease-out',
   };
 
+  useEffect(() => {
+    if (!showAnimalPicker || !user) return;
+
+    let mounted = true;
+    setAnimalsLoading(true);
+    enclosureAnimalService.getAllUserAnimals(user.id)
+      .then((data) => {
+        if (!mounted) return;
+        setAnimals(data);
+      })
+      .catch(() => {
+        if (!mounted) return;
+        setAnimals([]);
+      })
+      .finally(() => {
+        if (!mounted) return;
+        setAnimalsLoading(false);
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, [showAnimalPicker, user]);
+
+  const getLastAnimalId = (): string | null => {
+    try {
+      return localStorage.getItem('hb:lastAnimalId');
+    } catch {
+      return null;
+    }
+  };
+
+  const getFabPath = (actionId: FabAction['id'], animalId?: string): string => {
+    const targetAnimalId = animalId || getLastAnimalId();
+    switch (actionId) {
+      case 'new-task':
+        return '/care-calendar/tasks/add?returnTo=%2Fcare-calendar';
+      case 'log-feeding':
+        return targetAnimalId ? `/my-animals/${targetAnimalId}?tab=care` : '/care-calendar';
+      case 'log-weight':
+        return targetAnimalId ? `/my-animals/${targetAnimalId}?tab=growth&open=weight` : '/my-animals';
+      case 'log-length':
+        return targetAnimalId ? `/my-animals/${targetAnimalId}?tab=growth&open=length` : '/my-animals';
+      case 'log-poop':
+        return targetAnimalId ? `/my-animals/${targetAnimalId}?tab=care&open=poop` : '/my-animals';
+      case 'log-shedding':
+        return targetAnimalId ? `/my-animals/${targetAnimalId}?tab=shedding&open=shed` : '/my-animals';
+      case 'log-medical':
+        return targetAnimalId ? `/my-animals/${targetAnimalId}?tab=health&open=medical` : '/my-animals';
+      default:
+        return '/';
+    }
+  };
+
+  const handleFabAction = (actionId: FabAction['id']) => {
+    if (actionId === 'new-task') {
+      navigate(getFabPath(actionId));
+      setShowFab(false);
+      return;
+    }
+
+    setPickerAction(actionId);
+    setShowFab(false);
+    setShowAnimalPicker(true);
+  };
+
+  const handleAnimalSelect = (animalId: string) => {
+    if (!pickerAction) return;
+    navigate(getFabPath(pickerAction, animalId));
+    setShowAnimalPicker(false);
+    setPickerAction(null);
+  };
+
+  const pickerTitle = pickerAction === 'log-feeding'
+    ? 'Select Animal for Feeding Log'
+    : pickerAction === 'log-weight'
+      ? 'Select Animal for Weight Log'
+      : pickerAction === 'log-length'
+        ? 'Select Animal for Length Log'
+        : pickerAction === 'log-shedding'
+          ? 'Select Animal for Shedding Log'
+          : pickerAction === 'log-medical'
+            ? 'Select Animal for Medical Log'
+            : 'Select Animal for Poop Log';
+
   return (
     <>
-      {(showMore || showFab) && (
+      {(showMore || showFab || showAnimalPicker) && (
         <button
           type="button"
           aria-label="Close menu"
           className={`fixed inset-0 bg-black/60 z-40 ${isNative ? 'block' : 'lg:hidden'}`}
-          onClick={() => { setShowMore(false); setShowFab(false); }}
+          onClick={() => { setShowMore(false); setShowFab(false); setShowAnimalPicker(false); setPickerAction(null); }}
         />
+      )}
+
+      {showAnimalPicker && (
+        <div className={`fixed bottom-0 left-0 right-0 z-50 ${isNative ? 'block' : 'lg:hidden'} animate-sheet-up`}>
+          <div
+            className="bg-card rounded-t-3xl border-t border-divider shadow-2xl pb-mobile-sheet"
+            style={sheetStyle}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div className="flex justify-center pt-3 pb-2">
+              <div className="w-10 h-1 bg-divider rounded-full" />
+            </div>
+            <div className="flex items-center justify-between px-5 py-3 border-b border-divider">
+              <span className="text-base font-bold text-white">{pickerTitle}</span>
+              <button onClick={() => { setShowAnimalPicker(false); setPickerAction(null); }} className="p-2 hover:bg-card-elevated rounded-full transition-colors">
+                <X className="w-5 h-5 text-muted" />
+              </button>
+            </div>
+
+            <div className="p-3 max-h-[65vh] overflow-y-auto">
+              {animalsLoading && (
+                <p className="text-sm text-muted px-1 py-3">Loading animals...</p>
+              )}
+
+              {!animalsLoading && animals.length === 0 && (
+                <div className="rounded-2xl border border-divider bg-card-elevated p-4 text-sm text-muted">
+                  No animals found yet. Add an animal first to use quick logging.
+                </div>
+              )}
+
+              {!animalsLoading && animals.length > 0 && (
+                <div className="grid grid-cols-2 gap-3">
+                  {animals.map((animal) => (
+                    <button
+                      key={animal.id}
+                      type="button"
+                      onClick={() => handleAnimalSelect(animal.id)}
+                      className="text-left rounded-2xl border border-divider bg-card-elevated hover:bg-white/5 transition-colors overflow-hidden"
+                    >
+                      <div className="w-full h-28 border-b border-divider bg-card flex items-center justify-center overflow-hidden">
+                        {animal.photoUrl ? (
+                          <img src={animal.photoUrl} alt={animal.name || `Animal #${animal.animalNumber ?? 1}`} className="w-full h-full object-cover" />
+                        ) : (
+                          <Turtle className="w-8 h-8 text-muted" />
+                        )}
+                      </div>
+                      <div className="px-3 py-2.5">
+                        <div className="text-sm font-semibold text-white truncate">{animal.name || `#${animal.animalNumber ?? 1}`}</div>
+                        <div className="text-xs text-muted mt-0.5 truncate">{animal.morph || (animal.enclosureId ? 'Assigned to enclosure' : 'Animal profile')}</div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       )}
 
       {showMore && (
         <div className={`fixed bottom-0 left-0 right-0 z-50 ${isNative ? 'block' : 'lg:hidden'} animate-sheet-up`}>
           <div
-            className="bg-card rounded-t-3xl border-t border-divider shadow-2xl pb-24"
+            className="bg-card rounded-t-3xl border-t border-divider shadow-2xl pb-mobile-sheet"
             style={sheetStyle}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -221,7 +395,7 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
       {showFab && (
         <div className={`fixed bottom-0 left-0 right-0 z-50 ${isNative ? 'block' : 'lg:hidden'} animate-sheet-up`}>
           <div
-            className="bg-card rounded-t-3xl border-t border-divider shadow-2xl pb-24"
+            className="bg-card rounded-t-3xl border-t border-divider shadow-2xl pb-mobile-sheet"
             style={sheetStyle}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -236,13 +410,13 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
                 <X className="w-5 h-5 text-muted" />
               </button>
             </div>
-            <div className="p-4 grid grid-cols-2 gap-3">
+            <div className="p-4 grid grid-cols-2 gap-3 max-h-[65vh] overflow-y-auto">
               {FAB_ACTIONS.map((action) => {
                 const Icon = action.icon;
                 return (
                   <button
                     key={action.label}
-                    onClick={() => { navigate(action.path); setShowFab(false); }}
+                    onClick={() => handleFabAction(action.id)}
                     className="flex flex-col items-start gap-2 p-4 rounded-2xl bg-card-elevated hover:bg-white/5 transition-colors text-left"
                   >
                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${action.color}`}>

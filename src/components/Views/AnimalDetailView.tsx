@@ -11,7 +11,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useLocation, useNavigate, useParams, Link, useSearchParams } from 'react-router-dom';
 import type { LucideIcon } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { 
@@ -124,6 +124,8 @@ export function AnimalDetailView() {
   const { animalId } = useParams<{ animalId: string }>();
   const { user } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
   
   // Core data state (fast load)
   const [animal, setAnimal] = useState<EnclosureAnimal | null>(null);
@@ -166,6 +168,7 @@ export function AnimalDetailView() {
   const [poopConsistency, setPoopConsistency] = useState<PoopLog['consistency']>('normal');
   const [poopNotes, setPoopNotes] = useState('');
   const [savingPoop, setSavingPoop] = useState(false);
+  const [quickOpenApplied, setQuickOpenApplied] = useState(false);
 
   // Refresh handler for child components
   const handleRefresh = () => {
@@ -179,6 +182,71 @@ export function AnimalDetailView() {
       loadAnimalData();
     }
   }, [user, animalId, refreshKey]);
+
+  useEffect(() => {
+    if (!animalId) return;
+    try {
+      localStorage.setItem('hb:lastAnimalId', animalId);
+    } catch {
+      // Ignore storage errors in constrained browser contexts.
+    }
+  }, [animalId]);
+
+  useEffect(() => {
+    setQuickOpenApplied(false);
+  }, [location.search]);
+
+  useEffect(() => {
+    if (!animal || quickOpenApplied) return;
+
+    const tabParam = searchParams.get('tab');
+    const openParam = searchParams.get('open');
+
+    if (tabParam === 'overview' || tabParam === 'tasks' || tabParam === 'care' || tabParam === 'growth' || tabParam === 'health' || tabParam === 'shedding' || tabParam === 'brumation' || tabParam === 'info') {
+      setActiveTab(tabParam);
+    }
+
+    if (openParam === 'weight') {
+      setActiveTab('growth');
+      setShowLengthForm(false);
+      setShowPoopForm(false);
+      setShowWeightForm(true);
+    }
+
+    if (openParam === 'length') {
+      setActiveTab('growth');
+      setShowWeightForm(false);
+      setShowPoopForm(false);
+      setShowLengthForm(true);
+    }
+
+    if (openParam === 'poop') {
+      setActiveTab('care');
+      setShowWeightForm(false);
+      setShowLengthForm(false);
+      setShowPoopForm(true);
+    }
+
+    if (openParam === 'shed') {
+      setActiveTab('shedding');
+      setShowWeightForm(false);
+      setShowLengthForm(false);
+      setShowPoopForm(false);
+      setShowVetForm(false);
+      setShowShedForm(true);
+    }
+
+    if (openParam === 'medical') {
+      setActiveTab('health');
+      setShowWeightForm(false);
+      setShowLengthForm(false);
+      setShowPoopForm(false);
+      setShowShedForm(false);
+      setShowVetForm(true);
+    }
+
+    setQuickOpenApplied(true);
+  }, [animal, quickOpenApplied, searchParams]);
 
   const loadAnimalData = async () => {
     if (!animalId || !user) return;
