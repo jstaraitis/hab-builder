@@ -1,7 +1,8 @@
-import React, { useState, useEffect, memo } from 'react';
+﻿import React, { useState, useEffect, memo } from 'react';
 import { 
   Pencil, 
-  Check, 
+  Check,
+  CheckCircle2,
   UtensilsCrossed, 
   Droplets, 
   Waves, 
@@ -24,7 +25,6 @@ import {
   CalendarDays,
   CalendarClock,
   BarChart3,
-  MoreVertical,
   type LucideIcon
 } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -119,149 +119,89 @@ const TaskItem = memo(({
   return (
     <div className="relative overflow-hidden">
       {/* Swipe Action Background */}
-      <div className="absolute inset-0 sm:hidden flex items-center justify-end px-4 bg-emerald-500">
+      <div className="absolute inset-0 sm:hidden flex items-center justify-end px-4 bg-accent">
         <div className="flex items-center gap-2 text-white font-semibold">
           <Check className="w-5 h-5" />
           <span>Complete</span>
         </div>
       </div>
       
-      {/* Task Content (swipeable) */}
+      {/* Task Content */}
       <div
-        className="relative bg-white dark:bg-gray-900 p-3 transition-colors touch-pan-y"
-        style={{ 
-          transform: swipeTransform,
-          transition: isBeingSwiped ? 'none' : 'transform 0.3s ease'
-        }}
+        className="relative bg-card px-4 py-3 touch-pan-y"
+        style={{ transform: swipeTransform, transition: isBeingSwiped ? 'none' : 'transform 0.3s ease' }}
         onTouchStart={(e) => onTouchStart(e, task.id)}
         onTouchMove={onTouchMove}
         onTouchEnd={(e) => onTouchEnd(e, task.id)}
       >
-        <div className="flex items-start gap-3">
-          {/* Checkbox for selection mode */}
+        <div className="flex items-center gap-3">
           {selectionMode && (
             <input
               type="checkbox"
               checked={selectedTasks.has(task.id)}
               onChange={() => onToggleSelection(task.id)}
-              className="mt-2 w-4 h-4 text-emerald-600 border-gray-300 rounded focus:ring-emerald-500"
+              className="w-4 h-4 text-accent border-gray-300 rounded"
             />
           )}
 
           {/* Icon */}
-          <div className={`p-2 rounded-lg shrink-0 ${
-            isOverdue 
-              ? 'bg-red-100 dark:bg-red-900/30' 
-              : isDueToday
-              ? 'bg-emerald-100 dark:bg-emerald-900/30'
-              : 'bg-gray-100 dark:bg-gray-700'
+          <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 ${
+            isOverdue ? 'bg-red-500/15' : isDueToday ? 'bg-accent/15' : 'bg-card-elevated'
           }`}>
-            {React.createElement(getTaskIcon(task.type), { 
-              className: `w-4 h-4 ${
-                isOverdue 
-                  ? 'text-red-600 dark:text-red-400' 
-                  : isDueToday
-                  ? 'text-emerald-600 dark:text-emerald-400'
-                  : 'text-gray-600 dark:text-gray-400'
-              }` 
+            {React.createElement(getTaskIcon(task.type), {
+              className: `w-4 h-4 ${isOverdue ? 'text-red-400' : isDueToday ? 'text-accent' : 'text-muted'}`
             })}
           </div>
 
           {/* Content */}
           <div className="flex-1 min-w-0">
-            <div className="flex items-start justify-between gap-2 mb-1">
-              <div className="flex-1 min-w-0">
-                <h3 className="text-sm font-semibold text-gray-900 dark:text-white truncate">
-                  {task.title || 'Untitled Task'}
-                </h3>
-                <div className="flex items-center gap-1.5 text-xs text-gray-600 dark:text-gray-400 flex-wrap">
-                  {task.enclosureId && (
-                    <span>{getEnclosureName(task.enclosureId)}</span>
-                  )}
-                  {task.enclosureAnimalId && (() => {
-                    const animalName = getAnimalName(task.enclosureAnimalId);
-                    return (
-                      <>
-                        <span>•</span>
-                        <span className="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full font-medium">
-                          {animalName}
-                        </span>
-                      </>
-                    );
-                  })()}
-                  {task.scheduledTime && (
-                    <>
-                      <span>•</span>
-                      <span>{formatTime(task.scheduledTime)}</span>
-                    </>
-                  )}
-                  <span>•</span>
-                  <span className="px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium">
-                    {formatTaskFrequencySummary(task)}
-                  </span>
-                  {task.lastCompleted && (
-                    <>
-                      <span>•</span>
-                      <span>
-                        Last: {new Date(task.lastCompleted).toLocaleDateString()}
-                      </span>
-                    </>
-                  )}
-                  {task.streak > 0 && (
-                    <>
-                      <span>•</span>
-                      <span className="inline-flex items-center gap-1 text-orange-600 dark:text-orange-400 font-semibold">
-                        <Flame className="w-3 h-3" />
-                        {task.streak} consecutive completion{task.streak === 1 ? '' : 's'}
-                      </span>
-                    </>
-                  )}
-                  {task.description && (
-                    <>
-                      <span>•</span>
-                      <span className="truncate">{task.description}</span>
-                    </>
-                  )}
-                </div>
-              </div>
+            <p className="text-sm font-semibold text-white truncate">{task.title || 'Untitled Task'}</p>
+            <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
+              {task.enclosureId && (
+                <span className="text-[10px] text-muted truncate">{getEnclosureName(task.enclosureId)}</span>
+              )}
+              {task.enclosureAnimalId && (
+                <span className="text-[10px] font-medium px-1.5 py-0.5 bg-accent/15 text-accent rounded-full">
+                  {getAnimalName(task.enclosureAnimalId)}
+                </span>
+              )}
+              {task.scheduledTime && (
+                <span className="text-[10px] text-muted">{formatTime(task.scheduledTime)}</span>
+              )}
+              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-card-elevated text-muted">
+                {formatTaskFrequencySummary(task)}
+              </span>
+              {task.streak > 0 && (
+                <span className="text-[10px] inline-flex items-center gap-0.5 text-orange-400 font-semibold">
+                  <Flame className="w-2.5 h-2.5" />
+                  {task.streak}
+                </span>
+              )}
             </div>
+            {task.notes && (
+              <p className="text-xs text-muted mt-1 truncate">{task.notes}</p>
+            )}
           </div>
 
           {/* Actions */}
-          <div className="flex items-center gap-2 shrink-0">
-            {!selectionMode && (
-              <>
-                <button
-                  onClick={() => onEdit(task.id)}
-                  className="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                >
-                  <Pencil className="w-3.5 h-3.5 text-gray-400" />
-                </button>
-                <button
-                  onClick={() => onComplete(task.id)}
-                  className="p-1.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg transition-colors flex items-center justify-center"
-                  title="Mark as done"
-                >
-                  <Check className="w-4 h-4" />
-                </button>
-              </>
-            )}
-          </div>
+          {!selectionMode && (
+            <div className="flex items-center gap-1.5 flex-shrink-0">
+              <button
+                onClick={() => onEdit(task.id)}
+                className="p-1.5 hover:bg-card-elevated rounded-lg transition-colors"
+              >
+                <Pencil className="w-3.5 h-3.5 text-muted" />
+              </button>
+              <button
+                onClick={() => onComplete(task.id)}
+                className="p-1.5 bg-accent text-on-accent rounded-lg transition-colors"
+                title="Mark as done"
+              >
+                <Check className="w-4 h-4" />
+              </button>
+            </div>
+          )}
         </div>
-
-        {/* Additional Details */}
-        {!selectionMode && task.notes && (
-          <div className="mt-2 pt-2 border-t border-gray-200 dark:border-gray-700 space-y-2">
-            {/* Notes */}
-            {task.notes && (
-              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-2 border-l-2 border-blue-400">
-                <p className="text-xs text-gray-700 dark:text-gray-300">
-                  <span className="font-medium">Note: </span>{task.notes}
-                </p>
-              </div>
-            )}
-          </div>
-        )}
       </div>
     </div>
   );
@@ -278,6 +218,7 @@ export function CareCalendar() {
   const [enclosures, setEnclosures] = useState<Enclosure[]>([]);
   const [animals, setAnimals] = useState<EnclosureAnimal[]>([]); // All animals from all enclosures
   const [filterEnclosureId, setFilterEnclosureId] = useState<string>('');
+  const [filterAnimalId, setFilterAnimalId] = useState<string>('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [feedingTask, setFeedingTask] = useState<CareTask | null>(null);
@@ -288,7 +229,6 @@ export function CareCalendar() {
   const [selectionMode, setSelectionMode] = useState(false);
   const [swipedTask, setSwipedTask] = useState<string | null>(null);
   const [swipeOffset, setSwipeOffset] = useState(0);
-  const [showMenu, setShowMenu] = useState(false);
 
   // ALL HOOKS MUST BE CALLED BEFORE ANY RETURNS
   useEffect(() => {
@@ -299,26 +239,13 @@ export function CareCalendar() {
     }
   }, [user, location.key]);
 
-  // Close menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (showMenu && !target.closest('.menu-container')) {
-        setShowMenu(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [showMenu]);
-
   // Show auth screen if not logged in
   if (authLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 dark:text-gray-400">Loading...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent mx-auto mb-4"></div>
+          <p className="text-muted">Loading...</p>
         </div>
       </div>
     );
@@ -326,7 +253,7 @@ export function CareCalendar() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800 py-12">
+      <div className="min-h-screen bg-surface py-12">
         <Auth />
       </div>
     );
@@ -591,6 +518,12 @@ export function CareCalendar() {
     ? tasks.filter(t => !t.enclosureId) // Show tasks without enclosure
     : tasks.filter(t => t.enclosureId === filterEnclosureId); // Show specific enclosure
 
+  if (filterAnimalId !== '') {
+    filteredTasks = filterAnimalId === 'none'
+      ? filteredTasks.filter(t => !t.enclosureAnimalId)
+      : filteredTasks.filter(t => t.enclosureAnimalId === filterAnimalId);
+  }
+
   // Apply view mode filter
   const now = new Date();
   const today = new Date(now);
@@ -689,348 +622,275 @@ export function CareCalendar() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 dark:text-gray-400">Loading care tasks...</p>
+      <div className="min-h-screen bg-surface pb-28">
+        <div className="animate-pulse space-y-4 px-4 pt-16">
+          <div className="h-10 bg-card rounded-2xl w-40" />
+          <div className="h-8 bg-card rounded-xl w-64" />
+          <div className="h-36 bg-card rounded-2xl" />
+          <div className="h-48 bg-card rounded-2xl" />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-4 sm:p-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-          Care Tasks
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400">
-          Manage your pets and their care tasks
-        </p>
+    <div className="min-h-screen bg-surface pb-28">
+      {/* Sticky header */}
+      <div className="sticky top-0 z-20 bg-surface/95 backdrop-blur-sm px-4 pt-4 pb-3 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Calendar className="w-5 h-5 text-accent" />
+          <h1 className="text-lg font-bold text-white">Care Tasks</h1>
+        </div>
+        <div className="flex items-center gap-2">
+          {enclosures.length > 0 && (
+            <button
+              onClick={() => navigate(`/care-calendar/tasks/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
+              className="flex items-center gap-1.5 bg-accent text-on-accent font-semibold px-3 py-1.5 rounded-full text-sm active:scale-95 transition-transform"
+            >
+              <Plus className="w-4 h-4" />
+              Add Task
+              {!isPremium && (
+                <span className={`text-xs font-medium px-1.5 py-0.5 rounded-full ${
+                  tasks.filter(t => t.isActive).length >= 2
+                    ? 'bg-amber-400/30 text-amber-100'
+                    : 'bg-white/10 text-white/80'
+                }`}>
+                  {tasks.filter(t => t.isActive).length}/2
+                </span>
+              )}
+            </button>
+          )}
+          <button
+            onClick={() => setViewMode(viewMode === 'analytics' ? 'week' : 'analytics')}
+            className={`w-9 h-9 rounded-full border flex items-center justify-center active:scale-95 transition-transform ${
+              viewMode === 'analytics' ? 'bg-accent border-accent text-on-accent' : 'bg-card border-divider'
+            }`}
+          >
+            <BarChart3 className={`w-4 h-4 ${viewMode === 'analytics' ? 'text-on-accent' : 'text-muted'}`} />
+          </button>
+        </div>
       </div>
 
-      {/* Show Analytics if selected */}
       {viewMode === 'analytics' ? (
-        <div>
-          {/* Back Button */}
-          <button
-            onClick={() => setViewMode('today')}
-            className="mb-4 text-sm text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"
-          >
-            ← Back to Tasks
-          </button>
+        <div className="px-4 pt-2">
           <CareAnalyticsDashboard />
         </div>
       ) : (
-        <>
-          {/* Getting Started Guide (shown when no enclosures) */}
-          {enclosures.length === 0 && !error && (
-            <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-6 mb-8">
-              <h2 className="text-lg font-semibold text-emerald-900 dark:text-emerald-100 mb-4 flex items-center gap-2">
-                <Hand className="w-5 h-5" />
-                Welcome to Care Tasks!
-              </h2>
-              <div className="space-y-3 text-emerald-800 dark:text-emerald-200">
-                <p>
-                  <strong>Step 1:</strong> Create your first pet enclosure below
-                </p>
-                <p>
-                  <strong>Step 2:</strong> Add care tasks for that pet
-                </p>
-                <p>
-                  <strong>Step 3:</strong> Track completions and build your completion streak!
-                </p>
-              </div>
-            </div>
-          )}
-
-      {/* Tasks Section */}
-      <div className="pt-8 border-t border-gray-200 dark:border-gray-700">
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-            Care Tasks
-          </h2>
+        <div className="space-y-4 pt-2">
+          {/* Filters */}
           {enclosures.length > 0 && (
-            <div className="space-y-4">
-              {/* Compact Single Row Filter */}
-              <div className="flex items-center gap-2">
-                {/* View Mode Dropdown */}
-                <select
-                  value={viewMode}
-                  onChange={(e) => setViewMode(e.target.value as ViewMode)}
-                  className="px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm font-medium shadow-sm focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-400"
-                >
-                  <option value="today">Today</option>
-                  <option value="week">This Week</option>
-                  <option value="all">All Tasks</option>
-                </select>
-
-                {/* Pet Filter */}
-                <select
-                  value={filterEnclosureId}
-                  onChange={(e) => setFilterEnclosureId(e.target.value)}
-                  className="flex-1 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm shadow-sm focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-400"
-                >
-                  <option value="">All Pets</option>
-                  {enclosures.map(enc => (
-                    <option key={enc.id} value={enc.id}>
-                      {enc.name}
-                    </option>
-                  ))}
-                </select>
-
-                {/* Menu Button */}
-                <div className="relative menu-container">
+            <div className="flex flex-col gap-2 px-4">
+              {/* Time filter tabs */}
+              <div className="flex gap-2 overflow-x-auto scrollbar-hide">
+                {(['today', 'week', 'all'] as const).map((mode) => (
                   <button
-                    onClick={() => setShowMenu(!showMenu)}
-                    className="p-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                    title="More options"
+                    key={mode}
+                    onClick={() => setViewMode(mode)}
+                    className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
+                      viewMode === mode ? 'bg-accent text-on-accent' : 'bg-card text-muted border border-divider'
+                    }`}
                   >
-                    <MoreVertical className="w-5 h-5" />
+                    {mode === 'today' ? 'Today' : mode === 'week' ? 'This Week' : 'All Tasks'}
                   </button>
-                  
-                  {/* Dropdown Menu */}
-                  {showMenu && (
-                    <div className="absolute right-0 mt-2 w-48 rounded-lg shadow-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 z-50">
-                      <div className="py-1">
-                        {filteredTasks.length > 0 && (
-                          <button
-                            onClick={() => {
-                              setSelectionMode(!selectionMode);
-                              if (selectionMode) {
-                                setSelectedTasks(new Set());
-                              }
-                              setShowMenu(false);
-                            }}
-                            className="w-full px-4 py-2 text-left text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2"
-                          >
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                            </svg>
-                            {selectionMode ? 'Cancel Selection' : 'Select Tasks'}
-                          </button>
-                        )}
-                        <button
-                          onClick={() => {
-                            setViewMode('analytics');
-                            setShowMenu(false);
-                          }}
-                          className="w-full px-4 py-2 text-left text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2"
-                        >
-                          <BarChart3 className="w-4 h-4" />
-                          Analytics
-                        </button>
-                      </div>
-                    </div>
-                  )}
-                </div>
+                ))}
               </div>
-
-              {/* Reliability Badge (if exists) */}
-              <div className="flex flex-col gap-3">
-                <div className="flex items-center gap-2">
-                  {reliabilityTotals.expected > 0 && (
-                    <div className="px-3 py-2 rounded-lg border border-emerald-200/70 dark:border-emerald-900/50 bg-emerald-50/70 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 text-xs font-semibold flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5" />
-                      <span>Reliability {reliabilityScore}%</span>
-                      <span className="text-emerald-600/80 dark:text-emerald-300/80">30d</span>
-                    </div>
-                  )}
+              {/* Enclosure filter pills */}
+              {enclosures.length > 1 && (
+                <div className="flex gap-2 overflow-x-auto scrollbar-hide">
+                  <button
+                    onClick={() => setFilterEnclosureId('')}
+                    className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                      filterEnclosureId === '' ? 'bg-card-elevated text-white border border-accent/30' : 'bg-card text-muted border border-divider'
+                    }`}
+                  >
+                    All Pets
+                  </button>
+                  {enclosures.map((enc) => (
+                    <button
+                      key={enc.id}
+                      onClick={() => setFilterEnclosureId(enc.id)}
+                      className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                        filterEnclosureId === enc.id ? 'bg-card-elevated text-white border border-accent/30' : 'bg-card text-muted border border-divider'
+                      }`}
+                    >
+                      {enc.name}
+                    </button>
+                  ))}
                 </div>
+              )}
 
-                <button
-                  onClick={() => navigate(`/care-calendar/tasks/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-                  className="w-full lg:w-fit px-4 py-2.5 sm:py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-colors text-sm flex items-center justify-center gap-2 shadow-sm"
-                >
-                  <Plus className="w-4 h-4" />
-                  Add Task
-                  {!isPremium && (
-                    <span className={`text-xs font-medium px-1.5 py-0.5 rounded-full ${
-                      tasks.filter(t => t.isActive).length >= 2
-                        ? 'bg-amber-400/30 text-amber-100'
-                        : 'bg-white/20 text-white/90'
-                    }`}>
-                      {tasks.filter(t => t.isActive).length}/2
-                    </span>
-                  )}
-                </button>
+              {animals.length > 0 && (
+                <div className="relative">
+                  <select
+                    value={filterAnimalId}
+                    onChange={(e) => setFilterAnimalId(e.target.value)}
+                    className="w-full appearance-none h-10 pl-3 pr-10 rounded-xl bg-card border border-divider text-white text-sm font-medium focus:outline-none focus:border-accent/50"
+                  >
+                    <option value="">All Animals</option>
+                    <option value="none">Unassigned</option>
+                    {animals.map((animal) => (
+                      <option key={animal.id} value={animal.id}>
+                        {animal.name || `Animal #${animal.animalNumber || '?'}`}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="w-4 h-4 text-muted absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                </div>
+              )}
+
+              {/* Reliability badge */}
+              {reliabilityTotals.expected > 0 && (
+                <div className="flex items-center gap-2">
+                  <div className="px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-semibold flex items-center gap-1.5">
+                    <Check className="w-3.5 h-3.5" />
+                    {reliabilityScore}% reliable (30d)
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Getting started — no enclosures */}
+          {enclosures.length === 0 && !error && (
+            <div className="mx-4 bg-card border border-divider rounded-2xl p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <Hand className="w-4 h-4 text-accent" />
+                <h2 className="text-sm font-semibold text-white">Welcome to Care Tasks!</h2>
+              </div>
+              <div className="space-y-2 text-xs text-muted">
+                <p><span className="text-white font-medium">Step 1:</span> Create your first pet enclosure</p>
+                <p><span className="text-white font-medium">Step 2:</span> Add recurring care tasks</p>
+                <p><span className="text-white font-medium">Step 3:</span> Complete tasks to build your streak!</p>
               </div>
             </div>
           )}
-        </div>
 
-        {/* No enclosure message */}
-        {enclosures.length === 0 && (
-          <div className="bg-gray-50 dark:bg-gray-800 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-700 p-8 text-center">
-            <p className="text-gray-600 dark:text-gray-400">
-              Create a pet enclosure above to start adding care tasks
-            </p>
-          </div>
-        )}
-        
-        {/* Tasks List */}
-        {enclosures.length > 0 && filteredTasks.length > 0 && (
-          <div className="space-y-4">
-            {visibleBlocks.map(block => {
-              const blockTasks = groupedTasks[block];
-              const isExpanded = expandedSections.has(block);
-              const isOverdue = block === 'overdue';
-              
-              return (
-                <div key={block} className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-                  {/* Section Header */}
-                  <div className={`p-4 ${
-                    isOverdue 
-                      ? 'bg-red-50 dark:bg-red-900/20 border-b border-red-200 dark:border-red-800' 
-                      : 'bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700'
-                  }`}>
-                    <div className="flex items-center justify-between gap-4">
+          {/* No enclosure empty */}
+          {enclosures.length === 0 && (
+            <div className="mx-4 bg-card border border-dashed border-divider rounded-2xl p-8 text-center">
+              <p className="text-muted text-sm">Create a pet enclosure to start adding care tasks</p>
+            </div>
+          )}
+
+          {/* Task groups */}
+          {enclosures.length > 0 && filteredTasks.length > 0 && (
+            <div className="space-y-3 px-4">
+              {visibleBlocks.map(block => {
+                const blockTasks = groupedTasks[block];
+                const isExpanded = expandedSections.has(block);
+                const isOverdue = block === 'overdue';
+
+                return (
+                  <div key={block} className={`bg-card border rounded-2xl overflow-hidden ${isOverdue ? 'border-red-500/40' : 'border-divider'}`}>
+                    {/* Section header */}
+                    <div className={`flex items-center justify-between px-4 pt-3.5 pb-3 ${isExpanded ? 'border-b border-divider' : ''}`}>
                       <button
                         onClick={() => toggleSection(block)}
-                        className="flex items-center gap-2 flex-1 text-left group"
+                        className="flex items-center gap-2 flex-1 text-left"
                       >
-                        <ChevronDown className={`w-5 h-5 transition-transform ${
-                          isExpanded ? 'rotate-0' : '-rotate-90'
-                        } ${isOverdue ? 'text-red-600 dark:text-red-400' : 'text-gray-600 dark:text-gray-400'}`} />
-                        {React.createElement(getTimeBlockIcon(block), { 
-                          className: `w-5 h-5 ${
-                            isOverdue 
-                              ? 'text-red-600 dark:text-red-400' 
-                              : 'text-emerald-600 dark:text-emerald-400'
-                          }` 
+                        {React.createElement(getTimeBlockIcon(block), {
+                          className: `w-4 h-4 ${isOverdue ? 'text-red-400' : 'text-muted'}`
                         })}
-                        <span className={`text-base sm:text-lg font-semibold ${
-                          isOverdue 
-                            ? 'text-red-900 dark:text-red-100' 
-                            : 'text-gray-900 dark:text-white'
-                        }`}>
+                        <span className={`text-sm font-semibold ${isOverdue ? 'text-red-400' : 'text-white'}`}>
                           {getTimeBlockLabel(block)}
                         </span>
-                        <span className={`text-sm ${
-                          isOverdue 
-                            ? 'text-red-700 dark:text-red-300' 
-                            : 'text-gray-600 dark:text-gray-400'
-                        }`}>
-                          ({blockTasks.length})
-                        </span>
+                        <span className="text-xs text-muted">({blockTasks.length})</span>
+                        <ChevronDown className={`w-4 h-4 text-muted transition-transform ml-auto ${isExpanded ? 'rotate-0' : '-rotate-90'}`} />
                       </button>
-                      
                       {isExpanded && blockTasks.length > 1 && (
-                        <div className="flex items-center gap-2">
-                          {selectionMode ? (
-                            <button
-                              onClick={() => selectAllInBlock(blockTasks.map(t => t.id))}
-                              className="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white"
-                            >
-                              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                              </svg>
-                              <span className="hidden sm:inline">Select All</span>
-                              <span className="sm:hidden">All</span>
-                            </button>
-                          ) : (
-                            <button
-                              onClick={() => completeBulkTasks(blockTasks.map(t => t.id))}
-                              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5 ${
-                                isOverdue
-                                  ? 'bg-red-600 hover:bg-red-700 text-white'
-                                  : 'bg-emerald-600 hover:bg-emerald-700 text-white'
-                              }`}
-                            >
-                              <Check className="w-4 h-4" />
-                              <span className="hidden sm:inline">Complete All</span>
-                              <span className="sm:hidden">All</span>
-                            </button>
-                          )}
-                        </div>
+                        <button
+                          onClick={() => selectionMode
+                            ? selectAllInBlock(blockTasks.map(t => t.id))
+                            : completeBulkTasks(blockTasks.map(t => t.id))
+                          }
+                          className={`ml-3 px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1 ${
+                            isOverdue ? 'bg-red-500/20 text-red-400' : 'bg-accent/15 text-accent'
+                          }`}
+                        >
+                          <Check className="w-3 h-3" />
+                          {selectionMode ? 'Select All' : 'All Done'}
+                        </button>
                       )}
                     </div>
+
+                    {/* Task list */}
+                    {isExpanded && (
+                      <div className="divide-y divide-divider">
+                        {blockTasks.map(task => {
+                          const isDueToday = task.nextDueAt.toDateString() === new Date().toDateString();
+                          return (
+                            <TaskItem
+                              key={task.id}
+                              task={task}
+                              isOverdue={isOverdue}
+                              isDueToday={isDueToday}
+                              selectionMode={selectionMode}
+                              selectedTasks={selectedTasks}
+                              swipedTask={swipedTask}
+                              swipeOffset={swipeOffset}
+                              getTaskIcon={getTaskIcon}
+                              getEnclosureName={getEnclosureName}
+                              getAnimalName={getAnimalName}
+                              formatTime={formatTime}
+                              onToggleSelection={toggleTaskSelection}
+                              onEdit={(id) => navigate(`/care-calendar/tasks/edit/${id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
+                              onComplete={handleCompleteTask}
+                              onTouchStart={handleTouchStart}
+                              onTouchMove={handleTouchMove}
+                              onTouchEnd={handleTouchEnd}
+                            />
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
+                );
+              })}
+            </div>
+          )}
 
-                  {/* Section Content */}
-                  {isExpanded && (
-                    <div className='divide-y divide-gray-200 dark:divide-gray-700'>
-                      {blockTasks.map(task => {
-                        const isDueToday = task.nextDueAt.toDateString() === new Date().toDateString();
-                        return (
-                          <TaskItem
-                            key={task.id}
-                            task={task}
-                            isOverdue={isOverdue}
-                            isDueToday={isDueToday}
-                            selectionMode={selectionMode}
-                            selectedTasks={selectedTasks}
-                            swipedTask={swipedTask}
-                            swipeOffset={swipeOffset}
-                            getTaskIcon={getTaskIcon}
-                            getEnclosureName={getEnclosureName}
-                            getAnimalName={getAnimalName}
-                            formatTime={formatTime}
-                            onToggleSelection={toggleTaskSelection}
-                            onEdit={(id) => navigate(`/care-calendar/tasks/edit/${id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-                            onComplete={handleCompleteTask}
-                            onTouchStart={handleTouchStart}
-                            onTouchMove={handleTouchMove}
-                            onTouchEnd={handleTouchEnd}
-                          />
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        )}
+          {/* Empty state */}
+          {enclosures.length > 0 && filteredTasks.length === 0 && !error && (
+            <div className="mx-4 bg-card border border-divider rounded-2xl p-8 text-center">
+              <CheckCircle2 className="w-8 h-8 text-accent mx-auto mb-2" />
+              <p className="text-sm text-muted">
+                {viewMode === 'today'
+                  ? 'All caught up for today!'
+                  : viewMode === 'week'
+                  ? 'No tasks due this week.'
+                  : 'No tasks yet. Tap "Add Task" to get started.'}
+              </p>
+            </div>
+          )}
 
-        {/* Empty state when no tasks yet */}
-        {enclosures.length > 0 && filteredTasks.length === 0 && !error && (
-          <div className="bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-8 text-center">
-            <p className="text-gray-600 dark:text-gray-400 flex items-center justify-center gap-2">
-              {viewMode === 'today'
-                ? <><span>No tasks due today!</span><Sparkles className="w-5 h-5 text-emerald-500" /></>
-                : viewMode === 'week'
-                  ? "No tasks due this week."
-                  : "No tasks yet. Click '+ Add Task' above to create care tasks for your pets."}
-            </p>
-          </div>
-        )}
-      </div>
-
-      {/* Error Message */}
-      {error && (
-        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 mt-6">
-          <p className="text-red-800 dark:text-red-200">{error}</p>
+          {/* Error */}
+          {error && (
+            <div className="mx-4 bg-red-500/10 border border-red-500/30 rounded-2xl p-4">
+              <p className="text-red-300 text-sm">{error}</p>
+            </div>
+          )}
         </div>
       )}
 
-      {/* Floating Action Bar for Bulk Actions */}
+      {/* Bulk action bar */}
       {selectedTasks.size > 0 && (
-        <div className="fixed bottom-16 sm:bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 shadow-lg z-50">
-          <div className="max-w-4xl mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between gap-3 sm:gap-4">
+        <div className="fixed bottom-16 sm:bottom-0 left-0 right-0 bg-card border-t border-divider shadow-lg z-50">
+          <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <span className="text-sm font-medium text-gray-900 dark:text-white">
-                {selectedTasks.size} task{selectedTasks.size === 1 ? '' : 's'} selected
+              <span className="text-sm font-medium text-white">
+                {selectedTasks.size} selected
               </span>
-              <button
-                onClick={deselectAll}
-                className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-              >
-                Clear
-              </button>
+              <button onClick={deselectAll} className="text-sm text-muted">Clear</button>
             </div>
             <button
               onClick={() => completeBulkTasks(Array.from(selectedTasks))}
-              className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium text-sm transition-colors flex items-center gap-2 shadow-sm"
+              className="px-4 py-2 bg-accent text-on-accent rounded-full font-semibold text-sm flex items-center gap-2"
             >
               <Check className="w-4 h-4" />
-              Complete Selected
+              Complete
             </button>
           </div>
         </div>
-      )}
-      </>
       )}
 
       {/* Feeding Log Modal */}
@@ -1046,3 +906,4 @@ export function CareCalendar() {
     </div>
   );
 }
+

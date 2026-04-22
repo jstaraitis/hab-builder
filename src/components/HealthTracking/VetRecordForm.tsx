@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useToast } from '../../contexts/ToastContext';
 import { vetRecordService, type VetRecordInput } from '../../services/vetRecordService';
@@ -270,3 +270,7 @@ export function VetRecordForm({ animal, onSuccess, onCancel, initialData }: VetR
     </form>
   );
 }
+
+
+
+

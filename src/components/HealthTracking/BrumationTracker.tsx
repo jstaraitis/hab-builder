@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Moon, Play, Square, Calendar, Trash2 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useToast } from '../../contexts/ToastContext';
@@ -125,17 +125,17 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
   };
 
   if (loading) {
-    return <div className="animate-pulse bg-gray-100 dark:bg-gray-700 rounded-lg h-48"></div>;
+    return <div className="animate-pulse bg-card-elevated rounded-lg h-48"></div>;
   }
 
   return (
     <div className="space-y-4">
       {/* Active Brumation Status */}
       {activeBrumation ? (
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+        <div className="bg-blue-500/10 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
           <div className="flex items-start justify-between mb-3">
             <div className="flex items-center gap-2">
-              <Moon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <Moon className="w-5 h-5 text-blue-400" />
               <h3 className="font-semibold text-blue-900 dark:text-blue-100">
                 Currently Brumating
               </h3>
@@ -172,9 +172,7 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
                   onChange={(e) => setEndDate(e.target.value)}
                   max={new Date().toISOString().split('T')[0]}
                   min={activeBrumation.startDate}
-                  className="w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg
-                           bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
-                           focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-3 py-2.5 border border-divider rounded-lg bg-card-elevated text-white focus:ring-2 focus:ring-accent"
                   required
                 />
               </div>
@@ -189,9 +187,7 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
                   value={weightLoss}
                   onChange={(e) => setWeightLoss(e.target.value)}
                   placeholder="Optional"
-                  className="w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg
-                           bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
-                           focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-3 py-2.5 border border-divider rounded-lg bg-card-elevated text-white focus:ring-2 focus:ring-accent"
                 />
               </div>
               
@@ -204,9 +200,7 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
                   onChange={(e) => setEndNotes(e.target.value)}
                   rows={2}
                   placeholder="Any observations..."
-                  className="w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg
-                           bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
-                           focus:ring-2 focus:ring-emerald-500 resize-none"
+                  className="w-full px-3 py-2.5 border border-divider rounded-lg bg-card-elevated text-white focus:ring-2 focus:ring-accent resize-none"
                 />
               </div>
               
@@ -214,7 +208,7 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
                 <button
                   type="button"
                   onClick={() => setShowEndForm(false)}
-                  className="flex-1 px-4 py-2.5 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300
+                  className="flex-1 px-4 py-2.5 bg-gray-200  text-white
                            rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 font-medium"
                 >
                   Cancel
@@ -230,12 +224,12 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
           )}
         </div>
       ) : (
-        <div className="text-center py-6 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+        <div className="text-center py-6 bg-card rounded-2xl border border-divider">
           <Moon className="w-8 h-8 text-gray-400 dark:text-gray-600 mx-auto mb-2" />
-          <p className="text-gray-600 dark:text-gray-400 mb-3">Not currently brumating</p>
+          <p className="text-muted mb-3">Not currently brumating</p>
           <button
             onClick={() => setShowStartForm(!showStartForm)}
-            className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700
+            className="px-4 py-2 bg-accent text-on-accent rounded-xl hover:bg-accent-dim
                      transition-colors flex items-center gap-2 mx-auto"
           >
             <Play className="w-4 h-4" />
@@ -246,8 +240,8 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
 
       {/* Start Brumation Form */}
       {showStartForm && !activeBrumation && (
-        <form onSubmit={handleStartBrumation} className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 space-y-5">
-          <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
+        <form onSubmit={handleStartBrumation} className="bg-card rounded-lg p-4 border border-divider space-y-5">
+          <h4 className="font-semibold text-gray-900  mb-3">
             Start Brumation Period
           </h4>
           
@@ -326,29 +320,29 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
       {/* Brumation History */}
       {history.length > 0 && (
         <div>
-          <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
+          <h4 className="font-semibold text-gray-900  mb-3">
             Brumation History
           </h4>
           <div className="space-y-2">
             {history.map((log) => (
               <div
                 key={log.id}
-                className="bg-white dark:bg-gray-800 rounded-lg p-3 border border-gray-200 dark:border-gray-700
+                className="bg-card rounded-lg p-3 border border-divider
                          flex justify-between items-start"
               >
                 <div className="flex-1">
-                  <div className="flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                  <div className="flex items-center gap-2 text-sm font-medium text-gray-900 ">
                     <Calendar className="w-4 h-4" />
                     {new Date(log.startDate).toLocaleDateString()} - {log.endDate && new Date(log.endDate).toLocaleDateString()}
                   </div>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                  <p className="text-xs text-muted mt-1">
                     Duration: {log.durationDays} days
                     {log.weightLossGrams && ` • Weight loss: ${log.weightLossGrams}g`}
                   </p>
                 </div>
                 <button
                   onClick={() => handleDelete(log.id)}
-                  className="p-1 text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400"
+                  className="p-1 text-muted hover:text-red-600 dark:hover:text-red-400"
                   title="Delete"
                 >
                   <Trash2 className="w-4 h-4" />
@@ -361,3 +355,8 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
     </div>
   );
 }
+
+
+
+
+

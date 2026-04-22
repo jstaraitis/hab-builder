@@ -1,471 +1,319 @@
 ﻿import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, BookOpen, Calendar, MoreHorizontal, X, Info, MessageCircle, Package, ChevronUp, ChevronDown, SlidersHorizontal, User, Turtle, Gem, Download, Sparkles, LayoutDashboard, type LucideIcon } from 'lucide-react';
-import { useEffect, useMemo, useState } from 'react';
+import {
+  House,
+  CalendarCheck,
+  Plus,
+  Turtle,
+  MoreHorizontal,
+  X,
+  BookOpen,
+  Info,
+  MessageCircle,
+  Package,
+  User,
+  Worm,
+  Sparkles,
+  Download,
+  Gem,
+  Scale,
+  Leaf,
+  BarChart2,
+  type LucideIcon,
+} from 'lucide-react';
+import { useState, useRef } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import { profileService } from '../../services/profileService';
 import { isOwner } from '../../utils/ownerAccess';
 
 interface MobileNavProps {
-  hasAnimal: boolean;
-  hasPlan: boolean;
   onOpenFeedback?: () => void;
   isNative?: boolean;
   isIOS?: boolean;
 }
 
-type NavRequirement = 'animal' | 'plan';
-
-interface NavItem {
-  id: string;
-  path: string;
+/* ────────────────────────────────────────────────────────────────────
+   Quick-action FAB sheet items
+──────────────────────────────────────────────────────────────────── */
+interface FabAction {
   label: string;
+  description: string;
   icon: LucideIcon;
-  description?: string;
-  requires?: NavRequirement;
+  color: string;
+  path: string;
+}
+
+const FAB_ACTIONS: FabAction[] = [
+  {
+    label: 'Log Feeding',
+    description: 'Record what your animal ate',
+    icon: Scale,
+    color: 'bg-amber-500/20 text-amber-400',
+    path: '/care-calendar',
+  },
+  {
+    label: 'Log Weight',
+    description: 'Track growth over time',
+    icon: Scale,
+    color: 'bg-blue-500/20 text-blue-400',
+    path: '/my-animals',
+  },
+  {
+    label: 'Log Shed',
+    description: 'Record a shedding event',
+    icon: Leaf,
+    color: 'bg-purple-500/20 text-purple-400',
+    path: '/my-animals',
+  },
+  {
+    label: 'Start a New Plan',
+    description: 'Build an enclosure plan',
+    icon: Worm,
+    color: 'bg-accent/20 text-accent',
+    path: '/animal',
+  },
+];
+
+/* ────────────────────────────────────────────────────────────────────
+   More drawer items
+──────────────────────────────────────────────────────────────────── */
+interface MoreItem {
+  label: string;
+  description: string;
+  icon: LucideIcon;
+  path: string;
   showWhen?: 'guest' | 'auth' | 'owner';
 }
 
-const NAV_ITEMS: NavItem[] = [
-  { id: 'animal', path: '/animal', icon: Worm, label: 'Animal' },
-  { id: 'design', path: '/design', icon: Pencil, label: 'Design', requires: 'animal' },
-  { id: 'supplies', path: '/supplies', icon: ShoppingCart, label: 'Shop', requires: 'plan' },
-  { id: 'plan', path: '/plan', icon: ClipboardList, label: 'Plan', requires: 'plan' },
-  { id: 'install', path: '/install', icon: Download, label: 'Install', description: 'App Store & Home Screen' },
-  { id: 'premium', path: '/premium', icon: Gem, label: 'Premium', description: 'Premium overview', showWhen: 'guest' },
-  { id: 'care-calendar', path: '/care-calendar', icon: Calendar, label: 'Care Tasks', description: 'Track pet care tasks' },
-  { id: 'my-animals', path: '/my-animals', icon: Turtle, label: 'My Animals', description: 'View all your animals' },
-  { id: 'inventory', path: '/inventory', icon: Package, label: 'Inventory', description: 'Consumables & buy again' },
-  { id: 'blog', path: '/blog', icon: BookOpen, label: 'Guides', description: 'Care guides & tips' },
-  { id: 'whats-new', path: '/whats-new', icon: Sparkles, label: "What's New", description: 'Latest app updates' },
-  { id: 'about', path: '/about', icon: Info, label: 'About', description: 'About Habitat Builder' },
-  { id: 'profile', path: '/profile', icon: User, label: 'Profile', description: 'Name & subscription' },
-  { id: 'owner-dashboard', path: '/owner-dashboard', icon: LayoutDashboard, label: 'Dashboard', description: 'Owner app stats', showWhen: 'owner' },
+const MORE_ITEMS: MoreItem[] = [
+  { label: 'Enclosure Planner', description: 'Build a new enclosure plan', icon: Worm, path: '/animal' },
+  { label: 'Inventory', description: 'Consumables & reorder tracking', icon: Package, path: '/inventory', showWhen: 'auth' },
+  { label: 'Care Guides', description: 'Species care library', icon: BookOpen, path: '/blog' },
+  { label: "What''s New", description: 'Latest updates', icon: Sparkles, path: '/whats-new' },
+  { label: 'Install App', description: 'iOS & Android', icon: Download, path: '/install' },
+  { label: 'Premium', description: 'Unlock all features', icon: Gem, path: '/premium', showWhen: 'guest' },
+  { label: 'Profile', description: 'Account & subscription', icon: User, path: '/profile' },
+  { label: 'About', description: 'About Habitat Builder', icon: Info, path: '/about' },
+  { label: 'Owner Dashboard', description: 'App metrics & admin', icon: BarChart2, path: '/owner-dashboard', showWhen: 'owner' },
 ];
 
-const DEFAULT_ORDER = NAV_ITEMS.map((item) => item.id);
-
-export function MobileNav({ hasAnimal, hasPlan, onOpenFeedback, isNative = false, isIOS = false }: Readonly<MobileNavProps>) {
+/* ────────────────────────────────────────────────────────────────────
+   Component
+──────────────────────────────────────────────────────────────────── */
+export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: Readonly<MobileNavProps>) {
   const { user } = useAuth();
-  const isOwnerUser = isOwner(user);
+  const ownerUser = isOwner(user);
   const location = useLocation();
   const navigate = useNavigate();
-  const [animatingPath, setAnimatingPath] = useState<string | null>(null);
-  const [showMoreMenu, setShowMoreMenu] = useState(false);
-  const [showCustomizeMenu, setShowCustomizeMenu] = useState(false);
-  const [navOrder, setNavOrder] = useState<string[]>(DEFAULT_ORDER);
-  const [savingOrder, setSavingOrder] = useState(false);
-  const [orderError, setOrderError] = useState<string | null>(null);
-  
+
+  const [showMore, setShowMore] = useState(false);
+  const [showFab, setShowFab] = useState(false);
+
+  const dragStartY = useRef(0);
   const [dragY, setDragY] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startY, setStartY] = useState(0);
+  const [dragging, setDragging] = useState(false);
+
   const isActive = (path: string) => {
-    if (path === '/animal') {
-      return location.pathname === '/animal' || location.pathname.startsWith('/animal/');
-    }
-    return location.pathname === path;
+    if (path === '/') return location.pathname === '/';
+    return location.pathname === path || location.pathname.startsWith(`${path}/`);
   };
 
-  const normalizeOrder = (order: string[]) => {
-    const validIds = new Set(NAV_ITEMS.map((item) => item.id));
-    const filtered = order.filter((id) => validIds.has(id));
-    const missing = NAV_ITEMS.map((item) => item.id).filter((id) => !filtered.includes(id));
-    return [...filtered, ...missing];
-  };
-
-  const orderedItems = useMemo(() => {
-    const map = new Map(NAV_ITEMS.map((item) => [item.id, item]));
-    return navOrder
-      .map((id) => map.get(id))
-      .filter((item): item is NavItem => Boolean(item))
-      .filter((item) => {
-        // Hide the Install prompt when already running as a native app
-        if (item.id === 'install' && isNative) return false;
-        if (item.showWhen === 'guest') return !user;
-        if (item.showWhen === 'auth') return Boolean(user);
-          if (item.showWhen === 'owner') return isOwnerUser;
-        if (item.requires === 'animal') return hasAnimal;
-        if (item.requires === 'plan') return hasPlan;
-        return true;
-      });
-        }, [navOrder, user, isOwnerUser, hasAnimal, hasPlan, isNative]);
-
-  const bottomItems = orderedItems.slice(0, 4);
-  const moreItems = orderedItems.slice(4);
-  const morePaths = moreItems.map((item) => item.path);
-
-  // Trigger animation when route changes
-  useEffect(() => {
-    // Only animate if it's a new route (not initial load)
-    if (animatingPath !== location.pathname) {
-      setAnimatingPath(location.pathname);
-      const timer = setTimeout(() => setAnimatingPath(null), 400);
-      return () => clearTimeout(timer);
-    }
-  }, [location.pathname]);
-
-  // Close more menu when route changes
-  useEffect(() => {
-    setShowMoreMenu(false);
-    setShowCustomizeMenu(false);
-  }, [location.pathname]);
-
-  useEffect(() => {
-    if (!user) {
-      setNavOrder(DEFAULT_ORDER);
-      return;
-    }
-
-    const loadOrder = async () => {
-      try {
-        const profile = await profileService.getProfile(user.id);
-        if (profile?.mobileNavOrder?.length) {
-          setNavOrder(normalizeOrder(profile.mobileNavOrder));
-        } else {
-          setNavOrder(DEFAULT_ORDER);
-        }
-      } catch (error) {
-        console.error('Failed to load mobile nav order:', error);
-        setNavOrder(DEFAULT_ORDER);
-      }
-    };
-
-    loadOrder();
-  }, [user]);
-
-  const getEnabled = (item: NavItem) => {
-    if (item.requires === 'animal') return hasAnimal;
-    if (item.requires === 'plan') return hasPlan;
+  const visibleMoreItems = MORE_ITEMS.filter((item) => {
+    if (item.showWhen === 'guest') return !user;
+    if (item.showWhen === 'auth') return Boolean(user);
+    if (item.showWhen === 'owner') return ownerUser;
     return true;
-  };
-
-  const moveItem = (fromIndex: number, toIndex: number) => {
-    setNavOrder((prev) => {
-      const updated = [...prev];
-      const [moved] = updated.splice(fromIndex, 1);
-      updated.splice(toIndex, 0, moved);
-      return updated;
-    });
-  };
-
-  const handleSaveOrder = async () => {
-    if (!user) {
-      setOrderError('Sign in to save your navigation order.');
-      return;
-    }
-
-    try {
-      setSavingOrder(true);
-      setOrderError(null);
-      await profileService.updateMobileNavOrder(user.id, navOrder);
-      setShowCustomizeMenu(false);
-    } catch (error) {
-      console.error('Failed to save mobile nav order:', error);
-      setOrderError('Failed to save your navigation order.');
-    } finally {
-      setSavingOrder(false);
-    }
-  };
-
-  const handleResetOrder = () => {
-    setNavOrder(DEFAULT_ORDER);
-  };
+  });
 
   const handleTouchStart = (e: React.TouchEvent) => {
-    setStartY(e.touches[0].clientY);
-    setIsDragging(true);
+    dragStartY.current = e.touches[0].clientY;
+    setDragging(true);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging) return;
-    const currentY = e.touches[0].clientY;
-    const diff = currentY - startY;
-    // Only allow dragging down
-    if (diff > 0) {
-      setDragY(diff);
-    }
+    if (!dragging) return;
+    const diff = e.touches[0].clientY - dragStartY.current;
+    if (diff > 0) setDragY(diff);
   };
 
   const handleTouchEnd = () => {
     if (dragY > 100) {
-      // Threshold to close
-      setShowMoreMenu(false);
-      setShowCustomizeMenu(false);
+      setShowMore(false);
+      setShowFab(false);
     }
     setDragY(0);
-    setIsDragging(false);
-    setStartY(0);
+    setDragging(false);
+  };
+
+  const sheetStyle = {
+    transform: `translateY(${dragY}px)`,
+    transition: dragging ? 'none' : 'transform 0.3s ease-out',
   };
 
   return (
     <>
-      {/* Bottom Sheet Overlay */}
-      {showMoreMenu && (
+      {(showMore || showFab) && (
         <button
           type="button"
-          aria-label="Close more menu"
-          className={`fixed inset-0 bg-black/50 z-40 ${isNative ? 'block' : 'lg:hidden'} animate-in fade-in duration-200`}
-          onClick={() => setShowMoreMenu(false)}
+          aria-label="Close menu"
+          className={`fixed inset-0 bg-black/60 z-40 ${isNative ? 'block' : 'lg:hidden'}`}
+          onClick={() => { setShowMore(false); setShowFab(false); }}
         />
       )}
 
-      {showCustomizeMenu && (
-        <button
-          type="button"
-          aria-label="Close customize menu"
-          className={`fixed inset-0 bg-black/50 z-40 ${isNative ? 'block' : 'lg:hidden'} animate-in fade-in duration-200`}
-          onClick={() => setShowCustomizeMenu(false)}
-        />
-      )}
-
-      {/* Bottom Sheet Menu */}
-      {showMoreMenu && (
-        <div className={`fixed bottom-0 left-0 right-0 z-50 ${isNative ? 'block' : 'lg:hidden'} animate-in slide-in-from-bottom duration-300`}>
-          <div 
-            className="bg-white dark:bg-gray-800 rounded-t-3xl shadow-2xl border-t-2 border-gray-200 dark:border-gray-700 pb-20 transition-transform"
-            style={{ 
-              transform: `translateY(${dragY}px)`,
-              transition: isDragging ? 'none' : 'transform 0.3s ease-out'
-            }}
+      {showMore && (
+        <div className={`fixed bottom-0 left-0 right-0 z-50 ${isNative ? 'block' : 'lg:hidden'} animate-sheet-up`}>
+          <div
+            className="bg-card rounded-t-3xl border-t border-divider shadow-2xl pb-24"
+            style={sheetStyle}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            {/* Handle bar */}
             <div className="flex justify-center pt-3 pb-2">
-              <div className="w-12 h-1 bg-gray-300 dark:bg-gray-600 rounded-full" />
+              <div className="w-10 h-1 bg-divider rounded-full" />
             </div>
-
-            {/* Header */}
-            <div className="flex items-center justify-between px-6 py-3 border-b border-gray-200 dark:border-gray-700">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">More</h3>
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => {
-                    setShowMoreMenu(false);
-                    setShowCustomizeMenu(true);
-                  }}
-                  className="flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded-full border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/20"
-                >
-                  <SlidersHorizontal className="w-3.5 h-3.5" />
-                  Customize
-                </button>
-                <button
-                  onClick={() => setShowMoreMenu(false)}
-                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
-                >
-                  <X className="w-5 h-5 text-gray-500 dark:text-gray-400" />
-                </button>
-              </div>
+            <div className="flex items-center justify-between px-5 py-3 border-b border-divider">
+              <span className="text-base font-bold text-white">More</span>
+              <button onClick={() => setShowMore(false)} className="p-2 hover:bg-card-elevated rounded-full transition-colors">
+                <X className="w-5 h-5 text-muted" />
+              </button>
             </div>
-
-            {/* Menu Items */}
-            <div className="p-4 space-y-2 max-h-[60vh] overflow-y-auto">
-              {moreItems.map((item) => {
+            <div className="p-3 space-y-1 max-h-[65vh] overflow-y-auto">
+              {visibleMoreItems.map((item) => {
                 const Icon = item.icon;
-                const active = isActive(item.path) || (item.path === '/blog' && location.pathname.startsWith('/blog'));
-                const enabled = getEnabled(item);
-                let itemClass = 'border-2 border-transparent opacity-50 cursor-not-allowed';
-                if (active) {
-                  itemClass = 'bg-emerald-50 dark:bg-emerald-900/20 border-2 border-emerald-200 dark:border-emerald-800';
-                } else if (enabled) {
-                  itemClass = 'hover:bg-gray-50 dark:hover:bg-gray-700/50 border-2 border-transparent';
-                }
-                
+                const active = isActive(item.path);
                 return (
                   <button
                     key={item.path}
-                    onClick={() => {
-                      navigate(item.path);
-                      setShowMoreMenu(false);
-                    }}
-                    className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all ${itemClass}`}
-                    disabled={!enabled}
+                    onClick={() => { navigate(item.path); setShowMore(false); }}
+                    className={`w-full flex items-center gap-4 px-4 py-3 rounded-2xl transition-colors text-left ${
+                      active ? 'bg-accent/10 border border-accent/30' : 'hover:bg-card-elevated'
+                    }`}
                   >
-                    <div className={`p-3 rounded-xl ${
-                      active
-                        ? 'bg-emerald-500 text-white'
-                        : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+                      active ? 'bg-accent text-white' : 'bg-card-elevated text-muted'
                     }`}>
-                      <Icon className="w-6 h-6" />
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <div className="flex-1 text-left">
-                      <div className={`font-semibold ${
-                        active ? 'text-emerald-900 dark:text-emerald-100' : 'text-gray-900 dark:text-white'
-                      }`}>
-                        {item.label}
-                      </div>
-                      <div className="text-sm text-gray-500 dark:text-gray-400">
-                        {item.description}
-                      </div>
+                    <div>
+                      <div className={`text-sm font-semibold ${active ? 'text-accent' : 'text-white'}`}>{item.label}</div>
+                      <div className="text-xs text-muted">{item.description}</div>
                     </div>
                   </button>
                 );
               })}
-
               <button
-                onClick={() => {
-                  onOpenFeedback?.();
-                  setShowMoreMenu(false);
-                }}
-                className="w-full flex items-center gap-4 p-4 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-gray-700/50 border-2 border-transparent"
+                onClick={() => { onOpenFeedback?.(); setShowMore(false); }}
+                className="w-full flex items-center gap-4 px-4 py-3 rounded-2xl hover:bg-card-elevated transition-colors text-left"
               >
-                <div className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400">
-                  <MessageCircle className="w-6 h-6" />
+                <div className="w-10 h-10 rounded-xl bg-card-elevated flex items-center justify-center text-muted">
+                  <MessageCircle className="w-5 h-5" />
                 </div>
-                <div className="flex-1 text-left">
-                  <div className="font-semibold text-gray-900 dark:text-white">Feedback</div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400">Share your thoughts</div>
+                <div>
+                  <div className="text-sm font-semibold text-white">Send Feedback</div>
+                  <div className="text-xs text-muted">Help us improve</div>
                 </div>
               </button>
-
-
-
-
             </div>
           </div>
         </div>
       )}
 
-      {showCustomizeMenu && (
-        <div className={`fixed bottom-0 left-0 right-0 z-50 ${isNative ? 'block' : 'lg:hidden'} animate-in slide-in-from-bottom duration-300`}>
-          <div 
-            className="bg-white dark:bg-gray-800 rounded-t-3xl shadow-2xl border-t-2 border-gray-200 dark:border-gray-700 pb-20 transition-transform"
-            style={{ 
-              transform: `translateY(${dragY}px)`,
-              transition: isDragging ? 'none' : 'transform 0.3s ease-out'
-            }}
+      {showFab && (
+        <div className={`fixed bottom-0 left-0 right-0 z-50 ${isNative ? 'block' : 'lg:hidden'} animate-sheet-up`}>
+          <div
+            className="bg-card rounded-t-3xl border-t border-divider shadow-2xl pb-24"
+            style={sheetStyle}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
             <div className="flex justify-center pt-3 pb-2">
-              <div className="w-12 h-1 bg-gray-300 dark:bg-gray-600 rounded-full" />
+              <div className="w-10 h-1 bg-divider rounded-full" />
             </div>
-            <div className="flex items-center justify-between px-6 py-3 border-b border-gray-200 dark:border-gray-700">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">Customize Nav</h3>
-              <button
-                onClick={() => setShowCustomizeMenu(false)}
-                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
-              >
-                <X className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+            <div className="flex items-center justify-between px-5 py-3 border-b border-divider">
+              <span className="text-base font-bold text-white">Quick Add</span>
+              <button onClick={() => setShowFab(false)} className="p-2 hover:bg-card-elevated rounded-full transition-colors">
+                <X className="w-5 h-5 text-muted" />
               </button>
             </div>
-            <div className="p-4 space-y-3 max-h-[60vh] overflow-y-auto">
-              {orderError && (
-                <div className="rounded-lg border border-rose-200 dark:border-rose-800 bg-rose-50 dark:bg-rose-900/20 p-3 text-sm text-rose-700 dark:text-rose-200">
-                  {orderError}
-                </div>
-              )}
-              {navOrder.map((id, index) => {
-                const item = NAV_ITEMS.find((navItem) => navItem.id === id);
-                if (!item) return null;
-                const Icon = item.icon;
-                const canMoveUp = index > 0;
-                const canMoveDown = index < navOrder.length - 1;
-
+            <div className="p-4 grid grid-cols-2 gap-3">
+              {FAB_ACTIONS.map((action) => {
+                const Icon = action.icon;
                 return (
-                  <div key={item.id} className="flex items-center justify-between gap-3 rounded-xl border border-gray-200 dark:border-gray-700 p-3">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
-                        <Icon className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <div className="text-sm font-semibold text-gray-900 dark:text-white">{item.label}</div>
-                        {item.description && (
-                          <div className="text-xs text-gray-500 dark:text-gray-400">{item.description}</div>
-                        )}
-                      </div>
+                  <button
+                    key={action.label}
+                    onClick={() => { navigate(action.path); setShowFab(false); }}
+                    className="flex flex-col items-start gap-2 p-4 rounded-2xl bg-card-elevated hover:bg-white/5 transition-colors text-left"
+                  >
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${action.color}`}>
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <div className="flex items-center gap-1">
-                      <button
-                        type="button"
-                        disabled={!canMoveUp}
-                        onClick={() => moveItem(index, index - 1)}
-                        className={`p-2 rounded-lg border ${canMoveUp ? 'border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700' : 'border-transparent opacity-40 cursor-not-allowed'}`}
-                      >
-                        <ChevronUp className="w-4 h-4" />
-                      </button>
-                      <button
-                        type="button"
-                        disabled={!canMoveDown}
-                        onClick={() => moveItem(index, index + 1)}
-                        className={`p-2 rounded-lg border ${canMoveDown ? 'border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700' : 'border-transparent opacity-40 cursor-not-allowed'}`}
-                      >
-                        <ChevronDown className="w-4 h-4" />
-                      </button>
+                    <div>
+                      <div className="text-sm font-semibold text-white">{action.label}</div>
+                      <div className="text-xs text-muted leading-tight">{action.description}</div>
                     </div>
-                  </div>
+                  </button>
                 );
               })}
-            </div>
-            <div className="px-6 pt-2 flex items-center justify-between gap-3">
-              <button
-                type="button"
-                onClick={handleResetOrder}
-                className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
-              >
-                Reset default
-              </button>
-              <button
-                type="button"
-                onClick={handleSaveOrder}
-                disabled={savingOrder}
-                className="px-4 py-2 rounded-lg bg-emerald-600 text-white text-sm font-semibold hover:bg-emerald-700 disabled:opacity-60"
-              >
-                {savingOrder ? 'Saving...' : 'Save order'}
-              </button>
             </div>
           </div>
         </div>
       )}
 
-      {/* Main Navigation Bar */}
-      <nav className={`fixed bottom-0 left-0 right-0 bg-gradient-to-t from-white/95 to-gray-50/90 dark:from-gray-800/95 dark:to-gray-900/90 backdrop-blur-md border-t-2 border-gray-200/50 dark:border-gray-700/50 shadow-2xl z-50 ${isNative ? 'block' : 'lg:hidden'} ${isIOS ? 'pb-safe' : 'safe-area-inset-bottom'}`}>
-        <div className="grid grid-cols-5 gap-0.5 px-1 pt-2 pb-1">
-          {bottomItems.map((item) => {
-            const active = isActive(item.path);
-            const enabled = getEnabled(item);
-            const isAnimating = animatingPath === item.path;
-            const Icon = item.icon;
-            let stateClass = 'text-gray-300 dark:text-gray-600 cursor-not-allowed opacity-40';
-            if (active) {
-              stateClass = 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-lg scale-105 -translate-y-1';
-            } else if (enabled) {
-              stateClass = 'text-gray-600 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-800 hover:shadow-md active:scale-90 hover:-translate-y-0.5';
-            }
-            
-            return (
-              <Link
-                key={item.path}
-                to={enabled ? item.path : '#'}
-                className={`group relative flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-200 ${stateClass}`}
-                onClick={(e) => !enabled && e.preventDefault()}
-              >
-                <Icon className={`w-5 h-5 ${active ? 'stroke-[2.5]' : 'stroke-2'} transition-all duration-300 ${
-                  enabled ? 'group-hover:scale-110 group-active:scale-95 group-active:rotate-6' : ''
-                } ${isAnimating ? 'scale-125 rotate-12' : ''}`} />
-                <span className={`text-[10px] font-bold tracking-tight leading-none mt-0.5 ${active ? 'text-white' : ''}`}>
-                  {item.label}
-                </span>
-              </Link>
-            );
-          })}
+      <nav className={`fixed bottom-0 left-0 right-0 z-50 ${isNative ? 'block' : 'lg:hidden'} ${isIOS ? 'pb-safe' : 'safe-area-inset-bottom'}`}>
+        <div className="bg-card/95 backdrop-blur-xl border-t border-divider">
+          <div className="grid grid-cols-5 items-end px-2 pt-2 pb-2">
 
-          {/* More Button */}
-          <button
-            onClick={() => setShowMoreMenu(true)}
-            className={`group relative flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-200 ${
-              showMoreMenu || morePaths.some((path) => location.pathname.startsWith(path))
-                ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-lg scale-105 -translate-y-1'
-                : 'text-gray-600 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-800 hover:shadow-md active:scale-90 hover:-translate-y-0.5'
-            }`}
-          >
-            <MoreHorizontal className={`w-5 h-5 ${showMoreMenu ? 'stroke-[2.5]' : 'stroke-2'} transition-all duration-300 group-hover:scale-110 group-active:scale-95 group-active:rotate-6`} />
-            <span className={`text-[10px] font-bold tracking-tight leading-none mt-0.5 ${showMoreMenu || morePaths.some((path) => location.pathname.startsWith(path)) ? 'text-white' : ''}`}>
-              More
-            </span>
-          </button>
+            {[
+              { label: 'Dashboard', icon: House, path: '/' },
+              { label: 'Tasks', icon: CalendarCheck, path: '/care-calendar' },
+              null,
+              { label: 'Pets', icon: Turtle, path: '/my-animals' },
+              { label: 'More', icon: MoreHorizontal, path: null },
+            ].map((tab) => {
+              if (tab === null) {
+                return (
+                  <div key="fab" className="flex items-center justify-center pb-1">
+                    <button
+                      onClick={() => { setShowFab(true); setShowMore(false); }}
+                      className="w-14 h-14 -translate-y-3 rounded-full bg-accent shadow-lg shadow-accent/30 flex items-center justify-center active:scale-95 transition-transform"
+                    >
+                      <Plus className="w-7 h-7 text-white stroke-[2.5]" />
+                    </button>
+                  </div>
+                );
+              }
+
+              if (tab.path === null) {
+                const active = showMore;
+                return (
+                  <button
+                    key="more"
+                    onClick={() => { setShowMore(true); setShowFab(false); }}
+                    className="flex flex-col items-center justify-center gap-1 py-1 transition-colors"
+                  >
+                    <MoreHorizontal className={`w-6 h-6 ${active ? 'text-accent' : 'text-muted'}`} />
+                    <span className={`text-[10px] font-semibold ${active ? 'text-accent' : 'text-muted'}`}>More</span>
+                  </button>
+                );
+              }
+
+              const Icon = tab.icon;
+              const active = isActive(tab.path);
+              return (
+                <Link
+                  key={tab.path}
+                  to={tab.path}
+                  className="flex flex-col items-center justify-center gap-1 py-1 transition-colors"
+                  onClick={() => { setShowMore(false); setShowFab(false); }}
+                >
+                  <Icon className={`w-6 h-6 transition-colors ${active ? 'text-accent' : 'text-muted'}`} />
+                  <span className={`text-[10px] font-semibold ${active ? 'text-accent' : 'text-muted'}`}>{tab.label}</span>
+                </Link>
+              );
+            })}
+
+          </div>
         </div>
       </nav>
     </>

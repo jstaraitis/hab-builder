@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Save, X } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useToast } from '../../contexts/ToastContext';
@@ -209,3 +209,7 @@ export function WeightLogForm({ animal, onSuccess, onCancel, initialData }: Weig
     </form>
   );
 }
+
+
+
+

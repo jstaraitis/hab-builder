@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { Edit2, Trash2, Calendar, DollarSign, AlertCircle } from 'lucide-react';
 import { vetRecordService, type VetRecord } from '../../services/vetRecordService';
 import { useToast } from '../../contexts/ToastContext';
@@ -56,13 +56,13 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
 
   const getVisitTypeBadge = (type: string) => {
     const styles: Record<string, string> = {
-      checkup: 'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300',
-      illness: 'bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300',
-      injury: 'bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300',
-      surgery: 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300',
-      emergency: 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300',
-      'follow-up': 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300',
-      other: 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300',
+      checkup: 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/30',
+      illness: 'bg-yellow-500/20 text-yellow-300 border border-yellow-400/30',
+      injury: 'bg-orange-500/20 text-orange-300 border border-orange-400/30',
+      surgery: 'bg-red-500/20 text-red-300 border border-red-400/30',
+      emergency: 'bg-red-500/20 text-red-300 border border-red-400/30',
+      'follow-up': 'bg-blue-500/20 text-blue-300 border border-blue-400/30',
+      other: 'bg-card-elevated text-white border border-divider',
     };
 
     const labels: Record<string, string> = {
@@ -76,7 +76,7 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
     };
 
     return (
-      <span className={`px-2 py-1 rounded-full text-xs font-medium ${styles[type] || styles.other}`}>
+      <span className={`px-2 py-1 rounded-full text-xs font-semibold ${styles[type] || styles.other}`}>
         {labels[type] || type}
       </span>
     );
@@ -86,7 +86,7 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
     return (
       <div className="space-y-2">
         {[...Array(3)].map((_, i) => (
-          <div key={i} className="animate-pulse bg-gray-100 dark:bg-gray-700 rounded-lg h-32"></div>
+          <div key={i} className="animate-pulse bg-card-elevated rounded-lg h-32"></div>
         ))}
       </div>
     );
@@ -96,8 +96,8 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
     return (
       <div className="text-center py-8">
         <Calendar className="w-12 h-12 text-gray-400 dark:text-gray-600 mx-auto mb-3" />
-        <p className="text-gray-500 dark:text-gray-400">No vet records yet</p>
-        <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">
+        <p className="text-muted">No vet records yet</p>
+        <p className="text-sm text-muted mt-1">
           Track your animal's veterinary visits and health records
         </p>
       </div>
@@ -105,11 +105,11 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-2">
       {records.map((record) => {
         if (editingRecord?.id === record.id) {
           return (
-            <div key={record.id} className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+            <div key={record.id} className="bg-surface rounded-lg p-3 border border-divider">
               <VetRecordForm
                 animal={animal}
                 onSuccess={handleEditSuccess}
@@ -135,18 +135,17 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
         return (
           <div
             key={record.id}
-            className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700
-                     hover:shadow-md transition-shadow"
+            className="bg-surface rounded-lg p-3 border border-divider"
           >
-            <div className="flex justify-between items-start mb-3">
+            <div className="flex justify-between items-start gap-3">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                  <span className="text-xs font-medium text-muted">
                     {new Date(record.visitDate).toLocaleDateString()}
                   </span>
                   {getVisitTypeBadge(record.visitType)}
                   {record.followUpNeeded && (
-                    <span className="flex items-center gap-1 px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-xs font-medium">
+                    <span className="flex items-center gap-1 px-2 py-1 bg-blue-500/20 text-blue-300 border border-blue-400/30 rounded-full text-xs font-semibold">
                       <AlertCircle className="w-3 h-3" />
                       Follow-up
                     </span>
@@ -154,7 +153,7 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
                 </div>
 
                 {(record.vetName || record.clinicName) && (
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                  <p className="text-xs text-white">
                     {record.vetName}
                     {record.vetName && record.clinicName && ' at '}
                     {record.clinicName}
@@ -162,53 +161,51 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
                 )}
 
                 {record.diagnosis && (
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  <p className="text-xs text-muted mt-1">
                     <span className="font-medium">Diagnosis:</span> {record.diagnosis}
                   </p>
                 )}
 
                 {record.treatment && (
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  <p className="text-xs text-muted mt-1">
                     <span className="font-medium">Treatment:</span> {record.treatment}
                   </p>
                 )}
 
                 {record.cost && (
-                  <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400 mt-2">
+                  <div className="flex items-center gap-1 text-base text-muted mt-1.5">
                     <DollarSign className="w-4 h-4" />
                     <span>${record.cost.toFixed(2)}</span>
                   </div>
                 )}
 
                 {record.followUpNeeded && record.followUpDate && (
-                  <p className="text-xs text-blue-600 dark:text-blue-400 mt-2">
+                  <p className="text-xs text-blue-400 mt-2">
                     Follow-up scheduled: {new Date(record.followUpDate).toLocaleDateString()}
                   </p>
                 )}
 
                 {record.notes && (
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 pt-2 border-t border-gray-200 dark:border-gray-700">
+                  <p className="text-xs text-muted mt-2 pt-2 border-t border-divider">
                     {record.notes}
                   </p>
                 )}
               </div>
 
-              <div className="flex gap-1 ml-4">
+              <div className="flex items-center gap-1.5">
                 <button
                   onClick={() => setEditingRecord(record)}
-                  className="p-2 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400
-                           hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
+                  className="px-2 py-1 rounded-md border border-divider bg-card text-white hover:bg-card-elevated"
                   title="Edit"
                 >
-                  <Edit2 className="w-4 h-4" />
+                  <Edit2 className="w-3.5 h-3.5" />
                 </button>
                 <button
                   onClick={() => handleDelete(record.id)}
-                  className="p-2 text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400
-                           hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
+                  className="px-2 py-1 rounded-md border border-red-400/30 bg-red-500/10 text-red-300 hover:bg-red-500/20"
                   title="Delete"
                 >
-                  <Trash2 className="w-4 h-4" />
+                  <Trash2 className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>
@@ -218,3 +215,7 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
     </div>
   );
 }
+
+
+
+

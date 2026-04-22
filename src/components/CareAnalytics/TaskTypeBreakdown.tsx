@@ -1,4 +1,4 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+﻿import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { UtensilsCrossed, Droplets, Waves, Brush, Sparkles, Stethoscope, Pill, Wrench, FileText } from 'lucide-react';
 import type { TaskTypeStats } from '../../types/careAnalytics';
 
@@ -43,7 +43,7 @@ export function TaskTypeBreakdown({ taskTypeStats }: TaskTypeBreakdownProps) {
   }));
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-3 sm:p-6">
+    <div className="bg-card rounded-lg border border-divider p-3 sm:p-6">
       <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3 sm:mb-4">
         Task Type Breakdown
       </h2>
@@ -101,12 +101,12 @@ export function TaskTypeBreakdown({ taskTypeStats }: TaskTypeBreakdownProps) {
                   <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100">
                     {stat.totalCompletions}
                   </span>
-                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                  <span className="text-xs text-muted">
                     ({stat.averagePerWeek}/week)
                   </span>
                 </div>
                 {stat.lastCompleted && (
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                  <p className="text-xs text-muted mt-0.5">
                     Last: {stat.lastCompleted.toLocaleDateString()}
                   </p>
                 )}
@@ -118,3 +118,4 @@ export function TaskTypeBreakdown({ taskTypeStats }: TaskTypeBreakdownProps) {
     </div>
   );
 }
+

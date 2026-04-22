@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { X, Trash2, Check } from 'lucide-react';
+﻿import { useState, useEffect } from 'react';
+import { X, Trash2 } from 'lucide-react';
 import { careTaskService } from '../../services/careTaskService';
 import { enclosureService } from '../../services/enclosureService';
 import type { CareTask, Enclosure, TaskType } from '../../types/careCalendar';
@@ -149,227 +149,215 @@ export function TaskEditModal({
 
   if (!task) return null;
   if (layout === 'modal' && !isOpen) return null;
-  const containerClassName = layout === 'page'
-    ? 'bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm'
-    : 'bg-white dark:bg-gray-800 rounded-t-2xl sm:rounded-lg shadow-xl max-w-2xl w-full max-h-[calc(100vh-5rem)] sm:max-h-[90vh] overflow-hidden flex flex-col';
-  const formClassName = layout === 'page'
-    ? 'p-4 sm:p-6 space-y-3'
-    : 'flex-1 overflow-y-auto p-4 sm:p-6 space-y-3';
 
-  const modalContent = (
-    <div className={containerClassName}>
-        {/* Header */}
-        <div className="flex items-center justify-between p-5 sm:p-6 border-b border-gray-200 dark:border-gray-700 shrink-0">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
-            Edit Task
-          </h2>
-          {layout === 'page' ? (
-            <button
-              onClick={onClose}
-              className="text-sm text-emerald-700 dark:text-emerald-300 hover:text-emerald-800 dark:hover:text-emerald-200 font-medium"
-            >
-              Back
-            </button>
-          ) : (
-            <button
-              onClick={onClose}
-              className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 p-1"
-            >
-              <X className="w-6 h-6" />
-            </button>
-          )}
+  const inputClass = 'w-full bg-transparent text-white text-sm focus:outline-none placeholder:text-muted';
+  const selectClass = 'w-full bg-card-elevated text-white text-sm focus:outline-none border-0';
+
+  if (layout === 'page') {
+    return (
+      <div className="min-h-screen bg-surface flex flex-col">
+        {/* Sticky header */}
+        <div className="sticky top-0 z-20 bg-surface/95 backdrop-blur-sm px-4 pt-4 pb-3 flex items-center justify-between border-b border-divider">
+          <h1 className="text-lg font-bold text-white">Edit Task</h1>
+          <button onClick={onClose} className="text-sm font-semibold text-accent">Back</button>
         </div>
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className={formClassName}>
-          {/* Enclosure Selection (Optional) */}
-          {enclosures.length > 0 && (
-            <div>
-              <label htmlFor="enclosure" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Enclosure
-              </label>
-              <select
-                id="enclosure"
-                value={formData.enclosureId || ''}
-                onChange={(e) => updateField('enclosureId', e.target.value || '')}
-                className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base"
-              >
-                <option value="">No specific enclosure</option>
-                {enclosures.map(enc => (
-                  <option key={enc.id} value={enc.id}>
-                    {enc.name} ({enc.animalName})
-                  </option>
-                ))}
-              </select>
-            </div>
-          )}
+        {/* Scrollable form */}
+        <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto pb-28">
+          <div className="space-y-3 px-4 py-4">
 
-          {/* Title */}
-          <div>
-            <label htmlFor="title" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Task Title
-            </label>
-            <input
-              id="title"
-              type="text"
-              value={formData.title || ''}
-              onChange={(e) => updateField('title', e.target.value)}
-              className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base"
-              required
-            />
-          </div>
-
-          {/* Description */}
-          <div>
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Description
-            </label>
-            <textarea
-              id="description"
-              value={formData.description || ''}
-              onChange={(e) => updateField('description', e.target.value)}
-              rows={2}
-              className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base"
-            />
-          </div>
-
-          {/* Type, Frequency, Time */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-            <div>
-              <label htmlFor="type" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Type
-              </label>
-              <select
-                id="type"
-                value={formData.type || ''}
-                onChange={(e) => updateField('type', e.target.value as TaskType)}
-                className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base"
-                required
-              >
-                <option value="feeding">Feeding</option>
-                <option value="misting">Misting</option>
-                <option value="water-change">Water Change</option>
-                <option value="spot-clean">Spot Clean</option>
-                <option value="deep-clean">Deep Clean</option>
-                <option value="health-check">Health Check</option>
-                <option value="supplement">Supplement</option>
-                <option value="maintenance">Maintenance</option>
-                <option value="custom">Custom</option>
-              </select>
-            </div>
-
-            <div>
-              <label htmlFor="frequency" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Frequency
-              </label>
-              <select
-                id="frequency"
-                value={formData.frequency || ''}
-                onChange={(e) => updateFrequency(e.target.value)}
-                className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base"
-                required
-              >
-                <option value="daily">Daily</option>
-                <option value="every-other-day">Every Other Day</option>
-                <option value="twice-weekly">Twice Weekly</option>
-                <option value="weekly">Weekly</option>
-                <option value="bi-weekly">Bi-weekly</option>
-                <option value="monthly">Monthly</option>
-                <option value="custom">Custom Days</option>
-              </select>
-            </div>
-
-            {formData.frequency === 'custom' && (
-              <div className="col-span-2 sm:col-span-3">
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Weekdays
-                </label>
-                <div className="flex flex-wrap gap-2">
-                  {WEEKDAY_OPTIONS.map((weekday) => {
-                    const isSelected = (formData.customFrequencyWeekdays || []).includes(weekday.value);
-                    return (
-                      <button
-                        key={weekday.value}
-                        type="button"
-                        onClick={() => toggleCustomWeekday(weekday.value)}
-                        className={`px-3 py-1.5 text-sm rounded-md border transition-colors ${
-                          isSelected
-                            ? 'bg-emerald-600 border-emerald-600 text-white'
-                            : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200'
-                        }`}
-                      >
-                        {weekday.shortLabel}
-                      </button>
-                    );
-                  })}
+            {/* Enclosure */}
+            {enclosures.length > 0 && (
+              <div className="bg-card border border-divider rounded-2xl overflow-hidden">
+                <div className="px-4 py-3">
+                  <label htmlFor="enclosure" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+                    Enclosure
+                  </label>
+                  <select
+                    id="enclosure"
+                    value={formData.enclosureId || ''}
+                    onChange={(e) => updateField('enclosureId', e.target.value || '')}
+                    className={selectClass}
+                  >
+                    <option value="">No specific enclosure</option>
+                    {enclosures.map(enc => (
+                      <option key={enc.id} value={enc.id}>
+                        {enc.name} ({enc.animalName})
+                      </option>
+                    ))}
+                  </select>
                 </div>
-                {(formData.customFrequencyWeekdays || []).length === 0 && (
-                  <p className="text-xs text-amber-700 dark:text-amber-300 mt-1">
-                    Select at least one day.
-                  </p>
-                )}
               </div>
             )}
 
-            <div className="col-span-2 sm:col-span-1">
-              <label htmlFor="scheduledTime" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Time
-              </label>
-              <input
-                id="scheduledTime"
-                type="time"
-                value={formData.scheduledTime || ''}
-                onChange={(e) => updateField('scheduledTime', e.target.value)}
-                className="w-full px-3 py-3 sm:py-2 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base min-h-[50px] sm:min-h-[42px] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none appearance-none [-webkit-appearance:none] [&::-webkit-calendar-picker-indicator]:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
-                style={{ colorScheme: 'light' }}
-              />
+            {/* Title + Description */}
+            <div className="bg-card border border-divider rounded-2xl overflow-hidden divide-y divide-divider">
+              <div className="px-4 py-3">
+                <label htmlFor="title" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+                  Task Title
+                </label>
+                <input
+                  id="title"
+                  type="text"
+                  value={formData.title || ''}
+                  onChange={(e) => updateField('title', e.target.value)}
+                  className={inputClass}
+                  placeholder="e.g. Feed dubia roaches"
+                  required
+                />
+              </div>
+              <div className="px-4 py-3">
+                <label htmlFor="description" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+                  Description
+                </label>
+                <textarea
+                  id="description"
+                  value={formData.description || ''}
+                  onChange={(e) => updateField('description', e.target.value)}
+                  rows={2}
+                  className={`${inputClass} resize-none`}
+                  placeholder="Optional details..."
+                />
+              </div>
             </div>
 
-            <div className="col-span-2 sm:col-span-1">
-              <label htmlFor="startDate" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Start Date (optional)
-              </label>
-              <input
-                id="startDate"
-                type="date"
-                value={
-                  formData.startDate
-                    ? formData.startDate instanceof Date
-                      ? formData.startDate.toISOString().split('T')[0]
-                      : formData.startDate
-                    : ''
-                }
-                onChange={(e) => setFormData(prev => ({ ...prev, startDate: e.target.value ? new Date(e.target.value) : undefined }))}
-                className="w-full px-3 py-3 sm:py-2 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base min-h-[50px] sm:min-h-[42px] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none appearance-none [-webkit-appearance:none] [&::-webkit-calendar-picker-indicator]:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
-                style={{ colorScheme: 'light' }}
-              />
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                Schedule a future task (e.g., feeding in 2 weeks)
-              </p>
+            {/* Type + Frequency */}
+            <div className="bg-card border border-divider rounded-2xl overflow-hidden">
+              <div className="grid grid-cols-2 divide-x divide-divider">
+                <div className="px-4 py-3">
+                  <label htmlFor="type" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+                    Type
+                  </label>
+                  <select
+                    id="type"
+                    value={formData.type || ''}
+                    onChange={(e) => updateField('type', e.target.value as TaskType)}
+                    className={selectClass}
+                    required
+                  >
+                    <option value="feeding">Feeding</option>
+                    <option value="misting">Misting</option>
+                    <option value="water-change">Water Change</option>
+                    <option value="spot-clean">Spot Clean</option>
+                    <option value="deep-clean">Deep Clean</option>
+                    <option value="health-check">Health Check</option>
+                    <option value="supplement">Supplement</option>
+                    <option value="maintenance">Maintenance</option>
+                    <option value="custom">Custom</option>
+                  </select>
+                </div>
+                <div className="px-4 py-3">
+                  <label htmlFor="frequency" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+                    Frequency
+                  </label>
+                  <select
+                    id="frequency"
+                    value={formData.frequency || ''}
+                    onChange={(e) => updateFrequency(e.target.value)}
+                    className={selectClass}
+                    required
+                  >
+                    <option value="daily">Daily</option>
+                    <option value="every-other-day">Every Other Day</option>
+                    <option value="twice-weekly">Twice Weekly</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="bi-weekly">Bi-weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="custom">Custom Days</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Custom weekday pills */}
+              {formData.frequency === 'custom' && (
+                <div className="px-4 py-3 border-t border-divider">
+                  <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-2">
+                    Weekdays
+                  </label>
+                  <div className="flex flex-wrap gap-2">
+                    {WEEKDAY_OPTIONS.map((weekday) => {
+                      const isSelected = (formData.customFrequencyWeekdays || []).includes(weekday.value);
+                      return (
+                        <button
+                          key={weekday.value}
+                          type="button"
+                          onClick={() => toggleCustomWeekday(weekday.value)}
+                          className={`px-3 py-1.5 text-xs font-semibold rounded-full border transition-colors ${
+                            isSelected
+                              ? 'bg-accent border-accent text-on-accent'
+                              : 'bg-card-elevated border-divider text-muted'
+                          }`}
+                        >
+                          {weekday.shortLabel}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {(formData.customFrequencyWeekdays || []).length === 0 && (
+                    <p className="text-xs text-amber-400 mt-2">Select at least one day.</p>
+                  )}
+                </div>
+              )}
+
+              {/* Time + Start Date */}
+              <div className="grid grid-cols-2 divide-x divide-divider border-t border-divider">
+                <div className="px-4 py-3">
+                  <label htmlFor="scheduledTime" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+                    Time
+                  </label>
+                  <input
+                    id="scheduledTime"
+                    type="time"
+                    value={formData.scheduledTime || ''}
+                    onChange={(e) => updateField('scheduledTime', e.target.value)}
+                    className="w-full bg-transparent text-white text-sm focus:outline-none [&::-webkit-calendar-picker-indicator]:invert"
+                    style={{ colorScheme: 'dark' }}
+                  />
+                </div>
+                <div className="px-4 py-3">
+                  <label htmlFor="startDate" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+                    Start Date
+                  </label>
+                  <input
+                    id="startDate"
+                    type="date"
+                    value={
+                      formData.startDate
+                        ? formData.startDate instanceof Date
+                          ? formData.startDate.toISOString().split('T')[0]
+                          : formData.startDate
+                        : ''
+                    }
+                    onChange={(e) => setFormData(prev => ({ ...prev, startDate: e.target.value ? new Date(e.target.value) : undefined }))}
+                    className="w-full bg-transparent text-white text-sm focus:outline-none [&::-webkit-calendar-picker-indicator]:invert"
+                    style={{ colorScheme: 'dark' }}
+                  />
+                  <p className="text-xs text-muted mt-1">Schedule a future task</p>
+                </div>
+              </div>
             </div>
-          </div>
 
-          {/* Notes */}
-          <div>
-            <label htmlFor="notes" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Notes (optional)
-            </label>
-            <textarea
-              id="notes"
-              value={formData.notes || ''}
-              onChange={(e) => updateField('notes', e.target.value)}
-              rows={2}
-              className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base"
-            />
-          </div>
+            {/* Notes */}
+            <div className="bg-card border border-divider rounded-2xl overflow-hidden">
+              <div className="px-4 py-3">
+                <label htmlFor="notes" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+                  Notes (optional)
+                </label>
+                <textarea
+                  id="notes"
+                  value={formData.notes || ''}
+                  onChange={(e) => updateField('notes', e.target.value)}
+                  rows={2}
+                  className={`${inputClass} resize-none`}
+                  placeholder="Any extra care notes..."
+                />
+              </div>
+            </div>
 
-          {/* Notification Settings */}
-          <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Notification Settings</h3>
-            
-            <div className="space-y-3">
-              {/* Enable Notifications Toggle */}
-              <label className="flex items-center gap-3 cursor-pointer py-1">
+            {/* Notifications */}
+            <div className="bg-card border border-divider rounded-2xl overflow-hidden divide-y divide-divider">
+              <label className="flex items-center justify-between px-4 py-3.5 cursor-pointer">
+                <span className="text-sm font-semibold text-white">Push notifications</span>
                 <input
                   type="checkbox"
                   checked={formData.notificationEnabled || false}
@@ -380,24 +368,19 @@ export function TaskEditModal({
                     });
                     setFormData(prev => ({ ...prev, notificationEnabled: e.target.checked }));
                   }}
-                  className="w-5 h-5 text-emerald-600 border-gray-300 rounded focus:ring-emerald-500"
+                  className="w-5 h-5 accent-accent rounded"
                 />
-                <span className="text-sm text-gray-700 dark:text-gray-300">
-                  Send push notification reminders
-                </span>
               </label>
-
-              {/* Minutes Before Dropdown */}
               {formData.notificationEnabled && (
-                <div>
-                  <label htmlFor="notificationMinutes" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <div className="px-4 py-3">
+                  <label htmlFor="notificationMinutes" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
                     Remind me
                   </label>
                   <select
                     id="notificationMinutes"
                     value={formData.notificationMinutesBefore || 15}
                     onChange={(e) => setFormData(prev => ({ ...prev, notificationMinutesBefore: parseInt(e.target.value) }))}
-                    className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base"
+                    className={selectClass}
                   >
                     <option value="5">5 minutes before</option>
                     <option value="10">10 minutes before</option>
@@ -409,97 +392,205 @@ export function TaskEditModal({
                 </div>
               )}
             </div>
-          </div>
 
-          {error && (
-            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 text-red-800 dark:text-red-200">
-              {error}
-            </div>
-          )}
+            {error && (
+              <div className="bg-red-500/10 border border-red-500/30 rounded-2xl p-4 text-red-300 text-sm">
+                {error}
+              </div>
+            )}
+          </div>
         </form>
 
-        {/* Footer */}
-        <div className="border-t border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-900 shrink-0 relative z-10">
-          {/* Mobile layout: Icon-only buttons */}
-          <div className="sm:hidden flex items-center justify-between gap-3">
+        {/* Sticky footer */}
+        <div className="sticky bottom-0 bg-surface border-t border-divider px-4 py-3 flex items-center justify-between z-10">
+          <button
+            type="button"
+            onClick={handleDelete}
+            disabled={loading}
+            className="flex items-center gap-1.5 text-red-400 text-sm font-semibold active:scale-95 transition-transform disabled:opacity-50"
+          >
+            <Trash2 className="w-4 h-4" />
+            Delete
+          </button>
+          <div className="flex gap-2">
             <button
               type="button"
-              onClick={handleDelete}
+              onClick={onClose}
               disabled={loading}
-              aria-label="Delete task"
-              className="p-4 text-red-600 hover:text-white dark:text-red-400 bg-red-50 hover:bg-red-600 dark:bg-red-900/20 dark:hover:bg-red-600 rounded-xl transition-colors disabled:opacity-50 border-2 border-red-200 dark:border-red-800 shadow-sm active:scale-95"
+              className="px-4 py-2 rounded-full bg-card border border-divider text-white text-sm font-semibold active:scale-95 transition-transform disabled:opacity-50"
             >
-              <Trash2 className="w-6 h-6" />
+              Cancel
             </button>
-            
-            <div className="flex gap-3">
-              <button
-                type="button"
-                onClick={onClose}
-                disabled={loading}
-                aria-label="Cancel"
-                className="p-4 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 border-2 border-gray-300 dark:border-gray-600 rounded-xl transition-colors disabled:opacity-50 shadow-sm active:scale-95"
-              >
-                <X className="w-6 h-6" />
-              </button>
-              <button
-                onClick={handleSubmit}
-                disabled={loading}
-                aria-label="Save changes"
-                className="p-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl transition-colors disabled:opacity-50 shadow-lg active:scale-95"
-              >
-                <Check className="w-6 h-6" />
-              </button>
-            </div>
-          </div>
-
-          {/* Desktop layout: Delete on left, actions on right */}
-          <div className="hidden sm:flex items-center justify-between">
             <button
-              type="button"
-              onClick={handleDelete}
+              onClick={handleSubmit}
               disabled={loading}
-              aria-label="Delete task"
-              className="p-2.5 text-red-600 hover:text-white dark:text-red-400 bg-red-50 hover:bg-red-600 dark:bg-red-900/20 dark:hover:bg-red-600 rounded-lg transition-colors disabled:opacity-50 border border-red-200 dark:border-red-800"
+              className="px-4 py-2 rounded-full bg-accent text-on-accent text-sm font-semibold active:scale-95 transition-transform disabled:opacity-50"
             >
-              <Trash2 className="w-5 h-5" />
+              {loading ? 'Saving…' : 'Save'}
             </button>
-            
-            <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={onClose}
-                disabled={loading}
-                aria-label="Cancel"
-                className="p-2.5 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-300 dark:border-gray-600 rounded-lg transition-colors disabled:opacity-50"
-              >
-                <X className="w-5 h-5" />
-              </button>
-              <button
-                onClick={handleSubmit}
-                disabled={loading}
-                aria-label="Save changes"
-                className="p-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors disabled:opacity-50 shadow-sm"
-              >
-                <Check className="w-5 h-5" />
-              </button>
-            </div>
           </div>
         </div>
-    </div>
-  );
-
-  if (layout === 'page') {
-    return (
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        {modalContent}
       </div>
     );
   }
 
+  // Modal layout (bottom sheet / centered dialog)
+  const modalContent = (
+    <div className="bg-card rounded-t-2xl sm:rounded-2xl shadow-xl max-w-2xl w-full max-h-[calc(100vh-5rem)] sm:max-h-[90vh] overflow-hidden flex flex-col">
+      {/* Header */}
+      <div className="flex items-center justify-between px-5 py-4 border-b border-divider shrink-0">
+        <h2 className="text-lg font-bold text-white">Edit Task</h2>
+        <button onClick={onClose} className="text-muted p-1 rounded-lg">
+          <X className="w-5 h-5" />
+        </button>
+      </div>
+
+      {/* Form */}
+      <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-4 space-y-3">
+        {enclosures.length > 0 && (
+          <div>
+            <label htmlFor="enclosure-modal" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Enclosure</label>
+            <select id="enclosure-modal" value={formData.enclosureId || ''} onChange={(e) => updateField('enclosureId', e.target.value || '')}
+              className="w-full px-3 py-2.5 bg-card-elevated border border-divider rounded-xl text-white text-sm focus:border-accent focus:outline-none">
+              <option value="">No specific enclosure</option>
+              {enclosures.map(enc => <option key={enc.id} value={enc.id}>{enc.name} ({enc.animalName})</option>)}
+            </select>
+          </div>
+        )}
+        <div>
+          <label htmlFor="title-modal" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Task Title</label>
+          <input id="title-modal" type="text" value={formData.title || ''} onChange={(e) => updateField('title', e.target.value)}
+            className="w-full px-3 py-2.5 bg-card-elevated border border-divider rounded-xl text-white text-sm focus:border-accent focus:outline-none" required />
+        </div>
+        <div>
+          <label htmlFor="description-modal" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Description</label>
+          <textarea id="description-modal" value={formData.description || ''} onChange={(e) => updateField('description', e.target.value)}
+            rows={2} className="w-full px-3 py-2.5 bg-card-elevated border border-divider rounded-xl text-white text-sm focus:border-accent focus:outline-none resize-none" />
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label htmlFor="type-modal" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Type</label>
+            <select id="type-modal" value={formData.type || ''} onChange={(e) => updateField('type', e.target.value as TaskType)}
+              className="w-full px-3 py-2.5 bg-card-elevated border border-divider rounded-xl text-white text-sm focus:border-accent focus:outline-none" required>
+              <option value="feeding">Feeding</option>
+              <option value="misting">Misting</option>
+              <option value="water-change">Water Change</option>
+              <option value="spot-clean">Spot Clean</option>
+              <option value="deep-clean">Deep Clean</option>
+              <option value="health-check">Health Check</option>
+              <option value="supplement">Supplement</option>
+              <option value="maintenance">Maintenance</option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor="frequency-modal" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Frequency</label>
+            <select id="frequency-modal" value={formData.frequency || ''} onChange={(e) => updateFrequency(e.target.value)}
+              className="w-full px-3 py-2.5 bg-card-elevated border border-divider rounded-xl text-white text-sm focus:border-accent focus:outline-none" required>
+              <option value="daily">Daily</option>
+              <option value="every-other-day">Every Other Day</option>
+              <option value="twice-weekly">Twice Weekly</option>
+              <option value="weekly">Weekly</option>
+              <option value="bi-weekly">Bi-weekly</option>
+              <option value="monthly">Monthly</option>
+              <option value="custom">Custom Days</option>
+            </select>
+          </div>
+        </div>
+        {formData.frequency === 'custom' && (
+          <div>
+            <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-2">Weekdays</label>
+            <div className="flex flex-wrap gap-2">
+              {WEEKDAY_OPTIONS.map((weekday) => {
+                const isSelected = (formData.customFrequencyWeekdays || []).includes(weekday.value);
+                return (
+                  <button key={weekday.value} type="button" onClick={() => toggleCustomWeekday(weekday.value)}
+                    className={`px-3 py-1.5 text-xs font-semibold rounded-full border transition-colors ${isSelected ? 'bg-accent border-accent text-on-accent' : 'bg-card-elevated border-divider text-muted'}`}>
+                    {weekday.shortLabel}
+                  </button>
+                );
+              })}
+            </div>
+            {(formData.customFrequencyWeekdays || []).length === 0 && (
+              <p className="text-xs text-amber-400 mt-1">Select at least one day.</p>
+            )}
+          </div>
+        )}
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label htmlFor="time-modal" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Time</label>
+            <input id="time-modal" type="time" value={formData.scheduledTime || ''} onChange={(e) => updateField('scheduledTime', e.target.value)}
+              className="w-full px-3 py-2.5 bg-card-elevated border border-divider rounded-xl text-white text-sm focus:border-accent focus:outline-none [&::-webkit-calendar-picker-indicator]:invert"
+              style={{ colorScheme: 'dark' }} />
+          </div>
+          <div>
+            <label htmlFor="date-modal" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Start Date</label>
+            <input id="date-modal" type="date"
+              value={formData.startDate ? formData.startDate instanceof Date ? formData.startDate.toISOString().split('T')[0] : formData.startDate : ''}
+              onChange={(e) => setFormData(prev => ({ ...prev, startDate: e.target.value ? new Date(e.target.value) : undefined }))}
+              className="w-full px-3 py-2.5 bg-card-elevated border border-divider rounded-xl text-white text-sm focus:border-accent focus:outline-none [&::-webkit-calendar-picker-indicator]:invert"
+              style={{ colorScheme: 'dark' }} />
+          </div>
+        </div>
+        <div>
+          <label htmlFor="notes-modal" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Notes (optional)</label>
+          <textarea id="notes-modal" value={formData.notes || ''} onChange={(e) => updateField('notes', e.target.value)}
+            rows={2} className="w-full px-3 py-2.5 bg-card-elevated border border-divider rounded-xl text-white text-sm focus:border-accent focus:outline-none resize-none" />
+        </div>
+        <div className="bg-card-elevated border border-divider rounded-xl divide-y divide-divider">
+          <label className="flex items-center justify-between px-3 py-3 cursor-pointer">
+            <span className="text-sm text-white">Push notifications</span>
+            <input type="checkbox" checked={formData.notificationEnabled || false}
+              onChange={(e) => {
+                console.log('[TaskEditModal] Notification checkbox changed:', { checked: e.target.checked, previousValue: formData.notificationEnabled });
+                setFormData(prev => ({ ...prev, notificationEnabled: e.target.checked }));
+              }}
+              className="w-4 h-4 accent-accent rounded" />
+          </label>
+          {formData.notificationEnabled && (
+            <div className="px-3 py-3">
+              <select value={formData.notificationMinutesBefore || 15}
+                onChange={(e) => setFormData(prev => ({ ...prev, notificationMinutesBefore: parseInt(e.target.value) }))}
+                className="w-full bg-transparent text-white text-sm focus:outline-none">
+                <option value="5">5 minutes before</option>
+                <option value="10">10 minutes before</option>
+                <option value="15">15 minutes before</option>
+                <option value="30">30 minutes before</option>
+                <option value="60">1 hour before</option>
+                <option value="120">2 hours before</option>
+              </select>
+            </div>
+          )}
+        </div>
+        {error && (
+          <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-red-300 text-sm">{error}</div>
+        )}
+      </form>
+
+      {/* Footer */}
+      <div className="border-t border-divider px-4 py-3 bg-surface shrink-0 flex items-center justify-between">
+        <button type="button" onClick={handleDelete} disabled={loading}
+          className="flex items-center gap-1.5 text-red-400 text-sm font-semibold disabled:opacity-50">
+          <Trash2 className="w-4 h-4" />Delete
+        </button>
+        <div className="flex gap-2">
+          <button type="button" onClick={onClose} disabled={loading}
+            className="px-4 py-2 rounded-full bg-card border border-divider text-white text-sm font-semibold disabled:opacity-50">
+            Cancel
+          </button>
+          <button onClick={handleSubmit} disabled={loading}
+            className="px-4 py-2 rounded-full bg-accent text-on-accent text-sm font-semibold disabled:opacity-50">
+            {loading ? 'Saving…' : 'Save'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-end sm:items-center justify-center z-50 pb-16 sm:pb-0">
+    <div className="fixed inset-0 bg-black/60 flex items-end sm:items-center justify-center z-50 pb-16 sm:pb-0">
       {modalContent}
     </div>
   );
 }
+

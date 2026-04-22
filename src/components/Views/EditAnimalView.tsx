@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { uploadAnimalPhoto, deleteAnimalPhoto } from '../../services/animalPhotoService';
@@ -11,6 +11,8 @@ export function EditAnimalView() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
+  const [searchParams] = useSearchParams();
+  const returnTo = searchParams.get('returnTo') || '/my-animals';
   const [enclosures, setEnclosures] = useState<Enclosure[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -92,7 +94,7 @@ export function EditAnimalView() {
       enclosureId: formData.enclosureId || undefined,
       userId: user.id,
       name: formData.name || undefined,
-      animalNumber: formData.animalNumber ? parseInt(formData.animalNumber) : undefined,
+      animalNumber: formData.animalNumber ? Number.parseInt(formData.animalNumber, 10) : undefined,
       gender: formData.gender || undefined,
       morph: formData.morph || undefined,
       birthday: formData.birthday ? new Date(formData.birthday) : undefined,
@@ -107,7 +109,26 @@ export function EditAnimalView() {
     };
 
     await enclosureAnimalService.updateAnimal(id, updatedData);
-    navigate(-1);
+    navigate(returnTo);
+  };
+
+  const handleDelete = async () => {
+    if (!id) return;
+
+    if (!confirm(`Delete ${entityLabel || 'this animal'}? This cannot be undone.`)) {
+      return;
+    }
+
+    if (originalPhotoUrl) {
+      try {
+        await deleteAnimalPhoto(originalPhotoUrl);
+      } catch {
+        // Ignore storage cleanup failure and continue deleting the animal record
+      }
+    }
+
+    await enclosureAnimalService.deleteAnimal(id);
+    navigate(returnTo);
   };
 
   if (loading) {
@@ -135,7 +156,7 @@ export function EditAnimalView() {
       <div className="flex items-center justify-between mb-4">
         <button
           type="button"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate(returnTo)}
           className="text-sm text-emerald-700 dark:text-emerald-300 hover:text-emerald-800 dark:hover:text-emerald-200 font-medium"
         >
           Back
@@ -147,7 +168,8 @@ export function EditAnimalView() {
         enclosures={enclosures}
         entityLabel={entityLabel}
         onSave={handleSave}
-        onCancel={() => navigate(-1)}
+        onCancel={() => navigate(returnTo)}
+        onDelete={handleDelete}
       />
     </div>
   );

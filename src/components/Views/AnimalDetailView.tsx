@@ -1,4 +1,4 @@
-/**
+﻿/**
  * AnimalDetailView Component
  * 
  * Comprehensive view of a single animal showing all related data:
@@ -12,8 +12,11 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
+import type { LucideIcon } from 'lucide-react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { 
   ArrowLeft, 
+  ClipboardList,
   Calendar, 
   Scale, 
   MapPin, 
@@ -31,13 +34,19 @@ import {
   Info,
   Plus,
   X,
-  Turtle
+  Turtle,
+  Trash2,
+  ChevronRight,
+  ChevronDown
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { enclosureService } from '../../services/enclosureService';
 import { careTaskService } from '../../services/careTaskService';
 import { weightTrackingService } from '../../services/weightTrackingService';
+import { lengthLogService, type LengthLog } from '../../services/lengthLogService';
+import { vetRecordService, type VetRecord } from '../../services/vetRecordService';
+import { poopLogService, type PoopLog } from '../../services/poopLogService';
 import type { EnclosureAnimal, Enclosure, CareTaskWithLogs } from '../../types/careCalendar';
 import type { WeightLog } from '../../types/weightTracking';
 import { WeightChart } from '../WeightTracking/WeightChart';
@@ -48,8 +57,7 @@ import { BrumationTracker } from '../HealthTracking/BrumationTracker';
 import { VetRecordForm } from '../HealthTracking/VetRecordForm';
 import { VetRecordList } from '../HealthTracking/VetRecordList';
 import { LengthLogForm } from '../LengthTracking/LengthLogForm';
-import { LengthHistory } from '../LengthTracking/LengthHistory';
-import { LengthStats } from '../LengthTracking/LengthStats';
+import { TaskEditModal } from '../CareCalendar/TaskEditModal';
 import { AnimalGallery } from '../AnimalGallery/AnimalGallery';
 
 // Helper function to calculate age
@@ -68,14 +76,45 @@ function calculateAge(birthday: Date): string {
   return `${years}y ${remainingMonths}m`;
 }
 
-// Tab types
-type TabType = 'overview' | 'growth' | 'health' | 'shedding' | 'brumation' | 'care' | 'info';
+function convertLengthToInches(value: number, unit: LengthLog['unit']): number {
+  switch (unit) {
+    case 'inches':
+      return value;
+    case 'cm':
+      return value / 2.54;
+    case 'feet':
+      return value * 12;
+    case 'meters':
+      return value * 39.37;
+    default:
+      return value;
+  }
+}
 
-const TABS: Array<{ id: TabType; label: string; icon: any }> = [
+function convertInchesToLength(value: number, unit: LengthLog['unit']): number {
+  switch (unit) {
+    case 'inches':
+      return value;
+    case 'cm':
+      return value * 2.54;
+    case 'feet':
+      return value / 12;
+    case 'meters':
+      return value / 39.37;
+    default:
+      return value;
+  }
+}
+
+// Tab types
+type TabType = 'overview' | 'tasks' | 'care' | 'growth' | 'health' | 'shedding' | 'brumation' | 'info';
+
+const TABS: Array<{ id: TabType; label: string; icon: LucideIcon }> = [
   { id: 'overview', label: 'Overview', icon: Activity },
-  { id: 'care', label: 'Care', icon: CheckCircle },
+  { id: 'tasks', label: 'Tasks', icon: CheckCircle },
+  { id: 'care', label: 'Feeding', icon: UtensilsCrossed },
   { id: 'growth', label: 'Growth', icon: TrendingUp },
-  { id: 'health', label: 'Health', icon: Heart },
+  { id: 'health', label: 'Medical', icon: Heart },
   { id: 'shedding', label: 'Shedding', icon: Stethoscope },
   { id: 'brumation', label: 'Brumation', icon: Moon },
   { id: 'info', label: 'Info', icon: Info }
@@ -95,6 +134,9 @@ export function AnimalDetailView() {
   // Core data state
   const [tasks, setTasks] = useState<CareTaskWithLogs[]>([]);
   const [weightLogs, setWeightLogs] = useState<WeightLog[]>([]);
+  const [lengthLogs, setLengthLogs] = useState<LengthLog[]>([]);
+  const [vetRecords, setVetRecords] = useState<VetRecord[]>([]);
+  const [poopLogs, setPoopLogs] = useState<PoopLog[]>([]);
 
   // Tab management
   const [activeTab, setActiveTab] = useState<TabType>('overview');
@@ -104,12 +146,26 @@ export function AnimalDetailView() {
   const [showLengthForm, setShowLengthForm] = useState(false);
   const [showVetForm, setShowVetForm] = useState(false);
   const [showShedForm, setShowShedForm] = useState(false);
+  const [editingNotes, setEditingNotes] = useState(false);
+  const [notesValue, setNotesValue] = useState('');
+  const [savingNotes, setSavingNotes] = useState(false);
   
   // Refresh trigger
   const [refreshKey, setRefreshKey] = useState(0);
   
   // Feeding logs filter
   const [showAllFeedingLogs, setShowAllFeedingLogs] = useState(true);
+  const [deletingWeightId, setDeletingWeightId] = useState<string | null>(null);
+  const [editingWeightLog, setEditingWeightLog] = useState<WeightLog | null>(null);
+  const [deletingLengthId, setDeletingLengthId] = useState<string | null>(null);
+  const [editingLengthLog, setEditingLengthLog] = useState<LengthLog | null>(null);
+  const [weightEntriesExpanded, setWeightEntriesExpanded] = useState(false);
+  const [lengthEntriesExpanded, setLengthEntriesExpanded] = useState(false);
+  const [editingTask, setEditingTask] = useState<CareTaskWithLogs | null>(null);
+  const [showPoopForm, setShowPoopForm] = useState(false);
+  const [poopConsistency, setPoopConsistency] = useState<PoopLog['consistency']>('normal');
+  const [poopNotes, setPoopNotes] = useState('');
+  const [savingPoop, setSavingPoop] = useState(false);
 
   // Refresh handler for child components
   const handleRefresh = () => {
@@ -142,26 +198,38 @@ export function AnimalDetailView() {
 
       // Load related data in parallel
       if (animalData.enclosureId) {
-        const [enclosureData, allTasks, weightData] = await Promise.all([
+        const [enclosureData, allTasks, weightData, lengthData, vetData, poopData] = await Promise.all([
           enclosureService.getEnclosureById(animalData.enclosureId),
           careTaskService.getTasksWithLogs(user.id),
-          weightTrackingService.getWeightLogs(animalId)
+          weightTrackingService.getWeightLogs(animalId),
+          lengthLogService.getLogsForAnimal(animalId),
+          vetRecordService.getRecordsForAnimal(animalId),
+          poopLogService.getRecentLogs(animalId, 10),
         ]);
 
         setEnclosure(enclosureData);
         const enclosureTasks = allTasks.filter(task => task.enclosureId === animalData.enclosureId);
         setTasks(enclosureTasks);
         setWeightLogs(weightData);
+        setLengthLogs(lengthData);
+        setVetRecords(vetData);
+        setPoopLogs(poopData);
       } else {
         // Load tasks and weight logs even if no enclosure
-        const [allTasks, weightData] = await Promise.all([
+        const [allTasks, weightData, lengthData, vetData, poopData] = await Promise.all([
           careTaskService.getTasksWithLogs(user.id),
-          weightTrackingService.getWeightLogs(animalId)
+          weightTrackingService.getWeightLogs(animalId),
+          lengthLogService.getLogsForAnimal(animalId),
+          vetRecordService.getRecordsForAnimal(animalId),
+          poopLogService.getRecentLogs(animalId, 10),
         ]);
         
         const animalTasks = allTasks.filter(task => task.enclosureAnimalId === animalData.id);
         setTasks(animalTasks);
         setWeightLogs(weightData);
+        setLengthLogs(lengthData);
+        setVetRecords(vetData);
+        setPoopLogs(poopData);
       }
 
     } catch (err) {
@@ -169,6 +237,38 @@ export function AnimalDetailView() {
       setError('Failed to load animal data');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDeleteWeight = async (logId: string) => {
+    const confirmed = globalThis.confirm('Delete this weight entry? This action cannot be undone.');
+    if (!confirmed) return;
+
+    try {
+      setDeletingWeightId(logId);
+      await weightTrackingService.deleteWeightLog(logId);
+      handleRefresh();
+    } catch (err) {
+      console.error('Failed to delete weight log:', err);
+      alert('Could not delete this weight entry. Please try again.');
+    } finally {
+      setDeletingWeightId(null);
+    }
+  };
+
+  const handleDeleteLength = async (logId: string) => {
+    const confirmed = globalThis.confirm('Delete this length entry? This action cannot be undone.');
+    if (!confirmed) return;
+
+    try {
+      setDeletingLengthId(logId);
+      await lengthLogService.deleteLog(logId);
+      handleRefresh();
+    } catch (err) {
+      console.error('Failed to delete length log:', err);
+      alert('Could not delete this length entry. Please try again.');
+    } finally {
+      setDeletingLengthId(null);
     }
   };
 
@@ -209,12 +309,36 @@ export function AnimalDetailView() {
     return sortedLogs.slice(0, 10);
   };
 
+  const handleSavePoopLog = async () => {
+    if (!user || !animalId) return;
+
+    try {
+      setSavingPoop(true);
+      await poopLogService.createLog(user.id, {
+        enclosureAnimalId: animalId,
+        consistency: poopConsistency,
+        notes: poopNotes || undefined,
+      });
+
+      const updated = await poopLogService.getRecentLogs(animalId, 10);
+      setPoopLogs(updated);
+      setPoopNotes('');
+      setPoopConsistency('normal');
+      setShowPoopForm(false);
+    } catch (err) {
+      console.error('Failed to save poop log:', err);
+      alert('Could not save poop log. Please try again.');
+    } finally {
+      setSavingPoop(false);
+    }
+  };
+
   if (loading) {
     return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="min-h-screen bg-surface px-4 pt-4">
         <div className="text-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600 dark:text-gray-400">Loading animal data...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent mx-auto"></div>
+          <p className="mt-4 text-muted">Loading animal data...</p>
         </div>
       </div>
     );
@@ -222,15 +346,15 @@ export function AnimalDetailView() {
 
   if (error || !animal) {
     return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="min-h-screen bg-surface px-4 pt-4">
         <div className="text-center py-12">
           <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
+          <h3 className="text-lg font-medium text-white mb-2">
             {error || 'Animal not found'}
           </h3>
           <Link
             to="/my-animals"
-            className="text-emerald-600 dark:text-emerald-400 hover:underline"
+            className="text-accent hover:underline"
           >
             ← Back to My Animals
           </Link>
@@ -241,111 +365,112 @@ export function AnimalDetailView() {
 
   const feedingLogs = getFeedingLogs(!showAllFeedingLogs);
   const latestWeight = weightLogs.length > 0 ? weightLogs[0] : null;
+  const previousWeight = weightLogs.length > 1 ? weightLogs[1] : null;
+  const latestLength = lengthLogs.length > 0 ? lengthLogs[0] : null;
+  const previousLength = lengthLogs.length > 1 ? lengthLogs[1] : null;
+  const latestFeeding = feedingLogs.length > 0 ? feedingLogs[0] : null;
+  const latestMedical = vetRecords.length > 0 ? vetRecords[0] : null;
+  const ageLabel = animal.birthday ? calculateAge(new Date(animal.birthday)) : null;
+  const lastWeightDays = latestWeight
+    ? Math.max(
+        0,
+        Math.floor((Date.now() - new Date(latestWeight.measurementDate).getTime()) / (1000 * 60 * 60 * 24))
+      )
+    : null;
+  const weightRatePercent =
+    latestWeight && previousWeight && previousWeight.weightGrams > 0
+      ? ((latestWeight.weightGrams - previousWeight.weightGrams) / previousWeight.weightGrams) * 100
+      : null;
+  const latestLengthInches = latestLength ? convertLengthToInches(latestLength.length, latestLength.unit) : null;
+  const previousLengthInches = previousLength ? convertLengthToInches(previousLength.length, previousLength.unit) : null;
+  const lengthChartUnit: LengthLog['unit'] = latestLength?.unit || 'inches';
+  const lengthChartData = [...lengthLogs].reverse().map((log) => {
+    const inches = convertLengthToInches(log.length, log.unit);
+    const convertedLength = convertInchesToLength(inches, lengthChartUnit);
+
+    return {
+      id: log.id,
+      formattedDate: new Date(log.date).toLocaleDateString(),
+      lengthValue: Math.round(convertedLength * 100) / 100,
+      measurementType: log.measurementType,
+    };
+  });
+  const highestLength = lengthChartData.length > 0 ? Math.max(...lengthChartData.map((d) => d.lengthValue)) : 0;
+  const lengthYAxisMax = Math.max(1, Math.ceil(highestLength * 2));
+  const lengthRatePercent =
+    latestLengthInches !== null && previousLengthInches !== null && previousLengthInches > 0
+      ? ((latestLengthInches - previousLengthInches) / previousLengthInches) * 100
+      : null;
+
+  const reminderSummary = animal.notes || latestFeeding?.notes || 'Add care notes and reminders to keep this profile current.';
 
   return (
-    <div className="max-w-7xl mx-auto p-4 sm:p-8">
-      {/* Back Button */}
-      <button
-        onClick={() => navigate('/my-animals')}
-        className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 mb-6"
-      >
-        <ArrowLeft className="w-4 h-4" />
-        Back to My Animals
-      </button>
+    <div className="min-h-screen bg-surface pb-24">
+      <div className="max-w-5xl mx-auto px-4 pt-4">
+        {/* Back Button */}
+        <button
+          onClick={() => navigate('/my-animals')}
+          className="mb-3 inline-flex items-center gap-2 rounded-full border border-divider bg-card px-3 py-1.5 text-sm font-medium text-muted transition-colors hover:text-accent"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back to My Pets
+        </button>
 
-      {/* Header */}
-      <div className="mb-8">
-        {/* Mobile Layout - Photo centered and large */}
-        <div className="sm:hidden flex flex-col items-center gap-4 mb-6">
-          <div className="h-48 w-48 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 overflow-hidden flex items-center justify-center text-gray-400">
-            {animal.photoUrl ? (
-              <img src={animal.photoUrl} alt="Animal" className="h-full w-full object-cover" />
-            ) : (
-              <Turtle className="w-20 h-20" />
-            )}
-          </div>
-          
-          <div className="text-center w-full">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
-              {animal.name || `Animal #${animal.animalNumber || '?'}`}
-            </h1>
-            <div className="flex flex-wrap justify-center items-center gap-2 mb-4">
-              {animal.gender && (
-                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm capitalize">
-                  {animal.gender === 'male' ? '♂' : animal.gender === 'female' ? '♀' : '?'} {animal.gender}
-                </span>
-              )}
-              {animal.morph && (
-                <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full text-sm">
-                  {animal.morph}
-                </span>
-              )}
-              {animal.birthday && (
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
-                  {calculateAge(new Date(animal.birthday))}
-                </span>
-              )}
-            </div>
-          </div>
+        {/* Hero */}
+        <div className="relative overflow-hidden rounded-3xl border border-divider bg-card p-4 sm:p-5 mb-4">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-cyan-500/10" />
 
-          <button
-            onClick={() => navigate(`/my-animals/edit/${animal.id}`)}
-            className="w-full px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2"
-          >
-            <Pencil className="w-4 h-4" />
-            Edit
-          </button>
-        </div>
-
-        {/* Desktop Layout - Original side-by-side */}
-        <div className="hidden sm:flex sm:items-start justify-between gap-4 mb-6">
-          <div className="flex items-start gap-4">
-            <div className="h-32 w-32 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 overflow-hidden flex items-center justify-center text-gray-400">
+          <div className="relative flex flex-col gap-4">
+            <div className="h-52 w-full overflow-hidden rounded-2xl border border-divider bg-card-elevated flex items-center justify-center text-muted sm:h-56 shrink-0">
               {animal.photoUrl ? (
                 <img src={animal.photoUrl} alt="Animal" className="h-full w-full object-cover" />
               ) : (
-                <Turtle className="w-12 h-12" />
+                <Turtle className="w-14 h-14" />
               )}
             </div>
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+
+            <div className="flex-1 min-w-0">
+              <h1 className="mt-1 text-4xl sm:text-5xl font-bold text-white leading-tight tracking-tight">
                 {animal.name || `Animal #${animal.animalNumber || '?'}`}
               </h1>
-              <div className="flex flex-wrap items-center gap-2">
+              <p className="text-muted mt-1">{enclosure?.animalName || 'Pet Profile'}</p>
+
+              <div className="flex flex-wrap items-center gap-2 mt-3">
                 {animal.gender && (
-                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm capitalize">
+                  <span className="px-2.5 py-1 bg-purple-500/20 text-purple-300 rounded-full text-[11px] font-semibold capitalize">
                     {animal.gender === 'male' ? '♂' : animal.gender === 'female' ? '♀' : '?'} {animal.gender}
                   </span>
                 )}
                 {animal.morph && (
-                  <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full text-sm">
+                  <span className="px-2.5 py-1 bg-orange-500/20 text-orange-300 rounded-full text-[11px] font-semibold">
                     {animal.morph}
                   </span>
                 )}
-                {animal.birthday && (
-                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm flex items-center gap-1">
-                    <Calendar className="w-4 h-4" />
-                    {calculateAge(new Date(animal.birthday))}
+                {ageLabel && (
+                  <span className="px-2.5 py-1 bg-blue-500/20 text-blue-300 rounded-full text-[11px] font-semibold flex items-center gap-1">
+                    <Calendar className="w-3.5 h-3.5" />
+                    {ageLabel} old
                   </span>
                 )}
               </div>
             </div>
           </div>
 
-          <button
-            onClick={() => navigate(`/my-animals/edit/${animal.id}`)}
-            className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors flex items-center gap-2 shrink-0"
-          >
-            <Pencil className="w-4 h-4" />
-            Edit
-          </button>
-        </div>
-      </div>
+          <div className="relative mt-4 space-y-2">
+            <button
+              onClick={() => navigate(`/my-animals/edit/${animal.id}`)}
+              className="inline-flex w-auto self-start px-3 py-1.5 bg-card-elevated border border-divider text-white rounded-lg text-sm font-semibold items-center justify-center gap-1.5 hover:border-emerald-500/50 transition-colors"
+            >
+              <Pencil className="w-3.5 h-3.5" />
+              Edit Profile
+            </button>
 
-      {/* Tab Navigation */}
-      <div className="mb-6 border-b border-gray-200 dark:border-gray-700">
-        <div className="flex overflow-x-auto">
+          </div>
+        </div>
+
+        {/* Tab Navigation */}
+        <div className="mb-4 rounded-xl border border-divider bg-card p-1">
+          <div className="flex overflow-x-auto gap-1">
           {TABS.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -355,10 +480,10 @@ export function AnimalDetailView() {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`
-                  flex items-center gap-2 px-4 py-3 border-b-2 font-medium text-sm whitespace-nowrap transition-colors
+                  flex items-center gap-2 px-3 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition-colors
                   ${isActive 
-                    ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400' 
-                    : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600'
+                    ? 'bg-accent/20 text-accent' 
+                    : 'text-muted hover:text-white hover:bg-card-elevated'
                   }
                 `}
               >
@@ -367,121 +492,118 @@ export function AnimalDetailView() {
               </button>
             );
           })}
+          </div>
         </div>
       </div>
 
       {/* Tab Content */}
-      <div>
+      <div className="max-w-5xl mx-auto px-4">
         {/* Overview Tab */}
         {activeTab === 'overview' && (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-            {/* Left Column - Quick Actions */}
-            <div className="lg:col-span-1 space-y-4 sm:space-y-6">
-              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 sm:p-6">
-                <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">Quick Actions</h2>
-                
-                <div className="space-y-2">
-                  <button
-                    onClick={() => setActiveTab('growth')}
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors flex items-center gap-2 sm:gap-3"
-                  >
-                    <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span className="font-medium">Track Growth</span>
-                  </button>
-                  
-                  <button
-                    onClick={() => setActiveTab('health')}
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 rounded-lg hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors flex items-center gap-2 sm:gap-3"
-                  >
-                    <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span className="font-medium">Health Record</span>
-                  </button>
+          <div className="space-y-3 pb-3">
+            <div className="grid grid-cols-2 gap-2">
+              <div className="bg-card border border-divider rounded-xl p-4">
+                <p className="text-xs text-muted">Active Tasks</p>
+                <p className="text-2xl sm:text-3xl font-bold text-white mt-1">{tasks.length}</p>
+                <p className="text-xs sm:text-sm text-muted mt-1">Across care reminders</p>
+              </div>
 
-                  {enclosure && (
-                    <Link
-                      to="/care-calendar"
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 rounded-lg hover:bg-emerald-100 dark:hover:bg-emerald-900/30 transition-colors flex items-center gap-2 sm:gap-3"
-                    >
-                      <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
-                      <span className="font-medium">View Care Calendar</span>
-                    </Link>
-                  )}
+              <div className="bg-card border border-divider rounded-xl p-4">
+                <p className="text-xs text-muted">Last Feeding</p>
+                <p className="text-2xl sm:text-3xl font-bold text-white mt-1">
+                  {latestFeeding ? 'Today' : 'No logs'}
+                </p>
+                <p className="text-xs sm:text-sm text-muted mt-1">
+                  {latestFeeding ? new Date(latestFeeding.completedAt).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) : 'Log feedings in Care'}
+                </p>
+              </div>
+
+              <div className="bg-card border border-divider rounded-xl p-4">
+                <p className="text-xs text-muted">Weight</p>
+                <p className="text-2xl sm:text-3xl font-bold text-white mt-1">{latestWeight ? `${latestWeight.weightGrams} g` : 'No data'}</p>
+                <p className="text-xs sm:text-sm text-muted mt-1">
+                  {lastWeightDays !== null ? `Updated ${lastWeightDays} day${lastWeightDays === 1 ? '' : 's'} ago` : 'No entries yet'}
+                </p>
+              </div>
+
+              <div className="bg-card border border-divider rounded-xl p-4">
+                <p className="text-xs text-muted">Length</p>
+                <p className="text-2xl sm:text-3xl font-bold text-white mt-1">
+                  {latestLength ? `${latestLength.length} ${latestLength.unit}` : 'No data'}
+                </p>
+                <p className="text-xs sm:text-sm text-muted mt-1">
+                  {latestLength ? `Updated ${new Date(latestLength.date).toLocaleDateString()}` : 'No entries yet'}
+                </p>
+              </div>
+
+              <div className="bg-card border border-divider rounded-xl p-4">
+                <p className="text-xs text-muted">Medical</p>
+                <p className="text-2xl sm:text-3xl font-bold text-white mt-1">
+                  {vetRecords.length > 0 ? `${vetRecords.length} record${vetRecords.length === 1 ? '' : 's'}` : 'No records'}
+                </p>
+                <p className="text-xs sm:text-sm text-muted mt-1">
+                  {latestMedical ? `Last visit ${new Date(latestMedical.visitDate).toLocaleDateString()}` : 'No vet visits yet'}
+                </p>
+              </div>
+
+              <div className="bg-card border border-divider rounded-xl p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-sm sm:text-lg font-semibold text-white">Note</h3>
                 </div>
+                <p className="text-xs sm:text-sm text-muted line-clamp-3">{reminderSummary}</p>
+                <p className="text-[11px] sm:text-xs text-muted mt-1">
+                  {latestFeeding ? `Updated ${new Date(latestFeeding.completedAt).toLocaleDateString()}` : 'Add notes to keep this section updated'}
+                </p>
               </div>
             </div>
 
-            {/* Right Column - Summary Cards */}
-            <div className="lg:col-span-2 space-y-4 sm:space-y-6">
-                <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3 sm:p-6">
-                  <Scale className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600 dark:text-blue-400 mb-1 sm:mb-2" />
-                  <h3 className="text-xs sm:text-sm font-medium text-blue-900 dark:text-blue-100 mb-1">Latest Weight</h3>
-                  <p className="text-lg sm:text-2xl font-bold text-blue-900 dark:text-blue-100">
-                    {latestWeight ? `${latestWeight.weightGrams}g` : 'No data'}
-                  </p>
-                  <p className="text-xs text-blue-700 dark:text-blue-300 mt-0.5 sm:mt-1">
-                    {weightLogs.length} total records
-                  </p>
-                </div>
-
-                <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/20 dark:to-emerald-800/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-3 sm:p-6">
-                  <UtensilsCrossed className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-600 dark:text-emerald-400 mb-1 sm:mb-2" />
-                  <h3 className="text-xs sm:text-sm font-medium text-emerald-900 dark:text-emerald-100 mb-1">Feeding Logs</h3>
-                  <p className="text-lg sm:text-2xl font-bold text-emerald-900 dark:text-emerald-100">
-                    {feedingLogs.length}
-                  </p>
-                  <p className="text-xs text-emerald-700 dark:text-emerald-300 mt-0.5 sm:mt-1">
-                    Recent feedings tracked
-                  </p>
-                </div>
-
-                <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 border border-purple-200 dark:border-purple-800 rounded-lg p-3 sm:p-6">
-                  <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600 dark:text-purple-400 mb-1 sm:mb-2" />
-                  <h3 className="text-xs sm:text-sm font-medium text-purple-900 dark:text-purple-100 mb-1">Active Tasks</h3>
-                  <p className="text-lg sm:text-2xl font-bold text-purple-900 dark:text-purple-100">
-                    {tasks.length}
-                  </p>
-                  <p className="text-xs text-purple-700 dark:text-purple-300 mt-0.5 sm:mt-1">
-                    Care reminders set
-                  </p>
-                </div>
-
-                <div className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 border border-orange-200 dark:border-orange-800 rounded-lg p-3 sm:p-6">
-                  <Stethoscope className="w-6 h-6 sm:w-8 sm:h-8 text-orange-600 dark:text-orange-400 mb-1 sm:mb-2" />
-                  <h3 className="text-xs sm:text-sm font-medium text-orange-900 dark:text-orange-100 mb-1">Recent Sheds</h3>
-                  <p className="text-lg sm:text-2xl font-bold text-orange-900 dark:text-orange-100">
-                    {tasks.filter(t => (t.type as string) === 'shedding' && t.logs?.length).reduce((sum, t) => sum + (t.logs?.length || 0), 0)}
-                  </p>
-                  <p className="text-xs text-orange-700 dark:text-orange-300 mt-0.5 sm:mt-1">
-                    Total shedding events
-                  </p>
-                </div>
-              </div>
+            <div className="bg-card border border-divider rounded-2xl p-4">
+              <AnimalGallery
+                animal={animal}
+                onUpdate={async (images) => {
+                  await enclosureAnimalService.updateAnimal(animal.id, { images });
+                  await loadAnimalData();
+                }}
+              />
             </div>
           </div>
         )}
 
         {/* Growth Tab */}
         {activeTab === 'growth' && (
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {/* Weight Tracking */}
-              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                    <Scale className="w-5 h-5" />
+              <div className="bg-card border border-divider rounded-2xl p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <h2 className="text-base font-semibold text-white flex items-center gap-1.5">
+                    <Scale className="w-4 h-4" />
                     Weight Tracking
                   </h2>
                   <button
-                    onClick={() => setShowWeightForm(!showWeightForm)}
-                    className="p-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 transition-colors"
+                    onClick={() => {
+                      setEditingWeightLog(null);
+                      setShowWeightForm(!showWeightForm);
+                    }}
+                    className="p-1.5 bg-accent text-on-accent rounded-lg hover:bg-accent-dim dark:bg-accent dark:hover:bg-accent-dim transition-colors"
                     title={showWeightForm ? 'Cancel' : 'Add Weight'}
                   >
-                    {showWeightForm ? <X className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                    {showWeightForm ? <X className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </button>
                 </div>
 
-                {showWeightForm ? (
+                <div className="mb-3 rounded-lg border border-divider bg-surface px-2.5 py-2">
+                  <p className="text-xs text-muted">Weight % Rate</p>
+                  {weightRatePercent === null ? (
+                    <p className="text-xs text-muted">Add at least 2 weight entries to calculate rate</p>
+                  ) : (
+                    <p className={`text-xs font-semibold ${weightRatePercent >= 0 ? 'text-emerald-300' : 'text-amber-300'}`}>
+                      {weightRatePercent >= 0 ? '+' : ''}{weightRatePercent.toFixed(1)}% vs last entry
+                    </p>
+                  )}
+                </div>
+
+                {showWeightForm && (
                   <WeightLogForm
                     animal={animal}
                     onSuccess={() => {
@@ -490,29 +612,108 @@ export function AnimalDetailView() {
                     }}
                     onCancel={() => setShowWeightForm(false)}
                   />
-                ) : weightLogs.length > 0 ? (
-                  <WeightChart enclosureAnimalId={animal.id} key={refreshKey} />
-                ) : (
-                  <div className="text-center py-8">
-                    <Scale className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                    <p className="text-gray-600 dark:text-gray-400">No weight data yet</p>
+                )}
+
+                {!showWeightForm && weightLogs.length > 0 && (
+                  <div className="space-y-3">
+                    <div className="rounded-lg border border-divider bg-surface p-2.5">
+                      <WeightChart enclosureAnimalId={animal.id} key={refreshKey} />
+                    </div>
+
+                    <div className="border border-divider rounded-lg p-2.5">
+                      <button
+                        type="button"
+                        onClick={() => setWeightEntriesExpanded(!weightEntriesExpanded)}
+                        className="w-full flex items-center justify-between"
+                      >
+                        <h3 className="text-xs font-semibold text-white">Recent Entries</h3>
+                        {weightEntriesExpanded ? (
+                          <ChevronDown className="w-4 h-4 text-muted" />
+                        ) : (
+                          <ChevronRight className="w-4 h-4 text-muted" />
+                        )}
+                      </button>
+
+                      {weightEntriesExpanded && (
+                        <div className="space-y-1.5 mt-2">
+                          {weightLogs.slice(0, 5).map((log) => (
+                            editingWeightLog?.id === log.id ? (
+                              <div key={log.id} className="bg-card border border-divider rounded-lg p-2.5">
+                                <WeightLogForm
+                                  animal={animal}
+                                  initialData={{
+                                    id: log.id,
+                                    weightGrams: log.weightGrams,
+                                    measurementDate: log.measurementDate,
+                                    notes: log.notes,
+                                  }}
+                                  onSuccess={() => {
+                                    setEditingWeightLog(null);
+                                    handleRefresh();
+                                  }}
+                                  onCancel={() => setEditingWeightLog(null)}
+                                />
+                              </div>
+                            ) : (
+                              <div
+                                key={log.id}
+                                className="flex items-center justify-between gap-2 bg-surface border border-divider rounded-lg px-2.5 py-1.5"
+                              >
+                                <div>
+                                  <p className="text-xs font-medium text-white">{log.weightGrams} g</p>
+                                  <p className="text-xs text-muted">{log.measurementDate.toLocaleDateString()}</p>
+                                </div>
+                                <div className="flex items-center gap-1.5">
+                                  <button
+                                    onClick={() => {
+                                      setShowWeightForm(false);
+                                      setWeightEntriesExpanded(true);
+                                      setEditingWeightLog(log);
+                                    }}
+                                    className="px-2 py-1 rounded-md border border-divider bg-card text-white hover:bg-card-elevated"
+                                    title="Edit weight entry"
+                                  >
+                                    <Pencil className="w-3.5 h-3.5" />
+                                  </button>
+                                  <button
+                                    onClick={() => handleDeleteWeight(log.id)}
+                                    disabled={deletingWeightId === log.id}
+                                    className="px-2 py-1 rounded-md border border-red-400/30 bg-red-500/10 text-red-300 hover:bg-red-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    title="Delete weight entry"
+                                  >
+                                    <Trash2 className="w-3.5 h-3.5" />
+                                  </button>
+                                </div>
+                              </div>
+                            )
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {!showWeightForm && weightLogs.length === 0 && (
+                  <div className="text-center py-6">
+                    <Scale className="w-9 h-9 text-gray-400 mx-auto mb-2" />
+                    <p className="text-sm text-muted">No weight data yet</p>
                   </div>
                 )}
               </div>
 
               {/* Length Tracking */}
-              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                    <Ruler className="w-5 h-5" />
+              <div className="bg-card border border-divider rounded-2xl p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <h2 className="text-base font-semibold text-white flex items-center gap-1.5">
+                    <Ruler className="w-4 h-4" />
                     Length Tracking
                   </h2>
                   <button
                     onClick={() => setShowLengthForm(!showLengthForm)}
-                    className="p-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 transition-colors"
+                    className="p-1.5 bg-accent text-on-accent rounded-lg hover:bg-accent-dim dark:bg-accent dark:hover:bg-accent-dim transition-colors"
                     title={showLengthForm ? 'Cancel' : 'Add Length'}
                   >
-                    {showLengthForm ? <X className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                    {showLengthForm ? <X className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </button>
                 </div>
 
@@ -526,12 +727,134 @@ export function AnimalDetailView() {
                     onCancel={() => setShowLengthForm(false)}
                   />
                 ) : (
-                  <>
-                    <LengthStats enclosureAnimalId={animal.id} key={refreshKey} />
-                    <div className="mt-4">
-                      <LengthHistory enclosureAnimalId={animal.id} onUpdate={handleRefresh} key={refreshKey} />
+                  <div className="space-y-3">
+                    <div className="mb-3 rounded-lg border border-divider bg-surface px-2.5 py-2">
+                      <p className="text-xs text-muted">Length % Rate</p>
+                      {lengthRatePercent === null ? (
+                        <p className="text-xs text-muted">Add at least 2 length entries to calculate rate</p>
+                      ) : (
+                        <p className={`text-xs font-semibold ${lengthRatePercent >= 0 ? 'text-emerald-300' : 'text-amber-300'}`}>
+                          {lengthRatePercent >= 0 ? '+' : ''}{lengthRatePercent.toFixed(1)}% vs last entry
+                        </p>
+                      )}
                     </div>
-                  </>
+
+                    {lengthChartData.length > 0 && (
+                      <div className="rounded-lg border border-divider bg-surface p-2.5">
+                        <ResponsiveContainer width="100%" height={180}>
+                          <LineChart data={lengthChartData} margin={{ top: 5, right: 20, left: 10, bottom: 24 }}>
+                            <CartesianGrid strokeDasharray="3 3" stroke="#2A2D35" />
+                            <XAxis
+                              dataKey="formattedDate"
+                              className="text-xs fill-muted"
+                              tick={{ fontSize: 12 }}
+                              tickMargin={8}
+                              label={{ value: 'Date', position: 'bottom', offset: 6, style: { fontSize: 11, fill: '#8B909A' } }}
+                            />
+                            <YAxis
+                              className="text-xs fill-muted"
+                              tick={{ fontSize: 12 }}
+                              domain={[0, lengthYAxisMax]}
+                              label={{ value: `Length (${lengthChartUnit})`, angle: -90, position: 'insideLeft', offset: 0, dy: 36, style: { fontSize: 12, fill: '#8B909A', textAnchor: 'middle' } }}
+                            />
+                            <Tooltip
+                              formatter={(value: number) => [`${value} ${lengthChartUnit}`, 'Length']}
+                              contentStyle={{
+                                backgroundColor: '#1A1D24',
+                                border: '1px solid #2A2D35',
+                                borderRadius: '0.5rem',
+                                fontSize: '0.875rem',
+                                color: '#FFFFFF'
+                              }}
+                              labelStyle={{ color: '#FFFFFF', fontWeight: 600 }}
+                            />
+                            <Line
+                              type="monotone"
+                              dataKey="lengthValue"
+                              stroke="#10b981"
+                              strokeWidth={2}
+                              dot={{ fill: '#10b981', r: 4 }}
+                              activeDot={{ r: 6 }}
+                              name="Length"
+                            />
+                          </LineChart>
+                        </ResponsiveContainer>
+                      </div>
+                    )}
+
+                    <div className="border border-divider rounded-lg p-2.5">
+                      <button
+                        type="button"
+                        onClick={() => setLengthEntriesExpanded(!lengthEntriesExpanded)}
+                        className="w-full flex items-center justify-between"
+                      >
+                        <h3 className="text-xs font-semibold text-white">Recent Entries</h3>
+                        {lengthEntriesExpanded ? (
+                          <ChevronDown className="w-4 h-4 text-muted" />
+                        ) : (
+                          <ChevronRight className="w-4 h-4 text-muted" />
+                        )}
+                      </button>
+
+                      {lengthEntriesExpanded && (
+                        <div className="space-y-1.5 mt-2">
+                          {lengthLogs.slice(0, 5).map((log) => (
+                            editingLengthLog?.id === log.id ? (
+                              <div key={log.id} className="bg-card border border-divider rounded-lg p-2.5">
+                                <LengthLogForm
+                                  animal={animal}
+                                  initialData={{
+                                    id: log.id,
+                                    length: log.length,
+                                    unit: log.unit,
+                                    date: new Date(log.date),
+                                    measurementType: log.measurementType,
+                                    notes: log.notes,
+                                  }}
+                                  onSuccess={() => {
+                                    setEditingLengthLog(null);
+                                    handleRefresh();
+                                  }}
+                                  onCancel={() => setEditingLengthLog(null)}
+                                />
+                              </div>
+                            ) : (
+                              <div
+                                key={log.id}
+                                className="flex items-center justify-between gap-2 bg-surface border border-divider rounded-lg px-2.5 py-1.5"
+                              >
+                                <div>
+                                  <p className="text-xs font-medium text-white">{log.length} {log.unit}</p>
+                                  <p className="text-xs text-muted">{new Date(log.date).toLocaleDateString()}</p>
+                                </div>
+                                <div className="flex items-center gap-1.5">
+                                  <button
+                                    onClick={() => {
+                                      setShowLengthForm(false);
+                                      setLengthEntriesExpanded(true);
+                                      setEditingLengthLog(log);
+                                    }}
+                                    className="px-2 py-1 rounded-md border border-divider bg-card text-white hover:bg-card-elevated"
+                                    title="Edit length entry"
+                                  >
+                                    <Pencil className="w-3.5 h-3.5" />
+                                  </button>
+                                  <button
+                                    onClick={() => handleDeleteLength(log.id)}
+                                    disabled={deletingLengthId === log.id}
+                                    className="px-2 py-1 rounded-md border border-red-400/30 bg-red-500/10 text-red-300 hover:bg-red-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    title="Delete length entry"
+                                  >
+                                    <Trash2 className="w-3.5 h-3.5" />
+                                  </button>
+                                </div>
+                              </div>
+                            )
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 )}
               </div>
             </div>
@@ -541,18 +864,18 @@ export function AnimalDetailView() {
         {/* Health Tab */}
         {activeTab === 'health' && (
           <div className="space-y-6">
-            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                  <Heart className="w-5 h-5" />
+            <div className="bg-card border border-divider rounded-2xl p-4">
+              <div className="flex items-center justify-between mb-3">
+                <h2 className="text-base font-semibold text-white flex items-center gap-1.5">
+                  <Heart className="w-4 h-4" />
                   Veterinary Records
                 </h2>
                 <button
                   onClick={() => setShowVetForm(!showVetForm)}
-                  className="p-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 transition-colors"
+                  className="p-1.5 bg-accent text-on-accent rounded-lg hover:bg-accent-dim dark:bg-accent dark:hover:bg-accent-dim transition-colors"
                   title={showVetForm ? 'Cancel' : 'Add Visit'}
                 >
-                  {showVetForm ? <X className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                  {showVetForm ? <X className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                 </button>
               </div>
 
@@ -577,18 +900,18 @@ export function AnimalDetailView() {
         {/* Shedding Tab */}
         {activeTab === 'shedding' && (
           <div className="space-y-6">
-            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                  <Stethoscope className="w-5 h-5" />
+            <div className="bg-card border border-divider rounded-2xl p-4">
+              <div className="flex items-center justify-between mb-3">
+                <h2 className="text-base font-semibold text-white flex items-center gap-1.5">
+                  <Stethoscope className="w-4 h-4" />
                   Shedding History
                 </h2>
                 <button
                   onClick={() => setShowShedForm(!showShedForm)}
-                  className="p-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 transition-colors"
+                  className="p-1.5 bg-accent text-on-accent rounded-lg hover:bg-accent-dim dark:bg-accent dark:hover:bg-accent-dim transition-colors"
                   title={showShedForm ? 'Cancel' : 'Log Shed'}
                 >
-                  {showShedForm ? <X className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                  {showShedForm ? <X className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                 </button>
               </div>
 
@@ -613,8 +936,8 @@ export function AnimalDetailView() {
         {/* Brumation Tab */}
         {activeTab === 'brumation' && (
           <div className="space-y-6">
-            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+            <div className="bg-card border border-divider rounded-2xl p-6">
+              <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                 <Moon className="w-5 h-5" />
                 Brumation / Hibernation
               </h2>
@@ -624,24 +947,81 @@ export function AnimalDetailView() {
           </div>
         )}
 
-        {/* Care Tab */}
+        {/* Tasks Tab */}
+        {activeTab === 'tasks' && (
+          <div className="space-y-6">
+            <div className="bg-card border border-divider rounded-2xl p-6">
+              <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                <Clock className="w-5 h-5" />
+                Active Care Tasks
+              </h2>
+
+              {tasks.length > 0 ? (
+                <div className="space-y-2">
+                  {tasks.slice(0, 5).map((task) => (
+                    <button
+                      type="button"
+                      key={task.id}
+                      onClick={() => setEditingTask(task)}
+                      className="w-full text-left flex items-center justify-between p-3 bg-surface rounded-lg hover:bg-card-elevated transition-colors"
+                    >
+                      <div>
+                        <p className="font-medium text-white">
+                          {task.title}
+                        </p>
+                        <p className="text-sm text-muted capitalize">
+                          {task.type} • {task.frequency}
+                        </p>
+                      </div>
+                      {task.notificationEnabled && (
+                        <span className="text-xs px-2 py-1 bg-accent/15 text-accent rounded">
+                          Notifications On
+                        </span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-8">
+                  <Clock className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                  <p className="text-muted mb-4">No care tasks yet</p>
+                  <Link
+                    to="/care-calendar"
+                    className="text-accent hover:underline"
+                  >
+                    Set up a care task
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <TaskEditModal
+              task={editingTask}
+              isOpen={editingTask !== null}
+              onClose={() => setEditingTask(null)}
+              onTaskUpdated={handleRefresh}
+            />
+          </div>
+        )}
+
+        {/* Feeding Tab */}
         {activeTab === 'care' && (
           <div className="space-y-6">
             {/* Recent Feeding Logs */}
-            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+            <div className="bg-card border border-divider rounded-2xl p-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                <h2 className="text-lg font-semibold text-white flex items-center gap-2">
                   <UtensilsCrossed className="w-5 h-5" />
                   Recent Feedings
                 </h2>
                 <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
+                  <div className="flex items-center gap-2 bg-card-elevated rounded-lg p-1">
                     <button
                       onClick={() => setShowAllFeedingLogs(false)}
                       className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
                         !showAllFeedingLogs
-                          ? 'bg-white dark:bg-gray-800 text-emerald-600 dark:text-emerald-400 shadow-sm'
-                          : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                          ? 'bg-card text-accent shadow-sm'
+                          : 'text-muted hover:text-white'
                       }`}
                     >
                       This Animal
@@ -650,8 +1030,8 @@ export function AnimalDetailView() {
                       onClick={() => setShowAllFeedingLogs(true)}
                       className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
                         showAllFeedingLogs
-                          ? 'bg-white dark:bg-gray-800 text-emerald-600 dark:text-emerald-400 shadow-sm'
-                          : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                          ? 'bg-card text-accent shadow-sm'
+                          : 'text-muted hover:text-white'
                       }`}
                     >
                       All in Enclosure
@@ -665,16 +1045,16 @@ export function AnimalDetailView() {
                   {feedingLogs.map((log) => (
                     <div
                       key={log.id}
-                      className="border border-gray-200 dark:border-gray-700 rounded-lg p-4"
+                      className="border border-divider rounded-lg p-4"
                     >
                       <div className="flex items-start justify-between gap-2 mb-2">
                         <div className="flex items-center gap-2">
-                          <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                          <span className="font-medium text-gray-900 dark:text-white">
+                          <CheckCircle className="w-4 h-4 text-accent" />
+                          <span className="font-medium text-white">
                             {log.taskTitle}
                           </span>
                           {log.isEnclosureLevel && (
-                            <span className="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded">
+                            <span className="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-400 rounded">
                               Enclosure-level
                             </span>
                           )}
@@ -686,19 +1066,19 @@ export function AnimalDetailView() {
                       
                       {log.feedingData && (
                         <div className="ml-6 text-sm space-y-1">
-                          <p className="text-gray-700 dark:text-gray-300">
+                          <p className="text-white">
                             <span className="font-medium">Food:</span> {log.feedingData.feederType}
                           </p>
-                          <p className="text-gray-700 dark:text-gray-300">
+                          <p className="text-white">
                             <span className="font-medium">Amount:</span> {log.feedingData.quantityEaten || 0} / {log.feedingData.quantityOffered} eaten
                           </p>
                           {log.feedingData.supplementUsed && log.feedingData.supplementUsed !== 'None' && (
-                            <p className="text-gray-700 dark:text-gray-300">
+                            <p className="text-white">
                               <span className="font-medium">Supplement:</span> {log.feedingData.supplementUsed}
                             </p>
                           )}
                           {log.notes && (
-                            <p className="text-gray-600 dark:text-gray-400 italic mt-2">
+                            <p className="text-muted italic mt-2">
                               {log.notes}
                             </p>
                           )}
@@ -710,11 +1090,11 @@ export function AnimalDetailView() {
               ) : (
                 <div className="text-center py-8">
                   <UtensilsCrossed className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">No feeding records yet</p>
+                  <p className="text-muted mb-4">No feeding records yet</p>
                   {enclosure && (
                     <Link
                       to="/care-calendar"
-                      className="text-emerald-600 dark:text-emerald-400 hover:underline"
+                      className="text-accent hover:underline"
                     >
                       Go to Care Calendar to log feedings
                     </Link>
@@ -723,116 +1103,139 @@ export function AnimalDetailView() {
               )}
             </div>
 
-            {/* Active Care Tasks */}
-            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                <Clock className="w-5 h-5" />
-                Active Care Tasks
-              </h2>
+            <div className="bg-card border border-divider rounded-2xl p-6">
+              <div className="flex items-center justify-between gap-3 mb-4">
+                <h2 className="text-lg font-semibold text-white flex items-center gap-2">
+                  <ClipboardList className="w-5 h-5" />
+                  Poop Logs
+                </h2>
+                <button
+                  type="button"
+                  onClick={() => setShowPoopForm((prev) => !prev)}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-divider bg-card-elevated px-3 py-1.5 text-xs font-semibold text-accent"
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  Log Poop
+                </button>
+              </div>
 
-              {tasks.length > 0 ? (
-                <div className="space-y-2">
-                  {tasks.slice(0, 5).map((task) => (
-                    <div
-                      key={task.id}
-                      onClick={() => navigate('/care-calendar')}
-                      className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-900 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              {showPoopForm && (
+                <div className="mb-4 rounded-xl border border-divider bg-card-elevated p-3 space-y-3">
+                  <div>
+                    <label htmlFor="animal-poop-consistency" className="block text-xs text-muted mb-1">Consistency</label>
+                    <select
+                      id="animal-poop-consistency"
+                      value={poopConsistency || 'normal'}
+                      onChange={(event) => setPoopConsistency(event.target.value as PoopLog['consistency'])}
+                      className="w-full rounded-lg border border-divider bg-card px-3 py-2 text-sm text-white"
                     >
-                      <div>
-                        <p className="font-medium text-gray-900 dark:text-white">
-                          {task.title}
-                        </p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400 capitalize">
-                          {task.type} • {task.frequency}
-                        </p>
+                      <option value="normal">Normal</option>
+                      <option value="soft">Soft</option>
+                      <option value="runny">Runny</option>
+                      <option value="hard">Hard</option>
+                      <option value="dry">Dry</option>
+                      <option value="watery">Watery</option>
+                      <option value="mucus">Mucus</option>
+                      <option value="bloody">Bloody</option>
+                      <option value="unknown">Unknown</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="animal-poop-notes" className="block text-xs text-muted mb-1">Notes</label>
+                    <textarea
+                      id="animal-poop-notes"
+                      rows={2}
+                      value={poopNotes}
+                      onChange={(event) => setPoopNotes(event.target.value)}
+                      placeholder="Optional notes"
+                      className="w-full rounded-lg border border-divider bg-card px-3 py-2 text-sm text-white"
+                    />
+                  </div>
+
+                  <div className="flex items-center justify-end gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setShowPoopForm(false);
+                        setPoopNotes('');
+                        setPoopConsistency('normal');
+                      }}
+                      className="px-3 py-1.5 text-xs text-muted"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      disabled={savingPoop}
+                      onClick={() => handleSavePoopLog().catch(console.error)}
+                      className="px-3 py-1.5 rounded-md text-xs font-semibold bg-accent text-on-accent disabled:opacity-60"
+                    >
+                      {savingPoop ? 'Saving...' : 'Save Log'}
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {poopLogs.length > 0 ? (
+                <div className="space-y-2">
+                  {poopLogs.map((log) => (
+                    <div key={log.id} className="rounded-lg border border-divider p-3">
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="text-sm font-medium text-white capitalize">{log.consistency || 'Unknown'}</p>
+                        <p className="text-xs text-muted">{new Date(log.loggedAt).toLocaleDateString()}</p>
                       </div>
-                      {task.notificationEnabled && (
-                        <span className="text-xs px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded">
-                          Notifications On
-                        </span>
+                      {log.notes && (
+                        <p className="mt-1 text-xs text-muted">{log.notes}</p>
                       )}
                     </div>
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-8">
-                  <Clock className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">No care tasks yet</p>
-                  <Link
-                    to="/care-calendar"
-                    className="text-emerald-600 dark:text-emerald-400 hover:underline"
-                  >
-                    Set up a care task
-                  </Link>
+                <div className="text-center py-6">
+                  <p className="text-sm text-muted">No poop logs yet for this animal.</p>
                 </div>
               )}
             </div>
+
           </div>
         )}
 
         {/* Info Tab */}
         {activeTab === 'info' && (
           <div className="space-y-6">
-            {/* Gallery Section */}
-            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <AnimalGallery
-                animal={animal}
-                onUpdate={async (images) => {
-                  await enclosureAnimalService.updateAnimal(animal.id, { images });
-                  await loadAnimalData();
-                }}
-              />
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Basic Information</h2>
+            <div className="bg-card border border-divider rounded-2xl p-6">
+              <h2 className="text-lg font-semibold text-white mb-4">Basic Information</h2>
               
               <div className="space-y-4">
                 {enclosure && (
                   <div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-1">
+                    <div className="flex items-center gap-2 text-sm text-muted mb-1">
                       <MapPin className="w-4 h-4" />
                       <span className="font-medium">Enclosure</span>
                     </div>
-                    <p className="text-base text-gray-900 dark:text-white ml-6">{enclosure.name}</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 ml-6">{enclosure.animalName}</p>
+                    <p className="text-base text-white ml-6">{enclosure.name}</p>
+                    <p className="text-sm text-muted ml-6">{enclosure.animalName}</p>
                   </div>
                 )}
                 
                 {animal.birthday && (
                   <div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-1">
+                    <div className="flex items-center gap-2 text-sm text-muted mb-1">
                       <Calendar className="w-4 h-4" />
                       <span className="font-medium">Birthday</span>
                     </div>
-                    <p className="text-base text-gray-900 dark:text-white ml-6">
+                    <p className="text-base text-white ml-6">
                       {new Date(animal.birthday).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                     </p>
                   </div>
                 )}
 
-                {latestWeight && (
-                  <div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-1">
-                      <Scale className="w-4 h-4" />
-                      <span className="font-medium">Current Weight</span>
-                    </div>
-                    <p className="text-base text-gray-900 dark:text-white ml-6">{latestWeight.weightGrams}g</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-500 ml-6">{new Date(latestWeight.measurementDate).toLocaleDateString()}</p>
-                  </div>
-                )}
-
-                {animal.notes && (
-                  <div>
-                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Notes</p>
-                    <p className="text-base text-gray-700 dark:text-gray-300">{animal.notes}</p>
-                  </div>
-                )}
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+            <div className="bg-card border border-divider rounded-2xl p-6">
+              <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                 <Info className="w-5 h-5" />
                 Acquisition Information
               </h2>
@@ -840,18 +1243,18 @@ export function AnimalDetailView() {
               <div className="space-y-4">
                 {animal.source && (
                   <div>
-                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Source</p>
-                    <p className="text-base text-gray-900 dark:text-white capitalize">{animal.source}</p>
+                    <p className="text-sm font-medium text-muted mb-1">Source</p>
+                    <p className="text-base text-white capitalize">{animal.source}</p>
                     {animal.sourceDetails && (
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{animal.sourceDetails}</p>
+                      <p className="text-sm text-muted mt-1">{animal.sourceDetails}</p>
                     )}
                   </div>
                 )}
 
                 {animal.acquisitionDate && (
                   <div>
-                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Acquisition Date</p>
-                    <p className="text-base text-gray-900 dark:text-white">
+                    <p className="text-sm font-medium text-muted mb-1">Acquisition Date</p>
+                    <p className="text-base text-white">
                       {new Date(animal.acquisitionDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                     </p>
                   </div>
@@ -859,25 +1262,25 @@ export function AnimalDetailView() {
 
                 {animal.acquisitionPrice && (
                   <div>
-                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Acquisition Price</p>
-                    <p className="text-base text-gray-900 dark:text-white">${animal.acquisitionPrice}</p>
+                    <p className="text-sm font-medium text-muted mb-1">Acquisition Price</p>
+                    <p className="text-base text-white">${animal.acquisitionPrice}</p>
                   </div>
                 )}
 
                 {animal.acquisitionNotes && (
                   <div>
-                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Notes</p>
-                    <p className="text-base text-gray-700 dark:text-gray-300">{animal.acquisitionNotes}</p>
+                    <p className="text-sm font-medium text-muted mb-1">Notes</p>
+                    <p className="text-base text-white">{animal.acquisitionNotes}</p>
                   </div>
                 )}
 
                 {!animal.source && !animal.acquisitionDate && !animal.acquisitionPrice && !animal.acquisitionNotes && (
                   <div className="text-center py-8">
                     <Info className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                    <p className="text-gray-600 dark:text-gray-400 mb-4">No acquisition information recorded</p>
+                    <p className="text-muted mb-4">No acquisition information recorded</p>
                     <button
                       onClick={() => navigate(`/my-animals/edit/${animal.id}`)}
-                      className="text-emerald-600 dark:text-emerald-400 hover:underline"
+                      className="text-accent hover:underline"
                     >
                       Edit Animal Details
                     </button>
@@ -885,9 +1288,70 @@ export function AnimalDetailView() {
                 )}
               </div>
             </div>
+            {/* Notes */}
+            <div className="bg-card border border-divider rounded-2xl p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-semibold text-white flex items-center gap-2">
+                  <ClipboardList className="w-5 h-5" />
+                  Notes
+                </h2>
+                {!editingNotes && (
+                  <button
+                    onClick={() => { setNotesValue(animal.notes || ''); setEditingNotes(true); }}
+                    className="px-3 py-1.5 bg-card-elevated border border-divider text-white rounded-lg text-xs font-semibold flex items-center gap-1.5"
+                  >
+                    <Pencil className="w-3.5 h-3.5" />
+                    {animal.notes ? 'Edit' : 'Add Note'}
+                  </button>
+                )}
+              </div>
+
+              {editingNotes ? (
+                <div className="space-y-3">
+                  <textarea
+                    value={notesValue}
+                    onChange={(e) => setNotesValue(e.target.value)}
+                    rows={5}
+                    placeholder="Add notes about this animal..."
+                    className="w-full bg-surface border border-divider rounded-xl px-4 py-3 text-white text-sm placeholder:text-muted resize-none focus:outline-none focus:ring-2 focus:ring-accent/50"
+                  />
+                  <div className="flex gap-2 justify-end">
+                    <button
+                      onClick={() => setEditingNotes(false)}
+                      className="px-4 py-2 text-sm text-muted hover:text-white transition-colors"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      disabled={savingNotes}
+                      onClick={async () => {
+                        setSavingNotes(true);
+                        await enclosureAnimalService.updateAnimal(animal.id, { notes: notesValue });
+                        await loadAnimalData();
+                        setEditingNotes(false);
+                        setSavingNotes(false);
+                      }}
+                      className="px-4 py-2 bg-accent text-on-accent rounded-lg text-sm font-semibold disabled:opacity-50"
+                    >
+                      {savingNotes ? 'Saving...' : 'Save'}
+                    </button>
+                  </div>
+                </div>
+              ) : animal.notes ? (
+                <p className="text-sm text-white whitespace-pre-wrap">{animal.notes}</p>
+              ) : (
+                <p className="text-sm text-muted">No notes yet. Tap "Add Note" to record observations, reminders, or anything else about this animal.</p>
+              )}
+            </div>
           </div>
         )}
       </div>
     </div>
   );
 }
+
+
+
+
+
+

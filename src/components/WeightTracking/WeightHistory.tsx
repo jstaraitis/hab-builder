@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { Edit2, Trash2, Calendar } from 'lucide-react';
 import { weightTrackingService } from '../../services/weightTrackingService';
 import { useToast } from '../../contexts/ToastContext';
@@ -59,7 +59,7 @@ export function WeightHistory({ enclosureAnimalId, refreshKey, onUpdate }: Weigh
     return (
       <div className="space-y-2">
         {[...Array(3)].map((_, i) => (
-          <div key={i} className="animate-pulse bg-gray-100 dark:bg-gray-700 rounded-lg h-16"></div>
+          <div key={i} className="animate-pulse bg-card-elevated rounded-lg h-16"></div>
         ))}
       </div>
     );
@@ -69,8 +69,8 @@ export function WeightHistory({ enclosureAnimalId, refreshKey, onUpdate }: Weigh
     return (
       <div className="text-center py-8">
         <Calendar className="w-12 h-12 text-gray-400 dark:text-gray-600 mx-auto mb-3" />
-        <p className="text-gray-500 dark:text-gray-400">No weight entries yet</p>
-        <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">
+        <p className="text-muted">No weight entries yet</p>
+        <p className="text-sm text-muted mt-1">
           Click "Log Weight" above to add your first entry
         </p>
       </div>
@@ -82,7 +82,7 @@ export function WeightHistory({ enclosureAnimalId, refreshKey, onUpdate }: Weigh
       {logs.map((log) => {
         if (editingLog?.id === log.id) {
           return (
-            <div key={log.id} className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+            <div key={log.id} className="bg-surface rounded-lg p-4 border border-divider">
               <WeightLogForm
                 animal={{ id: enclosureAnimalId } as EnclosureAnimal}
                 onSuccess={handleEditSuccess}
@@ -101,21 +101,21 @@ export function WeightHistory({ enclosureAnimalId, refreshKey, onUpdate }: Weigh
         return (
           <div
             key={log.id}
-            className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-900 
-                     rounded-lg border border-gray-200 dark:border-gray-700 hover:border-emerald-300 
+            className="flex items-center justify-between p-4 bg-surface 
+                     rounded-lg border border-divider hover:border-emerald-300 
                      dark:hover:border-emerald-700 transition-colors"
           >
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-1">
-                <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
+                <span className="text-xl font-bold text-gray-900 ">
                   {log.weightGrams.toFixed(0)}g
                 </span>
-                <span className="text-sm text-gray-500 dark:text-gray-400">
+                <span className="text-sm text-muted">
                   {log.measurementDate.toLocaleDateString()} at {log.measurementDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </span>
               </div>
               {log.notes && (
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                <p className="text-sm text-muted mt-1">
                   {log.notes}
                 </p>
               )}
@@ -124,8 +124,8 @@ export function WeightHistory({ enclosureAnimalId, refreshKey, onUpdate }: Weigh
             <div className="flex items-center gap-2 ml-4">
               <button
                 onClick={() => setEditingLog(log)}
-                className="p-2 text-gray-600 dark:text-gray-400 hover:text-emerald-600 
-                         dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 
+                className="p-2 text-muted hover:text-accent 
+                         dark:hover:text-accent hover:bg-emerald-50 dark:hover:bg-emerald-900/20 
                          rounded-lg transition-colors"
                 title="Edit entry"
               >
@@ -133,7 +133,7 @@ export function WeightHistory({ enclosureAnimalId, refreshKey, onUpdate }: Weigh
               </button>
               <button
                 onClick={() => handleDelete(log.id)}
-                className="p-2 text-gray-600 dark:text-gray-400 hover:text-red-600 
+                className="p-2 text-muted hover:text-red-600 
                          dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 
                          rounded-lg transition-colors"
                 title="Delete entry"
@@ -147,3 +147,7 @@ export function WeightHistory({ enclosureAnimalId, refreshKey, onUpdate }: Weigh
     </div>
   );
 }
+
+
+
+

@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, Link, useNavigate, useParams } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import { usePlanner } from '../contexts/PlannerContext';
+import { useAuth } from '../contexts/AuthContext';
 import { PremiumRoute } from './Auth/PremiumRoute';
 import { AuthRoute } from './Auth/AuthRoute';
 import { OwnerRoute } from './Auth/OwnerRoute';
@@ -24,6 +25,7 @@ const EditAnimalView = lazy(() => import('./Views/EditAnimalView').then(m => ({ 
 const AddAnimalView = lazy(() => import('./Views/AddAnimalView').then(m => ({ default: m.AddAnimalView })));
 const AddEnclosureView = lazy(() => import('./Views/AddEnclosureView').then(m => ({ default: m.AddEnclosureView })));
 const EditEnclosureView = lazy(() => import('./Views/EditEnclosureView').then(m => ({ default: m.EditEnclosureView })));
+const EnclosureEnvironmentView = lazy(() => import('./Views/EnclosureEnvironmentView').then(m => ({ default: m.EnclosureEnvironmentView })));
 const AddInventoryItemView = lazy(() => import('./Views/AddInventoryItemView').then(m => ({ default: m.AddInventoryItemView })));
 const EditInventoryItemView = lazy(() => import('./Views/EditInventoryItemView').then(m => ({ default: m.EditInventoryItemView })));
 const InventoryView = lazy(() => import('./Views/InventoryView').then(m => ({ default: m.InventoryView })));
@@ -42,12 +44,13 @@ const InstallAppView = lazy(() => import('./Views/InstallAppView').then(m => ({ 
 const OwnerDashboardView = lazy(() => import('./Views/OwnerDashboardView').then(m => ({ default: m.OwnerDashboardView })));
 const WhatsNewView = lazy(() => import('./Views/WhatsNewView').then(m => ({ default: m.WhatsNewView })));
 const PrivacyPolicy = lazy(() => import('./PrivacyPolicy/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
+const DashboardView = lazy(() => import('./Views/DashboardView').then(m => ({ default: m.DashboardView })));
 
 const LoadingFallback = () => (
   <div className="flex items-center justify-center min-h-[400px]">
     <div className="text-center space-y-3">
-      <Loader2 className="w-8 h-8 text-emerald-600 dark:text-emerald-400 animate-spin mx-auto" />
-      <p className="text-sm text-gray-600 dark:text-gray-400">Loading...</p>
+      <Loader2 className="w-8 h-8 text-accent animate-spin mx-auto" />
+      <p className="text-sm text-muted">Loading...</p>
     </div>
   </div>
 );
@@ -73,7 +76,9 @@ export function AppRoutes({ onOpenFeedback }: AppRoutesProps) {
   return (
     <Suspense fallback={<LoadingFallback />}>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<AuthDashboardRedirect />} />
+        <Route path="/dashboard" element={<AuthRoute><DashboardView /></AuthRoute>} />
+        <Route path="/health" element={<AuthRoute><MyAnimalsView /></AuthRoute>} />
         <Route
           path="/animal/:animalId"
           element={
@@ -172,6 +177,7 @@ export function AppRoutes({ onOpenFeedback }: AppRoutesProps) {
         <Route path="/my-animals/add" element={<AuthRoute><AddAnimalView /></AuthRoute>} />
         <Route path="/care-calendar/enclosures/add" element={<AuthRoute><AddEnclosureView /></AuthRoute>} />
         <Route path="/care-calendar/enclosures/edit/:id" element={<AuthRoute><EditEnclosureView /></AuthRoute>} />
+        <Route path="/care-calendar/enclosures/:id/environment" element={<AuthRoute><EnclosureEnvironmentView /></AuthRoute>} />
         <Route path="/inventory" element={<PremiumRoute><InventoryView /></PremiumRoute>} />
         <Route path="/inventory/add" element={<PremiumRoute><AddInventoryItemView /></PremiumRoute>} />
         <Route path="/inventory/edit/:id" element={<PremiumRoute><EditInventoryItemView /></PremiumRoute>} />
@@ -220,4 +226,19 @@ function AnimalSelectRoute({ input, selectedProfile, profileCareTargets, plan, o
       onContinue={onContinue}
     />
   );
+}
+
+/** Redirect authenticated users to Dashboard, unauthenticated to Home */
+function AuthDashboardRedirect() {
+  const { user, loading } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (loading) return;
+    if (user) navigate('/dashboard', { replace: true });
+  }, [user, loading, navigate]);
+
+  // Unauthenticated users see the marketing home
+  if (!loading && !user) return <Home />;
+  return <LoadingFallback />;
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { Edit2, Trash2, Calendar } from 'lucide-react';
 import { lengthLogService, type LengthLog } from '../../services/lengthLogService';
 import { useToast } from '../../contexts/ToastContext';
@@ -62,7 +62,7 @@ export function LengthHistory({ enclosureAnimalId, refreshKey, onUpdate }: Lengt
     return (
       <div className="space-y-2">
         {[...Array(3)].map((_, i) => (
-          <div key={i} className="animate-pulse bg-gray-100 dark:bg-gray-700 rounded-lg h-16"></div>
+          <div key={i} className="animate-pulse bg-card-elevated rounded-lg h-16"></div>
         ))}
       </div>
     );
@@ -72,8 +72,8 @@ export function LengthHistory({ enclosureAnimalId, refreshKey, onUpdate }: Lengt
     return (
       <div className="text-center py-8">
         <Calendar className="w-12 h-12 text-gray-400 dark:text-gray-600 mx-auto mb-3" />
-        <p className="text-gray-500 dark:text-gray-400">No length entries yet</p>
-        <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">
+        <p className="text-muted">No length entries yet</p>
+        <p className="text-sm text-muted mt-1">
           Click "Log Length" above to add your first measurement
         </p>
       </div>
@@ -85,7 +85,7 @@ export function LengthHistory({ enclosureAnimalId, refreshKey, onUpdate }: Lengt
       {logs.map((log) => {
         if (editingLog?.id === log.id) {
           return (
-            <div key={log.id} className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+            <div key={log.id} className="bg-surface rounded-lg p-4 border border-divider">
               <LengthLogForm
                 animal={{ id: enclosureAnimalId } as EnclosureAnimal}
                 onSuccess={handleEditSuccess}
@@ -106,15 +106,15 @@ export function LengthHistory({ enclosureAnimalId, refreshKey, onUpdate }: Lengt
         return (
           <div
             key={log.id}
-            className="bg-white dark:bg-gray-800 rounded-lg p-3 border border-gray-200 dark:border-gray-700
+            className="bg-card rounded-lg p-3 border border-divider
                      hover:shadow-sm transition-shadow flex justify-between items-center"
           >
             <div className="flex-1">
               <div className="flex items-center gap-3">
-                <span className="text-lg font-semibold text-emerald-600 dark:text-emerald-400">
+                <span className="text-lg font-semibold text-accent">
                   {formatLength(log)}
                 </span>
-                <span className="text-sm text-gray-600 dark:text-gray-400">
+                <span className="text-sm text-muted">
                   {new Date(log.date).toLocaleDateString()}
                 </span>
               </div>
@@ -129,7 +129,7 @@ export function LengthHistory({ enclosureAnimalId, refreshKey, onUpdate }: Lengt
               )}
               
               {log.notes && (
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                <p className="text-sm text-muted mt-1">
                   {log.notes}
                 </p>
               )}
@@ -138,16 +138,16 @@ export function LengthHistory({ enclosureAnimalId, refreshKey, onUpdate }: Lengt
             <div className="flex gap-1 ml-4">
               <button
                 onClick={() => setEditingLog(log)}
-                className="p-2 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400
-                         hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
+                className="p-2 text-muted hover:text-accent dark:hover:text-accent
+                         hover:bg-card-elevated rounded transition-colors"
                 title="Edit"
               >
                 <Edit2 className="w-4 h-4" />
               </button>
               <button
                 onClick={() => handleDelete(log.id)}
-                className="p-2 text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400
-                         hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
+                className="p-2 text-muted hover:text-red-600 dark:hover:text-red-400
+                         hover:bg-card-elevated rounded transition-colors"
                 title="Delete"
               >
                 <Trash2 className="w-4 h-4" />
@@ -159,3 +159,6 @@ export function LengthHistory({ enclosureAnimalId, refreshKey, onUpdate }: Lengt
     </div>
   );
 }
+
+
+

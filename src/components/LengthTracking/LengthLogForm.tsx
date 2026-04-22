@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useToast } from '../../contexts/ToastContext';
 import { lengthLogService, type LengthLogInput } from '../../services/lengthLogService';
@@ -230,3 +230,6 @@ export function LengthLogForm({ animal, onSuccess, onCancel, initialData }: Leng
     </form>
   );
 }
+
+
+

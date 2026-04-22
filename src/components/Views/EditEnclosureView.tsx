@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureService } from '../../services/enclosureService';
@@ -104,7 +104,7 @@ export function EditEnclosureView() {
   if (loading) {
     return (
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 text-sm text-gray-600 dark:text-gray-300">
+        <div className="bg-card border border-divider rounded-lg p-4 text-sm text-gray-600 dark:text-gray-300">
           Loading enclosure...
         </div>
       </div>
@@ -143,3 +143,4 @@ export function EditEnclosureView() {
     </div>
   );
 }
+

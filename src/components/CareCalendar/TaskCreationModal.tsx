@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { X, ClipboardList, Edit3 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { usePremium } from '../../contexts/PremiumContext';
@@ -308,329 +308,173 @@ export function TaskCreationModal({
 
   if (!isOpen) return null;
 
-  const containerClassName = layout === 'page'
-    ? 'bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm'
-    : 'bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-4xl w-full max-h-[85vh] sm:max-h-[90vh] overflow-hidden flex flex-col';
-  const contentClassName = layout === 'page'
-    ? 'p-3 sm:p-6'
-    : 'flex-1 overflow-y-auto p-4 sm:p-6 pb-24 sm:pb-6';
-  const footerClassName = layout === 'page'
-    ? 'border-t border-gray-200 dark:border-gray-700 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between'
-    : 'border-t border-gray-200 dark:border-gray-700 p-3 sm:p-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 sm:justify-between bg-gray-50 dark:bg-gray-900 shrink-0';
+  const selectClass = 'w-full bg-card-elevated text-white text-sm focus:outline-none border-0';
+  const inputClass = 'w-full bg-transparent text-white text-sm focus:outline-none placeholder:text-muted';
 
-  const modalContent = (
-    <div className={containerClassName}>
-        {/* Header */}
-        <div className="flex items-center justify-between p-3 sm:p-6 border-b border-gray-200 dark:border-gray-700">
-          <h2 className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white">
-            Create Care Tasks
-          </h2>
-        {layout === 'page' ? (
-          <button
-            onClick={onClose}
-            className="text-sm text-emerald-700 dark:text-emerald-300 hover:text-emerald-800 dark:hover:text-emerald-200 font-medium"
-          >
-            Back
-          </button>
-        ) : (
-          <button
-            onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 -mr-1"
-          >
-            <X className="w-5 h-5 sm:w-6 sm:h-6" />
-          </button>
-        )}
+  // ─── Page layout ────────────────────────────────────────────────────────────
+  if (layout === 'page') {
+    return (
+      <div className="min-h-screen bg-surface flex flex-col">
+        {/* Sticky header */}
+        <div className="sticky top-0 z-20 bg-surface/95 backdrop-blur-sm px-4 pt-4 pb-3 flex items-center justify-between border-b border-divider">
+          <h1 className="text-lg font-bold text-white">Create Care Tasks</h1>
+          <button onClick={onClose} className="text-sm font-semibold text-accent">Back</button>
         </div>
 
-        {/* Content */}
-        <div className={contentClassName}>
-          {/* Step 1: Enclosure Selection */}
-          {!selectedEnclosure ? (
-            <div className="space-y-3 sm:space-y-4">
-              {enclosures.length === 0 ? (
-                <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6 text-center">
-                  <p className="text-yellow-800 dark:text-yellow-200 mb-2">
-                    You need to create a pet enclosure first
-                  </p>
-                  <p className="text-sm text-yellow-700 dark:text-yellow-300">
-                    Close this dialog and add your first pet above to get started.
-                  </p>
-                </div>
-              ) : (
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Select Enclosure <span className="text-red-500">*</span>
-                  </label>
-                  <select
-                    value={selectedEnclosure}
-                    onChange={(e) => {
-                      setSelectedEnclosure(e.target.value);
-                      setTaskMode('choose');
-                    }}
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
-                    required
-                  >
-                    <option value="">Choose which pet these tasks are for...</option>
-                    {enclosures.map(enc => (
-                      <option key={enc.id} value={enc.id}>
-                        {enc.name} ({enc.animalName})
-                      </option>
-                    ))}
-                  </select>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                    Tasks will be linked to this enclosure
-                  </p>
+        {/* Scrollable content */}
+        <div className="flex-1 overflow-y-auto pb-28">
+          <div className="space-y-3 px-4 py-4">
 
-                  {/* Animal Selection - shown if enclosure is selected */}
-                  {selectedEnclosure && (
-                    <div className="mt-4">
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        For Specific Animal (optional)
+            {/* Step 1: Enclosure selection */}
+            {!selectedEnclosure && (
+              <>
+                {enclosures.length === 0 ? (
+                  <div className="bg-card border border-divider rounded-2xl p-5 text-center">
+                    <p className="text-white text-sm font-semibold mb-1">No enclosures yet</p>
+                    <p className="text-muted text-xs">Close this and add your first pet to get started.</p>
+                  </div>
+                ) : (
+                  <div className="bg-card border border-divider rounded-2xl overflow-hidden">
+                    <div className="px-4 py-3">
+                      <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+                        Select Enclosure <span className="text-red-400">*</span>
                       </label>
                       <select
-                        value={selectedAnimalId}
-                        onChange={(e) => setSelectedAnimalId(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+                        value={selectedEnclosure}
+                        onChange={(e) => { setSelectedEnclosure(e.target.value); setTaskMode('choose'); }}
+                        className={selectClass}
+                        required
                       >
-                        <option value="">Whole Enclosure (all animals)</option>
-                        {animals.map(animal => (
-                          <option key={animal.id} value={animal.id}>
-                            {animal.name || `Animal #${animal.animalNumber || '?'}`}
-                          </option>
+                        <option value="">Choose which pet these tasks are for...</option>
+                        {enclosures.map(enc => (
+                          <option key={enc.id} value={enc.id}>{enc.name} ({enc.animalName})</option>
                         ))}
                       </select>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                        {selectedAnimalId
-                          ? 'Task will be specific to this animal'
-                          : 'Task will apply to the whole enclosure'}
-                      </p>
+                      <p className="text-xs text-muted mt-1.5">Tasks will be linked to this enclosure</p>
                     </div>
-                  )}
-                </div>
-              )}
-            </div>
-          ) : taskMode === 'choose' ? (
-            /* Step 2: Choose Task Creation Mode */
-            <div className="space-y-4">
-              <div>
-                <button
-                  onClick={() => setSelectedEnclosure('')}
-                  className="text-sm text-emerald-600 dark:text-emerald-400 hover:underline mb-4"
-                >
+                  </div>
+                )}
+              </>
+            )}
+
+            {/* Step 2: Mode selection */}
+            {selectedEnclosure && taskMode === 'choose' && (
+              <>
+                <button onClick={() => setSelectedEnclosure('')} className="text-xs text-accent flex items-center gap-1 px-1">
                   ← Change enclosure
                 </button>
-              </div>
-
-              <p className="text-base text-gray-700 dark:text-gray-300 font-medium mb-4">
-                How would you like to create tasks?
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {/* Recommended Tasks Option */}
-                <button
-                  onClick={() => setTaskMode('template')}
-                  className="group relative p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md border border-gray-200 dark:border-gray-700 hover:border-emerald-500 dark:hover:border-emerald-500 transition-all text-center"
-                >
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="p-2 bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/20 dark:to-emerald-800/20 rounded-lg group-hover:scale-110 transition-transform">
-                      <ClipboardList className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-                    </div>
-                    <h3 className="text-base font-bold text-gray-900 dark:text-white">
-                      Recommended Tasks
-                    </h3>
-                  </div>
-                </button>
-
-                {/* Custom Tasks Option */}
-                <button
-                  onClick={() => {
-                    const selectedEnc = enclosures.find(e => e.id === selectedEnclosure);
-                    setTaskMode('custom');
-                    setTasks([{
-                      animalId: selectedEnc?.animalId || 'custom',
-                      title: '',
-                      description: '',
-                      type: 'custom',
-                      frequency: 'daily',
-                        customFrequencyWeekdays: undefined,
-                      startDate: undefined,
-                      scheduledTime: '09:00',
-                      notificationEnabled: true,
-                      notificationMinutesBefore: 15,
-                    }]);
-                  }}
-                  className="group relative p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 transition-all text-center"
-                >
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="p-2 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-lg group-hover:scale-110 transition-transform">
-                      <Edit3 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                    </div>
-                    <h3 className="text-base font-bold text-gray-900 dark:text-white">
-                      Custom Tasks
-                    </h3>
-                  </div>
-                </button>
-              </div>
-            </div>
-          ) : taskMode === 'template' && !selectedAnimal ? (
-            /* Step 3a: Animal Template Selection */
-            <div className="space-y-3 sm:space-y-4">
-              <div>
-                <button
-                  onClick={() => {
-                    setTaskMode('choose');
-                    setSelectedAnimal('');
-                  }}
-                  className="text-sm text-emerald-600 dark:text-emerald-400 hover:underline mb-4"
-                >
-                  ← Back
-                </button>
-              </div>
-
-              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
-                Select an animal to load recommended care tasks:
-              </p>
-              <div className="grid gap-2 sm:gap-3">
-                {availableAnimals.map(animal => (
+                <p className="text-sm font-semibold text-white px-1">How would you like to create tasks?</p>
+                <div className="grid grid-cols-2 gap-3">
                   <button
-                    key={animal.id}
-                    onClick={() => setSelectedAnimal(animal.id)}
-                    className="p-3 sm:p-4 border-2 border-gray-200 dark:border-gray-700 rounded-lg hover:border-emerald-500 dark:hover:border-emerald-500 transition-colors text-left"
+                    onClick={() => setTaskMode('template')}
+                    className="bg-card border border-divider rounded-2xl p-4 flex flex-col items-center gap-2 active:scale-95 transition-transform"
                   >
-                    <div className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
-                      {animal.name}
+                    <div className="w-10 h-10 rounded-xl bg-accent/15 flex items-center justify-center">
+                      <ClipboardList className="w-5 h-5 text-accent" />
                     </div>
-                    <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-1">
-                      Includes {template?.tasks.length || '7'} recommended care tasks
-                    </div>
+                    <span className="text-sm font-semibold text-white">Recommended</span>
                   </button>
-                ))}
-              </div>
-            </div>
-          ) : (
-            /* Step 4: Task Configuration (Template or Custom) */
-            <div className="space-y-4 sm:space-y-6">
-              {/* Header */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                <div className="flex-1 min-w-0">
-                  <button
-                    onClick={() => {
-                      if (taskMode === 'template') {
-                        setSelectedAnimal('');
-                      } else {
-                        setTaskMode('choose');
-                        setTasks([]);
-                      }
-                    }}
-                    className="text-sm text-emerald-600 dark:text-emerald-400 hover:underline mb-2"
-                  >
-                    ← Back
-                  </button>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white truncate">
-                    {taskMode === 'custom' ? 'Custom Care Tasks' : (template?.species || selectedAnimal)}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-                    {tasks.length} tasks • Customize as needed
-                  </p>
-                </div>
-                {taskMode === 'custom' && (
                   <button
                     onClick={() => {
                       const selectedEnc = enclosures.find(e => e.id === selectedEnclosure);
-                      setTasks(prev => [...prev, {
-                        animalId: selectedEnc?.animalId || 'custom',
-                        title: '',
-                        description: '',
-                        type: 'custom',
-                        frequency: 'daily',
-                        customFrequencyWeekdays: undefined,
-                        startDate: undefined,
-                        scheduledTime: '09:00',
-                        notificationEnabled: true,
-                        notificationMinutesBefore: 15,
-                      }]);
+                      setTaskMode('custom');
+                      setTasks([{ animalId: selectedEnc?.animalId || 'custom', title: '', description: '', type: 'custom', frequency: 'daily', customFrequencyWeekdays: undefined, startDate: undefined, scheduledTime: '09:00', notificationEnabled: true, notificationMinutesBefore: 15 }]);
                     }}
-                    className="w-full sm:w-auto px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm rounded-lg transition-colors shrink-0"
+                    className="bg-card border border-divider rounded-2xl p-4 flex flex-col items-center gap-2 active:scale-95 transition-transform"
                   >
-                    + Add Task
+                    <div className="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center">
+                      <Edit3 className="w-5 h-5 text-blue-400" />
+                    </div>
+                    <span className="text-sm font-semibold text-white">Custom</span>
                   </button>
-                )}
-                {taskMode === 'template' && (
-                  <button
-                    onClick={() => {
-                      setSelectedAnimal('');
-                      setTasks([]);
-                    }}
-                    className="text-xs sm:text-sm text-emerald-600 dark:text-emerald-400 hover:underline shrink-0"
-                  >
-                    Change
-                  </button>
-                )}
-              </div>
+                </div>
+              </>
+            )}
 
-              {/* Animal Selection for all tasks */}
-              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-2.5 sm:p-3">
-                <label className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  {taskMode === 'custom' ? 'These tasks are for:' : 'Tasks will be for:'}
-                </label>
-                <select
-                  value={selectedAnimalId}
-                  onChange={(e) => setSelectedAnimalId(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
-                >
-                  <option value="">Whole Enclosure (all animals)</option>
-                  {animals.map(animal => (
-                    <option key={animal.id} value={animal.id}>
-                      {animal.name || `Animal #${animal.animalNumber || '?'}`}
-                    </option>
+            {/* Step 3a: Template animal selection */}
+            {selectedEnclosure && taskMode === 'template' && !selectedAnimal && (
+              <>
+                <button onClick={() => { setTaskMode('choose'); setSelectedAnimal(''); }} className="text-xs text-accent flex items-center gap-1 px-1">← Back</button>
+                <p className="text-xs text-muted px-1">Select an animal to load recommended care tasks:</p>
+                <div className="space-y-2">
+                  {availableAnimals.map(animal => (
+                    <button
+                      key={animal.id}
+                      onClick={() => setSelectedAnimal(animal.id)}
+                      className="w-full bg-card border border-divider rounded-2xl px-4 py-3.5 text-left active:scale-[0.98] transition-transform"
+                    >
+                      <div className="text-sm font-semibold text-white">{animal.name}</div>
+                      <div className="text-xs text-muted mt-0.5">Includes {template?.tasks.length || '7'} recommended care tasks</div>
+                    </button>
                   ))}
-                </select>
-                <p className="text-[11px] sm:text-xs text-gray-600 dark:text-gray-400 mt-1">
-                  {selectedAnimalId
-                    ? `Tasks will be specific to ${animals.find(a => a.id === selectedAnimalId)?.name || 'this animal'}`
-                    : 'Tasks will apply to the whole enclosure'}
-                </p>
-              </div>
+                </div>
+              </>
+            )}
 
-              {/* Task List */}
-              <div className="space-y-3 sm:space-y-4">
+            {/* Step 4: Task configuration */}
+            {selectedEnclosure && (selectedAnimal || (taskMode === 'custom' && tasks.length > 0)) && (
+              <>
+                {/* Back + header */}
+                <div className="flex items-center justify-between px-1">
+                  <button
+                    onClick={() => { if (taskMode === 'template') { setSelectedAnimal(''); } else { setTaskMode('choose'); setTasks([]); } }}
+                    className="text-xs text-accent"
+                  >← Back</button>
+                  {taskMode === 'template' && (
+                    <button onClick={() => { setSelectedAnimal(''); setTasks([]); }} className="text-xs text-accent">Change</button>
+                  )}
+                </div>
+                <div className="px-1">
+                  <p className="text-sm font-semibold text-white">{taskMode === 'custom' ? 'Custom Care Tasks' : (template?.species || selectedAnimal)}</p>
+                  <p className="text-xs text-muted">{tasks.length} task{tasks.length !== 1 ? 's' : ''} • Customize as needed</p>
+                </div>
+
+                {/* Animal selector card */}
+                <div className="bg-card border border-divider rounded-2xl overflow-hidden">
+                  <div className="px-4 py-3">
+                    <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+                      {taskMode === 'custom' ? 'These tasks are for' : 'Tasks will be for'}
+                    </label>
+                    <select
+                      value={selectedAnimalId}
+                      onChange={(e) => setSelectedAnimalId(e.target.value)}
+                      className={selectClass}
+                    >
+                      <option value="">Whole Enclosure (all animals)</option>
+                      {animals.map(animal => (
+                        <option key={animal.id} value={animal.id}>{animal.name || `Animal #${animal.animalNumber || '?'}`}</option>
+                      ))}
+                    </select>
+                    <p className="text-xs text-muted mt-1">
+                      {selectedAnimalId
+                        ? `Specific to ${animals.find(a => a.id === selectedAnimalId)?.name || 'this animal'}`
+                        : 'Applies to the whole enclosure'}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Task cards */}
                 {tasks.map((task, index) => (
-                  <div
-                    key={index}
-                    className="border border-gray-200 dark:border-gray-700 rounded-lg p-2.5 sm:p-4 space-y-2 sm:space-y-3"
-                  >
-                    <div className="flex items-start justify-between gap-2">
+                  <div key={index} className="bg-card border border-divider rounded-2xl overflow-hidden">
+                    {/* Title row */}
+                    <div className="px-4 py-3 border-b border-divider flex items-center gap-3">
                       <input
                         type="text"
                         value={task.title}
                         onChange={(e) => updateTask(index, 'title', e.target.value)}
-                        placeholder="Task name (e.g., 'Feed', 'Clean tank')"
-                        className="flex-1 text-sm sm:text-lg font-medium px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+                        placeholder="Task name (e.g. Feed, Mist, Clean)"
+                        className={`flex-1 ${inputClass} font-semibold`}
                       />
+                      <button onClick={() => removeTask(index)} type="button" className="text-xs text-red-400 shrink-0">Remove</button>
                     </div>
 
-                    <div className="flex justify-end">
-                      <button
-                        onClick={() => removeTask(index)}
-                        className="text-xs sm:text-sm text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300"
-                        type="button"
-                      >
-                        Remove task
-                      </button>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
-                      <div>
-                        <label className="block text-[11px] sm:text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
-                          Type
-                        </label>
-                        <select
-                          value={task.type}
-                          onChange={(e) => updateTask(index, 'type', e.target.value as TaskType)}
-                          className="w-full px-2 sm:px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
-                        >
+                    {/* Type + Frequency */}
+                    <div className="grid grid-cols-2 divide-x divide-divider border-b border-divider">
+                      <div className="px-4 py-3">
+                        <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Type</label>
+                        <select value={task.type} onChange={(e) => updateTask(index, 'type', e.target.value as TaskType)} className={selectClass}>
                           <option value="feeding">Feeding</option>
-                          <option value="gut-load">Gut-Load Feeders</option>
+                          <option value="gut-load">Gut-Load</option>
                           <option value="misting">Misting</option>
                           <option value="water-change">Water Change</option>
                           <option value="spot-clean">Spot Clean</option>
@@ -641,16 +485,9 @@ export function TaskCreationModal({
                           <option value="custom">Custom</option>
                         </select>
                       </div>
-
-                      <div>
-                        <label className="block text-[11px] sm:text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
-                          Frequency
-                        </label>
-                        <select
-                          value={task.frequency}
-                          onChange={(e) => updateTaskFrequency(index, e.target.value)}
-                          className="w-full px-2 sm:px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
-                        >
+                      <div className="px-4 py-3">
+                        <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Frequency</label>
+                        <select value={task.frequency} onChange={(e) => updateTaskFrequency(index, e.target.value)} className={selectClass}>
                           <option value="daily">Daily</option>
                           <option value="every-other-day">Every Other Day</option>
                           <option value="twice-weekly">Twice Weekly</option>
@@ -660,175 +497,342 @@ export function TaskCreationModal({
                           <option value="custom">Custom Days</option>
                         </select>
                       </div>
+                    </div>
 
-                      {task.frequency === 'custom' && (
-                        <div className="sm:col-span-2">
-                          <label className="block text-[11px] sm:text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
-                            Weekdays
-                          </label>
-                          <div className="flex flex-wrap gap-2">
-                            {WEEKDAY_OPTIONS.map((weekday) => {
-                              const isSelected = (task.customFrequencyWeekdays || []).includes(weekday.value);
-                              return (
-                                <button
-                                  key={weekday.value}
-                                  type="button"
-                                  onClick={() => toggleCustomWeekday(index, weekday.value)}
-                                  className={`px-2.5 py-1 text-xs sm:text-sm rounded-md border transition-colors ${
-                                    isSelected
-                                      ? 'bg-emerald-600 border-emerald-600 text-white'
-                                      : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200'
-                                  }`}
-                                >
-                                  {weekday.shortLabel}
-                                </button>
-                              );
-                            })}
-                          </div>
-                          {(task.customFrequencyWeekdays || []).length === 0 && (
-                            <p className="text-[11px] sm:text-xs text-amber-700 dark:text-amber-300 mt-1">
-                              Select at least one day.
-                            </p>
-                          )}
+                    {/* Custom weekdays */}
+                    {task.frequency === 'custom' && (
+                      <div className="px-4 py-3 border-b border-divider">
+                        <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-2">Weekdays</label>
+                        <div className="flex flex-wrap gap-2">
+                          {WEEKDAY_OPTIONS.map((weekday) => {
+                            const isSelected = (task.customFrequencyWeekdays || []).includes(weekday.value);
+                            return (
+                              <button
+                                key={weekday.value}
+                                type="button"
+                                onClick={() => toggleCustomWeekday(index, weekday.value)}
+                                className={`px-3 py-1.5 text-xs font-semibold rounded-full border transition-colors ${isSelected ? 'bg-accent border-accent text-on-accent' : 'bg-card-elevated border-divider text-muted'}`}
+                              >
+                                {weekday.shortLabel}
+                              </button>
+                            );
+                          })}
                         </div>
-                      )}
-
-                      <div>
-                        <label className="block text-[11px] sm:text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
-                          Start Date (optional)
-                        </label>
-                        <input
-                          type="date"
-                          value={task.startDate || ''}
-                          onChange={(e) => updateTask(index, 'startDate', e.target.value)}
-                          className="w-full px-2 sm:px-3 py-2.5 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm sm:text-base min-h-[44px] sm:min-h-[42px] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none appearance-none [-webkit-appearance:none] [&::-webkit-calendar-picker-indicator]:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
-                          style={{ colorScheme: 'light' }}
-                        />
-                        <p className="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-                          Schedule a future task (e.g., feeding in 2 weeks)
-                        </p>
+                        {(task.customFrequencyWeekdays || []).length === 0 && (
+                          <p className="text-xs text-amber-400 mt-1.5">Select at least one day.</p>
+                        )}
                       </div>
+                    )}
 
-                      <div>
-                        <label className="block text-[11px] sm:text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
-                          Time
-                        </label>
+                    {/* Time + Start Date */}
+                    <div className="grid grid-cols-2 divide-x divide-divider border-b border-divider">
+                      <div className="px-4 py-3">
+                        <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Time</label>
                         <input
                           type="time"
                           value={task.scheduledTime}
                           onChange={(e) => updateTask(index, 'scheduledTime', e.target.value)}
-                          className="w-full px-2 sm:px-3 py-2.5 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm sm:text-base min-h-[44px] sm:min-h-[42px] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none appearance-none [-webkit-appearance:none] [&::-webkit-calendar-picker-indicator]:opacity-100 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
-                          style={{ colorScheme: 'light' }}
+                          className="w-full bg-transparent text-white text-sm focus:outline-none [&::-webkit-calendar-picker-indicator]:invert"
+                          style={{ colorScheme: 'dark' }}
+                        />
+                      </div>
+                      <div className="px-4 py-3">
+                        <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Start Date</label>
+                        <input
+                          type="date"
+                          value={task.startDate || ''}
+                          onChange={(e) => updateTask(index, 'startDate', e.target.value)}
+                          className="w-full bg-transparent text-white text-sm focus:outline-none [&::-webkit-calendar-picker-indicator]:invert"
+                          style={{ colorScheme: 'dark' }}
                         />
                       </div>
                     </div>
 
-                    {/* Notification Settings */}
-                    <div className="border-t border-gray-200 dark:border-gray-700 pt-3 space-y-2">
-                      <label className="flex items-center gap-2 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={task.notificationEnabled}
-                          onChange={(e) => setTasks(prev => {
-                            const updated = [...prev];
-                            updated[index] = { ...updated[index], notificationEnabled: e.target.checked };
-                            return updated;
-                          })}
-                          className="w-4 h-4 text-emerald-600 border-gray-300 rounded focus:ring-emerald-500"
-                        />
-                        <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                          Send push notification reminders
-                        </span>
-                      </label>
+                    {/* Notifications */}
+                    <label className="flex items-center justify-between px-4 py-3 cursor-pointer border-b border-divider">
+                      <span className="text-sm text-white">Push notifications</span>
+                      <input
+                        type="checkbox"
+                        checked={task.notificationEnabled}
+                        onChange={(e) => setTasks(prev => { const u = [...prev]; u[index] = { ...u[index], notificationEnabled: e.target.checked }; return u; })}
+                        className="w-5 h-5 accent-accent rounded"
+                      />
+                    </label>
+                    {task.notificationEnabled && (
+                      <div className="px-4 py-3 border-b border-divider">
+                        <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Remind me</label>
+                        <select
+                          value={task.notificationMinutesBefore}
+                          onChange={(e) => setTasks(prev => { const u = [...prev]; u[index] = { ...u[index], notificationMinutesBefore: parseInt(e.target.value) }; return u; })}
+                          className={selectClass}
+                        >
+                          <option value="5">5 minutes before</option>
+                          <option value="10">10 minutes before</option>
+                          <option value="15">15 minutes before</option>
+                          <option value="30">30 minutes before</option>
+                          <option value="60">1 hour before</option>
+                          <option value="120">2 hours before</option>
+                        </select>
+                      </div>
+                    )}
 
-                      {task.notificationEnabled && (
-                        <div>
-                          <label className="block text-[11px] sm:text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
-                            Remind me
-                          </label>
-                          <select
-                            value={task.notificationMinutesBefore}
-                            onChange={(e) => setTasks(prev => {
-                              const updated = [...prev];
-                              updated[index] = { ...updated[index], notificationMinutesBefore: parseInt(e.target.value) };
-                              return updated;
-                            })}
-                            className="w-full px-2 sm:px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs sm:text-sm"
-                          >
-                            <option value="5">5 minutes before</option>
-                            <option value="10">10 minutes before</option>
-                            <option value="15">15 minutes before</option>
-                            <option value="30">30 minutes before</option>
-                            <option value="60">1 hour before</option>
-                            <option value="120">2 hours before</option>
-                          </select>
-                        </div>
-                      )}
-                    </div>
-
-                    <div>
-                      <label className="block text-[11px] sm:text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
-                        Optional Details
-                      </label>
+                    {/* Description */}
+                    <div className="px-4 py-3">
+                      <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Details (optional)</label>
                       <textarea
                         value={task.description}
                         onChange={(e) => updateTask(index, 'description', e.target.value)}
                         placeholder="Add details about this task..."
                         rows={2}
-                        className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 text-xs sm:text-sm"
+                        className={`${inputClass} resize-none`}
                       />
                     </div>
                   </div>
                 ))}
+
+                {/* Add task button (custom mode) */}
+                {taskMode === 'custom' && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const selectedEnc = enclosures.find(e => e.id === selectedEnclosure);
+                      setTasks(prev => [...prev, { animalId: selectedEnc?.animalId || 'custom', title: '', description: '', type: 'custom', frequency: 'daily', customFrequencyWeekdays: undefined, startDate: undefined, scheduledTime: '09:00', notificationEnabled: true, notificationMinutesBefore: 15 }]);
+                    }}
+                    className="w-full bg-card border border-dashed border-divider rounded-2xl py-3 text-sm font-semibold text-accent"
+                  >
+                    + Add Another Task
+                  </button>
+                )}
+
+                {error && (
+                  <div className="bg-red-500/10 border border-red-500/30 rounded-2xl p-4 text-red-300 text-sm">{error}</div>
+                )}
+              </>
+            )}
+          </div>
+        </div>
+
+        {/* Sticky footer — shown once tasks are ready */}
+        {(selectedAnimal || (taskMode === 'custom' && tasks.length > 0)) && (
+          <div className="sticky bottom-0 bg-surface border-t border-divider px-4 py-3 flex items-center justify-between z-10">
+            <span className="text-xs text-muted">{tasks.length} task{tasks.length !== 1 ? 's' : ''} ready</span>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={onClose}
+                disabled={loading}
+                className="px-4 py-2 rounded-full bg-card border border-divider text-white text-sm font-semibold disabled:opacity-50"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleCreateTasks}
+                disabled={loading || tasks.length === 0 || tasks.some(t => t.frequency === 'custom' && (!t.customFrequencyWeekdays || t.customFrequencyWeekdays.length === 0))}
+                className="px-4 py-2 rounded-full bg-accent text-on-accent text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? 'Creating…' : `Create ${tasks.length} Task${tasks.length !== 1 ? 's' : ''}`}
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // ─── Modal layout (bottom sheet / centered dialog) ───────────────────────
+  return (
+    <div className="fixed inset-0 bg-black/60 flex items-end sm:items-center justify-center z-50 pb-16 sm:pb-0">
+      <div className="bg-card rounded-t-2xl sm:rounded-2xl shadow-xl max-w-2xl w-full max-h-[85vh] overflow-hidden flex flex-col">
+        {/* Header */}
+        <div className="flex items-center justify-between px-5 py-4 border-b border-divider shrink-0">
+          <h2 className="text-lg font-bold text-white">Create Care Tasks</h2>
+          <button onClick={onClose} className="text-muted p-1 rounded-lg"><X className="w-5 h-5" /></button>
+        </div>
+
+        {/* Scrollable body */}
+        <div className="flex-1 overflow-y-auto p-4 space-y-3">
+
+          {/* Step 1 */}
+          {!selectedEnclosure && (
+            enclosures.length === 0 ? (
+              <div className="bg-card-elevated border border-divider rounded-xl p-5 text-center">
+                <p className="text-white text-sm font-semibold mb-1">No enclosures yet</p>
+                <p className="text-muted text-xs">Close this and add your first pet to get started.</p>
+              </div>
+            ) : (
+              <div>
+                <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+                  Select Enclosure <span className="text-red-400">*</span>
+                </label>
+                <select
+                  value={selectedEnclosure}
+                  onChange={(e) => { setSelectedEnclosure(e.target.value); setTaskMode('choose'); }}
+                  className="w-full px-3 py-2.5 bg-card-elevated border border-divider rounded-xl text-white text-sm focus:border-accent focus:outline-none"
+                  required
+                >
+                  <option value="">Choose which pet these tasks are for...</option>
+                  {enclosures.map(enc => <option key={enc.id} value={enc.id}>{enc.name} ({enc.animalName})</option>)}
+                </select>
+              </div>
+            )
+          )}
+
+          {/* Step 2 */}
+          {selectedEnclosure && taskMode === 'choose' && (
+            <div className="space-y-3">
+              <button onClick={() => setSelectedEnclosure('')} className="text-xs text-accent">← Change enclosure</button>
+              <p className="text-sm font-semibold text-white">How would you like to create tasks?</p>
+              <div className="grid grid-cols-2 gap-3">
+                <button onClick={() => setTaskMode('template')}
+                  className="bg-card-elevated border border-divider rounded-xl p-4 flex flex-col items-center gap-2 active:scale-95 transition-transform">
+                  <div className="w-9 h-9 rounded-xl bg-accent/15 flex items-center justify-center"><ClipboardList className="w-4 h-4 text-accent" /></div>
+                  <span className="text-sm font-semibold text-white">Recommended</span>
+                </button>
+                <button
+                  onClick={() => {
+                    const selectedEnc = enclosures.find(e => e.id === selectedEnclosure);
+                    setTaskMode('custom');
+                    setTasks([{ animalId: selectedEnc?.animalId || 'custom', title: '', description: '', type: 'custom', frequency: 'daily', customFrequencyWeekdays: undefined, startDate: undefined, scheduledTime: '09:00', notificationEnabled: true, notificationMinutesBefore: 15 }]);
+                  }}
+                  className="bg-card-elevated border border-divider rounded-xl p-4 flex flex-col items-center gap-2 active:scale-95 transition-transform">
+                  <div className="w-9 h-9 rounded-xl bg-blue-500/15 flex items-center justify-center"><Edit3 className="w-4 h-4 text-blue-400" /></div>
+                  <span className="text-sm font-semibold text-white">Custom</span>
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Step 3a */}
+          {selectedEnclosure && taskMode === 'template' && !selectedAnimal && (
+            <div className="space-y-2">
+              <button onClick={() => { setTaskMode('choose'); setSelectedAnimal(''); }} className="text-xs text-accent">← Back</button>
+              {availableAnimals.map(animal => (
+                <button key={animal.id} onClick={() => setSelectedAnimal(animal.id)}
+                  className="w-full bg-card-elevated border border-divider rounded-xl px-4 py-3 text-left active:scale-[0.98] transition-transform">
+                  <div className="text-sm font-semibold text-white">{animal.name}</div>
+                  <div className="text-xs text-muted mt-0.5">Includes {template?.tasks.length || '7'} recommended care tasks</div>
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Step 4 */}
+          {selectedEnclosure && (selectedAnimal || (taskMode === 'custom' && tasks.length > 0)) && (
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <button onClick={() => { if (taskMode === 'template') { setSelectedAnimal(''); } else { setTaskMode('choose'); setTasks([]); } }} className="text-xs text-accent">← Back</button>
+                {taskMode === 'template' && <button onClick={() => { setSelectedAnimal(''); setTasks([]); }} className="text-xs text-accent">Change</button>}
               </div>
 
-              {error && (
-                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 text-red-800 dark:text-red-200">
-                  {error}
+              {/* Per-task cards */}
+              {tasks.map((task, index) => (
+                <div key={index} className="bg-card-elevated border border-divider rounded-xl divide-y divide-divider">
+                  <div className="px-3 py-2.5 flex items-center gap-2">
+                    <input type="text" value={task.title} onChange={(e) => updateTask(index, 'title', e.target.value)}
+                      placeholder="Task name" className="flex-1 bg-transparent text-white text-sm font-semibold focus:outline-none placeholder:text-muted" />
+                    <button onClick={() => removeTask(index)} type="button" className="text-xs text-red-400">Remove</button>
+                  </div>
+                  <div className="grid grid-cols-2 divide-x divide-divider">
+                    <div className="px-3 py-2">
+                      <label className="block text-[10px] font-semibold text-muted uppercase tracking-wide mb-1">Type</label>
+                      <select value={task.type} onChange={(e) => updateTask(index, 'type', e.target.value as TaskType)} className="w-full bg-transparent text-white text-xs focus:outline-none">
+                        <option value="feeding">Feeding</option>
+                        <option value="gut-load">Gut-Load</option>
+                        <option value="misting">Misting</option>
+                        <option value="water-change">Water Change</option>
+                        <option value="spot-clean">Spot Clean</option>
+                        <option value="deep-clean">Deep Clean</option>
+                        <option value="health-check">Health Check</option>
+                        <option value="supplement">Supplement</option>
+                        <option value="maintenance">Maintenance</option>
+                        <option value="custom">Custom</option>
+                      </select>
+                    </div>
+                    <div className="px-3 py-2">
+                      <label className="block text-[10px] font-semibold text-muted uppercase tracking-wide mb-1">Frequency</label>
+                      <select value={task.frequency} onChange={(e) => updateTaskFrequency(index, e.target.value)} className="w-full bg-transparent text-white text-xs focus:outline-none">
+                        <option value="daily">Daily</option>
+                        <option value="every-other-day">Every Other Day</option>
+                        <option value="twice-weekly">Twice Weekly</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="bi-weekly">Bi-weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="custom">Custom Days</option>
+                      </select>
+                    </div>
+                  </div>
+                  {task.frequency === 'custom' && (
+                    <div className="px-3 py-2.5">
+                      <div className="flex flex-wrap gap-1.5">
+                        {WEEKDAY_OPTIONS.map((weekday) => {
+                          const isSelected = (task.customFrequencyWeekdays || []).includes(weekday.value);
+                          return (
+                            <button key={weekday.value} type="button" onClick={() => toggleCustomWeekday(index, weekday.value)}
+                              className={`px-2.5 py-1 text-xs font-semibold rounded-full border transition-colors ${isSelected ? 'bg-accent border-accent text-on-accent' : 'border-divider text-muted'}`}>
+                              {weekday.shortLabel}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                  <div className="grid grid-cols-2 divide-x divide-divider">
+                    <div className="px-3 py-2">
+                      <label className="block text-[10px] font-semibold text-muted uppercase tracking-wide mb-1">Time</label>
+                      <input type="time" value={task.scheduledTime} onChange={(e) => updateTask(index, 'scheduledTime', e.target.value)}
+                        className="w-full bg-transparent text-white text-xs focus:outline-none [&::-webkit-calendar-picker-indicator]:invert" style={{ colorScheme: 'dark' }} />
+                    </div>
+                    <div className="px-3 py-2">
+                      <label className="block text-[10px] font-semibold text-muted uppercase tracking-wide mb-1">Start Date</label>
+                      <input type="date" value={task.startDate || ''} onChange={(e) => updateTask(index, 'startDate', e.target.value)}
+                        className="w-full bg-transparent text-white text-xs focus:outline-none [&::-webkit-calendar-picker-indicator]:invert" style={{ colorScheme: 'dark' }} />
+                    </div>
+                  </div>
+                  <label className="flex items-center justify-between px-3 py-2.5 cursor-pointer">
+                    <span className="text-xs text-white">Push notifications</span>
+                    <input type="checkbox" checked={task.notificationEnabled}
+                      onChange={(e) => setTasks(prev => { const u = [...prev]; u[index] = { ...u[index], notificationEnabled: e.target.checked }; return u; })}
+                      className="w-4 h-4 accent-accent rounded" />
+                  </label>
                 </div>
+              ))}
+
+              {taskMode === 'custom' && (
+                <button type="button"
+                  onClick={() => {
+                    const selectedEnc = enclosures.find(e => e.id === selectedEnclosure);
+                    setTasks(prev => [...prev, { animalId: selectedEnc?.animalId || 'custom', title: '', description: '', type: 'custom', frequency: 'daily', customFrequencyWeekdays: undefined, startDate: undefined, scheduledTime: '09:00', notificationEnabled: true, notificationMinutesBefore: 15 }]);
+                  }}
+                  className="w-full border border-dashed border-divider rounded-xl py-2.5 text-sm font-semibold text-accent">
+                  + Add Another Task
+                </button>
               )}
+
+              {error && <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-3 text-red-300 text-sm">{error}</div>}
             </div>
           )}
         </div>
 
         {/* Footer */}
         {(selectedAnimal || (taskMode === 'custom' && tasks.length > 0)) && (
-          <div className={footerClassName}>
-            <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 text-center sm:text-left">
-              {tasks.length} task{tasks.length !== 1 ? 's' : ''} ready
-            </div>
-            <div className="flex gap-2 sm:gap-3 w-full sm:w-auto">
-              <button
-                onClick={onClose}
-                disabled={loading}
-                className="flex-1 sm:flex-none px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors disabled:opacity-50"
-              >
+          <div className="border-t border-divider px-4 py-3 bg-surface shrink-0 flex items-center justify-between">
+            <span className="text-xs text-muted">{tasks.length} task{tasks.length !== 1 ? 's' : ''} ready</span>
+            <div className="flex gap-2">
+              <button type="button" onClick={onClose} disabled={loading}
+                className="px-4 py-2 rounded-full bg-card border border-divider text-white text-sm font-semibold disabled:opacity-50">
                 Cancel
               </button>
-              <button
-                onClick={handleCreateTasks}
-                disabled={loading || tasks.length === 0 || tasks.some(task => task.frequency === 'custom' && (!task.customFrequencyWeekdays || task.customFrequencyWeekdays.length === 0))}
-                className="flex-1 sm:flex-none px-4 sm:px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
-              >
-                {loading ? 'Creating...' : `Create ${tasks.length} Task${tasks.length !== 1 ? 's' : ''}`}
+              <button type="button" onClick={handleCreateTasks}
+                disabled={loading || tasks.length === 0 || tasks.some(t => t.frequency === 'custom' && (!t.customFrequencyWeekdays || t.customFrequencyWeekdays.length === 0))}
+                className="px-4 py-2 rounded-full bg-accent text-on-accent text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed">
+                {loading ? 'Creating…' : `Create ${tasks.length} Task${tasks.length !== 1 ? 's' : ''}`}
               </button>
             </div>
           </div>
         )}
-    </div>
-  );
-
-  if (layout === 'page') {
-    return (
-      <div className="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6">
-        {modalContent}
       </div>
-    );
-  }
-
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4">
-      {modalContent}
     </div>
   );
 }
+

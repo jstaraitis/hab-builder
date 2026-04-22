@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useToast } from '../../contexts/ToastContext';
 import { shedLogService, type ShedLogInput } from '../../services/shedLogService';
@@ -179,7 +179,7 @@ export function ShedLogForm({ animal, onSuccess, onCancel, initialData }: ShedLo
               className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
                 problemAreas.includes(area)
                   ? 'bg-orange-500 text-white'
-                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                  : 'bg-card-elevated text-white hover:bg-gray-200 dark:hover:bg-gray-600'
               }`}
             >
               {area}
@@ -222,3 +222,7 @@ export function ShedLogForm({ animal, onSuccess, onCancel, initialData }: ShedLo
     </form>
   );
 }
+
+
+
+

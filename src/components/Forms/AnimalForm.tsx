@@ -42,11 +42,13 @@ interface AnimalFormProps {
   readonly entityLabel?: string; // e.g., "Kermit" or "Animal #2" for edit header
   readonly onSave: (formData: AnimalFormData, photoFile: File | null) => Promise<void>;
   readonly onCancel: () => void;
+  readonly onDelete?: () => Promise<void>;
 }
 
-export function AnimalForm({ mode, initialData, enclosures, speciesName, entityLabel, onSave, onCancel }: AnimalFormProps) {
+export function AnimalForm({ mode, initialData, enclosures, speciesName, entityLabel, onSave, onCancel, onDelete }: AnimalFormProps) {
   const [formData, setFormData] = useState<AnimalFormData>({ ...EMPTY_ANIMAL_FORM, ...initialData });
   const [saving, setSaving] = useState(false);
+  const [deleting, setDeleting] = useState(false);
   const [uploadStatus, setUploadStatus] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const [photoFile, setPhotoFile] = useState<File | null>(null);
@@ -65,6 +67,20 @@ export function AnimalForm({ mode, initialData, enclosures, speciesName, entityL
     } finally {
       setSaving(false);
       setUploadStatus('');
+    }
+  };
+
+  const handleDelete = async () => {
+    if (!onDelete) return;
+
+    try {
+      setDeleting(true);
+      setError(null);
+      await onDelete();
+    } catch (err: any) {
+      setError(err.message || 'Failed to delete animal.');
+    } finally {
+      setDeleting(false);
     }
   };
 
@@ -330,16 +346,27 @@ export function AnimalForm({ mode, initialData, enclosures, speciesName, entityL
         )}
 
         <div className="flex flex-col-reverse sm:flex-row gap-3 pt-2">
+          {mode === 'edit' && onDelete && (
+            <button
+              type="button"
+              onClick={() => handleDelete().catch(console.error)}
+              disabled={saving || deleting}
+              className="sm:mr-auto px-4 py-3 border-2 border-red-500/50 text-red-600 dark:text-red-400 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors disabled:opacity-60 disabled:cursor-not-allowed font-medium"
+            >
+              {deleting ? 'Deleting...' : 'Delete Animal'}
+            </button>
+          )}
           <button
             type="button"
             onClick={onCancel}
-            className="flex-1 px-4 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors font-medium"
+            className="flex-1 px-4 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed font-medium"
+            disabled={saving || deleting}
           >
             Cancel
           </button>
           <button
             type="submit"
-            disabled={saving}
+            disabled={saving || deleting}
             className="flex-1 px-4 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed font-medium shadow-sm"
           >
             {saving ? (

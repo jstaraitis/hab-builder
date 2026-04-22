@@ -1,4 +1,4 @@
-import { CheckCircle, XCircle, Clock } from 'lucide-react';
+﻿import { CheckCircle, XCircle, Clock } from 'lucide-react';
 import type { CareLogWithTask } from '../../types/careAnalytics';
 
 interface RecentActivityProps {
@@ -11,7 +11,7 @@ export function RecentActivity({ recentLogs }: RecentActivityProps) {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-3 sm:p-6">
+    <div className="bg-card rounded-lg border border-divider p-3 sm:p-6">
       <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3 sm:mb-4">
         Recent Activity
       </h2>
@@ -36,7 +36,7 @@ export function RecentActivity({ recentLogs }: RecentActivityProps) {
                 {isSkipped ? (
                   <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-600 dark:text-red-400" />
                 ) : (
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 dark:text-emerald-400" />
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                 )}
               </div>
 
@@ -47,7 +47,7 @@ export function RecentActivity({ recentLogs }: RecentActivityProps) {
                     <h3 className="text-sm sm:text-base font-medium text-gray-900 dark:text-gray-100 truncate">
                       {item.taskTitle}
                     </h3>
-                    <div className="flex items-center gap-2 mt-0.5 text-xs text-gray-500 dark:text-gray-400">
+                    <div className="flex items-center gap-2 mt-0.5 text-xs text-muted">
                       {item.animalName && (
                         <span className="truncate">{item.animalName}</span>
                       )}
@@ -59,7 +59,7 @@ export function RecentActivity({ recentLogs }: RecentActivityProps) {
                       )}
                     </div>
                     {item.log.notes && (
-                      <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">
+                      <p className="text-xs text-muted mt-1 line-clamp-2">
                         {item.log.notes}
                       </p>
                     )}
@@ -71,7 +71,7 @@ export function RecentActivity({ recentLogs }: RecentActivityProps) {
                   </div>
 
                   {/* Time */}
-                  <div className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                  <div className="flex items-center gap-1 text-xs text-muted whitespace-nowrap">
                     <Clock className="w-3 h-3" />
                     <span>{timeAgo}</span>
                   </div>
@@ -83,7 +83,7 @@ export function RecentActivity({ recentLogs }: RecentActivityProps) {
       </div>
 
       {recentLogs.length >= 20 && (
-        <p className="text-xs text-center text-gray-500 dark:text-gray-400 mt-3 sm:mt-4">
+        <p className="text-xs text-center text-muted mt-3 sm:mt-4">
           Showing last 20 activities
         </p>
       )}
@@ -105,3 +105,4 @@ function getTimeAgo(date: Date): string {
   if (diffDays < 30) return `${Math.floor(diffDays / 7)}w ago`;
   return date.toLocaleDateString();
 }
+

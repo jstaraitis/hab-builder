@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, HomeIcon, Turtle, ChevronDown, ZoomIn, ZoomOut, Calendar, LogOut, User, Package, Sparkles, LayoutDashboard } from 'lucide-react';
+import { Worm, Pencil, ShoppingCart, ClipboardList, Gem, BookOpen, Info, MessageSquare, HomeIcon, Turtle, ChevronDown, ZoomIn, ZoomOut, Calendar, LogOut, User, Package, Sparkles, BarChart3 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { usePlanner } from '../../contexts/PlannerContext';
 import { useZoom } from '../../hooks/useZoom';
@@ -134,7 +134,7 @@ export function DesktopNav({ onOpenFeedback }: DesktopNavProps) {
               onClick={() => setOpenDropdown(null)}
               className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
             >
-              <Turtle className="w-4 h-4 inline mr-2" /> My Animals
+              <Turtle className="w-4 h-4 inline mr-2" /> Pets
             </Link>
             <Link
               to="/care-calendar"
@@ -207,7 +207,7 @@ export function DesktopNav({ onOpenFeedback }: DesktopNavProps) {
                 onClick={() => setOpenDropdown(null)}
                 className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               >
-                <LayoutDashboard className="w-4 h-4 inline mr-2" /> Dashboard
+                <BarChart3 className="w-4 h-4 inline mr-2" /> Dashboard
               </Link>
             )}
             <button

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { TaskEditModal } from '../CareCalendar/TaskEditModal';
 import { careTaskService } from '../../services/careTaskService';
@@ -61,9 +61,11 @@ export function TaskEditView() {
 
   if (loading) {
     return (
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 text-sm text-gray-600 dark:text-gray-300">
-          Loading task...
+      <div className="min-h-screen bg-surface pb-28">
+        <div className="animate-pulse space-y-4 px-4 pt-16">
+          <div className="h-10 bg-card rounded-2xl w-40" />
+          <div className="h-36 bg-card rounded-2xl" />
+          <div className="h-48 bg-card rounded-2xl" />
         </div>
       </div>
     );
@@ -71,8 +73,8 @@ export function TaskEditView() {
 
   if (error) {
     return (
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 text-sm text-red-700 dark:text-red-200">
+      <div className="min-h-screen bg-surface px-4 pt-16">
+        <div className="bg-red-500/10 border border-red-500/30 rounded-2xl p-4 text-red-300 text-sm">
           {error}
         </div>
       </div>
@@ -93,3 +95,4 @@ export function TaskEditView() {
     />
   );
 }
+

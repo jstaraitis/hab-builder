@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
@@ -61,18 +61,18 @@ export function WeightTrackerView() {
       <div className="flex items-center justify-between mb-4">
         <Link
           to="/my-animals"
-          className="text-sm text-emerald-700 dark:text-emerald-300 hover:text-emerald-800 dark:hover:text-emerald-200 font-medium"
+          className="text-sm text-accent hover:text-emerald-800 dark:hover:text-emerald-200 font-medium"
         >
           Back to My Animals
         </Link>
       </div>
 
       {loading ? (
-        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 text-sm text-gray-600 dark:text-gray-300">
+        <div className="bg-card border border-divider rounded-2xl p-4 text-sm text-muted">
           Loading weight tracker...
         </div>
       ) : error ? (
-        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 text-sm text-red-700 dark:text-red-200">
+        <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4 text-sm text-red-700 dark:text-red-200">
           {error}
         </div>
       ) : animal ? (
@@ -81,3 +81,6 @@ export function WeightTrackerView() {
     </div>
   );
 }
+
+
+

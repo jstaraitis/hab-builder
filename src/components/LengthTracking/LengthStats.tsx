@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { TrendingUp, Ruler, Activity } from 'lucide-react';
 import { lengthLogService, type LengthStats } from '../../services/lengthLogService';
 
@@ -31,7 +31,7 @@ export function LengthStats({ enclosureAnimalId, refreshKey }: LengthStatsProps)
     return (
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {[...Array(3)].map((_, i) => (
-          <div key={i} className="animate-pulse bg-gray-100 dark:bg-gray-700 rounded-lg h-24"></div>
+          <div key={i} className="animate-pulse bg-card-elevated rounded-lg h-24"></div>
         ))}
       </div>
     );
@@ -39,10 +39,10 @@ export function LengthStats({ enclosureAnimalId, refreshKey }: LengthStatsProps)
 
   if (!stats || stats.totalMeasurements === 0) {
     return (
-      <div className="text-center py-8 bg-gray-50 dark:bg-gray-800 rounded-lg">
+      <div className="text-center py-8 bg-card rounded-lg">
         <Ruler className="w-12 h-12 text-gray-400 dark:text-gray-600 mx-auto mb-2" />
-        <p className="text-gray-500 dark:text-gray-400">No length data yet</p>
-        <p className="text-sm text-gray-400 dark:text-gray-500">
+        <p className="text-muted">No length data yet</p>
+        <p className="text-sm text-muted">
           Add measurements to see growth statistics
         </p>
       </div>
@@ -52,54 +52,57 @@ export function LengthStats({ enclosureAnimalId, refreshKey }: LengthStatsProps)
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       {/* Total Growth */}
-      <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-4">
+      <div className="bg-accent/10 border border-accent/30 rounded-lg p-4">
         <div className="flex items-center gap-2 mb-2">
-          <TrendingUp className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+          <TrendingUp className="w-5 h-5 text-accent" />
           <h3 className="font-semibold text-emerald-900 dark:text-emerald-100">Total Growth</h3>
         </div>
-        <p className="text-2xl font-bold text-emerald-700 dark:text-emerald-300">
+        <p className="text-2xl font-bold text-accent">
           {stats.totalGrowth !== undefined 
             ? `${stats.totalGrowth > 0 ? '+' : ''}${stats.totalGrowth} ${stats.unit}`
             : 'N/A'
           }
         </p>
         {stats.firstLength !== undefined && stats.latestLength !== undefined && (
-          <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-1">
+          <p className="text-xs text-accent mt-1">
             {stats.firstLength} → {stats.latestLength} {stats.unit}
           </p>
         )}
       </div>
 
       {/* Growth Rate */}
-      <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+      <div className="bg-blue-500/10 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
         <div className="flex items-center gap-2 mb-2">
-          <Activity className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+          <Activity className="w-5 h-5 text-blue-400" />
           <h3 className="font-semibold text-blue-900 dark:text-blue-100">Growth Rate</h3>
         </div>
-        <p className="text-2xl font-bold text-blue-700 dark:text-blue-300">
+        <p className="text-2xl font-bold text-blue-400">
           {stats.growthRate !== undefined
             ? `${stats.growthRate > 0 ? '+' : ''}${stats.growthRate}`
             : 'N/A'
           }
         </p>
-        <p className="text-xs text-blue-600 dark:text-blue-400 mt-1">
+        <p className="text-xs text-blue-400 mt-1">
           {stats.unit}/month average
         </p>
       </div>
 
       {/* Measurements */}
-      <div className="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-4">
+      <div className="bg-purple-500/10 border border-purple-200 dark:border-purple-800 rounded-lg p-4">
         <div className="flex items-center gap-2 mb-2">
-          <Ruler className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+          <Ruler className="w-5 h-5 text-purple-400" />
           <h3 className="font-semibold text-purple-900 dark:text-purple-100">Measurements</h3>
         </div>
-        <p className="text-2xl font-bold text-purple-700 dark:text-purple-300">
+        <p className="text-2xl font-bold text-purple-400">
           {stats.totalMeasurements}
         </p>
-        <p className="text-xs text-purple-600 dark:text-purple-400 mt-1">
+        <p className="text-xs text-purple-400 mt-1">
           Total recorded
         </p>
       </div>
     </div>
   );
 }
+
+
+

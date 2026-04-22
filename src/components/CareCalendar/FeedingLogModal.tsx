@@ -99,42 +99,42 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit }: Feedin
 
   if (!isOpen) return null;
 
+  const inputClass = 'w-full px-3 py-2.5 bg-card-elevated border border-divider rounded-xl text-white text-sm focus:border-accent focus:outline-none';
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-end sm:items-center justify-center z-50 pb-16 sm:pb-0">
-      <div className="bg-white dark:bg-gray-800 rounded-t-2xl sm:rounded-lg shadow-xl max-w-2xl w-full max-h-[calc(100vh-5rem)] sm:max-h-[90vh] overflow-hidden flex flex-col">
+    <div className="fixed inset-0 bg-black/60 flex items-end sm:items-center justify-center z-50 pb-16 sm:pb-0">
+      <div className="bg-card rounded-t-2xl sm:rounded-2xl shadow-xl max-w-2xl w-full max-h-[85vh] overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between p-5 sm:p-6 border-b border-gray-200 dark:border-gray-700 shrink-0">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-divider shrink-0">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg">
-              <UtensilsCrossed className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+            <div className="p-2 bg-accent/15 rounded-lg">
+              <UtensilsCrossed className="w-5 h-5 text-accent" />
             </div>
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
-                Log Feeding
-              </h2>
-              <p className="text-sm text-gray-600 dark:text-gray-400">{taskTitle}</p>
+              <h2 className="text-lg font-bold text-white">Log Feeding</h2>
+              <p className="text-sm text-muted">{taskTitle}</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 p-1"
+            className="text-muted p-1 rounded-lg"
           >
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-4 space-y-3">
           {/* Feeder Type */}
           <div>
-            <label htmlFor="feederType" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="feederType" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
               Feeder Type
             </label>
             <select
               id="feederType"
               value={feederType}
               onChange={(e) => setFeederType(e.target.value)}
-              className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base"
+              className={inputClass}
             >
               <option value="">Select feeder type (optional)</option>
               {COMMON_FEEDERS.map(feeder => (
@@ -146,7 +146,7 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit }: Feedin
           {/* Custom Feeder Type */}
           {feederType === 'Other' && (
             <div>
-              <label htmlFor="customFeeder" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label htmlFor="customFeeder" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
                 Specify Feeder Type
               </label>
               <input
@@ -155,101 +155,101 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit }: Feedin
                 value={customFeeder}
                 onChange={(e) => setCustomFeeder(e.target.value)}
                 placeholder="e.g., Earthworms, Pinkie Mice"
-                className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base"
+                className={inputClass}
               />
             </div>
           )}
 
           {/* Quantity Offered */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
               Quantity Offered
             </label>
             <div className="flex items-center gap-3">
               <button
                 type="button"
                 onClick={() => adjustQuantity('offered', -1)}
-                className="p-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors"
+                className="p-2 bg-card-elevated border border-divider rounded-xl transition-colors"
               >
-                <Minus className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                <Minus className="w-5 h-5 text-muted" />
               </button>
               <input
                 type="number"
                 value={quantityOffered}
                 onChange={(e) => setQuantityOffered(Math.max(0, parseInt(e.target.value) || 0))}
-                className="flex-1 px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-center text-base"
+                className="flex-1 px-3 py-2.5 border border-divider rounded-xl bg-card-elevated text-white text-center text-sm focus:outline-none focus:border-accent"
                 min="0"
               />
               <button
                 type="button"
                 onClick={() => adjustQuantity('offered', 1)}
-                className="p-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors"
+                className="p-2 bg-card-elevated border border-divider rounded-xl transition-colors"
               >
-                <Plus className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                <Plus className="w-5 h-5 text-muted" />
               </button>
             </div>
           </div>
 
           {/* Quantity Eaten */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
               Quantity Eaten
             </label>
             <div className="flex items-center gap-3">
               <button
                 type="button"
                 onClick={() => adjustQuantity('eaten', -1)}
-                className="p-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors"
+                className="p-2 bg-card-elevated border border-divider rounded-xl transition-colors"
               >
-                <Minus className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                <Minus className="w-5 h-5 text-muted" />
               </button>
               <input
                 type="number"
                 value={quantityEaten}
                 onChange={(e) => setQuantityEaten(Math.max(0, parseInt(e.target.value) || 0))}
-                className="flex-1 px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-center text-base"
+                className="flex-1 px-3 py-2.5 border border-divider rounded-xl bg-card-elevated text-white text-center text-sm focus:outline-none focus:border-accent"
                 min="0"
                 max={quantityOffered}
               />
               <button
                 type="button"
                 onClick={() => adjustQuantity('eaten', 1)}
-                className="p-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors"
+                className="p-2 bg-card-elevated border border-divider rounded-xl transition-colors"
               >
-                <Plus className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                <Plus className="w-5 h-5 text-muted" />
               </button>
             </div>
             {quantityEaten > quantityOffered && quantityOffered > 0 && (
-              <p className="text-sm text-amber-600 dark:text-amber-400 mt-1">
+              <p className="text-xs text-amber-400 mt-1">
                 Eaten quantity exceeds offered quantity
               </p>
             )}
           </div>
 
           {/* Refusal Checkbox */}
-          <div className="flex items-center gap-3 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg">
+          <div className="flex items-center gap-3 p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl">
             <input
               type="checkbox"
               id="refusalNoted"
               checked={refusalNoted}
               onChange={(e) => setRefusalNoted(e.target.checked)}
-              className="w-4 h-4 text-emerald-600 bg-white border-gray-300 rounded focus:ring-emerald-500 dark:focus:ring-emerald-600 dark:bg-gray-700 dark:border-gray-600"
+              className="w-4 h-4 accent-accent rounded"
             />
-            <label htmlFor="refusalNoted" className="text-sm font-medium text-gray-700 dark:text-gray-300 flex-1">
+            <label htmlFor="refusalNoted" className="text-sm font-medium text-white flex-1">
               Animal refused food or showed reduced appetite
             </label>
           </div>
 
           {/* Supplement Used */}
           <div>
-            <label htmlFor="supplementUsed" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="supplementUsed" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
               Supplement/Dusting Used
             </label>
             <select
               id="supplementUsed"
               value={supplementUsed}
               onChange={(e) => setSupplementUsed(e.target.value)}
-              className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base"
+              className={inputClass}
             >
               {SUPPLEMENTS.map(supplement => (
                 <option key={supplement} value={supplement}>{supplement}</option>
@@ -259,7 +259,7 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit }: Feedin
 
           {/* Notes */}
           <div>
-            <label htmlFor="notes" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="notes" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
               Additional Notes (Optional)
             </label>
             <textarea
@@ -268,34 +268,34 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit }: Feedin
               onChange={(e) => setNotes(e.target.value)}
               rows={3}
               placeholder="Behavior during feeding, unusual activity, etc."
-              className="w-full px-3 py-3 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base resize-none"
+              className={`${inputClass} resize-none`}
             />
           </div>
         </form>
 
         {/* Footer */}
-        <div className="flex items-center justify-between gap-3 p-4 sm:p-6 border-t border-gray-200 dark:border-gray-700 shrink-0">
+        <div className="flex items-center justify-between gap-3 px-4 py-3 border-t border-divider shrink-0 bg-surface">
           <button
             type="button"
             onClick={handleQuickComplete}
             disabled={loading}
-            className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors disabled:opacity-50"
+            className="px-3 py-2 text-xs font-semibold text-muted bg-card border border-divider rounded-full disabled:opacity-50"
           >
             Quick Log (No Details)
           </button>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={onClose}
               disabled={loading}
-              className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+              className="px-4 py-2 rounded-full bg-card border border-divider text-white text-sm font-semibold disabled:opacity-50"
             >
               Cancel
             </button>
             <button
               onClick={handleSubmit}
               disabled={loading}
-              className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors disabled:opacity-50 text-sm sm:text-base"
+              className="px-4 py-2 rounded-full bg-accent text-on-accent text-sm font-semibold disabled:opacity-50"
             >
               {loading ? 'Logging...' : 'Log Feeding'}
             </button>
@@ -305,3 +305,4 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit }: Feedin
     </div>
   );
 }
+

@@ -221,7 +221,7 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
       <div className="flex items-center justify-center py-12">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 dark:text-gray-400">Loading feeding analytics...</p>
+          <p className="text-muted">Loading feeding analytics...</p>
         </div>
       </div>
     );
@@ -229,12 +229,12 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
 
   if (feedingLogs.length === 0) {
     return (
-      <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 text-center">
+      <div className="bg-blue-500/10 border border-blue-200 dark:border-blue-800 rounded-lg p-6 text-center">
         <UtensilsCrossed className="w-12 h-12 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
         <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
           No Feeding Data Yet
         </h3>
-        <p className="text-sm text-gray-600 dark:text-gray-400">
+        <p className="text-sm text-muted">
           Complete feeding tasks with detailed logs to see feeding analytics here.
         </p>
       </div>
@@ -253,17 +253,17 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg">
-            <UtensilsCrossed className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+            <UtensilsCrossed className="w-6 h-6 text-accent" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">Feeding Analytics</h2>
-            <p className="text-sm text-gray-600 dark:text-gray-400">{feedingLogs.length} logged feedings</p>
+            <h2 className="text-xl font-bold text-white">Feeding Analytics</h2>
+            <p className="text-sm text-muted">{feedingLogs.length} logged feedings</p>
           </div>
         </div>
         <select
           value={timeRange}
           onChange={(e) => setTimeRange(e.target.value as any)}
-          className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+          className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-white text-sm"
         >
           <option value="7d">Last 7 Days</option>
           <option value="30d">Last 30 Days</option>
@@ -275,43 +275,43 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
       {/* Key Stats Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Average Offered */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+        <div className="bg-card rounded-lg border border-divider p-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-600 dark:text-gray-400">Avg Offered</span>
+            <span className="text-sm text-muted">Avg Offered</span>
             <TrendingUp className="w-4 h-4 text-blue-600 dark:text-blue-400" />
           </div>
-          <p className="text-2xl font-bold text-gray-900 dark:text-white">{avgConsumption.avgOffered}</p>
+          <p className="text-2xl font-bold text-white">{avgConsumption.avgOffered}</p>
           <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">per feeding</p>
         </div>
 
         {/* Average Eaten */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+        <div className="bg-card rounded-lg border border-divider p-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-600 dark:text-gray-400">Avg Eaten</span>
-            <UtensilsCrossed className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+            <span className="text-sm text-muted">Avg Eaten</span>
+            <UtensilsCrossed className="w-4 h-4 text-accent" />
           </div>
-          <p className="text-2xl font-bold text-gray-900 dark:text-white">{avgConsumption.avgEaten}</p>
+          <p className="text-2xl font-bold text-white">{avgConsumption.avgEaten}</p>
           <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">per feeding</p>
         </div>
 
         {/* Consumption Rate */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+        <div className="bg-card rounded-lg border border-divider p-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-600 dark:text-gray-400">Consumption Rate</span>
+            <span className="text-sm text-muted">Consumption Rate</span>
             <PieChart className="w-4 h-4 text-purple-600 dark:text-purple-400" />
           </div>
-          <p className="text-2xl font-bold text-gray-900 dark:text-white">{avgConsumption.consumptionRate}%</p>
+          <p className="text-2xl font-bold text-white">{avgConsumption.consumptionRate}%</p>
           <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">eaten vs offered</p>
         </div>
 
         {/* Refusal Rate */}
-        <div className={`bg-white dark:bg-gray-800 rounded-lg border ${refusalStats.refusalRate > 20 ? 'border-amber-300 dark:border-amber-700' : 'border-gray-200 dark:border-gray-700'} p-4`}>
+        <div className={`bg-card rounded-lg border ${refusalStats.refusalRate > 20 ? 'border-amber-300 dark:border-amber-700' : 'border-divider'} p-4`}>
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-600 dark:text-gray-400">Refusal Rate</span>
+            <span className="text-sm text-muted">Refusal Rate</span>
             <AlertTriangle className={`w-4 h-4 ${refusalStats.refusalRate > 20 ? 'text-amber-600 dark:text-amber-400' : 'text-gray-400'}`} />
           </div>
-          <p className="text-2xl font-bold text-gray-900 dark:text-white">{refusalStats.refusalRate}%</p>
-          <p className={`text-xs mt-1 ${refusalStats.trend > 0 ? 'text-amber-600' : 'text-emerald-600'}`}>
+          <p className="text-2xl font-bold text-white">{refusalStats.refusalRate}%</p>
+          <p className={`text-xs mt-1 ${refusalStats.trend > 0 ? 'text-amber-600' : 'text-accent'}`}>
             {refusalStats.trend > 0 ? '↑' : '↓'} {Math.abs(Math.round(refusalStats.trend))}% vs last week
           </p>
         </div>
@@ -319,8 +319,8 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
 
       {/* Feeding Trend Chart */}
       {trendData.length > 0 && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Feeding Trends</h3>
+        <div className="bg-card rounded-lg border border-divider p-4 sm:p-6">
+          <h3 className="text-lg font-semibold text-white mb-4">Feeding Trends</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={trendData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.3} />
@@ -367,8 +367,8 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Feeder Type Breakdown */}
         {feederTypeData.length > 0 && (
-          <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Feeder Types</h3>
+          <div className="bg-card rounded-lg border border-divider p-4 sm:p-6">
+            <h3 className="text-lg font-semibold text-white mb-4">Feeder Types</h3>
             <ResponsiveContainer width="100%" height={250}>
               <BarChart data={feederTypeData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.3} />
@@ -401,17 +401,17 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
 
         {/* Supplement Usage */}
         {supplementData.length > 0 && (
-          <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
+          <div className="bg-card rounded-lg border border-divider p-4 sm:p-6">
             <div className="flex items-center gap-2 mb-4">
               <Pill className="w-5 h-5 text-orange-600 dark:text-orange-400" />
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Supplement Usage</h3>
+              <h3 className="text-lg font-semibold text-white">Supplement Usage</h3>
             </div>
             <div className="space-y-3">
               {supplementData.map((supp, index) => (
                 <div key={supp.name}>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{supp.name}</span>
-                    <span className="text-sm text-gray-600 dark:text-gray-400">{supp.percentage}%</span>
+                    <span className="text-sm font-medium text-white">{supp.name}</span>
+                    <span className="text-sm text-muted">{supp.percentage}%</span>
                   </div>
                   <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                     <div 
@@ -447,3 +447,4 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
     </div>
   );
 }
+
