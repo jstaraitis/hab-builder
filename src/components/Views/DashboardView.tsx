@@ -4,10 +4,9 @@
  * animal hero, today's care plan, health snapshot, beginner reminder, care confidence.
  */
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Bell,
   Brush,
   Calendar,
   Scale,
@@ -19,6 +18,8 @@ import {
   Pill,
   Wrench,
   ChevronRight,
+  ChevronLeft,
+  Check,
   CheckCircle2,
   Circle,
   TrendingUp,
@@ -32,6 +33,8 @@ import {
   Sun,
   FileText,
   RefreshCw,
+  Home,
+  Pencil,
   type LucideIcon,
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
@@ -220,7 +223,7 @@ function EnvironmentSnapshot({
       <div className="flex items-center justify-between px-4 pt-4 pb-2">
         <div className="flex items-center gap-1.5">
           <Thermometer className="w-4 h-4 text-orange-100" />
-          <h3 className="text-sm font-semibold text-white">{enclosureName ? `${enclosureName} Environment` : 'Environment Snapshot'}</h3>
+          <h3 className="textmed font-bold text-white">{enclosureName ? `${enclosureName} Environment` : 'Environment Snapshot'}</h3>
         </div>
         <div className="flex items-center gap-1.5">
           <span className="text-[10px] text-muted">Updated {timeStr}</span>
@@ -244,73 +247,117 @@ function EnvironmentSnapshot({
   );
 }
 
-function EnclosurePills({
+function EnclosureCarousel({
   enclosures,
   selectedId,
   onSelect,
+  getAnimalCountForEnclosure,
+  navigate,
 }: {
   enclosures: Enclosure[];
   selectedId: string;
   onSelect: (id: string) => void;
+  getAnimalCountForEnclosure: (id: string) => number;
+  navigate: (path: string) => void;
 }) {
-  if (enclosures.length < 2) return null;
-  return (
-    <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide px-4">
-      {enclosures.map((e) => (
-        <button
-          key={e.id}
-          onClick={() => onSelect(e.id)}
-          className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${e.id === selectedId ? 'bg-accent text-on-accent' : 'bg-card text-muted border border-divider'}`}
-        >
-          {e.name}
-        </button>
-      ))}
-    </div>
-  );
-}
+  const [scrollPos, setScrollPos] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-function EnclosureSection({
-  enclosure,
-  animalCount,
-  onOpen,
-}: {
-  enclosure: Enclosure;
-  animalCount: number;
-  onOpen: () => void;
-}) {
-  const substrateLabel = enclosure.substrateType
-    ? enclosure.substrateType.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())
-    : 'Standard Setup';
+  const scroll = (direction: 'left' | 'right') => {
+    if (!scrollRef.current) return;
+    const scrollAmount = 300;
+    const newPos = direction === 'left' ? scrollPos - scrollAmount : scrollPos + scrollAmount;
+    scrollRef.current.scrollLeft = newPos;
+    setScrollPos(newPos);
+  };
+
+  // Center the selected enclosure
+  useEffect(() => {
+    if (!scrollRef.current) return;
+    const selectedCard = scrollRef.current.querySelector('[data-selected="true"]') as HTMLElement;
+    if (selectedCard) {
+      const container = scrollRef.current;
+      const cardLeft = selectedCard.offsetLeft;
+      const cardWidth = selectedCard.offsetWidth;
+      const containerWidth = container.offsetWidth;
+      const centerScroll = cardLeft - (containerWidth - cardWidth) / 2;
+      container.scrollLeft = centerScroll;
+      setScrollPos(centerScroll);
+    }
+  }, [selectedId]);
 
   return (
-    <button
-      type="button"
-      onClick={onOpen}
-      className="mx-4 w-[calc(100%-2rem)] bg-card border border-divider rounded-2xl overflow-hidden p-3.5 text-left"
-    >
-      <div className="flex items-start gap-4">
-        <div className="w-24 h-20 rounded-xl overflow-hidden border border-divider bg-card-elevated flex items-center justify-center flex-shrink-0">
-          {enclosure.photoUrl ? (
-            <img src={enclosure.photoUrl} alt={enclosure.name} className="w-full h-full object-cover" />
-          ) : (
-            <Turtle className="w-8 h-8 text-muted" />
-          )}
+    <div className="px-4 space-y-3">
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-lg font-bold text-white">Enclosures</h2>
         </div>
+        <p className="text-xs text-muted">Swipe to see more</p>
+      </div>
 
-        <div className="flex-1 min-w-0">
-          <p className="text-lg font-bold text-white">{enclosure.name}</p>
-          <p className="text-sm text-muted mt-0.5">{enclosure.animalName} habitat</p>
-          <p className="text-sm text-muted mt-0.5">{animalCount} animal{animalCount === 1 ? '' : 's'}</p>
+      <div>
+        {/* Carousel */}
+        <div
+          ref={scrollRef}
+          className="flex gap-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+        >
+          {enclosures.map((enc) => {
+            const isSelected = enc.id === selectedId;
+            const animalCount = getAnimalCountForEnclosure(enc.id);
+            return (
+              <button
+                key={enc.id}
+                onClick={() => onSelect(enc.id)}
+                data-selected={isSelected ? 'true' : 'false'}
+                className={`flex-shrink-0 w-44 rounded-2xl border-2 overflow-hidden transition-all snap-center ${
+                  isSelected
+                    ? 'border-accent shadow-lg shadow-accent/30'
+                    : 'border-divider hover:border-accent/50'
+                }`}
+              >
+                {/* Photo */}
+                <div className="w-full h-20 bg-card-elevated overflow-hidden relative flex items-center justify-center">
+                  {enc.photoUrl ? (
+                    <img src={enc.photoUrl} alt={enc.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <Home className="w-8 h-8 text-muted" />
+                  )}
+                  {isSelected && (
+                    <div className="absolute top-2 right-2 w-6 h-6 rounded-full bg-accent flex items-center justify-center">
+                      <Check className="w-4 h-4 text-white" />
+                    </div>
+                  )}
+                </div>
 
-          <div className="flex flex-wrap gap-2 mt-2.5">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 text-xs font-medium text-emerald-300">
-              <Leaf className="w-3.5 h-3.5" />
-              {enclosure.substrateType === 'bioactive' ? 'Bioactive' : substrateLabel}
-            </span>
-          </div>
+                {/* Info */}
+                <div className="bg-card p-3 text-left">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex-1 min-w-0">
+                      <p className="font-semibold text-white text-sm">{enc.name}</p>
+                      <p className="text-xs text-muted mt-0.5">{enc.animalName}</p>
+                    </div>
+                    <div
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigate(`/care-calendar/enclosures/edit/${enc.id}`);
+                      }}
+                      className="flex-shrink-0 w-7 h-7 rounded-full hover:bg-accent/20 flex items-center justify-center transition-colors cursor-pointer"
+                      title="Edit enclosure"
+                    >
+                      <Pencil className="w-4 h-4 text-accent" />
+                    </div>
+                  </div>
+                  <div className="mt-2 flex items-center gap-1">
+                    <Turtle className="w-3.5 h-3.5 text-accent" />
+                    <span className="text-xs font-medium text-muted">{animalCount} animal{animalCount !== 1 ? 's' : ''}</span>
+                  </div>
+                </div>
+              </button>
+            );
+          })}
         </div>
       </div>
-    </button>
+    </div>
   );
 }
 
@@ -386,8 +433,8 @@ function AnimalHeroCard({ animal, speciesName, age, weight, lastFed, careStreak,
   const genderColor = gender === 'male' ? 'text-blue-400' : gender === 'female' ? 'text-pink-400' : 'text-muted';
   const statusLabel = healthStatus === 'on-track' ? 'On-Track' : 'Check';
   const statusClassName = healthStatus === 'on-track'
-    ? 'text-accent bg-accent/15'
-    : 'text-amber-300 bg-amber-500/15';
+    ? 'text-accent'
+    : 'text-amber-300';
 
   const stats = [
     { icon: <Calendar className="w-3.5 h-3.5 text-muted" />, label: 'Age', value: age },
@@ -409,13 +456,13 @@ function AnimalHeroCard({ animal, speciesName, age, weight, lastFed, careStreak,
 
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-1.5 mb-0.5">
-            <span className="text-lg font-bold text-white truncate">{displayName}</span>
+            <span className="text-lg font-bold text-white">{displayName}</span>
             {genderIcon && <span className={`text-lg font-bold flex-shrink-0 ${genderColor}`}>{genderIcon}</span>}
           </div>
           {speciesName && <p className="text-xs text-muted mb-2 truncate">{speciesName}</p>}
-          <span className={`inline-block text-xs font-semibold px-2.5 py-0.5 rounded-full ${statusClassName}`}>{statusLabel}</span>
+          <span className={`inline-block text-xs font-semibold px-0 py-0.5 text-left ${statusClassName}`}>{statusLabel}</span>
           {healthStatus === 'needs-check' && (
-            <p className="mt-1 text-[11px] text-amber-200/90 truncate" title={healthStatusReason}>{healthStatusReason}</p>
+            <p className="mt-1 text-[11px] text-amber-200/90" title={healthStatusReason}>{healthStatusReason}</p>
           )}
         </div>
 
@@ -467,7 +514,7 @@ function TodayCarePlan({ tasks, completedIds, onComplete, onOpenTask }: TodayCar
       <div className="flex items-center justify-between px-4 pt-4 pb-3">
         <div className="flex items-center gap-1.5">
             <Calendar className="w-4 h-4 text-green-400" />
-            <h3 className="text-sm font-semibold text-white">Today's Care Plan</h3>
+            <h3 className="text-med font-bold text-white">Today's Care Plan</h3>
           </div>
         <span className="text-xs font-medium text-accent">{doneCount} of {dueToday.length} completed</span>
       </div>
@@ -579,7 +626,7 @@ function HealthWellness({ weight, weightTrend, shedLogs, shedStatus, lastFed, po
       <div className="flex items-center justify-between px-4 pt-4 pb-2">
         <div className="flex items-center gap-1.5">
           <Heart className="w-4 h-4 text-red-400" />
-          <h3 className="text-sm font-semibold text-white">Health &amp; Wellness</h3>
+          <h3 className="text-med font-bold text-white">Health &amp; Wellness</h3>
         </div>
         <div className="flex items-center gap-2">
           <button onClick={onViewAll} className="flex items-center gap-0.5 text-xs text-accent font-medium">
@@ -659,9 +706,6 @@ export function DashboardView() {
     careTaskService.getTasksWithLogs(user.id)
       .then((data) => setTasks(data.filter((t) => t.isActive)))
       .catch(console.error);
-    careAnalyticsService.getAnalytics(user.id)
-      .then((a) => setCareStreak(a.currentStreak))
-      .catch(() => setCareStreak(0));
   }, [user]);
 
   useEffect(() => {
@@ -709,6 +753,52 @@ export function DashboardView() {
     });
   }, [selectedAnimalId, selectedEnclosureId, animals]);
 
+  // Calculate care streak for selected animal
+  useEffect(() => {
+    if (!selectedAnimalId) {
+      setCareStreak(0);
+      return;
+    }
+
+    const animalTasksForStreak = tasks.filter((t) =>
+      t.enclosureAnimalId === selectedAnimalId ||
+      (selectedEnclosureId && t.enclosureId === selectedEnclosureId)
+    );
+
+    const animalCareStreak = animalTasksForStreak.length > 0
+      ? Math.max(...animalTasksForStreak.map(t => {
+          const completedDates = t.logs
+            .filter(l => !l.skipped)
+            .map(l => {
+              const date = new Date(l.completedAt);
+              date.setHours(0, 0, 0, 0);
+              return date;
+            })
+            .sort((a, b) => b.getTime() - a.getTime())
+            .filter((date, index, arr) => index === 0 || date.getTime() !== arr[index - 1].getTime());
+
+          if (completedDates.length === 0) return 0;
+
+          const intervalDays = t.frequency === 'daily' ? 1 : t.frequency === 'every-other-day' ? 2 : 1;
+          let streak = 1;
+          let currentDate = completedDates[0];
+
+          for (let i = 1; i < completedDates.length; i++) {
+            const logDate = completedDates[i];
+            const dayDiff = Math.floor((currentDate.getTime() - logDate.getTime()) / (1000 * 60 * 60 * 24));
+            if (dayDiff <= intervalDays) {
+              streak++;
+              currentDate = logDate;
+            } else {
+              break;
+            }
+          }
+          return streak;
+        }), 0)
+      : 0;
+    setCareStreak(animalCareStreak);
+  }, [selectedAnimalId, selectedEnclosureId, tasks]);
+
   const handleCompleteTask = useCallback((task: CareTaskWithLogs) => {
     setCompletedIds((prev) => {
       const next = new Set(prev);
@@ -738,7 +828,7 @@ export function DashboardView() {
   const shedStatus = getShedStatus(shedLogs);
   const animalTasks = tasks.filter((t) =>
     t.enclosureAnimalId === selectedAnimalId ||
-    (selectedEnclosureId && t.enclosureId === selectedEnclosureId && !t.enclosureAnimalId)
+    (selectedEnclosureId && t.enclosureId === selectedEnclosureId)
   );
   const enclosureTasks = selectedEnclosureId ? tasks.filter((t) => t.enclosureId === selectedEnclosureId) : animalTasks;
   const lastFed = getLastFed(animalTasks, feedingLogs);
@@ -795,16 +885,10 @@ export function DashboardView() {
 
   return (
     <div className="min-h-screen bg-surface pb-28">
-      {/* Top bar */}
-      <div className="sticky top-0 z-20 bg-surface/95 backdrop-blur-sm px-4 pt-4 pb-3 flex items-center justify-end">
-        <button className="w-9 h-9 rounded-full bg-card border border-divider flex items-center justify-center active:scale-95 transition-transform">
-          <Bell className="w-4 h-4 text-muted" />
-        </button>
-      </div>
 
       <div className="space-y-3 pt-2">
-        {selectedEnclosureId ? (
-          <EnclosurePills
+        {selectedEnclosureId && enclosures.length > 0 ? (
+          <EnclosureCarousel
             enclosures={enclosures}
             selectedId={selectedEnclosureId}
             onSelect={(enclosureId) => {
@@ -812,21 +896,18 @@ export function DashboardView() {
               const firstAnimal = animals.find((a) => a.enclosureId === enclosureId);
               if (firstAnimal) setSelectedAnimalId(firstAnimal.id);
             }}
+            getAnimalCountForEnclosure={(enclosureId) => 
+              animals.filter((a) => a.enclosureId === enclosureId).length
+            }
+            navigate={navigate}
           />
-        ) : (
-          <p className="px-4 text-xs text-muted">No enclosure selected</p>
-        )}
-
-        {selectedEnclosure && (
-          <EnclosureSection
-            enclosure={selectedEnclosure}
-            animalCount={animalsInSelectedEnclosure.length}
-            onOpen={() => navigate(`/care-calendar/enclosures/${selectedEnclosure.id}/environment`)}
-          />
-        )}
+        ) : null}
 
         <div>
-          <p className="px-4 mb-2 text-base font-semibold text-white">Pets in this Enclosure</p>
+          <div className="px-4 mb-2 flex items-center justify-between">
+            <p className="text-base font-semibold text-white">Pets in this Enclosure</p>
+            <p className="text-xs text-muted">Swipe to see more</p>
+          </div>
           <AnimalPills animals={selectorAnimals} selectedId={selectedAnimalId} onSelect={setSelectedAnimalId} />
         </div>
       </div>

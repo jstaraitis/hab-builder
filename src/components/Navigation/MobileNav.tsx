@@ -39,7 +39,7 @@ interface MobileNavProps {
    Quick-action FAB sheet items
 ──────────────────────────────────────────────────────────────────── */
 interface FabAction {
-  id: 'new-task' | 'log-feeding' | 'log-weight' | 'log-length' | 'log-poop' | 'log-shedding' | 'log-medical';
+  id: 'new-task' | 'new-inventory' | 'log-feeding' | 'log-weight' | 'log-length' | 'log-poop' | 'log-shedding' | 'log-medical';
   label: string;
   description: string;
   icon: LucideIcon;
@@ -53,6 +53,13 @@ const FAB_ACTIONS: FabAction[] = [
     description: 'Create a care task quickly',
     icon: CalendarCheck,
     color: 'bg-accent/20 text-accent',
+  },
+  {
+    id: 'new-inventory',
+    label: 'New Inventory',
+    description: 'Add inventory item',
+    icon: Package,
+    color: 'bg-blue-500/20 text-blue-400',
   },
   {
     id: 'log-feeding',
@@ -106,19 +113,23 @@ interface MoreItem {
   description: string;
   icon: LucideIcon;
   path: string;
+  colorBg: string;
+  colorText: string;
+  colorBgDim: string;
+  colorTextDim: string;
   showWhen?: 'guest' | 'auth' | 'owner';
 }
 
 const MORE_ITEMS: MoreItem[] = [
-  { label: 'Enclosure Planner', description: 'Build a new enclosure plan', icon: Worm, path: '/animal' },
-  { label: 'Inventory', description: 'Consumables & reorder tracking', icon: Package, path: '/inventory', showWhen: 'auth' },
-  { label: 'Care Guides', description: 'Species care library', icon: BookOpen, path: '/blog' },
-  { label: "What''s New", description: 'Latest updates', icon: Sparkles, path: '/whats-new' },
-  { label: 'Install App', description: 'iOS & Android', icon: Download, path: '/install' },
-  { label: 'Premium', description: 'Unlock all features', icon: Gem, path: '/premium', showWhen: 'guest' },
-  { label: 'Profile', description: 'Account & subscription', icon: User, path: '/profile' },
-  { label: 'About', description: 'About Habitat Builder', icon: Info, path: '/about' },
-  { label: 'Owner Dashboard', description: 'App metrics & admin', icon: BarChart2, path: '/owner-dashboard', showWhen: 'owner' },
+  { label: 'Planner', description: 'Build a new enclosure', icon: Worm, path: '/animal', colorBg: 'bg-green-500/20', colorText: 'text-green-300', colorBgDim: 'bg-green-500/10', colorTextDim: 'text-green-300' },
+  { label: 'Inventory', description: 'Consumables & reorder tracking', icon: Package, path: '/inventory', showWhen: 'auth', colorBg: 'bg-blue-500/20', colorText: 'text-blue-300', colorBgDim: 'bg-blue-500/10', colorTextDim: 'text-blue-300' },
+  { label: 'Care Guides', description: 'Species care library', icon: BookOpen, path: '/blog', colorBg: 'bg-amber-500/20', colorText: 'text-amber-300', colorBgDim: 'bg-amber-500/10', colorTextDim: 'text-amber-300' },
+  { label: "What''s New", description: 'Latest updates', icon: Sparkles, path: '/whats-new', colorBg: 'bg-purple-500/20', colorText: 'text-purple-300', colorBgDim: 'bg-purple-500/10', colorTextDim: 'text-purple-300' },
+  { label: 'Install App', description: 'iOS & Android', icon: Download, path: '/install', colorBg: 'bg-green-500', colorText: 'text-green-300', colorBgDim: 'bg-green-500/10', colorTextDim: 'text-green-300' },
+  { label: 'Premium', description: 'Unlock all features', icon: Gem, path: '/premium', showWhen: 'guest', colorBg: 'bg-rose-500/20', colorText: 'text-rose-300', colorBgDim: 'bg-rose-500/10', colorTextDim: 'text-rose-300' },
+  { label: 'Profile', description: 'Account & subscription', icon: User, path: '/profile', colorBg: 'bg-cyan-500/20', colorText: 'text-cyan-300', colorBgDim: 'bg-cyan-500/10', colorTextDim: 'text-cyan-300' },
+  { label: 'About', description: 'About Habitat Builder', icon: Info, path: '/about', colorBg: 'bg-sky-500', colorText: 'text-sky-300', colorBgDim: 'bg-sky-500/10', colorTextDim: 'text-sky-300' },
+  { label: 'Owner Dashboard', description: 'App metrics & admin', icon: BarChart2, path: '/owner-dashboard', showWhen: 'owner', colorBg: 'bg-indigo-500/20', colorText: 'text-indigo-300', colorBgDim: 'bg-indigo-500/10', colorTextDim: 'text-indigo-300' },
 ];
 
 /* ────────────────────────────────────────────────────────────────────
@@ -215,6 +226,8 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
     switch (actionId) {
       case 'new-task':
         return '/care-calendar/tasks/add?returnTo=%2Fcare-calendar';
+      case 'new-inventory':
+        return '/inventory';
       case 'log-feeding':
         return targetAnimalId ? `/my-animals/${targetAnimalId}?tab=care` : '/care-calendar';
       case 'log-weight':
@@ -233,7 +246,7 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
   };
 
   const handleFabAction = (actionId: FabAction['id']) => {
-    if (actionId === 'new-task') {
+    if (actionId === 'new-task' || actionId === 'new-inventory') {
       navigate(getFabPath(actionId));
       setShowFab(false);
       return;
@@ -361,11 +374,11 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
                     onClick={() => { navigate(item.path); setShowMore(false); }}
                     className="text-left rounded-xl border border-divider bg-card-elevated hover:bg-white/5 transition-colors overflow-hidden"
                   >
-                    <div className={`w-full h-10 border-b border-divider flex items-center justify-center ${active ? 'bg-accent/20' : 'bg-card'}`}>
-                      <Icon className={`w-5 h-5 ${active ? 'text-accent' : 'text-muted'}`} />
+                    <div className={`w-full h-10 border-b border-divider flex items-center justify-center ${active ? item.colorBg : item.colorBgDim}`}>
+                      <Icon className={`w-5 h-5 ${active ? item.colorText : item.colorTextDim}`} />
                     </div>
                     <div className="px-2 py-2">
-                      <div className={`text-xs font-semibold ${active ? 'text-accent' : 'text-white'}`}>{item.label}</div>
+                      <div className={`text-xs font-semibold ${active ? item.colorText : item.colorTextDim}`}>{item.label}</div>
                       <div className="text-[10px] text-muted mt-0.5 leading-tight line-clamp-1">{item.description}</div>
                     </div>
                   </button>
@@ -375,11 +388,11 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
                 onClick={() => { onOpenFeedback?.(); setShowMore(false); }}
                 className="text-left rounded-xl border border-divider bg-card-elevated hover:bg-white/5 transition-colors overflow-hidden"
               >
-                <div className="w-full h-10 border-b border-divider bg-card flex items-center justify-center">
-                  <MessageCircle className="w-5 h-5 text-muted" />
+                <div className="w-full h-10 border-b border-divider bg-orange-500/10 flex items-center justify-center">
+                  <MessageCircle className="w-5 h-5 text-orange-300" />
                 </div>
                 <div className="px-2 py-2">
-                  <div className="text-xs font-semibold text-white">Feedback</div>
+                  <div className="text-xs font-semibold text-orange-300">Feedback</div>
                   <div className="text-[10px] text-muted mt-0.5 leading-tight">Help us</div>
                 </div>
               </button>
@@ -435,7 +448,7 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
           <div className="grid grid-cols-5 items-end px-2 pt-2 pb-2">
 
             {[
-              { label: 'Dashboard', icon: House, path: '/' },
+              { label: 'Dashboard', icon: House, path: '/dashboard' },
               { label: 'Tasks', icon: CalendarCheck, path: '/care-calendar' },
               null,
               { label: 'Pets', icon: Turtle, path: '/my-animals' },
@@ -446,7 +459,7 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
                   <div key="fab" className="flex items-center justify-center pb-1">
                     <button
                       onClick={() => { setShowFab(true); setShowMore(false); }}
-                      className="w-14 h-14 -translate-y-3 rounded-full bg-accent shadow-lg shadow-accent/30 flex items-center justify-center active:scale-95 transition-transform"
+                      className="w-12 h-12 -translate-y-0 rounded-full bg-accent shadow-sm shadow-accent/30 flex items-center justify-center active:scale-95 transition-transform"
                     >
                       <Plus className="w-7 h-7 text-white stroke-[2.5]" />
                     </button>
@@ -486,6 +499,14 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
           </div>
         </div>
       </nav>
+
+      {/* Visual spacer for iOS safe area */}
+      {isIOS && (
+        <div 
+          className="fixed bottom-0 left-0 right-0 z-40 bg-card" 
+          style={{ height: 'env(safe-area-inset-bottom)' }} 
+        />
+      )}
     </>
   );
 }

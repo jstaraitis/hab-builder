@@ -75,7 +75,7 @@ function App() {
           style={isIOS ? { paddingTop: 'env(safe-area-inset-top)' } : undefined}
         >
           {/* Mobile: Simple header (also shown on native iOS/Android regardless of screen size) */}
-          <div className={`flex flex-col items-center text-center ${isNative ? 'block' : 'lg:hidden'}`}>
+          <div className={`hidden flex-col items-center text-center ${isNative ? 'block' : 'lg:hidden'}`}>
             <Link to="/" className="block">
               <h1 className="text-2xl font-bold text-accent hover:text-accent-dim transition-colors cursor-pointer">🦎 Habitat Builder</h1>
               <p className="text-xs text-muted">Custom enclosure plans for reptiles & amphibians</p>
