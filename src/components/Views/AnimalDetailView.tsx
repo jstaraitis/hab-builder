@@ -47,6 +47,7 @@ import { weightTrackingService } from '../../services/weightTrackingService';
 import { lengthLogService, type LengthLog } from '../../services/lengthLogService';
 import { vetRecordService, type VetRecord } from '../../services/vetRecordService';
 import { poopLogService, type PoopLog } from '../../services/poopLogService';
+import { feedingLogService, type FeedingLog } from '../../services/feedingLogService';
 import type { EnclosureAnimal, Enclosure, CareTaskWithLogs } from '../../types/careCalendar';
 import type { WeightLog } from '../../types/weightTracking';
 import { WeightChart } from '../WeightTracking/WeightChart';
@@ -58,6 +59,7 @@ import { VetRecordForm } from '../HealthTracking/VetRecordForm';
 import { VetRecordList } from '../HealthTracking/VetRecordList';
 import { LengthLogForm } from '../LengthTracking/LengthLogForm';
 import { TaskEditModal } from '../CareCalendar/TaskEditModal';
+import { FeedingLogModal } from '../CareCalendar/FeedingLogModal';
 import { AnimalGallery } from '../AnimalGallery/AnimalGallery';
 
 // Helper function to calculate age
@@ -139,6 +141,7 @@ export function AnimalDetailView() {
   const [lengthLogs, setLengthLogs] = useState<LengthLog[]>([]);
   const [vetRecords, setVetRecords] = useState<VetRecord[]>([]);
   const [poopLogs, setPoopLogs] = useState<PoopLog[]>([]);
+  const [directFeedingLogs, setDirectFeedingLogs] = useState<FeedingLog[]>([]);
 
   // Tab management
   const [activeTab, setActiveTab] = useState<TabType>('overview');
@@ -168,7 +171,9 @@ export function AnimalDetailView() {
   const [poopConsistency, setPoopConsistency] = useState<PoopLog['consistency']>('normal');
   const [poopNotes, setPoopNotes] = useState('');
   const [savingPoop, setSavingPoop] = useState(false);
+  const [showFeedingModal, setShowFeedingModal] = useState(false);
   const [quickOpenApplied, setQuickOpenApplied] = useState(false);
+  const [deletingLogId, setDeletingLogId] = useState<string | null>(null);
 
   // Refresh handler for child components
   const handleRefresh = () => {
@@ -266,13 +271,14 @@ export function AnimalDetailView() {
 
       // Load related data in parallel
       if (animalData.enclosureId) {
-        const [enclosureData, allTasks, weightData, lengthData, vetData, poopData] = await Promise.all([
+        const [enclosureData, allTasks, weightData, lengthData, vetData, poopData, feedingData] = await Promise.all([
           enclosureService.getEnclosureById(animalData.enclosureId),
           careTaskService.getTasksWithLogs(user.id),
           weightTrackingService.getWeightLogs(animalId),
           lengthLogService.getLogsForAnimal(animalId),
           vetRecordService.getRecordsForAnimal(animalId),
           poopLogService.getRecentLogs(animalId, 10),
+          feedingLogService.getRecentLogs(animalData.enclosureId, 10),
         ]);
 
         setEnclosure(enclosureData);
@@ -282,14 +288,16 @@ export function AnimalDetailView() {
         setLengthLogs(lengthData);
         setVetRecords(vetData);
         setPoopLogs(poopData);
+        setDirectFeedingLogs(feedingData);
       } else {
         // Load tasks and weight logs even if no enclosure
-        const [allTasks, weightData, lengthData, vetData, poopData] = await Promise.all([
+        const [allTasks, weightData, lengthData, vetData, poopData, feedingData] = await Promise.all([
           careTaskService.getTasksWithLogs(user.id),
           weightTrackingService.getWeightLogs(animalId),
           lengthLogService.getLogsForAnimal(animalId),
           vetRecordService.getRecordsForAnimal(animalId),
           poopLogService.getRecentLogs(animalId, 10),
+          feedingLogService.getRecentLogs(undefined, 10),
         ]);
         
         const animalTasks = allTasks.filter(task => task.enclosureAnimalId === animalData.id);
@@ -298,6 +306,7 @@ export function AnimalDetailView() {
         setLengthLogs(lengthData);
         setVetRecords(vetData);
         setPoopLogs(poopData);
+        setDirectFeedingLogs(feedingData);
       }
 
     } catch (err) {
@@ -401,6 +410,68 @@ export function AnimalDetailView() {
     }
   };
 
+  const handleSaveFeedingLog = async (logData: any) => {
+    if (!user || !animalId || !enclosure) return;
+
+    try {
+      await feedingLogService.createLog(user.id, {
+        enclosureId: enclosure.id,
+        loggedAt: new Date().toISOString(),
+        feederType: logData.feederType,
+        quantityOffered: logData.quantityOffered?.toString(),
+        quantityEaten: logData.quantityEaten?.toString(),
+        supplementUsed: logData.supplementUsed,
+        refusalNoted: logData.refusalNoted,
+        notes: logData.notes,
+      });
+
+      const updated = await feedingLogService.getRecentLogs(enclosure.id, 10);
+      setDirectFeedingLogs(updated);
+      setShowFeedingModal(false);
+    } catch (err) {
+      console.error('Failed to save feeding log:', err);
+      alert('Could not save feeding log. Please try again.');
+    }
+  };
+
+  const handleDeleteFeedingLog = async (logId: string) => {
+    if (!confirm('Delete this feeding log?')) return;
+
+    try {
+      setDeletingLogId(logId);
+      await feedingLogService.deleteLog(logId);
+      
+      if (enclosure) {
+        const updated = await feedingLogService.getRecentLogs(enclosure.id, 10);
+        setDirectFeedingLogs(updated);
+      }
+    } catch (err) {
+      console.error('Failed to delete feeding log:', err);
+      alert('Could not delete feeding log. Please try again.');
+    } finally {
+      setDeletingLogId(null);
+    }
+  };
+
+  const handleDeletePoopLog = async (logId: string) => {
+    if (!confirm('Delete this poop log?')) return;
+
+    try {
+      setDeletingLogId(logId);
+      await poopLogService.deleteLog(logId);
+      
+      if (animalId) {
+        const updated = await poopLogService.getRecentLogs(animalId, 10);
+        setPoopLogs(updated);
+      }
+    } catch (err) {
+      console.error('Failed to delete poop log:', err);
+      alert('Could not delete poop log. Please try again.');
+    } finally {
+      setDeletingLogId(null);
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-surface px-4 pt-4">
@@ -436,7 +507,47 @@ export function AnimalDetailView() {
   const previousWeight = weightLogs.length > 1 ? weightLogs[1] : null;
   const latestLength = lengthLogs.length > 0 ? lengthLogs[0] : null;
   const previousLength = lengthLogs.length > 1 ? lengthLogs[1] : null;
-  const latestFeeding = feedingLogs.length > 0 ? feedingLogs[0] : null;
+  
+  // Combine feeding logs from care tasks and direct logging for the recent feedings section
+  // Only include direct logs if they match the current filter (animal-only or all in enclosure)
+  const combinedFeedingLogs = [
+    ...feedingLogs,
+    ...(showAllFeedingLogs 
+      ? directFeedingLogs  // Show all direct logs when "All in Enclosure" is selected
+      : directFeedingLogs   // For "This Animal", we already filtered in getFeedingLogs, so show all direct logs
+    ).map(log => ({
+      id: log.id,
+      completedAt: log.completedAt,
+      notes: log.notes,
+      taskTitle: 'Direct Feeding Log',
+      isEnclosureLevel: false,
+      feedingData: {
+        feederType: log.feederType,
+        quantityOffered: log.quantityOffered,
+        quantityEaten: log.quantityEaten,
+        supplementUsed: log.supplementUsed
+      }
+    }))
+  ].sort((a, b) => new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime());
+  
+  // Combine feeding logs from care tasks and direct logging for overview
+  const allFeedingLogs = [
+    ...feedingLogs,
+    ...directFeedingLogs.map(log => ({
+      id: log.id,
+      completedAt: log.completedAt,
+      notes: log.notes,
+      taskTitle: 'Direct Feeding Log',
+      feedingData: {
+        feederType: log.feederType,
+        quantityOffered: log.quantityOffered,
+        quantityEaten: log.quantityEaten,
+        supplementUsed: log.supplementUsed
+      }
+    }))
+  ].sort((a, b) => new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime());
+  
+  const latestFeeding = allFeedingLogs.length > 0 ? allFeedingLogs[0] : null;
   const latestMedical = vetRecords.length > 0 ? vetRecords[0] : null;
   const ageLabel = animal.birthday ? calculateAge(new Date(animal.birthday)) : null;
   const lastWeightDays = latestWeight
@@ -1075,6 +1186,67 @@ export function AnimalDetailView() {
         {/* Feeding Tab */}
         {activeTab === 'care' && (
           <div className="space-y-6">
+            {/* Log Feeding Form */}
+            <div className="bg-card border border-divider rounded-2xl p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-semibold text-white flex items-center gap-2">
+                  <UtensilsCrossed className="w-5 h-5" />
+                  Log Feeding
+                </h2>
+                {!showFeedingModal && (
+                  <button
+                    onClick={() => setShowFeedingModal(true)}
+                    className="inline-flex items-center gap-2 rounded-lg border border-accent/40 bg-accent/15 px-3 py-1.5 text-sm font-semibold text-accent transition-colors hover:bg-accent/25"
+                  >
+                    <Plus className="h-4 w-4" />
+                    Add Entry
+                  </button>
+                )}
+              </div>
+
+              <FeedingLogModal
+                isOpen={showFeedingModal}
+                taskTitle={`Feeding for ${animal?.name || 'Animal'}`}
+                onClose={() => setShowFeedingModal(false)}
+                onSubmit={handleSaveFeedingLog}
+              />
+
+              {directFeedingLogs.length > 0 ? (
+                <div className="space-y-2">
+                  {directFeedingLogs.map((log) => (
+                    <div key={log.id} className="rounded-lg border border-divider p-3">
+                      <div className="flex items-start justify-between gap-2 mb-2">
+                        <div>
+                          {log.feederType && (
+                            <p className="text-sm font-medium text-white">{log.feederType}</p>
+                          )}
+                          <p className="text-xs text-muted">
+                            {log.quantityOffered && `Offered: ${log.quantityOffered}`}
+                            {log.quantityOffered && log.quantityEaten && ' • '}
+                            {log.quantityEaten && `Eaten: ${log.quantityEaten}`}
+                          </p>
+                        </div>
+                        <p className="text-xs text-muted flex-shrink-0">{new Date(log.completedAt).toLocaleDateString()}</p>
+                      </div>
+                      {log.supplementUsed && (
+                        <p className="text-xs text-muted">Supplement: {log.supplementUsed}</p>
+                      )}
+                      {log.refusalNoted && (
+                        <p className="text-xs text-red-400">Food refused</p>
+                      )}
+                      {log.notes && (
+                        <p className="mt-1 text-xs text-muted italic">{log.notes}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-6">
+                  <p className="text-sm text-muted">No feeding logs yet for this animal.</p>
+                </div>
+              )}
+            </div>
+
             {/* Recent Feeding Logs */}
             <div className="bg-card border border-divider rounded-2xl p-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
@@ -1108,9 +1280,9 @@ export function AnimalDetailView() {
                 </div>
               </div>
 
-              {feedingLogs.length > 0 ? (
+              {combinedFeedingLogs.length > 0 ? (
                 <div className="space-y-3">
-                  {feedingLogs.map((log) => (
+                  {combinedFeedingLogs.map((log) => (
                     <div
                       key={log.id}
                       className="border border-divider rounded-lg p-4"
@@ -1127,9 +1299,21 @@ export function AnimalDetailView() {
                             </span>
                           )}
                         </div>
-                        <span className="text-xs text-gray-500 dark:text-gray-500">
-                          {new Date(log.completedAt).toLocaleDateString()}
-                        </span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs text-gray-500 dark:text-gray-500">
+                            {new Date(log.completedAt).toLocaleDateString()}
+                          </span>
+                          {log.taskTitle === 'Direct Feeding Log' && (
+                            <button
+                              onClick={() => handleDeleteFeedingLog(log.id)}
+                              disabled={deletingLogId === log.id}
+                              className="p-1 text-gray-400 hover:text-red-500 transition-colors disabled:opacity-50"
+                              title="Delete feeding log"
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </button>
+                          )}
+                        </div>
                       </div>
                       
                       {log.feedingData && (
@@ -1250,8 +1434,20 @@ export function AnimalDetailView() {
                   {poopLogs.map((log) => (
                     <div key={log.id} className="rounded-lg border border-divider p-3">
                       <div className="flex items-center justify-between gap-2">
-                        <p className="text-sm font-medium text-white capitalize">{log.consistency || 'Unknown'}</p>
-                        <p className="text-xs text-muted">{new Date(log.loggedAt).toLocaleDateString()}</p>
+                        <div className="flex items-center gap-2 flex-1">
+                          <p className="text-sm font-medium text-white capitalize">{log.consistency || 'Unknown'}</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <p className="text-xs text-muted">{new Date(log.loggedAt).toLocaleDateString()}</p>
+                          <button
+                            onClick={() => handleDeletePoopLog(log.id)}
+                            disabled={deletingLogId === log.id}
+                            className="p-1 text-gray-400 hover:text-red-500 transition-colors disabled:opacity-50"
+                            title="Delete poop log"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
                       </div>
                       {log.notes && (
                         <p className="mt-1 text-xs text-muted">{log.notes}</p>

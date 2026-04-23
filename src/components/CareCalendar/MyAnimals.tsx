@@ -208,7 +208,6 @@ export function MyAnimals() {
     <div className="mx-auto w-full max-w-4xl p-4 sm:p-6 lg:p-7">
       <div className="mb-6">
         <div className="mb-4 text-center sm:text-left">
-          <p className="text-sm font-semibold tracking-wide text-emerald-400">Habitat Builder</p>
           <h1 className="mt-1 text-4xl font-bold leading-none tracking-tight text-white sm:text-3xl">My Pets</h1>
         </div>
 
@@ -217,7 +216,7 @@ export function MyAnimals() {
             <div className="mb-1 inline-flex h-5 w-5 items-center justify-center rounded bg-emerald-500/20 text-emerald-300">
               <Turtle className="h-3.5 w-3.5" />
             </div>
-            <p className="text-xs text-muted">Animals</p>
+            <p className="text-xs text-muted">Pets</p>
             <p className="mt-1 text-2xl font-bold text-white">{animals.length}</p>
           </div>
           <div className="rounded-xl border border-divider bg-card p-3 text-center">
@@ -236,7 +235,7 @@ export function MyAnimals() {
           <input
             value={search}
             onChange={(event) => setSearch(event.target.value)}
-            placeholder="Search animals..."
+            placeholder="Search pets..."
             className="w-full rounded-xl border border-divider bg-card py-2.5 pl-10 pr-3 text-sm text-white placeholder:text-muted focus:border-emerald-500 focus:outline-none"
           />
         </label>

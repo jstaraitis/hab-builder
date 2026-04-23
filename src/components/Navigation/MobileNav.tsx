@@ -351,7 +351,7 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
                 <X className="w-5 h-5 text-muted" />
               </button>
             </div>
-            <div className="p-3 space-y-1 max-h-[65vh] overflow-y-auto">
+            <div className="p-3 grid grid-cols-3 gap-2 max-h-[65vh] overflow-y-auto">
               {visibleMoreItems.map((item) => {
                 const Icon = item.icon;
                 const active = isActive(item.path);
@@ -359,32 +359,28 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
                   <button
                     key={item.path}
                     onClick={() => { navigate(item.path); setShowMore(false); }}
-                    className={`w-full flex items-center gap-4 px-4 py-3 rounded-2xl transition-colors text-left ${
-                      active ? 'bg-accent/10 border border-accent/30' : 'hover:bg-card-elevated'
-                    }`}
+                    className="text-left rounded-xl border border-divider bg-card-elevated hover:bg-white/5 transition-colors overflow-hidden"
                   >
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                      active ? 'bg-accent text-white' : 'bg-card-elevated text-muted'
-                    }`}>
-                      <Icon className="w-5 h-5" />
+                    <div className={`w-full h-10 border-b border-divider flex items-center justify-center ${active ? 'bg-accent/20' : 'bg-card'}`}>
+                      <Icon className={`w-5 h-5 ${active ? 'text-accent' : 'text-muted'}`} />
                     </div>
-                    <div>
-                      <div className={`text-sm font-semibold ${active ? 'text-accent' : 'text-white'}`}>{item.label}</div>
-                      <div className="text-xs text-muted">{item.description}</div>
+                    <div className="px-2 py-2">
+                      <div className={`text-xs font-semibold ${active ? 'text-accent' : 'text-white'}`}>{item.label}</div>
+                      <div className="text-[10px] text-muted mt-0.5 leading-tight line-clamp-1">{item.description}</div>
                     </div>
                   </button>
                 );
               })}
               <button
                 onClick={() => { onOpenFeedback?.(); setShowMore(false); }}
-                className="w-full flex items-center gap-4 px-4 py-3 rounded-2xl hover:bg-card-elevated transition-colors text-left"
+                className="text-left rounded-xl border border-divider bg-card-elevated hover:bg-white/5 transition-colors overflow-hidden"
               >
-                <div className="w-10 h-10 rounded-xl bg-card-elevated flex items-center justify-center text-muted">
-                  <MessageCircle className="w-5 h-5" />
+                <div className="w-full h-10 border-b border-divider bg-card flex items-center justify-center">
+                  <MessageCircle className="w-5 h-5 text-muted" />
                 </div>
-                <div>
-                  <div className="text-sm font-semibold text-white">Send Feedback</div>
-                  <div className="text-xs text-muted">Help us improve</div>
+                <div className="px-2 py-2">
+                  <div className="text-xs font-semibold text-white">Feedback</div>
+                  <div className="text-[10px] text-muted mt-0.5 leading-tight">Help us</div>
                 </div>
               </button>
             </div>
@@ -435,7 +431,7 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
       )}
 
       <nav className={`fixed bottom-0 left-0 right-0 z-50 ${isNative ? 'block' : 'lg:hidden'} ${isIOS ? 'pb-safe' : 'safe-area-inset-bottom'}`}>
-        <div className="bg-card/95 backdrop-blur-xl border-t border-divider">
+        <div className="bg-card border-t border-divider">
           <div className="grid grid-cols-5 items-end px-2 pt-2 pb-2">
 
             {[

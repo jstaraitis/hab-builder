@@ -730,7 +730,7 @@ export function CareCalendar() {
                 <div className="flex items-center gap-2">
                   <div className="px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-semibold flex items-center gap-1.5">
                     <Check className="w-3.5 h-3.5" />
-                    {reliabilityScore}% reliable (30d)
+                    {reliabilityScore}% Consistency Score (30d)
                   </div>
                 </div>
               )}

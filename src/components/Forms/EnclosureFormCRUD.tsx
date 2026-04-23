@@ -87,30 +87,31 @@ export function EnclosureFormCRUD({ mode, initialData, entityLabel, onSave, onCa
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
-      <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-        <h1 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
+    <div className="bg-card border border-divider rounded-2xl overflow-hidden">
+      {/* Header */}
+      <div className="px-4 py-3 border-b border-divider flex items-center justify-between">
+        <h1 className="text-lg font-bold text-white">
           {mode === 'add' ? 'Add Enclosure' : 'Edit Enclosure'}
         </h1>
         {entityLabel && (
-          <span className="text-xs text-gray-500 dark:text-gray-400">{entityLabel}</span>
+          <span className="text-xs text-muted">{entityLabel}</span>
         )}
       </div>
 
-      <form onSubmit={handleSubmit} className="p-6 space-y-6">
+      <form onSubmit={handleSubmit} className="p-4 space-y-4">
         {/* Photo Section */}
-        <fieldset className="pb-6 border-b border-gray-200 dark:border-gray-700">
-          <legend className="block text-sm font-semibold text-gray-900 dark:text-white mb-3">Photo</legend>
+        <div className="bg-card-elevated border border-divider rounded-2xl p-4">
+          <h3 className="text-xs font-semibold text-muted uppercase tracking-wide mb-3">Photo</h3>
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <div className="h-32 w-32 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 overflow-hidden flex items-center justify-center shrink-0">
+            <div className="h-32 w-32 rounded-xl border border-divider bg-card-elevated overflow-hidden flex items-center justify-center shrink-0">
               {photoPreview ? (
                 <img src={photoPreview} alt="Enclosure preview" className="h-full w-full object-cover" />
               ) : (
                 <div className="text-center p-4">
-                  <svg className="w-12 h-12 mx-auto text-gray-300 dark:text-gray-600 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-12 h-12 mx-auto text-muted mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
-                  <span className="text-xs text-gray-400 dark:text-gray-500">No photo</span>
+                  <span className="text-xs text-muted">No photo</span>
                 </div>
               )}
             </div>
@@ -132,106 +133,108 @@ export function EnclosureFormCRUD({ mode, initialData, entityLabel, onSave, onCa
                 />
                 <label
                   htmlFor="photo-upload"
-                  className="inline-block px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-lg cursor-pointer transition-colors"
+                  className="inline-block px-3 py-1.5 bg-accent hover:bg-accent-dim text-white text-xs font-semibold rounded-lg cursor-pointer transition-colors"
                 >
                   Choose File
                 </label>
               </div>
               {photoFile && (
-                <p className="text-sm text-gray-700 dark:text-gray-300 break-all">{photoFile.name}</p>
+                <p className="text-xs text-white break-all">{photoFile.name}</p>
               )}
-              <p className="text-xs text-gray-500 dark:text-gray-400">Images will be compressed to under 300KB</p>
+              <p className="text-xs text-muted">Images will be compressed to under 300KB</p>
             </div>
-          </div>
-        </fieldset>
-
-        {/* Basic Info Section */}
-        <div className="space-y-4">
-          <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Basic Information</h3>
-          <div>
-            <label htmlFor="enclosure-name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Enclosure Name *</label>
-            <input
-              id="enclosure-name"
-              name="enclosureName"
-              type="text"
-              value={formData.name}
-              onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-              placeholder="e.g., Main Frog Tank, Gecko Enclosure #1"
-              className="w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="enclosure-animal" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Animal Species *</label>
-            <select
-              id="enclosure-animal"
-              name="animalSpecies"
-              value={formData.animalId}
-              onChange={(e) => setFormData(prev => ({ ...prev, animalId: e.target.value, customSpeciesName: '' }))}
-              className="w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
-              required
-            >
-              <option value="">Select species...</option>
-              {animalList.map(animal => (
-                <option key={animal.id} value={animal.id}>{animal.name}</option>
-              ))}
-              <option value="custom">Other/Custom Species</option>
-            </select>
-          </div>
-
-          {formData.animalId === 'custom' && (
-            <div>
-              <label htmlFor="enclosure-custom-species" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Custom Species Name *</label>
-              <input
-                id="enclosure-custom-species"
-                name="customSpeciesName"
-                type="text"
-                value={formData.customSpeciesName}
-                onChange={(e) => setFormData(prev => ({ ...prev, customSpeciesName: e.target.value }))}
-                placeholder="e.g., Ball Python, Red-Eared Slider"
-                className="w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
-                required
-              />
-            </div>
-          )}
-
-          <div>
-            <label htmlFor="enclosure-substrate" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Substrate Type</label>
-            <select
-              id="enclosure-substrate"
-              name="substrateType"
-              value={formData.substrateType}
-              onChange={(e) => setFormData(prev => ({ ...prev, substrateType: e.target.value as SubstrateType }))}
-              className="w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
-            >
-              <option value="">Select...</option>
-              <option value="bioactive">Bioactive</option>
-              <option value="soil">Soil</option>
-              <option value="paper">Paper</option>
-              <option value="sand">Sand</option>
-              <option value="reptile-carpet">Reptile Carpet</option>
-              <option value="tile">Tile</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <div>
-            <label htmlFor="enclosure-description" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Description (optional)</label>
-            <textarea
-              id="enclosure-description"
-              name="enclosureDescription"
-              value={formData.description}
-              onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
-              rows={3}
-              placeholder="Notes about this enclosure..."
-              className="w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors resize-none"
-            />
           </div>
         </div>
 
+        {/* Enclosure Name */}
+        <div className="bg-card-elevated border border-divider rounded-2xl p-4">
+          <label htmlFor="enclosure-name" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Enclosure Name <span className="text-rose-400">*</span></label>
+          <input
+            id="enclosure-name"
+            name="enclosureName"
+            type="text"
+            value={formData.name}
+            onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+            placeholder="e.g., Main Frog Tank, Gecko Enclosure #1"
+            className="w-full bg-card text-white text-sm focus:outline-none placeholder:text-muted"
+            required
+          />
+        </div>
+
+        {/* Animal Species */}
+        <div className="bg-card-elevated border border-divider rounded-2xl p-4">
+          <label htmlFor="enclosure-animal" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Animal Species <span className="text-rose-400">*</span></label>
+          <select
+            id="enclosure-animal"
+            name="animalSpecies"
+            value={formData.animalId}
+            onChange={(e) => setFormData(prev => ({ ...prev, animalId: e.target.value, customSpeciesName: '' }))}
+            className="w-full bg-card text-white text-sm focus:outline-none"
+            required
+          >
+            <option value="">Select species...</option>
+            {animalList.map(animal => (
+              <option key={animal.id} value={animal.id}>{animal.name}</option>
+            ))}
+            <option value="custom">Other/Custom Species</option>
+          </select>
+        </div>
+
+        {/* Custom Species Name */}
+        {formData.animalId === 'custom' && (
+          <div className="bg-card-elevated border border-divider rounded-2xl p-4">
+            <label htmlFor="enclosure-custom-species" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Custom Species Name <span className="text-rose-400">*</span></label>
+            <input
+              id="enclosure-custom-species"
+              name="customSpeciesName"
+              type="text"
+              value={formData.customSpeciesName}
+              onChange={(e) => setFormData(prev => ({ ...prev, customSpeciesName: e.target.value }))}
+              placeholder="e.g., Ball Python, Red-Eared Slider"
+              className="w-full bg-card text-white text-sm focus:outline-none placeholder:text-muted"
+              required
+            />
+          </div>
+        )}
+
+        {/* Substrate Type */}
+        <div className="bg-card-elevated border border-divider rounded-2xl p-4">
+          <label htmlFor="enclosure-substrate" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Substrate Type</label>
+          <select
+            id="enclosure-substrate"
+            name="substrateType"
+            value={formData.substrateType}
+            onChange={(e) => setFormData(prev => ({ ...prev, substrateType: e.target.value as SubstrateType }))}
+            className="w-full bg-card text-white text-sm focus:outline-none"
+          >
+            <option value="">Select...</option>
+            <option value="bioactive">Bioactive</option>
+            <option value="soil">Soil</option>
+            <option value="paper">Paper</option>
+            <option value="sand">Sand</option>
+            <option value="reptile-carpet">Reptile Carpet</option>
+            <option value="tile">Tile</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        {/* Description */}
+        <div className="bg-card-elevated border border-divider rounded-2xl p-4">
+          <label htmlFor="enclosure-description" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Description (optional)</label>
+          <textarea
+            id="enclosure-description"
+            name="enclosureDescription"
+            value={formData.description}
+            onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+            rows={3}
+            placeholder="Notes about this enclosure..."
+            className="w-full bg-card text-white text-sm focus:outline-none placeholder:text-muted resize-none"
+          />
+        </div>
+
+        {/* Error Message */}
         {error && (
-          <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 text-red-800 dark:text-red-200 text-sm flex items-start gap-2">
+          <div className="bg-rose-500/10 border border-rose-500/30 text-rose-300 rounded-lg p-4 text-sm flex items-start gap-2">
             <svg className="w-5 h-5 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
             </svg>
@@ -239,44 +242,44 @@ export function EnclosureFormCRUD({ mode, initialData, entityLabel, onSave, onCa
           </div>
         )}
 
-        <div className="flex flex-col-reverse sm:flex-row gap-3 pt-2">
+        {/* Action Buttons */}
+        <div className="flex items-center gap-2 pt-2">
           <button
             type="button"
             onClick={onCancel}
-            className="flex-1 px-4 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors font-medium"
+            className="flex-1 px-3 py-1.5 border border-divider hover:bg-card-elevated text-muted hover:text-white text-xs font-medium rounded-lg transition-colors"
           >
             Cancel
           </button>
           <button
             type="submit"
             disabled={saving}
-            className="flex-1 px-4 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed font-medium shadow-sm"
+            className="flex-1 px-3 py-1.5 bg-accent hover:bg-accent-dim text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-1.5"
           >
             {saving ? (
-              <span className="flex items-center justify-center gap-2">
-                <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+              <>
+                <svg className="animate-spin h-3 w-3" viewBox="0 0 24 24">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                 </svg>
                 {uploadStatus || 'Saving...'}
-              </span>
+              </>
             ) : (
               mode === 'add' ? 'Add Enclosure' : 'Save Changes'
             )}
           </button>
         </div>
 
+        {/* Delete Button (Edit mode) */}
         {mode === 'edit' && onDelete && (
-          <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
-            <button
-              type="button"
-              onClick={handleDelete}
-              disabled={deleting}
-              className="w-full px-4 py-3 border border-red-300 text-red-700 dark:text-red-300 dark:border-red-700 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/30 transition-colors disabled:opacity-60 font-medium"
-            >
-              {deleting ? 'Deleting...' : 'Delete Enclosure'}
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={handleDelete}
+            disabled={deleting}
+            className="w-full px-3 py-1.5 border border-rose-500/30 text-rose-300 hover:bg-rose-500/10 rounded-lg transition-colors disabled:opacity-60 font-medium text-xs"
+          >
+            {deleting ? 'Deleting...' : 'Delete Enclosure'}
+          </button>
         )}
       </form>
     </div>

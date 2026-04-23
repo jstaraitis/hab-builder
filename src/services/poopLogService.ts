@@ -60,6 +60,15 @@ class PoopLogService {
     return this.mapFromDb(data);
   }
 
+  async deleteLog(logId: string): Promise<void> {
+    const { error } = await supabase
+      .from('poop_logs')
+      .delete()
+      .eq('id', logId);
+
+    if (error) throw error;
+  }
+
   private mapFromDb(row: any): PoopLog {
     return {
       id: row.id,

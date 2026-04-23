@@ -8,10 +8,16 @@ import { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Bell,
+  Brush,
   Calendar,
   Scale,
   Scissors,
   Utensils,
+  Waves,
+  Sparkles,
+  Stethoscope,
+  Pill,
+  Wrench,
   ChevronRight,
   CheckCircle2,
   Circle,
@@ -20,11 +26,13 @@ import {
   Turtle,
   Heart,
   Flame,
+  Leaf,
   Thermometer,
   Droplets,
   Sun,
   FileText,
   RefreshCw,
+  type LucideIcon,
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
@@ -37,6 +45,7 @@ import { tempLogService, type TempLog } from '../../services/tempLogService';
 import { humidityLogService, type HumidityLog } from '../../services/humidityLogService';
 import { uvbLogService, type UvbLog } from '../../services/uvbLogService';
 import { careAnalyticsService } from '../../services/careAnalyticsService';
+import { feedingLogService, type FeedingLog } from '../../services/feedingLogService';
 import type { Enclosure, EnclosureAnimal, CareTaskWithLogs } from '../../types/careCalendar';
 import type { WeightLog } from '../../types/weightTracking';
 import type { ShedLog } from '../../services/shedLogService';
@@ -78,20 +87,20 @@ function isTaskDueToday(task: CareTaskWithLogs): boolean {
   return due < tomorrow;
 }
 
-function taskTypeEmoji(type: string): string {
-  const map: Record<string, string> = {
-    feeding: '🍽️',
-    misting: '💧',
-    'water-change': '🚰',
-    'spot-clean': '🧹',
-    'deep-clean': '🦽',
-    'health-check': '🩺',
-    supplement: '💊',
-    maintenance: '🔧',
-    'gut-load': '🥗',
-    custom: '📋',
+function taskTypeIcon(type: string): LucideIcon {
+  const map: Record<string, LucideIcon> = {
+    feeding: Utensils,
+    misting: Droplets,
+    'water-change': Waves,
+    'spot-clean': Brush,
+    'deep-clean': Sparkles,
+    'health-check': Stethoscope,
+    supplement: Pill,
+    maintenance: Wrench,
+    'gut-load': Flame,
+    custom: FileText,
   };
-  return map[type] ?? '📋';
+  return map[type] ?? FileText;
 }
 
 function getWeightTrend(logs: WeightLog[]): string {
@@ -110,11 +119,22 @@ function getShedStatus(logs: ShedLog[]): string {
   return 'On Track';
 }
 
-function getLastFed(tasks: CareTaskWithLogs[]): string {
-  const feedingTasks = tasks.filter((t) => t.type === 'feeding' && t.lastCompleted);
-  if (!feedingTasks.length) return '—';
-  const sorted = [...feedingTasks].sort((a, b) => new Date(b.lastCompleted!).getTime() - new Date(a.lastCompleted!).getTime());
-  const diff = Math.floor((Date.now() - new Date(sorted[0].lastCompleted!).getTime()) / 86_400_000);
+function getLastFed(tasks: CareTaskWithLogs[], feedingLogs: FeedingLog[]): string {
+  // Combine task-based and direct feeding logs
+  const allLogs: Array<{ completedAt: Date | string }> = [
+    ...tasks
+      .filter((t) => t.type === 'feeding' && t.lastCompleted)
+      .map(t => ({ completedAt: t.lastCompleted! })),
+    ...feedingLogs.map(log => ({ completedAt: log.completedAt }))
+  ];
+  
+  if (!allLogs.length) return '—';
+  
+  const sorted = [...allLogs].sort((a, b) => 
+    new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime()
+  );
+  
+  const diff = Math.floor((Date.now() - new Date(sorted[0].completedAt).getTime()) / 86_400_000);
   if (diff === 0) return 'Today';
   if (diff === 1) return '1d ago';
   return `${diff}d ago`;
@@ -199,7 +219,7 @@ function EnvironmentSnapshot({
     <div className="mx-4 bg-card border border-divider rounded-2xl overflow-hidden">
       <div className="flex items-center justify-between px-4 pt-4 pb-2">
         <div className="flex items-center gap-1.5">
-          <Thermometer className="w-4 h-4 text-muted" />
+          <Thermometer className="w-4 h-4 text-orange-100" />
           <h3 className="text-sm font-semibold text-white">{enclosureName ? `${enclosureName} Environment` : 'Environment Snapshot'}</h3>
         </div>
         <div className="flex items-center gap-1.5">
@@ -258,20 +278,36 @@ function EnclosureSection({
   animalCount: number;
   onOpen: () => void;
 }) {
+  const substrateLabel = enclosure.substrateType
+    ? enclosure.substrateType.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())
+    : 'Standard Setup';
+
   return (
     <button
       type="button"
       onClick={onOpen}
-      className="mx-4 w-[calc(100%-2rem)] bg-card border border-divider rounded-2xl overflow-hidden p-4 text-left"
+      className="mx-4 w-[calc(100%-2rem)] bg-card border border-divider rounded-2xl overflow-hidden p-3.5 text-left"
     >
-      <div className="flex items-center justify-between">
-        <div>
-          <p className="text-xs text-muted">Selected Enclosure</p>
-          <p className="text-sm font-semibold text-white">{enclosure.name}</p>
-          <p className="text-xs text-muted mt-0.5">{enclosure.animalName} • {animalCount} animal{animalCount === 1 ? '' : 's'}</p>
+      <div className="flex items-start gap-4">
+        <div className="w-24 h-20 rounded-xl overflow-hidden border border-divider bg-card-elevated flex items-center justify-center flex-shrink-0">
+          {enclosure.photoUrl ? (
+            <img src={enclosure.photoUrl} alt={enclosure.name} className="w-full h-full object-cover" />
+          ) : (
+            <Turtle className="w-8 h-8 text-muted" />
+          )}
         </div>
-        <div className="w-10 h-10 rounded-xl bg-accent/15 flex items-center justify-center">
-          <Turtle className="w-5 h-5 text-accent" />
+
+        <div className="flex-1 min-w-0">
+          <p className="text-lg font-bold text-white">{enclosure.name}</p>
+          <p className="text-sm text-muted mt-0.5">{enclosure.animalName} habitat</p>
+          <p className="text-sm text-muted mt-0.5">{animalCount} animal{animalCount === 1 ? '' : 's'}</p>
+
+          <div className="flex flex-wrap gap-2 mt-2.5">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 text-xs font-medium text-emerald-300">
+              <Leaf className="w-3.5 h-3.5" />
+              {enclosure.substrateType === 'bioactive' ? 'Bioactive' : substrateLabel}
+            </span>
+          </div>
         </div>
       </div>
     </button>
@@ -308,12 +344,23 @@ function EmptyState({ onAdd }: { onAdd: () => void }) {
 }
 
 function AnimalPills({ animals, selectedId, onSelect }: { animals: EnclosureAnimal[]; selectedId: string; onSelect: (id: string) => void }) {
-  if (animals.length < 2) return null;
+  if (animals.length === 0) return null;
   return (
-    <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide px-4">
+    <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4">
       {animals.map((a) => (
-        <button key={a.id} onClick={() => onSelect(a.id)} className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${a.id === selectedId ? 'bg-accent text-on-accent' : 'bg-card text-muted border border-divider'}`}>
-          {a.name || `#${a.animalNumber ?? 1}`}
+        <button
+          key={a.id}
+          onClick={() => onSelect(a.id)}
+          className={`flex-shrink-0 w-[86px] rounded-2xl border p-2 transition-colors ${a.id === selectedId ? 'border-emerald-400/70 bg-emerald-500/15' : 'border-divider bg-card'}`}
+        >
+          <div className="mx-auto w-14 h-14 rounded-2xl overflow-hidden border border-divider bg-card-elevated flex items-center justify-center">
+            {a.photoUrl ? (
+              <img src={a.photoUrl} alt={a.name || `Animal #${a.animalNumber ?? 1}`} className="w-full h-full object-cover" />
+            ) : (
+              <Turtle className="w-5 h-5 text-muted" />
+            )}
+          </div>
+          <p className={`mt-1.5 text-sm font-semibold truncate ${a.id === selectedId ? 'text-emerald-300' : 'text-white'}`}>{a.name || `#${a.animalNumber ?? 1}`}</p>
         </button>
       ))}
     </div>
@@ -326,17 +373,18 @@ interface AnimalHeroCardProps {
   age: string;
   weight: string;
   lastFed: string;
+  careStreak: number;
   healthStatus: 'on-track' | 'needs-check';
   healthStatusReason: string;
   onTap: () => void;
 }
 
-function AnimalHeroCard({ animal, speciesName, age, weight, lastFed, healthStatus, healthStatusReason, onTap }: AnimalHeroCardProps) {
+function AnimalHeroCard({ animal, speciesName, age, weight, lastFed, careStreak, healthStatus, healthStatusReason, onTap }: AnimalHeroCardProps) {
   const displayName = animal.name || `Animal #${animal.animalNumber ?? 1}`;
   const gender = animal.gender?.toLowerCase();
   const genderIcon = gender === 'male' ? '♂' : gender === 'female' ? '♀' : null;
   const genderColor = gender === 'male' ? 'text-blue-400' : gender === 'female' ? 'text-pink-400' : 'text-muted';
-  const statusLabel = healthStatus === 'on-track' ? 'On-Track' : 'Needs Check';
+  const statusLabel = healthStatus === 'on-track' ? 'On-Track' : 'Check';
   const statusClassName = healthStatus === 'on-track'
     ? 'text-accent bg-accent/15'
     : 'text-amber-300 bg-amber-500/15';
@@ -362,14 +410,22 @@ function AnimalHeroCard({ animal, speciesName, age, weight, lastFed, healthStatu
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-1.5 mb-0.5">
             <span className="text-lg font-bold text-white truncate">{displayName}</span>
-            {genderIcon && <span className={`text-sm font-bold flex-shrink-0 ${genderColor}`}>{genderIcon}</span>}
-            <Heart className="w-3.5 h-3.5 text-accent flex-shrink-0" />
+            {genderIcon && <span className={`text-lg font-bold flex-shrink-0 ${genderColor}`}>{genderIcon}</span>}
           </div>
           {speciesName && <p className="text-xs text-muted mb-2 truncate">{speciesName}</p>}
           <span className={`inline-block text-xs font-semibold px-2.5 py-0.5 rounded-full ${statusClassName}`}>{statusLabel}</span>
           {healthStatus === 'needs-check' && (
             <p className="mt-1 text-[11px] text-amber-200/90 truncate" title={healthStatusReason}>{healthStatusReason}</p>
           )}
+        </div>
+
+        <div className="flex-shrink-0 self-start rounded-xl border border-orange-500/25 bg-orange-500/10 px-2.5 py-2 text-center min-w-[74px]">
+          <div className="flex items-center justify-center gap-1 text-orange-300">
+            <Flame className="w-3.5 h-3.5" />
+            <span className="text-[10px] font-semibold uppercase tracking-wide">Streak</span>
+          </div>
+          <p className="mt-0.5 text-lg font-bold text-white leading-none">{careStreak}</p>
+          <p className="text-[10px] text-muted">day{careStreak === 1 ? '' : 's'}</p>
         </div>
       </div>
 
@@ -400,16 +456,17 @@ interface TodayCarePlanProps {
   tasks: CareTaskWithLogs[];
   completedIds: Set<string>;
   onComplete: (task: CareTaskWithLogs) => void;
+  onOpenTask: (task: CareTaskWithLogs) => void;
 }
 
-function TodayCarePlan({ tasks, completedIds, onComplete }: TodayCarePlanProps) {
+function TodayCarePlan({ tasks, completedIds, onComplete, onOpenTask }: TodayCarePlanProps) {
   const dueToday = tasks.filter(isTaskDueToday).slice(0, 6);
   const doneCount = dueToday.filter((t) => completedIds.has(t.id)).length;
   return (
     <div className="bg-card border border-divider rounded-2xl overflow-hidden mx-4">
       <div className="flex items-center justify-between px-4 pt-4 pb-3">
         <div className="flex items-center gap-1.5">
-            <Calendar className="w-4 h-4 text-muted" />
+            <Calendar className="w-4 h-4 text-green-400" />
             <h3 className="text-sm font-semibold text-white">Today's Care Plan</h3>
           </div>
         <span className="text-xs font-medium text-accent">{doneCount} of {dueToday.length} completed</span>
@@ -424,6 +481,7 @@ function TodayCarePlan({ tasks, completedIds, onComplete }: TodayCarePlanProps) 
           {dueToday.map((task) => {
             const done = completedIds.has(task.id);
             const timeStr = formatScheduledTime(task.scheduledTime);
+            const TaskTypeIcon = taskTypeIcon(task.type);
             return (
               <li key={task.id} className={`flex items-center gap-3 px-4 py-3 transition-colors ${done ? 'bg-accent/5' : ''}`}>
                 <button onClick={() => onComplete(task)} className={`flex-shrink-0 transition-colors ${done ? 'text-accent' : 'text-muted'}`}>
@@ -431,7 +489,7 @@ function TodayCarePlan({ tasks, completedIds, onComplete }: TodayCarePlanProps) 
                 </button>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-base leading-none">{taskTypeEmoji(task.type)}</span>
+                    <TaskTypeIcon className="w-4 h-4 text-muted flex-shrink-0" />
                     <span className={`text-sm font-semibold truncate ${done ? 'line-through text-muted' : 'text-white'}`}>{task.title}</span>
                   </div>
                   {(task.description || task.notes) && (
@@ -440,7 +498,14 @@ function TodayCarePlan({ tasks, completedIds, onComplete }: TodayCarePlanProps) 
                 </div>
                 <div className="flex items-center gap-1.5 flex-shrink-0">
                   {timeStr && <span className="text-xs text-muted">{timeStr}</span>}
-                  <ChevronRight className="w-3.5 h-3.5 text-muted" />
+                  <button
+                    type="button"
+                    onClick={() => onOpenTask(task)}
+                    className="text-muted transition-colors hover:text-white"
+                    aria-label={`Open ${task.title}`}
+                  >
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
               </li>
             );
@@ -536,38 +601,6 @@ function HealthWellness({ weight, weightTrend, shedLogs, shedStatus, lastFed, po
   );
 }
 
-interface CareStreakProps {
-  streak: number;
-  tasksCompleted: number;
-}
-
-function CareStreak({ streak, tasksCompleted }: CareStreakProps) {
-  return (
-    <div className="mx-4 bg-card border border-divider rounded-2xl p-4">
-      <div className="flex items-center justify-between">
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-1">
-            <Flame className="w-4 h-4 text-orange-400 flex-shrink-0" />
-            <p className="text-sm font-semibold text-white">Care Streak</p>
-          </div>
-          <p className="text-xs text-muted">
-            {streak > 0 ? "You're doing great!" : 'Complete a task to start your streak!'}
-          </p>
-        </div>
-        <div className="flex-shrink-0 flex flex-col items-center ml-4">
-          <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center mb-1">
-            <span className="text-xl font-bold text-on-accent">{streak}</span>
-          </div>
-          <span className="text-[10px] text-muted text-center leading-tight">day streak</span>
-          {tasksCompleted > 0 && (
-            <span className="text-[10px] text-muted text-center leading-tight">{tasksCompleted} tasks done</span>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 // Main View
 export function DashboardView() {
   const { user } = useAuth();
@@ -584,6 +617,7 @@ export function DashboardView() {
   const [tempLogs, setTempLogs] = useState<TempLog[]>([]);
   const [humidityLogs, setHumidityLogs] = useState<HumidityLog[]>([]);
   const [uvbLogs, setUvbLogs] = useState<UvbLog[]>([]);
+  const [feedingLogs, setFeedingLogs] = useState<FeedingLog[]>([]);
   const [careStreak, setCareStreak] = useState(0);
   const [completedIds, setCompletedIds] = useState<Set<string>>(new Set());
   const [loading, setLoading] = useState(true);
@@ -632,6 +666,8 @@ export function DashboardView() {
 
   useEffect(() => {
     if (!selectedAnimalId) return;
+    const selectedAnimal = animals.find((a) => a.id === selectedAnimalId);
+    
     Promise.all([
       weightTrackingService.getWeightLogs(selectedAnimalId).catch(() => []),
       shedLogService.getLogsForAnimal(selectedAnimalId).catch(() => []),
@@ -645,7 +681,10 @@ export function DashboardView() {
       selectedEnclosureId
         ? uvbLogService.getRecentLogsForEnclosure(selectedEnclosureId, 10).catch(() => [])
         : Promise.resolve([]),
-    ]).then(async ([weights, sheds, poops, temps, humidity, uvb]) => {
+      selectedAnimal?.enclosureId
+        ? feedingLogService.getRecentLogs(selectedAnimal.enclosureId, 10).catch(() => [])
+        : Promise.resolve([]),
+    ]).then(async ([weights, sheds, poops, temps, humidity, uvb, feeding]) => {
       let resolvedTemps = temps as TempLog[];
       let resolvedHumidity = humidity as HumidityLog[];
       let resolvedUvb = uvb as UvbLog[];
@@ -666,8 +705,9 @@ export function DashboardView() {
       setTempLogs(resolvedTemps);
       setHumidityLogs(resolvedHumidity);
       setUvbLogs(resolvedUvb);
+      setFeedingLogs(feeding as FeedingLog[]);
     });
-  }, [selectedAnimalId, selectedEnclosureId]);
+  }, [selectedAnimalId, selectedEnclosureId, animals]);
 
   const handleCompleteTask = useCallback((task: CareTaskWithLogs) => {
     setCompletedIds((prev) => {
@@ -701,7 +741,7 @@ export function DashboardView() {
     (selectedEnclosureId && t.enclosureId === selectedEnclosureId && !t.enclosureAnimalId)
   );
   const enclosureTasks = selectedEnclosureId ? tasks.filter((t) => t.enclosureId === selectedEnclosureId) : animalTasks;
-  const lastFed = getLastFed(animalTasks);
+  const lastFed = getLastFed(animalTasks, feedingLogs);
   const lastWaterChange = getLastWaterChange(enclosureTasks);
   const latestTempLog = tempLogs.length > 0 ? tempLogs[0] : null;
   const latestHumidityLog = humidityLogs.length > 0 ? humidityLogs[0] : null;
@@ -762,45 +802,21 @@ export function DashboardView() {
         </button>
       </div>
 
-      <div className="mx-4 rounded-2xl border border-divider bg-card p-3">
-        <div className="space-y-3">
-          <div>
-            <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-muted">Enclosure</p>
-            {selectedEnclosureId ? (
-              <EnclosurePills
-                enclosures={enclosures}
-                selectedId={selectedEnclosureId}
-                onSelect={(enclosureId) => {
-                  setSelectedEnclosureId(enclosureId);
-                  const firstAnimal = animals.find((a) => a.enclosureId === enclosureId);
-                  if (firstAnimal) setSelectedAnimalId(firstAnimal.id);
-                }}
-              />
-            ) : (
-              <p className="text-xs text-muted">No enclosure selected</p>
-            )}
-            {selectedEnclosureId && enclosures.length < 2 && selectedEnclosure && (
-              <div className="inline-flex rounded-full border border-divider bg-card-elevated px-3 py-1.5 text-xs font-medium text-white">
-                {selectedEnclosure.name}
-              </div>
-            )}
-          </div>
+      <div className="space-y-3 pt-2">
+        {selectedEnclosureId ? (
+          <EnclosurePills
+            enclosures={enclosures}
+            selectedId={selectedEnclosureId}
+            onSelect={(enclosureId) => {
+              setSelectedEnclosureId(enclosureId);
+              const firstAnimal = animals.find((a) => a.enclosureId === enclosureId);
+              if (firstAnimal) setSelectedAnimalId(firstAnimal.id);
+            }}
+          />
+        ) : (
+          <p className="px-4 text-xs text-muted">No enclosure selected</p>
+        )}
 
-          <div>
-            <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-muted">
-              {selectedEnclosure ? `Animals in ${selectedEnclosure.name}` : 'Animals'}
-            </p>
-            <AnimalPills animals={selectorAnimals} selectedId={selectedAnimalId} onSelect={setSelectedAnimalId} />
-            {selectorAnimals.length < 2 && selectedAnimal && (
-              <div className="inline-flex rounded-full border border-divider bg-card-elevated px-3 py-1.5 text-xs font-medium text-white">
-                {selectedAnimal.name || `#${selectedAnimal.animalNumber ?? 1}`}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      <div className="space-y-4 pt-3">
         {selectedEnclosure && (
           <EnclosureSection
             enclosure={selectedEnclosure}
@@ -808,8 +824,21 @@ export function DashboardView() {
             onOpen={() => navigate(`/care-calendar/enclosures/${selectedEnclosure.id}/environment`)}
           />
         )}
-        <AnimalHeroCard animal={selectedAnimal} speciesName={speciesName} age={age} weight={weight} lastFed={lastFed} healthStatus={healthStatus} healthStatusReason={healthStatusReason} onTap={() => navigate(`/my-animals/${selectedAnimal.id}`)} />
-        <TodayCarePlan tasks={animalTasks} completedIds={completedIds} onComplete={handleCompleteTask} />
+
+        <div>
+          <p className="px-4 mb-2 text-base font-semibold text-white">Pets in this Enclosure</p>
+          <AnimalPills animals={selectorAnimals} selectedId={selectedAnimalId} onSelect={setSelectedAnimalId} />
+        </div>
+      </div>
+
+      <div className="space-y-4 pt-3">
+        <AnimalHeroCard animal={selectedAnimal} speciesName={speciesName} age={age} weight={weight} lastFed={lastFed} careStreak={careStreak} healthStatus={healthStatus} healthStatusReason={healthStatusReason} onTap={() => navigate(`/my-animals/${selectedAnimal.id}`)} />
+        <TodayCarePlan
+          tasks={animalTasks}
+          completedIds={completedIds}
+          onComplete={handleCompleteTask}
+          onOpenTask={(task) => navigate(`/care-calendar/tasks/edit/${task.id}?returnTo=${encodeURIComponent('/')}`)}
+        />
         <HealthWellness
           weight={weight}
           weightTrend={weightTrend}
@@ -827,7 +856,6 @@ export function DashboardView() {
           latestHumidityLog={latestHumidityLog}
           latestUvbLog={latestUvbLog}
         />
-        <CareStreak streak={careStreak} tasksCompleted={completedIds.size} />
       </div>
 
     </div>
