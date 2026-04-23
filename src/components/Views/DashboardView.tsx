@@ -45,7 +45,6 @@ import { poopLogService, type PoopLog } from '../../services/poopLogService';
 import { tempLogService, type TempLog } from '../../services/tempLogService';
 import { humidityLogService, type HumidityLog } from '../../services/humidityLogService';
 import { uvbLogService, type UvbLog } from '../../services/uvbLogService';
-import { careAnalyticsService } from '../../services/careAnalyticsService';
 import { feedingLogService, type FeedingLog } from '../../services/feedingLogService';
 import type { Enclosure, EnclosureAnimal, CareTaskWithLogs } from '../../types/careCalendar';
 import type { WeightLog } from '../../types/weightTracking';
@@ -258,9 +257,7 @@ function EnclosureCarousel({
   getAnimalCountForEnclosure: (id: string) => number;
   navigate: (path: string) => void;
 }) {
-  const [scrollPos, setScrollPos] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
-
 
   // Center the selected enclosure
   useEffect(() => {
@@ -273,7 +270,6 @@ function EnclosureCarousel({
       const containerWidth = container.offsetWidth;
       const centerScroll = cardLeft - (containerWidth - cardWidth) / 2;
       container.scrollLeft = centerScroll;
-      setScrollPos(centerScroll);
     }
   }, [selectedId]);
 
