@@ -18,7 +18,6 @@ import {
   Pill,
   Wrench,
   ChevronRight,
-  ChevronLeft,
   Check,
   CheckCircle2,
   Circle,
@@ -27,7 +26,6 @@ import {
   Turtle,
   Heart,
   Flame,
-  Leaf,
   Thermometer,
   Droplets,
   Sun,
@@ -263,13 +261,6 @@ function EnclosureCarousel({
   const [scrollPos, setScrollPos] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (!scrollRef.current) return;
-    const scrollAmount = 300;
-    const newPos = direction === 'left' ? scrollPos - scrollAmount : scrollPos + scrollAmount;
-    scrollRef.current.scrollLeft = newPos;
-    setScrollPos(newPos);
-  };
 
   // Center the selected enclosure
   useEffect(() => {
