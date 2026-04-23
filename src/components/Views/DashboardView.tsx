@@ -807,7 +807,6 @@ export function DashboardView() {
     ? animals.filter((a) => a.enclosureId === selectedEnclosureId)
     : [];
   const selectorAnimals = animalsInSelectedEnclosure.length > 0 ? animalsInSelectedEnclosure : animals;
-  const speciesName = (selectedAnimal as any)?.enclosures?.animalName as string | undefined;
   const speciesId = (selectedAnimal as any)?.enclosures?.animalId as string | undefined;
   const animalProfile: AnimalProfile | null = speciesId ? (getAnimalById(speciesId) ?? null) : null;
   const age = formatAge(selectedAnimal?.birthday);
