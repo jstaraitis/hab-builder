@@ -1,4 +1,5 @@
-﻿import { CheckCircle, XCircle, Clock } from 'lucide-react';
+﻿import { useState } from 'react';
+import { CheckCircle, XCircle, Clock, ChevronDown } from 'lucide-react';
 import type { CareLogWithTask } from '../../types/careAnalytics';
 
 interface RecentActivityProps {
@@ -6,18 +7,30 @@ interface RecentActivityProps {
 }
 
 export function RecentActivity({ recentLogs }: RecentActivityProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   if (recentLogs.length === 0) {
     return null;
   }
 
   return (
-    <div className="bg-card rounded-lg border border-divider p-3 sm:p-6">
-      <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3 sm:mb-4">
-        Recent Activity
-      </h2>
+    <div className="bg-card rounded-lg border border-divider overflow-hidden">
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="w-full flex items-center justify-between p-3 sm:p-6 hover:bg-card-elevated transition-colors"
+      >
+        <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+          Recent Activity
+        </h2>
+        <ChevronDown
+          className={`w-5 h-5 text-muted transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+        />
+      </button>
 
-      <div className="space-y-2">
-        {recentLogs.map((item) => {
+      {isExpanded && (
+        <div className="border-t border-divider p-3 sm:p-6 pt-3 sm:pt-4">
+          <div className="space-y-2">
+            {recentLogs.map((item) => {
           const isSkipped = item.log.skipped;
           const timeAgo = getTimeAgo(item.log.completedAt);
 
@@ -31,7 +44,7 @@ export function RecentActivity({ recentLogs }: RecentActivityProps) {
               <div className={`p-1.5 sm:p-2 rounded-lg flex-shrink-0 ${
                 isSkipped 
                   ? 'bg-red-100 dark:bg-red-900/30' 
-                  : 'bg-emerald-100 dark:bg-emerald-900/30'
+                  : 'bg-jade-100 dark:bg-jade-900/30'
               }`}>
                 {isSkipped ? (
                   <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-600 dark:text-red-400" />
@@ -80,12 +93,14 @@ export function RecentActivity({ recentLogs }: RecentActivityProps) {
             </div>
           );
         })}
-      </div>
+          </div>
 
-      {recentLogs.length >= 20 && (
-        <p className="text-xs text-center text-muted mt-3 sm:mt-4">
-          Showing last 20 activities
-        </p>
+          {recentLogs.length >= 20 && (
+            <p className="text-xs text-center text-muted mt-3 sm:mt-4">
+              Showing last 20 activities
+            </p>
+          )}
+        </div>
       )}
     </div>
   );

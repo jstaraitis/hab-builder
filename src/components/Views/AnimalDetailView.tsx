@@ -172,6 +172,7 @@ export function AnimalDetailView() {
   const [poopNotes, setPoopNotes] = useState('');
   const [savingPoop, setSavingPoop] = useState(false);
   const [showFeedingModal, setShowFeedingModal] = useState(false);
+  const [showRecentFeedings, setShowRecentFeedings] = useState(false);
   const [quickOpenApplied, setQuickOpenApplied] = useState(false);
   const [deletingLogId, setDeletingLogId] = useState<string | null>(null);
 
@@ -519,7 +520,7 @@ export function AnimalDetailView() {
       id: log.id,
       completedAt: log.completedAt,
       notes: log.notes,
-      taskTitle: 'Direct Feeding Log',
+      taskTitle: 'Manual Feeding Log',
       isEnclosureLevel: false,
       feedingData: {
         feederType: log.feederType,
@@ -597,7 +598,7 @@ export function AnimalDetailView() {
 
         {/* Hero */}
         <div className="relative overflow-hidden rounded-3xl border border-divider bg-card p-4 sm:p-5 mb-4">
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-cyan-500/10" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-jade-500/10 via-transparent to-cyan-500/10" />
 
           <div className="relative flex flex-col gap-4">
             <div className="h-52 w-full overflow-hidden rounded-2xl border border-divider bg-card-elevated flex items-center justify-center text-muted sm:h-56 shrink-0">
@@ -638,7 +639,7 @@ export function AnimalDetailView() {
           <div className="relative mt-4 space-y-2">
             <button
               onClick={() => navigate(`/my-animals/edit/${animal.id}`)}
-              className="inline-flex w-auto self-start px-3 py-1.5 bg-card-elevated border border-divider text-white rounded-lg text-sm font-semibold items-center justify-center gap-1.5 hover:border-emerald-500/50 transition-colors"
+              className="inline-flex w-auto self-start px-3 py-1.5 bg-card-elevated border border-divider text-white rounded-lg text-sm font-semibold items-center justify-center gap-1.5 hover:border-jade-500/50 transition-colors"
             >
               <Pencil className="w-3.5 h-3.5" />
               Edit Profile
@@ -776,7 +777,7 @@ export function AnimalDetailView() {
                   {weightRatePercent === null ? (
                     <p className="text-xs text-muted">Add at least 2 weight entries to calculate rate</p>
                   ) : (
-                    <p className={`text-xs font-semibold ${weightRatePercent >= 0 ? 'text-emerald-300' : 'text-amber-300'}`}>
+                    <p className={`text-xs font-semibold ${weightRatePercent >= 0 ? 'text-jade-300' : 'text-amber-300'}`}>
                       {weightRatePercent >= 0 ? '+' : ''}{weightRatePercent.toFixed(1)}% vs last entry
                     </p>
                   )}
@@ -912,7 +913,7 @@ export function AnimalDetailView() {
                       {lengthRatePercent === null ? (
                         <p className="text-xs text-muted">Add at least 2 length entries to calculate rate</p>
                       ) : (
-                        <p className={`text-xs font-semibold ${lengthRatePercent >= 0 ? 'text-emerald-300' : 'text-amber-300'}`}>
+                        <p className={`text-xs font-semibold ${lengthRatePercent >= 0 ? 'text-jade-300' : 'text-amber-300'}`}>
                           {lengthRatePercent >= 0 ? '+' : ''}{lengthRatePercent.toFixed(1)}% vs last entry
                         </p>
                       )}
@@ -1128,9 +1129,9 @@ export function AnimalDetailView() {
 
         {/* Tasks Tab */}
         {activeTab === 'tasks' && (
-          <div className="space-y-6">
-            <div className="bg-card border border-divider rounded-2xl p-6">
-              <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+          <div className="space-y-0">
+            <div className="bg-card border border-divider rounded-2xl p-4">
+              <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-1">
                 <Clock className="w-5 h-5" />
                 Active Care Tasks
               </h2>
@@ -1145,16 +1146,16 @@ export function AnimalDetailView() {
                       className="w-full text-left flex items-center justify-between p-3 bg-surface rounded-lg hover:bg-card-elevated transition-colors"
                     >
                       <div>
-                        <p className="font-medium text-white">
+                        <p className="font-sm text-white">
                           {task.title}
                         </p>
-                        <p className="text-sm text-muted capitalize">
+                        <p className="text-sm text-muted">
                           {task.type} • {task.frequency}
                         </p>
                       </div>
                       {task.notificationEnabled && (
-                        <span className="text-xs px-2 py-1 bg-accent/15 text-accent rounded">
-                          Notifications On
+                        <span className="textlgs px-2 py-1 bg-accent/15 text-accent rounded-lg">
+                          <CheckCircle className="w-4 h-4" />
                         </span>
                       )}
                     </button>
@@ -1186,7 +1187,7 @@ export function AnimalDetailView() {
         {/* Feeding Tab */}
         {activeTab === 'care' && (
           <div className="space-y-6">
-            {/* Log Feeding Form */}
+            {/* Add Feeding Entry Form */}
             <div className="bg-card border border-divider rounded-2xl p-6">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-lg font-semibold text-white flex items-center gap-2">
@@ -1211,99 +1212,71 @@ export function AnimalDetailView() {
                 onSubmit={handleSaveFeedingLog}
               />
 
-              {directFeedingLogs.length > 0 ? (
-                <div className="space-y-2">
-                  {directFeedingLogs.map((log) => (
-                    <div key={log.id} className="rounded-lg border border-divider p-3">
-                      <div className="flex items-start justify-between gap-2 mb-2">
-                        <div>
-                          {log.feederType && (
-                            <p className="text-sm font-medium text-white">{log.feederType}</p>
-                          )}
-                          <p className="text-xs text-muted">
-                            {log.quantityOffered && `Offered: ${log.quantityOffered}`}
-                            {log.quantityOffered && log.quantityEaten && ' • '}
-                            {log.quantityEaten && `Eaten: ${log.quantityEaten}`}
-                          </p>
-                        </div>
-                        <p className="text-xs text-muted flex-shrink-0">{new Date(log.completedAt).toLocaleDateString()}</p>
-                      </div>
-                      {log.supplementUsed && (
-                        <p className="text-xs text-muted">Supplement: {log.supplementUsed}</p>
-                      )}
-                      {log.refusalNoted && (
-                        <p className="text-xs text-red-400">Food refused</p>
-                      )}
-                      {log.notes && (
-                        <p className="mt-1 text-xs text-muted italic">{log.notes}</p>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-6">
-                  <p className="text-sm text-muted">No feeding logs yet for this animal.</p>
-                </div>
-              )}
+              <p className="text-sm text-muted">Click "Add Entry" above to log a feeding session. Your entries will appear in the Recent Feedings section below.</p>
             </div>
 
             {/* Recent Feeding Logs */}
-            <div className="bg-card border border-divider rounded-2xl p-6">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+            <div className="bg-card border border-divider rounded-2xl overflow-hidden">
+              <button
+                onClick={() => setShowRecentFeedings(!showRecentFeedings)}
+                className="w-full flex items-center justify-between p-6 hover:bg-card-elevated transition-colors"
+              >
                 <h2 className="text-lg font-semibold text-white flex items-center gap-2">
                   <UtensilsCrossed className="w-5 h-5" />
                   Recent Feedings
                 </h2>
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-2 bg-card-elevated rounded-lg p-1">
-                    <button
-                      onClick={() => setShowAllFeedingLogs(false)}
-                      className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
-                        !showAllFeedingLogs
-                          ? 'bg-card text-accent shadow-sm'
-                          : 'text-muted hover:text-white'
-                      }`}
-                    >
-                      This Animal
-                    </button>
-                    <button
-                      onClick={() => setShowAllFeedingLogs(true)}
-                      className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
-                        showAllFeedingLogs
-                          ? 'bg-card text-accent shadow-sm'
-                          : 'text-muted hover:text-white'
-                      }`}
-                    >
-                      All in Enclosure
-                    </button>
-                  </div>
-                </div>
-              </div>
+                <ChevronDown
+                  className={`w-5 h-5 text-muted transition-transform ${showRecentFeedings ? 'rotate-180' : ''}`}
+                />
+              </button>
 
-              {combinedFeedingLogs.length > 0 ? (
-                <div className="space-y-3">
+              {showRecentFeedings && (
+                <div className="border-t border-divider p-6 pt-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-center gap-2 bg-card-elevated rounded-lg p-1">
+                      <button
+                        onClick={() => setShowAllFeedingLogs(false)}
+                        className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
+                          !showAllFeedingLogs
+                            ? 'bg-card text-accent shadow-sm'
+                            : 'text-muted hover:text-white'
+                        }`}
+                      >
+                        This Animal
+                      </button>
+                      <button
+                        onClick={() => setShowAllFeedingLogs(true)}
+                        className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
+                          showAllFeedingLogs
+                            ? 'bg-card text-accent shadow-sm'
+                            : 'text-muted hover:text-white'
+                        }`}
+                      >
+                        All in Enclosure
+                      </button>
+                    </div>
+                  </div>
+
+                  {combinedFeedingLogs.length > 0 ? (
+                    <div className="space-y-3">
                   {combinedFeedingLogs.map((log) => (
                     <div
                       key={log.id}
-                      className="border border-divider rounded-lg p-4"
+                      className="border border-divider rounded-lg p-4 hover:bg-card-elevated/50 transition-colors"
                     >
-                      <div className="flex items-start justify-between gap-2 mb-2">
-                        <div className="flex items-center gap-2">
-                          <CheckCircle className="w-4 h-4 text-accent" />
+                      {/* Header: Title and Date */}
+                      <div className="flex items-start justify-between gap-2 mb-3">
+                        <div className="flex items-center gap-2 flex-1">
+                          <UtensilsCrossed className="w-4 h-4 text-accent flex-shrink-0" />
                           <span className="font-medium text-white">
                             {log.taskTitle}
                           </span>
-                          {log.isEnclosureLevel && (
-                            <span className="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-400 rounded">
-                              Enclosure-level
-                            </span>
-                          )}
                         </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs text-gray-500 dark:text-gray-500">
+                        <div className="flex items-center gap-2 flex-shrink-0">
+                          <span className="text-xs text-muted">
                             {new Date(log.completedAt).toLocaleDateString()}
                           </span>
-                          {log.taskTitle === 'Direct Feeding Log' && (
+                          {log.taskTitle === 'Manual Feeding Log' && (
                             <button
                               onClick={() => handleDeleteFeedingLog(log.id)}
                               disabled={deletingLogId === log.id}
@@ -1315,24 +1288,37 @@ export function AnimalDetailView() {
                           )}
                         </div>
                       </div>
-                      
+
+                      {/* Feeding Details */}
                       {log.feedingData && (
-                        <div className="ml-6 text-sm space-y-1">
-                          <p className="text-white">
-                            <span className="font-medium">Food:</span> {log.feedingData.feederType}
-                          </p>
-                          <p className="text-white">
-                            <span className="font-medium">Amount:</span> {log.feedingData.quantityEaten || 0} / {log.feedingData.quantityOffered} eaten
-                          </p>
+                        <div className="space-y-2">
+                          {/* Food Row */}
+                          <div className="flex items-center gap-3 p-2 bg-card-elevated/30 rounded">
+                            <span className="text-xs font-medium text-muted uppercase w-16">Food:</span>
+                            <span className="text-sm text-white">{log.feedingData.feederType}</span>
+                          </div>
+
+                          {/* Amount Row */}
+                          <div className="flex items-center gap-3 p-2 bg-card-elevated/30 rounded">
+                            <span className="text-xs font-medium text-muted uppercase w-16">Amount:</span>
+                            <span className="text-sm text-white">{log.feedingData.quantityEaten || 0} / {log.feedingData.quantityOffered} eaten</span>
+                          </div>
+
+                          {/* Supplement Row */}
                           {log.feedingData.supplementUsed && log.feedingData.supplementUsed !== 'None' && (
-                            <p className="text-white">
-                              <span className="font-medium">Supplement:</span> {log.feedingData.supplementUsed}
-                            </p>
+                            <div className="flex items-center gap-3 p-2 bg-accent/10 rounded border border-accent/20">
+                              <span className="text-xs font-sm text-accent uppercase w-16">Supplement:</span>
+                              <p></p>
+                              <span className="text-sm text-white">{log.feedingData.supplementUsed}</span>
+                            </div>
                           )}
+
+                          {/* Notes */}
                           {log.notes && (
-                            <p className="text-muted italic mt-2">
-                              {log.notes}
-                            </p>
+                            <div className="mt-3 p-3 bg-card rounded border border-divider">
+                              <p className="text-xs text-muted mb-1">Notes:</p>
+                              <p className="text-sm text-muted italic">{log.notes}</p>
+                            </div>
                           )}
                         </div>
                       )}
@@ -1352,6 +1338,8 @@ export function AnimalDetailView() {
                     </Link>
                   )}
                 </div>
+              )}
+            </div>
               )}
             </div>
 

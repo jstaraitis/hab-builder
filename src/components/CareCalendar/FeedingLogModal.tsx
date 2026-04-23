@@ -102,8 +102,8 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit }: Feedin
   const inputClass = 'w-full px-3 py-2.5 bg-card-elevated border border-divider rounded-xl text-white text-sm focus:border-accent focus:outline-none';
 
   return (
-    <div className="fixed inset-0 bg-black/60 flex items-end sm:items-center justify-center z-50 pb-16 sm:pb-0">
-      <div className="bg-card rounded-t-2xl sm:rounded-2xl shadow-xl max-w-2xl w-full max-h-[85vh] overflow-hidden flex flex-col">
+    <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4 overflow-y-auto">
+      <div className="bg-card rounded-2xl shadow-xl max-w-2xl w-full max-h-[85vh] overflow-hidden flex flex-col my-auto">
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-divider shrink-0">
           <div className="flex items-center gap-3">
@@ -124,127 +124,121 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit }: Feedin
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-4 space-y-3">
-          {/* Feeder Type */}
-          <div>
-            <label htmlFor="feederType" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
-              Feeder Type
-            </label>
-            <select
-              id="feederType"
-              value={feederType}
-              onChange={(e) => setFeederType(e.target.value)}
-              className={inputClass}
-            >
-              <option value="">Select feeder type (optional)</option>
-              {COMMON_FEEDERS.map(feeder => (
-                <option key={feeder} value={feeder}>{feeder}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* Custom Feeder Type */}
-          {feederType === 'Other' && (
+        <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-4 space-y-4">
+          {/* Food Section */}
+          <div className="space-y-3">
+            <h3 className="text-xs font-semibold text-muted uppercase tracking-wide">What did they eat?</h3>
+            
+            {/* Feeder Type */}
             <div>
-              <label htmlFor="customFeeder" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
-                Specify Feeder Type
+              <label htmlFor="feederType" className="block text-xs font-medium text-muted mb-1">
+                Feeder Type
               </label>
-              <input
-                type="text"
-                id="customFeeder"
-                value={customFeeder}
-                onChange={(e) => setCustomFeeder(e.target.value)}
-                placeholder="e.g., Earthworms, Pinkie Mice"
+              <select
+                id="feederType"
+                value={feederType}
+                onChange={(e) => setFeederType(e.target.value)}
                 className={inputClass}
-              />
+              >
+                <option value="">Select feeder type (optional)</option>
+                {COMMON_FEEDERS.map(feeder => (
+                  <option key={feeder} value={feeder}>{feeder}</option>
+                ))}
+              </select>
             </div>
-          )}
 
-          {/* Quantity Offered */}
-          <div>
-            <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
-              Quantity Offered
-            </label>
-            <div className="flex items-center gap-3">
-              <button
-                type="button"
-                onClick={() => adjustQuantity('offered', -1)}
-                className="p-2 bg-card-elevated border border-divider rounded-xl transition-colors"
-              >
-                <Minus className="w-5 h-5 text-muted" />
-              </button>
-              <input
-                type="number"
-                value={quantityOffered}
-                onChange={(e) => setQuantityOffered(Math.max(0, parseInt(e.target.value) || 0))}
-                className="flex-1 px-3 py-2.5 border border-divider rounded-xl bg-card-elevated text-white text-center text-sm focus:outline-none focus:border-accent"
-                min="0"
-              />
-              <button
-                type="button"
-                onClick={() => adjustQuantity('offered', 1)}
-                className="p-2 bg-card-elevated border border-divider rounded-xl transition-colors"
-              >
-                <Plus className="w-5 h-5 text-muted" />
-              </button>
-            </div>
-          </div>
-
-          {/* Quantity Eaten */}
-          <div>
-            <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
-              Quantity Eaten
-            </label>
-            <div className="flex items-center gap-3">
-              <button
-                type="button"
-                onClick={() => adjustQuantity('eaten', -1)}
-                className="p-2 bg-card-elevated border border-divider rounded-xl transition-colors"
-              >
-                <Minus className="w-5 h-5 text-muted" />
-              </button>
-              <input
-                type="number"
-                value={quantityEaten}
-                onChange={(e) => setQuantityEaten(Math.max(0, parseInt(e.target.value) || 0))}
-                className="flex-1 px-3 py-2.5 border border-divider rounded-xl bg-card-elevated text-white text-center text-sm focus:outline-none focus:border-accent"
-                min="0"
-                max={quantityOffered}
-              />
-              <button
-                type="button"
-                onClick={() => adjustQuantity('eaten', 1)}
-                className="p-2 bg-card-elevated border border-divider rounded-xl transition-colors"
-              >
-                <Plus className="w-5 h-5 text-muted" />
-              </button>
-            </div>
-            {quantityEaten > quantityOffered && quantityOffered > 0 && (
-              <p className="text-xs text-amber-400 mt-1">
-                Eaten quantity exceeds offered quantity
-              </p>
+            {/* Custom Feeder Type */}
+            {feederType === 'Other' && (
+              <div>
+                <label htmlFor="customFeeder" className="block text-xs font-medium text-muted mb-1">
+                  Specify Feeder Type
+                </label>
+                <input
+                  type="text"
+                  id="customFeeder"
+                  value={customFeeder}
+                  onChange={(e) => setCustomFeeder(e.target.value)}
+                  placeholder="e.g., Earthworms, Pinkie Mice"
+                  className={inputClass}
+                />
+              </div>
             )}
           </div>
 
-          {/* Refusal Checkbox */}
-          <div className="flex items-center gap-3 p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl">
-            <input
-              type="checkbox"
-              id="refusalNoted"
-              checked={refusalNoted}
-              onChange={(e) => setRefusalNoted(e.target.checked)}
-              className="w-4 h-4 accent-accent rounded"
-            />
-            <label htmlFor="refusalNoted" className="text-sm font-medium text-white flex-1">
-              Animal refused food or showed reduced appetite
-            </label>
+          {/* Quantity Section */}
+          <div className="space-y-3 p-3 bg-card-elevated/30 rounded-xl border border-divider">
+            <h3 className="text-xs font-semibold text-muted uppercase tracking-wide">How much?</h3>
+            
+            {/* Quantity Offered */}
+            <div>
+              <label className="block text-xs font-medium text-muted mb-2">
+                Quantity Offered
+              </label>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => adjustQuantity('offered', -1)}
+                  className="p-2 bg-card border border-divider rounded-lg hover:bg-card-elevated transition-colors"
+                >
+                  <Minus className="w-4 h-4 text-muted" />
+                </button>
+                <input
+                  type="number"
+                  value={quantityOffered}
+                  onChange={(e) => setQuantityOffered(Math.max(0, parseInt(e.target.value) || 0))}
+                  className="flex-1 px-3 py-2 border border-divider rounded-lg bg-card text-white text-center text-sm focus:outline-none focus:border-accent"
+                  min="0"
+                />
+                <button
+                  type="button"
+                  onClick={() => adjustQuantity('offered', 1)}
+                  className="p-2 bg-card border border-divider rounded-lg hover:bg-card-elevated transition-colors"
+                >
+                  <Plus className="w-4 h-4 text-muted" />
+                </button>
+              </div>
+            </div>
+
+            {/* Quantity Eaten */}
+            <div>
+              <label className="block text-xs font-medium text-muted mb-2">
+                Quantity Eaten
+              </label>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => adjustQuantity('eaten', -1)}
+                  className="p-2 bg-card border border-divider rounded-lg hover:bg-card-elevated transition-colors"
+                >
+                  <Minus className="w-4 h-4 text-muted" />
+                </button>
+                <input
+                  type="number"
+                  value={quantityEaten}
+                  onChange={(e) => setQuantityEaten(Math.max(0, parseInt(e.target.value) || 0))}
+                  className="flex-1 px-3 py-2 border border-divider rounded-lg bg-card text-white text-center text-sm focus:outline-none focus:border-accent"
+                  min="0"
+                  max={quantityOffered}
+                />
+                <button
+                  type="button"
+                  onClick={() => adjustQuantity('eaten', 1)}
+                  className="p-2 bg-card border border-divider rounded-lg hover:bg-card-elevated transition-colors"
+                >
+                  <Plus className="w-4 h-4 text-muted" />
+                </button>
+              </div>
+              {quantityEaten > quantityOffered && quantityOffered > 0 && (
+                <p className="text-xs text-amber-400 mt-2">
+                  ⚠️ Eaten quantity exceeds offered quantity
+                </p>
+              )}
+            </div>
           </div>
 
-          {/* Supplement Used */}
-          <div>
-            <label htmlFor="supplementUsed" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
-              Supplement/Dusting Used
-            </label>
+          {/* Supplement Section */}
+          <div className="space-y-3 p-3 bg-accent/10 rounded-xl border border-accent/20">
+            <h3 className="text-xs font-semibold text-accent uppercase tracking-wide">Supplements</h3>
             <select
               id="supplementUsed"
               value={supplementUsed}
@@ -257,16 +251,33 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit }: Feedin
             </select>
           </div>
 
-          {/* Notes */}
-          <div>
-            <label htmlFor="notes" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+          {/* Feeding Behavior Section */}
+          <div className="space-y-3 p-3 bg-amber-500/10 rounded-xl border border-amber-500/30">
+            <h3 className="text-xs font-semibold text-amber-300 uppercase tracking-wide">Behavior</h3>
+            <label htmlFor="refusalNoted" className="flex items-center gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                id="refusalNoted"
+                checked={refusalNoted}
+                onChange={(e) => setRefusalNoted(e.target.checked)}
+                className="w-4 h-4 accent-amber-400 rounded"
+              />
+              <span className="text-sm font-medium text-white flex-1">
+                Animal refused food or showed reduced appetite
+              </span>
+            </label>
+          </div>
+
+          {/* Notes Section */}
+          <div className="space-y-2">
+            <label htmlFor="notes" className="block text-xs font-semibold text-muted uppercase tracking-wide">
               Additional Notes (Optional)
             </label>
             <textarea
               id="notes"
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              rows={3}
+              rows={2}
               placeholder="Behavior during feeding, unusual activity, etc."
               className={`${inputClass} resize-none`}
             />
@@ -274,28 +285,28 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit }: Feedin
         </form>
 
         {/* Footer */}
-        <div className="flex items-center justify-between gap-3 px-4 py-3 border-t border-divider shrink-0 bg-surface">
+        <div className="flex items-center justify-between gap-3 px-4 py-3 border-t border-divider shrink-0 bg-card">
           <button
             type="button"
             onClick={handleQuickComplete}
             disabled={loading}
-            className="px-3 py-2 text-xs font-semibold text-muted bg-card border border-divider rounded-full disabled:opacity-50"
+            className="px-3 py-1.5 text-xs font-semibold text-muted bg-card-elevated border border-divider rounded-lg hover:bg-card-elevated/80 transition-colors disabled:opacity-50"
           >
-            Quick Log (No Details)
+            Quick Log
           </button>
           <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={onClose}
               disabled={loading}
-              className="px-4 py-2 rounded-full bg-card border border-divider text-white text-sm font-semibold disabled:opacity-50"
+              className="px-4 py-1.5 rounded-lg bg-card border border-divider text-white text-sm font-semibold hover:bg-card-elevated transition-colors disabled:opacity-50"
             >
               Cancel
             </button>
             <button
               onClick={handleSubmit}
               disabled={loading}
-              className="px-4 py-2 rounded-full bg-accent text-on-accent text-sm font-semibold disabled:opacity-50"
+              className="px-4 py-1.5 rounded-lg bg-accent hover:bg-accent-dim text-white text-sm font-semibold transition-colors disabled:opacity-50"
             >
               {loading ? 'Logging...' : 'Log Feeding'}
             </button>

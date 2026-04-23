@@ -59,7 +59,7 @@ export function CareAnalyticsDashboard() {
       <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
         <div className="flex items-center justify-center py-12">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-jade-600 mx-auto mb-4"></div>
             <p className="text-muted">Loading analytics...</p>
           </div>
         </div>
@@ -106,14 +106,9 @@ export function CareAnalyticsDashboard() {
     <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6 space-y-4 sm:space-y-6">
       {/* Header */}
       <div className="flex items-center gap-2 sm:gap-3">
-        <div className="p-1.5 sm:p-2 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg">
-          <BarChart3 className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
-        </div>
+        
         <div>
-          <h1 className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
-            Care Analytics
-          </h1>
-          <p className="text-xs sm:text-sm text-muted">
+          <p className="text-sm sm:text-sm text-muted">
             Your care routine insights and statistics
           </p>
         </div>

@@ -8,28 +8,41 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Legacy primary scale (kept for backward compat with planner flow)
+        // Jade color scale (replaces legacy green/emerald)
+        jade: {
+          50: '#f0fdf9',
+          100: '#d4f7f1',
+          200: '#a8e8de',
+          300: '#7cdccf',
+          400: '#50cfc0',
+          500: '#2fb5ad',
+          600: '#259f9a',
+          700: '#1a8983',
+          800: '#14736c',
+          900: '#0f5d55',
+        },
+        // Legacy primary scale (kept for backward compat - now jade)
         primary: {
-          50: '#f0fdf4',
-          100: '#dcfce7',
-          200: '#bbf7d0',
-          300: '#86efac',
-          400: '#4ade80',
-          500: '#22c55e',
-          600: '#16a34a',
-          700: '#15803d',
-          800: '#166534',
-          900: '#14532d',
+          50: '#f0fdf9',
+          100: '#d4f7f1',
+          200: '#a8e8de',
+          300: '#7cdccf',
+          400: '#50cfc0',
+          500: '#2fb5ad',
+          600: '#259f9a',
+          700: '#1a8983',
+          800: '#14736c',
+          900: '#0f5d55',
         },
         // New dark-first design system tokens
         surface: '#0F1117',          // App/page background
         card: '#1A1D24',             // Default card background
         'card-elevated': '#21252E',  // Slightly raised cards / modals
         divider: '#2A2D35',          // Borders and separators
-        accent: '#22C55E',           // Primary green action color
-        'accent-dim': '#16A34A',     // Darker green for hover/pressed
+        accent: '#2D9B8F',           // Primary jade action color
+        'accent-dim': '#1F6B5E',     // Darker jade for hover/pressed
         muted: '#8B909A',            // Secondary / placeholder text
-        'on-accent': '#FFFFFF',      // Text on green accent backgrounds
+        'on-accent': '#FFFFFF',      // Text on jade accent backgrounds
       },
       animation: {
         'shimmer': 'shimmer 2s ease-in-out infinite',
