@@ -121,9 +121,12 @@ serve(async (req) => {
     if (selectedUserId) {
       const { data: profile, error: profileError } = await admin
         .from('profiles')
-        .select('id, display_name, is_premium, subscription_status, created_at')
+        .select('id, display_name, is_premium, subscription_status, created_at, email, last_sign_in_at')
         .eq('id', selectedUserId)
         .maybeSingle()
+
+      // Profile now includes email and last_sign_in_at synced from auth.users
+      const enrichedProfile = profile
 
       const { data: enclosures, error: enclosuresError } = await admin
         .from('enclosures')
@@ -145,7 +148,7 @@ serve(async (req) => {
 
       return new Response(
         JSON.stringify({
-          selectedUser: profile ?? null,
+          selectedUser: enrichedProfile ?? null,
           selectedUserError: profileError?.message,
           userDetails: {
             enclosures: enclosures ?? [],
@@ -190,7 +193,7 @@ serve(async (req) => {
 
     let profilesQuery = admin
       .from('profiles')
-      .select('id, display_name, is_premium, subscription_status, created_at')
+      .select('id, display_name, is_premium, subscription_status, created_at, email, last_sign_in_at')
       .order('created_at', { ascending: false })
 
     if (!includeAllProfiles) {
@@ -199,10 +202,12 @@ serve(async (req) => {
 
     const { data: latestProfiles, error: latestProfilesError } = await profilesQuery
 
+    const recentProfiles = latestProfiles ?? []
+
     return new Response(
       JSON.stringify({
         metrics,
-        recentProfiles: latestProfilesError ? [] : latestProfiles ?? [],
+        recentProfiles: latestProfilesError ? [] : recentProfiles,
         fetchedAt: new Date().toISOString(),
         recentProfilesError: latestProfilesError?.message,
       }),

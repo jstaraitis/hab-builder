@@ -20,6 +20,7 @@ import {
   ChevronRight,
   Check,
   CheckCircle2,
+  AlertCircle,
   Circle,
   TrendingUp,
   Plus,
@@ -403,7 +404,6 @@ function AnimalPills({ animals, selectedId, onSelect }: { animals: EnclosureAnim
 
 interface AnimalHeroCardProps {
   animal: EnclosureAnimal;
-  speciesName?: string;
   age: string;
   weight: string;
   lastFed: string;
@@ -413,15 +413,14 @@ interface AnimalHeroCardProps {
   onTap: () => void;
 }
 
-function AnimalHeroCard({ animal, speciesName, age, weight, lastFed, careStreak, healthStatus, healthStatusReason, onTap }: AnimalHeroCardProps) {
+function AnimalHeroCard({ animal, age, weight, lastFed, careStreak, healthStatus, healthStatusReason, onTap }: AnimalHeroCardProps) {
   const displayName = animal.name || `Animal #${animal.animalNumber ?? 1}`;
   const gender = animal.gender?.toLowerCase();
   const genderIcon = gender === 'male' ? '♂' : gender === 'female' ? '♀' : null;
   const genderColor = gender === 'male' ? 'text-blue-400' : gender === 'female' ? 'text-pink-400' : 'text-muted';
-  const statusLabel = healthStatus === 'on-track' ? 'On-Track' : 'Check';
-  const statusClassName = healthStatus === 'on-track'
-    ? 'text-accent'
-    : 'text-amber-300';
+  const statusIcon = healthStatus === 'on-track' 
+    ? <CheckCircle2 className="w-5 h-5 text-accent" />
+    : <AlertCircle className="w-5 h-5 text-amber-400" />;
 
   const stats = [
     { icon: <Calendar className="w-3.5 h-3.5 text-muted" />, label: 'Age', value: age },
@@ -442,18 +441,21 @@ function AnimalHeroCard({ animal, speciesName, age, weight, lastFed, careStreak,
         </div>
 
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-1.5 mb-0.5">
+          <div className="flex items-center gap-1.5 mb-1">
             <span className="text-lg font-bold text-white">{displayName}</span>
             {genderIcon && <span className={`text-lg font-bold flex-shrink-0 ${genderColor}`}>{genderIcon}</span>}
           </div>
-          {speciesName && <p className="text-xs text-muted mb-2 truncate">{speciesName}</p>}
-          <span className={`inline-block text-xs font-semibold px-0 py-0.5 text-left ${statusClassName}`}>{statusLabel}</span>
-          {healthStatus === 'needs-check' && (
-            <p className="mt-1 text-[11px] text-amber-200/90" title={healthStatusReason}>{healthStatusReason}</p>
+          <div className="mb-2 min-h-6">
+            {statusIcon}
+          </div>
+          {healthStatus === 'needs-check' ? (
+            <p className="text-[11px] text-amber-200/90 truncate" title={healthStatusReason}>{healthStatusReason}</p>
+          ) : (
+            <p className="text-[11px] text-amber-200/90 truncate invisible">placeholder</p>
           )}
         </div>
 
-        <div className="flex-shrink-0 self-start rounded-xl border border-orange-500/25 bg-orange-500/10 px-2.5 py-2 text-center min-w-[74px]">
+        <div className="flex-shrink-0 self-start rounded-xl border border-orange-500/25 px-2.5 py-2 text-center min-w-[74px]">
           <div className="flex items-center justify-center gap-1 text-orange-300">
             <Flame className="w-3.5 h-3.5" />
             <span className="text-[10px] font-semibold uppercase tracking-wide">Streak</span>
@@ -900,7 +902,7 @@ export function DashboardView() {
       </div>
 
       <div className="space-y-4 pt-3">
-        <AnimalHeroCard animal={selectedAnimal} speciesName={speciesName} age={age} weight={weight} lastFed={lastFed} careStreak={careStreak} healthStatus={healthStatus} healthStatusReason={healthStatusReason} onTap={() => navigate(`/my-animals/${selectedAnimal.id}`)} />
+        <AnimalHeroCard animal={selectedAnimal} age={age} weight={weight} lastFed={lastFed} careStreak={careStreak} healthStatus={healthStatus} healthStatusReason={healthStatusReason} onTap={() => navigate(`/my-animals/${selectedAnimal.id}`)} />
         <TodayCarePlan
           tasks={animalTasks}
           completedIds={completedIds}

@@ -118,8 +118,8 @@ export function OwnerDashboardView() {
       </div>
 
       <div className="bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl border border-gray-200 dark:border-gray-700 p-3 sm:p-4 shadow-sm">
-        <div className="flex items-center justify-between mb-3">
-          <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">Recent Profiles</h2>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">All Profiles</h2>
           <div className="flex items-center gap-2">
             <button
               onClick={toggleProfileScope}
@@ -129,34 +129,55 @@ export function OwnerDashboardView() {
               {showAllProfiles ? 'Show latest 10' : 'Show all'}
             </button>
             <span className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200">
-              {(data?.recentProfiles.length ?? 0).toLocaleString()} shown
+              {(data?.recentProfiles.length ?? 0).toLocaleString()}
             </span>
           </div>
         </div>
         {data?.recentProfilesError && (
-          <p className="text-sm text-amber-700 dark:text-amber-300 mb-2">{data.recentProfilesError}</p>
+          <p className="text-sm text-amber-700 dark:text-amber-300 mb-3">{data.recentProfilesError}</p>
         )}
         {!data?.recentProfiles.length ? (
           <p className="text-sm text-gray-600 dark:text-gray-400">No profiles returned.</p>
         ) : (
-          <div className="space-y-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {data.recentProfiles.map((profile) => (
               <button
                 key={profile.id}
                 onClick={() => handleProfileClick(profile.id)}
-                className={`w-full text-left rounded-lg border px-2.5 sm:px-3 py-2.5 sm:py-3 text-xs sm:text-sm transition-colors ${selectedProfileId === profile.id ? 'border-emerald-400 dark:border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20' : 'border-gray-200 dark:border-gray-700 bg-gray-50/70 dark:bg-gray-700/30 hover:bg-gray-100 dark:hover:bg-gray-700/50'} text-gray-700 dark:text-gray-200`}
+                className={`text-left rounded-lg border-2 p-3 sm:p-4 transition-colors ${selectedProfileId === profile.id ? 'border-emerald-400 dark:border-emerald-500 bg-emerald-50/50 dark:bg-emerald-900/20' : 'border-gray-200 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-700/20 hover:border-gray-300 dark:hover:border-gray-600'}`}
               >
-                <div className="flex items-start justify-between gap-2">
-                  <div className="font-medium truncate">{profile.display_name || profile.id}</div>
-                  <span className={`text-[11px] px-2 py-0.5 rounded-full ${profile.is_premium ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200'}`}>
+                <div className="flex items-start justify-between gap-2 mb-3">
+                  <div className="flex-1 min-w-0">
+                    <div className="font-semibold text-gray-900 dark:text-white truncate text-sm sm:text-base">{profile.display_name || 'Unnamed'}</div>
+                  </div>
+                  <span className={`flex-shrink-0 text-[10px] sm:text-xs px-2 py-1 rounded-full font-medium ${profile.is_premium ? 'bg-emerald-100/80 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300' : 'bg-gray-200/80 dark:bg-gray-600/40 text-gray-700 dark:text-gray-300'}`}>
                     {profile.is_premium ? 'Premium' : 'Free'}
                   </span>
                 </div>
-                <div className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                  {profile.subscription_status ? `Subscription: ${profile.subscription_status}` : 'Subscription: unknown'}
-                </div>
-                <div className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                  Created: {profile.created_at ? new Date(profile.created_at).toLocaleString() : 'Unknown'}
+                
+                <div className="space-y-2 text-xs sm:text-sm">
+                  {profile.email && (
+                    <div className="flex items-start gap-2">
+                      <span className="text-gray-500 dark:text-gray-400 flex-shrink-0 w-20">Email:</span>
+                      <span className="text-gray-900 dark:text-gray-200 truncate">{profile.email}</span>
+                    </div>
+                  )}
+                  <div className="flex items-start gap-2">
+                    <span className="text-gray-500 dark:text-gray-400 flex-shrink-0 w-20">Sub:</span>
+                    <span className="text-gray-900 dark:text-gray-200 font-medium">{profile.subscription_status || 'unknown'}</span>
+                  </div>
+                  {profile.created_at && (
+                    <div className="flex items-start gap-2">
+                      <span className="text-gray-500 dark:text-gray-400 flex-shrink-0 w-20">Created:</span>
+                      <span className="text-gray-900 dark:text-gray-200">{new Date(profile.created_at).toLocaleDateString()}</span>
+                    </div>
+                  )}
+                  {profile.last_sign_in_at && (
+                    <div className="flex items-start gap-2">
+                      <span className="text-gray-500 dark:text-gray-400 flex-shrink-0 w-20">Last Seen:</span>
+                      <span className="text-gray-900 dark:text-gray-200">{new Date(profile.last_sign_in_at).toLocaleDateString()}</span>
+                    </div>
+                  )}
                 </div>
               </button>
             ))}

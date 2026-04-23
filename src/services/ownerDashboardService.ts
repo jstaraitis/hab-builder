@@ -13,6 +13,8 @@ export interface RecentProfile {
   is_premium?: boolean | null;
   subscription_status?: string | null;
   created_at?: string | null;
+  email?: string | null;
+  last_sign_in_at?: string | null;
 }
 
 export interface OwnerDashboardData {
@@ -28,6 +30,8 @@ export interface OwnerUserProfileDetail {
   is_premium?: boolean | null;
   subscription_status?: string | null;
   created_at?: string | null;
+  email?: string | null;
+  last_sign_in_at?: string | null;
 }
 
 export interface OwnerUserEnclosure {
