@@ -21,12 +21,18 @@ export function TaskEditModal({
   layout = 'modal'
 }: TaskEditModalProps) {
   const [formData, setFormData] = useState<Partial<CareTask>>({});
+  const [customFrequencyType, setCustomFrequencyType] = useState<'weekdays' | 'interval'>('weekdays');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [enclosures, setEnclosures] = useState<Enclosure[]>([]);
 
   useEffect(() => {
     if (task) {
+      const inferredCustomType = task.customFrequencyDays && task.customFrequencyDays > 0 && (!task.customFrequencyWeekdays || task.customFrequencyWeekdays.length === 0)
+        ? 'interval'
+        : 'weekdays';
+      setCustomFrequencyType(inferredCustomType);
+
       setFormData({
         title: task.title,
         description: task.description,
@@ -61,9 +67,16 @@ export function TaskEditModal({
     e.preventDefault();
     if (!task) return;
 
-    if (formData.frequency === 'custom' && (!formData.customFrequencyWeekdays || formData.customFrequencyWeekdays.length === 0)) {
-      setError('Select at least one weekday for custom frequency.');
-      return;
+    if (formData.frequency === 'custom') {
+      if (customFrequencyType === 'interval') {
+        if (!formData.customFrequencyDays || formData.customFrequencyDays < 1) {
+          setError('Enter a valid number of days for custom frequency.');
+          return;
+        }
+      } else if (!formData.customFrequencyWeekdays || formData.customFrequencyWeekdays.length === 0) {
+        setError('Select at least one weekday for custom frequency.');
+        return;
+      }
     }
 
     setLoading(true);
@@ -80,7 +93,22 @@ export function TaskEditModal({
     });
 
     try {
-      await careTaskService.updateTask(task.id, formData);
+      const updates: Partial<CareTask> = { ...formData };
+
+      if (updates.frequency !== 'custom') {
+        updates.customFrequencyDays = undefined;
+        updates.customFrequencyWeekdays = undefined;
+      } else if (customFrequencyType === 'interval') {
+        updates.customFrequencyDays = Math.max(1, updates.customFrequencyDays || 1);
+        updates.customFrequencyWeekdays = undefined;
+      } else {
+        updates.customFrequencyDays = undefined;
+        updates.customFrequencyWeekdays = updates.customFrequencyWeekdays && updates.customFrequencyWeekdays.length > 0
+          ? updates.customFrequencyWeekdays
+          : [1, 3, 5];
+      }
+
+      await careTaskService.updateTask(task.id, updates);
       onTaskUpdated();
       onClose();
     } catch (err) {
@@ -120,14 +148,43 @@ export function TaskEditModal({
   const updateFrequency = (value: string) => {
     const frequency = value as CareTask['frequency'];
 
+    setFormData(prev => {
+      const nextCustomType = frequency === 'custom'
+        ? (prev.customFrequencyDays && prev.customFrequencyDays > 0 && (!prev.customFrequencyWeekdays || prev.customFrequencyWeekdays.length === 0)
+          ? 'interval'
+          : customFrequencyType)
+        : customFrequencyType;
+
+      if (frequency === 'custom') {
+        setCustomFrequencyType(nextCustomType);
+      }
+
+      return {
+        ...prev,
+        frequency,
+        customFrequencyDays: frequency === 'custom'
+          ? (nextCustomType === 'interval' ? (prev.customFrequencyDays && prev.customFrequencyDays > 0 ? prev.customFrequencyDays : 3) : undefined)
+          : undefined,
+        customFrequencyWeekdays: frequency === 'custom'
+          ? (nextCustomType === 'weekdays'
+            ? (prev.customFrequencyWeekdays && prev.customFrequencyWeekdays.length > 0
+              ? prev.customFrequencyWeekdays
+              : [1, 3, 5])
+            : undefined)
+          : undefined,
+      };
+    });
+  };
+
+  const updateCustomFrequencyType = (value: 'weekdays' | 'interval') => {
+    setCustomFrequencyType(value);
     setFormData(prev => ({
       ...prev,
-      frequency,
-      customFrequencyDays: frequency === 'custom' ? prev.customFrequencyDays : undefined,
-      customFrequencyWeekdays: frequency === 'custom'
-        ? (prev.customFrequencyWeekdays && prev.customFrequencyWeekdays.length > 0
-          ? prev.customFrequencyWeekdays
-          : [1, 3, 5])
+      customFrequencyDays: value === 'interval'
+        ? (prev.customFrequencyDays && prev.customFrequencyDays > 0 ? prev.customFrequencyDays : 3)
+        : undefined,
+      customFrequencyWeekdays: value === 'weekdays'
+        ? (prev.customFrequencyWeekdays && prev.customFrequencyWeekdays.length > 0 ? prev.customFrequencyWeekdays : [1, 3, 5])
         : undefined,
     }));
   };
@@ -271,30 +328,54 @@ export function TaskEditModal({
               {/* Custom weekday pills */}
               {formData.frequency === 'custom' && (
                 <div className="px-4 py-3 border-t border-divider">
-                  <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-2">
-                    Weekdays
-                  </label>
-                  <div className="flex flex-wrap gap-2">
-                    {WEEKDAY_OPTIONS.map((weekday) => {
-                      const isSelected = (formData.customFrequencyWeekdays || []).includes(weekday.value);
-                      return (
-                        <button
-                          key={weekday.value}
-                          type="button"
-                          onClick={() => toggleCustomWeekday(weekday.value)}
-                          className={`px-3 py-1.5 text-xs font-semibold rounded-full border transition-colors ${
-                            isSelected
-                              ? 'bg-accent border-accent text-on-accent'
-                              : 'bg-card-elevated border-divider text-muted'
-                          }`}
-                        >
-                          {weekday.shortLabel}
-                        </button>
-                      );
-                    })}
-                  </div>
-                  {(formData.customFrequencyWeekdays || []).length === 0 && (
-                    <p className="text-xs text-amber-400 mt-2">Select at least one day.</p>
+                  <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Custom Type</label>
+                  <select
+                    value={customFrequencyType}
+                    onChange={(e) => updateCustomFrequencyType(e.target.value as 'weekdays' | 'interval')}
+                    className={`${selectClass} mb-2`}
+                  >
+                    <option value="weekdays">Specific weekdays</option>
+                    <option value="interval">Every X days</option>
+                  </select>
+
+                  {customFrequencyType === 'interval' ? (
+                    <div>
+                      <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Days Interval</label>
+                      <input
+                        type="number"
+                        min={1}
+                        value={formData.customFrequencyDays ?? 3}
+                        onChange={(e) => updateField('customFrequencyDays', Math.max(1, parseInt(e.target.value || '1', 10)))}
+                        className="w-full bg-transparent text-white text-sm focus:outline-none"
+                      />
+                      <p className="text-xs text-muted mt-2">Example: 4 means this task appears every 4 days.</p>
+                    </div>
+                  ) : (
+                    <>
+                      <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-2">Weekdays</label>
+                      <div className="flex flex-wrap gap-2">
+                        {WEEKDAY_OPTIONS.map((weekday) => {
+                          const isSelected = (formData.customFrequencyWeekdays || []).includes(weekday.value);
+                          return (
+                            <button
+                              key={weekday.value}
+                              type="button"
+                              onClick={() => toggleCustomWeekday(weekday.value)}
+                              className={`px-3 py-1.5 text-xs font-semibold rounded-full border transition-colors ${
+                                isSelected
+                                  ? 'bg-accent border-accent text-on-accent'
+                                  : 'bg-card-elevated border-divider text-muted'
+                              }`}
+                            >
+                              {weekday.shortLabel}
+                            </button>
+                          );
+                        })}
+                      </div>
+                      {(formData.customFrequencyWeekdays || []).length === 0 && (
+                        <p className="text-xs text-amber-400 mt-2">Select at least one day.</p>
+                      )}
+                    </>
                   )}
                 </div>
               )}
@@ -499,19 +580,39 @@ export function TaskEditModal({
         </div>
         {formData.frequency === 'custom' && (
           <div>
-            <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-2">Weekdays</label>
-            <div className="flex flex-wrap gap-2">
-              {WEEKDAY_OPTIONS.map((weekday) => {
-                const isSelected = (formData.customFrequencyWeekdays || []).includes(weekday.value);
-                return (
-                  <button key={weekday.value} type="button" onClick={() => toggleCustomWeekday(weekday.value)}
-                    className={`px-3 py-1.5 text-xs font-semibold rounded-full border transition-colors ${isSelected ? 'bg-accent border-accent text-on-accent' : 'bg-card-elevated border-divider text-muted'}`}>
-                    {weekday.shortLabel}
-                  </button>
-                );
-              })}
-            </div>
-            {(formData.customFrequencyWeekdays || []).length === 0 && (
+            <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Custom Type</label>
+            <select
+              value={customFrequencyType}
+              onChange={(e) => updateCustomFrequencyType(e.target.value as 'weekdays' | 'interval')}
+              className="w-full px-3 py-2.5 bg-card-elevated border border-divider rounded-xl text-white text-sm focus:border-accent focus:outline-none mb-2"
+            >
+              <option value="weekdays">Specific weekdays</option>
+              <option value="interval">Every X days</option>
+            </select>
+
+            {customFrequencyType === 'interval' ? (
+              <input
+                type="number"
+                min={1}
+                value={formData.customFrequencyDays ?? 3}
+                onChange={(e) => updateField('customFrequencyDays', Math.max(1, parseInt(e.target.value || '1', 10)))}
+                className="w-full px-3 py-2.5 bg-card-elevated border border-divider rounded-xl text-white text-sm focus:border-accent focus:outline-none"
+              />
+            ) : (
+              <div className="flex flex-wrap gap-2">
+                {WEEKDAY_OPTIONS.map((weekday) => {
+                  const isSelected = (formData.customFrequencyWeekdays || []).includes(weekday.value);
+                  return (
+                    <button key={weekday.value} type="button" onClick={() => toggleCustomWeekday(weekday.value)}
+                      className={`px-3 py-1.5 text-xs font-semibold rounded-full border transition-colors ${isSelected ? 'bg-accent border-accent text-on-accent' : 'bg-card-elevated border-divider text-muted'}`}>
+                      {weekday.shortLabel}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+
+            {customFrequencyType === 'weekdays' && (formData.customFrequencyWeekdays || []).length === 0 && (
               <p className="text-xs text-amber-400 mt-1">Select at least one day.</p>
             )}
           </div>

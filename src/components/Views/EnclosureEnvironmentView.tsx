@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Check, ChevronDown, Droplets, Home, Pencil, Save, Sun, Thermometer, Trash2, X } from 'lucide-react';
+import { ArrowLeft, Check, ChevronDown, ChevronRight, Droplets, Home, Pencil, Save, Sun, Thermometer, Trash2, X } from 'lucide-react';
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureService } from '../../services/enclosureService';
@@ -18,11 +18,6 @@ function formatLoggedAt(value: string): string {
     hour: 'numeric',
     minute: '2-digit',
   });
-}
-
-function formatChartTick(value: string): string {
-  const date = new Date(value);
-  return date.toLocaleDateString([], { month: 'short', day: 'numeric' });
 }
 
 interface EnclosureHeroCardProps {
@@ -98,6 +93,10 @@ export function EnclosureEnvironmentView() {
   const [uvbZone, setUvbZone] = useState<UvbLog['zone']>('basking');
 
   const [manageReadingsExpanded, setManageReadingsExpanded] = useState(false);
+  const [baskingTemp, setBaskingTemp] = useState('');
+  const [coolTemp, setCoolTemp] = useState('');
+  const [notes, setNotes] = useState('');
+  const [historyRange, setHistoryRange] = useState<'24H' | '7D' | '30D' | '90D'>('24H');
 
   const [editingTempId, setEditingTempId] = useState<string | null>(null);
   const [editTempValue, setEditTempValue] = useState('');
@@ -159,9 +158,9 @@ export function EnclosureEnvironmentView() {
     if (!selectedEnclosureId) return;
 
     const [tempRows, humidityRows, uvbRows] = await Promise.all([
-      tempLogService.getRecentLogsForEnclosure(selectedEnclosureId, 10).catch(() => []),
-      humidityLogService.getRecentLogsForEnclosure(selectedEnclosureId, 10).catch(() => []),
-      uvbLogService.getRecentLogsForEnclosure(selectedEnclosureId, 10).catch(() => []),
+      tempLogService.getRecentLogsForEnclosure(selectedEnclosureId, 50).catch(() => []),
+      humidityLogService.getRecentLogsForEnclosure(selectedEnclosureId, 50).catch(() => []),
+      uvbLogService.getRecentLogsForEnclosure(selectedEnclosureId, 50).catch(() => []),
     ]);
 
     setTempLogs(tempRows);
@@ -226,6 +225,32 @@ export function EnclosureEnvironmentView() {
         );
       }
 
+      const parsedBaskingTemp = Number.parseFloat(baskingTemp);
+      if (!Number.isNaN(parsedBaskingTemp)) {
+        work.push(
+          tempLogService.createLog(user.id, {
+            enclosureId: selectedEnclosureId,
+            enclosureAnimalId: targetAnimalId,
+            temperatureValue: parsedBaskingTemp,
+            unit: tempUnit,
+            zone: 'basking',
+          }),
+        );
+      }
+
+      const parsedCoolTemp = Number.parseFloat(coolTemp);
+      if (!Number.isNaN(parsedCoolTemp)) {
+        work.push(
+          tempLogService.createLog(user.id, {
+            enclosureId: selectedEnclosureId,
+            enclosureAnimalId: targetAnimalId,
+            temperatureValue: parsedCoolTemp,
+            unit: tempUnit,
+            zone: 'cool',
+          }),
+        );
+      }
+
       const parsedUvi = Number.parseFloat(uvIndex);
       if (!Number.isNaN(parsedUvi)) {
         work.push(
@@ -240,6 +265,7 @@ export function EnclosureEnvironmentView() {
 
       await Promise.all(work);
       await refreshLogs();
+      setNotes('');
     } catch (err) {
       console.error('Failed to save environment logs:', err);
       setError('Could not save environment readings.');
@@ -407,30 +433,36 @@ export function EnclosureEnvironmentView() {
       ? '—'
       : latestUvb.uvIndex.toFixed(1);
 
-  const tempChartData = tempLogs
-    .slice(0, 12)
-    .reverse()
-    .map((log) => ({
-      recordedAt: log.recordedAt,
-      value: log.temperatureValue,
-    }));
+  const cutoffMs = (() => {
+    const now = Date.now();
+    if (historyRange === '24H') return now - 24 * 3600 * 1000;
+    if (historyRange === '7D') return now - 7 * 24 * 3600 * 1000;
+    if (historyRange === '30D') return now - 30 * 24 * 3600 * 1000;
+    return now - 90 * 24 * 3600 * 1000;
+  })();
 
-  const humidityChartData = humidityLogs
-    .slice(0, 12)
-    .reverse()
-    .map((log) => ({
-      recordedAt: log.recordedAt,
-      value: log.humidityPercent,
-    }));
-
-  const uvbChartData = uvbLogs
-    .filter((log) => log.uvIndex !== undefined && log.uvIndex !== null)
-    .slice(0, 12)
-    .reverse()
-    .map((log) => ({
-      recordedAt: log.recordedAt,
-      value: log.uvIndex,
-    }));
+  const mergedChartData = (() => {
+    const timeMap = new Map<string, { time: string; temp?: number; humidity?: number; uvb?: number }>();
+    for (const log of tempLogs) {
+      if (new Date(log.recordedAt).getTime() < cutoffMs) continue;
+      const entry = timeMap.get(log.recordedAt) ?? { time: log.recordedAt };
+      entry.temp = log.temperatureValue;
+      timeMap.set(log.recordedAt, entry);
+    }
+    for (const log of humidityLogs) {
+      if (new Date(log.recordedAt).getTime() < cutoffMs) continue;
+      const entry = timeMap.get(log.recordedAt) ?? { time: log.recordedAt };
+      entry.humidity = log.humidityPercent;
+      timeMap.set(log.recordedAt, entry);
+    }
+    for (const log of uvbLogs) {
+      if (log.uvIndex == null || new Date(log.recordedAt).getTime() < cutoffMs) continue;
+      const entry = timeMap.get(log.recordedAt) ?? { time: log.recordedAt };
+      entry.uvb = log.uvIndex;
+      timeMap.set(log.recordedAt, entry);
+    }
+    return Array.from(timeMap.values()).sort((a, b) => new Date(a.time).getTime() - new Date(b.time).getTime());
+  })();
 
   return (
     <div className="min-h-screen bg-surface pb-28">
@@ -490,29 +522,28 @@ export function EnclosureEnvironmentView() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-divider bg-card p-4 space-y-3">
-          <h2 className="text-sm font-semibold text-white">Set Current Readings</h2>
+        <div className="rounded-2xl border border-divider bg-card p-4 space-y-4">
+          {/* Header with entry mode tabs */}
+          <div className="flex items-center justify-between gap-2 flex-wrap">
+            <h2 className="text-base font-bold text-white">Set New Readings</h2>
+            <span className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-accent/15 text-accent border border-accent/30">Manual Entry</span>
+          </div>
 
-          <div className="grid grid-cols-2 gap-2">
-            <label className="text-xs text-muted">
-              <span>Temperature</span>
-              <div className="mt-1 flex gap-2">
-                <input
-                  type="number"
-                  step="0.1"
-                  value={tempValue}
-                  onChange={(e) => setTempValue(e.target.value)}
-                  className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2 text-sm text-white"
-                />
-                <select value={tempUnit} onChange={(e) => setTempUnit(e.target.value as 'f' | 'c')} className="rounded-lg border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
-                  <option value="f">F</option>
-                  <option value="c">C</option>
+          {/* Temperature + Temp Zone */}
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="block text-xs text-muted mb-1">Temperature</label>
+              <div className="flex gap-2">
+                <input type="number" step="0.1" value={tempValue} onChange={(e) => setTempValue(e.target.value)} className="flex-1 min-w-0 rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="79.2" />
+                <select value={tempUnit} onChange={(e) => setTempUnit(e.target.value as 'f' | 'c')} className="rounded-lg border border-divider bg-card-elevated px-2 py-2.5 text-sm text-white">
+                  <option value="f">°F</option>
+                  <option value="c">°C</option>
                 </select>
               </div>
-            </label>
-            <label className="text-xs text-muted">
-              <span>Temp Zone</span>
-              <select value={tempZone || 'ambient'} onChange={(e) => setTempZone(e.target.value as TempLog['zone'])} className="mt-1 w-full rounded-lg border border-divider bg-card-elevated px-3 py-2 text-sm text-white">
+            </div>
+            <div>
+              <label className="block text-xs text-muted mb-1">Temp Zone</label>
+              <select value={tempZone || 'ambient'} onChange={(e) => setTempZone(e.target.value as TempLog['zone'])} className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white">
                 <option value="ambient">Ambient</option>
                 <option value="basking">Basking</option>
                 <option value="cool">Cool</option>
@@ -520,52 +551,68 @@ export function EnclosureEnvironmentView() {
                 <option value="substrate">Substrate</option>
                 <option value="other">Other</option>
               </select>
-            </label>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-2">
-            <label className="text-xs text-muted">
-              <span>Humidity %</span>
-              <input
-                type="number"
-                min="0"
-                max="100"
-                value={humidityValue}
-                onChange={(e) => setHumidityValue(e.target.value)}
-                className="mt-1 w-full rounded-lg border border-divider bg-card-elevated px-3 py-2 text-sm text-white"
-              />
-            </label>
-            <label className="text-xs text-muted">
-              <span>Humidity Zone</span>
-              <select value={humidityZone || 'ambient'} onChange={(e) => setHumidityZone(e.target.value as HumidityLog['zone'])} className="mt-1 w-full rounded-lg border border-divider bg-card-elevated px-3 py-2 text-sm text-white">
+          {/* Basking + Cool side */}
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="block text-xs text-muted mb-1">Basking Temp</label>
+              <div className="flex gap-2">
+                <input type="number" step="0.1" value={baskingTemp} onChange={(e) => setBaskingTemp(e.target.value)} className="flex-1 min-w-0 rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="85.1" />
+                <span className="flex items-center rounded-lg border border-divider bg-card-elevated px-2.5 text-sm text-muted">{tempUnit === 'f' ? '°F' : '°C'}</span>
+              </div>
+            </div>
+            <div>
+              <label className="block text-xs text-muted mb-1">Cool Side Temp</label>
+              <div className="flex gap-2">
+                <input type="number" step="0.1" value={coolTemp} onChange={(e) => setCoolTemp(e.target.value)} className="flex-1 min-w-0 rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="72.3" />
+                <span className="flex items-center rounded-lg border border-divider bg-card-elevated px-2.5 text-sm text-muted">{tempUnit === 'f' ? '°F' : '°C'}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Humidity + Humidity Zone */}
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="block text-xs text-muted mb-1">Humidity</label>
+              <div className="flex gap-2">
+                <input type="number" min="0" max="100" value={humidityValue} onChange={(e) => setHumidityValue(e.target.value)} className="flex-1 min-w-0 rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="72" />
+                <span className="flex items-center rounded-lg border border-divider bg-card-elevated px-2.5 text-sm text-muted">%</span>
+              </div>
+            </div>
+            <div>
+              <label className="block text-xs text-muted mb-1">Humidity Zone</label>
+              <select value={humidityZone || 'ambient'} onChange={(e) => setHumidityZone(e.target.value as HumidityLog['zone'])} className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white">
                 <option value="ambient">Ambient</option>
                 <option value="hide">Hide</option>
                 <option value="substrate">Substrate</option>
                 <option value="water">Water</option>
                 <option value="other">Other</option>
               </select>
-            </label>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-2">
-            <label className="text-xs text-muted">
-              <span>UV Index</span>
-              <input
-                type="number"
-                step="0.1"
-                value={uvIndex}
-                onChange={(e) => setUvIndex(e.target.value)}
-                className="mt-1 w-full rounded-lg border border-divider bg-card-elevated px-3 py-2 text-sm text-white"
-              />
-            </label>
-            <label className="text-xs text-muted">
-              <span>UVB Zone</span>
-              <select value={uvbZone || 'basking'} onChange={(e) => setUvbZone(e.target.value as UvbLog['zone'])} className="mt-1 w-full rounded-lg border border-divider bg-card-elevated px-3 py-2 text-sm text-white">
+          {/* UVB Index + UVB Zone */}
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="block text-xs text-muted mb-1">UVB Index</label>
+              <input type="number" step="0.1" value={uvIndex} onChange={(e) => setUvIndex(e.target.value)} className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="2.4" />
+            </div>
+            <div>
+              <label className="block text-xs text-muted mb-1">UVB Zone</label>
+              <select value={uvbZone || 'basking'} onChange={(e) => setUvbZone(e.target.value as UvbLog['zone'])} className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white">
                 <option value="basking">Basking</option>
                 <option value="ambient">Ambient</option>
                 <option value="other">Other</option>
               </select>
-            </label>
+            </div>
+          </div>
+
+          {/* Notes */}
+          <div>
+            <label className="block text-xs text-muted mb-1">Notes (optional)</label>
+            <input type="text" value={notes} onChange={(e) => setNotes(e.target.value)} className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="e.g. Added new plants, changed light position..." />
           </div>
 
           {error && (
@@ -576,7 +623,7 @@ export function EnclosureEnvironmentView() {
             type="button"
             onClick={() => saveEnvironment().catch(console.error)}
             disabled={saving}
-            className="inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-on-accent disabled:opacity-60"
+            className="w-full flex items-center justify-center gap-2 rounded-xl bg-accent py-3 text-sm font-bold text-on-accent disabled:opacity-60"
           >
             <Save className="w-4 h-4" />
             {saving ? 'Saving…' : 'Save Readings'}
@@ -584,87 +631,90 @@ export function EnclosureEnvironmentView() {
         </div>
 
         <div className="rounded-2xl border border-divider bg-card p-4 space-y-3">
-          <h2 className="text-sm font-semibold text-white">History</h2>
-
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
-            <div className="rounded-xl border border-divider bg-surface/40 p-3">
-              <div className="mb-2 flex items-center gap-1.5">
-                <Thermometer className="h-4 w-4 text-orange-400" />
-                <p className="text-xs font-semibold text-white">Temperature</p>
-              </div>
-              {tempLogs.length === 0 ? (
-                <p className="text-xs text-muted">No temperature history yet.</p>
-              ) : (
-                <div className="h-36">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={tempChartData}>
-                      <XAxis dataKey="recordedAt" tickFormatter={formatChartTick} tick={{ fill: '#8B909A', fontSize: 10 }} axisLine={{ stroke: '#2A2D35' }} tickLine={false} />
-                      <YAxis tick={{ fill: '#8B909A', fontSize: 10 }} axisLine={{ stroke: '#2A2D35' }} tickLine={false} width={28} />
-                      <Tooltip
-                        labelFormatter={(label) => formatLoggedAt(label)}
-                        formatter={(value: number) => [`${value}°${tempUnit.toUpperCase()}`, 'Temperature']}
-                        contentStyle={{ backgroundColor: '#1A1D24', border: '1px solid #2A2D35', borderRadius: '0.5rem' }}
-                        labelStyle={{ color: '#FFFFFF' }}
-                      />
-                      <Line type="monotone" dataKey="value" stroke="#fb923c" strokeWidth={2} dot={{ r: 2 }} />
-                    </LineChart>
-                  </ResponsiveContainer>
-                </div>
-              )}
-            </div>
-
-            <div className="rounded-xl border border-divider bg-surface/40 p-3">
-              <div className="mb-2 flex items-center gap-1.5">
-                <Droplets className="h-4 w-4 text-blue-400" />
-                <p className="text-xs font-semibold text-white">Humidity</p>
-              </div>
-              {humidityLogs.length === 0 ? (
-                <p className="text-xs text-muted">No humidity history yet.</p>
-              ) : (
-                <div className="h-36">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={humidityChartData}>
-                      <XAxis dataKey="recordedAt" tickFormatter={formatChartTick} tick={{ fill: '#8B909A', fontSize: 10 }} axisLine={{ stroke: '#2A2D35' }} tickLine={false} />
-                      <YAxis tick={{ fill: '#8B909A', fontSize: 10 }} axisLine={{ stroke: '#2A2D35' }} tickLine={false} width={28} />
-                      <Tooltip
-                        labelFormatter={(label) => formatLoggedAt(label)}
-                        formatter={(value: number) => [`${value}%`, 'Humidity']}
-                        contentStyle={{ backgroundColor: '#1A1D24', border: '1px solid #2A2D35', borderRadius: '0.5rem' }}
-                        labelStyle={{ color: '#FFFFFF' }}
-                      />
-                      <Line type="monotone" dataKey="value" stroke="#60a5fa" strokeWidth={2} dot={{ r: 2 }} />
-                    </LineChart>
-                  </ResponsiveContainer>
-                </div>
-              )}
-            </div>
-
-            <div className="rounded-xl border border-divider bg-surface/40 p-3">
-              <div className="mb-2 flex items-center gap-1.5">
-                <Sun className="h-4 w-4 text-yellow-400" />
-                <p className="text-xs font-semibold text-white">UVB</p>
-              </div>
-              {uvbChartData.length === 0 ? (
-                <p className="text-xs text-muted">No UVB history yet.</p>
-              ) : (
-                <div className="h-36">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={uvbChartData}>
-                      <XAxis dataKey="recordedAt" tickFormatter={formatChartTick} tick={{ fill: '#8B909A', fontSize: 10 }} axisLine={{ stroke: '#2A2D35' }} tickLine={false} />
-                      <YAxis tick={{ fill: '#8B909A', fontSize: 10 }} axisLine={{ stroke: '#2A2D35' }} tickLine={false} width={28} />
-                      <Tooltip
-                        labelFormatter={(label) => formatLoggedAt(label)}
-                        formatter={(value: number) => [value.toFixed(1), 'UV Index']}
-                        contentStyle={{ backgroundColor: '#1A1D24', border: '1px solid #2A2D35', borderRadius: '0.5rem' }}
-                        labelStyle={{ color: '#FFFFFF' }}
-                      />
-                      <Line type="monotone" dataKey="value" stroke="#facc15" strokeWidth={2} dot={{ r: 2 }} />
-                    </LineChart>
-                  </ResponsiveContainer>
-                </div>
-              )}
+          {/* Header + time range tabs */}
+          <div className="flex items-center justify-between gap-2">
+            <h2 className="text-base font-bold text-white">Environment History</h2>
+            <div className="flex rounded-lg border border-divider overflow-hidden text-xs font-semibold">
+              {(['24H', '7D', '30D', '90D'] as const).map((range) => (
+                <button
+                  key={range}
+                  type="button"
+                  onClick={() => setHistoryRange(range)}
+                  className={`px-2.5 py-1.5 transition-colors ${historyRange === range ? 'bg-accent text-on-accent' : 'text-muted hover:text-white'}`}
+                >
+                  {range}
+                </button>
+              ))}
             </div>
           </div>
+
+          {/* Legend */}
+          <div className="flex items-center gap-4 text-xs flex-wrap">
+            <div className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-400 flex-shrink-0" />
+              <span className="text-muted">Temp</span>
+              <span className="font-semibold text-white">{latestTemp ? `${latestTemp.temperatureValue}°${latestTemp.unit.toUpperCase()}` : '—'}</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-blue-400 flex-shrink-0" />
+              <span className="text-muted">Humidity</span>
+              <span className="font-semibold text-white">{latestHumidity ? `${latestHumidity.humidityPercent}%` : '—'}</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 flex-shrink-0" />
+              <span className="text-muted">UVB Index</span>
+              <span className="font-semibold text-white">{latestUvbDisplay}</span>
+            </div>
+          </div>
+
+          {/* Combined chart */}
+          {mergedChartData.length === 0 ? (
+            <p className="text-xs text-muted py-6 text-center">No environment history yet. Save your first reading above.</p>
+          ) : (
+            <div className="h-48">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={mergedChartData} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
+                  <XAxis
+                    dataKey="time"
+                    tickFormatter={(value) => {
+                      const date = new Date(value);
+                      if (historyRange === '24H') return date.toLocaleTimeString([], { hour: 'numeric' });
+                      return date.toLocaleDateString([], { month: 'short', day: 'numeric' });
+                    }}
+                    tick={{ fill: '#8B909A', fontSize: 10 }}
+                    axisLine={{ stroke: '#2A2D35' }}
+                    tickLine={false}
+                    interval="preserveStartEnd"
+                  />
+                  <YAxis yAxisId="temp" tick={{ fill: '#8B909A', fontSize: 10 }} axisLine={false} tickLine={false} width={32} tickFormatter={(v) => `${v}°`} />
+                  <YAxis yAxisId="pct" orientation="right" tick={{ fill: '#8B909A', fontSize: 10 }} axisLine={false} tickLine={false} width={28} tickFormatter={(v) => `${v}%`} />
+                  <Tooltip
+                    labelFormatter={(label) => formatLoggedAt(String(label))}
+                    formatter={(value: number, name: string) => {
+                      if (name === 'temp') return [`${value}°${tempUnit.toUpperCase()}`, 'Temp'];
+                      if (name === 'humidity') return [`${value}%`, 'Humidity'];
+                      return [(value as number).toFixed(1), 'UVB'];
+                    }}
+                    contentStyle={{ backgroundColor: '#1A1D24', border: '1px solid #2A2D35', borderRadius: '0.5rem', fontSize: '12px' }}
+                    labelStyle={{ color: '#FFFFFF' }}
+                  />
+                  <Line yAxisId="temp" type="monotone" dataKey="temp" stroke="#fb923c" strokeWidth={2} dot={{ r: 2.5 }} connectNulls />
+                  <Line yAxisId="pct" type="monotone" dataKey="humidity" stroke="#60a5fa" strokeWidth={2} dot={{ r: 2.5 }} connectNulls />
+                  <Line yAxisId="pct" type="monotone" dataKey="uvb" stroke="#facc15" strokeWidth={2} dot={{ r: 2.5 }} connectNulls />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          )}
+
+          {/* View Full History button */}
+          <button
+            type="button"
+            onClick={() => setManageReadingsExpanded(true)}
+            className="w-full flex items-center justify-between pt-2 border-t border-divider text-sm text-muted hover:text-white transition-colors"
+          >
+            <span>View Full History</span>
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
 
         <div className="rounded-2xl border border-divider bg-card p-4">

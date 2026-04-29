@@ -23,7 +23,7 @@ export function PremiumPaywall() {
           <span className="text-gray-300 dark:text-gray-600">·</span>
           <span>1 animal</span>
           <span className="text-gray-300 dark:text-gray-600">·</span>
-          <span>2 care tasks</span>
+          <span>Unlimited care tasks</span>
         </div>
 
         {/* Feature Highlights */}

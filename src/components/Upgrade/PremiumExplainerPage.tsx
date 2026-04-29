@@ -259,7 +259,7 @@ export function PremiumExplainerPage() {
                 <li>Unlimited build plans and shopping lists</li>
                 <li>Access to care guides and animal profiles</li>
                 <li>Plan previews and layout guidance</li>
-                <li className="pt-1 border-t border-gray-200 dark:border-gray-600">1 enclosure, 1 animal, 2 care tasks</li>
+                <li className="pt-1 border-t border-gray-200 dark:border-gray-600">1 enclosure, 1 animal, unlimited care tasks</li>
               </ul>
             </div>
             <div className="rounded-xl border border-emerald-200 dark:border-emerald-700 bg-emerald-50/60 dark:bg-emerald-900/20 p-4">

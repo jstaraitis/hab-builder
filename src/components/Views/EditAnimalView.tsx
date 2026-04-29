@@ -6,6 +6,7 @@ import { uploadAnimalPhoto, deleteAnimalPhoto } from '../../services/animalPhoto
 import { enclosureService } from '../../services/enclosureService';
 import type { EnclosureAnimal, Enclosure } from '../../types/careCalendar';
 import { AnimalForm, type AnimalFormData } from '../Forms/AnimalForm';
+import { animalList } from '../../data/animals';
 
 export function EditAnimalView() {
   const { id } = useParams<{ id: string }>();
@@ -51,6 +52,8 @@ export function EditAnimalView() {
         setEntityLabel(animalData.name || `Animal #${animalData.animalNumber || '?'}`);
         setInitialData({
           enclosureId: animalData.enclosureId || '',
+          speciesId: animalData.speciesId || '',
+          customSpeciesName: animalData.speciesId === 'custom' ? (animalData.speciesName || '') : '',
           name: animalData.name || '',
           animalNumber: animalData.animalNumber?.toString() || '',
           gender: animalData.gender || '',
@@ -91,8 +94,12 @@ export function EditAnimalView() {
     }
 
     const updatedData: Partial<EnclosureAnimal> = {
-      enclosureId: formData.enclosureId || undefined,
+      enclosureId: formData.enclosureId,
       userId: user.id,
+      speciesId: formData.speciesId === 'custom' ? 'custom' : (formData.speciesId || undefined),
+      speciesName: formData.speciesId === 'custom'
+        ? (formData.customSpeciesName.trim() || undefined)
+        : (formData.speciesId ? (animalList.find(a => a.id === formData.speciesId)?.name || undefined) : undefined),
       name: formData.name || undefined,
       animalNumber: formData.animalNumber ? Number.parseInt(formData.animalNumber, 10) : undefined,
       gender: formData.gender || undefined,

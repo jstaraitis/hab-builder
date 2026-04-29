@@ -217,6 +217,8 @@ class EnclosureAnimalService {
       id: row.id,
       enclosureId: row.enclosure_id || undefined,
       userId: row.user_id,
+      speciesId: row.species_id || undefined,
+      speciesName: row.species_name || undefined,
       name: row.name,
       animalNumber: row.animal_number,
       gender: row.gender,
@@ -242,8 +244,10 @@ class EnclosureAnimalService {
   private mapAnimalToDb(animal: Partial<EnclosureAnimal>): any {
     const mapped: any = {};
 
-    if (animal.enclosureId !== undefined) mapped.enclosure_id = animal.enclosureId;
+    if (animal.enclosureId !== undefined) mapped.enclosure_id = animal.enclosureId || null;
     if (animal.userId !== undefined) mapped.user_id = animal.userId;
+    if (animal.speciesId !== undefined) mapped.species_id = animal.speciesId || null;
+    if (animal.speciesName !== undefined) mapped.species_name = animal.speciesName || null;
     if (animal.name !== undefined) mapped.name = animal.name;
     if (animal.animalNumber !== undefined) mapped.animal_number = animal.animalNumber;
     if (animal.gender !== undefined) mapped.gender = animal.gender;

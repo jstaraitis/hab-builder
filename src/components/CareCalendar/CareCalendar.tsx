@@ -3,6 +3,7 @@ import {
   Pencil, 
   Check,
   CheckCircle2,
+  SkipForward,
   UtensilsCrossed, 
   Droplets, 
   Waves, 
@@ -34,7 +35,8 @@ import { Auth } from '../Auth';
 import { careTaskService } from '../../services/careTaskService';
 import { enclosureService } from '../../services/enclosureService';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
-import { estimateCustomWeekdayOccurrences, WEEKDAY_OPTIONS } from '../../utils/customTaskFrequency';
+import { estimateCustomWeekdayOccurrences } from '../../utils/customTaskFrequency';
+import { formatCareTaskFrequency } from '../../utils/careTaskFrequencyLabel';
 import { FeedingLogModal } from './FeedingLogModal';
 import { CareAnalyticsDashboard } from '../CareAnalytics';
 import type { CareTaskWithLogs, TaskType, CareTask, CareLog, Enclosure, EnclosureAnimal } from '../../types/careCalendar';
@@ -43,36 +45,7 @@ type ViewMode = 'all' | 'today' | 'week' | 'analytics';
 type TimeBlock = 'overdue' | 'morning' | 'afternoon' | 'evening' | 'night' | 'tomorrow' | 'week' | 'future';
 
 const formatTaskFrequencySummary = (task: CareTaskWithLogs): string => {
-  switch (task.frequency) {
-    case 'daily':
-      return 'Daily';
-    case 'every-other-day':
-      return 'Every Other Day';
-    case 'twice-weekly':
-      return 'Twice Weekly';
-    case 'weekly':
-      return 'Weekly';
-    case 'bi-weekly':
-      return 'Bi-weekly';
-    case 'monthly':
-      return 'Monthly';
-    case 'custom': {
-      if (task.customFrequencyWeekdays && task.customFrequencyWeekdays.length > 0) {
-        const dayLabels = [...task.customFrequencyWeekdays]
-          .sort((a, b) => a - b)
-          .map(day => WEEKDAY_OPTIONS.find(option => option.value === day)?.shortLabel || String(day));
-        return `Custom: ${dayLabels.join('/')}`;
-      }
-
-      if (task.customFrequencyDays && task.customFrequencyDays > 0) {
-        return `Every ${task.customFrequencyDays} day${task.customFrequencyDays === 1 ? '' : 's'}`;
-      }
-
-      return 'Custom';
-    }
-    default:
-      return 'Custom';
-  }
+  return formatCareTaskFrequency(task);
 };
 
 // Memoized Task Item Component for better list performance
@@ -90,6 +63,7 @@ const TaskItem = memo(({
   formatTime,
   onToggleSelection,
   onEdit,
+  onSkip,
   onComplete,
   onTouchStart,
   onTouchMove,
@@ -108,6 +82,7 @@ const TaskItem = memo(({
   formatTime: (time: string) => string;
   onToggleSelection: (id: string) => void;
   onEdit: (id: string) => void;
+  onSkip: (id: string) => void;
   onComplete: (id: string) => void;
   onTouchStart: (e: React.TouchEvent, id: string) => void;
   onTouchMove: (e: React.TouchEvent) => void;
@@ -189,8 +164,16 @@ const TaskItem = memo(({
               <button
                 onClick={() => onEdit(task.id)}
                 className="p-1.5 hover:bg-card-elevated rounded-lg transition-colors"
+                title="Edit task"
               >
                 <Pencil className="w-3.5 h-3.5 text-muted" />
+              </button>
+              <button
+                onClick={() => onSkip(task.id)}
+                className="p-1.5 bg-card-elevated text-muted rounded-lg transition-colors hover:text-white"
+                title="Skip or delay with reason"
+              >
+                <SkipForward className="w-4 h-4" />
               </button>
               <button
                 onClick={() => onComplete(task.id)}
@@ -228,6 +211,9 @@ export function CareCalendar() {
   const [selectionMode, setSelectionMode] = useState(false);
   const [swipedTask, setSwipedTask] = useState<string | null>(null);
   const [swipeOffset, setSwipeOffset] = useState(0);
+  const [showSkipModal, setShowSkipModal] = useState(false);
+  const [skipTaskId, setSkipTaskId] = useState<string | null>(null);
+  const [skipReason, setSkipReason] = useState('');
 
   // ALL HOOKS MUST BE CALLED BEFORE ANY RETURNS
   useEffect(() => {
@@ -324,6 +310,34 @@ export function CareCalendar() {
       console.error('Failed to log feeding:', err);
       setError('Failed to log feeding.');
       throw err; // Re-throw to let modal handle it
+    }
+  };
+
+  const openSkipTaskModal = (taskId: string) => {
+    setSkipTaskId(taskId);
+    setSkipReason('');
+    setShowSkipModal(true);
+  };
+
+  const handleSkipTask = async () => {
+    if (!skipTaskId) return;
+
+    const reason = skipReason.trim();
+    if (!reason) {
+      setError('Please enter a reason when skipping or delaying a task.');
+      return;
+    }
+
+    try {
+      setError(null);
+      await careTaskService.skipTask(skipTaskId, reason);
+      await loadTasks();
+      setShowSkipModal(false);
+      setSkipTaskId(null);
+      setSkipReason('');
+    } catch (err) {
+      console.error('Failed to skip task:', err);
+      setError('Failed to skip task.');
     }
   };
 
@@ -818,6 +832,7 @@ export function CareCalendar() {
                               formatTime={formatTime}
                               onToggleSelection={toggleTaskSelection}
                               onEdit={(id) => navigate(`/care-calendar/tasks/edit/${id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
+                              onSkip={openSkipTaskModal}
                               onComplete={handleCompleteTask}
                               onTouchStart={handleTouchStart}
                               onTouchMove={handleTouchMove}
@@ -887,6 +902,49 @@ export function CareCalendar() {
         }}
         onSubmit={handleFeedingLogSubmit}
       />
+
+      {/* Skip/Delay Modal */}
+      {showSkipModal && (
+        <div className="fixed inset-0 z-50 bg-black/60 flex items-end sm:items-center justify-center p-4">
+          <div className="w-full max-w-md bg-card border border-divider rounded-2xl shadow-xl">
+            <div className="px-4 py-3 border-b border-divider">
+              <h3 className="text-white font-semibold">Skip or Delay Task</h3>
+              <p className="text-xs text-muted mt-1">This will mark this occurrence as skipped and move it to the next scheduled date.</p>
+            </div>
+            <div className="px-4 py-3 space-y-2">
+              <label className="block text-xs font-semibold text-muted uppercase tracking-wide">Reason</label>
+              <textarea
+                value={skipReason}
+                onChange={(e) => setSkipReason(e.target.value)}
+                rows={3}
+                placeholder="e.g. Traveling this weekend"
+                className="w-full resize-none rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted focus:outline-none focus:border-accent"
+              />
+            </div>
+            <div className="px-4 py-3 border-t border-divider flex items-center justify-end gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setShowSkipModal(false);
+                  setSkipTaskId(null);
+                  setSkipReason('');
+                }}
+                className="px-4 py-2 rounded-full bg-card-elevated border border-divider text-sm font-semibold text-white"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleSkipTask}
+                disabled={skipReason.trim().length === 0}
+                className="px-4 py-2 rounded-full bg-amber-500 text-black text-sm font-semibold disabled:opacity-50"
+              >
+                Skip/Delay
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

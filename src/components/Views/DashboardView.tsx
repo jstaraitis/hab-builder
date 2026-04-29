@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router-dom';
 import {
   Brush,
   Calendar,
-  Scale,
   Scissors,
   Utensils,
   Waves,
@@ -21,23 +20,25 @@ import {
   Check,
   CheckCircle2,
   AlertCircle,
+  Info,
   Circle,
+  Minus,
   TrendingUp,
+  TrendingDown,
   Plus,
   Turtle,
-  Heart,
   Flame,
   Thermometer,
   Droplets,
   Sun,
   FileText,
-  RefreshCw,
   Home,
   Pencil,
   type LucideIcon,
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
+import { profileService } from '../../services/profileService';
 import { enclosureService } from '../../services/enclosureService';
 import { careTaskService } from '../../services/careTaskService';
 import { weightTrackingService } from '../../services/weightTrackingService';
@@ -47,11 +48,13 @@ import { tempLogService, type TempLog } from '../../services/tempLogService';
 import { humidityLogService, type HumidityLog } from '../../services/humidityLogService';
 import { uvbLogService, type UvbLog } from '../../services/uvbLogService';
 import { feedingLogService, type FeedingLog } from '../../services/feedingLogService';
+import { computeSmartStatus, type SmartStatusLevel } from '../../services/smartStatusService';
 import type { Enclosure, EnclosureAnimal, CareTaskWithLogs } from '../../types/careCalendar';
 import type { WeightLog } from '../../types/weightTracking';
 import type { ShedLog } from '../../services/shedLogService';
 import { getAnimalById } from '../../data/animals';
 import type { AnimalProfile } from '../../engine/types';
+import { getCustomWeekdayIntervalDays } from '../../utils/customTaskFrequency';
 
 // helpers
 function formatAge(birthday?: Date | null): string {
@@ -86,6 +89,63 @@ function isTaskDueToday(task: CareTaskWithLogs): boolean {
   tomorrow.setDate(tomorrow.getDate() + 1);
   tomorrow.setHours(0, 0, 0, 0);
   return due < tomorrow;
+}
+
+function getTaskFrequencyIntervalDays(task: CareTaskWithLogs): number {
+  switch (task.frequency) {
+    case 'daily':
+      return 1;
+    case 'every-other-day':
+      return 2;
+    case 'twice-weekly':
+      return 3;
+    case 'weekly':
+      return 7;
+    case 'bi-weekly':
+      return 14;
+    case 'monthly':
+      return 31;
+    case 'custom':
+      if (task.customFrequencyWeekdays && task.customFrequencyWeekdays.length > 0) {
+        return getCustomWeekdayIntervalDays(task.customFrequencyWeekdays);
+      }
+      return task.customFrequencyDays && task.customFrequencyDays > 0
+        ? task.customFrequencyDays
+        : 1;
+    default:
+      return 1;
+  }
+}
+
+function calculateTaskConsistencyStreak(task: CareTaskWithLogs): number {
+  const completedDates = task.logs
+    .filter((log) => !log.skipped)
+    .map((log) => {
+      const date = new Date(log.completedAt);
+      date.setHours(0, 0, 0, 0);
+      return date;
+    })
+    .sort((a, b) => b.getTime() - a.getTime())
+    .filter((date, index, arr) => index === 0 || date.getTime() !== arr[index - 1].getTime());
+
+  if (completedDates.length === 0) return 0;
+
+  const intervalDays = getTaskFrequencyIntervalDays(task);
+  let streak = 1;
+  let currentDate = completedDates[0];
+
+  for (let i = 1; i < completedDates.length; i++) {
+    const logDate = completedDates[i];
+    const dayDiff = Math.floor((currentDate.getTime() - logDate.getTime()) / (1000 * 60 * 60 * 24));
+    if (dayDiff <= intervalDays) {
+      streak++;
+      currentDate = logDate;
+    } else {
+      break;
+    }
+  }
+
+  return streak;
 }
 
 function taskTypeIcon(type: string): LucideIcon {
@@ -158,31 +218,60 @@ function getDaysAgoLabel(dateString: string): string {
   return `${diff}d ago`;
 }
 
-function isRecent(dateValue: Date | string, maxAgeDays: number): boolean {
+function formatLastUpdated(dateValue?: Date | null): string {
+  if (!dateValue) return 'Last updated recently';
   const diff = Math.floor((Date.now() - new Date(dateValue).getTime()) / 86_400_000);
-  return diff <= maxAgeDays;
+  if (diff <= 0) return 'Last updated just now';
+  if (diff === 1) return 'Last updated 1 day ago';
+  return `Last updated ${diff} days ago`;
 }
 
 // sub-components
-interface EnvironmentSnapshotProps {
-  enclosureName?: string;
-  animalProfile: AnimalProfile | null;
-  lastWaterChange: string;
-  latestTempLog: TempLog | null;
-  latestHumidityLog: HumidityLog | null;
-  latestUvbLog: UvbLog | null;
-}
-
-function EnvironmentSnapshot({
-  enclosureName,
+function EnclosureOverviewSection({
+  enclosures,
+  selectedId,
+  onSelect,
+  getAnimalCountForEnclosure,
+  navigate,
   animalProfile,
   lastWaterChange,
   latestTempLog,
   latestHumidityLog,
   latestUvbLog,
-}: EnvironmentSnapshotProps) {
-  const now = new Date();
-  const timeStr = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+}: {
+  enclosures: Enclosure[];
+  selectedId: string;
+  onSelect: (id: string) => void;
+  getAnimalCountForEnclosure: (id: string) => number;
+  navigate: (path: string) => void;
+  animalProfile: AnimalProfile | null;
+  lastWaterChange: string;
+  latestTempLog: TempLog | null;
+  latestHumidityLog: HumidityLog | null;
+  latestUvbLog: UvbLog | null;
+}) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const selectedEnclosure = enclosures.find((enc) => enc.id === selectedId) ?? enclosures[0] ?? null;
+
+  useEffect(() => {
+    if (!scrollRef.current) return;
+    const selectedCard = scrollRef.current.querySelector('[data-selected="true"]') as HTMLElement;
+    if (selectedCard) {
+      const container = scrollRef.current;
+      const cardLeft = selectedCard.offsetLeft;
+      const cardWidth = selectedCard.offsetWidth;
+      const containerWidth = container.offsetWidth;
+      const centerScroll = cardLeft - (containerWidth - cardWidth) / 2;
+      container.scrollLeft = centerScroll;
+    }
+  }, [selectedId]);
+
+  if (!selectedEnclosure) {
+    return null;
+  }
+
+  const selectedAnimalCount = getAnimalCountForEnclosure(selectedEnclosure.id);
+  const subtitle = `${selectedAnimalCount} animal${selectedAnimalCount === 1 ? '' : 's'} • ${formatLastUpdated(selectedEnclosure.updatedAt)}`;
 
   const temp = animalProfile?.careTargets?.temperature;
   const humidity = animalProfile?.careTargets?.humidity;
@@ -217,74 +306,73 @@ function EnvironmentSnapshot({
   ];
 
   return (
-    <div className="mx-4 bg-card border border-divider rounded-2xl overflow-hidden">
-      <div className="flex items-center justify-between px-4 pt-4 pb-2">
-        <div className="flex items-center gap-1.5">
-          <Thermometer className="w-4 h-4 text-orange-100" />
-          <h3 className="textmed font-bold text-white">{enclosureName ? `${enclosureName} Environment` : 'Environment Snapshot'}</h3>
+    <div className="px-4 space-y-3">
+      <div className="bg-card border border-divider rounded-2xl overflow-hidden p-3 sm:p-4">
+        <div className="flex items-center gap-2 mb-2.5 sm:mb-3">
+          <Home className="w-4 h-4 text-accent" />
+          <p className="text-sm font-semibold text-white">Enclosure Overview</p>
         </div>
-        <div className="flex items-center gap-1.5">
-          <span className="text-[10px] text-muted">Updated {timeStr}</span>
-          <RefreshCw className="w-3 h-3 text-muted" />
-        </div>
-      </div>
-      <div className="grid grid-cols-4 divide-x divide-divider border-t border-divider">
-        {tiles.map((tile) => (
-          <div key={tile.label} className="flex flex-col items-center gap-1 p-3">
-            <div className="mb-0.5">{tile.icon}</div>
-            <span className="text-xs font-bold text-white text-center leading-tight">{tile.value}</span>
-            <span className="text-[10px] text-muted text-center leading-tight">{tile.label}</span>
-            <div className="flex items-center gap-0.5 mt-0.5">
-              <span className="text-[9px] text-muted text-center leading-tight">{tile.sub}</span>
-              {tile.hasCheck && <CheckCircle2 className="w-2.5 h-2.5 text-accent flex-shrink-0" />}
+
+        <div className="flex gap-2.5 sm:gap-3 items-stretch">
+          <div className="flex-1 min-w-0 flex flex-col justify-between gap-2.5 sm:gap-3">
+            <div>
+              <h3 className="text-lg sm:text-2xl font-bold text-white leading-tight">{selectedEnclosure.name}</h3>
+              <p className="mt-1 text-xs sm:text-sm text-muted">{subtitle}</p>
+              <p className="mt-0.5 sm:mt-1 text-xs sm:text-sm text-emerald-200/85">{selectedEnclosure.animalName}</p>
+            </div>
+
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+              <button
+                type="button"
+                onClick={() => navigate(`/care-calendar/enclosures/${selectedEnclosure.id}/environment`)}
+                className="inline-flex items-center justify-center rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-emerald-300 transition-colors hover:bg-emerald-500/15"
+              >
+                View Enclosure
+              </button>
+              <button
+                type="button"
+                onClick={() => navigate(`/care-calendar/enclosures/edit/${selectedEnclosure.id}`)}
+                className="inline-flex items-center gap-1.5 sm:gap-2 justify-center rounded-full border border-divider bg-card-elevated px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-white transition-colors hover:border-accent/40"
+              >
+                <Pencil className="w-4 h-4 text-accent" />
+                Edit Enclosure
+              </button>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
-function EnclosureCarousel({
-  enclosures,
-  selectedId,
-  onSelect,
-  getAnimalCountForEnclosure,
-  navigate,
-}: {
-  enclosures: Enclosure[];
-  selectedId: string;
-  onSelect: (id: string) => void;
-  getAnimalCountForEnclosure: (id: string) => number;
-  navigate: (path: string) => void;
-}) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  // Center the selected enclosure
-  useEffect(() => {
-    if (!scrollRef.current) return;
-    const selectedCard = scrollRef.current.querySelector('[data-selected="true"]') as HTMLElement;
-    if (selectedCard) {
-      const container = scrollRef.current;
-      const cardLeft = selectedCard.offsetLeft;
-      const cardWidth = selectedCard.offsetWidth;
-      const containerWidth = container.offsetWidth;
-      const centerScroll = cardLeft - (containerWidth - cardWidth) / 2;
-      container.scrollLeft = centerScroll;
-    }
-  }, [selectedId]);
-
-  return (
-    <div className="px-4 space-y-3">
-      <div className="flex items-center justify-between">
-        <div>
-          <h2 className="text-lg font-bold text-white">Enclosures</h2>
+          <div className="w-32 sm:w-56 h-20 sm:h-28 rounded-2xl overflow-hidden border border-divider bg-card-elevated flex-shrink-0 self-center flex items-center justify-center">
+            {selectedEnclosure.photoUrl ? (
+              <img src={selectedEnclosure.photoUrl} alt={selectedEnclosure.name} className="w-full h-full object-cover" />
+            ) : (
+              <Home className="w-10 h-10 text-muted" />
+            )}
+          </div>
         </div>
-        <p className="text-xs text-muted">Swipe to see more</p>
+
+        <div className="mt-3 sm:mt-4 border-t border-divider pt-2.5 sm:pt-3">
+          <div className="flex items-center justify-between px-1 pb-1.5 sm:pb-2">
+            <div className="flex items-center gap-1.5">
+              <Thermometer className="w-4 h-4 text-orange-100" />
+              <p className="text-xs sm:text-sm font-semibold text-white">Environment Snapshot</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-4 divide-x divide-divider border border-divider rounded-xl overflow-hidden bg-card-elevated">
+            {tiles.map((tile) => (
+              <div key={tile.label} className="flex flex-col items-center gap-0.5 sm:gap-1 p-2 sm:p-3">
+                <div className="mb-0.5">{tile.icon}</div>
+                <span className="text-xs font-bold text-white text-center leading-tight">{tile.value}</span>
+                <span className="text-[10px] text-muted text-center leading-tight">{tile.label}</span>
+                <div className="flex items-center gap-0.5 mt-0.5">
+                  <span className="text-[9px] text-muted text-center leading-tight">{tile.sub}</span>
+                  {tile.hasCheck && <CheckCircle2 className="w-2.5 h-2.5 text-accent flex-shrink-0" />}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
-      <div>
-        {/* Carousel */}
+      {enclosures.length > 1 ? (
         <div
           ref={scrollRef}
           className="flex gap-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
@@ -292,59 +380,36 @@ function EnclosureCarousel({
           {enclosures.map((enc) => {
             const isSelected = enc.id === selectedId;
             const animalCount = getAnimalCountForEnclosure(enc.id);
+
             return (
               <button
                 key={enc.id}
                 onClick={() => onSelect(enc.id)}
                 data-selected={isSelected ? 'true' : 'false'}
-                className={`flex-shrink-0 w-44 rounded-2xl border-2 overflow-hidden transition-all snap-center ${
+                className={`flex-shrink-0 w-40 rounded-2xl border overflow-hidden transition-all snap-center ${
                   isSelected
-                    ? 'border-accent shadow-lg shadow-accent/30'
-                    : 'border-divider hover:border-accent/50'
+                    ? 'border-accent bg-accent/10 shadow-lg shadow-accent/20'
+                    : 'border-divider bg-card hover:border-accent/50'
                 }`}
               >
-                {/* Photo */}
-                <div className="w-full h-20 bg-card-elevated overflow-hidden relative flex items-center justify-center">
-                  {enc.photoUrl ? (
-                    <img src={enc.photoUrl} alt={enc.name} className="w-full h-full object-cover" />
-                  ) : (
-                    <Home className="w-8 h-8 text-muted" />
-                  )}
-                  {isSelected && (
-                    <div className="absolute top-2 right-2 w-6 h-6 rounded-full bg-accent flex items-center justify-center">
-                      <Check className="w-4 h-4 text-white" />
+                <div className="p-3 text-left">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="min-w-0">
+                      <p className="truncate text-sm font-semibold text-white">{enc.name}</p>
+                      <p className="mt-0.5 truncate text-xs text-muted">{enc.animalName}</p>
                     </div>
-                  )}
-                </div>
-
-                {/* Info */}
-                <div className="bg-card p-3 text-left">
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-white text-sm">{enc.name}</p>
-                      <p className="text-xs text-muted mt-0.5">{enc.animalName}</p>
-                    </div>
-                    <div
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        navigate(`/care-calendar/enclosures/edit/${enc.id}`);
-                      }}
-                      className="flex-shrink-0 w-7 h-7 rounded-full hover:bg-accent/20 flex items-center justify-center transition-colors cursor-pointer"
-                      title="Edit enclosure"
-                    >
-                      <Pencil className="w-4 h-4 text-accent" />
-                    </div>
+                    {isSelected ? <Check className="w-4 h-4 text-accent flex-shrink-0" /> : null}
                   </div>
-                  <div className="mt-2 flex items-center gap-1">
+                  <div className="mt-3 flex items-center gap-1.5 text-xs text-muted">
                     <Turtle className="w-3.5 h-3.5 text-accent" />
-                    <span className="text-xs font-medium text-muted">{animalCount} animal{animalCount !== 1 ? 's' : ''}</span>
+                    <span>{animalCount} animal{animalCount !== 1 ? 's' : ''}</span>
                   </div>
                 </div>
               </button>
             );
           })}
         </div>
-      </div>
+      ) : null}
     </div>
   );
 }
@@ -378,8 +443,24 @@ function EmptyState({ onAdd }: { onAdd: () => void }) {
   );
 }
 
-function AnimalPills({ animals, selectedId, onSelect }: { animals: EnclosureAnimal[]; selectedId: string; onSelect: (id: string) => void }) {
+function AnimalPills({ animals, selectedId, onSelect, statusByAnimalId }: { animals: EnclosureAnimal[]; selectedId: string; onSelect: (id: string) => void; statusByAnimalId: Record<string, SmartStatusLevel> }) {
   if (animals.length === 0) return null;
+
+  const getImageBorderClass = (status?: SmartStatusLevel): string => {
+    switch (status) {
+      case 'healthy':
+        return 'border-accent/90';
+      case 'watch':
+        return 'border-sky-400/90';
+      case 'needs-check':
+        return 'border-amber-400/90';
+      case 'urgent':
+        return 'border-red-400/90';
+      default:
+        return 'border-divider';
+    }
+  };
+
   return (
     <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4">
       {animals.map((a) => (
@@ -388,7 +469,7 @@ function AnimalPills({ animals, selectedId, onSelect }: { animals: EnclosureAnim
           onClick={() => onSelect(a.id)}
           className={`flex-shrink-0 w-[86px] rounded-2xl border p-2 transition-colors ${a.id === selectedId ? 'border-emerald-400/70 bg-emerald-500/15' : 'border-divider bg-card'}`}
         >
-          <div className="mx-auto w-14 h-14 rounded-2xl overflow-hidden border border-divider bg-card-elevated flex items-center justify-center">
+          <div className={`mx-auto w-14 h-14 rounded-2xl overflow-hidden border-2 bg-card-elevated flex items-center justify-center ${getImageBorderClass(statusByAnimalId[a.id])}`}>
             {a.photoUrl ? (
               <img src={a.photoUrl} alt={a.name || `Animal #${a.animalNumber ?? 1}`} className="w-full h-full object-cover" />
             ) : (
@@ -402,30 +483,114 @@ function AnimalPills({ animals, selectedId, onSelect }: { animals: EnclosureAnim
   );
 }
 
-interface AnimalHeroCardProps {
+interface ActivePetCardProps {
   animal: EnclosureAnimal;
   age: string;
   weight: string;
+  weightTrend: string;
   lastFed: string;
-  careStreak: number;
-  healthStatus: 'on-track' | 'needs-check';
-  healthStatusReason: string;
+  consistencyStreak: number;
+  healthStatus: SmartStatusLevel;
+  healthScore: number;
+  healthReasons: string[];
+  shedLogs: ShedLog[];
+  shedStatus: string;
+  poopLogs: PoopLog[];
   onTap: () => void;
 }
 
-function AnimalHeroCard({ animal, age, weight, lastFed, careStreak, healthStatus, healthStatusReason, onTap }: AnimalHeroCardProps) {
+function deriveNextAction(reasons: string[], level: SmartStatusLevel): string | null {
+  if (level === 'healthy') return null;
+  const r = reasons[0]?.toLowerCase() ?? '';
+  if (r.includes('feeding')) return 'Log a feeding to bring things back on track.';
+  if (r.includes('weight')) return 'Log a weight check today.';
+  if (r.includes('poop')) return 'Log a poop to keep the record current.';
+  if (r.includes("hasn't been done") || r.includes('important') || r.includes('overdue')) return 'Complete the overdue task as soon as you can.';
+  if (r.includes('skipped')) return 'Try to complete the next task instead of skipping it.';
+  if (r.includes('missed')) return 'Complete all due tasks today to get back on track.';
+  return 'Open the Care Calendar to see what needs attention.';
+}
+
+function deriveConsistencyReasons(consistencyStreak: number): string[] {
+  const reasons = [
+    'This number shows your best run of on-schedule task completions for this pet.',
+    'Only completed tasks count. Skipped tasks do not build your streak.',
+    'Each task follows its own schedule, so weekly and custom tasks are counted fairly.',
+  ];
+
+  if (consistencyStreak > 0) {
+    reasons.unshift(`You have completed ${consistencyStreak} care checks in a row on schedule.`);
+  } else {
+    reasons.unshift('No streak yet. Complete your next due task to start one.');
+  }
+
+  return reasons;
+}
+
+function ActivePetCard({ animal, age, weight, weightTrend, lastFed, consistencyStreak, healthStatus, healthScore, healthReasons, shedLogs, shedStatus, poopLogs, onTap }: ActivePetCardProps) {
+  const [explanationOpen, setExplanationOpen] = useState(false);
+
   const displayName = animal.name || `Animal #${animal.animalNumber ?? 1}`;
   const gender = animal.gender?.toLowerCase();
   const genderIcon = gender === 'male' ? '♂' : gender === 'female' ? '♀' : null;
   const genderColor = gender === 'male' ? 'text-blue-400' : gender === 'female' ? 'text-pink-400' : 'text-muted';
-  const statusIcon = healthStatus === 'on-track' 
-    ? <CheckCircle2 className="w-5 h-5 text-accent" />
-    : <AlertCircle className="w-5 h-5 text-amber-400" />;
 
-  const stats = [
-    { icon: <Calendar className="w-3.5 h-3.5 text-muted" />, label: 'Age', value: age },
-    { icon: <Scale className="w-3.5 h-3.5 text-muted" />, label: 'Weight', value: weight },
-    { icon: <Utensils className="w-3.5 h-3.5 text-muted" />, label: 'Last Meal', value: lastFed },
+  const statusConfig: Record<SmartStatusLevel, { label: string; textClass: string; bgClass: string; borderClass: string; icon: React.ReactNode }> = {
+    healthy: {
+      label: 'Healthy',
+      textClass: 'text-accent',
+      bgClass: 'bg-accent/10',
+      borderClass: 'border-accent/30',
+      icon: <CheckCircle2 className="w-4 h-4 text-accent" />,
+    },
+    watch: {
+      label: 'Watch',
+      textClass: 'text-sky-300',
+      bgClass: 'bg-sky-500/10',
+      borderClass: 'border-sky-400/30',
+      icon: <Circle className="w-4 h-4 text-sky-400" />,
+    },
+    'needs-check': {
+      label: 'Needs Check',
+      textClass: 'text-amber-300',
+      bgClass: 'bg-amber-500/10',
+      borderClass: 'border-amber-400/30',
+      icon: <AlertCircle className="w-4 h-4 text-amber-400" />,
+    },
+    urgent: {
+      label: 'Urgent',
+      textClass: 'text-red-300',
+      bgClass: 'bg-red-500/10',
+      borderClass: 'border-red-400/30',
+      icon: <AlertCircle className="w-4 h-4 text-red-400" />,
+    },
+  };
+  const status = statusConfig[healthStatus];
+  const nextAction = deriveNextAction(healthReasons, healthStatus);
+  const consistencyReasons = deriveConsistencyReasons(consistencyStreak);
+  const smartStatusTooltip = 'Smart Status is your overall care check based on completion trends, overdue/skip patterns, and recent health logs.';
+  const consistencyTooltip = 'Routine Streak is your best run of on-schedule care completions for this pet.';
+
+  const trendColor = weightTrend === 'Gaining' ? 'text-accent' : weightTrend === 'Losing' ? 'text-red-400' : weightTrend === 'Stable' ? 'text-blue-400' : 'text-muted';
+  const weightTrendIcon = weightTrend === 'Gaining'
+    ? <TrendingUp className="w-5 h-5 text-accent" />
+    : weightTrend === 'Losing'
+    ? <TrendingDown className="w-5 h-5 text-red-400" />
+    : weightTrend === 'Stable'
+    ? <Minus className="w-5 h-5 text-blue-400" />
+    : <Circle className="w-5 h-5 text-muted" />;
+  const shedColor = shedStatus === 'On Track' ? 'text-accent' : shedStatus === 'Overdue' ? 'text-red-400' : shedStatus === 'Due Soon' ? 'text-amber-400' : 'text-muted';
+  const shedDaysAgo = shedLogs.length > 0 ? Math.floor((Date.now() - new Date(shedLogs[0].shedDate).getTime()) / 86_400_000) : null;
+  const shedSub = shedDaysAgo !== null ? (shedDaysAgo === 0 ? 'Today' : shedDaysAgo === 1 ? '1 day ago' : `${shedDaysAgo} days ago`) : 'No data';
+  const latestPoop = poopLogs.length > 0 ? poopLogs[0] : null;
+  const poopValue = latestPoop ? getDaysAgoLabel(latestPoop.loggedAt) : '\u2014';
+  const poopSub = latestPoop?.consistency ? latestPoop.consistency : (latestPoop ? 'Logged' : 'Log it');
+
+  const healthTiles: { icon: React.ReactNode; label: string; value: string; sub: string; valueClass: string; subClass: string }[] = [
+    { icon: weightTrendIcon, label: 'Weight Trend', value: weight, sub: weightTrend !== '\u2014' ? weightTrend : 'No data', valueClass: weight !== '\u2014' ? 'text-white' : 'text-muted', subClass: trendColor },
+    { icon: <Utensils className="w-5 h-5 text-green-400" />, label: 'Appetite', value: lastFed, sub: lastFed !== '\u2014' ? 'Last fed' : 'No data', valueClass: lastFed !== '\u2014' ? 'text-white' : 'text-muted', subClass: 'text-muted' },
+    { icon: <Scissors className="w-5 h-5 text-purple-400" />, label: 'Shed Tracker', value: shedStatus !== '\u2014' ? shedStatus : '\u2014', sub: shedSub, valueClass: shedStatus !== '\u2014' ? shedColor : 'text-muted', subClass: 'text-muted' },
+    { icon: <FileText className="w-5 h-5 text-amber-400" />, label: 'Poop Log', value: poopValue, sub: poopSub, valueClass: latestPoop ? 'text-white' : 'text-muted', subClass: 'text-muted' },
   ];
 
   return (
@@ -445,35 +610,85 @@ function AnimalHeroCard({ animal, age, weight, lastFed, careStreak, healthStatus
             <span className="text-lg font-bold text-white">{displayName}</span>
             {genderIcon && <span className={`text-lg font-bold flex-shrink-0 ${genderColor}`}>{genderIcon}</span>}
           </div>
-          <div className="mb-2 min-h-6">
-            {statusIcon}
+          <p className="text-xs text-muted mb-1">{age}</p>
+          <div className="flex items-center gap-2 flex-wrap">
+            <button
+              onClick={() => setExplanationOpen((o) => !o)}
+              className={`inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 transition-colors active:opacity-70 ${status.bgClass} ${status.borderClass}`}
+              title={smartStatusTooltip}
+              aria-label={`Smart Status: ${status.label}. ${smartStatusTooltip}`}
+            >
+              {status.icon}
+              <span className={`text-xs font-semibold ${status.textClass}`}>{status.label}</span>
+              <span className={`text-[10px] font-medium ${status.textClass} opacity-70`}>{healthScore}</span>
+              <Info className={`w-3 h-3 ${status.textClass} opacity-85`} />
+              <ChevronRight className={`w-3 h-3 ${status.textClass} transition-transform ${explanationOpen ? 'rotate-90' : ''}`} />
+            </button>
+            <button
+              onClick={() => setExplanationOpen((o) => !o)}
+              className="inline-flex items-center gap-1.5 rounded-full border border-orange-400/30 bg-orange-500/10 px-2 py-0.5 transition-colors active:opacity-70"
+              title={consistencyTooltip}
+              aria-label={`Routine Streak: ${consistencyStreak}. ${consistencyTooltip}`}
+            >
+                <Flame className="w-3.5 h-3.5 text-orange-300" />
+                <span className="text-xs font-semibold text-orange-200">Routine Streak</span>
+                <span className="text-[10px] font-medium text-orange-200/80">{consistencyStreak}</span>
+                <Info className="w-3 h-3 text-orange-200/90" />
+                <ChevronRight className={`w-3 h-3 text-orange-200 transition-transform ${explanationOpen ? 'rotate-90' : ''}`} />
+            </button>
           </div>
-          {healthStatus === 'needs-check' ? (
-            <p className="text-[11px] text-amber-200/90 truncate" title={healthStatusReason}>{healthStatusReason}</p>
-          ) : (
-            <p className="text-[11px] text-amber-200/90 truncate invisible">placeholder</p>
-          )}
-        </div>
-
-        <div className="flex-shrink-0 self-start rounded-xl border border-orange-500/25 px-2.5 py-2 text-center min-w-[74px]">
-          <div className="flex items-center justify-center gap-1 text-orange-300">
-            <Flame className="w-3.5 h-3.5" />
-            <span className="text-[10px] font-semibold uppercase tracking-wide">Streak</span>
-          </div>
-          <p className="mt-0.5 text-lg font-bold text-white leading-none">{careStreak}</p>
-          <p className="text-[10px] text-muted">day{careStreak === 1 ? '' : 's'}</p>
         </div>
       </div>
 
-      {/* Stats strip */}
-      <div className="grid grid-cols-3 divide-x divide-divider border-t border-divider">
-        {stats.map((s) => (
-          <div key={s.label} className="flex items-center gap-2 px-3 py-2.5">
-            {s.icon}
-            <div className="min-w-0">
-              <p className="text-[10px] text-muted leading-tight">{s.label}</p>
-              <p className="text-xs font-bold text-white leading-tight truncate">{s.value}</p>
+      {/* Explanation panel */}
+      {explanationOpen && (
+        <div className={`mx-4 mb-3 rounded-xl border ${status.borderClass} ${status.bgClass} px-3 py-2.5 space-y-2`}>
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-muted">Why this status?</p>
+          <p className="text-[11px] text-white/75">
+            Smart Status is your overall care check. It combines task completion, overdue/skip patterns, and recent feeding, weight, and poop logs.
+          </p>
+          <ul className="space-y-1">
+            {healthReasons.map((reason, idx) => (
+              <li key={idx} className={`text-xs flex items-start gap-1.5 ${status.textClass}`}>
+                <span className="mt-0.5 flex-shrink-0">•</span>
+                <span>{reason}</span>
+              </li>
+            ))}
+          </ul>
+          {nextAction && (
+            <div className="pt-1.5 border-t border-white/10">
+              <p className="text-[11px] font-semibold text-white mb-0.5">Suggested action</p>
+              <p className="text-xs text-white/80">{nextAction}</p>
             </div>
+          )}
+
+          <div className="pt-1.5 border-t border-white/10">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted">Why this routine streak?</p>
+            <p className="text-[11px] text-orange-100/80">
+              Routine Streak shows your best run of on-schedule care completions for this pet.
+            </p>
+            <ul className="space-y-1 mt-1.5">
+              {consistencyReasons.map((reason, idx) => (
+                <li key={idx} className="text-xs flex items-start gap-1.5 text-orange-100/90">
+                  <span className="mt-0.5 flex-shrink-0">•</span>
+                  <span>{reason}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+
+      {/* Health & Wellness tiles */}
+      <div className="px-4 pt-3 pb-1 flex items-center gap-1.5 border-t border-divider">
+      </div>
+      <div className="grid grid-cols-4 divide-x divide-divider border-t border-divider">
+        {healthTiles.map((tile) => (
+          <div key={tile.label} className="flex flex-col items-center gap-1 p-3">
+            <div className="flex items-center justify-center mb-0.5">{tile.icon}</div>
+            <span className={`text-xs font-bold leading-tight text-center ${tile.valueClass}`}>{tile.value}</span>
+            <span className={`text-[10px] leading-tight text-center ${tile.subClass}`}>{tile.sub}</span>
+            <span className="text-[9px] text-muted text-center leading-tight mt-0.5">{tile.label}</span>
           </div>
         ))}
       </div>
@@ -552,91 +767,6 @@ function TodayCarePlan({ tasks, completedIds, onComplete, onOpenTask }: TodayCar
   );
 }
 
-interface HealthWellnessProps {
-  weight: string;
-  weightTrend: string;
-  shedLogs: ShedLog[];
-  shedStatus: string;
-  lastFed: string;
-  poopLogs: PoopLog[];
-  onViewAll: () => void;
-}
-
-function HealthWellness({ weight, weightTrend, shedLogs, shedStatus, lastFed, poopLogs, onViewAll }: HealthWellnessProps) {
-  const trendColor = weightTrend === 'Gaining' ? 'text-accent' : weightTrend === 'Losing' ? 'text-red-400' : weightTrend === 'Stable' ? 'text-blue-400' : 'text-muted';
-  const shedColor = shedStatus === 'On Track' ? 'text-accent' : shedStatus === 'Overdue' ? 'text-red-400' : shedStatus === 'Due Soon' ? 'text-amber-400' : 'text-muted';
-  const shedDaysAgo = shedLogs.length > 0
-    ? Math.floor((Date.now() - new Date(shedLogs[0].shedDate).getTime()) / 86_400_000)
-    : null;
-  const shedSub = shedDaysAgo !== null
-    ? (shedDaysAgo === 0 ? 'Today' : shedDaysAgo === 1 ? '1 day ago' : `${shedDaysAgo} days ago`)
-    : 'No data';
-  const latestPoop = poopLogs.length > 0 ? poopLogs[0] : null;
-  const poopValue = latestPoop ? getDaysAgoLabel(latestPoop.loggedAt) : '\u2014';
-  const poopSub = latestPoop?.consistency ? latestPoop.consistency : (latestPoop ? 'Logged' : 'Log it');
-
-  const tiles: { icon: React.ReactNode; label: string; value: string; sub: string; valueClass: string; subClass: string }[] = [
-    {
-      icon: <TrendingUp className="w-5 h-5 text-blue-400" />,
-      label: 'Weight Trend',
-      value: weight,
-      sub: weightTrend !== '\u2014' ? weightTrend : 'No data',
-      valueClass: weight !== '\u2014' ? 'text-white' : 'text-muted',
-      subClass: trendColor,
-    },
-    {
-      icon: <Utensils className="w-5 h-5 text-green-400" />,
-      label: 'Appetite',
-      value: lastFed,
-      sub: lastFed !== '\u2014' ? 'Last fed' : 'No data',
-      valueClass: lastFed !== '\u2014' ? 'text-white' : 'text-muted',
-      subClass: 'text-muted',
-    },
-    {
-      icon: <Scissors className="w-5 h-5 text-purple-400" />,
-      label: 'Shed Tracker',
-      value: shedStatus !== '\u2014' ? shedStatus : '\u2014',
-      sub: shedSub,
-      valueClass: shedStatus !== '\u2014' ? shedColor : 'text-muted',
-      subClass: 'text-muted',
-    },
-    {
-      icon: <FileText className="w-5 h-5 text-amber-400" />,
-      label: 'Poop Log',
-      value: poopValue,
-      sub: poopSub,
-      valueClass: latestPoop ? 'text-white' : 'text-muted',
-      subClass: 'text-muted',
-    },
-  ];
-
-  return (
-    <div className="mx-4 bg-card border border-divider rounded-2xl overflow-hidden">
-      <div className="flex items-center justify-between px-4 pt-4 pb-2">
-        <div className="flex items-center gap-1.5">
-          <Heart className="w-4 h-4 text-red-400" />
-          <h3 className="text-med font-bold text-white">Health &amp; Wellness</h3>
-        </div>
-        <div className="flex items-center gap-2">
-          <button onClick={onViewAll} className="flex items-center gap-0.5 text-xs text-accent font-medium">
-            View All <ChevronRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-      </div>
-      <div className="grid grid-cols-4 divide-x divide-divider border-t border-divider">
-        {tiles.map((tile) => (
-          <div key={tile.label} className="flex flex-col items-center gap-1 p-3">
-            <div className="flex items-center justify-center mb-0.5">{tile.icon}</div>
-            <span className={`text-xs font-bold leading-tight text-center ${tile.valueClass}`}>{tile.value}</span>
-            <span className={`text-[10px] leading-tight text-center ${tile.subClass}`}>{tile.sub}</span>
-            <span className="text-[9px] text-muted text-center leading-tight mt-0.5">{tile.label}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 // Main View
 export function DashboardView() {
   const { user } = useAuth();
@@ -654,9 +784,18 @@ export function DashboardView() {
   const [humidityLogs, setHumidityLogs] = useState<HumidityLog[]>([]);
   const [uvbLogs, setUvbLogs] = useState<UvbLog[]>([]);
   const [feedingLogs, setFeedingLogs] = useState<FeedingLog[]>([]);
-  const [careStreak, setCareStreak] = useState(0);
+  const [consistencyStreak, setConsistencyStreak] = useState(0);
+  const [animalStatusById, setAnimalStatusById] = useState<Record<string, SmartStatusLevel>>({});
   const [completedIds, setCompletedIds] = useState<Set<string>>(new Set());
   const [loading, setLoading] = useState(true);
+  const [displayName, setDisplayName] = useState<string>('');
+
+  useEffect(() => {
+    if (!user) return;
+    profileService.getProfile(user.id)
+      .then((p) => setDisplayName(p?.displayName || ''))
+      .catch(console.error);
+  }, [user]);
 
   useEffect(() => {
     if (!user) return;
@@ -742,10 +881,10 @@ export function DashboardView() {
     });
   }, [selectedAnimalId, selectedEnclosureId, animals]);
 
-  // Calculate care streak for selected animal
+  // Calculate consistency streak for selected animal
   useEffect(() => {
     if (!selectedAnimalId) {
-      setCareStreak(0);
+      setConsistencyStreak(0);
       return;
     }
 
@@ -754,39 +893,80 @@ export function DashboardView() {
       (selectedEnclosureId && t.enclosureId === selectedEnclosureId)
     );
 
-    const animalCareStreak = animalTasksForStreak.length > 0
-      ? Math.max(...animalTasksForStreak.map(t => {
-          const completedDates = t.logs
-            .filter(l => !l.skipped)
-            .map(l => {
-              const date = new Date(l.completedAt);
-              date.setHours(0, 0, 0, 0);
-              return date;
-            })
-            .sort((a, b) => b.getTime() - a.getTime())
-            .filter((date, index, arr) => index === 0 || date.getTime() !== arr[index - 1].getTime());
-
-          if (completedDates.length === 0) return 0;
-
-          const intervalDays = t.frequency === 'daily' ? 1 : t.frequency === 'every-other-day' ? 2 : 1;
-          let streak = 1;
-          let currentDate = completedDates[0];
-
-          for (let i = 1; i < completedDates.length; i++) {
-            const logDate = completedDates[i];
-            const dayDiff = Math.floor((currentDate.getTime() - logDate.getTime()) / (1000 * 60 * 60 * 24));
-            if (dayDiff <= intervalDays) {
-              streak++;
-              currentDate = logDate;
-            } else {
-              break;
-            }
-          }
-          return streak;
-        }), 0)
+    const animalConsistencyStreak = animalTasksForStreak.length > 0
+      ? Math.max(...animalTasksForStreak.map((task) => calculateTaskConsistencyStreak(task)), 0)
       : 0;
-    setCareStreak(animalCareStreak);
+    setConsistencyStreak(animalConsistencyStreak);
   }, [selectedAnimalId, selectedEnclosureId, tasks]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadAnimalStatuses() {
+      if (animals.length === 0) {
+        setAnimalStatusById({});
+        return;
+      }
+
+      const statusEntries = await Promise.all(
+        animals.map(async (animal) => {
+          const animalTasks = tasks.filter((t) =>
+            t.enclosureAnimalId === animal.id ||
+            (animal.enclosureId && t.enclosureId === animal.enclosureId)
+          );
+
+          const animalStreak = animalTasks.length > 0
+            ? Math.max(...animalTasks.map((task) => calculateTaskConsistencyStreak(task)), 0)
+            : 0;
+
+          const [animalWeightLogs, animalPoopLogs, enclosureFeedingLogs] = await Promise.all([
+            weightTrackingService.getWeightLogs(animal.id).catch(() => [] as WeightLog[]),
+            poopLogService.getRecentLogs(animal.id, 1).catch(() => [] as PoopLog[]),
+            animal.enclosureId
+              ? feedingLogService.getRecentLogs(animal.enclosureId, 10).catch(() => [] as FeedingLog[])
+              : Promise.resolve([] as FeedingLog[]),
+          ]);
+
+          const latestTaskFeeding = animalTasks
+            .filter((t) => t.type === 'feeding' && t.lastCompleted)
+            .map((t) => new Date(t.lastCompleted as Date | string))
+            .sort((a, b) => b.getTime() - a.getTime())[0] ?? null;
+          const latestDirectFeeding = enclosureFeedingLogs[0]?.completedAt
+            ? new Date(enclosureFeedingLogs[0].completedAt)
+            : null;
+          const latestFeedingAt = latestTaskFeeding && latestDirectFeeding
+            ? (latestTaskFeeding > latestDirectFeeding ? latestTaskFeeding : latestDirectFeeding)
+            : (latestTaskFeeding ?? latestDirectFeeding);
+
+          const latestWeightAt = animalWeightLogs[0]?.measurementDate
+            ? new Date(animalWeightLogs[0].measurementDate)
+            : null;
+          const latestPoopAt = animalPoopLogs[0]?.loggedAt ?? null;
+
+          const animalStatus = computeSmartStatus({
+            tasks: animalTasks,
+            latestFeedingAt,
+            latestWeightAt,
+            latestPoopAt,
+            streakDays: animalStreak,
+          });
+
+          return [animal.id, animalStatus.level] as const;
+        })
+      );
+
+      if (cancelled) return;
+      setAnimalStatusById(Object.fromEntries(statusEntries));
+    }
+
+    loadAnimalStatuses().catch(() => {
+      if (!cancelled) setAnimalStatusById({});
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [animals, tasks]);
 
   const handleCompleteTask = useCallback((task: CareTaskWithLogs) => {
     setCompletedIds((prev) => {
@@ -802,11 +982,6 @@ export function DashboardView() {
   }, []);
 
   const selectedAnimal = animals.find((a) => a.id === selectedAnimalId) ?? null;
-  const selectedEnclosure = enclosures.find((e) => e.id === selectedEnclosureId) ?? null;
-  const animalsInSelectedEnclosure = selectedEnclosureId
-    ? animals.filter((a) => a.enclosureId === selectedEnclosureId)
-    : [];
-  const selectorAnimals = animalsInSelectedEnclosure.length > 0 ? animalsInSelectedEnclosure : animals;
   const speciesId = (selectedAnimal as any)?.enclosures?.animalId as string | undefined;
   const animalProfile: AnimalProfile | null = speciesId ? (getAnimalById(speciesId) ?? null) : null;
   const age = formatAge(selectedAnimal?.birthday);
@@ -831,29 +1006,17 @@ export function DashboardView() {
     .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())[0];
   const latestWeightDate = weightLogs[0]?.measurementDate ? new Date(weightLogs[0].measurementDate) : null;
   const latestPoopDate = poopLogs[0]?.loggedAt || null;
-  const logFreshnessDays = 14;
-  const healthCheckReasons: string[] = [];
 
-  if (!latestFeedingCompletion) {
-    healthCheckReasons.push('Missing feeding log');
-  } else if (!isRecent(latestFeedingCompletion, logFreshnessDays)) {
-    healthCheckReasons.push(`Feeding log is older than ${logFreshnessDays} days`);
-  }
-
-  if (!latestWeightDate) {
-    healthCheckReasons.push('Missing weight log');
-  } else if (!isRecent(latestWeightDate, logFreshnessDays)) {
-    healthCheckReasons.push(`Weight log is older than ${logFreshnessDays} days`);
-  }
-
-  if (!latestPoopDate) {
-    healthCheckReasons.push('Missing poop log');
-  } else if (!isRecent(latestPoopDate, logFreshnessDays)) {
-    healthCheckReasons.push(`Poop log is older than ${logFreshnessDays} days`);
-  }
-
-  const healthStatus: 'on-track' | 'needs-check' = healthCheckReasons.length === 0 ? 'on-track' : 'needs-check';
-  const healthStatusReason = healthStatus === 'on-track' ? `All core logs are recent (${logFreshnessDays}d)` : healthCheckReasons.join(' • ');
+  const smartStatus = computeSmartStatus({
+    tasks: animalTasks,
+    latestFeedingAt: latestFeedingCompletion ? new Date(latestFeedingCompletion) : null,
+    latestWeightAt: latestWeightDate,
+    latestPoopAt: latestPoopDate,
+    streakDays: consistencyStreak,
+  });
+  const healthStatus = smartStatus.level;
+  const healthScore = smartStatus.score;
+  const healthReasons = smartStatus.reasons;
 
   if (loading) {
     return (
@@ -871,12 +1034,48 @@ export function DashboardView() {
     );
   }
 
+  const hour = new Date().getHours();
+  const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+  const greetingName = displayName || user?.email?.split('@')[0] || 'there';
+
   return (
     <div className="min-h-screen bg-surface pb-28">
+      <div className="space-y-4 pt-3">
+        <div className="px-4 pt-1 pb-0">
+          <h1 className="text-xl font-bold text-white">{greeting}, <span className="text-accent">{greetingName}</span> 👋</h1>
+        </div>
+        <TodayCarePlan
+          tasks={animalTasks}
+          completedIds={completedIds}
+          onComplete={handleCompleteTask}
+          onOpenTask={(task) => navigate(`/care-calendar/tasks/edit/${task.id}?returnTo=${encodeURIComponent('/')}`)}
+        />
+        <ActivePetCard
+          animal={selectedAnimal}
+          age={age}
+          weight={weight}
+          weightTrend={weightTrend}
+          lastFed={lastFed}
+          consistencyStreak={consistencyStreak}
+          healthStatus={healthStatus}
+          healthScore={healthScore}
+          healthReasons={healthReasons}
+          shedLogs={shedLogs}
+          shedStatus={shedStatus}
+          poopLogs={poopLogs}
+          onTap={() => navigate(`/my-animals/${selectedAnimal.id}`)}
+        />
 
-      <div className="space-y-3 pt-2">
+        <div>
+          <div className="px-4 mb-2 flex items-center justify-between">
+            <p className="text-base font-semibold text-white">All Pets</p>
+            <p className="text-xs text-muted">Swipe to see more</p>
+          </div>
+          <AnimalPills animals={animals} selectedId={selectedAnimalId} onSelect={setSelectedAnimalId} statusByAnimalId={animalStatusById} />
+        </div>
+
         {selectedEnclosureId && enclosures.length > 0 ? (
-          <EnclosureCarousel
+          <EnclosureOverviewSection
             enclosures={enclosures}
             selectedId={selectedEnclosureId}
             onSelect={(enclosureId) => {
@@ -884,49 +1083,18 @@ export function DashboardView() {
               const firstAnimal = animals.find((a) => a.enclosureId === enclosureId);
               if (firstAnimal) setSelectedAnimalId(firstAnimal.id);
             }}
-            getAnimalCountForEnclosure={(enclosureId) => 
+            getAnimalCountForEnclosure={(enclosureId) =>
               animals.filter((a) => a.enclosureId === enclosureId).length
             }
             navigate={navigate}
+            animalProfile={animalProfile}
+            lastWaterChange={lastWaterChange}
+            latestTempLog={latestTempLog}
+            latestHumidityLog={latestHumidityLog}
+            latestUvbLog={latestUvbLog}
           />
         ) : null}
-
-        <div>
-          <div className="px-4 mb-2 flex items-center justify-between">
-            <p className="text-base font-semibold text-white">Pets in this Enclosure</p>
-            <p className="text-xs text-muted">Swipe to see more</p>
-          </div>
-          <AnimalPills animals={selectorAnimals} selectedId={selectedAnimalId} onSelect={setSelectedAnimalId} />
-        </div>
       </div>
-
-      <div className="space-y-4 pt-3">
-        <AnimalHeroCard animal={selectedAnimal} age={age} weight={weight} lastFed={lastFed} careStreak={careStreak} healthStatus={healthStatus} healthStatusReason={healthStatusReason} onTap={() => navigate(`/my-animals/${selectedAnimal.id}`)} />
-        <TodayCarePlan
-          tasks={animalTasks}
-          completedIds={completedIds}
-          onComplete={handleCompleteTask}
-          onOpenTask={(task) => navigate(`/care-calendar/tasks/edit/${task.id}?returnTo=${encodeURIComponent('/')}`)}
-        />
-        <HealthWellness
-          weight={weight}
-          weightTrend={weightTrend}
-          shedLogs={shedLogs}
-          shedStatus={shedStatus}
-          lastFed={lastFed}
-          poopLogs={poopLogs}
-          onViewAll={() => navigate(`/my-animals/${selectedAnimal.id}`)}
-        />
-        <EnvironmentSnapshot
-          enclosureName={selectedEnclosure?.name}
-          animalProfile={animalProfile}
-          lastWaterChange={lastWaterChange}
-          latestTempLog={latestTempLog}
-          latestHumidityLog={latestHumidityLog}
-          latestUvbLog={latestUvbLog}
-        />
-      </div>
-
     </div>
   );
 }

@@ -45,6 +45,7 @@ const OwnerDashboardView = lazy(() => import('./Views/OwnerDashboardView').then(
 const WhatsNewView = lazy(() => import('./Views/WhatsNewView').then(m => ({ default: m.WhatsNewView })));
 const PrivacyPolicy = lazy(() => import('./PrivacyPolicy/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
 const DashboardView = lazy(() => import('./Views/DashboardView').then(m => ({ default: m.DashboardView })));
+const SmartStatusTuner = lazy(() => import('./Dev/SmartStatusTuner'));
 
 const LoadingFallback = () => (
   <div className="flex items-center justify-center min-h-[400px]">
@@ -189,6 +190,7 @@ export function AppRoutes({ onOpenFeedback }: AppRoutesProps) {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/dev/animals" element={<AnimalProfilePreview />} />
         <Route path="/dev/equipment-tags" element={<EquipmentTagsBuilder />} />
+        <Route path="/dev/smart-status" element={<SmartStatusTuner />} />
       </Routes>
     </Suspense>
   );

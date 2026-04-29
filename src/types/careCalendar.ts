@@ -132,6 +132,8 @@ export interface EnclosureAnimal {
   id: string;
   enclosureId?: string; // Optional - animals can exist without an enclosure
   userId: string;
+  speciesId?: string; // Species ID from animal profiles (e.g., 'whites-tree-frog')
+  speciesName?: string; // Species display name (e.g., "White's Tree Frog")
   name?: string; // Optional name (e.g., "Kermit", "Lily")
   animalNumber?: number; // Optional numbering for unnamed animals (#1, #2, etc.)
   gender?: 'male' | 'female' | 'unknown'; // Gender of the animal

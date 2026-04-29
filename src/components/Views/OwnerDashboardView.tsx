@@ -5,6 +5,7 @@ import {
   type OwnerDashboardData,
   type OwnerUserDetails,
 } from '../../services/ownerDashboardService';
+import { formatCareTaskFrequency } from '../../utils/careTaskFrequencyLabel';
 
 const metricStyles: Record<string, { icon: ComponentType<{ className?: string }>; accent: string; iconBg: string }> = {
   totalProfiles: { icon: Users, accent: 'text-sky-700 dark:text-sky-300', iconBg: 'bg-sky-100 dark:bg-sky-900/30' },
@@ -258,7 +259,7 @@ export function OwnerDashboardView() {
                   {selectedUserDetails.userDetails.tasks.map((task) => (
                     <div key={task.id} className="text-xs rounded bg-gray-50 dark:bg-gray-700/50 p-2">
                       <div className="font-medium text-gray-800 dark:text-gray-200">{task.title || task.id}</div>
-                      <div className="text-gray-500 dark:text-gray-400">{task.type || 'custom'} • {task.frequency || 'unknown'}</div>
+                      <div className="text-gray-500 dark:text-gray-400">{task.type || 'custom'} • {formatCareTaskFrequency(task)}</div>
                     </div>
                   ))}
                   {selectedUserDetails.userDetails.tasks.length === 0 && (

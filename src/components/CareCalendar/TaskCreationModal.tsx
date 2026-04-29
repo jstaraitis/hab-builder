@@ -1,7 +1,6 @@
 ﻿import { useState, useEffect } from 'react';
 import { X, ClipboardList, Edit3 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
-import { usePremium } from '../../contexts/PremiumContext';
 import { careTaskService } from '../../services/careTaskService';
 import { enclosureService } from '../../services/enclosureService';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
@@ -24,6 +23,8 @@ interface TaskFormData {
   description: string;
   type: TaskType;
   frequency: TaskFrequency;
+  customFrequencyType?: 'weekdays' | 'interval';
+  customFrequencyDays?: number;
   customFrequencyWeekdays?: number[];
   startDate?: string; // ISO date string (YYYY-MM-DD)
   scheduledTime: string;
@@ -39,7 +40,6 @@ export function TaskCreationModal({
   layout = 'modal'
 }: TaskCreationModalProps) {
   const { user } = useAuth();
-  const { isPremium } = usePremium();
   const [enclosures, setEnclosures] = useState<Enclosure[]>([]);
   const [selectedEnclosure, setSelectedEnclosure] = useState<string>('');
   const [animals, setAnimals] = useState<EnclosureAnimal[]>([]);
@@ -104,6 +104,8 @@ export function TaskCreationModal({
           description: t.description,
           type: t.type as TaskType,
           frequency: t.frequency as TaskFrequency,
+          customFrequencyType: undefined,
+          customFrequencyDays: undefined,
           customFrequencyWeekdays: undefined,
           startDate: undefined,
           scheduledTime: t.scheduledTime,
@@ -122,27 +124,21 @@ export function TaskCreationModal({
       return;
     }
 
-    // Free tier: max 2 active care tasks
-    if (!isPremium) {
-      const existingTasks = await careTaskService.getTasks(user.id);
-      const activeTasks = existingTasks.filter(t => t.isActive);
-      if (activeTasks.length + tasks.length > 2) {
-        const remaining = Math.max(0, 2 - activeTasks.length);
-        setError(
-          remaining === 0
-            ? 'Free plan limit reached (2 tasks). Upgrade to Premium to add unlimited care tasks.'
-            : `Free plan allows 2 tasks total. You can add ${remaining} more. Upgrade for unlimited tasks.`
-        );
-        return;
+    const invalidCustomTaskIndex = tasks.findIndex(task => {
+      if (task.frequency !== 'custom') return false;
+      if (task.customFrequencyType === 'interval') {
+        return !task.customFrequencyDays || task.customFrequencyDays < 1;
       }
-    }
-
-    const invalidCustomTaskIndex = tasks.findIndex(task => (
-      task.frequency === 'custom' && (!task.customFrequencyWeekdays || task.customFrequencyWeekdays.length === 0)
-    ));
+      return !task.customFrequencyWeekdays || task.customFrequencyWeekdays.length === 0;
+    });
 
     if (invalidCustomTaskIndex >= 0) {
-      setError(`Task ${invalidCustomTaskIndex + 1}: select at least one weekday for custom frequency.`);
+      const invalidTask = tasks[invalidCustomTaskIndex];
+      setError(
+        invalidTask.customFrequencyType === 'interval'
+          ? `Task ${invalidCustomTaskIndex + 1}: enter a valid number of days for custom frequency.`
+          : `Task ${invalidCustomTaskIndex + 1}: select at least one weekday for custom frequency.`
+      );
       return;
     }
 
@@ -181,7 +177,12 @@ export function TaskCreationModal({
           nextDueAt.setHours(9, 0, 0, 0);
         }
 
-        if (taskData.frequency === 'custom' && taskData.customFrequencyWeekdays && taskData.customFrequencyWeekdays.length > 0) {
+        if (
+          taskData.frequency === 'custom' &&
+          taskData.customFrequencyType !== 'interval' &&
+          taskData.customFrequencyWeekdays &&
+          taskData.customFrequencyWeekdays.length > 0
+        ) {
           const isMatchingDay = taskData.customFrequencyWeekdays.includes(nextDueAt.getDay());
           if (!isMatchingDay || nextDueAt <= now) {
             const nextWeekday = getNextDateForCustomWeekdays(nextDueAt, taskData.customFrequencyWeekdays);
@@ -199,7 +200,10 @@ export function TaskCreationModal({
           description: taskData.description,
           type: taskData.type,
           frequency: taskData.frequency,
-          customFrequencyWeekdays: taskData.frequency === 'custom'
+          customFrequencyDays: taskData.frequency === 'custom' && taskData.customFrequencyType === 'interval'
+            ? Math.max(1, taskData.customFrequencyDays || 1)
+            : undefined,
+          customFrequencyWeekdays: taskData.frequency === 'custom' && taskData.customFrequencyType !== 'interval'
             ? (taskData.customFrequencyWeekdays || [1, 3, 5])
             : undefined,
           scheduledTime: taskData.scheduledTime,
@@ -272,6 +276,12 @@ export function TaskCreationModal({
       updated[index] = {
         ...current,
         frequency,
+        customFrequencyType: frequency === 'custom'
+          ? (current.customFrequencyType || 'weekdays')
+          : undefined,
+        customFrequencyDays: frequency === 'custom'
+          ? current.customFrequencyDays
+          : undefined,
         customFrequencyWeekdays: frequency === 'custom'
           ? (current.customFrequencyWeekdays && current.customFrequencyWeekdays.length > 0
             ? current.customFrequencyWeekdays
@@ -295,6 +305,7 @@ export function TaskCreationModal({
 
       updated[index] = {
         ...current,
+        customFrequencyType: 'weekdays',
         customFrequencyWeekdays: nextDays,
       };
 
@@ -304,6 +315,32 @@ export function TaskCreationModal({
 
   const removeTask = (index: number) => {
     setTasks(prev => prev.filter((_, i) => i !== index));
+  };
+
+  const updateCustomFrequencyType = (index: number, customFrequencyType: 'weekdays' | 'interval') => {
+    setTasks(prev => {
+      const updated = [...prev];
+      const current = updated[index];
+      updated[index] = {
+        ...current,
+        customFrequencyType,
+        customFrequencyDays: customFrequencyType === 'interval'
+          ? (current.customFrequencyDays && current.customFrequencyDays > 0 ? current.customFrequencyDays : 3)
+          : undefined,
+        customFrequencyWeekdays: customFrequencyType === 'weekdays'
+          ? (current.customFrequencyWeekdays && current.customFrequencyWeekdays.length > 0 ? current.customFrequencyWeekdays : [1, 3, 5])
+          : undefined,
+      };
+      return updated;
+    });
+  };
+
+  const isTaskCustomInvalid = (task: TaskFormData) => {
+    if (task.frequency !== 'custom') return false;
+    if (task.customFrequencyType === 'interval') {
+      return !task.customFrequencyDays || task.customFrequencyDays < 1;
+    }
+    return !task.customFrequencyWeekdays || task.customFrequencyWeekdays.length === 0;
   };
 
   if (!isOpen) return null;
@@ -378,7 +415,7 @@ export function TaskCreationModal({
                     onClick={() => {
                       const selectedEnc = enclosures.find(e => e.id === selectedEnclosure);
                       setTaskMode('custom');
-                      setTasks([{ animalId: selectedEnc?.animalId || 'custom', title: '', description: '', type: 'custom', frequency: 'daily', customFrequencyWeekdays: undefined, startDate: undefined, scheduledTime: '09:00', notificationEnabled: true, notificationMinutesBefore: 15 }]);
+                      setTasks([{ animalId: selectedEnc?.animalId || 'custom', title: '', description: '', type: 'custom', frequency: 'daily', customFrequencyType: undefined, customFrequencyDays: undefined, customFrequencyWeekdays: undefined, startDate: undefined, scheduledTime: '09:00', notificationEnabled: true, notificationMinutesBefore: 15 }]);
                     }}
                     className="bg-card border border-divider rounded-2xl p-4 flex flex-col items-center gap-2 active:scale-95 transition-transform"
                   >
@@ -502,24 +539,50 @@ export function TaskCreationModal({
                     {/* Custom weekdays */}
                     {task.frequency === 'custom' && (
                       <div className="px-4 py-3 border-b border-divider">
-                        <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-2">Weekdays</label>
-                        <div className="flex flex-wrap gap-2">
-                          {WEEKDAY_OPTIONS.map((weekday) => {
-                            const isSelected = (task.customFrequencyWeekdays || []).includes(weekday.value);
-                            return (
-                              <button
-                                key={weekday.value}
-                                type="button"
-                                onClick={() => toggleCustomWeekday(index, weekday.value)}
-                                className={`px-3 py-1.5 text-xs font-semibold rounded-full border transition-colors ${isSelected ? 'bg-accent border-accent text-on-accent' : 'bg-card-elevated border-divider text-muted'}`}
-                              >
-                                {weekday.shortLabel}
-                              </button>
-                            );
-                          })}
-                        </div>
-                        {(task.customFrequencyWeekdays || []).length === 0 && (
-                          <p className="text-xs text-amber-400 mt-1.5">Select at least one day.</p>
+                        <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Custom Type</label>
+                        <select
+                          value={task.customFrequencyType || 'weekdays'}
+                          onChange={(e) => updateCustomFrequencyType(index, e.target.value as 'weekdays' | 'interval')}
+                          className={`${selectClass} mb-2`}
+                        >
+                          <option value="weekdays">Specific weekdays</option>
+                          <option value="interval">Every X days</option>
+                        </select>
+
+                        {(task.customFrequencyType || 'weekdays') === 'interval' ? (
+                          <div>
+                            <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Days Interval</label>
+                            <input
+                              type="number"
+                              min={1}
+                              value={task.customFrequencyDays ?? 3}
+                              onChange={(e) => updateTask(index, 'customFrequencyDays', Math.max(1, parseInt(e.target.value || '1', 10)))}
+                              className="w-full bg-transparent text-white text-sm focus:outline-none"
+                            />
+                            <p className="text-xs text-muted mt-1.5">Example: 4 means this task appears every 4 days.</p>
+                          </div>
+                        ) : (
+                          <>
+                            <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-2">Weekdays</label>
+                            <div className="flex flex-wrap gap-2">
+                              {WEEKDAY_OPTIONS.map((weekday) => {
+                                const isSelected = (task.customFrequencyWeekdays || []).includes(weekday.value);
+                                return (
+                                  <button
+                                    key={weekday.value}
+                                    type="button"
+                                    onClick={() => toggleCustomWeekday(index, weekday.value)}
+                                    className={`px-3 py-1.5 text-xs font-semibold rounded-full border transition-colors ${isSelected ? 'bg-accent border-accent text-on-accent' : 'bg-card-elevated border-divider text-muted'}`}
+                                  >
+                                    {weekday.shortLabel}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                            {(task.customFrequencyWeekdays || []).length === 0 && (
+                              <p className="text-xs text-amber-400 mt-1.5">Select at least one day.</p>
+                            )}
+                          </>
                         )}
                       </div>
                     )}
@@ -596,7 +659,7 @@ export function TaskCreationModal({
                     type="button"
                     onClick={() => {
                       const selectedEnc = enclosures.find(e => e.id === selectedEnclosure);
-                      setTasks(prev => [...prev, { animalId: selectedEnc?.animalId || 'custom', title: '', description: '', type: 'custom', frequency: 'daily', customFrequencyWeekdays: undefined, startDate: undefined, scheduledTime: '09:00', notificationEnabled: true, notificationMinutesBefore: 15 }]);
+                      setTasks(prev => [...prev, { animalId: selectedEnc?.animalId || 'custom', title: '', description: '', type: 'custom', frequency: 'daily', customFrequencyType: undefined, customFrequencyDays: undefined, customFrequencyWeekdays: undefined, startDate: undefined, scheduledTime: '09:00', notificationEnabled: true, notificationMinutesBefore: 15 }]);
                     }}
                     className="w-full bg-card border border-dashed border-divider rounded-2xl py-3 text-sm font-semibold text-accent"
                   >
@@ -628,7 +691,7 @@ export function TaskCreationModal({
               <button
                 type="button"
                 onClick={handleCreateTasks}
-                disabled={loading || tasks.length === 0 || tasks.some(t => t.frequency === 'custom' && (!t.customFrequencyWeekdays || t.customFrequencyWeekdays.length === 0))}
+                disabled={loading || tasks.length === 0 || tasks.some(isTaskCustomInvalid)}
                 className="px-4 py-2 rounded-full bg-accent text-on-accent text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? 'Creating…' : `Create ${tasks.length} Task${tasks.length !== 1 ? 's' : ''}`}
@@ -693,7 +756,7 @@ export function TaskCreationModal({
                   onClick={() => {
                     const selectedEnc = enclosures.find(e => e.id === selectedEnclosure);
                     setTaskMode('custom');
-                    setTasks([{ animalId: selectedEnc?.animalId || 'custom', title: '', description: '', type: 'custom', frequency: 'daily', customFrequencyWeekdays: undefined, startDate: undefined, scheduledTime: '09:00', notificationEnabled: true, notificationMinutesBefore: 15 }]);
+                    setTasks([{ animalId: selectedEnc?.animalId || 'custom', title: '', description: '', type: 'custom', frequency: 'daily', customFrequencyType: undefined, customFrequencyDays: undefined, customFrequencyWeekdays: undefined, startDate: undefined, scheduledTime: '09:00', notificationEnabled: true, notificationMinutesBefore: 15 }]);
                   }}
                   className="bg-card-elevated border border-divider rounded-xl p-4 flex flex-col items-center gap-2 active:scale-95 transition-transform">
                   <div className="w-9 h-9 rounded-xl bg-blue-500/15 flex items-center justify-center"><Edit3 className="w-4 h-4 text-blue-400" /></div>
@@ -764,17 +827,37 @@ export function TaskCreationModal({
                   </div>
                   {task.frequency === 'custom' && (
                     <div className="px-3 py-2.5">
-                      <div className="flex flex-wrap gap-1.5">
-                        {WEEKDAY_OPTIONS.map((weekday) => {
-                          const isSelected = (task.customFrequencyWeekdays || []).includes(weekday.value);
-                          return (
-                            <button key={weekday.value} type="button" onClick={() => toggleCustomWeekday(index, weekday.value)}
-                              className={`px-2.5 py-1 text-xs font-semibold rounded-full border transition-colors ${isSelected ? 'bg-accent border-accent text-on-accent' : 'border-divider text-muted'}`}>
-                              {weekday.shortLabel}
-                            </button>
-                          );
-                        })}
-                      </div>
+                      <label className="block text-[10px] font-semibold text-muted uppercase tracking-wide mb-1">Custom Type</label>
+                      <select
+                        value={task.customFrequencyType || 'weekdays'}
+                        onChange={(e) => updateCustomFrequencyType(index, e.target.value as 'weekdays' | 'interval')}
+                        className="w-full bg-transparent text-white text-xs focus:outline-none mb-2"
+                      >
+                        <option value="weekdays">Specific weekdays</option>
+                        <option value="interval">Every X days</option>
+                      </select>
+
+                      {(task.customFrequencyType || 'weekdays') === 'interval' ? (
+                        <input
+                          type="number"
+                          min={1}
+                          value={task.customFrequencyDays ?? 3}
+                          onChange={(e) => updateTask(index, 'customFrequencyDays', Math.max(1, parseInt(e.target.value || '1', 10)))}
+                          className="w-full bg-transparent text-white text-xs focus:outline-none"
+                        />
+                      ) : (
+                        <div className="flex flex-wrap gap-1.5">
+                          {WEEKDAY_OPTIONS.map((weekday) => {
+                            const isSelected = (task.customFrequencyWeekdays || []).includes(weekday.value);
+                            return (
+                              <button key={weekday.value} type="button" onClick={() => toggleCustomWeekday(index, weekday.value)}
+                                className={`px-2.5 py-1 text-xs font-semibold rounded-full border transition-colors ${isSelected ? 'bg-accent border-accent text-on-accent' : 'border-divider text-muted'}`}>
+                                {weekday.shortLabel}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      )}
                     </div>
                   )}
                   <div className="grid grid-cols-2 divide-x divide-divider">
@@ -802,7 +885,7 @@ export function TaskCreationModal({
                 <button type="button"
                   onClick={() => {
                     const selectedEnc = enclosures.find(e => e.id === selectedEnclosure);
-                    setTasks(prev => [...prev, { animalId: selectedEnc?.animalId || 'custom', title: '', description: '', type: 'custom', frequency: 'daily', customFrequencyWeekdays: undefined, startDate: undefined, scheduledTime: '09:00', notificationEnabled: true, notificationMinutesBefore: 15 }]);
+                    setTasks(prev => [...prev, { animalId: selectedEnc?.animalId || 'custom', title: '', description: '', type: 'custom', frequency: 'daily', customFrequencyType: undefined, customFrequencyDays: undefined, customFrequencyWeekdays: undefined, startDate: undefined, scheduledTime: '09:00', notificationEnabled: true, notificationMinutesBefore: 15 }]);
                   }}
                   className="w-full border border-dashed border-divider rounded-xl py-2.5 text-sm font-semibold text-accent">
                   + Add Another Task
@@ -824,7 +907,7 @@ export function TaskCreationModal({
                 Cancel
               </button>
               <button type="button" onClick={handleCreateTasks}
-                disabled={loading || tasks.length === 0 || tasks.some(t => t.frequency === 'custom' && (!t.customFrequencyWeekdays || t.customFrequencyWeekdays.length === 0))}
+                disabled={loading || tasks.length === 0 || tasks.some(isTaskCustomInvalid)}
                 className="px-4 py-2 rounded-full bg-accent text-on-accent text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed">
                 {loading ? 'Creating…' : `Create ${tasks.length} Task${tasks.length !== 1 ? 's' : ''}`}
               </button>

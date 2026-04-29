@@ -34,7 +34,7 @@
       "type": "feeding",
       "title": "Feed (Adjust to Species)",
       "description": "Feed on a schedule appropriate for age and species. Track appetite and refusals.",
-      "frequency": "custom",
+      "frequency": "daily",
       "scheduledTime": "20:00"
     },
     {

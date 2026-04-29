@@ -9,6 +9,8 @@ import type { Enclosure, EnclosureAnimal } from '../../types/careCalendar';
 import { AnimalForm, type AnimalFormData } from '../Forms/AnimalForm';
 import { PremiumPaywall } from '../Upgrade/PremiumPaywall';
 
+import { animalList } from '../../data/animals';
+
 export function AddAnimalView() {
   const { user } = useAuth();
   const { isPremium } = usePremium();
@@ -67,8 +69,12 @@ export function AddAnimalView() {
     }
 
     const animalData: Partial<EnclosureAnimal> = {
-      enclosureId: formData.enclosureId || undefined,
+      enclosureId: formData.enclosureId,
       userId: user.id,
+      speciesId: formData.speciesId === 'custom' ? 'custom' : (formData.speciesId || undefined),
+      speciesName: formData.speciesId === 'custom'
+        ? (formData.customSpeciesName.trim() || undefined)
+        : (formData.speciesId ? (animalList.find(a => a.id === formData.speciesId)?.name || undefined) : undefined),
       name: formData.name || undefined,
       animalNumber: formData.animalNumber ? parseInt(formData.animalNumber) : undefined,
       gender: formData.gender || undefined,
@@ -110,7 +116,7 @@ export function AddAnimalView() {
       </div>
       <AnimalForm
         mode="add"
-        initialData={{ enclosureId: initialEnclosureId }}
+        initialData={{ enclosureId: initialEnclosureId, speciesId: enclosures.find(e => e.id === initialEnclosureId)?.animalId || '' }}
         enclosures={enclosures}
         speciesName={speciesName}
         onSave={handleSave}

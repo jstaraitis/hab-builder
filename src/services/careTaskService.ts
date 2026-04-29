@@ -146,8 +146,9 @@ export class SupabaseCareService implements ICareTaskService {
     return (data || []).map(row => {
       const task = this.mapTaskFromDb(row);
       const logs = (row.care_logs || []).map(this.mapLogFromDb);
-      const lastCompleted = logs.length > 0
-        ? new Date(Math.max(...logs.map((l: any) => l.completedAt.getTime())))
+      const completedLogs = logs.filter((l) => !l.skipped);
+      const lastCompleted = completedLogs.length > 0
+        ? new Date(Math.max(...completedLogs.map((l: any) => l.completedAt.getTime())))
         : undefined;
 
       return {

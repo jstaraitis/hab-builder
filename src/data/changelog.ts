@@ -11,7 +11,7 @@ export const changelogEntries: ChangelogEntry[] = [
     date: '2026-04-16',
     title: 'Free tier limits & nav cleanup',
     highlights: [
-      'Free accounts now include 1 enclosure, 1 animal, and 2 care tasks — upgrade to Premium for unlimited access.',
+      'Free accounts now include 1 enclosure, 1 animal, and unlimited care tasks — upgrade to Premium for unlimited animals and enclosures.',
       'Free tier limits are now clearly shown on the Home page, Premium page, Upgrade page, and paywall.',
     ],
   },

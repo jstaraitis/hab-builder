@@ -1,6 +1,21 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { User, CreditCard, Lock, Bell, CheckCircle, Trash2, Sparkles } from 'lucide-react';
+import {
+  User,
+  CreditCard,
+  Lock,
+  Bell,
+  CheckCircle,
+  Trash2,
+  Sparkles,
+  ChevronRight,
+  Crown,
+  Infinity,
+  Brain,
+  Thermometer,
+  Settings,
+  LogOut,
+} from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { usePremium } from '../../contexts/PremiumContext';
 import { Auth } from '../Auth';
@@ -44,6 +59,8 @@ export function ProfilePage() {
     newPassword: '',
     confirmPassword: '',
   });
+  const [showDisplayNameEditor, setShowDisplayNameEditor] = useState(false);
+  const [showPasswordEditor, setShowPasswordEditor] = useState(false);
 
   // Detect payment success redirect and refresh premium status
   const handlePaymentSuccess = useCallback(async () => {
@@ -268,10 +285,10 @@ export function ProfilePage() {
 
   if (authLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex min-h-screen items-center justify-center bg-surface">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 dark:text-gray-400">Loading...</p>
+          <div className="mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-b-2 border-accent"></div>
+          <p className="text-muted">Loading...</p>
         </div>
       </div>
     );
@@ -279,262 +296,416 @@ export function ProfilePage() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800 py-12">
+      <div className="min-h-screen bg-surface py-12">
         <Auth />
       </div>
     );
   }
 
+  const userDisplayName = form.displayName?.trim() || user.email?.split('@')[0] || 'Member';
+  const userInitial = userDisplayName.charAt(0).toUpperCase();
+  const membershipSince = user.created_at
+    ? new Date(user.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+    : null;
+  const isPremium = status === 'premium';
+
   return (
-    <div className="space-y-6">
-      <div className="flex items-center gap-3">
-        <div className="p-3 rounded-xl bg-emerald-100 dark:bg-emerald-900/30">
-          <User className="w-6 h-6 text-emerald-600" />
-        </div>
+    <div className="min-h-screen bg-surface pb-28">
+      <div className="space-y-4 px-4 pt-3">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Profile</h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400">Manage your name and subscription status.</p>
+          <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">Account</h2>
+          <p className="mt-1 text-sm text-muted">Manage your profile, preferences and account settings.</p>
         </div>
-      </div>
 
-      {paymentSuccess && (
-        <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-200 rounded-lg p-4 flex items-center gap-3">
-          <CheckCircle className="w-5 h-5 flex-shrink-0" />
-          <div>
-            <p className="font-medium">Payment successful!</p>
-            <p className="text-sm opacity-80">Your premium features are now active. Thank you for supporting Habitat Builder!</p>
-          </div>
-        </div>
-      )}
-
-      {error && (
-        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-200 rounded-lg p-4">
-          {error}
-        </div>
-      )}
-
-      <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm space-y-4">
-        {loading ? (
-          <div className="flex items-center justify-center py-10">
-            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-emerald-600" />
-          </div>
-        ) : (
-          <>
-            <div>
-              <label htmlFor="profile-display-name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Display name</label>
-              <input
-                id="profile-display-name"
-                value={form.displayName}
-                onChange={(event) => setForm({ displayName: event.target.value })}
-                className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm"
-                placeholder="Your name"
-              />
-            </div>
-
-            <div className="rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-3">
-              <div className="flex items-center justify-between mb-3">
-                <div>
-                  <div className="text-sm font-semibold text-gray-800 dark:text-gray-100">Subscription</div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400">
-                    {cancelDate 
-                      ? `Premium access until ${new Date(cancelDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`
-                      : 'Premium unlocks custom nav order and more.'}
-                  </div>
-                </div>
-                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                  status === 'premium'
-                    ? cancelDate
-                      ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-200'
-                      : 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-200'
-                    : 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200'
-                }`}>
-                  {status === 'premium' ? (cancelDate ? 'Cancelling' : 'Premium') : 'Free'}
-                </span>
+        {paymentSuccess && (
+          <div className="rounded-2xl border border-accent/40 bg-accent/10 p-4 text-white">
+            <div className="flex items-start gap-3">
+              <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0" />
+              <div>
+                <p className="font-medium">Payment successful!</p>
+                <p className="text-sm text-white/80">Your premium features are now active. Thank you for supporting Habitat Builder!</p>
               </div>
-              
-              {status === 'premium' ? (
+            </div>
+          </div>
+        )}
+
+        {error && (
+          <div className="rounded-2xl border border-red-500/40 bg-red-500/10 p-4 text-sm text-red-200">
+            {error}
+          </div>
+        )}
+
+        <section className="rounded-2xl border border-divider bg-card p-4 sm:p-5">
+          {loading ? (
+            <div className="flex items-center justify-center py-10">
+              <div className="h-10 w-10 animate-spin rounded-full border-b-2 border-accent" />
+            </div>
+          ) : (
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-center gap-4">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent/20 text-3xl font-semibold text-accent sm:h-20 sm:w-20 sm:text-4xl">
+                  {userInitial}
+                </div>
+
+                <div>
+                  <p className="text-2xl font-semibold text-white sm:text-3xl">{userDisplayName}</p>
+                  <div className="mt-2 flex flex-wrap items-center gap-2">
+                    <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold ${
+                      isPremium
+                        ? 'bg-accent/15 text-accent ring-1 ring-accent/30'
+                        : 'bg-card-elevated text-white ring-1 ring-divider'
+                    }`}>
+                      {isPremium ? <Crown className="h-3.5 w-3.5" /> : <User className="h-3.5 w-3.5" />}
+                      {isPremium ? 'Premium' : 'Free'}
+                    </span>
+                    <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium ${
+                      cancelDate
+                        ? 'bg-amber-500/20 text-amber-300 ring-1 ring-amber-400/30'
+                        : 'bg-accent/15 text-accent ring-1 ring-accent/30'
+                    }`}>
+                      <span className="h-1.5 w-1.5 rounded-full bg-current" />
+                      {cancelDate ? 'Cancelling' : 'Active'}
+                    </span>
+                  </div>
+                  {membershipSince && (
+                    <p className="mt-2 text-sm text-muted">Member since {membershipSince}</p>
+                  )}
+                </div>
+              </div>
+
+              {isPremium ? (
                 <button
                   onClick={handleManageSubscription}
                   disabled={managingSubscription}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900 disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-divider bg-card-elevated px-4 py-2.5 text-sm font-medium text-white transition hover:border-accent/40 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 >
-                  <CreditCard className="w-4 h-4" />
-                  {managingSubscription ? 'Opening portal...' : 'Manage Subscription'}
+                  <CreditCard className="h-4 w-4" />
+                  {managingSubscription ? 'Opening Portal...' : 'Manage Subscription'}
+                  <ChevronRight className="h-4 w-4" />
                 </button>
               ) : (
                 <button
                   onClick={() => navigate('/upgrade')}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-on-accent transition hover:bg-accent-dim sm:w-auto"
                 >
-                  <Sparkles className="w-4 h-4" />
+                  <Sparkles className="h-4 w-4" />
                   Upgrade to Premium
                 </button>
               )}
             </div>
+          )}
+        </section>
 
-            <div className="rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-4">
-              <div className="flex items-center gap-2 mb-3">
-                <Bell className="w-4 h-4 text-gray-600 dark:text-gray-400" />
-                <div className="text-sm font-semibold text-gray-800 dark:text-gray-100">Push Notifications</div>
+        <section className="rounded-2xl border border-accent/30 bg-accent/10 p-4 sm:p-5">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-[1.2fr_repeat(4,1fr)] sm:items-center">
+            <div className="col-span-2 flex items-start gap-3 sm:col-span-1">
+              <div className="rounded-2xl bg-emerald-500/20 p-3 text-emerald-300 ring-1 ring-emerald-400/30">
+                <Crown className="h-6 w-6" />
               </div>
-              
-              <div className="space-y-3">
-                <div className="text-xs text-gray-600 dark:text-gray-400 mb-2">
-                  {notificationStatus === 'not-supported' && 'Push notifications are not supported on this device.'}
-                  {notificationStatus === 'denied' && 'Notification permission was denied. Please enable in your browser settings.'}
-                  {notificationStatus === 'subscribed' && 'Notifications are active. You\'ll receive care task reminders.'}
-                  {notificationStatus === 'not-subscribed' && 'Notifications are not set up. Click below to enable.'}
-                </div>
-                
-                {notificationStatus !== 'not-supported' && notificationStatus !== 'denied' && (
-                  <button
-                    onClick={handleReconnectNotifications}
-                    disabled={reconnectingNotifications}
-                    className={`w-full px-4 py-2 rounded-lg text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed ${
-                      notificationStatus === 'subscribed'
-                        ? 'bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300'
-                        : 'bg-emerald-600 hover:bg-emerald-700 text-white'
-                    }`}
-                  >
-                    {reconnectingNotifications 
-                      ? 'Reconnecting...' 
-                      : notificationStatus === 'subscribed'
-                        ? 'Refresh Connection'
-                        : 'Enable Notifications'}
-                  </button>
-                )}
-
-                {notificationSuccess && (
-                  <div className="p-2 rounded bg-emerald-50 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-200 text-xs">
-                    {notificationSuccess}
-                  </div>
-                )}
+              <div>
+                <p className="text-xl font-semibold text-white sm:text-2xl">{isPremium ? 'Premium Active' : 'Premium Features'}</p>
+                <p className="text-sm text-white/75">
+                  {isPremium ? 'Thank you for supporting better care for your pets.' : 'Unlock advanced planning and care tools.'}
+                </p>
               </div>
             </div>
 
-            <div className="rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-4">
-              <div className="flex items-center gap-2 mb-3">
-                <Lock className="w-4 h-4 text-gray-600 dark:text-gray-400" />
-                <div className="text-sm font-semibold text-gray-800 dark:text-gray-100">Change Password</div>
+            <div className="text-center">
+              <div className="mx-auto mb-2 inline-flex rounded-full bg-emerald-500/20 p-2 text-emerald-300 ring-1 ring-emerald-400/30">
+                <Infinity className="h-5 w-5" />
               </div>
-              
-              <div className="space-y-3">
-                <div>
-                  <label htmlFor="new-password" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    New Password
-                  </label>
-                  <input
-                    id="new-password"
-                    type="password"
-                    placeholder="••••••••"
-                    value={passwordForm.newPassword}
-                    onChange={(e) => setPasswordForm({ ...passwordForm, newPassword: e.target.value })}
-                    className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm"
-                    minLength={6}
-                  />
+              <p className="text-sm font-medium text-white">Unlimited</p>
+              <p className="text-xs text-white/70">animals</p>
+            </div>
+
+            <div className="text-center">
+              <div className="mx-auto mb-2 inline-flex rounded-full bg-emerald-500/20 p-2 text-emerald-300 ring-1 ring-emerald-400/30">
+                <Bell className="h-5 w-5" />
+              </div>
+              <p className="text-sm font-medium text-white">Smart</p>
+              <p className="text-xs text-white/70">reminders</p>
+            </div>
+
+            <div className="text-center">
+              <div className="mx-auto mb-2 inline-flex rounded-full bg-emerald-500/20 p-2 text-emerald-300 ring-1 ring-emerald-400/30">
+                <Brain className="h-5 w-5" />
+              </div>
+              <p className="text-sm font-medium text-white">Advanced</p>
+              <p className="text-xs text-white/70">insights</p>
+            </div>
+
+            <div className="text-center">
+              <div className="mx-auto mb-2 inline-flex rounded-full bg-emerald-500/20 p-2 text-emerald-300 ring-1 ring-emerald-400/30">
+                <Thermometer className="h-5 w-5" />
+              </div>
+              <p className="text-sm font-medium text-white">Environment</p>
+              <p className="text-xs text-white/70">tracking</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="rounded-2xl border border-divider bg-card p-4 sm:p-5">
+          <div className="grid gap-4 sm:grid-cols-[1.2fr_1fr_auto] sm:items-center">
+            <div className="flex items-start gap-3">
+              <div className="rounded-2xl bg-violet-500/20 p-3 text-violet-300 ring-1 ring-violet-400/30">
+                <Bell className="h-6 w-6" />
+              </div>
+              <div>
+                <p className="text-2xl font-semibold text-white sm:text-3xl">Care Reminders</p>
+                <p className="text-sm text-muted">Stay on track with feeding, misting, and more.</p>
+                <p className="mt-1 text-xs text-muted">
+                  {notificationStatus === 'not-supported' && 'Push notifications are not supported on this device.'}
+                  {notificationStatus === 'denied' && 'Permission was denied. Enable notifications in browser settings.'}
+                  {notificationStatus === 'subscribed' && 'Notifications are active for care reminders.'}
+                  {notificationStatus === 'not-subscribed' && 'Enable notifications to receive reminders.'}
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-2 text-sm text-white/90">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-4 w-4 text-violet-300" />
+                Feeding and task reminders
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-4 w-4 text-violet-300" />
+                Environment alerts
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-4 w-4 text-violet-300" />
+                Daily check-ins
+              </div>
+            </div>
+
+            <div className="sm:min-w-[210px]">
+              {notificationStatus !== 'not-supported' && notificationStatus !== 'denied' && (
+                <button
+                  onClick={handleReconnectNotifications}
+                  disabled={reconnectingNotifications}
+                  className={`w-full rounded-xl px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50 ${
+                    notificationStatus === 'subscribed'
+                      ? 'border border-divider bg-card-elevated text-white hover:border-accent/40'
+                      : 'bg-accent text-on-accent hover:bg-accent-dim'
+                  }`}
+                >
+                  {reconnectingNotifications
+                    ? 'Reconnecting...'
+                    : notificationStatus === 'subscribed'
+                      ? 'Refresh Connection'
+                      : 'Enable Notifications'}
+                </button>
+              )}
+              <p className="mt-2 text-center text-xs text-muted">You can customize these after enabling.</p>
+
+              {notificationSuccess && (
+                <div className="mt-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-2 text-xs text-emerald-200">
+                  {notificationSuccess}
                 </div>
-                
-                <div>
-                  <label htmlFor="confirm-password" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Confirm Password
-                  </label>
+              )}
+            </div>
+          </div>
+        </section>
+
+        <section className="rounded-2xl border border-divider bg-card p-4 sm:p-5">
+          <div className="mb-4 flex items-center gap-3">
+            <div className="rounded-xl bg-sky-500/20 p-2 text-sky-300 ring-1 ring-sky-400/30">
+              <Settings className="h-5 w-5" />
+            </div>
+            <h3 className="text-xl font-semibold text-white sm:text-2xl">Account Settings</h3>
+          </div>
+
+          <div className="space-y-3">
+            <button
+              type="button"
+              onClick={() => setShowDisplayNameEditor((prev) => !prev)}
+              className="w-full rounded-xl border border-divider bg-card-elevated px-4 py-3 text-left transition hover:border-accent/40"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <User className="h-4 w-4 text-slate-400" />
+                  <div>
+                    <p className="text-sm font-medium text-slate-100">Display Name</p>
+                    <p className="text-xs text-slate-400">{userDisplayName}</p>
+                  </div>
+                </div>
+                <ChevronRight className={`h-4 w-4 text-muted transition ${showDisplayNameEditor ? 'rotate-90' : ''}`} />
+              </div>
+            </button>
+
+            {showDisplayNameEditor && (
+              <div className="rounded-xl border border-divider bg-card-elevated p-4">
+                <label htmlFor="profile-display-name" className="mb-2 block text-xs font-medium uppercase tracking-wide text-slate-400">
+                  Display Name
+                </label>
+                <div className="flex flex-col gap-3 sm:flex-row">
                   <input
-                    id="confirm-password"
-                    type="password"
-                    placeholder="••••••••"
-                    value={passwordForm.confirmPassword}
-                    onChange={(e) => setPasswordForm({ ...passwordForm, confirmPassword: e.target.value })}
-                    className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm"
-                    minLength={6}
+                    id="profile-display-name"
+                    value={form.displayName}
+                    onChange={(event) => setForm({ displayName: event.target.value })}
+                    className="w-full rounded-lg border border-divider bg-card px-3 py-2.5 text-sm text-white placeholder:text-muted"
+                    placeholder="Your name"
                   />
+                  <button
+                    onClick={handleSave}
+                    disabled={saving}
+                    className="rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-on-accent transition hover:bg-accent-dim disabled:opacity-60"
+                  >
+                    {saving ? 'Saving...' : 'Save'}
+                  </button>
+                </div>
+              </div>
+            )}
+
+            <button
+              type="button"
+              onClick={() => setShowPasswordEditor((prev) => !prev)}
+              className="w-full rounded-xl border border-divider bg-card-elevated px-4 py-3 text-left transition hover:border-accent/40"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <Lock className="h-4 w-4 text-slate-400" />
+                  <div>
+                    <p className="text-sm font-medium text-slate-100">Change Password</p>
+                    <p className="text-xs text-slate-400">Keep your account secure</p>
+                  </div>
+                </div>
+                <ChevronRight className={`h-4 w-4 text-muted transition ${showPasswordEditor ? 'rotate-90' : ''}`} />
+              </div>
+            </button>
+
+            {showPasswordEditor && (
+              <div className="rounded-xl border border-divider bg-card-elevated p-4">
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="new-password" className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-400">
+                      New Password
+                    </label>
+                    <input
+                      id="new-password"
+                      type="password"
+                      placeholder="••••••••"
+                      value={passwordForm.newPassword}
+                      onChange={(e) => setPasswordForm({ ...passwordForm, newPassword: e.target.value })}
+                      className="w-full rounded-lg border border-divider bg-card px-3 py-2.5 text-sm text-white placeholder:text-muted"
+                      minLength={6}
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="confirm-password" className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-400">
+                      Confirm Password
+                    </label>
+                    <input
+                      id="confirm-password"
+                      type="password"
+                      placeholder="••••••••"
+                      value={passwordForm.confirmPassword}
+                      onChange={(e) => setPasswordForm({ ...passwordForm, confirmPassword: e.target.value })}
+                      className="w-full rounded-lg border border-divider bg-card px-3 py-2.5 text-sm text-white placeholder:text-muted"
+                      minLength={6}
+                    />
+                  </div>
                 </div>
 
                 <button
                   onClick={handleChangePassword}
                   disabled={changingPassword || !passwordForm.newPassword || !passwordForm.confirmPassword}
-                  className="w-full px-4 py-2 rounded-lg bg-gray-600 hover:bg-gray-700 text-white text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="mt-3 w-full rounded-lg border border-divider bg-card px-4 py-2.5 text-sm font-semibold text-white transition hover:border-accent/40 disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                  {changingPassword ? 'Changing...' : 'Change Password'}
+                  {changingPassword ? 'Changing...' : 'Update Password'}
                 </button>
 
                 {passwordError && (
-                  <div className="p-2 rounded bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200 text-xs">
+                  <div className="mt-3 rounded-lg border border-red-500/40 bg-red-500/10 p-2 text-xs text-red-200">
                     {passwordError}
                   </div>
                 )}
 
                 {passwordSuccess && (
-                  <div className="p-2 rounded bg-emerald-50 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-200 text-xs">
+                  <div className="mt-3 rounded-lg border border-emerald-500/40 bg-emerald-500/10 p-2 text-xs text-emerald-200">
                     {passwordSuccess}
                   </div>
                 )}
               </div>
-            </div>
+            )}
+          </div>
+        </section>
 
-            <div className="flex flex-wrap justify-end gap-3">
-              <button
-                onClick={signOut}
-                className="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900"
-              >
-                Log out
-              </button>
-              <button
-                onClick={handleSave}
-                disabled={saving}
-                className="px-4 py-2 rounded-lg bg-emerald-600 text-white text-sm font-semibold hover:bg-emerald-700 disabled:opacity-60"
-              >
-                {saving ? 'Saving...' : 'Save'}
-              </button>
-            </div>
-
-            <div className="rounded-lg border border-red-200 dark:border-red-900/50 px-4 py-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Trash2 className="w-4 h-4 text-red-500" />
-                <div className="text-sm font-semibold text-red-600 dark:text-red-400">Danger Zone</div>
+        <section className="rounded-2xl border border-divider bg-card p-4 sm:p-5">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-start gap-3">
+              <div className="rounded-xl bg-rose-500/20 p-2 text-rose-300 ring-1 ring-rose-400/30">
+                <LogOut className="h-5 w-5" />
               </div>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
-                Permanently delete your account and all associated data. This cannot be undone.
-              </p>
-              {deleteError && (
-                <div className="mb-3 p-2 rounded bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200 text-xs">
-                  {deleteError}
-                </div>
-              )}
-              <button
-                onClick={() => setShowDeleteConfirm(true)}
-                className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white text-sm font-medium"
-              >
-                Delete Account
-              </button>
+              <div>
+                <h3 className="text-xl font-semibold text-white sm:text-2xl">Log Out</h3>
+                <p className="text-sm text-muted">Sign out of your account on this device.</p>
+              </div>
             </div>
-          </>
-        )}
+            <button
+              onClick={signOut}
+              className="w-full rounded-xl border border-divider bg-card-elevated px-5 py-2.5 text-sm font-semibold text-white transition hover:border-accent/40 sm:w-auto"
+            >
+              Log Out
+            </button>
+          </div>
+        </section>
+
+        <section className="rounded-2xl border border-red-400/40 bg-red-500/10 p-4 sm:p-5">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-start gap-3">
+              <div className="rounded-xl bg-red-500/20 p-2 text-red-300 ring-1 ring-red-400/30">
+                <Trash2 className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-red-300 sm:text-2xl">Delete Account</h3>
+                <p className="text-sm text-red-100/80">Permanently delete your account and all associated data. This cannot be undone.</p>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setShowDeleteConfirm(true)}
+              className="w-full rounded-xl bg-red-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-red-400 sm:w-auto"
+            >
+              Delete Account
+            </button>
+          </div>
+
+          {deleteError && (
+            <div className="mt-3 rounded-lg border border-red-500/40 bg-red-500/10 p-2 text-xs text-red-200">
+              {deleteError}
+            </div>
+          )}
+        </section>
       </div>
 
       {showDeleteConfirm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-xl p-6 w-full max-w-sm">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="p-2 rounded-xl bg-red-100 dark:bg-red-900/30">
-                <Trash2 className="w-5 h-5 text-red-600" />
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="w-full max-w-sm rounded-2xl border border-divider bg-card-elevated p-6 shadow-xl">
+            <div className="mb-3 flex items-center gap-3">
+              <div className="rounded-xl bg-red-500/20 p-2">
+                <Trash2 className="h-5 w-5 text-red-300" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">Delete Account</h3>
+              <h3 className="text-lg font-bold text-white">Delete Account</h3>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-5">
-              This will permanently delete your account and all of your data — animals, care tasks, logs, and settings. <strong>This action cannot be undone.</strong>
+            <p className="mb-5 text-sm text-muted">
+              This will permanently delete your account and all of your data - animals, care tasks, logs, and settings. <strong>This action cannot be undone.</strong>
             </p>
-            <div className="flex gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row">
               <button
-                onClick={() => { setShowDeleteConfirm(false); setDeleteError(null); }}
+                onClick={() => {
+                  setShowDeleteConfirm(false);
+                  setDeleteError(null);
+                }}
                 disabled={deletingAccount}
-                className="flex-1 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900 disabled:opacity-50"
+                className="flex-1 rounded-lg border border-divider bg-card px-4 py-2 text-sm text-white transition hover:border-accent/40 disabled:opacity-50"
               >
                 Cancel
               </button>
               <button
                 onClick={handleDeleteAccount}
                 disabled={deletingAccount}
-                className="flex-1 px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white text-sm font-semibold disabled:opacity-60 disabled:cursor-not-allowed"
+                className="flex-1 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {deletingAccount ? 'Deleting...' : 'Yes, Delete'}
               </button>

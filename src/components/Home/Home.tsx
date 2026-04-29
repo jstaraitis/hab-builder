@@ -89,7 +89,7 @@ export function Home() {
           <span className="font-semibold text-gray-900 dark:text-white">Free account includes:</span>
           <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>1 enclosure</span>
           <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>1 animal</span>
-          <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>2 care tasks</span>
+          <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>Unlimited care tasks</span>
           <Link to="/upgrade" className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline whitespace-nowrap">Upgrade for unlimited &rarr;</Link>
         </div>
 

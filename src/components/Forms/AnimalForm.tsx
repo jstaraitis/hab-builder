@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import type { Enclosure } from '../../types/careCalendar';
+import { animalList } from '../../data/animals';
 
 export interface AnimalFormData {
   enclosureId: string;
+  speciesId: string;
+  customSpeciesName: string;
   name: string;
   animalNumber: string;
   gender: '' | 'male' | 'female' | 'unknown';
@@ -20,6 +23,8 @@ export interface AnimalFormData {
 
 export const EMPTY_ANIMAL_FORM: AnimalFormData = {
   enclosureId: '',
+  speciesId: '',
+  customSpeciesName: '',
   name: '',
   animalNumber: '',
   gender: '',
@@ -168,13 +173,55 @@ export function AnimalForm({ mode, initialData, enclosures, speciesName, entityL
           </div>
         </div>
 
+        {/* Species */}
+        <div className="bg-card-elevated border border-divider rounded-2xl p-4">
+          <label htmlFor="species-select" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Species</label>
+          <select
+            id="species-select"
+            value={formData.speciesId}
+            onChange={(e) => setFormData(prev => ({ ...prev, speciesId: e.target.value, customSpeciesName: '' }))}
+            className="w-full bg-card text-white text-sm focus:outline-none"
+          >
+            <option value="">Select species (optional)</option>
+            {animalList.map(animal => (
+              <option key={animal.id} value={animal.id}>{animal.name}</option>
+            ))}
+            <option value="custom">Other / Custom Species</option>
+          </select>
+          {formData.speciesId === 'custom' && (
+            <input
+              type="text"
+              value={formData.customSpeciesName}
+              onChange={(e) => setFormData(prev => ({ ...prev, customSpeciesName: e.target.value }))}
+              placeholder="e.g., Green Tree Python"
+              className="mt-2 w-full bg-card text-white text-sm focus:outline-none placeholder:text-muted border-t border-divider pt-2"
+              autoFocus
+            />
+          )}
+        </div>
+
         {/* Enclosure */}
         <div className="bg-card-elevated border border-divider rounded-2xl p-4">
           <label htmlFor="enclosure-select" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Enclosure</label>
           <select
             id="enclosure-select"
             value={formData.enclosureId}
-            onChange={(e) => setFormData(prev => ({ ...prev, enclosureId: e.target.value }))}
+            onChange={(e) => {
+              const enclosureId = e.target.value;
+              const selectedEnc = enclosures.find(enc => enc.id === enclosureId);
+              const previousEnc = enclosures.find(enc => enc.id === formData.enclosureId);
+              setFormData(prev => ({
+                ...prev,
+                enclosureId,
+                // If species came from the previous enclosure (or was blank), keep it in sync.
+                speciesId: !prev.speciesId || prev.speciesId === previousEnc?.animalId
+                  ? (selectedEnc?.animalId || '')
+                  : prev.speciesId,
+                customSpeciesName: !prev.speciesId || prev.speciesId === previousEnc?.animalId
+                  ? ''
+                  : prev.customSpeciesName,
+              }));
+            }}
             className="w-full bg-card text-white text-sm focus:outline-none"
           >
             <option value="">No enclosure (optional)</option>

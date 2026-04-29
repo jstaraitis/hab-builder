@@ -61,6 +61,7 @@ import { LengthLogForm } from '../LengthTracking/LengthLogForm';
 import { TaskEditModal } from '../CareCalendar/TaskEditModal';
 import { FeedingLogModal } from '../CareCalendar/FeedingLogModal';
 import { AnimalGallery } from '../AnimalGallery/AnimalGallery';
+import { formatCareTaskFrequency } from '../../utils/careTaskFrequencyLabel';
 
 // Helper function to calculate age
 function calculateAge(birthday: Date): string {
@@ -504,10 +505,12 @@ export function AnimalDetailView() {
   }
 
   const feedingLogs = getFeedingLogs(!showAllFeedingLogs);
+  const unfilteredFeedingLogs = getFeedingLogs(false); // Always include all logs for overview
   const latestWeight = weightLogs.length > 0 ? weightLogs[0] : null;
   const previousWeight = weightLogs.length > 1 ? weightLogs[1] : null;
   const latestLength = lengthLogs.length > 0 ? lengthLogs[0] : null;
   const previousLength = lengthLogs.length > 1 ? lengthLogs[1] : null;
+  const displaySpecies = animal.speciesName || enclosure?.animalName || 'Pet Profile';
   
   // Combine feeding logs from care tasks and direct logging for the recent feedings section
   // Only include direct logs if they match the current filter (animal-only or all in enclosure)
@@ -531,9 +534,9 @@ export function AnimalDetailView() {
     }))
   ].sort((a, b) => new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime());
   
-  // Combine feeding logs from care tasks and direct logging for overview
+  // Combine feeding logs from care tasks and direct logging for overview (unfiltered)
   const allFeedingLogs = [
-    ...feedingLogs,
+    ...unfilteredFeedingLogs,
     ...directFeedingLogs.map(log => ({
       id: log.id,
       completedAt: log.completedAt,
@@ -549,8 +552,35 @@ export function AnimalDetailView() {
   ].sort((a, b) => new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime());
   
   const latestFeeding = allFeedingLogs.length > 0 ? allFeedingLogs[0] : null;
+  const latestTaskFeedingCompletion = tasks
+    .filter((task) => task.type === 'feeding' && task.lastCompleted)
+    .map((task) => task.lastCompleted)
+    .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())[0] || null;
+  const latestFeedingCandidates: Array<Date | string> = [];
+  if (latestTaskFeedingCompletion) {
+    latestFeedingCandidates.push(latestTaskFeedingCompletion);
+  }
+  if (latestFeeding?.completedAt) {
+    latestFeedingCandidates.push(latestFeeding.completedAt);
+  }
+  const latestFeedingAt = latestFeedingCandidates
+    .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())[0] || null;
   const latestMedical = vetRecords.length > 0 ? vetRecords[0] : null;
   const ageLabel = animal.birthday ? calculateAge(new Date(animal.birthday)) : null;
+  const lastFeedingDays = latestFeedingAt
+    ? Math.max(
+        0,
+        Math.floor((Date.now() - new Date(latestFeedingAt).getTime()) / (1000 * 60 * 60 * 24))
+      )
+    : null;
+  const lastFeedingLabel =
+    lastFeedingDays === null
+      ? 'No logs'
+      : lastFeedingDays === 0
+        ? 'Today'
+        : lastFeedingDays === 1
+          ? '1 day ago'
+          : `${lastFeedingDays} days ago`;
   const lastWeightDays = latestWeight
     ? Math.max(
         0,
@@ -613,7 +643,7 @@ export function AnimalDetailView() {
               <h1 className="mt-1 text-4xl sm:text-5xl font-bold text-white leading-tight tracking-tight">
                 {animal.name || `Animal #${animal.animalNumber || '?'}`}
               </h1>
-              <p className="text-muted mt-1">{enclosure?.animalName || 'Pet Profile'}</p>
+              <p className="text-muted mt-1">{displaySpecies}</p>
 
               <div className="flex flex-wrap items-center gap-2 mt-3">
                 {animal.gender && (
@@ -691,10 +721,14 @@ export function AnimalDetailView() {
               <div className="bg-card border border-divider rounded-xl p-4">
                 <p className="text-xs text-muted">Last Feeding</p>
                 <p className="text-2xl sm:text-3xl font-bold text-white mt-1">
-                  {latestFeeding ? 'Today' : 'No logs'}
+                  {lastFeedingLabel}
                 </p>
                 <p className="text-xs sm:text-sm text-muted mt-1">
-                  {latestFeeding ? new Date(latestFeeding.completedAt).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) : 'Log feedings in Care'}
+                  {latestFeedingAt
+                    ? lastFeedingDays === 0
+                      ? new Date(latestFeedingAt).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
+                      : new Date(latestFeedingAt).toLocaleDateString()
+                    : 'Log feedings in Care'}
                 </p>
               </div>
 
@@ -732,7 +766,7 @@ export function AnimalDetailView() {
                 </div>
                 <p className="text-xs sm:text-sm text-muted line-clamp-3">{reminderSummary}</p>
                 <p className="text-[11px] sm:text-xs text-muted mt-1">
-                  {latestFeeding ? `Updated ${new Date(latestFeeding.completedAt).toLocaleDateString()}` : 'Add notes to keep this section updated'}
+                  {latestFeedingAt ? `Updated ${new Date(latestFeedingAt).toLocaleDateString()}` : 'Add notes to keep this section updated'}
                 </p>
               </div>
             </div>
@@ -1150,7 +1184,7 @@ export function AnimalDetailView() {
                           {task.title}
                         </p>
                         <p className="text-sm text-muted">
-                          {task.type} • {task.frequency}
+                          {task.type} • {formatCareTaskFrequency(task)}
                         </p>
                       </div>
                       {task.notificationEnabled && (
@@ -1467,7 +1501,7 @@ export function AnimalDetailView() {
                       <span className="font-medium">Enclosure</span>
                     </div>
                     <p className="text-base text-white ml-6">{enclosure.name}</p>
-                    <p className="text-sm text-muted ml-6">{enclosure.animalName}</p>
+                    <p className="text-sm text-muted ml-6">{displaySpecies}</p>
                   </div>
                 )}
                 
