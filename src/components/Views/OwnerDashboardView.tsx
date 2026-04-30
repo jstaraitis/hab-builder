@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState, type ComponentType } from 'react';
+import { Link } from 'react-router-dom';
 import { RefreshCw, Users, Gem, Activity, Clock3, AlertCircle, CreditCard } from 'lucide-react';
 import {
   ownerDashboardService,
@@ -74,14 +75,35 @@ export function OwnerDashboardView() {
           <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">Owner Dashboard</h1>
           <p className="text-sm text-gray-600 dark:text-gray-400">App-wide profile and subscription snapshot.</p>
         </div>
-        <button
-          onClick={() => loadData()}
-          disabled={loading}
-          className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-60"
+        <div className="flex items-center gap-2">
+          <Link
+            to="/owner-dashboard/surveys"
+            className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-indigo-300 dark:border-indigo-600 text-sm font-medium text-indigo-700 dark:text-indigo-200 hover:bg-indigo-50 dark:hover:bg-indigo-900/30"
+          >
+            Survey Analytics
+          </Link>
+          <button
+            onClick={() => loadData()}
+            disabled={loading}
+            className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-60"
+          >
+            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+            Refresh
+          </button>
+        </div>
+      </div>
+
+      <div className="rounded-lg border border-indigo-200 dark:border-indigo-800 bg-indigo-50/70 dark:bg-indigo-950/30 p-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h2 className="text-sm font-semibold text-indigo-900 dark:text-indigo-100">User feedback surveys</h2>
+          <p className="text-sm text-indigo-800/90 dark:text-indigo-200/80">Review satisfaction trends, requested features, acquisition channels, and recent written feedback.</p>
+        </div>
+        <Link
+          to="/owner-dashboard/surveys"
+          className="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
         >
-          <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
-          Refresh
-        </button>
+          Open survey analytics
+        </Link>
       </div>
 
       {error && (

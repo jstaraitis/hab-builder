@@ -167,7 +167,7 @@ export function DesktopNav({ onOpenFeedback }: DesktopNavProps) {
       <div className="relative">
         <button
           onClick={() => setOpenDropdown(openDropdown === 'settings' ? null : 'settings')}
-          className={`px-4 py-2 rounded-lg border whitespace-nowrap flex items-center ${['/profile', '/about', '/owner-dashboard'].includes(location.pathname) ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-indigo-400'}`}
+          className={`px-4 py-2 rounded-lg border whitespace-nowrap flex items-center ${location.pathname === '/profile' || location.pathname === '/about' || location.pathname.startsWith('/owner-dashboard') ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-indigo-400'}`}
         >
           <User className="w-4 h-4 inline mr-1.5" /> Account
           <ChevronDown className="w-3 h-3 ml-1" />
@@ -202,13 +202,22 @@ export function DesktopNav({ onOpenFeedback }: DesktopNavProps) {
               <Sparkles className="w-4 h-4 inline mr-2" /> What&apos;s New
             </Link>
             {isOwnerUser && (
-              <Link
-                to="/owner-dashboard"
-                onClick={() => setOpenDropdown(null)}
-                className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-              >
-                <BarChart3 className="w-4 h-4 inline mr-2" /> Dashboard
-              </Link>
+              <>
+                <Link
+                  to="/owner-dashboard"
+                  onClick={() => setOpenDropdown(null)}
+                  className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                >
+                  <BarChart3 className="w-4 h-4 inline mr-2" /> Dashboard
+                </Link>
+                <Link
+                  to="/owner-dashboard/surveys"
+                  onClick={() => setOpenDropdown(null)}
+                  className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                >
+                  <BarChart3 className="w-4 h-4 inline mr-2" /> Survey Analytics
+                </Link>
+              </>
             )}
             <button
               onClick={() => {

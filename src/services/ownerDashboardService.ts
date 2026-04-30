@@ -24,6 +24,49 @@ export interface OwnerDashboardData {
   fetchedAt: string;
 }
 
+export interface OwnerSurveyDistribution {
+  label: string;
+  count: number;
+}
+
+export interface OwnerSurveyTimelinePoint {
+  date: string;
+  count: number;
+}
+
+export interface OwnerSurveyResponse {
+  id: string;
+  userId: string;
+  heardAboutUs: string;
+  keeperLevel: string;
+  primaryGoal: string;
+  biggestChallenge: string;
+  requestedFeature: string;
+  satisfactionScore: number;
+  animalsSelected: string[];
+  additionalFeedback: string | null;
+  createdAt: string;
+}
+
+export interface OwnerSurveyAnalytics {
+  summary: {
+    totalResponses: number;
+    averageSatisfaction: number | null;
+    last7Days: number;
+    last30Days: number;
+    withAdditionalFeedback: number;
+  };
+  satisfactionDistribution: OwnerSurveyDistribution[];
+  heardAboutUs: OwnerSurveyDistribution[];
+  keeperLevel: OwnerSurveyDistribution[];
+  primaryGoal: OwnerSurveyDistribution[];
+  biggestChallenge: OwnerSurveyDistribution[];
+  requestedFeature: OwnerSurveyDistribution[];
+  animalsSelected: OwnerSurveyDistribution[];
+  timeline: OwnerSurveyTimelinePoint[];
+  recentResponses: OwnerSurveyResponse[];
+}
+
 export interface OwnerUserProfileDetail {
   id: string;
   display_name?: string | null;
@@ -83,6 +126,7 @@ interface OwnerAppStatsResponse {
   metrics?: OwnerMetric[];
   recentProfiles?: RecentProfile[];
   recentProfilesError?: string;
+  surveyAnalytics?: OwnerSurveyAnalytics;
   selectedUser?: OwnerUserProfileDetail | null;
   selectedUserError?: string;
   userDetails?: {
@@ -153,6 +197,30 @@ class OwnerDashboardService {
       userDetailsErrors: data.userDetailsErrors,
       fetchedAt: data.fetchedAt ?? new Date().toISOString(),
     };
+  }
+
+  async getSurveyAnalytics(): Promise<OwnerSurveyAnalytics> {
+    const { data, error } = await supabase.functions.invoke<OwnerAppStatsResponse>('owner-app-stats', {
+      body: { surveyAnalytics: true },
+    });
+
+    if (error) {
+      throw error;
+    }
+
+    if (!data) {
+      throw new Error('No data returned from owner-app-stats function.');
+    }
+
+    if (data.error) {
+      throw new Error(data.error);
+    }
+
+    if (!data.surveyAnalytics) {
+      throw new Error('Survey analytics were not returned from owner-app-stats.');
+    }
+
+    return data.surveyAnalytics;
   }
 }
 

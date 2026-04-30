@@ -674,7 +674,7 @@ export function CareCalendar() {
 
       {viewMode === 'analytics' ? (
         <div className="px-4 pt-2">
-          <CareAnalyticsDashboard />
+          <CareAnalyticsDashboard consistencyScore={reliabilityTotals.expected > 0 ? reliabilityScore : null} />
         </div>
       ) : (
         <div className="space-y-4 pt-2">
@@ -739,15 +739,6 @@ export function CareCalendar() {
                 </div>
               )}
 
-              {/* Reliability badge */}
-              {reliabilityTotals.expected > 0 && (
-                <div className="flex items-center gap-2">
-                  <div className="px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-semibold flex items-center gap-1.5">
-                    <Check className="w-3.5 h-3.5" />
-                    {reliabilityScore}% Consistency Score (30d)
-                  </div>
-                </div>
-              )}
             </div>
           )}
 

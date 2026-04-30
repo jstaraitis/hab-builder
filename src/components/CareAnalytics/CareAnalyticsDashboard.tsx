@@ -9,7 +9,11 @@ import { RecentActivity } from './RecentActivity';
 import { FeedingAnalytics } from './FeedingAnalytics';
 import type { CareLogAnalytics } from '../../types/careAnalytics';
 
-export function CareAnalyticsDashboard() {
+interface CareAnalyticsDashboardProps {
+  consistencyScore?: number | null;
+}
+
+export function CareAnalyticsDashboard({ consistencyScore = null }: Readonly<CareAnalyticsDashboardProps>) {
   const { user } = useAuth();
   const [analytics, setAnalytics] = useState<CareLogAnalytics | null>(null);
   const [loading, setLoading] = useState(true);
@@ -115,7 +119,7 @@ export function CareAnalyticsDashboard() {
       </div>
 
       {/* Overview Stats */}
-      <AnalyticsOverview analytics={analytics} />
+      <AnalyticsOverview analytics={analytics} consistencyScore={consistencyScore} />
 
       {/* Activity Heatmap */}
       <ActivityHeatmap heatmapData={analytics.heatmapData} />

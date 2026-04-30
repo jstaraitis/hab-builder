@@ -11,6 +11,9 @@ export interface CareLogAnalytics {
   totalCompletions: number;
   totalSkipped: number;
   completionRate: number; // Percentage of completions vs skips
+  completedLast30Days: number;
+  skipRateLast30Days: number;
+  coverageScoreLast30Days: number;
   
   // Time-based stats
   logsLast7Days: number;
@@ -61,6 +64,8 @@ export interface CareLogWithTask {
 export interface HeatmapDay {
   date: Date;
   count: number;
+  completedCount: number;
+  skippedCount: number;
   formattedDate: string;
 }
 

@@ -27,11 +27,15 @@ class CareAnalyticsService {
     const tasks = await careTaskService.getTasks(userId);
     const currentStreakTask = this.getBestCurrentStreakTask(logs, tasks);
     const longestStreakTask = this.getBestLongestStreakTask(logs, tasks);
+    const logsLast30Days = this.getLogsInRange(logs, 30);
     
     const analytics: CareLogAnalytics = {
       totalCompletions: logs.filter(l => !l.skipped).length,
       totalSkipped: logs.filter(l => l.skipped).length,
       completionRate: this.calculateCompletionRate(logs),
+      completedLast30Days: this.countLogsInRange(logs.filter(l => !l.skipped), 30),
+      skipRateLast30Days: this.calculateSkipRate(logsLast30Days),
+      coverageScoreLast30Days: this.calculateCoverageScore(tasks, logsLast30Days),
       logsLast7Days: this.countLogsInRange(logs, 7),
       logsLast30Days: this.countLogsInRange(logs, 30),
       logsAllTime: logs.length,
@@ -109,6 +113,31 @@ class CareAnalyticsService {
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() - daysAgo);
     return logs.filter(l => l.completedAt >= cutoff).length;
+  }
+
+  private getLogsInRange(logs: CareLog[], daysAgo: number): CareLog[] {
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - daysAgo);
+    return logs.filter(l => l.completedAt >= cutoff);
+  }
+
+  private calculateSkipRate(logs: CareLog[]): number {
+    if (logs.length === 0) return 0;
+    const skipped = logs.filter(l => l.skipped).length;
+    return Math.round((skipped / logs.length) * 100);
+  }
+
+  private calculateCoverageScore(tasks: CareTask[], logs: CareLog[]): number {
+    if (tasks.length === 0) return 0;
+
+    const taskIds = new Set(tasks.map(t => t.id));
+    const coveredTaskIds = new Set(
+      logs
+        .filter(l => !l.skipped && taskIds.has(l.taskId))
+        .map(l => l.taskId)
+    );
+
+    return Math.round((coveredTaskIds.size / tasks.length) * 100);
   }
 
   private getBestCurrentStreakTask(logs: CareLog[], tasks: CareTask[]): TaskStreakSummary | undefined {
@@ -439,15 +468,20 @@ class CareAnalyticsService {
    * Generate heatmap data (activity per day)
    */
   private generateHeatmapData(logs: CareLog[]): HeatmapDay[] {
-    const completedLogs = logs.filter(l => !l.skipped);
-    
     // Group by day
-    const countsByDay = new Map<string, number>();
-    completedLogs.forEach(log => {
+    const completedByDay = new Map<string, number>();
+    const skippedByDay = new Map<string, number>();
+
+    logs.forEach(log => {
       const day = new Date(log.completedAt);
       day.setHours(0, 0, 0, 0);
       const key = day.toISOString();
-      countsByDay.set(key, (countsByDay.get(key) || 0) + 1);
+
+      if (log.skipped) {
+        skippedByDay.set(key, (skippedByDay.get(key) || 0) + 1);
+      } else {
+        completedByDay.set(key, (completedByDay.get(key) || 0) + 1);
+      }
     });
 
     // Generate last 90 days
@@ -459,10 +493,14 @@ class CareAnalyticsService {
       const date = new Date(today);
       date.setDate(date.getDate() - i);
       const key = date.toISOString();
+      const completedCount = completedByDay.get(key) || 0;
+      const skippedCount = skippedByDay.get(key) || 0;
       
       heatmapData.push({
         date,
-        count: countsByDay.get(key) || 0,
+        count: completedCount + skippedCount,
+        completedCount,
+        skippedCount,
         formattedDate: date.toLocaleDateString(),
       });
     }

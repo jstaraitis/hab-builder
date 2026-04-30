@@ -6,6 +6,7 @@ export interface UserProfile {
   isPremium?: boolean;
   mobileNavOrder?: string[];
   subscriptionCancelAt?: string;
+  subscriptionPlatform?: string;
 }
 
 export interface IProfileService {
@@ -18,7 +19,7 @@ export class SupabaseProfileService implements IProfileService {
   async getProfile(userId: string): Promise<UserProfile | null> {
     const { data, error } = await supabase
       .from('profiles')
-      .select('id, display_name, is_premium, mobile_nav_order, subscription_cancel_at')
+      .select('id, display_name, is_premium, mobile_nav_order, subscription_cancel_at, subscription_platform')
       .eq('id', userId)
       .single();
 
@@ -33,6 +34,7 @@ export class SupabaseProfileService implements IProfileService {
       isPremium: data.is_premium ?? undefined,
       mobileNavOrder: data.mobile_nav_order ?? undefined,
       subscriptionCancelAt: data.subscription_cancel_at ?? undefined,
+      subscriptionPlatform: data.subscription_platform ?? undefined,
     };
   }
 

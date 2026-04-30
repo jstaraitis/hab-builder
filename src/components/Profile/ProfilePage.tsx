@@ -23,6 +23,8 @@ import { profileService } from '../../services/profileService';
 import { stripeService } from '../../services/stripeService';
 import { supabase } from '../../lib/supabase';
 import { notificationService } from '../../services/notificationService';
+import { userSurveyService, type UserSurveyInput } from '../../services/userSurveyService';
+import { UserSurveyForm } from './UserSurveyModal';
 
 interface ProfileFormState {
   displayName: string;
@@ -54,6 +56,7 @@ export function ProfilePage() {
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [status, setStatus] = useState<'free' | 'premium'>('free');
   const [cancelDate, setCancelDate] = useState<string | null>(null);
+  const [subscriptionPlatform, setSubscriptionPlatform] = useState<string | null>(null);
   const [form, setForm] = useState<ProfileFormState>({ displayName: '' });
   const [passwordForm, setPasswordForm] = useState<PasswordFormState>({
     newPassword: '',
@@ -61,6 +64,9 @@ export function ProfilePage() {
   });
   const [showDisplayNameEditor, setShowDisplayNameEditor] = useState(false);
   const [showPasswordEditor, setShowPasswordEditor] = useState(false);
+  const [surveyCompleted, setSurveyCompleted] = useState(false);
+  const [surveySubmitting, setSurveySubmitting] = useState(false);
+  const [surveySuccess, setSurveySuccess] = useState<string | null>(null);
 
   // Detect payment success redirect and refresh premium status
   const handlePaymentSuccess = useCallback(async () => {
@@ -112,11 +118,16 @@ export function ProfilePage() {
       try {
         setLoading(true);
         setError(null);
-        const profile = await profileService.getProfile(user.id);
+        const [profile, hasCompletedSurvey] = await Promise.all([
+          profileService.getProfile(user.id),
+          userSurveyService.hasCompleted(user.id),
+        ]);
         setForm({ displayName: profile?.displayName || '' });
         setStatus(profile?.isPremium ? 'premium' : 'free');
         setCancelDate(profile?.subscriptionCancelAt || null);
-        
+        setSubscriptionPlatform(profile?.subscriptionPlatform || null);
+        setSurveyCompleted(hasCompletedSurvey);
+
         // Check notification status
         await checkNotificationStatus();
       } catch (err) {
@@ -205,6 +216,11 @@ export function ProfilePage() {
     try {
       setManagingSubscription(true);
       setError(null);
+
+      if (subscriptionPlatform?.toLowerCase() === 'ios') {
+        window.location.href = 'https://apps.apple.com/account/subscriptions';
+        return;
+      }
       
       // Get the user's session token
       const { data: { session } } = await supabase.auth.getSession();
@@ -260,17 +276,17 @@ export function ProfilePage() {
 
   const handleReconnectNotifications = async () => {
     setNotificationSuccess(null);
-    
+
     try {
       setReconnectingNotifications(true);
-      
+
       // Clear any blocking flags
       sessionStorage.removeItem('notification-prompt-dismissed');
       localStorage.removeItem('notification-prompt-seen');
-      
+
       // Subscribe/resubscribe
       await notificationService.subscribe();
-      
+
       setNotificationStatus('subscribed');
       setNotificationSuccess('✓ Notifications reconnected successfully!');
     } catch (err: any) {
@@ -280,6 +296,23 @@ export function ProfilePage() {
       await checkNotificationStatus();
     } finally {
       setReconnectingNotifications(false);
+    }
+  };
+
+  const handleSubmitSurvey = async (input: UserSurveyInput) => {
+    if (!user) return;
+
+    try {
+      setSurveySubmitting(true);
+      setError(null);
+      await userSurveyService.submitSurvey(user.id, input);
+      setSurveyCompleted(true);
+      setSurveySuccess('Thanks for completing the survey. Your feedback helps shape our roadmap.');
+    } catch (err) {
+      console.error('Failed to submit survey:', err);
+      throw err;
+    } finally {
+      setSurveySubmitting(false);
     }
   };
 
@@ -333,6 +366,19 @@ export function ProfilePage() {
           <div className="rounded-2xl border border-red-500/40 bg-red-500/10 p-4 text-sm text-red-200">
             {error}
           </div>
+        )}
+
+        {surveySuccess && (
+          <div className="rounded-2xl border border-accent/40 bg-accent/10 p-4 text-sm text-white">
+            {surveySuccess}
+          </div>
+        )}
+
+        {!loading && !surveyCompleted && (
+          <UserSurveyForm
+            submitting={surveySubmitting}
+            onSubmit={handleSubmitSurvey}
+          />
         )}
 
         <section className="rounded-2xl border border-divider bg-card p-4 sm:p-5">
@@ -713,6 +759,8 @@ export function ProfilePage() {
           </div>
         </div>
       )}
+
+
     </div>
   );
 }
