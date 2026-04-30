@@ -8,11 +8,19 @@ export type TaskType =
   | 'feeding'
   | 'misting'
   | 'water-change'
+  | 'temperature-check'
+  | 'humidity-check'
+  | 'uvb-check'
   | 'spot-clean'
   | 'deep-clean'
   | 'health-check'
   | 'supplement'
   | 'maintenance'
+  | 'substrate-check'
+  | 'mold-check'
+  | 'cleanup-crew-check'
+  | 'plant-care'
+  | 'pest-check'
   | 'gut-load'
   | 'custom';
 
@@ -23,6 +31,7 @@ export type TaskFrequency =
   | 'weekly'
   | 'bi-weekly'
   | 'monthly'
+  | 'as-needed'
   | 'custom';
 
 export interface CareTask {
@@ -119,7 +128,98 @@ export interface Enclosure {
   setupDate?: Date;
   animalBirthday?: Date; // Birth date of the animal in the enclosure
   substrateType?: 'bioactive' | 'soil' | 'paper' | 'sand' | 'reptile-carpet' | 'tile' | 'other';
+
+  // Baseline enclosure configuration
+  substrateDepthInches?: number;
+  drainageLayerDepthInches?: number;
+  bioactiveStartedOn?: Date;
+  uvbBulbInstalledOn?: Date;
+  uvbReplaceDueOn?: Date;
+  mistingSystemType?: string;
+  lightingScheduleHours?: number;
+  baselineDayTempTarget?: number;
+  baselineNightTempTarget?: number;
+  baselineHumidityMinTarget?: number;
+  baselineHumidityMaxTarget?: number;
+
   isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export type EnclosureHealthScore = 1 | 2 | 3 | 4 | 5;
+
+export type MoldSeverity = 'none' | 'light' | 'moderate' | 'heavy';
+
+export type EnclosureEventSeverity = 'info' | 'watch' | 'caution' | 'critical';
+
+export type EnclosureEventType =
+  | 'substrate_installed'
+  | 'substrate_top_off'
+  | 'substrate_partial_change'
+  | 'substrate_full_change'
+  | 'mold_bloom_started'
+  | 'mold_bloom_resolved'
+  | 'cleanup_crew_added'
+  | 'cleanup_crew_restocked'
+  | 'plant_added'
+  | 'plant_pruned'
+  | 'plant_replaced'
+  | 'equipment_probe_moved'
+  | 'uvb_bulb_replaced'
+  | 'mister_nozzle_cleaned'
+  | 'humidity_crash_incident'
+  | 'pest_detected'
+  | 'pest_resolved'
+  | 'custom';
+
+/**
+ * EnclosureSnapshot - periodic enclosure state check
+ */
+export interface EnclosureSnapshot {
+  id: string;
+  enclosureId: string;
+  userId?: string;
+
+  recordedAt: Date;
+
+  // Environment metrics
+  dayWarmTemp?: number;
+  dayCoolTemp?: number;
+  nightTemp?: number;
+  humidityMin?: number;
+  humidityMax?: number;
+
+  // Ecosystem health scoring
+  substrateMoistureScore?: EnclosureHealthScore;
+  substrateCompactionScore?: EnclosureHealthScore;
+  moldSeverity?: MoldSeverity;
+  cleanupCrewActivityScore?: EnclosureHealthScore;
+  plantHealthScore?: EnclosureHealthScore;
+
+  notes?: string;
+  photoUrls?: string[];
+
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+/**
+ * EnclosureEvent - timeline entry for interventions and lifecycle changes
+ */
+export interface EnclosureEvent {
+  id: string;
+  enclosureId: string;
+  userId?: string;
+
+  eventDate: Date;
+  eventType: EnclosureEventType;
+  severity?: EnclosureEventSeverity;
+  quantityValue?: number;
+  notes?: string;
+  metadata?: Record<string, unknown>;
+  photoUrls?: string[];
+
   createdAt: Date;
   updatedAt: Date;
 }

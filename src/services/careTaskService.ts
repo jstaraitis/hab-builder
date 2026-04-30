@@ -305,7 +305,11 @@ export class SupabaseCareService implements ICareTaskService {
 
   // Helper: Calculate next due date based on frequency
   private calculateNextDueDate(task: CareTask, from: Date): Date {
-    const next = new Date(from);
+    // Use whichever is later: when we completed it, or when it was originally scheduled.
+    // This means completing a task *early* still advances it a full interval from the
+    // scheduled date, preventing it from immediately re-appearing.
+    const base = task.nextDueAt && task.nextDueAt > from ? task.nextDueAt : from;
+    const next = new Date(base);
     
     switch (task.frequency) {
       case 'daily':

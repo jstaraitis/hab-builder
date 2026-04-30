@@ -33,7 +33,9 @@ import {
   Sun,
   FileText,
   Home,
-  Pencil,
+  AlertTriangle,
+  Leaf,
+  Bug,
   type LucideIcon,
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
@@ -153,11 +155,19 @@ function taskTypeIcon(type: string): LucideIcon {
     feeding: Utensils,
     misting: Droplets,
     'water-change': Waves,
+    'temperature-check': Thermometer,
+    'humidity-check': Droplets,
+    'uvb-check': Sun,
     'spot-clean': Brush,
     'deep-clean': Sparkles,
     'health-check': Stethoscope,
     supplement: Pill,
     maintenance: Wrench,
+    'substrate-check': Brush,
+    'mold-check': AlertTriangle,
+    'cleanup-crew-check': Sparkles,
+    'plant-care': Leaf,
+    'pest-check': Bug,
     'gut-load': Flame,
     custom: FileText,
   };
@@ -325,17 +335,9 @@ function EnclosureOverviewSection({
               <button
                 type="button"
                 onClick={() => navigate(`/care-calendar/enclosures/${selectedEnclosure.id}/environment`)}
-                className="inline-flex items-center justify-center rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-emerald-300 transition-colors hover:bg-emerald-500/15"
+                className="flex items-center gap-1 text-xs text-accent font-medium active:opacity-70 transition-opacity"
               >
-                View Enclosure
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(`/care-calendar/enclosures/edit/${selectedEnclosure.id}`)}
-                className="inline-flex items-center gap-1.5 sm:gap-2 justify-center rounded-full border border-divider bg-card-elevated px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-white transition-colors hover:border-accent/40"
-              >
-                <Pencil className="w-4 h-4 text-accent" />
-                Edit Enclosure
+                View Enclosure <ChevronRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
@@ -1042,7 +1044,7 @@ export function DashboardView() {
     <div className="min-h-screen bg-surface pb-28">
       <div className="space-y-4 pt-3">
         <div className="px-4 pt-1 pb-0">
-          <h1 className="text-xl font-bold text-white">{greeting}, <span className="text-accent">{greetingName}</span> 👋</h1>
+          <h1 className="text-xl font-bold text-white">{greeting}, <span className="text-accent">{greetingName}</span></h1>
         </div>
         <TodayCarePlan
           tasks={animalTasks}

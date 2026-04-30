@@ -10,6 +10,7 @@ export interface GeneratedTask {
 
 export interface TaskGenerationOptions {
   isBioactive: boolean;
+  hasUVB?: boolean; // Override: enclosure has a UVB bulb installed regardless of profile
   enclosureSize?: 'small' | 'medium' | 'large';
   animalCount?: number;
 }
@@ -63,6 +64,30 @@ export function generateCareTasks(
       scheduledTime: '10:00'
     });
   }
+
+  // === ENVIRONMENT MONITORING ===
+  tasks.push(generateTemperatureCheckTask(profile));
+
+  const humidityCheck = generateHumidityCheckTask(profile);
+  if (humidityCheck) tasks.push(humidityCheck);
+
+  const uvbCheck = generateUvbCheckTask(profile, options.hasUVB);
+  if (uvbCheck) tasks.push(uvbCheck);
+
+  // === BIOACTIVE-SPECIFIC TASKS ===
+  if (options.isBioactive) {
+    tasks.push(
+      generateSubstrateCheckTask(),
+      generateMoldCheckTask(),
+      generateCleanupCrewCheckTask(),
+      generatePlantCareTask(),
+      generatePestCheckTask()
+    );
+  }
+
+  // === GUT-LOADING (insectivore feeders) ===
+  const gutLoadTask = generateGutLoadTask(profile);
+  if (gutLoadTask) tasks.push(gutLoadTask);
 
   return tasks;
 }
@@ -290,5 +315,110 @@ function generateSupplementTask(profile: AnimalProfile): GeneratedTask | null {
     description,
     frequency: 'weekly',
     scheduledTime: '20:00'
+  };
+}
+
+function generateTemperatureCheckTask(profile: AnimalProfile): GeneratedTask {
+  const careTargets = profile.careTargets?.temperature;
+  let description = 'Verify basking spot and cool zone temperatures are within target range.';
+
+  if (careTargets?.basking && typeof careTargets.basking === 'object') {
+    const b = careTargets.basking as { min: number; max: number };
+    description = `Check basking spot (target ${b.min}–${b.max}°F) and ambient cool side. Adjust heating if needed.`;
+  }
+
+  return {
+    type: 'temperature-check',
+    title: 'Check Temperatures',
+    description,
+    frequency: 'daily',
+    scheduledTime: '09:00'
+  };
+}
+
+function generateHumidityCheckTask(profile: AnimalProfile): GeneratedTask | null {
+  const dayHumidity = profile.careTargets?.humidity?.day;
+  if (!dayHumidity) return null;
+
+  return {
+    type: 'humidity-check',
+    title: 'Check Humidity',
+    description: `Verify humidity is within ${dayHumidity.min}–${dayHumidity.max}%. Mist or adjust ventilation as needed.`,
+    frequency: 'daily',
+    scheduledTime: '09:00'
+  };
+}
+
+function generateUvbCheckTask(profile: AnimalProfile, hasUVB?: boolean): GeneratedTask | null {
+  if (!profile.careTargets?.lighting?.uvbRequired && !hasUVB) return null;
+
+  return {
+    type: 'uvb-check',
+    title: 'Check UVB Output',
+    description: 'Verify UVB bulb is functioning. UVB output degrades before the bulb burns out — replace every 6–12 months even if still lit.',
+    frequency: 'weekly',
+    scheduledTime: '09:00'
+  };
+}
+
+function generateSubstrateCheckTask(): GeneratedTask {
+  return {
+    type: 'substrate-check',
+    title: 'Substrate Health Check',
+    description: 'Check substrate moisture level and compaction. Lightly aerate if needed. Look for mold pockets or dead spots.',
+    frequency: 'weekly',
+    scheduledTime: '10:00'
+  };
+}
+
+function generateMoldCheckTask(): GeneratedTask {
+  return {
+    type: 'mold-check',
+    title: 'Mold Inspection',
+    description: 'Inspect substrate surface, decor, and cork for mold growth. White fuzzy mold on substrate is usually harmless — remove visible patches. Green/black mold on decor needs spot cleaning.',
+    frequency: 'weekly',
+    scheduledTime: '10:00'
+  };
+}
+
+function generateCleanupCrewCheckTask(): GeneratedTask {
+  return {
+    type: 'cleanup-crew-check',
+    title: 'Cleanup Crew Check',
+    description: 'Check springtail and isopod population. Look for activity on the substrate surface. Add a small amount of food (dried mushroom, leaf litter) to support CUC numbers if activity seems low.',
+    frequency: 'monthly',
+    scheduledTime: '10:00'
+  };
+}
+
+function generatePlantCareTask(): GeneratedTask {
+  return {
+    type: 'plant-care',
+    title: 'Live Plant Care',
+    description: 'Trim dead leaves, check for yellowing or pests. Rotate plants toward light if needed. Remove any dead plant matter promptly to prevent mold.',
+    frequency: 'weekly',
+    scheduledTime: '10:00'
+  };
+}
+
+function generatePestCheckTask(): GeneratedTask {
+  return {
+    type: 'pest-check',
+    title: 'Pest Inspection',
+    description: 'Inspect enclosure for unwanted pests (mites, fungus gnats, drain flies). Check around drainage layer and under cork/decor. Early detection prevents infestations.',
+    frequency: 'weekly',
+    scheduledTime: '10:00'
+  };
+}
+
+function generateGutLoadTask(profile: AnimalProfile): GeneratedTask | null {
+  if (profile.dietType !== 'Insectivore') return null;
+
+  return {
+    type: 'gut-load',
+    title: 'Gut-Load Feeders',
+    description: 'Feed feeder insects nutritious gut-load diet (leafy greens, carrots, squash) 24 hours before offering to your animal. Well gut-loaded feeders pass on more nutrients.',
+    frequency: 'every-other-day',
+    scheduledTime: '09:00'
   };
 }

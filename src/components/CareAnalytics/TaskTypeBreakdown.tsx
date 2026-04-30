@@ -1,5 +1,21 @@
 ﻿import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { UtensilsCrossed, Droplets, Waves, Brush, Sparkles, Stethoscope, Pill, Wrench, FileText } from 'lucide-react';
+import {
+  UtensilsCrossed,
+  Droplets,
+  Waves,
+  Brush,
+  Sparkles,
+  Stethoscope,
+  Pill,
+  Wrench,
+  FileText,
+  Flame,
+  Thermometer,
+  Sun,
+  AlertTriangle,
+  Leaf,
+  Bug,
+} from 'lucide-react';
 import type { TaskTypeStats } from '../../types/careAnalytics';
 
 interface TaskTypeBreakdownProps {
@@ -16,6 +32,12 @@ const iconMap: Record<string, any> = {
   Pill,
   Wrench,
   FileText,
+  Flame,
+  Thermometer,
+  Sun,
+  AlertTriangle,
+  Leaf,
+  Bug,
 };
 
 const colorMap: Record<string, string> = {
@@ -28,6 +50,9 @@ const colorMap: Record<string, string> = {
   orange: '#f97316',
   gray: '#6b7280',
   slate: '#64748b',
+  amber: '#f59e0b',
+  yellow: '#eab308',
+  green: '#22c55e',
 };
 
 export function TaskTypeBreakdown({ taskTypeStats }: TaskTypeBreakdownProps) {

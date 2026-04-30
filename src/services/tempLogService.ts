@@ -17,7 +17,7 @@ export interface TempLog {
 
 export interface TempLogInput {
   enclosureId?: string;
-  enclosureAnimalId: string;
+  enclosureAnimalId?: string;
   recordedAt?: string;
   temperatureValue: number;
   unit?: 'f' | 'c';

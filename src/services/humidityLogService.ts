@@ -16,7 +16,7 @@ export interface HumidityLog {
 
 export interface HumidityLogInput {
   enclosureId?: string;
-  enclosureAnimalId: string;
+  enclosureAnimalId?: string;
   recordedAt?: string;
   humidityPercent: number;
   zone?: HumidityLog['zone'];

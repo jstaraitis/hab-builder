@@ -5,7 +5,7 @@ import { careTaskService } from '../../services/careTaskService';
 import { enclosureService } from '../../services/enclosureService';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { notificationService } from '../../services/notificationService';
-import { getTemplateForAnimal, type CareTemplate } from '../../data/care-templates';
+import { buildTasksFromEnclosureById } from '../../services/enclosureTaskBuilder';
 import type { TaskType, TaskFrequency, CareTask, Enclosure, EnclosureAnimal } from '../../types/careCalendar';
 import { getNextDateForCustomWeekdays, WEEKDAY_OPTIONS } from '../../utils/customTaskFrequency';
 
@@ -45,8 +45,7 @@ export function TaskCreationModal({
   const [animals, setAnimals] = useState<EnclosureAnimal[]>([]);
   const [selectedAnimalId, setSelectedAnimalId] = useState<string>(''); // enclosureAnimalId (empty = whole enclosure)
   const [taskMode, setTaskMode] = useState<'choose' | 'template' | 'custom'>('choose');
-  const [selectedAnimal, setSelectedAnimal] = useState<string>('');
-  const [template, setTemplate] = useState<CareTemplate | null>(null);
+  const [generatingTemplate, setGeneratingTemplate] = useState(false);
   const [tasks, setTasks] = useState<TaskFormData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -86,37 +85,63 @@ export function TaskCreationModal({
     }
   };
 
-  // Available animals (expand this as more templates are added)
-  const availableAnimals = [
-    { id: 'basic-care', name: 'Basic Care (All Animals)' },
-  ];
+  const handleLoadRecommended = async () => {
+    if (!selectedEnclosure || !user) return;
+    const enclosure = enclosures.find(e => e.id === selectedEnclosure);
+    if (!enclosure) return;
 
-  useEffect(() => {
-    if (selectedAnimal) {
-      const animalTemplate = getTemplateForAnimal(selectedAnimal);
-      setTemplate(animalTemplate);
+    setTaskMode('template');
+    setGeneratingTemplate(true);
+    setTasks([]);
+    setError(null);
 
-      if (animalTemplate) {
-        // Convert template tasks to form data
-        const templateTasks = animalTemplate.tasks.map(t => ({
-          animalId: selectedAnimal,
+    try {
+      const builtTasks = await buildTasksFromEnclosureById(enclosure, user.id);
+
+      if (builtTasks && builtTasks.length > 0) {
+        setTasks(builtTasks.map(t => ({
+          animalId: t.animalId,
           title: t.title,
-          description: t.description,
-          type: t.type as TaskType,
-          frequency: t.frequency as TaskFrequency,
+          description: t.description ?? '',
+          type: t.type,
+          frequency: t.frequency,
           customFrequencyType: undefined,
           customFrequencyDays: undefined,
           customFrequencyWeekdays: undefined,
           startDate: undefined,
-          scheduledTime: t.scheduledTime,
+          scheduledTime: t.scheduledTime ?? '09:00',
           notificationEnabled: true,
           notificationMinutesBefore: 15,
-        }));
-        console.log('Loading template tasks:', templateTasks);
-        setTasks(templateTasks);
+        })));
+      } else {
+        // Fallback for custom/unknown species
+        const { getTemplateForAnimal } = await import('../../data/care-templates');
+        const fallback = getTemplateForAnimal('basic-care');
+        if (fallback) {
+          setTasks(fallback.tasks.map(t => ({
+            animalId: enclosure.animalId,
+            title: t.title,
+            description: t.description,
+            type: t.type as TaskType,
+            frequency: t.frequency as TaskFrequency,
+            customFrequencyType: undefined,
+            customFrequencyDays: undefined,
+            customFrequencyWeekdays: undefined,
+            startDate: undefined,
+            scheduledTime: t.scheduledTime,
+            notificationEnabled: true,
+            notificationMinutesBefore: 15,
+          })));
+        }
       }
+    } catch (err) {
+      console.error('Failed to generate recommended tasks:', err);
+      setError('Failed to generate recommended tasks. Try creating tasks manually.');
+      setTaskMode('choose');
+    } finally {
+      setGeneratingTemplate(false);
     }
-  }, [selectedAnimal]);
+  };
 
   const handleCreateTasks = async () => {
     if (!user) {
@@ -191,6 +216,18 @@ export function TaskCreationModal({
           }
         }
 
+        // 'as-needed' tasks: set far in the future so they never appear overdue
+        if (taskData.frequency === 'as-needed') {
+          nextDueAt = new Date();
+          nextDueAt.setDate(nextDueAt.getDate() + 30);
+          if (taskData.scheduledTime) {
+            const [hours, minutes] = taskData.scheduledTime.split(':').map(Number);
+            nextDueAt.setHours(hours, minutes, 0, 0);
+          } else {
+            nextDueAt.setHours(9, 0, 0, 0);
+          }
+        }
+
         const newTask: Omit<CareTask, 'id' | 'createdAt' | 'updatedAt'> = {
           userId: user.id,
           enclosureId: selectedEnclosure || undefined,
@@ -247,12 +284,19 @@ export function TaskCreationModal({
 
       onTaskCreated();
       onClose();
-      setSelectedAnimal('');
       setSelectedEnclosure('');
       setTasks([]);
+      setTaskMode('choose');
     } catch (err) {
       console.error('Failed to create tasks:', err);
-      setError('Failed to create tasks. Please try again.');
+      const errorCode = typeof err === 'object' && err && 'code' in err ? String((err as any).code) : '';
+      const errorMessage = typeof err === 'object' && err && 'message' in err ? String((err as any).message) : '';
+
+      if (errorCode === '23514' && errorMessage.includes('care_tasks_type_check')) {
+        setError('Your database schema is outdated for the selected task type. Run docs/CARE_TASK_TYPES_EXPANSION_MIGRATION.sql in Supabase, then try again.');
+      } else {
+        setError('Failed to create tasks. Please try again.');
+      }
     } finally {
       setLoading(false);
     }
@@ -403,7 +447,7 @@ export function TaskCreationModal({
                 <p className="text-sm font-semibold text-white px-1">How would you like to create tasks?</p>
                 <div className="grid grid-cols-2 gap-3">
                   <button
-                    onClick={() => setTaskMode('template')}
+                    onClick={handleLoadRecommended}
                     className="bg-card border border-divider rounded-2xl p-4 flex flex-col items-center gap-2 active:scale-95 transition-transform"
                   >
                     <div className="w-10 h-10 rounded-xl bg-accent/15 flex items-center justify-center">
@@ -428,41 +472,29 @@ export function TaskCreationModal({
               </>
             )}
 
-            {/* Step 3a: Template animal selection */}
-            {selectedEnclosure && taskMode === 'template' && !selectedAnimal && (
-              <>
-                <button onClick={() => { setTaskMode('choose'); setSelectedAnimal(''); }} className="text-xs text-accent flex items-center gap-1 px-1">← Back</button>
-                <p className="text-xs text-muted px-1">Select an animal to load recommended care tasks:</p>
-                <div className="space-y-2">
-                  {availableAnimals.map(animal => (
-                    <button
-                      key={animal.id}
-                      onClick={() => setSelectedAnimal(animal.id)}
-                      className="w-full bg-card border border-divider rounded-2xl px-4 py-3.5 text-left active:scale-[0.98] transition-transform"
-                    >
-                      <div className="text-sm font-semibold text-white">{animal.name}</div>
-                      <div className="text-xs text-muted mt-0.5">Includes {template?.tasks.length || '7'} recommended care tasks</div>
-                    </button>
-                  ))}
-                </div>
-              </>
+            {/* Generating state */}
+            {selectedEnclosure && taskMode === 'template' && generatingTemplate && (
+              <div className="flex items-center justify-center py-8 gap-3">
+                <svg className="animate-spin h-5 w-5 text-accent" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                </svg>
+                <span className="text-sm text-muted">Generating recommended tasks…</span>
+              </div>
             )}
 
             {/* Step 4: Task configuration */}
-            {selectedEnclosure && (selectedAnimal || (taskMode === 'custom' && tasks.length > 0)) && (
+            {selectedEnclosure && tasks.length > 0 && !generatingTemplate && (
               <>
                 {/* Back + header */}
                 <div className="flex items-center justify-between px-1">
                   <button
-                    onClick={() => { if (taskMode === 'template') { setSelectedAnimal(''); } else { setTaskMode('choose'); setTasks([]); } }}
+                    onClick={() => { setTaskMode('choose'); setTasks([]); }}
                     className="text-xs text-accent"
                   >← Back</button>
-                  {taskMode === 'template' && (
-                    <button onClick={() => { setSelectedAnimal(''); setTasks([]); }} className="text-xs text-accent">Change</button>
-                  )}
                 </div>
                 <div className="px-1">
-                  <p className="text-sm font-semibold text-white">{taskMode === 'custom' ? 'Custom Care Tasks' : (template?.species || selectedAnimal)}</p>
+                  <p className="text-sm font-semibold text-white">{taskMode === 'custom' ? 'Custom Care Tasks' : (enclosures.find(e => e.id === selectedEnclosure)?.animalName ?? 'Recommended Tasks')}</p>
                   <p className="text-xs text-muted">{tasks.length} task{tasks.length !== 1 ? 's' : ''} • Customize as needed</p>
                 </div>
 
@@ -514,11 +546,19 @@ export function TaskCreationModal({
                           <option value="gut-load">Gut-Load</option>
                           <option value="misting">Misting</option>
                           <option value="water-change">Water Change</option>
+                          <option value="temperature-check">Temperature Check</option>
+                          <option value="humidity-check">Humidity Check</option>
+                          <option value="uvb-check">UVB Check</option>
                           <option value="spot-clean">Spot Clean</option>
                           <option value="deep-clean">Deep Clean</option>
                           <option value="health-check">Health Check</option>
                           <option value="supplement">Supplement</option>
                           <option value="maintenance">Maintenance</option>
+                          <option value="substrate-check">Substrate Maintenance</option>
+                          <option value="mold-check">Mold Monitoring</option>
+                          <option value="cleanup-crew-check">Cleanup Crew Check</option>
+                          <option value="plant-care">Plant Care</option>
+                          <option value="pest-check">Pest Monitoring</option>
                           <option value="custom">Custom</option>
                         </select>
                       </div>
@@ -531,6 +571,7 @@ export function TaskCreationModal({
                           <option value="weekly">Weekly</option>
                           <option value="bi-weekly">Bi-weekly</option>
                           <option value="monthly">Monthly</option>
+                          <option value="as-needed">As Needed</option>
                           <option value="custom">Custom Days</option>
                         </select>
                       </div>
@@ -676,7 +717,7 @@ export function TaskCreationModal({
         </div>
 
         {/* Sticky footer — shown once tasks are ready */}
-        {(selectedAnimal || (taskMode === 'custom' && tasks.length > 0)) && (
+        {tasks.length > 0 && !generatingTemplate && (
           <div className="sticky bottom-0 bg-surface border-t border-divider px-4 py-3 flex items-center justify-between z-10">
             <span className="text-xs text-muted">{tasks.length} task{tasks.length !== 1 ? 's' : ''} ready</span>
             <div className="flex gap-2">
@@ -747,7 +788,7 @@ export function TaskCreationModal({
               <button onClick={() => setSelectedEnclosure('')} className="text-xs text-accent">← Change enclosure</button>
               <p className="text-sm font-semibold text-white">How would you like to create tasks?</p>
               <div className="grid grid-cols-2 gap-3">
-                <button onClick={() => setTaskMode('template')}
+                <button onClick={handleLoadRecommended}
                   className="bg-card-elevated border border-divider rounded-xl p-4 flex flex-col items-center gap-2 active:scale-95 transition-transform">
                   <div className="w-9 h-9 rounded-xl bg-accent/15 flex items-center justify-center"><ClipboardList className="w-4 h-4 text-accent" /></div>
                   <span className="text-sm font-semibold text-white">Recommended</span>
@@ -766,26 +807,22 @@ export function TaskCreationModal({
             </div>
           )}
 
-          {/* Step 3a */}
-          {selectedEnclosure && taskMode === 'template' && !selectedAnimal && (
-            <div className="space-y-2">
-              <button onClick={() => { setTaskMode('choose'); setSelectedAnimal(''); }} className="text-xs text-accent">← Back</button>
-              {availableAnimals.map(animal => (
-                <button key={animal.id} onClick={() => setSelectedAnimal(animal.id)}
-                  className="w-full bg-card-elevated border border-divider rounded-xl px-4 py-3 text-left active:scale-[0.98] transition-transform">
-                  <div className="text-sm font-semibold text-white">{animal.name}</div>
-                  <div className="text-xs text-muted mt-0.5">Includes {template?.tasks.length || '7'} recommended care tasks</div>
-                </button>
-              ))}
+          {/* Generating state */}
+          {selectedEnclosure && taskMode === 'template' && generatingTemplate && (
+            <div className="flex items-center justify-center py-8 gap-3">
+              <svg className="animate-spin h-5 w-5 text-accent" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+              </svg>
+              <span className="text-sm text-muted">Generating recommended tasks…</span>
             </div>
           )}
 
           {/* Step 4 */}
-          {selectedEnclosure && (selectedAnimal || (taskMode === 'custom' && tasks.length > 0)) && (
+          {selectedEnclosure && tasks.length > 0 && !generatingTemplate && (
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <button onClick={() => { if (taskMode === 'template') { setSelectedAnimal(''); } else { setTaskMode('choose'); setTasks([]); } }} className="text-xs text-accent">← Back</button>
-                {taskMode === 'template' && <button onClick={() => { setSelectedAnimal(''); setTasks([]); }} className="text-xs text-accent">Change</button>}
+                <button onClick={() => { setTaskMode('choose'); setTasks([]); }} className="text-xs text-accent">← Back</button>
               </div>
 
               {/* Per-task cards */}
@@ -804,11 +841,19 @@ export function TaskCreationModal({
                         <option value="gut-load">Gut-Load</option>
                         <option value="misting">Misting</option>
                         <option value="water-change">Water Change</option>
+                        <option value="temperature-check">Temperature Check</option>
+                        <option value="humidity-check">Humidity Check</option>
+                        <option value="uvb-check">UVB Check</option>
                         <option value="spot-clean">Spot Clean</option>
                         <option value="deep-clean">Deep Clean</option>
                         <option value="health-check">Health Check</option>
                         <option value="supplement">Supplement</option>
                         <option value="maintenance">Maintenance</option>
+                        <option value="substrate-check">Substrate Maintenance</option>
+                        <option value="mold-check">Mold Monitoring</option>
+                        <option value="cleanup-crew-check">Cleanup Crew Check</option>
+                        <option value="plant-care">Plant Care</option>
+                        <option value="pest-check">Pest Monitoring</option>
                         <option value="custom">Custom</option>
                       </select>
                     </div>
@@ -821,6 +866,7 @@ export function TaskCreationModal({
                         <option value="weekly">Weekly</option>
                         <option value="bi-weekly">Bi-weekly</option>
                         <option value="monthly">Monthly</option>
+                        <option value="as-needed">As Needed</option>
                         <option value="custom">Custom Days</option>
                       </select>
                     </div>
@@ -898,7 +944,7 @@ export function TaskCreationModal({
         </div>
 
         {/* Footer */}
-        {(selectedAnimal || (taskMode === 'custom' && tasks.length > 0)) && (
+        {tasks.length > 0 && !generatingTemplate && (
           <div className="border-t border-divider px-4 py-3 bg-surface shrink-0 flex items-center justify-between">
             <span className="text-xs text-muted">{tasks.length} task{tasks.length !== 1 ? 's' : ''} ready</span>
             <div className="flex gap-2">

@@ -18,6 +18,7 @@ export function EditEnclosureView() {
   const [initialData, setInitialData] = useState<Partial<EnclosureFormData> | null>(null);
   const [entityLabel, setEntityLabel] = useState('');
   const [originalPhotoUrl, setOriginalPhotoUrl] = useState('');
+  const [originalUvbInstalledOn, setOriginalUvbInstalledOn] = useState<Date | undefined>(undefined);
 
   useEffect(() => {
     let isMounted = true;
@@ -41,13 +42,15 @@ export function EditEnclosureView() {
         const isCustom = data.animalId === 'custom';
         setEntityLabel(data.name);
         setOriginalPhotoUrl(data.photoUrl || '');
+        setOriginalUvbInstalledOn(data.uvbBulbInstalledOn);
         setInitialData({
           name: data.name,
           animalId: data.animalId,
           customSpeciesName: isCustom ? data.animalName : '',
           photoUrl: data.photoUrl || '',
           description: data.description || '',
-          substrateType: data.substrateType || ''
+          substrateType: data.substrateType || '',
+          hasUVB: data.uvbBulbInstalledOn != null
         });
       } catch {
         if (isMounted) setError('Failed to load enclosure.');
@@ -89,7 +92,8 @@ export function EditEnclosureView() {
       animalName,
       photoUrl: photoUrl || undefined,
       description: formData.description || undefined,
-      substrateType: formData.substrateType || undefined
+      substrateType: formData.substrateType || undefined,
+      uvbBulbInstalledOn: formData.hasUVB ? (originalUvbInstalledOn ?? new Date()) : undefined
     });
 
     navigate(returnTo || '/care-calendar');

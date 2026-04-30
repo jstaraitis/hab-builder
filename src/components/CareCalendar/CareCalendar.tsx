@@ -26,6 +26,10 @@ import {
   CalendarDays,
   CalendarClock,
   BarChart3,
+  Thermometer,
+  AlertTriangle,
+  Leaf,
+  Bug,
   type LucideIcon
 } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -38,6 +42,7 @@ import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { estimateCustomWeekdayOccurrences } from '../../utils/customTaskFrequency';
 import { formatCareTaskFrequency } from '../../utils/careTaskFrequencyLabel';
 import { FeedingLogModal } from './FeedingLogModal';
+import { EnvironmentReadingsModal } from './EnvironmentReadingsModal';
 import { CareAnalyticsDashboard } from '../CareAnalytics';
 import type { CareTaskWithLogs, TaskType, CareTask, CareLog, Enclosure, EnclosureAnimal } from '../../types/careCalendar';
 
@@ -206,6 +211,8 @@ export function CareCalendar() {
   const [error, setError] = useState<string | null>(null);
   const [feedingTask, setFeedingTask] = useState<CareTask | null>(null);
   const [showFeedingModal, setShowFeedingModal] = useState(false);
+  const [envTask, setEnvTask] = useState<CareTaskWithLogs | null>(null);
+  const [showEnvModal, setShowEnvModal] = useState(false);
   const [viewMode, setViewMode] = useState<ViewMode>('week');
   const [selectedTasks, setSelectedTasks] = useState<Set<string>>(new Set());
   const [selectionMode, setSelectionMode] = useState(false);
@@ -281,11 +288,31 @@ export function CareCalendar() {
   const handleCompleteTask = async (taskId: string) => {
     try {
       const task = tasks.find(t => t.id === taskId);
+
+      const normalizedType = (task?.type || '').toLowerCase().trim();
+      const normalizedTitle = (task?.title || '').toLowerCase();
+      const isTemperatureTask =
+        normalizedType === 'temperature-check' ||
+        normalizedType === 'temperature_check' ||
+        normalizedType === 'temperature check' ||
+        normalizedTitle.includes('temperature');
+      const isHumidityTask =
+        normalizedType === 'humidity-check' ||
+        normalizedType === 'humidity_check' ||
+        normalizedType === 'humidity check' ||
+        normalizedTitle.includes('humidity');
       
       // If it's a feeding or gut-load task, show the detailed feeding modal
       if (task && (task.type === 'feeding' || task.type === 'gut-load')) {
         setFeedingTask(task);
         setShowFeedingModal(true);
+        return;
+      }
+
+      // Temperature / humidity check — show readings modal
+      if (task && (isTemperatureTask || isHumidityTask)) {
+        setEnvTask(task);
+        setShowEnvModal(true);
         return;
       }
       
@@ -351,11 +378,19 @@ export function CareCalendar() {
       'gut-load': Flame, // Using flame icon for gut-loading
       misting: Droplets,
       'water-change': Waves,
+      'temperature-check': Thermometer,
+      'humidity-check': Droplets,
+      'uvb-check': Sun,
       'spot-clean': Brush,
       'deep-clean': Sparkles,
       'health-check': Stethoscope,
       supplement: Pill,
       maintenance: Wrench,
+      'substrate-check': Brush,
+      'mold-check': AlertTriangle,
+      'cleanup-crew-check': Sparkles,
+      'plant-care': Leaf,
+      'pest-check': Bug,
       custom: FileText,
     };
     return icons[type] || FileText;
@@ -650,15 +685,6 @@ export function CareCalendar() {
             >
               <Plus className="w-4 h-4" />
               Add Task
-              {!isPremium && (
-                <span className={`text-xs font-medium px-1.5 py-0.5 rounded-full ${
-                  tasks.filter(t => t.isActive).length >= 2
-                    ? 'bg-amber-400/30 text-amber-100'
-                    : 'bg-white/10 text-white/80'
-                }`}>
-                  {tasks.filter(t => t.isActive).length}/2
-                </span>
-              )}
             </button>
           )}
           <button
@@ -881,6 +907,26 @@ export function CareCalendar() {
             </button>
           </div>
         </div>
+      )}
+
+      {/* Environment Readings Modal */}
+      {envTask && (
+        <EnvironmentReadingsModal
+          isOpen={showEnvModal}
+          task={envTask}
+          userId={user.id}
+          fallbackEnclosureAnimalId={
+            envTask.enclosureAnimalId ||
+            animals.find((a) => a.enclosureId === envTask.enclosureId)?.id
+          }
+          onClose={() => { setShowEnvModal(false); setEnvTask(null); }}
+          onSubmit={async () => {
+            await careTaskService.completeTask(envTask.id);
+            await loadTasks();
+            setShowEnvModal(false);
+            setEnvTask(null);
+          }}
+        />
       )}
 
       {/* Feeding Log Modal */}

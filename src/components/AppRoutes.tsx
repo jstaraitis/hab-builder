@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { Routes, Route, Link, useNavigate, useParams } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import { usePlanner } from '../contexts/PlannerContext';
@@ -7,6 +7,9 @@ import { PremiumRoute } from './Auth/PremiumRoute';
 import { AuthRoute } from './Auth/AuthRoute';
 import { OwnerRoute } from './Auth/OwnerRoute';
 import { animalProfiles } from '../data/animals';
+import { enclosureService } from '../services/enclosureService';
+
+const ONBOARDING_STORAGE_KEY = 'hab:onboarding:v1:complete';
 
 // Lazy load route components for better performance
 const AnimalSelectView = lazy(() => import('./Views/AnimalSelectView').then(m => ({ default: m.AnimalSelectView })));
@@ -47,6 +50,7 @@ const WhatsNewView = lazy(() => import('./Views/WhatsNewView').then(m => ({ defa
 const PrivacyPolicy = lazy(() => import('./PrivacyPolicy/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
 const DashboardView = lazy(() => import('./Views/DashboardView').then(m => ({ default: m.DashboardView })));
 const SmartStatusTuner = lazy(() => import('./Dev/SmartStatusTuner'));
+const OnboardingWizard = lazy(() => import('./Onboarding/OnboardingWizard').then(m => ({ default: m.OnboardingWizard })));
 
 const LoadingFallback = () => (
   <div className="flex items-center justify-center min-h-[400px]">
@@ -193,6 +197,7 @@ export function AppRoutes({ onOpenFeedback }: AppRoutesProps) {
         <Route path="/dev/animals" element={<AnimalProfilePreview />} />
         <Route path="/dev/equipment-tags" element={<EquipmentTagsBuilder />} />
         <Route path="/dev/smart-status" element={<SmartStatusTuner />} />
+        <Route path="/onboarding" element={<AuthRoute><OnboardingWizard /></AuthRoute>} />
       </Routes>
     </Suspense>
   );
@@ -236,11 +241,32 @@ function AnimalSelectRoute({ input, selectedProfile, profileCareTargets, plan, o
 function AuthDashboardRedirect() {
   const { user, loading } = useAuth();
   const navigate = useNavigate();
+  const [checking, setChecking] = useState(false);
 
   useEffect(() => {
-    if (loading) return;
-    if (user) navigate('/dashboard', { replace: true });
-  }, [user, loading, navigate]);
+    if (loading || !user || checking) return;
+
+    // Fast path: onboarding already done
+    if (localStorage.getItem(ONBOARDING_STORAGE_KEY) === '1') {
+      navigate('/dashboard', { replace: true });
+      return;
+    }
+
+    // Check whether user already has enclosures (returning user on new device)
+    setChecking(true);
+    enclosureService.getEnclosures(user.id)
+      .then((enclosures) => {
+        if (enclosures.length === 0) {
+          navigate('/onboarding', { replace: true });
+        } else {
+          localStorage.setItem(ONBOARDING_STORAGE_KEY, '1');
+          navigate('/dashboard', { replace: true });
+        }
+      })
+      .catch(() => {
+        navigate('/dashboard', { replace: true });
+      });
+  }, [user, loading, navigate, checking]);
 
   // Unauthenticated users see the marketing home
   if (!loading && !user) return <Home />;

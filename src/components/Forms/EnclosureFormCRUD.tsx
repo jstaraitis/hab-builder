@@ -10,6 +10,7 @@ export interface EnclosureFormData {
   photoUrl: string;
   description: string;
   substrateType: SubstrateType;
+  hasUVB: boolean;
 }
 
 export const EMPTY_ENCLOSURE_FORM: EnclosureFormData = {
@@ -18,7 +19,8 @@ export const EMPTY_ENCLOSURE_FORM: EnclosureFormData = {
   customSpeciesName: '',
   photoUrl: '',
   description: '',
-  substrateType: ''
+  substrateType: '',
+  hasUVB: false
 };
 
 interface EnclosureFormCRUDProps {
@@ -216,6 +218,31 @@ export function EnclosureFormCRUD({ mode, initialData, entityLabel, onSave, onCa
             <option value="tile">Tile</option>
             <option value="other">Other</option>
           </select>
+        </div>
+
+        {/* UVB Lighting */}
+        <div className="bg-card-elevated border border-divider rounded-2xl p-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-xs font-semibold text-muted uppercase tracking-wide">UVB Lighting</p>
+              <p className="text-xs text-muted mt-0.5">Enables weekly UVB output check reminders</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setFormData(prev => ({ ...prev, hasUVB: !prev.hasUVB }))}
+              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                formData.hasUVB ? 'bg-accent' : 'bg-divider'
+              }`}
+              aria-checked={formData.hasUVB}
+              role="switch"
+            >
+              <span
+                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                  formData.hasUVB ? 'translate-x-6' : 'translate-x-1'
+                }`}
+              />
+            </button>
+          </div>
         </div>
 
         {/* Description */}

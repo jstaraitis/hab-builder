@@ -293,13 +293,22 @@ export function TaskEditModal({
                     required
                   >
                     <option value="feeding">Feeding</option>
+                    <option value="gut-load">Gut-Load</option>
                     <option value="misting">Misting</option>
                     <option value="water-change">Water Change</option>
+                    <option value="temperature-check">Temperature Check</option>
+                    <option value="humidity-check">Humidity Check</option>
+                    <option value="uvb-check">UVB Check</option>
                     <option value="spot-clean">Spot Clean</option>
                     <option value="deep-clean">Deep Clean</option>
                     <option value="health-check">Health Check</option>
                     <option value="supplement">Supplement</option>
                     <option value="maintenance">Maintenance</option>
+                    <option value="substrate-check">Substrate Maintenance</option>
+                    <option value="mold-check">Mold Monitoring</option>
+                    <option value="cleanup-crew-check">Cleanup Crew Check</option>
+                    <option value="plant-care">Plant Care</option>
+                    <option value="pest-check">Pest Monitoring</option>
                     <option value="custom">Custom</option>
                   </select>
                 </div>
@@ -554,13 +563,22 @@ export function TaskEditModal({
             <select id="type-modal" value={formData.type || ''} onChange={(e) => updateField('type', e.target.value as TaskType)}
               className="w-full px-3 py-2.5 bg-card-elevated border border-divider rounded-xl text-white text-sm focus:border-accent focus:outline-none" required>
               <option value="feeding">Feeding</option>
+              <option value="gut-load">Gut-Load</option>
               <option value="misting">Misting</option>
               <option value="water-change">Water Change</option>
+              <option value="temperature-check">Temperature Check</option>
+              <option value="humidity-check">Humidity Check</option>
+              <option value="uvb-check">UVB Check</option>
               <option value="spot-clean">Spot Clean</option>
               <option value="deep-clean">Deep Clean</option>
               <option value="health-check">Health Check</option>
               <option value="supplement">Supplement</option>
               <option value="maintenance">Maintenance</option>
+              <option value="substrate-check">Substrate Maintenance</option>
+              <option value="mold-check">Mold Monitoring</option>
+              <option value="cleanup-crew-check">Cleanup Crew Check</option>
+              <option value="plant-care">Plant Care</option>
+              <option value="pest-check">Pest Monitoring</option>
               <option value="custom">Custom</option>
             </select>
           </div>

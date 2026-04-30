@@ -106,6 +106,17 @@ class SupabaseEnclosureService implements IEnclosureService {
       setupDate: row.setup_date ? new Date(row.setup_date) : undefined,
       animalBirthday: row.animal_birthday ? new Date(row.animal_birthday) : undefined,
       substrateType: row.substrate_type,
+      substrateDepthInches: row.substrate_depth_inches == null ? undefined : Number(row.substrate_depth_inches),
+      drainageLayerDepthInches: row.drainage_layer_depth_inches == null ? undefined : Number(row.drainage_layer_depth_inches),
+      bioactiveStartedOn: row.bioactive_started_on ? new Date(row.bioactive_started_on) : undefined,
+      uvbBulbInstalledOn: row.uvb_bulb_installed_on ? new Date(row.uvb_bulb_installed_on) : undefined,
+      uvbReplaceDueOn: row.uvb_replace_due_on ? new Date(row.uvb_replace_due_on) : undefined,
+      mistingSystemType: row.misting_system_type,
+      lightingScheduleHours: row.lighting_schedule_hours == null ? undefined : Number(row.lighting_schedule_hours),
+      baselineDayTempTarget: row.baseline_day_temp_target == null ? undefined : Number(row.baseline_day_temp_target),
+      baselineNightTempTarget: row.baseline_night_temp_target == null ? undefined : Number(row.baseline_night_temp_target),
+      baselineHumidityMinTarget: row.baseline_humidity_min_target == null ? undefined : Number(row.baseline_humidity_min_target),
+      baselineHumidityMaxTarget: row.baseline_humidity_max_target == null ? undefined : Number(row.baseline_humidity_max_target),
       isActive: row.is_active,
       createdAt: new Date(row.created_at),
       updatedAt: new Date(row.updated_at),
@@ -129,6 +140,17 @@ class SupabaseEnclosureService implements IEnclosureService {
     if (enclosure.setupDate !== undefined) mapped.setup_date = enclosure.setupDate?.toISOString().split('T')[0];
     if (enclosure.animalBirthday !== undefined) mapped.animal_birthday = enclosure.animalBirthday?.toISOString().split('T')[0];
     if (enclosure.substrateType !== undefined) mapped.substrate_type = enclosure.substrateType;
+    if (enclosure.substrateDepthInches !== undefined) mapped.substrate_depth_inches = enclosure.substrateDepthInches;
+    if (enclosure.drainageLayerDepthInches !== undefined) mapped.drainage_layer_depth_inches = enclosure.drainageLayerDepthInches;
+    if (enclosure.bioactiveStartedOn !== undefined) mapped.bioactive_started_on = enclosure.bioactiveStartedOn?.toISOString().split('T')[0];
+    if (enclosure.uvbBulbInstalledOn !== undefined) mapped.uvb_bulb_installed_on = enclosure.uvbBulbInstalledOn?.toISOString().split('T')[0];
+    if (enclosure.uvbReplaceDueOn !== undefined) mapped.uvb_replace_due_on = enclosure.uvbReplaceDueOn?.toISOString().split('T')[0];
+    if (enclosure.mistingSystemType !== undefined) mapped.misting_system_type = enclosure.mistingSystemType;
+    if (enclosure.lightingScheduleHours !== undefined) mapped.lighting_schedule_hours = enclosure.lightingScheduleHours;
+    if (enclosure.baselineDayTempTarget !== undefined) mapped.baseline_day_temp_target = enclosure.baselineDayTempTarget;
+    if (enclosure.baselineNightTempTarget !== undefined) mapped.baseline_night_temp_target = enclosure.baselineNightTempTarget;
+    if (enclosure.baselineHumidityMinTarget !== undefined) mapped.baseline_humidity_min_target = enclosure.baselineHumidityMinTarget;
+    if (enclosure.baselineHumidityMaxTarget !== undefined) mapped.baseline_humidity_max_target = enclosure.baselineHumidityMaxTarget;
     if (enclosure.isActive !== undefined) mapped.is_active = enclosure.isActive;
     if (enclosure.createdAt !== undefined) mapped.created_at = enclosure.createdAt.toISOString();
     if (enclosure.updatedAt !== undefined) mapped.updated_at = enclosure.updatedAt.toISOString();

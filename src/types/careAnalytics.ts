@@ -4,7 +4,7 @@
  * Analytics and statistics derived from care task completion logs
  */
 
-import type { TaskType, CareLog } from './careCalendar';
+import type { TaskType, CareLog, EnclosureSnapshot, EnclosureEvent, MoldSeverity } from './careCalendar';
 
 export interface CareLogAnalytics {
   // Overall stats
@@ -87,6 +87,51 @@ export interface TaskTypeComparison {
   color: string;
 }
 
+export type BioactiveCycleStage = 'not-bioactive' | 'new' | 'cycling' | 'stabilizing' | 'stable';
+
+export type TrendDirection = 'improving' | 'stable' | 'declining';
+
+export interface EnclosureStabilityMetrics {
+  enclosureId: string;
+  computedAt: Date;
+  score: number; // 0-100 overall enclosure stability
+  temperatureStabilityScore: number; // 0-100
+  humidityStabilityScore: number; // 0-100
+  ecosystemHealthScore: number; // 0-100
+  incidentRateLast30Days: number;
+  snapshotCountLast30Days: number;
+  warningFlags: string[];
+}
+
+export interface BioactiveCycleStatus {
+  enclosureId: string;
+  stage: BioactiveCycleStage;
+  daysSinceBioactiveStart?: number;
+  lastMoldSeverity?: MoldSeverity;
+  moldEventsLast30Days: number;
+  cleanupCrewTrend: TrendDirection;
+  plantHealthTrend: TrendDirection;
+}
+
+export interface PlantGrowthSummary {
+  enclosureId: string;
+  trend: TrendDirection;
+  averageHealthLast30Days?: number;
+  averageHealthPrevious30Days?: number;
+  totalPlantEventsLast30Days: number;
+  replacementsLast90Days: number;
+}
+
+export interface EnclosureExperienceAnalytics {
+  enclosureId: string;
+  generatedAt: Date;
+  snapshots: EnclosureSnapshot[];
+  events: EnclosureEvent[];
+  stability: EnclosureStabilityMetrics;
+  bioactive: BioactiveCycleStatus;
+  plantGrowth: PlantGrowthSummary;
+}
+
 /**
  * Task type display configuration
  */
@@ -110,6 +155,21 @@ export const TASK_TYPE_CONFIG: Record<TaskType, { label: string; icon: string; c
     label: 'Water Change',
     icon: 'Waves',
     color: 'cyan',
+  },
+  'temperature-check': {
+    label: 'Temperature Check',
+    icon: 'Thermometer',
+    color: 'orange',
+  },
+  'humidity-check': {
+    label: 'Humidity Check',
+    icon: 'Droplets',
+    color: 'blue',
+  },
+  'uvb-check': {
+    label: 'UVB Check',
+    icon: 'Sun',
+    color: 'yellow',
   },
   'spot-clean': {
     label: 'Spot Clean',
@@ -135,6 +195,31 @@ export const TASK_TYPE_CONFIG: Record<TaskType, { label: string; icon: string; c
     label: 'Maintenance',
     icon: 'Wrench',
     color: 'gray',
+  },
+  'substrate-check': {
+    label: 'Substrate Maintenance',
+    icon: 'Brush',
+    color: 'amber',
+  },
+  'mold-check': {
+    label: 'Mold Monitoring',
+    icon: 'AlertTriangle',
+    color: 'orange',
+  },
+  'cleanup-crew-check': {
+    label: 'Cleanup Crew Check',
+    icon: 'Sparkles',
+    color: 'emerald',
+  },
+  'plant-care': {
+    label: 'Plant Care',
+    icon: 'Leaf',
+    color: 'green',
+  },
+  'pest-check': {
+    label: 'Pest Monitoring',
+    icon: 'Bug',
+    color: 'red',
   },
   custom: {
     label: 'Custom',
