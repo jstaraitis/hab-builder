@@ -199,7 +199,7 @@ TaskItem.displayName = 'TaskItem';
 
 export function CareCalendar() {
   const { user, loading: authLoading } = useAuth();
-  const { isPremium } = usePremium();
+  usePremium();
   const navigate = useNavigate();
   const location = useLocation();
   const [tasks, setTasks] = useState<CareTaskWithLogs[]>([]);

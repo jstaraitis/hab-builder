@@ -9,8 +9,8 @@ import { uploadEnclosurePhoto } from '../../services/enclosurePhotoService';
 import { uploadAnimalPhoto } from '../../services/animalPhotoService';
 import { buildTasksFromEnclosureById } from '../../services/enclosureTaskBuilder';
 import { animalList } from '../../data/animals';
-import { EnclosureFormCRUD, EMPTY_ENCLOSURE_FORM, type EnclosureFormData } from '../Forms/EnclosureFormCRUD';
-import { AnimalForm, EMPTY_ANIMAL_FORM, type AnimalFormData } from '../Forms/AnimalForm';
+import { EnclosureFormCRUD, type EnclosureFormData } from '../Forms/EnclosureFormCRUD';
+import { AnimalForm, type AnimalFormData } from '../Forms/AnimalForm';
 import type { Enclosure } from '../../types/careCalendar';
 
 type Step = 'welcome' | 'enclosure' | 'animal' | 'tasks' | 'done';
