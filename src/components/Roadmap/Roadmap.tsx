@@ -13,53 +13,52 @@ interface RoadmapItemProps {
 function RoadmapItem({ title, description, status, priority, eta, icon }: RoadmapItemProps) {
   const statusConfig = {
     completed: { 
-      bg: 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-400 dark:border-emerald-700',
-      badgeBg: 'bg-emerald-100 dark:bg-emerald-900',
-      badgeText: 'text-emerald-700 dark:text-emerald-300',
+      accent: 'bg-emerald-500',
+      badgeBg: 'bg-emerald-500/15 border border-emerald-500/30',
+      badgeText: 'text-emerald-300',
       icon: <CheckCircle2 className="w-4 h-4" />,
       label: 'Done'
     },
     'in-progress': { 
-      bg: 'bg-blue-50 dark:bg-blue-900/20 border-blue-400 dark:border-blue-700',
-      badgeBg: 'bg-blue-100 dark:bg-blue-900',
-      badgeText: 'text-blue-700 dark:text-blue-300',
+      accent: 'bg-sky-500',
+      badgeBg: 'bg-sky-500/15 border border-sky-500/30',
+      badgeText: 'text-sky-300',
       icon: <Wrench className="w-4 h-4" />,
       label: 'Building'
     },
     planned: { 
-      bg: 'bg-gray-50 dark:bg-gray-800/50 border-gray-300 dark:border-gray-600',
-      badgeBg: 'bg-gray-100 dark:bg-gray-700',
-      badgeText: 'text-gray-700 dark:text-gray-300',
+      accent: 'bg-slate-500',
+      badgeBg: 'bg-slate-500/15 border border-slate-500/30',
+      badgeText: 'text-slate-300',
       icon: <Clock className="w-4 h-4" />,
       label: 'Soon'
     },
   };
 
   const priorityConfig = {
-    high: { icon: <Flame className="w-3.5 h-3.5" />, text: 'High Priority', color: 'text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20' },
-    medium: { icon: <Zap className="w-3.5 h-3.5" />, text: 'Medium', color: 'text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20' },
-    low: { icon: <Circle className="w-3.5 h-3.5" />, text: 'Low Priority', color: 'text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-700/20' },
+    high: { icon: <Flame className="w-3.5 h-3.5" />, text: 'High Priority', color: 'text-rose-300 bg-rose-500/15 border border-rose-500/25' },
+    medium: { icon: <Zap className="w-3.5 h-3.5" />, text: 'Medium', color: 'text-amber-300 bg-amber-500/15 border border-amber-500/25' },
+    low: { icon: <Circle className="w-3.5 h-3.5" />, text: 'Low Priority', color: 'text-slate-300 bg-slate-500/15 border border-slate-500/25' },
   };
 
   const config = statusConfig[status];
   const priorityInfo = priority ? priorityConfig[priority] : null;
 
   return (
-    <div className={`border-l-4 rounded-lg p-4 sm:p-5 transition-all hover:shadow-md ${config.bg}`}>
+    <div className="bg-card border border-divider rounded-2xl p-5 transition-colors hover:border-accent/50">
+      <div className={`w-12 h-1 rounded-full mb-4 ${config.accent}`} />
       <div className="flex items-start gap-3 sm:gap-4">
-        {/* Icon */}
         {icon && (
           <div className="flex-shrink-0 mt-0.5">
-            <div className="p-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+            <div className="p-2 bg-accent/15 rounded-xl">
               {icon}
             </div>
           </div>
         )}
         
-        {/* Content */}
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-3 mb-2">
-            <h3 className="font-semibold text-gray-900 dark:text-white text-base sm:text-lg">{title}</h3>
+            <h3 className="font-semibold text-white text-base sm:text-lg">{title}</h3>
             <div className="flex items-center gap-2 flex-shrink-0">
               <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full ${config.badgeBg} ${config.badgeText}`}>
                 {config.icon}
@@ -68,7 +67,7 @@ function RoadmapItem({ title, description, status, priority, eta, icon }: Roadma
             </div>
           </div>
           
-          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-2">{description}</p>
+          <p className="text-sm text-muted leading-relaxed mb-2">{description}</p>
           
           <div className="flex items-center gap-3 flex-wrap">
             {priorityInfo && (
@@ -78,7 +77,7 @@ function RoadmapItem({ title, description, status, priority, eta, icon }: Roadma
               </span>
             )}
             {eta && (
-              <span className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
+              <span className="text-xs text-muted flex items-center gap-1">
                 <Clock className="w-3 h-3" />
                 {eta}
               </span>
@@ -103,18 +102,16 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
         keywords={['habitat builder roadmap', 'upcoming features', 'reptile tool updates', 'development plans']}
       />
       
-      <div className="max-w-5xl mx-auto space-y-8">
-        {/* Hero */}
-        <div className="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg p-6 sm:p-8 text-white shadow-lg">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">What We're Building</h1>
-          <p className="text-lg sm:text-xl text-purple-50">
+      <div className="max-w-4xl mx-auto space-y-6">
+        <div className="bg-gradient-to-r from-accent to-teal-600 rounded-2xl p-6 text-white">
+          <h1 className="text-2xl md:text-3xl font-bold mb-2">What We're Building</h1>
+          <p className="text-base md:text-lg text-white/80">
             Here's what we're cooking up and what's on deck
           </p>
         </div>
 
-        {/* In Progress */}
-        <section>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+        <section className="bg-card border border-divider rounded-2xl p-6">
+          <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
             <CheckCircle2 className="w-6 h-6 text-emerald-500" />
             Recently Completed
           </h2>
@@ -140,9 +137,8 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
           </div>
         </section>
 
-        {/* In Progress */}
-        <section>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+        <section className="bg-card border border-divider rounded-2xl p-6">
+          <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
             <Wrench className="w-6 h-6 text-blue-500" />
             Currently Building
           </h2>
@@ -171,9 +167,8 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
           </div>
         </section>
 
-        {/* Coming Soon */}
-        <section>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+        <section className="bg-card border border-divider rounded-2xl p-6">
+          <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
             <Clock className="w-6 h-6 text-purple-500" />
             Up Next
           </h2>
@@ -209,51 +204,49 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
           </div>
         </section>
 
-        {/* Community Ideas */}
-        <section>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+        <section className="bg-card border border-divider rounded-2xl p-6">
+          <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
             <MessageSquarePlus className="w-6 h-6 text-indigo-500" />
             Ideas We're Considering
           </h2>
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5 sm:p-6">
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">These are on our radar but need more feedback—let us know what you'd actually use!</p>
-            <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+          <div className="bg-accent/10 border border-accent/20 rounded-xl p-4 mb-4">
+            <p className="text-sm text-white/80">These are on our radar but need more feedback. Tell us what you'd actually use most.</p>
+          </div>
+          <ul className="space-y-3 text-muted text-sm">
               <li className="flex items-start gap-3">
                 <Save className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-gray-900 dark:text-white">Saved Designs:</strong> Create an account to save multiple plans and compare different setups side-by-side
+                  <strong className="text-white">Saved Designs:</strong> Create an account to save multiple plans and compare different setups side-by-side
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Hammer className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-gray-900 dark:text-white">DIY Builder Mode:</strong> Custom wood or PVC enclosure plans with cut lists, material estimates, and assembly guides
+                  <strong className="text-white">DIY Builder Mode:</strong> Custom wood or PVC enclosure plans with cut lists, material estimates, and assembly guides
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Scale className="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-gray-900 dark:text-white">Species Comparison:</strong> Compare care requirements between different animals when deciding what to get
+                  <strong className="text-white">Species Comparison:</strong> Compare care requirements between different animals when deciding what to get
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <CloudSun className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-gray-900 dark:text-white">Climate Tuning:</strong> Adjust equipment recommendations based on where you live (hot, cold, humid, dry)
+                  <strong className="text-white">Climate Tuning:</strong> Adjust equipment recommendations based on where you live (hot, cold, humid, dry)
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Leaf className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-gray-900 dark:text-white">Plant Library:</strong> Searchable database of bioactive-safe plants with care requirements and toxicity info
+                  <strong className="text-white">Plant Library:</strong> Searchable database of bioactive-safe plants with care requirements and toxicity info
                 </div>
               </li>
             </ul>
-          </div>
         </section>
 
-        {/* Contribute */}
-        <section className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg p-6 sm:p-8 text-white shadow-lg">
+        <section className="bg-gradient-to-r from-accent to-teal-600 rounded-2xl p-6 text-white">
           <div className="flex items-center gap-3 mb-4">
             <MessageCircle className="w-7 h-7" />
             <h2 className="text-2xl font-bold">Got Ideas or Feedback?</h2>
@@ -281,15 +274,14 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
           </ul>
           <button
             onClick={onOpenFeedback}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-emerald-600 font-semibold rounded-lg shadow-md hover:bg-emerald-50 active:scale-95 transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-accent font-semibold rounded-xl hover:bg-white/90 active:scale-95 transition-all cursor-pointer"
           >
             <MessageCircle className="w-5 h-5" />
             Send Us Your Thoughts
           </button>
         </section>
 
-        {/* Footer */}
-        <div className="text-center text-gray-500 dark:text-gray-400 text-sm pb-8">
+        <div className="text-center text-muted text-sm pb-6">
           <p>We update this roadmap regularly based on what you tell us matters most.</p>
         </div>
       </div>

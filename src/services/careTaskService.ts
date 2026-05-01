@@ -25,6 +25,7 @@ export interface ICareTaskService {
   // Logs
   completeTask(taskId: string, additionalLogData?: Partial<CareLog>): Promise<CareLog>;
   skipTask(taskId: string, reason: string): Promise<CareLog>;
+  rescheduleTask(taskId: string, nextDueAt: Date): Promise<CareTask>;
   getTaskLogs(taskId: string): Promise<CareLog[]>;
 }
 
@@ -289,6 +290,15 @@ export class SupabaseCareService implements ICareTaskService {
     await this.updateTask(taskId, { nextDueAt });
 
     return this.mapLogFromDb(logData);
+  }
+
+  async rescheduleTask(taskId: string, nextDueAt: Date): Promise<CareTask> {
+    const task = await this.getTaskById(taskId);
+    if (!task) throw new Error('Task not found');
+
+    // Reschedule should only move the upcoming occurrence; it should not count
+    // as completion or skip and should not alter historical analytics.
+    return this.updateTask(taskId, { nextDueAt });
   }
 
   async getTaskLogs(taskId: string): Promise<CareLog[]> {

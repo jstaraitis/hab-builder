@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { SEO } from '../SEO/SEO';
-import { Calculator, AlertTriangle, MessageCircle, Squirrel, Ruler, Sparkles, CheckCircle2, XCircle, DollarSign, Box, Save, Share2, ArrowRight } from 'lucide-react';
+import { Squirrel, Ruler, Sparkles, CheckCircle2, AlertTriangle, MessageCircle, ArrowRight, Calculator, HelpCircle } from 'lucide-react';
 
 interface AboutProps {
   readonly onOpenFeedback: () => void;
@@ -14,207 +14,120 @@ export function About({ onOpenFeedback }: AboutProps) {
         description="Learn about Habitat Builder's mission to help reptile and amphibian keepers design proper enclosures with accurate care parameters and equipment recommendations."
         keywords={['about habitat builder', 'reptile enclosure tool', 'vivarium planning', 'reptile care guide']}
       />
-      
-      <div className="max-w-4xl mx-auto space-y-8">
-        {/* Hero Section */}
-        <div className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg p-6 text-white">
+
+      <div className="max-w-4xl mx-auto space-y-6">
+
+        {/* Hero */}
+        <div className="bg-gradient-to-r from-accent to-teal-600 rounded-2xl p-6 text-white">
           <h1 className="text-2xl md:text-3xl font-bold mb-2">About Habitat Builder</h1>
-          <p className="text-base md:text-lg text-emerald-50">
+          <p className="text-base md:text-lg text-white/80">
             A beginner-friendly way to build a safe, species-correct enclosure with confidence.
           </p>
         </div>
 
         {/* Mission */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-3">Our Mission</h2>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            Getting a first reptile or amphibian should feel exciting, not overwhelming. We built Habitat Builder to turn real care requirements into a clear, step-by-step plan.
+        <div className="bg-card border border-divider rounded-2xl p-6">
+          <h2 className="text-xl font-bold text-white mb-3">Our Mission</h2>
+          <p className="text-muted leading-relaxed mb-3">
+            Getting a first reptile or amphibian should feel exciting, not overwhelming. We built Habitat Builder
+            to turn real care requirements into a clear, step-by-step plan so you can feel confident from day one.
           </p>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            Our goal is simple: <strong className="text-emerald-600 dark:text-emerald-400">make proper care accessible</strong> so you can feel confident from day one.
-          </p>
-        </div>
-
-        {/* Why We Built This */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-3">The Problem We're Solving</h2>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            Beginners run into the same problems over and over:
-          </p>
-          <ul className="space-y-3 mb-4">
-            <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
-              <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-              <span><strong>Undersized enclosures</strong> - common advice that is too small</span>
-            </li>
-            <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
-              <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-              <span><strong>Wrong equipment</strong> - poor UVB, weak heating, unsafe substrates</span>
-            </li>
-            <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
-              <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-              <span><strong>Information overload</strong> - hours of conflicting forum advice</span>
-            </li>
-            <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
-              <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-              <span><strong>Budget surprises</strong> - hidden costs after you already bought the animal</span>
-            </li>
-          </ul>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            Habitat Builder gives you a <strong className="text-gray-900 dark:text-white">clear roadmap</strong> from day one - accurate dimensions, proper equipment, and a plan you can follow.
+          <p className="text-muted leading-relaxed">
+            The tool is <strong className="text-accent">free to use</strong> for the core planner. Premium features
+            like the Care Calendar, animal tracking, and inventory management are available with a{' '}
+            <Link to="/premium" className="text-accent underline">Premium subscription</Link>.
           </p>
         </div>
 
         {/* How It Works */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-3">How It Works</h2>
-          <div className="space-y-4">
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center">
-                <Squirrel className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+        <div className="bg-card border border-divider rounded-2xl p-6">
+          <h2 className="text-xl font-bold text-white mb-5">How It Works</h2>
+          <div className="space-y-5">
+            {[
+              { icon: Squirrel, title: 'Select Your Animal', desc: 'Choose from popular species with verified care requirements. Not sure what fits your space? Use the Find Your Animal tool.' },
+              { icon: Ruler, title: 'Enter Your Dimensions', desc: 'Input your enclosure size and get it validated against species minimums, enclosure type, and your setup preferences.' },
+              { icon: Sparkles, title: 'Get Your Custom Plan', desc: 'Receive a complete shopping list, layout diagram, care targets, substrate guide, and step-by-step build instructions.' },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-accent/20 rounded-xl flex items-center justify-center">
+                  <Icon className="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-white mb-1">{title}</h3>
+                  <p className="text-muted text-sm leading-relaxed">{desc}</p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Select Your Animal</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Choose from popular species with verified care requirements.
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center">
-                <Ruler className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Input Your Dimensions</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Enter your enclosure size and get validation against species needs.
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Get Your Custom Plan</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Get equipment recommendations, substrate depth, layout tips, and build steps.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
         {/* Data Sources */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Where We Get Our Info</h2>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            Every plan is based on real care requirements, pulled from:
-          </p>
-          <ul className="space-y-3 mb-6">
-            <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
-              <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-              <span><strong className="text-gray-900 dark:text-white">Equipment manufacturers</strong> - UVB output, wattage, and coverage specs</span>
-            </li>
-            <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
-              <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-              <span><strong className="text-gray-900 dark:text-white">Community expertise</strong> - input from experienced keepers</span>
-            </li>
-            <li className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
-              <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-              <span><strong className="text-gray-900 dark:text-white">Scientific literature</strong> - thermal biology and habitat research</span>
-            </li>
+        <div className="bg-card border border-divider rounded-2xl p-6">
+          <h2 className="text-xl font-bold text-white mb-4">Where Our Data Comes From</h2>
+          <ul className="space-y-3 mb-5">
+            {[
+              { label: 'Equipment manufacturers', detail: 'UVB output, wattage, and coverage specs' },
+              { label: 'Community expertise', detail: 'Input from experienced keepers and hobbyists' },
+              { label: 'Scientific literature', detail: 'Thermal biology and natural habitat research' },
+            ].map(({ label, detail }) => (
+              <li key={label} className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <span className="text-muted text-sm"><strong className="text-white">{label}</strong> -- {detail}</span>
+              </li>
+            ))}
           </ul>
-          
-          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
-            <div className="flex items-center gap-2 mb-2">
-              <Calculator className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-              <h3 className="font-semibold text-blue-900 dark:text-blue-300">How We Calculate Stuff</h3>
-            </div>
-            <p className="text-blue-800 dark:text-blue-300 text-sm leading-relaxed">
-              Quick note: our equipment recommendations are <strong>math-based, not AI guesses</strong>. We use formulas like enclosure volume, temperature delta, and UVB coverage to calculate sizes.
+          <div className="bg-accent/10 border border-accent/30 rounded-xl p-4 flex items-start gap-3">
+            <Calculator className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+            <p className="text-sm text-white/80 leading-relaxed">
+              Equipment recommendations are <strong className="text-white">math-based, not AI guesses</strong> -- we
+              use formulas for enclosure volume, temperature delta, and UVB coverage to calculate sizing.
             </p>
           </div>
         </div>
 
         {/* Disclaimer */}
-        <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
+        <div className="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-6">
           <div className="flex items-center gap-2 mb-3">
-            <AlertTriangle className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
-            <h2 className="text-xl font-bold text-yellow-900 dark:text-yellow-300">Quick Reality Check</h2>
+            <AlertTriangle className="w-5 h-5 text-amber-400" />
+            <h2 className="text-lg font-bold text-amber-300">A Quick Note</h2>
           </div>
-          <p className="text-yellow-800 dark:text-yellow-300 text-sm leading-relaxed mb-3">
-            We provide strong guidance, but please keep these in mind:
-          </p>
-          <ul className="space-y-2 text-yellow-800 dark:text-yellow-300 text-sm">
-            <li>• We're not vets - if your pet seems sick, talk to a vet</li>
-            <li>• Every animal is different (age, health, temperament)</li>
-            <li>• Your home environment affects what you will need</li>
-            <li>• Use this as a guide and keep learning</li>
+          <ul className="space-y-2 text-sm text-amber-200/80">
+            <li>We are not vets -- if your animal seems unwell, consult a reptile-specialist vet</li>
+            <li>Every animal is different; age, health, and environment all affect what you will need</li>
+            <li>Use this as a solid starting point and keep learning as you go</li>
           </ul>
         </div>
 
-        {/* Future Plans */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">What's Coming Next</h2>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-            We are building toward:
-          </p>
-          <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-            <li className="flex items-start gap-2">
-              <Squirrel className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1" />
-              <span><strong className="text-gray-900 dark:text-white">More animals</strong> - new species added regularly</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <DollarSign className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1" />
-              <span><strong className="text-gray-900 dark:text-white">Cost estimates</strong> - know what you will spend before you buy</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Box className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1" />
-              <span><strong className="text-gray-900 dark:text-white">3D previews</strong> - see your setup before you build</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Save className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1" />
-              <span><strong className="text-gray-900 dark:text-white">Saved designs</strong> - save and compare different setups</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Share2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1" />
-              <span><strong className="text-gray-900 dark:text-white">Community features</strong> - share builds and get feedback</span>
-            </li>
-          </ul>
-          <div className="mt-6">
-            <Link 
-              to="/roadmap" 
-              className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline font-medium"
-            >
-              View our roadmap <ArrowRight className="w-4 h-4" />
+        {/* CTA row */}
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="bg-card border border-divider rounded-2xl p-5 flex flex-col gap-3">
+            <HelpCircle className="w-6 h-6 text-accent" />
+            <h3 className="font-semibold text-white">Have a question?</h3>
+            <p className="text-muted text-sm flex-1">Check the FAQ for answers to common questions about the tool and reptile care.</p>
+            <Link to="/faq" className="inline-flex items-center gap-1.5 text-sm text-accent font-medium hover:underline">
+              View FAQ <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+          <div className="bg-card border border-divider rounded-2xl p-5 flex flex-col gap-3">
+            <MessageCircle className="w-6 h-6 text-accent" />
+            <h3 className="font-semibold text-white">Got feedback?</h3>
+            <p className="text-muted text-sm flex-1">We read every message. Ideas, bug reports, and species requests are all welcome.</p>
+            <button
+              onClick={onOpenFeedback}
+              className="inline-flex items-center gap-1.5 text-sm text-accent font-medium hover:underline text-left"
+            >
+              Send Feedback <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
         </div>
 
-        {/* Contact */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Let's Chat</h2>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-            Got questions or ideas? Want to help us add more animals? We read every message.
-          </p>
-          <button 
-            onClick={onOpenFeedback}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg shadow-md transition-colors cursor-pointer"
-          >
-            <MessageCircle className="w-5 h-5" />
-            Send Feedback
-          </button>
+        {/* Footer note */}
+        <div className="text-center text-muted text-sm pb-6">
+          <Link to="/whats-new" className="text-accent hover:underline">View what's new</Link>
+          {' -- '}
+          <Link to="/privacy-policy" className="text-accent hover:underline">Privacy Policy</Link>
         </div>
 
-        {/* Footer Note */}
-        <div className="text-center text-gray-500 dark:text-gray-400 text-sm pb-8">
-          <p className="mt-2">Last updated: January 2026</p>
-          <p className="mt-2">
-            <Link to="/privacy-policy" className="text-emerald-600 dark:text-emerald-400 underline hover:no-underline">Privacy Policy</Link>
-          </p>
-        </div>
       </div>
     </>
   );

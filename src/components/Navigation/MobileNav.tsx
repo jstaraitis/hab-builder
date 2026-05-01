@@ -129,6 +129,7 @@ const MORE_ITEMS: MoreItem[] = [
   { label: 'Premium', description: 'Unlock all features', icon: Gem, path: '/premium', showWhen: 'guest', colorBg: 'bg-rose-500/20', colorText: 'text-rose-300', colorBgDim: 'bg-rose-500/10', colorTextDim: 'text-rose-300' },
   { label: 'Profile', description: 'Account & subscription', icon: User, path: '/profile', colorBg: 'bg-cyan-500/20', colorText: 'text-cyan-300', colorBgDim: 'bg-cyan-500/10', colorTextDim: 'text-cyan-300' },
   { label: 'About', description: 'About Habitat Builder', icon: Info, path: '/about', colorBg: 'bg-sky-500', colorText: 'text-sky-300', colorBgDim: 'bg-sky-500/10', colorTextDim: 'text-sky-300' },
+  { label: 'FAQ', description: 'Common questions answered', icon: MessageCircle, path: '/faq', colorBg: 'bg-teal-500/20', colorText: 'text-teal-300', colorBgDim: 'bg-teal-500/10', colorTextDim: 'text-teal-300' },
   { label: 'Owner Dashboard', description: 'App metrics & admin', icon: BarChart2, path: '/owner-dashboard', showWhen: 'owner', colorBg: 'bg-indigo-500/20', colorText: 'text-indigo-300', colorBgDim: 'bg-indigo-500/10', colorTextDim: 'text-indigo-300' },
 ];
 

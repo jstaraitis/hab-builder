@@ -123,12 +123,6 @@ export function getDefaultSitemapEntries(): SitemapEntry[] {
       lastmod: today,
       changefreq: 'monthly',
       priority: 0.5
-    },
-    {
-      loc: '/roadmap',
-      lastmod: today,
-      changefreq: 'monthly',
-      priority: 0.5
     }
   ];
 }

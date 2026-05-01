@@ -38,7 +38,7 @@ const BlogList = lazy(() => import('./Blog/BlogList').then(m => ({ default: m.Bl
 const BlogPost = lazy(() => import('./Blog/BlogPost').then(m => ({ default: m.BlogPost })));
 const AnimalProfilePreview = lazy(() => import('./AnimalProfilePreview/AnimalProfilePreview').then(m => ({ default: m.AnimalProfilePreview })));
 const About = lazy(() => import('./About/About').then(m => ({ default: m.About })));
-const Roadmap = lazy(() => import('./Roadmap/Roadmap').then(m => ({ default: m.Roadmap })));
+const FAQ = lazy(() => import('./FAQ/FAQ').then(m => ({ default: m.FAQ })));
 const Home = lazy(() => import('./Home/Home').then(m => ({ default: m.Home })));
 const EquipmentTagsBuilder = lazy(() => import('./Admin/EquipmentTagsBuilder'));
 const UpgradePage = lazy(() => import('./Upgrade/UpgradePage').then(m => ({ default: m.UpgradePage })));
@@ -189,8 +189,8 @@ export function AppRoutes({ onOpenFeedback }: AppRoutesProps) {
         <Route path="/inventory/add" element={<PremiumRoute><AddInventoryItemView /></PremiumRoute>} />
         <Route path="/inventory/edit/:id" element={<PremiumRoute><EditInventoryItemView /></PremiumRoute>} />
         <Route path="/about" element={<About onOpenFeedback={onOpenFeedback} />} />
+        <Route path="/faq" element={<FAQ />} />
         <Route path="/profile" element={<ProfileView />} />
-        <Route path="/roadmap" element={<Roadmap onOpenFeedback={onOpenFeedback} />} />
         <Route path="/blog" element={<BlogList selectedAnimal={input.animal} />} />
         <Route path="/blog/:postId" element={<BlogPost />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />

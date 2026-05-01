@@ -44,10 +44,29 @@ import { formatCareTaskFrequency } from '../../utils/careTaskFrequencyLabel';
 import { FeedingLogModal } from './FeedingLogModal';
 import { EnvironmentReadingsModal } from './EnvironmentReadingsModal';
 import { CareAnalyticsDashboard } from '../CareAnalytics';
-import type { CareTaskWithLogs, TaskType, CareTask, CareLog, Enclosure, EnclosureAnimal } from '../../types/careCalendar';
+import type { CareTaskWithLogs, TaskType, CareTask, CareLog, Enclosure, EnclosureAnimal, TaskFrequency } from '../../types/careCalendar';
 
 type ViewMode = 'all' | 'today' | 'week' | 'analytics';
 type TimeBlock = 'overdue' | 'morning' | 'afternoon' | 'evening' | 'night' | 'tomorrow' | 'week' | 'future';
+type TaskActionMode = 'skip' | 'snooze' | 'reschedule';
+type EditableFrequency = Exclude<TaskFrequency, 'custom'>;
+
+const EDITABLE_FREQUENCIES: { value: EditableFrequency; label: string }[] = [
+  { value: 'daily', label: 'Daily' },
+  { value: 'every-other-day', label: 'Every Other Day' },
+  { value: 'twice-weekly', label: 'Twice Weekly' },
+  { value: 'weekly', label: 'Weekly' },
+  { value: 'bi-weekly', label: 'Bi-Weekly' },
+  { value: 'monthly', label: 'Monthly' },
+  { value: 'as-needed', label: 'As Needed' },
+];
+
+const SNOOZE_OPTIONS_HOURS = [1, 3, 24, 72] as const;
+
+const toDateTimeLocalInputValue = (value: Date): string => {
+  const local = new Date(value.getTime() - value.getTimezoneOffset() * 60000);
+  return local.toISOString().slice(0, 16);
+};
 
 const formatTaskFrequencySummary = (task: CareTaskWithLogs): string => {
   return formatCareTaskFrequency(task);
@@ -66,6 +85,7 @@ const TaskItem = memo(({
   getEnclosureName,
   getAnimalName,
   formatTime,
+  formatShortDate,
   onToggleSelection,
   onEdit,
   onSkip,
@@ -85,6 +105,7 @@ const TaskItem = memo(({
   getEnclosureName: (id?: string) => string | null;
   getAnimalName: (id?: string) => string | null;
   formatTime: (time: string) => string;
+  formatShortDate: (date: Date) => string;
   onToggleSelection: (id: string) => void;
   onEdit: (id: string) => void;
   onSkip: (id: string) => void;
@@ -146,7 +167,7 @@ const TaskItem = memo(({
                 </span>
               )}
               {task.scheduledTime && (
-                <span className="text-[10px] text-muted">{formatTime(task.scheduledTime)}</span>
+                <span className="text-[10px] text-muted">{formatShortDate(task.nextDueAt)} {formatTime(task.scheduledTime)}</span>
               )}
               <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-card-elevated text-muted">
                 {formatTaskFrequencySummary(task)}
@@ -176,7 +197,7 @@ const TaskItem = memo(({
               <button
                 onClick={() => onSkip(task.id)}
                 className="p-1.5 bg-card-elevated text-muted rounded-lg transition-colors hover:text-white"
-                title="Skip or delay with reason"
+                title="Skip, snooze, or reschedule"
               >
                 <SkipForward className="w-4 h-4" />
               </button>
@@ -220,7 +241,12 @@ export function CareCalendar() {
   const [swipeOffset, setSwipeOffset] = useState(0);
   const [showSkipModal, setShowSkipModal] = useState(false);
   const [skipTaskId, setSkipTaskId] = useState<string | null>(null);
+  const [actionMode, setActionMode] = useState<TaskActionMode>('skip');
   const [skipReason, setSkipReason] = useState('');
+  const [snoozeHours, setSnoozeHours] = useState<number>(24);
+  const [rescheduleAt, setRescheduleAt] = useState('');
+  const [updateFrequencyOnSkip, setUpdateFrequencyOnSkip] = useState(false);
+  const [updatedFrequency, setUpdatedFrequency] = useState<EditableFrequency>('weekly');
 
   // ALL HOOKS MUST BE CALLED BEFORE ANY RETURNS
   useEffect(() => {
@@ -340,31 +366,78 @@ export function CareCalendar() {
     }
   };
 
-  const openSkipTaskModal = (taskId: string) => {
-    setSkipTaskId(taskId);
+  const closeSkipTaskModal = () => {
+    setShowSkipModal(false);
+    setSkipTaskId(null);
+    setActionMode('skip');
     setSkipReason('');
+    setSnoozeHours(24);
+    setRescheduleAt('');
+    setUpdateFrequencyOnSkip(false);
+    setUpdatedFrequency('weekly');
+  };
+
+  const openSkipTaskModal = (taskId: string) => {
+    const task = tasks.find((t) => t.id === taskId);
+    const initialFrequency = task && task.frequency !== 'custom' ? task.frequency as EditableFrequency : 'weekly';
+    const defaultReschedule = task?.nextDueAt ?? new Date(Date.now() + 24 * 60 * 60 * 1000);
+
+    setSkipTaskId(taskId);
+    setActionMode('skip');
+    setSkipReason('');
+    setSnoozeHours(24);
+    setRescheduleAt(toDateTimeLocalInputValue(defaultReschedule));
+    setUpdateFrequencyOnSkip(false);
+    setUpdatedFrequency(initialFrequency);
     setShowSkipModal(true);
   };
 
-  const handleSkipTask = async () => {
+  const handleTaskAction = async () => {
     if (!skipTaskId) return;
-
-    const reason = skipReason.trim();
-    if (!reason) {
-      setError('Please enter a reason when skipping or delaying a task.');
-      return;
-    }
 
     try {
       setError(null);
-      await careTaskService.skipTask(skipTaskId, reason);
+
+      if (actionMode === 'skip') {
+        const reason = skipReason.trim();
+        if (!reason) {
+          setError('Please enter a reason when skipping a task.');
+          return;
+        }
+
+        if (updateFrequencyOnSkip) {
+          await careTaskService.updateTask(skipTaskId, {
+            frequency: updatedFrequency,
+            customFrequencyDays: undefined,
+            customFrequencyWeekdays: undefined,
+          });
+        }
+
+        await careTaskService.skipTask(skipTaskId, reason);
+      } else if (actionMode === 'snooze') {
+        const nextDueAt = new Date();
+        nextDueAt.setHours(nextDueAt.getHours() + snoozeHours);
+        await careTaskService.rescheduleTask(skipTaskId, nextDueAt);
+      } else {
+        if (!rescheduleAt) {
+          setError('Choose a new due date and time to reschedule this task.');
+          return;
+        }
+
+        const parsed = new Date(rescheduleAt);
+        if (Number.isNaN(parsed.getTime())) {
+          setError('Enter a valid date and time.');
+          return;
+        }
+
+        await careTaskService.rescheduleTask(skipTaskId, parsed);
+      }
+
       await loadTasks();
-      setShowSkipModal(false);
-      setSkipTaskId(null);
-      setSkipReason('');
+      closeSkipTaskModal();
     } catch (err) {
-      console.error('Failed to skip task:', err);
-      setError('Failed to skip task.');
+      console.error('Failed to update task action:', err);
+      setError('Failed to apply task action.');
     }
   };
 
@@ -408,6 +481,10 @@ export function CareCalendar() {
     const displayHours = hours % 12 || 12;
     
     return `${displayHours}:${minutes.toString().padStart(2, '0')} ${period}`;
+  };
+
+  const formatShortDate = (date: Date): string => {
+    return `${date.getMonth() + 1}/${date.getDate()}`;
   };
 
   const getTimeBlock = (date: Date): TimeBlock => {
@@ -847,6 +924,7 @@ export function CareCalendar() {
                               getEnclosureName={getEnclosureName}
                               getAnimalName={getAnimalName}
                               formatTime={formatTime}
+                              formatShortDate={formatShortDate}
                               onToggleSelection={toggleTaskSelection}
                               onEdit={(id) => navigate(`/care-calendar/tasks/edit/${id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
                               onSkip={openSkipTaskModal}
@@ -940,43 +1018,144 @@ export function CareCalendar() {
         onSubmit={handleFeedingLogSubmit}
       />
 
-      {/* Skip/Delay Modal */}
+      {/* Task Action Modal */}
       {showSkipModal && (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-end sm:items-center justify-center p-4">
           <div className="w-full max-w-md bg-card border border-divider rounded-2xl shadow-xl">
             <div className="px-4 py-3 border-b border-divider">
-              <h3 className="text-white font-semibold">Skip or Delay Task</h3>
-              <p className="text-xs text-muted mt-1">This will mark this occurrence as skipped and move it to the next scheduled date.</p>
+              <h3 className="text-white font-semibold">Task Action</h3>
+              <p className="text-xs text-muted mt-1">
+                {actionMode === 'skip'
+                  ? 'Skip this occurrence and keep a reason in your history.'
+                  : actionMode === 'snooze'
+                  ? 'Move this occurrence out by a short amount of time.'
+                  : 'Set an exact new due date and time for this occurrence.'}
+              </p>
             </div>
-            <div className="px-4 py-3 space-y-2">
-              <label className="block text-xs font-semibold text-muted uppercase tracking-wide">Reason</label>
-              <textarea
-                value={skipReason}
-                onChange={(e) => setSkipReason(e.target.value)}
-                rows={3}
-                placeholder="e.g. Traveling this weekend"
-                className="w-full resize-none rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted focus:outline-none focus:border-accent"
-              />
+            <div className="px-4 py-3 space-y-3">
+              <div className="grid grid-cols-3 gap-2">
+                <button
+                  type="button"
+                  onClick={() => setActionMode('skip')}
+                  className={`px-3 py-2 rounded-xl text-xs font-semibold border ${
+                    actionMode === 'skip'
+                      ? 'bg-amber-500/20 border-amber-500/50 text-amber-300'
+                      : 'bg-card-elevated border-divider text-muted'
+                  }`}
+                >
+                  Skip
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActionMode('snooze')}
+                  className={`px-3 py-2 rounded-xl text-xs font-semibold border ${
+                    actionMode === 'snooze'
+                      ? 'bg-blue-500/20 border-blue-500/50 text-blue-300'
+                      : 'bg-card-elevated border-divider text-muted'
+                  }`}
+                >
+                  Snooze
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActionMode('reschedule')}
+                  className={`px-3 py-2 rounded-xl text-xs font-semibold border ${
+                    actionMode === 'reschedule'
+                      ? 'bg-violet-500/20 border-violet-500/50 text-violet-300'
+                      : 'bg-card-elevated border-divider text-muted'
+                  }`}
+                >
+                  Reschedule
+                </button>
+              </div>
+
+              {actionMode === 'skip' && (
+                <>
+                  <div>
+                    <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Reason</label>
+                    <textarea
+                      value={skipReason}
+                      onChange={(e) => setSkipReason(e.target.value)}
+                      rows={3}
+                      placeholder="e.g. Traveling this weekend"
+                      className="w-full resize-none rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted focus:outline-none focus:border-accent"
+                    />
+                  </div>
+
+                  <label className="flex items-center gap-2 text-sm text-white">
+                    <input
+                      type="checkbox"
+                      checked={updateFrequencyOnSkip}
+                      onChange={(e) => setUpdateFrequencyOnSkip(e.target.checked)}
+                      className="w-4 h-4 rounded border-divider bg-card-elevated text-accent"
+                    />
+                    Update frequency for future occurrences
+                  </label>
+
+                  {updateFrequencyOnSkip && (
+                    <div>
+                      <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">New Frequency</label>
+                      <select
+                        value={updatedFrequency}
+                        onChange={(e) => setUpdatedFrequency(e.target.value as EditableFrequency)}
+                        className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white focus:outline-none focus:border-accent"
+                      >
+                        {EDITABLE_FREQUENCIES.map((freq) => (
+                          <option key={freq.value} value={freq.value}>
+                            {freq.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
+                </>
+              )}
+
+              {actionMode === 'snooze' && (
+                <div>
+                  <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Snooze Duration</label>
+                  <select
+                    value={snoozeHours}
+                    onChange={(e) => setSnoozeHours(Number(e.target.value))}
+                    className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white focus:outline-none focus:border-accent"
+                  >
+                    {SNOOZE_OPTIONS_HOURS.map((hours) => (
+                      <option key={hours} value={hours}>
+                        {hours < 24 ? `${hours} hour${hours === 1 ? '' : 's'}` : `${hours / 24} day${hours / 24 === 1 ? '' : 's'}`}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+              {actionMode === 'reschedule' && (
+                <div>
+                  <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">New Due Date & Time</label>
+                  <input
+                    type="datetime-local"
+                    value={rescheduleAt}
+                    onChange={(e) => setRescheduleAt(e.target.value)}
+                    className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white focus:outline-none focus:border-accent [&::-webkit-calendar-picker-indicator]:invert"
+                    style={{ colorScheme: 'dark' }}
+                  />
+                </div>
+              )}
             </div>
             <div className="px-4 py-3 border-t border-divider flex items-center justify-end gap-2">
               <button
                 type="button"
-                onClick={() => {
-                  setShowSkipModal(false);
-                  setSkipTaskId(null);
-                  setSkipReason('');
-                }}
+                onClick={closeSkipTaskModal}
                 className="px-4 py-2 rounded-full bg-card-elevated border border-divider text-sm font-semibold text-white"
               >
                 Cancel
               </button>
               <button
                 type="button"
-                onClick={handleSkipTask}
-                disabled={skipReason.trim().length === 0}
-                className="px-4 py-2 rounded-full bg-amber-500 text-black text-sm font-semibold disabled:opacity-50"
+                onClick={handleTaskAction}
+                disabled={actionMode === 'skip' && skipReason.trim().length === 0}
+                className="px-4 py-2 rounded-full bg-accent text-on-accent text-sm font-semibold disabled:opacity-50"
               >
-                Skip/Delay
+                {actionMode === 'skip' ? 'Skip Task' : actionMode === 'snooze' ? 'Snooze Task' : 'Reschedule Task'}
               </button>
             </div>
           </div>
