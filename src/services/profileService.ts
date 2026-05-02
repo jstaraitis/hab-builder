@@ -7,6 +7,7 @@ export interface UserProfile {
   mobileNavOrder?: string[];
   subscriptionCancelAt?: string;
   subscriptionPlatform?: string;
+  onboardingCompleted?: boolean;
 }
 
 export interface IProfileService {
@@ -19,7 +20,7 @@ export class SupabaseProfileService implements IProfileService {
   async getProfile(userId: string): Promise<UserProfile | null> {
     const { data, error } = await supabase
       .from('profiles')
-      .select('id, display_name, is_premium, mobile_nav_order, subscription_cancel_at, subscription_platform')
+      .select('id, display_name, is_premium, mobile_nav_order, subscription_cancel_at, subscription_platform, onboarding_completed')
       .eq('id', userId)
       .single();
 
@@ -35,19 +36,24 @@ export class SupabaseProfileService implements IProfileService {
       mobileNavOrder: data.mobile_nav_order ?? undefined,
       subscriptionCancelAt: data.subscription_cancel_at ?? undefined,
       subscriptionPlatform: data.subscription_platform ?? undefined,
+      onboardingCompleted: data.onboarding_completed ?? undefined,
     };
   }
 
   async updateProfile(userId: string, updates: Partial<UserProfile>): Promise<void> {
+    const payload: Record<string, unknown> = {
+      id: userId,
+      updated_at: new Date().toISOString(),
+    };
+
+    if (updates.displayName !== undefined) payload.display_name = updates.displayName;
+    if (updates.isPremium !== undefined) payload.is_premium = updates.isPremium;
+    if (updates.mobileNavOrder !== undefined) payload.mobile_nav_order = updates.mobileNavOrder;
+    if (updates.onboardingCompleted !== undefined) payload.onboarding_completed = updates.onboardingCompleted;
+
     const { error } = await supabase
       .from('profiles')
-      .upsert({
-        id: userId,
-        display_name: updates.displayName,
-        is_premium: updates.isPremium,
-        mobile_nav_order: updates.mobileNavOrder,
-        updated_at: new Date().toISOString(),
-      }, { onConflict: 'id' });
+      .upsert(payload, { onConflict: 'id' });
 
     if (error) throw error;
   }

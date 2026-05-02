@@ -55,6 +55,7 @@ export function ProfilePage() {
   const [notificationSuccess, setNotificationSuccess] = useState<string | null>(null);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [status, setStatus] = useState<'free' | 'premium'>('free');
+  const [onboardingCompleted, setOnboardingCompleted] = useState(false);
   const [cancelDate, setCancelDate] = useState<string | null>(null);
   const [subscriptionPlatform, setSubscriptionPlatform] = useState<string | null>(null);
   const [form, setForm] = useState<ProfileFormState>({ displayName: '' });
@@ -124,6 +125,7 @@ export function ProfilePage() {
         ]);
         setForm({ displayName: profile?.displayName || '' });
         setStatus(profile?.isPremium ? 'premium' : 'free');
+        setOnboardingCompleted(Boolean(profile?.onboardingCompleted));
         setCancelDate(profile?.subscriptionCancelAt || null);
         setSubscriptionPlatform(profile?.subscriptionPlatform || null);
         setSurveyCompleted(hasCompletedSurvey);
@@ -349,6 +351,27 @@ export function ProfilePage() {
           <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">Account</h2>
           <p className="mt-1 text-sm text-muted">Manage your profile, preferences and account settings.</p>
         </div>
+
+        {!loading && (
+          <section className="rounded-2xl border border-sky-400/30 bg-sky-500/10 p-4 sm:p-5">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-base font-semibold text-white">New here? Start here.</p>
+                <p className="text-sm text-white/80">
+                  {onboardingCompleted
+                    ? 'Need a refresher? You can run onboarding again any time.'
+                    : 'Run the quick setup to create your first habitat and care schedule.'}
+                </p>
+              </div>
+              <button
+                onClick={() => navigate('/onboarding')}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-on-accent transition hover:bg-accent-dim sm:w-auto"
+              >
+                {onboardingCompleted ? 'Run Onboarding Again' : 'Start Here!'}
+              </button>
+            </div>
+          </section>
+        )}
 
         {paymentSuccess && (
           <div className="rounded-2xl border border-accent/40 bg-accent/10 p-4 text-white">

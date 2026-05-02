@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, Link, useNavigate, useParams } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import { usePlanner } from '../contexts/PlannerContext';
@@ -7,9 +7,6 @@ import { PremiumRoute } from './Auth/PremiumRoute';
 import { AuthRoute } from './Auth/AuthRoute';
 import { OwnerRoute } from './Auth/OwnerRoute';
 import { animalProfiles } from '../data/animals';
-import { enclosureService } from '../services/enclosureService';
-
-const ONBOARDING_STORAGE_KEY = 'hab:onboarding:v1:complete';
 
 // Lazy load route components for better performance
 const AnimalSelectView = lazy(() => import('./Views/AnimalSelectView').then(m => ({ default: m.AnimalSelectView })));
@@ -241,32 +238,11 @@ function AnimalSelectRoute({ input, selectedProfile, profileCareTargets, plan, o
 function AuthDashboardRedirect() {
   const { user, loading } = useAuth();
   const navigate = useNavigate();
-  const [checking, setChecking] = useState(false);
 
   useEffect(() => {
-    if (loading || !user || checking) return;
-
-    // Fast path: onboarding already done
-    if (localStorage.getItem(ONBOARDING_STORAGE_KEY) === '1') {
-      navigate('/dashboard', { replace: true });
-      return;
-    }
-
-    // Check whether user already has enclosures (returning user on new device)
-    setChecking(true);
-    enclosureService.getEnclosures(user.id)
-      .then((enclosures) => {
-        if (enclosures.length === 0) {
-          navigate('/onboarding', { replace: true });
-        } else {
-          localStorage.setItem(ONBOARDING_STORAGE_KEY, '1');
-          navigate('/dashboard', { replace: true });
-        }
-      })
-      .catch(() => {
-        navigate('/dashboard', { replace: true });
-      });
-  }, [user, loading, navigate, checking]);
+    if (loading || !user) return;
+    navigate('/dashboard', { replace: true });
+  }, [user, loading, navigate]);
 
   // Unauthenticated users see the marketing home
   if (!loading && !user) return <Home />;

@@ -8,22 +8,13 @@ import { careTaskService } from '../../services/careTaskService';
 import { uploadEnclosurePhoto } from '../../services/enclosurePhotoService';
 import { uploadAnimalPhoto } from '../../services/animalPhotoService';
 import { buildTasksFromEnclosureById } from '../../services/enclosureTaskBuilder';
+import { profileService } from '../../services/profileService';
 import { animalList } from '../../data/animals';
 import { EnclosureFormCRUD, type EnclosureFormData } from '../Forms/EnclosureFormCRUD';
 import { AnimalForm, type AnimalFormData } from '../Forms/AnimalForm';
 import type { Enclosure } from '../../types/careCalendar';
 
 type Step = 'welcome' | 'enclosure' | 'animal' | 'tasks' | 'done';
-
-const STORAGE_KEY = 'hab:onboarding:v1:complete';
-
-export function markOnboardingComplete() {
-  localStorage.setItem(STORAGE_KEY, '1');
-}
-
-export function hasCompletedOnboarding() {
-  return localStorage.getItem(STORAGE_KEY) === '1';
-}
 
 const STEPS: { id: Step; label: string; icon: React.ElementType }[] = [
   { id: 'enclosure', label: 'Enclosure', icon: Home },
@@ -165,7 +156,11 @@ export function OnboardingWizard() {
   };
 
   const finishOnboarding = () => {
-    markOnboardingComplete();
+    if (user) {
+      profileService.updateProfile(user.id, { onboardingCompleted: true }).catch((error) => {
+        console.error('Failed to mark onboarding complete:', error);
+      });
+    }
     setStep('done');
   };
 

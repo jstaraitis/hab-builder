@@ -15,9 +15,6 @@ import { PushNotifications } from '@capacitor/push-notifications';
 import { MobileNav } from './components/Navigation/MobileNav';
 import { DesktopNav } from './components/Navigation/DesktopNav';
 import { AppRoutes } from './components/AppRoutes';
-import { enclosureService } from './services/enclosureService';
-
-const ONBOARDING_KEY = 'hab:onboarding:v1:complete';
 
 function App() {
   const location = useLocation();
@@ -39,27 +36,6 @@ function App() {
       console.error('Error validating push subscriptions:', error);
     });
   }, [user]);
-
-  // Redirect new users to onboarding wizard
-  useEffect(() => {
-    if (!user) return;
-    if (localStorage.getItem(ONBOARDING_KEY) === '1') return;
-    // Don't interrupt if they're already in onboarding or on the profile page
-    if (location.pathname === '/onboarding') return;
-    if (location.pathname === '/profile') return;
-
-    enclosureService.getEnclosures(user.id)
-      .then((enclosures) => {
-        if (enclosures.length === 0) {
-          window.location.replace('/onboarding');
-        } else {
-          localStorage.setItem(ONBOARDING_KEY, '1');
-        }
-      })
-      .catch(() => { /* silently ignore — don't block the app */ });
-  // Only re-run when the user or current page changes
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user, location.pathname]);
 
   // Clear iOS app icon badge when app launches or returns to foreground
   useEffect(() => {
