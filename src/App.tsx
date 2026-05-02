@@ -44,8 +44,9 @@ function App() {
   useEffect(() => {
     if (!user) return;
     if (localStorage.getItem(ONBOARDING_KEY) === '1') return;
-    // Don't interrupt if they're already in onboarding
+    // Don't interrupt if they're already in onboarding or on the profile page
     if (location.pathname === '/onboarding') return;
+    if (location.pathname === '/profile') return;
 
     enclosureService.getEnclosures(user.id)
       .then((enclosures) => {
@@ -56,9 +57,9 @@ function App() {
         }
       })
       .catch(() => { /* silently ignore — don't block the app */ });
-  // Only re-run when the user changes (login/logout), not on every nav
+  // Only re-run when the user or current page changes
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+  }, [user, location.pathname]);
 
   // Clear iOS app icon badge when app launches or returns to foreground
   useEffect(() => {
