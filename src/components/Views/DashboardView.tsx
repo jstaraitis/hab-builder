@@ -1031,7 +1031,7 @@ export function DashboardView() {
   if (!selectedAnimal) {
     return (
       <div className="min-h-screen bg-surface">
-        <EmptyState onAdd={() => navigate('/care-calendar/enclosures/add')} />
+        <EmptyState onAdd={() => navigate('/my-animals/add')} />
       </div>
     );
   }
