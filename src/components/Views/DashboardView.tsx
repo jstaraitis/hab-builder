@@ -51,7 +51,9 @@ import { humidityLogService, type HumidityLog } from '../../services/humidityLog
 import { uvbLogService, type UvbLog } from '../../services/uvbLogService';
 import { feedingLogService, type FeedingLog } from '../../services/feedingLogService';
 import { computeSmartStatus, type SmartStatusLevel } from '../../services/smartStatusService';
-import type { Enclosure, EnclosureAnimal, CareTaskWithLogs } from '../../types/careCalendar';
+import type { Enclosure, EnclosureAnimal, CareTaskWithLogs, CareLog } from '../../types/careCalendar';
+import { FeedingLogModal } from '../CareCalendar/FeedingLogModal';
+import { EnvironmentReadingsModal } from '../CareCalendar/EnvironmentReadingsModal';
 import type { WeightLog } from '../../types/weightTracking';
 import type { ShedLog } from '../../services/shedLogService';
 import { getAnimalById } from '../../data/animals';
@@ -970,7 +972,34 @@ export function DashboardView() {
     };
   }, [animals, tasks]);
 
+  const [feedingTask, setFeedingTask] = useState<CareTaskWithLogs | null>(null);
+  const [showFeedingModal, setShowFeedingModal] = useState(false);
+  const [envTask, setEnvTask] = useState<CareTaskWithLogs | null>(null);
+  const [showEnvModal, setShowEnvModal] = useState(false);
+
   const handleCompleteTask = useCallback((task: CareTaskWithLogs) => {
+    if (task.type === 'feeding' || task.type === 'gut-load') {
+      setFeedingTask(task);
+      setShowFeedingModal(true);
+      return;
+    }
+    const normalizedType = (task.type || '').toLowerCase().trim();
+    const normalizedTitle = (task.title || '').toLowerCase();
+    const isTemperatureTask =
+      normalizedType === 'temperature-check' ||
+      normalizedType === 'temperature_check' ||
+      normalizedType === 'temperature check' ||
+      normalizedTitle.includes('temperature');
+    const isHumidityTask =
+      normalizedType === 'humidity-check' ||
+      normalizedType === 'humidity_check' ||
+      normalizedType === 'humidity check' ||
+      normalizedTitle.includes('humidity');
+    if (isTemperatureTask || isHumidityTask) {
+      setEnvTask(task);
+      setShowEnvModal(true);
+      return;
+    }
     setCompletedIds((prev) => {
       const next = new Set(prev);
       if (next.has(task.id)) {
@@ -982,6 +1011,22 @@ export function DashboardView() {
       return next;
     });
   }, []);
+
+  const handleFeedingLogSubmit = async (logData: Partial<CareLog>) => {
+    if (!feedingTask) return;
+    await careTaskService.completeTask(feedingTask.id, logData);
+    setCompletedIds((prev) => new Set(prev).add(feedingTask.id));
+    setShowFeedingModal(false);
+    setFeedingTask(null);
+  };
+
+  const handleEnvReadingsSubmit = async () => {
+    if (!envTask) return;
+    await careTaskService.completeTask(envTask.id);
+    setCompletedIds((prev) => new Set(prev).add(envTask.id));
+    setShowEnvModal(false);
+    setEnvTask(null);
+  };
 
   const selectedAnimal = animals.find((a) => a.id === selectedAnimalId) ?? null;
   const speciesId = (selectedAnimal as any)?.enclosures?.animalId as string | undefined;
@@ -1097,6 +1142,28 @@ export function DashboardView() {
           />
         ) : null}
       </div>
+      <FeedingLogModal
+        isOpen={showFeedingModal}
+        taskTitle={feedingTask?.title || ''}
+        onClose={() => {
+          setShowFeedingModal(false);
+          setFeedingTask(null);
+        }}
+        onSubmit={handleFeedingLogSubmit}
+      />
+      {envTask && (
+        <EnvironmentReadingsModal
+          isOpen={showEnvModal}
+          task={envTask}
+          userId={user?.id ?? ''}
+          fallbackEnclosureAnimalId={
+            envTask.enclosureAnimalId ||
+            animals.find((a) => a.enclosureId === envTask.enclosureId)?.id
+          }
+          onClose={() => { setShowEnvModal(false); setEnvTask(null); }}
+          onSubmit={handleEnvReadingsSubmit}
+        />
+      )}
     </div>
   );
 }
