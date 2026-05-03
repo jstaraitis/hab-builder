@@ -109,6 +109,14 @@ function convertInchesToLength(value: number, unit: LengthLog['unit']): number {
   }
 }
 
+function getCalendarDayDiff(dateValue: Date | string): number {
+  const date = new Date(dateValue);
+  const now = new Date();
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const dateStart = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  return Math.max(0, Math.floor((todayStart.getTime() - dateStart.getTime()) / (1000 * 60 * 60 * 24)));
+}
+
 // Tab types
 type TabType = 'overview' | 'tasks' | 'care' | 'growth' | 'health' | 'shedding' | 'brumation' | 'info';
 
@@ -122,6 +130,8 @@ const TABS: Array<{ id: TabType; label: string; icon: LucideIcon }> = [
   { id: 'brumation', label: 'Brumation', icon: Moon },
   { id: 'info', label: 'Info', icon: Info }
 ];
+
+const RECENT_FEEDINGS_PAGE_SIZE = 50;
 
 export function AnimalDetailView() {
   const { animalId } = useParams<{ animalId: string }>();
@@ -174,6 +184,7 @@ export function AnimalDetailView() {
   const [savingPoop, setSavingPoop] = useState(false);
   const [showFeedingModal, setShowFeedingModal] = useState(false);
   const [showRecentFeedings, setShowRecentFeedings] = useState(false);
+  const [recentFeedingsVisibleCount, setRecentFeedingsVisibleCount] = useState(RECENT_FEEDINGS_PAGE_SIZE);
   const [quickOpenApplied, setQuickOpenApplied] = useState(false);
   const [deletingLogId, setDeletingLogId] = useState<string | null>(null);
 
@@ -280,7 +291,7 @@ export function AnimalDetailView() {
           lengthLogService.getLogsForAnimal(animalId),
           vetRecordService.getRecordsForAnimal(animalId),
           poopLogService.getRecentLogs(animalId, 10),
-          feedingLogService.getRecentLogs(animalData.enclosureId, 10),
+          feedingLogService.getRecentLogs(animalData.enclosureId),
         ]);
 
         setEnclosure(enclosureData);
@@ -299,7 +310,7 @@ export function AnimalDetailView() {
           lengthLogService.getLogsForAnimal(animalId),
           vetRecordService.getRecordsForAnimal(animalId),
           poopLogService.getRecentLogs(animalId, 10),
-          feedingLogService.getRecentLogs(undefined, 10),
+          feedingLogService.getRecentLogs(undefined),
         ]);
         
         const animalTasks = allTasks.filter(task => task.enclosureAnimalId === animalData.id);
@@ -363,21 +374,19 @@ export function AnimalDetailView() {
       
       if (task.type === 'feeding' && task.logs) {
         task.logs.forEach(log => {
-          if (log.feederType) {
-            feedingLogs.push({
-              id: log.id,
-              completedAt: log.completedAt,
-              notes: log.notes,
-              taskTitle: task.title,
-              isEnclosureLevel: !task.enclosureAnimalId,
-              feedingData: {
-                feederType: log.feederType,
-                quantityOffered: log.quantityOffered,
-                quantityEaten: log.quantityEaten,
-                supplementUsed: log.supplementUsed
-              }
-            });
-          }
+          feedingLogs.push({
+            id: log.id,
+            completedAt: log.completedAt,
+            notes: log.notes,
+            taskTitle: task.title,
+            isEnclosureLevel: !task.enclosureAnimalId,
+            feedingData: {
+              feederType: log.feederType,
+              quantityOffered: log.quantityOffered,
+              quantityEaten: log.quantityEaten,
+              supplementUsed: log.supplementUsed
+            }
+          });
         });
       }
     });
@@ -385,7 +394,16 @@ export function AnimalDetailView() {
     const sortedLogs = [...feedingLogs].sort((a, b) => 
       new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime()
     );
-    return sortedLogs.slice(0, 10);
+    return sortedLogs;
+  };
+
+  const dedupeFeedingLogsById = (logs: Array<{ id: string } & Record<string, any>>) => {
+    const seenIds = new Set<string>();
+    return logs.filter((log) => {
+      if (seenIds.has(log.id)) return false;
+      seenIds.add(log.id);
+      return true;
+    });
   };
 
   const handleSavePoopLog = async () => {
@@ -427,7 +445,7 @@ export function AnimalDetailView() {
         notes: logData.notes,
       });
 
-      const updated = await feedingLogService.getRecentLogs(enclosure.id, 10);
+      const updated = await feedingLogService.getRecentLogs(enclosure.id);
       setDirectFeedingLogs(updated);
       setShowFeedingModal(false);
     } catch (err) {
@@ -444,7 +462,7 @@ export function AnimalDetailView() {
       await feedingLogService.deleteLog(logId);
       
       if (enclosure) {
-        const updated = await feedingLogService.getRecentLogs(enclosure.id, 10);
+        const updated = await feedingLogService.getRecentLogs(enclosure.id);
         setDirectFeedingLogs(updated);
       }
     } catch (err) {
@@ -514,7 +532,7 @@ export function AnimalDetailView() {
   
   // Combine feeding logs from care tasks and direct logging for the recent feedings section
   // Only include direct logs if they match the current filter (animal-only or all in enclosure)
-  const combinedFeedingLogs = [
+  const combinedFeedingLogs = dedupeFeedingLogsById([
     ...feedingLogs,
     ...(showAllFeedingLogs 
       ? directFeedingLogs  // Show all direct logs when "All in Enclosure" is selected
@@ -532,10 +550,12 @@ export function AnimalDetailView() {
         supplementUsed: log.supplementUsed
       }
     }))
-  ].sort((a, b) => new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime());
+  ]).sort((a, b) => new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime());
+  const visibleRecentFeedingLogs = combinedFeedingLogs.slice(0, recentFeedingsVisibleCount);
+  const canLoadMoreRecentFeedings = combinedFeedingLogs.length > recentFeedingsVisibleCount;
   
   // Combine feeding logs from care tasks and direct logging for overview (unfiltered)
-  const allFeedingLogs = [
+  const allFeedingLogs = dedupeFeedingLogsById([
     ...unfilteredFeedingLogs,
     ...directFeedingLogs.map(log => ({
       id: log.id,
@@ -549,7 +569,7 @@ export function AnimalDetailView() {
         supplementUsed: log.supplementUsed
       }
     }))
-  ].sort((a, b) => new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime());
+  ]).sort((a, b) => new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime());
   
   const latestFeeding = allFeedingLogs.length > 0 ? allFeedingLogs[0] : null;
   const latestTaskFeedingCompletion = tasks
@@ -568,10 +588,7 @@ export function AnimalDetailView() {
   const latestMedical = vetRecords.length > 0 ? vetRecords[0] : null;
   const ageLabel = animal.birthday ? calculateAge(new Date(animal.birthday)) : null;
   const lastFeedingDays = latestFeedingAt
-    ? Math.max(
-        0,
-        Math.floor((Date.now() - new Date(latestFeedingAt).getTime()) / (1000 * 60 * 60 * 24))
-      )
+    ? getCalendarDayDiff(latestFeedingAt)
     : null;
   const lastFeedingLabel =
     lastFeedingDays === null
@@ -1252,7 +1269,13 @@ export function AnimalDetailView() {
             {/* Recent Feeding Logs */}
             <div className="bg-card border border-divider rounded-2xl overflow-hidden">
               <button
-                onClick={() => setShowRecentFeedings(!showRecentFeedings)}
+                onClick={() => setShowRecentFeedings((prev) => {
+                  const next = !prev;
+                  if (next) {
+                    setRecentFeedingsVisibleCount(RECENT_FEEDINGS_PAGE_SIZE);
+                  }
+                  return next;
+                })}
                 className="w-full flex items-center justify-between p-6 hover:bg-card-elevated transition-colors"
               >
                 <h2 className="text-lg font-semibold text-white flex items-center gap-2">
@@ -1269,7 +1292,10 @@ export function AnimalDetailView() {
                   <div className="flex items-center gap-3 mb-4">
                     <div className="flex items-center gap-2 bg-card-elevated rounded-lg p-1">
                       <button
-                        onClick={() => setShowAllFeedingLogs(false)}
+                        onClick={() => {
+                          setShowAllFeedingLogs(false);
+                          setRecentFeedingsVisibleCount(RECENT_FEEDINGS_PAGE_SIZE);
+                        }}
                         className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
                           !showAllFeedingLogs
                             ? 'bg-card text-accent shadow-sm'
@@ -1279,7 +1305,10 @@ export function AnimalDetailView() {
                         This Animal
                       </button>
                       <button
-                        onClick={() => setShowAllFeedingLogs(true)}
+                        onClick={() => {
+                          setShowAllFeedingLogs(true);
+                          setRecentFeedingsVisibleCount(RECENT_FEEDINGS_PAGE_SIZE);
+                        }}
                         className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
                           showAllFeedingLogs
                             ? 'bg-card text-accent shadow-sm'
@@ -1293,7 +1322,7 @@ export function AnimalDetailView() {
 
                   {combinedFeedingLogs.length > 0 ? (
                     <div className="space-y-3">
-                  {combinedFeedingLogs.map((log) => (
+                  {visibleRecentFeedingLogs.map((log) => (
                     <div
                       key={log.id}
                       className="border border-divider rounded-lg p-4 hover:bg-card-elevated/50 transition-colors"
@@ -1329,13 +1358,17 @@ export function AnimalDetailView() {
                           {/* Food Row */}
                           <div className="flex items-center gap-3 p-2 bg-card-elevated/30 rounded">
                             <span className="text-xs font-medium text-muted uppercase w-16">Food:</span>
-                            <span className="text-sm text-white">{log.feedingData.feederType}</span>
+                            <span className="text-sm text-white">{log.feedingData.feederType || 'Not specified'}</span>
                           </div>
 
                           {/* Amount Row */}
                           <div className="flex items-center gap-3 p-2 bg-card-elevated/30 rounded">
                             <span className="text-xs font-medium text-muted uppercase w-16">Amount:</span>
-                            <span className="text-sm text-white">{log.feedingData.quantityEaten || 0} / {log.feedingData.quantityOffered} eaten</span>
+                            <span className="text-sm text-white">
+                              {log.feedingData.quantityOffered
+                                ? `${log.feedingData.quantityEaten || 0} / ${log.feedingData.quantityOffered} eaten`
+                                : 'Not specified'}
+                            </span>
                           </div>
 
                           {/* Supplement Row */}
@@ -1358,6 +1391,19 @@ export function AnimalDetailView() {
                       )}
                     </div>
                   ))}
+                  {canLoadMoreRecentFeedings && (
+                    <div className="pt-2 flex items-center justify-between gap-3">
+                      <p className="text-xs text-muted">
+                        Showing {visibleRecentFeedingLogs.length} of {combinedFeedingLogs.length}
+                      </p>
+                      <button
+                        onClick={() => setRecentFeedingsVisibleCount((prev) => prev + RECENT_FEEDINGS_PAGE_SIZE)}
+                        className="px-3 py-1.5 text-xs font-semibold rounded-lg border border-divider bg-card-elevated text-white hover:bg-card transition-colors"
+                      >
+                        Load More
+                      </button>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div className="text-center py-8">

@@ -1,35 +1,34 @@
-import { supabase } from '../lib/supabase';
+﻿import { supabase } from '../lib/supabase';
 
 const ANIMAL_PHOTO_BUCKET = 'animal-photos';
 const MAX_FILE_SIZE_KB = 300;
-const MAX_DIMENSION = 2048; // Max width or height in pixels
+const MAX_DIMENSION = 2048;
 
-/**
- * Compress an image file to be under 300KB - Optimized for mobile performance
- */
 async function compressImage(file: File): Promise<File> {
   return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    
-    reader.onload = (e) => {
-      const img = new Image();
-      
-      img.onload = () => {
+    const objectUrl = URL.createObjectURL(file);
+    const img = new Image();
+
+    const cleanup = () => {
+      URL.revokeObjectURL(objectUrl);
+    };
+
+    img.onload = () => {
+      try {
         const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d', { alpha: false }); // Disable alpha for faster processing
-        
+        const ctx = canvas.getContext('2d', { alpha: false });
+
         if (!ctx) {
+          cleanup();
           reject(new Error('Failed to get canvas context'));
           return;
         }
 
-        // Calculate new dimensions (max 2048px on longest side)
         let width = img.width;
         let height = img.height;
-        
-        // More aggressive resize for very large images (phone cameras)
+
         const maxDim = width > 1920 || height > 1920 ? 1600 : MAX_DIMENSION;
-        
+
         if (width > maxDim || height > maxDim) {
           if (width > height) {
             height = (height / width) * maxDim;
@@ -42,83 +41,85 @@ async function compressImage(file: File): Promise<File> {
 
         canvas.width = width;
         canvas.height = height;
-        
-        // Use faster image smoothing for mobile
+
         ctx.imageSmoothingEnabled = true;
         ctx.imageSmoothingQuality = 'medium';
         ctx.drawImage(img, 0, 0, width, height);
 
-        // Binary search for optimal quality (much faster than linear)
         let minQuality = 0.3;
         let maxQuality = 0.85;
         let attempts = 0;
-        const maxAttempts = 4; // Limit attempts for speed
+        const maxAttempts = 4;
 
         const tryCompress = (quality: number) => {
           attempts++;
-          
+
           canvas.toBlob(
             (blob) => {
               if (!blob) {
+                cleanup();
                 reject(new Error('Failed to compress image'));
                 return;
               }
 
               const sizeKB = blob.size / 1024;
 
-              // If under target or we've tried enough, accept it
               if (sizeKB <= MAX_FILE_SIZE_KB || attempts >= maxAttempts || maxQuality - minQuality < 0.05) {
                 const compressedFile = new File([blob], file.name, {
                   type: 'image/jpeg',
                   lastModified: Date.now(),
                 });
+                cleanup();
                 resolve(compressedFile);
-              } else if (sizeKB > MAX_FILE_SIZE_KB) {
-                // Too large, try lower quality (binary search)
+                return;
+              }
+
+              if (sizeKB > MAX_FILE_SIZE_KB) {
                 maxQuality = quality;
                 tryCompress((minQuality + maxQuality) / 2);
               } else {
-                // Under target but try to get closer (binary search)
                 minQuality = quality;
                 tryCompress((minQuality + maxQuality) / 2);
               }
             },
             'image/jpeg',
-            quality
+            quality,
           );
         };
 
-        // Start with moderate quality
         tryCompress(0.65);
-      };
-
-      img.onerror = () => {
-        reject(new Error('Failed to load image'));
-      };
-
-      img.src = e.target?.result as string;
+      } catch (error) {
+        cleanup();
+        reject(error instanceof Error ? error : new Error('Failed to process image'));
+      }
     };
 
-    reader.onerror = () => {
-      reject(new Error('Failed to read file'));
+    img.onerror = () => {
+      cleanup();
+      reject(new Error('Failed to load image'));
     };
 
-    reader.readAsDataURL(file);
+    img.src = objectUrl;
   });
 }
 
 export async function uploadEnclosurePhoto(userId: string, file: File): Promise<string> {
-  // Compress image before uploading
-  const compressedFile = await compressImage(file);
-  
+  let uploadFile: File;
+  try {
+    uploadFile = await compressImage(file);
+  } catch (error) {
+    console.warn('Image compression failed, uploading original file:', error);
+    uploadFile = file;
+  }
+
   const filename = `enclosures/${userId}/${Date.now()}-${Math.random().toString(36).slice(2)}.jpg`;
 
   const { error } = await supabase.storage
     .from(ANIMAL_PHOTO_BUCKET)
-    .upload(filename, compressedFile, {
+    .upload(filename, uploadFile, {
       cacheControl: '3600',
       upsert: false,
-      contentType: 'image/jpeg'
+      contentType: 'image/jpeg',
     });
 
   if (error) {
@@ -130,15 +131,10 @@ export async function uploadEnclosurePhoto(userId: string, file: File): Promise<
   return data.publicUrl;
 }
 
-/**
- * Delete an enclosure photo from storage
- */
 export async function deleteEnclosurePhoto(imageUrl: string): Promise<void> {
   try {
-    // Extract the file path from the public URL
-    // URL format: https://{project}.supabase.co/storage/v1/object/public/animal-photos/enclosures/{userId}/{filename}
     const urlParts = imageUrl.split(`${ANIMAL_PHOTO_BUCKET}/`);
-    
+
     if (urlParts.length < 2) {
       console.error('Invalid image URL format:', imageUrl);
       throw new Error(`Invalid image URL format: ${imageUrl}`);

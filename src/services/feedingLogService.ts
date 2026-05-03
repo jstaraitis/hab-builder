@@ -30,17 +30,21 @@ export interface FeedingLogInput {
 }
 
 class FeedingLogService {
-  async getRecentLogs(enclosureId: string | undefined, limit: number = 10): Promise<FeedingLog[]> {
+  async getRecentLogs(enclosureId: string | undefined, limit?: number): Promise<FeedingLog[]> {
     if (!enclosureId) return [];
-    
-    // Query care_logs where feeder_type is not null (feeding logs) for this enclosure
-    const { data, error } = await supabase
+
+    let query = supabase
       .from('care_logs')
       .select('id, user_id, completed_at, feeder_type, quantity_offered, quantity_eaten, refusal_noted, supplement_used, notes, task_id')
       .eq('enclosure_id', enclosureId)
-      .not('feeder_type', 'is', null)
-      .order('completed_at', { ascending: false })
-      .limit(limit);
+      .or('feeder_type.not.is.null,task_id.is.null')
+      .order('completed_at', { ascending: false });
+
+    if (typeof limit === 'number') {
+      query = query.limit(limit);
+    }
+
+    const { data, error } = await query;
 
     if (error) throw error;
     return (data || []).map(this.mapFromDb);
@@ -81,6 +85,8 @@ class FeedingLogService {
     return {
       id: row.id,
       userId: row.user_id,
+      enclosureId: row.enclosure_id,
+      careTaskId: row.task_id,
       completedAt: row.completed_at,
       feederType: row.feeder_type,
       quantityOffered: row.quantity_offered,

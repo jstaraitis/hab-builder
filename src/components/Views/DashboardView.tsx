@@ -192,6 +192,14 @@ function getShedStatus(logs: ShedLog[]): string {
   return 'On Track';
 }
 
+function getCalendarDayDiff(dateValue: Date | string): number {
+  const date = new Date(dateValue);
+  const now = new Date();
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const dateStart = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  return Math.max(0, Math.floor((todayStart.getTime() - dateStart.getTime()) / 86_400_000));
+}
+
 function getLastFed(tasks: CareTaskWithLogs[], feedingLogs: FeedingLog[]): string {
   // Combine task-based and direct feeding logs
   const allLogs: Array<{ completedAt: Date | string }> = [
@@ -207,7 +215,7 @@ function getLastFed(tasks: CareTaskWithLogs[], feedingLogs: FeedingLog[]): strin
     new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime()
   );
   
-  const diff = Math.floor((Date.now() - new Date(sorted[0].completedAt).getTime()) / 86_400_000);
+  const diff = getCalendarDayDiff(sorted[0].completedAt);
   if (diff === 0) return 'Today';
   if (diff === 1) return '1d ago';
   return `${diff}d ago`;
