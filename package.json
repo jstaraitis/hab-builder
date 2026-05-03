@@ -22,6 +22,7 @@
     "cap:copy": "npx cap copy ios"
   },
   "dependencies": {
+    "@capacitor/android": "^8.3.1",
     "@capacitor/app": "^8.0.1",
     "@capacitor/cli": "^8.2.0",
     "@capacitor/core": "^8.2.0",
