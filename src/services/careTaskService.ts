@@ -241,6 +241,8 @@ export class SupabaseCareService implements ICareTaskService {
     const log: Omit<CareLog, 'id'> = {
       taskId,
       userId: task.userId,
+      enclosureId: task.enclosureId,
+      enclosureAnimalId: task.enclosureAnimalId,
       completedAt,
       skipped: false,
       ...additionalLogData, // Merge in any additional log data (feeder type, quantities, etc.)
@@ -489,6 +491,8 @@ export class SupabaseCareService implements ICareTaskService {
       id: row.id,
       taskId: row.task_id,
       userId: row.user_id,
+      enclosureId: row.enclosure_id,
+      enclosureAnimalId: row.enclosure_animal_id,
       completedAt: new Date(row.completed_at),
       notes: row.notes,
       skipped: row.skipped,
@@ -506,6 +510,8 @@ export class SupabaseCareService implements ICareTaskService {
       id: log.id,
       task_id: log.taskId,
       user_id: log.userId,
+      enclosure_id: log.enclosureId,
+      enclosure_animal_id: log.enclosureAnimalId,
       completed_at: log.completedAt.toISOString(),
       notes: log.notes,
       skipped: log.skipped,

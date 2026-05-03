@@ -71,6 +71,8 @@ export interface CareLog {
   id: string;
   taskId: string;
   userId?: string;
+  enclosureId?: string;
+  enclosureAnimalId?: string;
   
   // Completion details
   completedAt: Date;
