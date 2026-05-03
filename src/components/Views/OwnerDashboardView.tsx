@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState, type ComponentType } from 'react';
 import { Link } from 'react-router-dom';
-import { RefreshCw, Users, Gem, Activity, Clock3, AlertCircle, CreditCard } from 'lucide-react';
+import { RefreshCw, Users, Gem, Activity, Clock3, AlertCircle, CreditCard, Bell, Send } from 'lucide-react';
+import { supabase } from '../../lib/supabase';
 import {
   ownerDashboardService,
   type OwnerDashboardData,
@@ -27,6 +28,15 @@ export function OwnerDashboardView() {
   const [selectedUserDetails, setSelectedUserDetails] = useState<OwnerUserDetails | null>(null);
   const [detailsLoading, setDetailsLoading] = useState(false);
   const [detailsError, setDetailsError] = useState<string | null>(null);
+
+  // Broadcast notification state
+  const [broadcastTitle, setBroadcastTitle] = useState('');
+  const [broadcastMessage, setBroadcastMessage] = useState('');
+  const [broadcastUrl, setBroadcastUrl] = useState('/');
+  const [broadcastTarget, setBroadcastTarget] = useState<'all' | 'user'>('all');
+  const [broadcastUserId, setBroadcastUserId] = useState('');
+  const [broadcastSending, setBroadcastSending] = useState(false);
+  const [broadcastResult, setBroadcastResult] = useState<{ ok: boolean; message: string } | null>(null);
 
   const loadData = useCallback(async (includeAllProfiles: boolean = showAllProfiles) => {
     try {
@@ -59,6 +69,7 @@ export function OwnerDashboardView() {
       setDetailsError(null);
       const details = await ownerDashboardService.getUserDetails(profileId);
       setSelectedUserDetails(details);
+      if (broadcastTarget === 'user') setBroadcastUserId(profileId);
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Unknown error loading user details';
       setDetailsError(message);
@@ -293,6 +304,110 @@ export function OwnerDashboardView() {
           </div>
         )}
       </div>
+
+        {/* Broadcast Notification Panel */}
+        <div className="bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl border border-gray-200 dark:border-gray-700 p-3 sm:p-4 shadow-sm">
+          <div className="flex items-center gap-2 mb-4">
+            <Bell className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+            <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">Send Push Notification</h2>
+          </div>
+
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setBroadcastSending(true);
+              setBroadcastResult(null);
+              try {
+                const { data: result, error: fnError } = await supabase.functions.invoke('send-broadcast-notification', {
+                  body: {
+                    title: broadcastTitle.trim(),
+                    message: broadcastMessage.trim(),
+                    url: broadcastUrl.trim() || '/',
+                    ...(broadcastTarget === 'user' && broadcastUserId ? { targetUserId: broadcastUserId.trim() } : {}),
+                  },
+                });
+                if (fnError) throw fnError;
+                const s = result?.stats;
+                setBroadcastResult({
+                  ok: true,
+                  message: `Sent — web: ${s?.webSent ?? 0}, native: ${s?.nativeSent ?? 0}. Expired cleaned up: ${(s?.webExpired ?? 0) + (s?.nativeExpired ?? 0)}.`,
+                });
+                setBroadcastTitle('');
+                setBroadcastMessage('');
+              } catch (err: any) {
+                setBroadcastResult({ ok: false, message: err.message ?? 'Failed to send notification.' });
+              } finally {
+                setBroadcastSending(false);
+              }
+            }}
+            className="space-y-3"
+          >
+            <div className="flex gap-3">
+              <label className="flex items-center gap-1.5 text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
+                <input type="radio" name="target" checked={broadcastTarget === 'all'} onChange={() => setBroadcastTarget('all')} className="accent-emerald-600" />
+                All subscribers
+              </label>
+              <label className="flex items-center gap-1.5 text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
+                <input type="radio" name="target" checked={broadcastTarget === 'user'} onChange={() => setBroadcastTarget('user')} className="accent-emerald-600" />
+                Specific user
+              </label>
+            </div>
+
+            {broadcastTarget === 'user' && (
+              <input
+                type="text"
+                placeholder="User ID (click a profile above to auto-fill)"
+                value={broadcastUserId}
+                onChange={(e) => setBroadcastUserId(e.target.value)}
+                className="w-full text-sm px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                required
+              />
+            )}
+
+            <input
+              type="text"
+              placeholder="Title"
+              value={broadcastTitle}
+              onChange={(e) => setBroadcastTitle(e.target.value)}
+              maxLength={100}
+              className="w-full text-sm px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+              required
+            />
+
+            <textarea
+              placeholder="Message body"
+              value={broadcastMessage}
+              onChange={(e) => setBroadcastMessage(e.target.value)}
+              maxLength={300}
+              rows={3}
+              className="w-full text-sm px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none resize-none"
+              required
+            />
+
+            <input
+              type="text"
+              placeholder="Deep-link URL (e.g. /care-calendar)"
+              value={broadcastUrl}
+              onChange={(e) => setBroadcastUrl(e.target.value)}
+              className="w-full text-sm px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+            />
+
+            <button
+              type="submit"
+              disabled={broadcastSending}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-600 hover:bg-amber-700 disabled:bg-gray-400 text-white text-sm font-medium transition-colors"
+            >
+              <Send className="w-3.5 h-3.5" />
+              {broadcastSending ? 'Sending…' : 'Send Notification'}
+            </button>
+          </form>
+
+          {broadcastResult && (
+            <div className={`mt-3 p-3 rounded-lg text-sm ${broadcastResult.ok ? 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-200' : 'bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200'}`}>
+              {broadcastResult.message}
+            </div>
+          )}
+        </div>
 
       <div className="text-xs text-gray-500 dark:text-gray-400">
         Last updated: {data?.fetchedAt ? new Date(data.fetchedAt).toLocaleString() : 'Not loaded'}
