@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { BarChart3, ClipboardList, MessageSquareQuote, RefreshCw, Star, TrendingUp } from 'lucide-react';
 import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { ownerDashboardService, type OwnerSurveyAnalytics, type OwnerSurveyDistribution } from '../../services/ownerDashboardService';
