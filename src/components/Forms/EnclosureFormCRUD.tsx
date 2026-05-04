@@ -23,6 +23,9 @@ export const EMPTY_ENCLOSURE_FORM: EnclosureFormData = {
   hasUVB: false
 };
 
+const UPLOAD_IMAGE_ACCEPT = 'image/jpeg,image/png,image/webp';
+const ALLOWED_IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp']);
+
 interface EnclosureFormCRUDProps {
   readonly mode: 'add' | 'edit';
   readonly initialData?: Partial<EnclosureFormData>;
@@ -122,9 +125,19 @@ export function EnclosureFormCRUD({ mode, initialData, entityLabel, onSave, onCa
                 <input
                   type="file"
                   id="photo-upload"
-                  accept="image/*"
+                  accept={UPLOAD_IMAGE_ACCEPT}
                   onChange={(e) => {
                     const file = e.target.files?.[0] || null;
+                    if (file && !ALLOWED_IMAGE_TYPES.has(file.type)) {
+                      setError('Please upload a JPG, PNG, or WEBP image.');
+                      e.target.value = '';
+                      return;
+                    }
+
+                    if (file) {
+                      setError(null);
+                    }
+
                     if (photoPreview && photoPreview !== formData.photoUrl) {
                       URL.revokeObjectURL(photoPreview);
                     }
@@ -137,7 +150,7 @@ export function EnclosureFormCRUD({ mode, initialData, entityLabel, onSave, onCa
                   htmlFor="photo-upload"
                   className="inline-block px-3 py-1.5 bg-accent hover:bg-accent-dim text-white text-xs font-semibold rounded-lg cursor-pointer transition-colors"
                 >
-                  Choose File
+                  Upload File
                 </label>
               </div>
               {photoFile && (

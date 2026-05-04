@@ -15,6 +15,8 @@ interface AnimalGalleryProps {
 }
 
 const MAX_IMAGES = 10;
+const UPLOAD_IMAGE_ACCEPT = 'image/jpeg,image/png,image/webp';
+const ALLOWED_IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp']);
 
 export function AnimalGallery({ animal, onUpdate }: AnimalGalleryProps) {
   const [uploading, setUploading] = useState(false);
@@ -30,8 +32,8 @@ export function AnimalGallery({ animal, onUpdate }: AnimalGalleryProps) {
     if (!file || !animal.userId) return;
 
     // Validate file type
-    if (!file.type.startsWith('image/')) {
-      setUploadError('Please select an image file');
+    if (!ALLOWED_IMAGE_TYPES.has(file.type)) {
+      setUploadError('Please upload a JPG, PNG, or WEBP image');
       return;
     }
 
@@ -148,7 +150,7 @@ export function AnimalGallery({ animal, onUpdate }: AnimalGalleryProps) {
           <label className="relative aspect-square rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-emerald-500 dark:hover:border-emerald-500 cursor-pointer flex flex-col items-center justify-center gap-2 transition-colors group">
             <input
               type="file"
-              accept="image/*"
+              accept={UPLOAD_IMAGE_ACCEPT}
               onChange={handleFileSelect}
               disabled={uploading}
               className="hidden"
@@ -159,7 +161,7 @@ export function AnimalGallery({ animal, onUpdate }: AnimalGalleryProps) {
               <>
                 <Plus className="w-8 h-8 text-gray-400 group-hover:text-emerald-500 transition-colors" />
                 <span className="text-xs text-gray-500 dark:text-gray-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                  Add Photo
+                  Upload Photo
                 </span>
               </>
             )}
