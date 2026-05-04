@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { BarChart3, ClipboardList, MessageSquareQuote, RefreshCw, Star, TrendingUp } from 'lucide-react';
 import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { ownerDashboardService, type OwnerSurveyAnalytics, type OwnerSurveyDistribution } from '../../services/ownerDashboardService';
+import { OwnerSectionNav } from '../OwnerDashboard/OwnerSectionNav';
 
 const cardClassName = 'rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 shadow-sm';
 
@@ -123,12 +124,6 @@ export function OwnerSurveyAnalyticsView() {
           <p className="text-sm text-gray-600 dark:text-gray-400">Aggregate view of user feedback survey responses across acquisition, satisfaction, roadmap demand, and written feedback.</p>
         </div>
         <div className="flex items-center gap-2">
-          <Link
-            to="/owner-dashboard"
-            className="inline-flex items-center rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
-          >
-            Back to dashboard
-          </Link>
           <button
             onClick={() => loadAnalytics()}
             disabled={loading}
@@ -139,6 +134,8 @@ export function OwnerSurveyAnalyticsView() {
           </button>
         </div>
       </div>
+
+      <OwnerSectionNav />
 
       {error && (
         <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-900 dark:border-red-800 dark:bg-red-900/20 dark:text-red-200">

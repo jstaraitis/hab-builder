@@ -43,6 +43,7 @@ const PremiumExplainerPage = lazy(() => import('./Upgrade/PremiumExplainerPage')
 const InstallAppView = lazy(() => import('./Views/InstallAppView').then(m => ({ default: m.InstallAppView })));
 const OwnerDashboardView = lazy(() => import('./Views/OwnerDashboardView').then(m => ({ default: m.OwnerDashboardView })));
 const OwnerSurveyAnalyticsView = lazy(() => import('./Views/OwnerSurveyAnalyticsView').then(m => ({ default: m.OwnerSurveyAnalyticsView })));
+const OwnerNotificationsView = lazy(() => import('./Views/OwnerNotificationsView').then(m => ({ default: m.OwnerNotificationsView })));
 const WhatsNewView = lazy(() => import('./Views/WhatsNewView').then(m => ({ default: m.WhatsNewView })));
 const PrivacyPolicy = lazy(() => import('./PrivacyPolicy/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
 const DashboardView = lazy(() => import('./Views/DashboardView').then(m => ({ default: m.DashboardView })));
@@ -171,6 +172,7 @@ export function AppRoutes({ onOpenFeedback }: AppRoutesProps) {
         <Route path="/install" element={<InstallAppView />} />
         <Route path="/owner-dashboard" element={<OwnerRoute><OwnerDashboardView /></OwnerRoute>} />
         <Route path="/owner-dashboard/surveys" element={<OwnerRoute><OwnerSurveyAnalyticsView /></OwnerRoute>} />
+        <Route path="/owner-dashboard/notifications" element={<OwnerRoute><OwnerNotificationsView /></OwnerRoute>} />
         <Route path="/care-calendar" element={<AuthRoute><CareCalendarView /></AuthRoute>} />
         <Route path="/care-calendar/tasks/add" element={<AuthRoute><TaskCreationView /></AuthRoute>} />
         <Route path="/care-calendar/tasks/edit/:id" element={<AuthRoute><TaskEditView /></AuthRoute>} />

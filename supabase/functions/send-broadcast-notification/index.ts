@@ -98,16 +98,24 @@ serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders });
 
   try {
-    // Authenticate caller — must be an owner email
+    const supabaseUrl = Deno.env.get('SUPABASE_URL') ?? '';
+    const serviceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '';
+
+    // Authenticate caller via explicit bearer token validation.
     const authHeader = req.headers.get('Authorization') ?? '';
-    const userClient = createClient(
-      Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_ANON_KEY') ?? '',
-      { global: { headers: { Authorization: authHeader } } }
-    );
-    const { data: { user }, error: authError } = await userClient.auth.getUser();
+    const accessToken = authHeader.startsWith('Bearer ') ? authHeader.slice(7).trim() : '';
+    if (!accessToken) {
+      return new Response(JSON.stringify({ error: 'Unauthorized: missing bearer token' }), {
+        status: 401,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    const authClient = createClient(supabaseUrl, serviceRoleKey);
+    const { data: { user }, error: authError } = await authClient.auth.getUser(accessToken);
     if (authError || !user) {
-      return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+      const reason = authError?.message ? `Unauthorized: ${authError.message}` : 'Unauthorized';
+      return new Response(JSON.stringify({ error: reason }), { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
 
     const ownerEmails = (Deno.env.get('OWNER_EMAILS') ?? '').split(',').map(e => e.trim().toLowerCase()).filter(Boolean);
@@ -129,10 +137,7 @@ serve(async (req) => {
       return new Response(JSON.stringify({ error: 'title and message are required' }), { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
 
-    const supabase = createClient(
-      Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
-    );
+    const supabase = createClient(supabaseUrl, serviceRoleKey);
 
     const vapidPublicKey = Deno.env.get('VAPID_PUBLIC_KEY') ?? '';
     const vapidPrivateKey = Deno.env.get('VAPID_PRIVATE_KEY') ?? '';
