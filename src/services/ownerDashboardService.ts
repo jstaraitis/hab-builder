@@ -143,84 +143,161 @@ interface OwnerAppStatsResponse {
   error?: string;
 }
 
+function isDevOwnerEdgeFunctionFailure(error: unknown): boolean {
+  if (!import.meta.env.DEV) return false;
+  if (!(error instanceof Error)) return false;
+
+  const message = error.message.toLowerCase();
+  return (
+    message.includes('non-2xx') ||
+    message.includes('forbidden') ||
+    message.includes('unauthorized') ||
+    message.includes('failed to fetch')
+  );
+}
+
+function getDevFallbackMessage(): string {
+  return 'Local fallback: owner edge-function access is not configured (OWNER_EMAILS / OWNER_USER_IDS).';
+}
+
 class OwnerDashboardService {
   async getDashboardData(options?: { includeAllProfiles?: boolean }): Promise<OwnerDashboardData> {
-    const { data, error } = await supabase.functions.invoke<OwnerAppStatsResponse>('owner-app-stats', {
-      body: { includeAllProfiles: options?.includeAllProfiles ?? false },
-    });
+    try {
+      const { data, error } = await supabase.functions.invoke<OwnerAppStatsResponse>('owner-app-stats', {
+        body: { includeAllProfiles: options?.includeAllProfiles ?? false },
+      });
 
-    if (error) {
+      if (error) {
+        throw error;
+      }
+
+      if (!data) {
+        throw new Error('No data returned from owner-app-stats function.');
+      }
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      return {
+        metrics: data.metrics ?? [],
+        recentProfiles: data.recentProfiles ?? [],
+        recentProfilesError: data.recentProfilesError,
+        fetchedAt: data.fetchedAt ?? new Date().toISOString(),
+      };
+    } catch (error) {
+      if (isDevOwnerEdgeFunctionFailure(error)) {
+        return {
+          metrics: [],
+          recentProfiles: [],
+          recentProfilesError: getDevFallbackMessage(),
+          fetchedAt: new Date().toISOString(),
+        };
+      }
+
       throw error;
     }
-
-    if (!data) {
-      throw new Error('No data returned from owner-app-stats function.');
-    }
-
-    if (data.error) {
-      throw new Error(data.error);
-    }
-
-    return {
-      metrics: data.metrics ?? [],
-      recentProfiles: data.recentProfiles ?? [],
-      recentProfilesError: data.recentProfilesError,
-      fetchedAt: data.fetchedAt ?? new Date().toISOString(),
-    };
   }
 
   async getUserDetails(userId: string): Promise<OwnerUserDetails> {
-    const { data, error } = await supabase.functions.invoke<OwnerAppStatsResponse>('owner-app-stats', {
-      body: { userId },
-    });
+    try {
+      const { data, error } = await supabase.functions.invoke<OwnerAppStatsResponse>('owner-app-stats', {
+        body: { userId },
+      });
 
-    if (error) {
+      if (error) {
+        throw error;
+      }
+
+      if (!data) {
+        throw new Error('No data returned from owner-app-stats function.');
+      }
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      return {
+        selectedUser: data.selectedUser ?? null,
+        selectedUserError: data.selectedUserError,
+        userDetails: {
+          enclosures: data.userDetails?.enclosures ?? [],
+          animals: data.userDetails?.animals ?? [],
+          tasks: data.userDetails?.tasks ?? [],
+        },
+        userDetailsErrors: data.userDetailsErrors,
+        fetchedAt: data.fetchedAt ?? new Date().toISOString(),
+      };
+    } catch (error) {
+      if (isDevOwnerEdgeFunctionFailure(error)) {
+        return {
+          selectedUser: null,
+          selectedUserError: getDevFallbackMessage(),
+          userDetails: {
+            enclosures: [],
+            animals: [],
+            tasks: [],
+          },
+          userDetailsErrors: {
+            enclosures: getDevFallbackMessage(),
+            animals: getDevFallbackMessage(),
+            tasks: getDevFallbackMessage(),
+          },
+          fetchedAt: new Date().toISOString(),
+        };
+      }
+
       throw error;
     }
-
-    if (!data) {
-      throw new Error('No data returned from owner-app-stats function.');
-    }
-
-    if (data.error) {
-      throw new Error(data.error);
-    }
-
-    return {
-      selectedUser: data.selectedUser ?? null,
-      selectedUserError: data.selectedUserError,
-      userDetails: {
-        enclosures: data.userDetails?.enclosures ?? [],
-        animals: data.userDetails?.animals ?? [],
-        tasks: data.userDetails?.tasks ?? [],
-      },
-      userDetailsErrors: data.userDetailsErrors,
-      fetchedAt: data.fetchedAt ?? new Date().toISOString(),
-    };
   }
 
   async getSurveyAnalytics(): Promise<OwnerSurveyAnalytics> {
-    const { data, error } = await supabase.functions.invoke<OwnerAppStatsResponse>('owner-app-stats', {
-      body: { surveyAnalytics: true },
-    });
+    try {
+      const { data, error } = await supabase.functions.invoke<OwnerAppStatsResponse>('owner-app-stats', {
+        body: { surveyAnalytics: true },
+      });
 
-    if (error) {
+      if (error) {
+        throw error;
+      }
+
+      if (!data) {
+        throw new Error('No data returned from owner-app-stats function.');
+      }
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      if (!data.surveyAnalytics) {
+        throw new Error('Survey analytics were not returned from owner-app-stats.');
+      }
+
+      return data.surveyAnalytics;
+    } catch (error) {
+      if (isDevOwnerEdgeFunctionFailure(error)) {
+        return {
+          summary: {
+            totalResponses: 0,
+            averageSatisfaction: null,
+            last7Days: 0,
+            last30Days: 0,
+            withAdditionalFeedback: 0,
+          },
+          satisfactionDistribution: [],
+          heardAboutUs: [],
+          keeperLevel: [],
+          primaryGoal: [],
+          biggestChallenge: [],
+          requestedFeature: [],
+          animalsSelected: [],
+          timeline: [],
+          recentResponses: [],
+        };
+      }
+
       throw error;
     }
-
-    if (!data) {
-      throw new Error('No data returned from owner-app-stats function.');
-    }
-
-    if (data.error) {
-      throw new Error(data.error);
-    }
-
-    if (!data.surveyAnalytics) {
-      throw new Error('Survey analytics were not returned from owner-app-stats.');
-    }
-
-    return data.surveyAnalytics;
   }
 }
 

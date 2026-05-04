@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, type ComponentType } from 'react';
+import { useCallback, useEffect, useMemo, useState, type ComponentType } from 'react';
 import { Link } from 'react-router-dom';
 import { RefreshCw, Users, Gem, Activity, Clock3, AlertCircle, CreditCard, Bell, Send } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
@@ -8,6 +8,26 @@ import {
   type OwnerUserDetails,
 } from '../../services/ownerDashboardService';
 import { formatCareTaskFrequency } from '../../utils/careTaskFrequencyLabel';
+
+async function getEdgeFunctionErrorMessage(error: unknown): Promise<string> {
+  if (!(error instanceof Error)) return 'Failed to send notification.';
+
+  const baseMessage = error.message || 'Failed to send notification.';
+  const errorWithContext = error as Error & { context?: Response };
+  const response = errorWithContext.context;
+
+  if (!response) return baseMessage;
+
+  try {
+    const body = await response.clone().json() as { error?: string; message?: string };
+    const details = body?.error || body?.message;
+    if (details) return `${baseMessage}: ${details}`;
+  } catch {
+    // Ignore JSON parse failures and fallback to status text.
+  }
+
+  return `${baseMessage} (${response.status} ${response.statusText || 'Error'})`;
+}
 
 const metricStyles: Record<string, { icon: ComponentType<{ className?: string }>; accent: string; iconBg: string }> = {
   totalProfiles: { icon: Users, accent: 'text-sky-700 dark:text-sky-300', iconBg: 'bg-sky-100 dark:bg-sky-900/30' },
@@ -20,6 +40,9 @@ const metricStyles: Record<string, { icon: ComponentType<{ className?: string }>
 };
 
 export function OwnerDashboardView() {
+  const MAX_BROADCAST_TITLE_LENGTH = 100;
+  const MAX_BROADCAST_MESSAGE_LENGTH = 300;
+
   const [data, setData] = useState<OwnerDashboardData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -35,8 +58,45 @@ export function OwnerDashboardView() {
   const [broadcastUrl, setBroadcastUrl] = useState('/');
   const [broadcastTarget, setBroadcastTarget] = useState<'all' | 'user'>('all');
   const [broadcastUserId, setBroadcastUserId] = useState('');
+  const [confirmBroadcastAll, setConfirmBroadcastAll] = useState(false);
   const [broadcastSending, setBroadcastSending] = useState(false);
-  const [broadcastResult, setBroadcastResult] = useState<{ ok: boolean; message: string } | null>(null);
+  const [broadcastResult, setBroadcastResult] = useState<{
+    ok: boolean;
+    message: string;
+    stats?: { webSent: number; webExpired: number; nativeSent: number; nativeExpired: number; nativeFailed: number };
+  } | null>(null);
+
+  const broadcastTitleTrimmed = broadcastTitle.trim();
+  const broadcastMessageTrimmed = broadcastMessage.trim();
+  const broadcastUserIdTrimmed = broadcastUserId.trim();
+  const broadcastUrlTrimmed = broadcastUrl.trim();
+
+  const normalizedBroadcastUrl = useMemo(() => {
+    if (!broadcastUrlTrimmed) return '/';
+    if (broadcastUrlTrimmed.startsWith('/')) return broadcastUrlTrimmed;
+    if (broadcastUrlTrimmed.startsWith('http://') || broadcastUrlTrimmed.startsWith('https://')) return broadcastUrlTrimmed;
+    return `/${broadcastUrlTrimmed}`;
+  }, [broadcastUrlTrimmed]);
+
+  const isInvalidBroadcastUrl = Boolean(
+    broadcastUrlTrimmed &&
+      !broadcastUrlTrimmed.startsWith('/') &&
+      !broadcastUrlTrimmed.startsWith('http://') &&
+      !broadcastUrlTrimmed.startsWith('https://')
+  );
+
+  const canSendBroadcast =
+    Boolean(broadcastTitleTrimmed) &&
+    Boolean(broadcastMessageTrimmed) &&
+    !isInvalidBroadcastUrl &&
+    (broadcastTarget === 'all' ? confirmBroadcastAll : Boolean(broadcastUserIdTrimmed));
+
+  const devSendBlockedReason = useMemo(() => {
+    if (!import.meta.env.DEV) return null;
+    if (!data?.recentProfilesError?.toLowerCase().includes('local fallback')) return null;
+
+    return 'Sending is disabled locally because edge-function owner secrets are not configured. Set OWNER_USER_IDS or OWNER_EMAILS in Supabase secrets for this project.';
+  }, [data?.recentProfilesError]);
 
   const loadData = useCallback(async (includeAllProfiles: boolean = showAllProfiles) => {
     try {
@@ -77,6 +137,13 @@ export function OwnerDashboardView() {
     } finally {
       setDetailsLoading(false);
     }
+  }, []);
+
+  const applyBroadcastTemplate = useCallback((template: { title: string; message: string; url: string }) => {
+    setBroadcastTitle(template.title);
+    setBroadcastMessage(template.message);
+    setBroadcastUrl(template.url);
+    setBroadcastResult(null);
   }, []);
 
   return (
@@ -315,96 +382,251 @@ export function OwnerDashboardView() {
           <form
             onSubmit={async (e) => {
               e.preventDefault();
+              if (!canSendBroadcast) return;
               setBroadcastSending(true);
               setBroadcastResult(null);
               try {
                 const { data: result, error: fnError } = await supabase.functions.invoke('send-broadcast-notification', {
                   body: {
-                    title: broadcastTitle.trim(),
-                    message: broadcastMessage.trim(),
-                    url: broadcastUrl.trim() || '/',
-                    ...(broadcastTarget === 'user' && broadcastUserId ? { targetUserId: broadcastUserId.trim() } : {}),
+                    title: broadcastTitleTrimmed,
+                    message: broadcastMessageTrimmed,
+                    url: normalizedBroadcastUrl,
+                    ...(broadcastTarget === 'user' && broadcastUserIdTrimmed ? { targetUserId: broadcastUserIdTrimmed } : {}),
                   },
                 });
                 if (fnError) throw fnError;
                 const s = result?.stats;
+                const stats = {
+                  webSent: s?.webSent ?? 0,
+                  webExpired: s?.webExpired ?? 0,
+                  nativeSent: s?.nativeSent ?? 0,
+                  nativeExpired: s?.nativeExpired ?? 0,
+                  nativeFailed: s?.nativeFailed ?? 0,
+                };
+                const totalDelivered = stats.webSent + stats.nativeSent;
                 setBroadcastResult({
-                  ok: true,
-                  message: `Sent — web: ${s?.webSent ?? 0}, native: ${s?.nativeSent ?? 0}. Expired cleaned up: ${(s?.webExpired ?? 0) + (s?.nativeExpired ?? 0)}.`,
+                  ok: totalDelivered > 0,
+                  message:
+                    totalDelivered > 0
+                      ? `Notification delivered to ${totalDelivered.toLocaleString()} subscription${totalDelivered === 1 ? '' : 's'}.`
+                      : 'Request completed, but no active subscriptions received the notification.',
+                  stats,
                 });
                 setBroadcastTitle('');
                 setBroadcastMessage('');
-              } catch (err: any) {
-                setBroadcastResult({ ok: false, message: err.message ?? 'Failed to send notification.' });
+                setConfirmBroadcastAll(false);
+              } catch (err: unknown) {
+                const message = await getEdgeFunctionErrorMessage(err);
+                setBroadcastResult({ ok: false, message });
               } finally {
                 setBroadcastSending(false);
               }
             }}
             className="space-y-3"
           >
+            <div className="rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50/60 dark:bg-amber-900/20 p-3">
+              <div className="text-xs font-semibold uppercase tracking-wide text-amber-900 dark:text-amber-100 mb-2">Quick templates</div>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={() => applyBroadcastTemplate({
+                    title: 'Care Reminder',
+                    message: 'Quick reminder: open your Care Calendar to review tasks due today.',
+                    url: '/care-calendar',
+                  })}
+                  className="text-xs px-2.5 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-200 hover:bg-amber-100 dark:hover:bg-amber-900/40"
+                >
+                  Care reminder
+                </button>
+                <button
+                  type="button"
+                  onClick={() => applyBroadcastTemplate({
+                    title: 'New Feature Available',
+                    message: 'A new Habitat Builder feature is now live. Tap to check it out.',
+                    url: '/roadmap',
+                  })}
+                  className="text-xs px-2.5 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-200 hover:bg-amber-100 dark:hover:bg-amber-900/40"
+                >
+                  Feature update
+                </button>
+                <button
+                  type="button"
+                  onClick={() => applyBroadcastTemplate({
+                    title: 'We would love your feedback',
+                    message: 'Help us improve Habitat Builder by sharing your experience in a short survey.',
+                    url: '/feedback-survey',
+                  })}
+                  className="text-xs px-2.5 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-200 hover:bg-amber-100 dark:hover:bg-amber-900/40"
+                >
+                  Feedback request
+                </button>
+              </div>
+            </div>
+
             <div className="flex gap-3">
               <label className="flex items-center gap-1.5 text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
-                <input type="radio" name="target" checked={broadcastTarget === 'all'} onChange={() => setBroadcastTarget('all')} className="accent-emerald-600" />
+                <input
+                  type="radio"
+                  name="target"
+                  checked={broadcastTarget === 'all'}
+                  onChange={() => {
+                    setBroadcastTarget('all');
+                    setBroadcastResult(null);
+                  }}
+                  className="accent-emerald-600"
+                />
                 All subscribers
               </label>
               <label className="flex items-center gap-1.5 text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
-                <input type="radio" name="target" checked={broadcastTarget === 'user'} onChange={() => setBroadcastTarget('user')} className="accent-emerald-600" />
+                <input
+                  type="radio"
+                  name="target"
+                  checked={broadcastTarget === 'user'}
+                  onChange={() => {
+                    setBroadcastTarget('user');
+                    if (selectedProfileId) setBroadcastUserId(selectedProfileId);
+                    setBroadcastResult(null);
+                  }}
+                  className="accent-emerald-600"
+                />
                 Specific user
               </label>
             </div>
 
+            {broadcastTarget === 'all' && (
+              <label className="flex items-start gap-2 text-xs text-gray-700 dark:text-gray-300 rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-950/20 p-2.5">
+                <input
+                  type="checkbox"
+                  checked={confirmBroadcastAll}
+                  onChange={(e) => {
+                    setConfirmBroadcastAll(e.target.checked);
+                    setBroadcastResult(null);
+                  }}
+                  className="mt-0.5 accent-amber-600"
+                />
+                <span>I understand this sends to all current push subscribers.</span>
+              </label>
+            )}
+
             {broadcastTarget === 'user' && (
+              <div className="space-y-2">
+                <input
+                  type="text"
+                  placeholder="User ID (click a profile above to auto-fill)"
+                  value={broadcastUserId}
+                  onChange={(e) => {
+                    setBroadcastUserId(e.target.value);
+                    setBroadcastResult(null);
+                  }}
+                  className="w-full text-sm px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                  required
+                />
+                {selectedProfileId && selectedProfileId !== broadcastUserIdTrimmed && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setBroadcastUserId(selectedProfileId);
+                      setBroadcastResult(null);
+                    }}
+                    className="text-xs text-emerald-700 dark:text-emerald-300 hover:underline"
+                  >
+                    Use selected profile ID ({selectedProfileId})
+                  </button>
+                )}
+              </div>
+            )}
+
+            <div className="space-y-1">
               <input
                 type="text"
-                placeholder="User ID (click a profile above to auto-fill)"
-                value={broadcastUserId}
-                onChange={(e) => setBroadcastUserId(e.target.value)}
+                placeholder="Title"
+                value={broadcastTitle}
+                onChange={(e) => {
+                  setBroadcastTitle(e.target.value);
+                  setBroadcastResult(null);
+                }}
+                maxLength={MAX_BROADCAST_TITLE_LENGTH}
                 className="w-full text-sm px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                 required
               />
-            )}
+              <div className="text-[11px] text-gray-500 dark:text-gray-400 text-right">
+                {broadcastTitle.length}/{MAX_BROADCAST_TITLE_LENGTH}
+              </div>
+            </div>
 
-            <input
-              type="text"
-              placeholder="Title"
-              value={broadcastTitle}
-              onChange={(e) => setBroadcastTitle(e.target.value)}
-              maxLength={100}
-              className="w-full text-sm px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-              required
-            />
+            <div className="space-y-1">
+              <textarea
+                placeholder="Message body"
+                value={broadcastMessage}
+                onChange={(e) => {
+                  setBroadcastMessage(e.target.value);
+                  setBroadcastResult(null);
+                }}
+                maxLength={MAX_BROADCAST_MESSAGE_LENGTH}
+                rows={3}
+                className="w-full text-sm px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none resize-none"
+                required
+              />
+              <div className="text-[11px] text-gray-500 dark:text-gray-400 text-right">
+                {broadcastMessage.length}/{MAX_BROADCAST_MESSAGE_LENGTH}
+              </div>
+            </div>
 
-            <textarea
-              placeholder="Message body"
-              value={broadcastMessage}
-              onChange={(e) => setBroadcastMessage(e.target.value)}
-              maxLength={300}
-              rows={3}
-              className="w-full text-sm px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none resize-none"
-              required
-            />
+            <div className="space-y-1">
+              <input
+                type="text"
+                placeholder="Deep-link URL (e.g. /care-calendar)"
+                value={broadcastUrl}
+                onChange={(e) => {
+                  setBroadcastUrl(e.target.value);
+                  setBroadcastResult(null);
+                }}
+                className={`w-full text-sm px-3 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none ${isInvalidBroadcastUrl ? 'border-amber-400 dark:border-amber-500' : 'border-gray-300 dark:border-gray-600'}`}
+              />
+              <div className="text-[11px] text-gray-500 dark:text-gray-400">
+                {isInvalidBroadcastUrl
+                  ? 'Tip: URL should start with / or use https://'
+                  : `Will open: ${normalizedBroadcastUrl}`}
+              </div>
+            </div>
 
-            <input
-              type="text"
-              placeholder="Deep-link URL (e.g. /care-calendar)"
-              value={broadcastUrl}
-              onChange={(e) => setBroadcastUrl(e.target.value)}
-              className="w-full text-sm px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none"
-            />
+            <div className="rounded-lg border border-gray-200 dark:border-gray-700 p-2.5 sm:p-3 bg-gray-50/70 dark:bg-gray-700/30">
+              <div className="text-[11px] uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-1">Preview</div>
+              <div className="text-sm font-semibold text-gray-900 dark:text-white">{broadcastTitleTrimmed || 'Notification title'}</div>
+              <div className="text-sm text-gray-700 dark:text-gray-300 mt-1">{broadcastMessageTrimmed || 'Notification message preview appears here.'}</div>
+              <div className="text-[11px] text-gray-500 dark:text-gray-400 mt-2">Target: {broadcastTarget === 'all' ? 'All subscribers' : broadcastUserIdTrimmed || 'Specific user (not set)'}</div>
+            </div>
 
             <button
               type="submit"
-              disabled={broadcastSending}
+              disabled={broadcastSending || !canSendBroadcast || Boolean(devSendBlockedReason)}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-600 hover:bg-amber-700 disabled:bg-gray-400 text-white text-sm font-medium transition-colors"
             >
               <Send className="w-3.5 h-3.5" />
               {broadcastSending ? 'Sending…' : 'Send Notification'}
             </button>
+
+            {devSendBlockedReason && (
+              <div className="rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50/60 dark:bg-amber-900/20 p-3 text-xs text-amber-900 dark:text-amber-200">
+                <div className="font-semibold mb-1">Send blocked in local dev</div>
+                <div>{devSendBlockedReason}</div>
+                <div className="mt-2">Run:</div>
+                <div className="mt-1 font-mono">npx supabase secrets set OWNER_USER_IDS=your-supabase-user-id</div>
+                <div className="font-mono">npx supabase secrets set OWNER_EMAILS=your@email.com</div>
+              </div>
+            )}
           </form>
 
           {broadcastResult && (
             <div className={`mt-3 p-3 rounded-lg text-sm ${broadcastResult.ok ? 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-200' : 'bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200'}`}>
-              {broadcastResult.message}
+              <div>{broadcastResult.message}</div>
+              {broadcastResult.stats && (
+                <div className="mt-2 text-xs space-y-1">
+                  <div>Delivered: web {broadcastResult.stats.webSent}, native {broadcastResult.stats.nativeSent}</div>
+                  <div>Expired cleaned up: web {broadcastResult.stats.webExpired}, native {broadcastResult.stats.nativeExpired}</div>
+                  {broadcastResult.stats.nativeFailed > 0 && <div>Native failures: {broadcastResult.stats.nativeFailed}</div>}
+                </div>
+              )}
             </div>
           )}
         </div>
