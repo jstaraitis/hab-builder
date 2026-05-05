@@ -79,7 +79,7 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
       {/* Testing Notice Modal */}
       {showTestingNotice && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-md w-full p-6 relative">
+          <div className="bg-white dark:bg-card rounded-xl shadow-2xl max-w-md w-full p-6 relative">
             <button
               onClick={handleDismissNotice}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
@@ -89,8 +89,8 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
             </button>
             
             <div className="mb-4">
-              <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mb-4">
-                <Sparkles className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+              <div className="w-12 h-12 bg-jade-100 dark:bg-jade-900/30 rounded-full flex items-center justify-center mb-4">
+                <Sparkles className="w-6 h-6 text-jade-600 dark:text-accent" />
               </div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
                 Welcome!
@@ -109,15 +109,15 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
                 <li>Equipment recommendations are being fine-tuned</li>
                 <li>Animal information is being peer reviewed by trusted sources!</li>
               </ul>
-              <div className="text-sm bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-3 flex items-start gap-2">
-                <MessageCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+              <div className="text-sm bg-cyan-50 dark:bg-cyan-900/20 border border-cyan-200 dark:border-cyan-700 rounded-lg p-3 flex items-start gap-2">
+                <MessageCircle className="w-5 h-5 text-cyan-600 dark:text-cyan-300 flex-shrink-0 mt-0.5" />
                 <p>Got feedback or spotted an issue? Use the feedback button to let us know — we'd love to hear from you!</p>
               </div>
             </div>
             
             <button
               onClick={handleDismissNotice}
-              className="w-full px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg transition-colors flex items-center justify-center gap-2"
+              className="w-full px-6 py-3 bg-jade-600 hover:bg-jade-700 dark:bg-accent dark:hover:bg-jade-500 text-white font-bold rounded-lg transition-colors flex items-center justify-center gap-2"
             >
               Let's get started!
               <Rocket className="w-5 h-5" />
@@ -129,23 +129,23 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
       <AnimalPicker selected={input.animal} onSelect={onSelect} />
 
       {selectedProfile && (
-        <div ref={animalDataRef} className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-3 sm:p-4 text-base text-gray-700 dark:text-gray-300">
+        <div ref={animalDataRef} className="bg-white dark:bg-card rounded-lg shadow-sm border border-gray-200 dark:border-divider p-3 sm:p-4 text-base text-gray-700 dark:text-gray-300">
           <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-3">Species Overview</h3>
           
           {/* Header with badges */}
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <p className="font-semibold text-lg sm:text-xl text-gray-900 dark:text-white">{selectedProfile.commonName}</p>
             <p className="text-gray-600 dark:text-gray-400 italic text-sm sm:text-base">{selectedProfile.scientificName}</p>
-            <span className="px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300 text-sm font-medium">
+            <span className="px-3 py-1.5 rounded-full bg-jade-50 dark:bg-jade-900/30 text-jade-700 dark:text-jade-200 text-sm font-medium">
               Care: {selectedProfile.careLevel}
             </span>
-            <span className="px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-sm font-medium">
+            <span className="px-3 py-1.5 rounded-full bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-200 text-sm font-medium">
               {selectedProfile.bioactiveCompatible ? 'Bioactive compatible' : 'Bioactive: caution'}
             </span>
           </div>
 
           {/* Quick Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 p-2 md:p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 p-2 md:p-3 bg-gray-50 dark:bg-card-elevated rounded-lg">
             {selectedProfile.adultSize && (
               <div>
                 <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-0.5">Adult Size</p>
@@ -172,7 +172,7 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
                 <ul className="hidden md:block space-y-1.5">
                   {selectedProfile.notes.map((note: string) => (
                     <li key={`note-${note.substring(0, 20)}`} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                      <span className="text-emerald-500 mt-0.5">•</span>
+                      <span className="text-jade-500 dark:text-accent mt-0.5">•</span>
                       <span>{note}</span>
                     </li>
                   ))}
@@ -184,12 +184,12 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
                     {selectedProfile.notes.map((note: string, idx: number) => (
                       <div
                         key={`note-card-${note.substring(0, 20)}`}
-                        className="snap-center flex-shrink-0 w-[85vw] bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 border border-emerald-200 dark:border-emerald-700 rounded-xl p-4 shadow-sm first:ml-4"
+                        className="snap-center flex-shrink-0 w-[85vw] bg-gradient-to-br from-jade-50 to-teal-50 dark:from-card dark:to-card-elevated border border-jade-200 dark:border-jade-700 rounded-xl p-4 shadow-sm first:ml-4"
                       >
                         <div className="flex items-start gap-3">
-                          <Lightbulb className="w-6 h-6 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                          <Lightbulb className="w-6 h-6 text-jade-600 dark:text-accent flex-shrink-0" />
                           <div className="flex-1">
-                            <div className="text-xs font-semibold text-emerald-700 dark:text-emerald-400 uppercase mb-2">
+                            <div className="text-xs font-semibold text-jade-700 dark:text-jade-300 uppercase mb-2">
                               Fact {idx + 1} of {selectedProfile.notes.length}
                             </div>
                             <p className="text-sm text-gray-900 dark:text-white leading-relaxed" dangerouslySetInnerHTML={{ __html: note }} />
@@ -200,7 +200,7 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
                   </div>
                   <div className="flex justify-center gap-1.5 mt-2">
                     {selectedProfile.notes.map((_, idx: number) => (
-                      <div key={idx} className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400" />
+                      <div key={idx} className="w-1.5 h-1.5 rounded-full bg-jade-500 dark:bg-accent" />
                     ))}
                   </div>
                 </div>

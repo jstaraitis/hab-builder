@@ -1,4 +1,4 @@
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, useLocation, Link, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import { SEO } from '../SEO/SEO';
 import { blogPosts, ContentBlock } from '../../data/blog';
@@ -73,7 +73,7 @@ function MobileTableAccordion({ headers, rows, index }: Readonly<{ headers?: str
                 </div>
               </div>
               {isExpanded ? (
-                <ChevronUp className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                <ChevronUp className="w-5 h-5 text-jade-600 dark:text-accent flex-shrink-0" />
               ) : (
                 <ChevronDown className="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0" />
               )}
@@ -84,7 +84,7 @@ function MobileTableAccordion({ headers, rows, index }: Readonly<{ headers?: str
               <div className="px-4 pb-4 pt-2 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 space-y-3">
                 {restCells.map((cell, cellIndex) => (
                   <div key={`${index}-detail-${rowIndex}-${cellIndex}`}>
-                    <div className="text-xs font-bold text-emerald-700 dark:text-emerald-400 mb-1">
+                  <div className="text-xs font-bold text-jade-700 dark:text-jade-400 mb-1">
                       {headers?.[cellIndex + 1]}
                     </div>
                     <div className="text-sm text-gray-900 dark:text-white leading-relaxed">
@@ -108,9 +108,9 @@ function renderBlock(block: ContentBlock, index: number): JSX.Element {
       return (
         <div
           key={index}
-          className="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 border-l-4 border-emerald-600 p-6 rounded-xl mb-12"
+          className="bg-gradient-to-br from-jade-50 to-teal-50 dark:from-card dark:to-card-elevated border-l-4 border-jade-600 dark:border-accent p-6 rounded-xl mb-12"
         >
-          <p className="text-lg font-medium text-gray-900 dark:text-gray-100 leading-relaxed">
+          <p className="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">
             {block.text || (typeof block.content === 'string' ? block.content : '')}
           </p>
         </div>
@@ -120,7 +120,7 @@ function renderBlock(block: ContentBlock, index: number): JSX.Element {
       return (
         <div key={index}>
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6 mt-20 first:mt-0 flex items-center gap-3">
-            <span className="w-1.5 h-8 bg-gradient-to-b from-emerald-600 to-green-600 rounded-full"></span>
+            <span className="w-1.5 h-8 bg-gradient-to-b from-jade-600 to-teal-600 dark:from-accent dark:to-jade-500 rounded-full"></span>
             {block.heading || ''}
           </h2>
           {block.content && Array.isArray(block.content) && (
@@ -177,19 +177,19 @@ function renderBlock(block: ContentBlock, index: number): JSX.Element {
         textColor = 'text-red-900 dark:text-red-200';
         icon = <AlertTriangle className="w-6 h-6" />;
       } else if (isImportant) {
-        bgColor = 'bg-orange-50 dark:bg-orange-900/20';
-        borderColor = 'border-orange-500';
-        textColor = 'text-orange-900 dark:text-orange-200';
+        bgColor = 'bg-amber-50 dark:bg-amber-900/20';
+        borderColor = 'border-amber-500 dark:border-amber-600';
+        textColor = 'text-amber-900 dark:text-amber-200';
         icon = <AlertTriangle className="w-6 h-6" />;
       } else if (isTip) {
-        bgColor = 'bg-emerald-50 dark:bg-emerald-900/20';
-        borderColor = 'border-emerald-500';
-        textColor = 'text-emerald-900 dark:text-emerald-200';
+        bgColor = 'bg-jade-50 dark:bg-jade-900/20';
+        borderColor = 'border-jade-500 dark:border-accent';
+        textColor = 'text-jade-900 dark:text-jade-200';
         icon = <Lightbulb className="w-6 h-6" />;
       } else {
-        bgColor = 'bg-yellow-50 dark:bg-yellow-900/20';
-        borderColor = 'border-yellow-500';
-        textColor = 'text-yellow-900 dark:text-yellow-200';
+        bgColor = 'bg-blue-50 dark:bg-blue-900/20';
+        borderColor = 'border-blue-500 dark:border-blue-600';
+        textColor = 'text-blue-900 dark:text-blue-200';
         icon = <Info className="w-6 h-6" />;
       }
 
@@ -210,9 +210,9 @@ function renderBlock(block: ContentBlock, index: number): JSX.Element {
       return (
         <div
           key={index}
-          className="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 border-l-4 border-emerald-600 p-6 rounded-xl mb-12"
+          className="bg-gradient-to-r from-jade-50 to-teal-50 dark:from-card dark:to-card-elevated border-l-4 border-jade-600 dark:border-accent p-6 rounded-xl mb-12"
         >
-          <p className="text-emerald-900 dark:text-emerald-200 font-medium leading-relaxed">
+          <p className="text-jade-900 dark:text-jade-200 font-medium leading-relaxed">
             <span dangerouslySetInnerHTML={{ __html: typeof block.content === 'string' ? block.content : '' }} />
           </p>
         </div>
@@ -286,6 +286,7 @@ function renderBlock(block: ContentBlock, index: number): JSX.Element {
 
 export function BlogPost() {
   const { postId } = useParams<{ postId: string }>();
+  const location = useLocation();
 
   if (!postId || !blogPosts[postId]) {
     return <Navigate to="/blog" replace />;
@@ -308,11 +309,24 @@ export function BlogPost() {
     .filter(Boolean)
     .slice(0, 3) || [];
 
+  // Build canonical URL
+  const canonicalUrl = `${window.location.origin}${location.pathname}`;
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <SEO
         title={post.title}
         description={post.description}
+        keywords={post.tags}
+        canonical={canonicalUrl}
+        ogType="article"
+        article={{
+          publishedTime: post.date,
+          modifiedTime: post.date,
+          author: post.author,
+          section: 'Care Guides',
+          tags: post.tags,
+        }}
         structuredData={structuredData}
       />
 
@@ -342,7 +356,7 @@ export function BlogPost() {
             if (post.status === 'community-reviewed') statusLabel = 'Community Reviewed';
             if (post.status === 'expert-verified') statusLabel = 'Expert Verified';
             return (
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 rounded-full text-sm font-medium mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-jade-100 dark:bg-jade-900/30 text-jade-800 dark:text-jade-200 rounded-full text-sm font-medium mb-4">
                 <Award className="w-4 h-4" />
                 <span>{statusLabel}</span>
               </div>

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import { Worm, Search, BookOpen, CheckCircle, ShieldAlert, ShoppingCart, ClipboardList, DollarSign, Sparkles, Quote, Star, Bell, GraduationCap, Palette, Package, BarChart3, Turtle, Download } from 'lucide-react';
+import { SEO } from '../SEO/SEO';
 
 export function Home() {
   const [activeBenefitCard, setActiveBenefitCard] = useState(0);
@@ -59,7 +60,15 @@ export function Home() {
   }, []);
 
   return (
-    <div className="space-y-12 lg:space-y-16">
+    <>
+      <SEO
+        title="Design the Perfect Reptile Enclosure - Free Planner"
+        description="Plan custom enclosures for 18+ reptile species. Get instant shopping lists, care guides, setup steps, and visual layouts. Free tool for beginners to experts."
+        keywords={['reptile enclosure planner', 'vivarium builder', 'habitat designer', 'free enclosure calculator', 'reptile care guide']}
+        canonical="https://habitat-builder.com"
+        ogType="website"
+      />
+      <div className="space-y-12 lg:space-y-16">
       {/* Hero Section */}
       <section className="text-center space-y-4 sm:space-y-6">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
@@ -1220,7 +1229,8 @@ export function Home() {
           <Sparkles className="w-4 h-4" />
         </p>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
 

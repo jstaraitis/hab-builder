@@ -22,11 +22,11 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
       secondaryId: getBlogId('substrate'),
       title: 'Housing Guide',
       icon: <Home className="w-7 h-7" />,
-      gradient: 'from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20',
-      border: 'border-purple-200 dark:border-purple-800',
-      iconBg: 'bg-purple-100 dark:bg-purple-900/40',
-      iconColor: 'text-purple-600 dark:text-purple-400',
-      linkColor: 'text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300',
+      gradient: 'from-jade-50 to-teal-50 dark:from-card dark:to-card-elevated',
+      border: 'border-jade-200 dark:border-jade-700',
+      iconBg: 'bg-jade-100 dark:bg-jade-900/40',
+      iconColor: 'text-jade-600 dark:text-accent',
+      linkColor: 'text-jade-600 dark:text-accent hover:text-jade-700 dark:hover:text-jade-300',
       info: [
         `Minimum: ${formatDimensions(profile.minEnclosureSize.width, profile.minEnclosureSize.depth, profile.minEnclosureSize.height, isMetric)}`,
         profile.layoutRules.preferVertical ? 'Vertical/Arboreal' : 'Horizontal/Terrestrial',
@@ -37,11 +37,11 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
       id: getBlogId('temp-humidity') || getBlogId('temperature'),
       title: 'Temperature & Humidity',
       icon: <Thermometer className="w-7 h-7" />,
-      gradient: 'from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20',
-      border: 'border-red-200 dark:border-red-800',
-      iconBg: 'bg-red-100 dark:bg-red-900/40',
-      iconColor: 'text-red-600 dark:text-red-400',
-      linkColor: 'text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300',
+      gradient: 'from-red-50 to-orange-50 dark:from-red-900/10 dark:to-orange-900/10',
+      border: 'border-red-200 dark:border-red-700',
+      iconBg: 'bg-red-100 dark:bg-red-900/30',
+      iconColor: 'text-red-600 dark:text-red-300',
+      linkColor: 'text-red-600 dark:text-red-300 hover:text-red-700 dark:hover:text-red-200',
       info: (() => {
         const isAquatic = profile.careTargets.humidity.day.min === 100 && profile.careTargets.humidity.day.max === 100;
         
@@ -91,11 +91,11 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
       id: getBlogId('lighting') || getBlogId('uvb'),
       title: 'Lighting & UVB',
       icon: <Sun className="w-7 h-7" />,
-      gradient: 'from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20',
-      border: 'border-yellow-200 dark:border-yellow-800',
-      iconBg: 'bg-yellow-100 dark:bg-yellow-900/40',
-      iconColor: 'text-yellow-600 dark:text-yellow-400',
-      linkColor: 'text-yellow-600 dark:text-yellow-400 hover:text-yellow-700 dark:hover:text-yellow-300',
+      gradient: 'from-amber-50 to-yellow-50 dark:from-amber-900/10 dark:to-yellow-900/10',
+      border: 'border-amber-200 dark:border-amber-700',
+      iconBg: 'bg-amber-100 dark:bg-amber-900/30',
+      iconColor: 'text-amber-600 dark:text-amber-300',
+      linkColor: 'text-amber-600 dark:text-amber-300 hover:text-amber-700 dark:hover:text-amber-200',
       info: [
         profile.careTargets.lighting.uvbRequired ? 'UVB Required' : 'UVB Recommended',
         profile.careTargets.lighting.uvbStrength ? `${profile.careTargets.lighting.uvbStrength} bulb` : 'No UVB needed',
@@ -106,11 +106,11 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
       id: getBlogId('feeding'),
       title: 'Feeding Guide',
       icon: <Utensils className="w-7 h-7" />,
-      gradient: 'from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20',
-      border: 'border-emerald-200 dark:border-emerald-800',
-      iconBg: 'bg-emerald-100 dark:bg-emerald-900/40',
-      iconColor: 'text-emerald-600 dark:text-emerald-400',
-      linkColor: 'text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300',
+      gradient: 'from-jade-50 to-emerald-50 dark:from-card dark:to-card-elevated',
+      border: 'border-jade-200 dark:border-jade-700',
+      iconBg: 'bg-jade-100 dark:bg-jade-900/40',
+      iconColor: 'text-jade-600 dark:text-accent',
+      linkColor: 'text-jade-600 dark:text-accent hover:text-jade-700 dark:hover:text-jade-300',
       info: profile.careGuidance?.feedingRequirements?.slice(0, 3) || [
         profile.dietType || 'Carnivore',
         'Age-based schedules',
@@ -121,11 +121,11 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
       id: getBlogId('hydration') || getBlogId('water'),
       title: 'Hydration & Water',
       icon: <Droplets className="w-7 h-7" />,
-      gradient: 'from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20',
-      border: 'border-blue-200 dark:border-blue-800',
-      iconBg: 'bg-blue-100 dark:bg-blue-900/40',
-      iconColor: 'text-blue-600 dark:text-blue-400',
-      linkColor: 'text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300',
+      gradient: 'from-cyan-50 to-blue-50 dark:from-cyan-900/10 dark:to-blue-900/10',
+      border: 'border-cyan-200 dark:border-cyan-700',
+      iconBg: 'bg-cyan-100 dark:bg-cyan-900/30',
+      iconColor: 'text-cyan-600 dark:text-cyan-300',
+      linkColor: 'text-cyan-600 dark:text-cyan-300 hover:text-cyan-700 dark:hover:text-cyan-200',
       info: profile.careGuidance?.waterNotes?.slice(0, 3) || [
         'Fresh water daily',
         'Bowl cleaning essential',
@@ -136,11 +136,11 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
       id: getBlogId('enrichment') || getBlogId('welfare'),
       title: 'Enrichment & Welfare',
       icon: <Heart className="w-7 h-7" />,
-      gradient: 'from-rose-50 to-pink-50 dark:from-rose-900/20 dark:to-pink-900/20',
-      border: 'border-rose-200 dark:border-rose-800',
-      iconBg: 'bg-rose-100 dark:bg-rose-900/40',
-      iconColor: 'text-rose-600 dark:text-rose-400',
-      linkColor: 'text-rose-600 dark:text-rose-400 hover:text-rose-700 dark:hover:text-rose-300',
+      gradient: 'from-rose-50 to-pink-50 dark:from-rose-900/10 dark:to-pink-900/10',
+      border: 'border-rose-200 dark:border-rose-700',
+      iconBg: 'bg-rose-100 dark:bg-rose-900/30',
+      iconColor: 'text-rose-600 dark:text-rose-300',
+      linkColor: 'text-rose-600 dark:text-rose-300 hover:text-rose-700 dark:hover:text-rose-200',
       info: [
         'Behavioral health',
         'Mental stimulation',
@@ -150,7 +150,7 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
   ];
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-3 sm:p-4">
+    <div className="bg-white dark:bg-card rounded-lg shadow-sm border border-gray-200 dark:border-divider p-3 sm:p-4">
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-900 dark:text-white">Complete Care Guides</h3>
       </div>
