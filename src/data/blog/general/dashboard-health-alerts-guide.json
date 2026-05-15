@@ -1,0 +1,219 @@
+{
+  "id": "dashboard-health-alerts-guide",
+  "title": "Dashboard Health Status & Smart Alerts: Monitor Your Pets at a Glance",
+  "author": "Habitat Builder Team",
+  "category": "care-management",
+  "excerpt": "Understand how the Dashboard's health status scoring, routine streak calculation, and automated health alerts work together to keep your reptiles and amphibians thriving.",
+  "description": "Complete guide to interpreting the Dashboard's animal health status indicator, care consistency score, and premium health alerts. Learn how the system scores pet wellness based on care task completion and environmental monitoring.",
+  "date": "2026-05-15",
+  "tags": ["dashboard", "health-status", "health-alerts", "consistency-score", "premium-features", "animal-wellness"],
+  "status": "published",
+  "featured": true,
+  "relatedBlogs": ["care-reminders-guide"],
+  "content": [
+    {
+      "type": "intro",
+      "heading": "Your Pet's Wellness Dashboard",
+      "text": "The Habitat Builder Dashboard gives you a quick snapshot of each of your animals' health and care consistency in one glance. Three key metrics—Health Status, Care Consistency Score, and Health Alerts—work together to show you exactly how your pets are doing and highlight any concerns that need attention. This guide explains how each works so you can use the Dashboard to make informed care decisions."
+    },
+    {
+      "type": "section",
+      "heading": "Health Status: Your Pet's Overall Wellness Score"
+    },
+    {
+      "type": "text",
+      "text": "Each animal on your Dashboard displays a health status indicator with a color and a level name. This score is calculated from 100 possible points and combines data from your care habits, feeding logs, and environmental conditions. Think of it as a quick wellness report card."
+    },
+    {
+      "type": "list",
+      "items": [
+        "🟢 Healthy (86-100): Your pet is receiving excellent care. All critical tasks are on schedule, feeding is consistent, and environmental readings are in target ranges.",
+        "🟡 Watch (70-85): Good care overall, but minor inconsistencies are starting to show. A missed task here or there, or slightly off environment readings warrant closer attention.",
+        "🟠 Needs Check (45-69): Your pet may be experiencing stress or neglect. Multiple missed critical tasks, irregular feeding patterns, or environmental concerns require immediate action.",
+        "🔴 Urgent (<45): Your pet's health is at risk. Consistent neglect of critical tasks, significant feeding issues, or serious environmental problems need intervention NOW."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "What Factors Into the Score?"
+    },
+    {
+      "type": "text",
+      "text": "The health status calculation tracks three critical care areas over a 15-day rolling window:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Critical Task Completion: Feeding, water changes, and health checks are weighted most heavily. Missed tasks lose 14 points, skipped tasks lose 5 points. These tasks directly impact your pet's survival and wellbeing.",
+        "Feeding Consistency: Refusal streaks (3+ refusals = -10 points, 5+ = urgent) and overdue feedings (based on species-specific windows. Impact the score significantly.",
+        "Tracking Data Freshness: Recent weight logs, poop logs, and feeding activity show attentiveness. Stale data (no weight in 12+ days, no feeding record in species window) deducts points."
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "text": "Missed Task Grace Period: The system knows life happens. If you miss a task but catch up within 50% of its frequency interval, the penalty is reduced. For example, missing a weekly task for 2-3 days is more forgivable than missing it for a week."
+    },
+    {
+      "type": "section",
+      "heading": "Care Consistency Score (Routine Streak)"
+    },
+    {
+      "type": "text",
+      "text": "Below the health status, you'll see your Care Consistency Score—a percentage that shows how reliably you're completing your scheduled care tasks. This metric is calculated over the last 30 days and compares your actual task completions to expected completions based on task frequency."
+    },
+    {
+      "type": "text",
+      "text": "For example, if you have a daily feeding task, that's 30 expected feedings in 30 days. If you completed 27 of them, your consistency would be 90%. Skipped tasks don't count against you (they're acknowledged as intentional), but missed tasks do."
+    },
+    {
+      "type": "list",
+      "items": [
+        "90-100%: Excellent! You're a dedicated keeper meeting nearly all care requirements.",
+        "75-89%: Good! Most needs are met, but a few tasks are slipping through the cracks.",
+        "50-74%: Fair. Your pet is getting basic care, but inconsistency is becoming noticeable.",
+        "Below 50%: Poor. Significant gaps in care routine—time to reassess your setup or task frequency."
+      ]
+    },
+    {
+      "type": "text",
+      "text": "The consistency score works independently from health status. You could have a high consistency score but still see a declining health status if feeding data is stale or environmental conditions are off."
+    },
+    {
+      "type": "section",
+      "heading": "Health Alerts: Premium Feature"
+    },
+    {
+      "type": "text",
+      "text": "Health Alerts are a premium-only feature that automatically monitors your animal for 8 different health and care patterns. Unlike the static health status score, alerts actively detect emerging issues and flag them for your attention. Upgrading to Premium unlocks these critical safety nets."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Feeding Refusal Streak: Flags 3+ consecutive feeding refusals as Warning, 5+ as Urgent",
+        "Feeding Overdue: Alerts when feeding falls outside species-specific windows.",
+        "Weight Drop Alert: Flags >8% weight loss in 14 days. 8-15% loss = Warning, >15% = Urgent",
+        "Humidity Extremes: If all 3 recent humidity readings fall outside target range (too dry or too wet)",
+        "Temperature Out of Range: If 2+ of 3 recent temp readings are outside target (2/3 = Warning, 3/3 = Urgent)",
+        "UVB Bulb Age: Info alert at 150-180 days, Warning at 180+",
+        "Shedding Status: Tracks whether shedding is on schedule (0-60d), due soon (61-90d), or overdue (90+)",
+        "Enclosure Experience: Flags when enclosure hasn't been visited or updated in a long time"
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "Health alerts are NOT a substitute for regular visual inspections. They use data you log, so if you don't log regularly, the system can't alert you. Keep your environmental readings and feeding logs current for the most accurate alerts."
+    },
+    {
+      "type": "section",
+      "heading": "Understanding Alert Severity Levels"
+    },
+    {
+      "type": "text",
+      "text": "Each alert is assigned a severity level to help you prioritize:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "🔴 Urgent (Red): Immediate action required. Your pet's health or survival may be at risk right now.",
+        "🟡 Warning (Amber): Take action within 24-48 hours. Conditions are trending in a concerning direction.",
+        "ℹ️ Info (Blue): Informational only. Monitor closely but no immediate action needed."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "How to Use These Metrics Together"
+    },
+    {
+      "type": "text",
+      "text": "The three metrics work together to give you a complete picture of your pet's wellness:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "High Health Status + High Consistency + No Alerts = Your pet is thriving! Keep up the excellent work.",
+        "Declining Health Status + High Consistency = Environmental or health issue despite good task completion. Check temp, humidity, and weight data.",
+        "High Health Status + Declining Consistency = You're still providing good care overall, but tasks are starting to slip. Adjust frequency or reminders.",
+        "Low Health Status + Alerts Firing = Multiple issues detected. Re-evaluate your entire care plan and species requirements.",
+        "Consistent Alerts for Same Issue = Systemic problem. You may need to adjust equipment, enclosure setup, or feeding strategy."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Tips for Maintaining Healthy Scores"
+    },
+    {
+      "type": "warning",
+      "severity": "tip",
+      "text": "Log data consistently. The more environmental readings, weight checks, and feeding logs you record, the more accurate (and helpful) your health alerts become."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Set realistic task frequencies based on your schedule and species needs. It's better to have fewer tasks at sustainable frequencies than to set aggressive targets you can't keep.",
+        "Enable push notifications for due tasks so you don't accidentally miss feedlings or water changes.",
+        "Review your dashboard weekly. Trends tell you more than individual days—gradual decline is easier to reverse than sudden crisis.",
+        "Don't panic over temporary dips. A single missed task shouldn't cause alarm, but patterns matter.",
+        "Use alerts as a learning tool. If you consistently get humidity alerts, consider upgrading your misting equipment."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Free vs. Premium: What's the Difference?"
+    },
+    {
+      "type": "text",
+      "text": "Free users can see:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Health Status indicator (color + level)",
+        "Care Consistency Score (percentage)",
+        "Basic dashboard cards showing animal name, species, and quick stats"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Premium users unlock:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "All free dashboard features PLUS",
+        "Automated Health Alerts with severity flagging",
+        "Detailed shedding tracker showing days since last shed",
+        "Advanced task analytics and completion trends",
+        "Unlimited animals and enclosures",
+        "Full care history and weight tracking"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Health Alerts are especially valuable if you manage multiple animals, have species with complex care requirements, or want early warning signs of health issues."
+    },
+    {
+      "type": "section",
+      "heading": "What If My Scores Are Low?"
+    },
+    {
+      "type": "text",
+      "text": "If your health status is low or consistency score is declining, here's how to recover:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Check task frequency: Are your tasks too aggressive? Adjust to realistic intervals.",
+        "Log missing data: Stale weight/feeding data lowers scores. Catch up on recent measurements.",
+        "Verify species requirements: Visit the enclosure design tool to confirm your pet's species-specific needs.",
+        "Adjust environment: If temperature or humidity alerts fire, check equipment and calibration.",
+        "Consider premium upgrade: Health alerts pinpoint exact issues so you know what to fix first."
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Remember: the goal of the Dashboard is to help you provide better care, not to judge you. Every animal's needs are different, and life is unpredictable. Use these metrics as guidance, not as stress."
+    }
+  ]
+}

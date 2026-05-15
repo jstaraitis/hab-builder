@@ -50,7 +50,11 @@ export function EditEnclosureView() {
           photoUrl: data.photoUrl || '',
           description: data.description || '',
           substrateType: data.substrateType || '',
-          hasUVB: data.uvbBulbInstalledOn != null
+          hasUVB: data.uvbBulbInstalledOn != null,
+          tempMin: data.baselineDayTempTarget,
+          tempMax: data.baselineNightTempTarget,
+          humidityMin: data.baselineHumidityMinTarget,
+          humidityMax: data.baselineHumidityMaxTarget,
         });
       } catch {
         if (isMounted) setError('Failed to load enclosure.');
@@ -93,7 +97,11 @@ export function EditEnclosureView() {
       photoUrl: photoUrl || undefined,
       description: formData.description || undefined,
       substrateType: formData.substrateType || undefined,
-      uvbBulbInstalledOn: formData.hasUVB ? (originalUvbInstalledOn ?? new Date()) : undefined
+      uvbBulbInstalledOn: formData.hasUVB ? (originalUvbInstalledOn ?? new Date()) : undefined,
+      baselineDayTempTarget: formData.tempMin,
+      baselineNightTempTarget: formData.tempMax,
+      baselineHumidityMinTarget: formData.humidityMin,
+      baselineHumidityMaxTarget: formData.humidityMax,
     });
 
     navigate(returnTo || '/care-calendar');

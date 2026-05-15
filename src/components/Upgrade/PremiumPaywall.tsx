@@ -3,92 +3,95 @@ import { Lock, Sparkles, Calendar, TrendingUp, Package } from 'lucide-react';
 
 export function PremiumPaywall() {
   return (
-    <div className="min-h-[60vh] flex items-center justify-center px-4">
-      <div className="max-w-2xl w-full bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12 text-center">
+    <div className="min-h-[60vh] flex items-center justify-center px-4 py-8">
+      <div className="max-w-2xl w-full bg-card rounded-2xl border border-divider shadow-xl p-6 sm:p-8">
         {/* Lock Icon */}
-        <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-full mb-6">
-          <Lock className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
+        <div className="inline-flex items-center justify-center w-14 h-14 bg-accent/15 rounded-xl mb-6">
+          <Lock className="w-7 h-7 text-accent" />
         </div>
 
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
           Upgrade to Premium
         </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-3">
+        <p className="text-base text-muted mb-6">
           Unlock unlimited animals, enclosures, and care tasks—plus health tracking and smart reminders.
         </p>
-        <div className="inline-flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 px-4 py-2.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-600 dark:text-gray-300 mb-6">
-          <span className="font-medium text-gray-700 dark:text-gray-200">Your free plan includes:</span>
-          <span>1 enclosure</span>
-          <span className="text-gray-300 dark:text-gray-600">·</span>
-          <span>1 animal</span>
-          <span className="text-gray-300 dark:text-gray-600">·</span>
-          <span>Unlimited care tasks</span>
+
+        {/* Free Plan Info */}
+        <div className="bg-card-elevated border border-divider rounded-xl p-4 mb-6">
+          <p className="text-xs font-semibold text-muted uppercase tracking-wide mb-2">Your free plan includes:</p>
+          <div className="flex flex-wrap gap-2">
+            <span className="inline-block px-3 py-1 bg-card border border-divider rounded-full text-sm text-white">1 enclosure</span>
+            <span className="inline-block px-3 py-1 bg-card border border-divider rounded-full text-sm text-white">1 animal</span>
+            <span className="inline-block px-3 py-1 bg-card border border-divider rounded-full text-sm text-white">Unlimited care tasks</span>
+          </div>
         </div>
 
         {/* Feature Highlights */}
-        <div className="grid md:grid-cols-2 gap-4 mb-8 text-left">
-          <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-            <Calendar className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
-            <div>
-              <div className="font-semibold text-gray-900 dark:text-white text-sm">Care Calendar</div>
-              <div className="text-xs text-gray-600 dark:text-gray-400">Never miss feeding or cleaning</div>
+        <div className="grid sm:grid-cols-2 gap-3 mb-6">
+          <div className="flex gap-3 p-3 bg-card-elevated border border-divider rounded-xl">
+            <Calendar className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+            <div className="text-left">
+              <div className="font-semibold text-white text-sm">Expanded Care Calendar</div>
+              <div className="text-xs text-muted mt-0.5">Never miss feeding or cleaning</div>
             </div>
           </div>
 
-          <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-            <TrendingUp className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
-            <div>
-              <div className="font-semibold text-gray-900 dark:text-white text-sm">Health Analytics</div>
-              <div className="text-xs text-gray-600 dark:text-gray-400">Track weight and feeding trends</div>
+          <div className="flex gap-3 p-3 bg-card-elevated border border-divider rounded-xl">
+            <TrendingUp className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+            <div className="text-left">
+              <div className="font-semibold text-white text-sm">Health Alerts and Task Analytics</div>
+              <div className="text-xs text-muted mt-0.5">Smart health monitoring</div>
             </div>
           </div>
 
-          <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-            <Package className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
-            <div>
-              <div className="font-semibold text-gray-900 dark:text-white text-sm">Inventory Manager</div>
-              <div className="text-xs text-gray-600 dark:text-gray-400">Track supplies & reorder alerts</div>
+          <div className="flex gap-3 p-3 bg-card-elevated border border-divider rounded-xl">
+            <Package className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+            <div className="text-left">
+              <div className="font-semibold text-white text-sm">Inventory Manager</div>
+              <div className="text-xs text-muted mt-0.5">Track supplies & reorder alerts</div>
             </div>
           </div>
 
-          <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-            <Sparkles className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
-            <div>
-              <div className="font-semibold text-gray-900 dark:text-white text-sm">Unlimited Animals</div>
-              <div className="text-xs text-gray-600 dark:text-gray-400">Manage your entire collection</div>
+          <div className="flex gap-3 p-3 bg-card-elevated border border-divider rounded-xl">
+            <Sparkles className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+            <div className="text-left">
+              <div className="font-semibold text-white text-sm">Unlimited Animals</div>
+              <div className="text-xs text-muted mt-0.5">Manage your entire collection</div>
             </div>
           </div>
         </div>
 
         {/* Pricing */}
-        <div className="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-6 mb-6">
-          <div className="text-4xl font-bold text-gray-900 dark:text-white mb-1">
-            $2.99<span className="text-xl text-gray-500 dark:text-gray-400 font-normal">/month</span>
-          </div>
-          <div className="text-sm text-emerald-600 dark:text-emerald-400 font-medium">
-            or $23.00/year (save 36%)
+        <div className="bg-card-elevated border border-divider rounded-xl p-5 mb-6">
+          <div className="text-center">
+            <div className="text-4xl font-bold text-white mb-1">
+              $2.99<span className="text-lg text-muted font-normal">/month</span>
+            </div>
+            <div className="text-sm text-accent font-medium">
+              or $23.00/year (save 36%)
+            </div>
           </div>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+        <div className="flex flex-col gap-3 mb-4">
           <Link
             to="/upgrade"
-            className="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-colors inline-flex items-center justify-center gap-2"
+            className="w-full px-4 py-3 bg-accent text-on-accent font-bold rounded-xl hover:bg-accent/90 transition-colors inline-flex items-center justify-center"
           >
-            <Sparkles className="w-5 h-5" />
             Upgrade Now
           </Link>
           <Link
             to="/"
-            className="px-8 py-3 bg-white dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 font-semibold rounded-xl hover:border-gray-300 dark:hover:border-gray-500 transition-colors"
+            className="w-full px-4 py-3 bg-card border border-divider text-white font-semibold rounded-xl hover:border-accent/50 transition-colors text-center"
           >
             Back to Home
           </Link>
         </div>
 
-        <p className="text-xs text-gray-500 dark:text-gray-400 mt-6">
+        <p className="text-xs text-muted text-center">
           Cancel anytime. No questions asked.
         </p>
       </div>

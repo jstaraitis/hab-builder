@@ -215,7 +215,6 @@ export function UpgradePage() {
               </>
             ) : (
               <>
-                <Sparkles className="w-5 h-5" />
                 {isNative ? 'Subscribe with Apple' : 'Upgrade Now'}
               </>
             )}

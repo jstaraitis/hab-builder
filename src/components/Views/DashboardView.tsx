@@ -4,7 +4,7 @@
  * animal hero, today's care plan, health snapshot, beginner reminder, care confidence.
  */
 
-import { useEffect, useState, useCallback, useRef } from 'react';
+import { useEffect, useState, useCallback, useRef, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Brush,
@@ -39,6 +39,8 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
+import { usePremium } from '../../contexts/PremiumContext';
+import { Lock } from 'lucide-react';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { profileService } from '../../services/profileService';
 import { enclosureService } from '../../services/enclosureService';
@@ -51,13 +53,17 @@ import { humidityLogService, type HumidityLog } from '../../services/humidityLog
 import { uvbLogService, type UvbLog } from '../../services/uvbLogService';
 import { feedingLogService, type FeedingLog } from '../../services/feedingLogService';
 import { computeSmartStatus, type SmartStatusLevel } from '../../services/smartStatusService';
+import { runThresholdEngine } from '../../engine/thresholdEngine';
+import { ThresholdAlerts } from '../premium/ThresholdAlerts';
+import { PremiumPaywall } from '../Upgrade/PremiumPaywall';
 import type { Enclosure, EnclosureAnimal, CareTaskWithLogs, CareLog } from '../../types/careCalendar';
 import { FeedingLogModal } from '../CareCalendar/FeedingLogModal';
 import { EnvironmentReadingsModal } from '../CareCalendar/EnvironmentReadingsModal';
 import type { WeightLog } from '../../types/weightTracking';
 import type { ShedLog } from '../../services/shedLogService';
 import { getAnimalById } from '../../data/animals';
-import type { AnimalProfile } from '../../engine/types';
+import type { AnimalProfile, HumidityRange, TemperatureRange } from '../../engine/types';
+import type { ThresholdAlert } from '../../types/thresholds';
 import { getCustomWeekdayIntervalDays } from '../../utils/customTaskFrequency';
 
 // helpers
@@ -455,7 +461,7 @@ function EmptyState({ onAdd }: { onAdd: () => void }) {
   );
 }
 
-function AnimalPills({ animals, selectedId, onSelect, statusByAnimalId }: { animals: EnclosureAnimal[]; selectedId: string; onSelect: (id: string) => void; statusByAnimalId: Record<string, SmartStatusLevel> }) {
+function AnimalPills({ animals, selectedId, onSelect, statusByAnimalId, alertsByAnimalId }: { animals: EnclosureAnimal[]; selectedId: string; onSelect: (id: string) => void; statusByAnimalId: Record<string, SmartStatusLevel>; alertsByAnimalId: Record<string, ThresholdAlert[]> }) {
   if (animals.length === 0) return null;
 
   const getImageBorderClass = (status?: SmartStatusLevel): string => {
@@ -475,22 +481,33 @@ function AnimalPills({ animals, selectedId, onSelect, statusByAnimalId }: { anim
 
   return (
     <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4">
-      {animals.map((a) => (
-        <button
-          key={a.id}
-          onClick={() => onSelect(a.id)}
-          className={`flex-shrink-0 w-[86px] rounded-2xl border p-2 transition-colors ${a.id === selectedId ? 'border-emerald-400/70 bg-emerald-500/15' : 'border-divider bg-card'}`}
-        >
-          <div className={`mx-auto w-14 h-14 rounded-2xl overflow-hidden border-2 bg-card-elevated flex items-center justify-center ${getImageBorderClass(statusByAnimalId[a.id])}`}>
-            {a.photoUrl ? (
-              <img src={a.photoUrl} alt={a.name || `Animal #${a.animalNumber ?? 1}`} className="w-full h-full object-cover" />
-            ) : (
-              <Turtle className="w-5 h-5 text-muted" />
-            )}
-          </div>
-          <p className={`mt-1.5 text-sm font-semibold truncate ${a.id === selectedId ? 'text-emerald-300' : 'text-white'}`}>{a.name || `#${a.animalNumber ?? 1}`}</p>
-        </button>
-      ))}
+      {animals.map((a) => {
+        const animalAlerts = alertsByAnimalId[a.id] ?? [];
+        const hasUrgent = animalAlerts.some((al) => al.severity === 'urgent');
+        const hasAlert = animalAlerts.length > 0;
+
+        return (
+          <button
+            key={a.id}
+            onClick={() => onSelect(a.id)}
+            className={`flex-shrink-0 w-[86px] rounded-2xl border p-2 transition-colors ${a.id === selectedId ? 'border-emerald-400/70 bg-emerald-500/15' : 'border-divider bg-card'}`}
+          >
+            <div className="relative mx-auto w-14 h-14">
+              <div className={`w-full h-full rounded-2xl overflow-hidden border-2 bg-card-elevated flex items-center justify-center ${getImageBorderClass(statusByAnimalId[a.id])}`}>
+                {a.photoUrl ? (
+                  <img src={a.photoUrl} alt={a.name || `Animal #${a.animalNumber ?? 1}`} className="w-full h-full object-cover" />
+                ) : (
+                  <Turtle className="w-5 h-5 text-muted" />
+                )}
+              </div>
+              {hasAlert && (
+                <span className={`absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full border-2 border-surface ${hasUrgent ? 'bg-red-500' : 'bg-amber-400'}`} />
+              )}
+            </div>
+            <p className={`mt-1.5 text-sm font-semibold truncate ${a.id === selectedId ? 'text-emerald-300' : 'text-white'}`}>{a.name || `#${a.animalNumber ?? 1}`}</p>
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -517,7 +534,7 @@ function deriveNextAction(reasons: string[], level: SmartStatusLevel): string | 
   if (r.includes('feeding')) return 'Log a feeding to bring things back on track.';
   if (r.includes('weight')) return 'Log a weight check today.';
   if (r.includes('poop')) return 'Log a poop to keep the record current.';
-  if (r.includes("hasn't been done") || r.includes('important') || r.includes('overdue')) return 'Complete the overdue task as soon as you can.';
+  if (r.includes("hasn't been done") || r.includes('important') || r.includes('overdue')) return 'Complete overdue tasks as soon as you can.';
   if (r.includes('skipped')) return 'Try to complete the next task instead of skipping it.';
   if (r.includes('missed')) return 'Complete all due tasks today to get back on track.';
   return 'Open the Care Calendar to see what needs attention.';
@@ -525,9 +542,7 @@ function deriveNextAction(reasons: string[], level: SmartStatusLevel): string | 
 
 function deriveConsistencyReasons(consistencyStreak: number): string[] {
   const reasons = [
-    'This number shows your best run of on-schedule task completions for this pet.',
-    'Only completed tasks count. Skipped tasks do not build your streak.',
-    'Each task follows its own schedule, so weekly and custom tasks are counted fairly.',
+
   ];
 
   if (consistencyStreak > 0) {
@@ -580,8 +595,6 @@ function ActivePetCard({ animal, age, weight, weightTrend, lastFed, consistencyS
   const status = statusConfig[healthStatus];
   const nextAction = deriveNextAction(healthReasons, healthStatus);
   const consistencyReasons = deriveConsistencyReasons(consistencyStreak);
-  const smartStatusTooltip = 'Smart Status is your overall care check based on completion trends, overdue/skip patterns, and recent health logs.';
-  const consistencyTooltip = 'Routine Streak is your best run of on-schedule care completions for this pet.';
 
   const trendColor = weightTrend === 'Gaining' ? 'text-accent' : weightTrend === 'Losing' ? 'text-red-400' : weightTrend === 'Stable' ? 'text-blue-400' : 'text-muted';
   const weightTrendIcon = weightTrend === 'Gaining'
@@ -627,8 +640,8 @@ function ActivePetCard({ animal, age, weight, weightTrend, lastFed, consistencyS
             <button
               onClick={() => setExplanationOpen((o) => !o)}
               className={`inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 transition-colors active:opacity-70 ${status.bgClass} ${status.borderClass}`}
-              title={smartStatusTooltip}
-              aria-label={`Smart Status: ${status.label}. ${smartStatusTooltip}`}
+              title="Smart Status reasons"
+              aria-label={`Smart Status: ${status.label}. Click to see reasons.`}
             >
               {status.icon}
               <span className={`text-xs font-semibold ${status.textClass}`}>{status.label}</span>
@@ -639,8 +652,8 @@ function ActivePetCard({ animal, age, weight, weightTrend, lastFed, consistencyS
             <button
               onClick={() => setExplanationOpen((o) => !o)}
               className="inline-flex items-center gap-1.5 rounded-full border border-orange-400/30 bg-orange-500/10 px-2 py-0.5 transition-colors active:opacity-70"
-              title={consistencyTooltip}
-              aria-label={`Routine Streak: ${consistencyStreak}. ${consistencyTooltip}`}
+              title="Routine Streak reasons"
+              aria-label={`Routine Streak: ${consistencyStreak}. Click to see reasons.`}
             >
                 <Flame className="w-3.5 h-3.5 text-orange-300" />
                 <span className="text-xs font-semibold text-orange-200">Routine Streak</span>
@@ -652,41 +665,36 @@ function ActivePetCard({ animal, age, weight, weightTrend, lastFed, consistencyS
         </div>
       </div>
 
-      {/* Explanation panel */}
+      {/* Reasons panel */}
       {explanationOpen && (
         <div className={`mx-4 mb-3 rounded-xl border ${status.borderClass} ${status.bgClass} px-3 py-2.5 space-y-2`}>
-          <p className="text-[11px] font-semibold uppercase tracking-wide text-muted">Why this status?</p>
-          <p className="text-[11px] text-white/75">
-            Smart Status is your overall care check. It combines task completion, overdue/skip patterns, and recent feeding, weight, and poop logs.
-          </p>
-          <ul className="space-y-1">
-            {healthReasons.map((reason, idx) => (
-              <li key={idx} className={`text-xs flex items-start gap-1.5 ${status.textClass}`}>
-                <span className="mt-0.5 flex-shrink-0">•</span>
-                <span>{reason}</span>
-              </li>
-            ))}
-          </ul>
-          {nextAction && (
-            <div className="pt-1.5 border-t border-white/10">
-              <p className="text-[11px] font-semibold text-white mb-0.5">Suggested action</p>
-              <p className="text-xs text-white/80">{nextAction}</p>
+          <div className="space-y-2">
+            <div>
+              <p className="text-xs font-semibold text-white mb-1.5">Smart Status</p>
+              <ul className="space-y-1">
+                {healthReasons.map((reason, idx) => (
+                  <li key={idx} className={`text-xs flex items-start gap-1.5 ${status.textClass}`}>
+                    <span className="mt-0.5 flex-shrink-0">•</span>
+                    <span>{reason}</span>
+                  </li>
+                ))}
+              </ul>
+              {nextAction && (
+                <p className="text-xs text-white/70 mt-1.5 italic">{nextAction}</p>
+              )}
             </div>
-          )}
 
-          <div className="pt-1.5 border-t border-white/10">
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted">Why this routine streak?</p>
-            <p className="text-[11px] text-orange-100/80">
-              Routine Streak shows your best run of on-schedule care completions for this pet.
-            </p>
-            <ul className="space-y-1 mt-1.5">
-              {consistencyReasons.map((reason, idx) => (
-                <li key={idx} className="text-xs flex items-start gap-1.5 text-orange-100/90">
-                  <span className="mt-0.5 flex-shrink-0">•</span>
-                  <span>{reason}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="border-t border-white/10 pt-2">
+              <p className="text-xs font-semibold text-orange-100 mb-1.5">Routine Streak</p>
+              <ul className="space-y-1">
+                {consistencyReasons.map((reason, idx) => (
+                  <li key={idx} className="text-xs flex items-start gap-1.5 text-orange-100/90">
+                    <span className="mt-0.5 flex-shrink-0">•</span>
+                    <span>{reason}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       )}
@@ -782,6 +790,7 @@ function TodayCarePlan({ tasks, completedIds, onComplete, onOpenTask }: TodayCar
 // Main View
 export function DashboardView() {
   const { user } = useAuth();
+  const { isPremium } = usePremium();
   const navigate = useNavigate();
 
   const [animals, setAnimals] = useState<EnclosureAnimal[]>([]);
@@ -798,6 +807,7 @@ export function DashboardView() {
   const [feedingLogs, setFeedingLogs] = useState<FeedingLog[]>([]);
   const [consistencyStreak, setConsistencyStreak] = useState(0);
   const [animalStatusById, setAnimalStatusById] = useState<Record<string, SmartStatusLevel>>({});
+  const [alertsByAnimalId, setAlertsByAnimalId] = useState<Record<string, ThresholdAlert[]>>({});
   const [completedIds, setCompletedIds] = useState<Set<string>>(new Set());
   const [loading, setLoading] = useState(true);
   const [displayName, setDisplayName] = useState<string>('');
@@ -963,27 +973,46 @@ export function DashboardView() {
             streakDays: animalStreak,
           });
 
-          return [animal.id, animalStatus.level] as const;
+          const enclosure = enclosures.find((e) => e.id === animal.enclosureId) ?? null;
+          const profile = animal.speciesId ? (getAnimalById(animal.speciesId) ?? null) : null;
+          const alerts = runThresholdEngine({
+            animalName: animal.name ?? 'Your animal',
+            speciesId: animal.speciesId ?? '',
+            feedingLogs: enclosureFeedingLogs as FeedingLog[],
+            weightLogs: animalWeightLogs as WeightLog[],
+            humidityLogs: [],
+            tempLogs: [],
+            uvbBulbInstalledOn: enclosure?.uvbBulbInstalledOn ?? null,
+            careTargets: profile?.careTargets,
+          });
+
+          return [animal.id, animalStatus.level, alerts] as [string, SmartStatusLevel, ThresholdAlert[]];
         })
       );
 
       if (cancelled) return;
-      setAnimalStatusById(Object.fromEntries(statusEntries));
+      setAnimalStatusById(Object.fromEntries(statusEntries.map(([id, level]) => [id, level])));
+      setAlertsByAnimalId(Object.fromEntries(statusEntries.map(([id, , alerts]) => [id, alerts])));
     }
 
     loadAnimalStatuses().catch(() => {
-      if (!cancelled) setAnimalStatusById({});
+      if (!cancelled) {
+        setAnimalStatusById({});
+        setAlertsByAnimalId({});
+      }
     });
 
     return () => {
       cancelled = true;
     };
-  }, [animals, tasks]);
+  }, [animals, tasks, enclosures]);
 
   const [feedingTask, setFeedingTask] = useState<CareTaskWithLogs | null>(null);
   const [showFeedingModal, setShowFeedingModal] = useState(false);
   const [envTask, setEnvTask] = useState<CareTaskWithLogs | null>(null);
   const [showEnvModal, setShowEnvModal] = useState(false);
+  const [showExamples, setShowExamples] = useState(false);
+  const [showPremiumModal, setShowPremiumModal] = useState(false);
 
   const handleCompleteTask = useCallback((task: CareTaskWithLogs) => {
     if (task.type === 'feeding' || task.type === 'gut-load') {
@@ -1073,6 +1102,50 @@ export function DashboardView() {
   const healthScore = smartStatus.score;
   const healthReasons = smartStatus.reasons;
 
+  const selectedEnclosure = enclosures.find((e) => e.id === selectedEnclosureId) ?? null;
+  const thresholdAlerts = useMemo(() => {
+    if (!selectedAnimal) return [];
+    const profile = selectedAnimal.speciesId ? (getAnimalById(selectedAnimal.speciesId) ?? null) : null;
+    const speciesHumidity = profile?.careTargets?.humidity;
+    const speciesTemp = profile?.careTargets?.temperature;
+
+    const enc = selectedEnclosure;
+
+    let humidityTargets: HumidityRange | undefined = speciesHumidity;
+    if (enc?.baselineHumidityMinTarget != null || enc?.baselineHumidityMaxTarget != null) {
+      humidityTargets = {
+        day: {
+          min: enc.baselineHumidityMinTarget ?? speciesHumidity?.day.min ?? 0,
+          max: enc.baselineHumidityMaxTarget ?? speciesHumidity?.day.max ?? 100,
+        },
+        night: speciesHumidity?.night ?? { min: 0, max: 100 },
+        shedding: speciesHumidity?.shedding ?? { min: 0, max: 100 },
+        unit: '%',
+      };
+    }
+
+    let tempTargets: TemperatureRange | undefined = speciesTemp;
+    if (enc?.baselineDayTempTarget != null || enc?.baselineNightTempTarget != null) {
+      tempTargets = {
+        ...(speciesTemp ?? {}),
+        min: enc.baselineDayTempTarget ?? speciesTemp?.min ?? 65,
+        max: enc.baselineNightTempTarget ?? speciesTemp?.max ?? 90,
+        unit: speciesTemp?.unit ?? 'F',
+      } as TemperatureRange;
+    }
+
+    return runThresholdEngine({
+      animalName: selectedAnimal.name ?? 'Your animal',
+      speciesId: selectedAnimal.speciesId ?? '',
+      feedingLogs,
+      weightLogs,
+      humidityLogs,
+      tempLogs,
+      uvbBulbInstalledOn: enc?.uvbBulbInstalledOn ?? null,
+      careTargets: { humidity: humidityTargets, temperature: tempTargets },
+    });
+  }, [selectedAnimal, feedingLogs, weightLogs, humidityLogs, tempLogs, selectedEnclosure]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-surface pb-28">
@@ -1121,12 +1194,87 @@ export function DashboardView() {
           onTap={() => navigate(`/my-animals/${selectedAnimal.id}`)}
         />
 
+        {isPremium ? (
+          <ThresholdAlerts alerts={thresholdAlerts} />
+        ) : (
+          <div className="mx-4 space-y-2">
+            {/* Collapsible header */}
+            <button
+              onClick={() => setShowExamples(!showExamples)}
+              className="w-full bg-card border border-divider rounded-2xl p-4 flex items-center justify-between hover:border-divider/70 transition-colors"
+            >
+              <div className="flex items-center gap-3 text-left">
+                <Lock className="w-5 h-5 text-muted" />
+                <div>
+                  <p className="text-sm font-semibold text-white">Health Alerts</p>
+                  <p className="text-xs text-muted mt-0.5">Premium feature</p>
+                </div>
+              </div>
+              <ChevronRight className={`w-4 h-4 text-muted transition-transform ${showExamples ? 'rotate-90' : ''}`} />
+            </button>
+
+            {/* Expandable examples */}
+            {showExamples && (
+              <div className="space-y-2">
+                <p className="px-1 text-xs font-semibold uppercase tracking-wide text-muted">Example Alerts</p>
+                
+                {/* Example urgent alert */}
+                <div className="bg-card border border-red-400/30 rounded-xl p-3 space-y-1.5">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex items-start gap-2">
+                      <AlertTriangle className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-red-300">Feeding Refusal Streak</p>
+                        <p className="text-xs text-white/70 mt-0.5">Skipped feeding offered 5 times in a row. This can indicate illness or stress.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Example warning alert */}
+                <div className="bg-card border border-amber-400/30 rounded-xl p-3 space-y-1.5">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex items-start gap-2">
+                      <AlertCircle className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-amber-300">Humidity High</p>
+                        <p className="text-xs text-white/70 mt-0.5">Last 3 readings exceed target range. Reduce mistings and improve ventilation.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Example info alert */}
+                <div className="bg-card border border-blue-400/30 rounded-xl p-3 space-y-1.5">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex items-start gap-2">
+                      <Info className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-blue-300">UVB Bulb Age</p>
+                        <p className="text-xs text-white/70 mt-0.5">Bulb installed 160 days ago. Consider replacing within next 20 days.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Upgrade button */}
+                <button
+                  onClick={() => setShowPremiumModal(true)}
+                  className="w-full text-sm font-semibold text-accent hover:text-accent/80 transition-colors py-2.5 rounded-lg border border-accent/30 hover:border-accent/50 bg-accent/5 mt-2"
+                >
+                  Upgrade to Premium
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+
         <div>
           <div className="px-4 mb-2 flex items-center justify-between">
             <p className="text-base font-semibold text-white">All Pets</p>
             <p className="text-xs text-muted">Swipe to see more</p>
           </div>
-          <AnimalPills animals={animals} selectedId={selectedAnimalId} onSelect={setSelectedAnimalId} statusByAnimalId={animalStatusById} />
+          <AnimalPills animals={animals} selectedId={selectedAnimalId} onSelect={setSelectedAnimalId} statusByAnimalId={animalStatusById} alertsByAnimalId={alertsByAnimalId} />
         </div>
 
         {selectedEnclosureId && enclosures.length > 0 ? (
@@ -1171,6 +1319,23 @@ export function DashboardView() {
           onClose={() => { setShowEnvModal(false); setEnvTask(null); }}
           onSubmit={handleEnvReadingsSubmit}
         />
+      )}
+      {showPremiumModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-surface rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-end p-4">
+              <button
+                onClick={() => setShowPremiumModal(false)}
+                className="text-muted hover:text-white transition-colors"
+              >
+                <ChevronRight className="w-6 h-6 rotate-90" />
+              </button>
+            </div>
+            <div className="px-4 pb-8">
+              <PremiumPaywall />
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

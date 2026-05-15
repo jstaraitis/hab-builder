@@ -91,7 +91,7 @@ export function Auth() {
   // Forgot password view
   if (mode === 'forgot-password') {
     return (
-      <div className="max-w-md mx-auto p-6">
+      <div className="max-w-md mx-auto p-6 space-y-6">
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
           <div className="text-center mb-6">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Reset Password</h2>
@@ -150,7 +150,7 @@ export function Auth() {
   }
 
   return (
-    <div className="max-w-md mx-auto p-6">
+    <div className="max-w-md mx-auto p-6 space-y-6">
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
         <div className="text-center mb-6">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">

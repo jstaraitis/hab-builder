@@ -44,6 +44,7 @@ import { formatCareTaskFrequency } from '../../utils/careTaskFrequencyLabel';
 import { FeedingLogModal } from './FeedingLogModal';
 import { EnvironmentReadingsModal } from './EnvironmentReadingsModal';
 import { CareAnalyticsDashboard } from '../CareAnalytics';
+import { PremiumPaywall } from '../Upgrade/PremiumPaywall';
 import type { CareTaskWithLogs, TaskType, CareTask, CareLog, Enclosure, EnclosureAnimal, TaskFrequency } from '../../types/careCalendar';
 
 type ViewMode = 'all' | 'today' | 'week' | 'analytics';
@@ -220,7 +221,7 @@ TaskItem.displayName = 'TaskItem';
 
 export function CareCalendar() {
   const { user, loading: authLoading } = useAuth();
-  usePremium();
+  const { isPremium } = usePremium();
   const navigate = useNavigate();
   const location = useLocation();
   const [tasks, setTasks] = useState<CareTaskWithLogs[]>([]);
@@ -776,9 +777,15 @@ export function CareCalendar() {
       </div>
 
       {viewMode === 'analytics' ? (
-        <div className="px-4 pt-2">
-          <CareAnalyticsDashboard consistencyScore={reliabilityTotals.expected > 0 ? reliabilityScore : null} />
-        </div>
+        isPremium ? (
+          <div className="px-4 pt-2">
+            <CareAnalyticsDashboard consistencyScore={reliabilityTotals.expected > 0 ? reliabilityScore : null} />
+          </div>
+        ) : (
+          <div className="px-4 pt-2">
+            <PremiumPaywall />
+          </div>
+        )
       ) : (
         <div className="space-y-4 pt-2">
           {/* Filters */}

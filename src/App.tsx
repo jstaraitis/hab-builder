@@ -14,6 +14,7 @@ import { App as CapacitorApp } from '@capacitor/app';
 import { PushNotifications } from '@capacitor/push-notifications';
 import { MobileNav } from './components/Navigation/MobileNav';
 import { DesktopNav } from './components/Navigation/DesktopNav';
+import { SystemNotificationBanner } from './components/UI/SystemNotificationBanner';
 import { AppRoutes } from './components/AppRoutes';
 
 function App() {
@@ -102,7 +103,7 @@ function App() {
           {/* Mobile: Simple header (also shown on native iOS/Android regardless of screen size) */}
           <div className={`hidden flex-col items-center text-center ${isNative ? 'block' : 'lg:hidden'}`}>
             <Link to="/" className="block">
-              <h1 className="text-2xl font-bold text-accent hover:text-accent-dim transition-colors cursor-pointer">🦎 Habitat Builder</h1>
+              <h1 className="text-2xl font-bold text-accent hover:text-accent-dim transition-colors cursor-pointer"> Habitat Builder</h1>
               <p className="text-xs text-muted">Custom enclosure plans for reptiles & amphibians</p>
             </Link>
           </div>
@@ -111,7 +112,7 @@ function App() {
           <div className={isNative ? 'hidden' : 'hidden lg:block'}>
             <div className="text-center mb-4">
               <Link to="/">
-                <h1 className="text-4xl font-bold text-accent hover:text-accent-dim transition-colors cursor-pointer">🦎 Habitat Builder</h1>
+                <h1 className="text-4xl font-bold text-accent hover:text-accent-dim transition-colors cursor-pointer"> Habitat Builder</h1>
               </Link>
               <p className="text-sm text-muted mt-1">Generate custom enclosure plans for your reptiles & amphibians</p>
               <p className="text-sm text-muted mt-1">Built with love - for better care and fewer setup mistakes</p>
@@ -122,6 +123,13 @@ function App() {
       </header>
 
       {/* Mobile progress indicator — hidden now, planner uses its own internal breadcrumb */}
+
+      {/* Global System Notifications */}
+      <div className="bg-surface">
+        <div className="max-w-7xl mx-auto px-4 py-2">
+          <SystemNotificationBanner />
+        </div>
+      </div>
 
       <main
         className={`max-w-7xl mx-auto px-4 py-4 lg:py-8 ${isNative ? 'pb-mobile-nav' : ''}`}
@@ -141,7 +149,7 @@ function App() {
       <footer className={`bg-card border-t border-divider mt-12 lg:mt-16 ${isNative ? 'hidden' : 'hidden lg:block'}`}>
         <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 text-center">
           <div className="flex items-center justify-center gap-2 mb-3 md:mb-4">
-            <span className="text-xl md:text-2xl">🦎</span>
+            <span className="text-xl md:text-2xl"></span>
             <span className="text-base md:text-lg font-semibold text-white">Habitat Builder</span>
           </div>
           <div className="max-w-2xl mx-auto space-y-2 md:space-y-3 text-xs md:text-sm text-muted">

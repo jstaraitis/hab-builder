@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { animalList } from '../../data/animals';
+import { animalList, getAnimalById } from '../../data/animals';
 
 type SubstrateType = '' | 'bioactive' | 'soil' | 'paper' | 'sand' | 'reptile-carpet' | 'tile' | 'other';
 
@@ -11,6 +11,10 @@ export interface EnclosureFormData {
   description: string;
   substrateType: SubstrateType;
   hasUVB: boolean;
+  tempMin?: number;
+  tempMax?: number;
+  humidityMin?: number;
+  humidityMax?: number;
 }
 
 export const EMPTY_ENCLOSURE_FORM: EnclosureFormData = {
@@ -20,7 +24,11 @@ export const EMPTY_ENCLOSURE_FORM: EnclosureFormData = {
   photoUrl: '',
   description: '',
   substrateType: '',
-  hasUVB: false
+  hasUVB: false,
+  tempMin: undefined,
+  tempMax: undefined,
+  humidityMin: undefined,
+  humidityMax: undefined,
 };
 
 const UPLOAD_IMAGE_ACCEPT = 'image/jpeg,image/png,image/webp';
@@ -37,6 +45,22 @@ interface EnclosureFormCRUDProps {
 
 export function EnclosureFormCRUD({ mode, initialData, entityLabel, onSave, onCancel, onDelete }: EnclosureFormCRUDProps) {
   const [formData, setFormData] = useState<EnclosureFormData>({ ...EMPTY_ENCLOSURE_FORM, ...initialData });
+
+  const speciesProfile = getAnimalById(formData.animalId);
+  const speciesTemp = speciesProfile?.careTargets?.temperature;
+  const speciesHumidity = speciesProfile?.careTargets?.humidity;
+
+  const effectiveTempMin = speciesTemp?.coolSide?.min ?? speciesTemp?.min;
+  const effectiveTempMax = speciesTemp?.warmSide?.max ?? speciesTemp?.max;
+
+  const envTargetHint = (() => {
+    const parts: string[] = [];
+    if (speciesTemp && effectiveTempMin != null && effectiveTempMax != null) {
+      parts.push(`temp: ${effectiveTempMin}–${effectiveTempMax}°${speciesTemp.unit}`);
+    }
+    if (speciesHumidity) parts.push(`humidity: ${speciesHumidity.day.min}–${speciesHumidity.day.max}%`);
+    return parts.length > 0 ? `(${parts.join(', ')})` : null;
+  })();
   const [saving, setSaving] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [uploadStatus, setUploadStatus] = useState<string>('');
@@ -255,6 +279,86 @@ export function EnclosureFormCRUD({ mode, initialData, entityLabel, onSave, onCa
                 }`}
               />
             </button>
+          </div>
+        </div>
+
+        {/* Environment Targets */}
+        <div className="bg-card-elevated border border-divider rounded-2xl p-4">
+          <h3 className="text-xs font-semibold text-muted uppercase tracking-wide mb-1">Environment Targets</h3>
+          <p className="text-xs text-muted mb-3">
+            Override the species preset for health alert thresholds. Leave blank to use preset values{envTargetHint ? ` ${envTargetHint}` : ''}.
+          </p>
+          <div className="space-y-3">
+            <div>
+              <p className="text-xs font-medium text-white mb-1.5">Temperature Range (°F)</p>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label htmlFor="temp-min" className="block text-xs text-muted mb-1">Min</label>
+                  <input
+                    id="temp-min"
+                    type="number"
+                    inputMode="numeric"
+                    min={0}
+                    max={200}
+                    step={1}
+                    value={formData.tempMin ?? ''}
+                    onChange={(e) => setFormData(prev => ({ ...prev, tempMin: e.target.value ? Number(e.target.value) : undefined }))}
+                    placeholder={String(effectiveTempMin ?? 'e.g. 70')}
+                    className="w-full bg-card text-white text-sm focus:outline-none placeholder:text-muted"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="temp-max" className="block text-xs text-muted mb-1">Max</label>
+                  <input
+                    id="temp-max"
+                    type="number"
+                    inputMode="numeric"
+                    min={0}
+                    max={200}
+                    step={1}
+                    value={formData.tempMax ?? ''}
+                    onChange={(e) => setFormData(prev => ({ ...prev, tempMax: e.target.value ? Number(e.target.value) : undefined }))}
+                    placeholder={String(effectiveTempMax ?? 'e.g. 85')}
+                    className="w-full bg-card text-white text-sm focus:outline-none placeholder:text-muted"
+                  />
+                </div>
+              </div>
+            </div>
+            <div>
+              <p className="text-xs font-medium text-white mb-1.5">Humidity Range (%)</p>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label htmlFor="humidity-min" className="block text-xs text-muted mb-1">Min</label>
+                  <input
+                    id="humidity-min"
+                    type="number"
+                    inputMode="numeric"
+                    min={0}
+                    max={100}
+                    step={1}
+                    value={formData.humidityMin ?? ''}
+                    onChange={(e) => setFormData(prev => ({ ...prev, humidityMin: e.target.value ? Number(e.target.value) : undefined }))}
+                    placeholder={speciesHumidity ? String(speciesHumidity.day.min) : 'e.g. 60'}
+                    className="w-full bg-card text-white text-sm focus:outline-none placeholder:text-muted"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="humidity-max" className="block text-xs text-muted mb-1">Max</label>
+                  <input
+                    id="humidity-max"
+                    type="number"
+                    inputMode="numeric"
+                    min={0}
+                    max={100}
+                    step={1}
+                    value={formData.humidityMax ?? ''}
+                    onChange={(e) => setFormData(prev => ({ ...prev, humidityMax: e.target.value ? Number(e.target.value) : undefined }))}
+                    placeholder={speciesHumidity ? String(speciesHumidity.day.max) : 'e.g. 80'}
+                    className="w-full bg-card text-white text-sm focus:outline-none placeholder:text-muted"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
