@@ -197,13 +197,12 @@ class SystemNotificationService {
   async optOutFromEmails(userId: string, emailType: 'marketing' | 'outage' | 'all'): Promise<void> {
     const { error } = await supabase
       .from('email_opt_out')
-      .insert({
+      .upsert({
         user_id: userId,
         email_type: emailType,
-      })
-      .onConflict('user_id,email_type');
+      }, { onConflict: 'user_id,email_type' });
 
-    if (error && error.code !== '23505') { // 23505 = unique constraint violation (already opted out)
+    if (error) {
       console.error('Error opting out from emails:', error);
       throw error;
     }

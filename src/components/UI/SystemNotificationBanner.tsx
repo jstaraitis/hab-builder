@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { X, AlertTriangle, AlertCircle, Info, Wrench } from 'lucide-react';
 import { SystemNotification, systemNotificationService } from '../../services/systemNotificationService';
 
@@ -66,7 +66,7 @@ function NotificationItem({ notification, onDismiss }: NotificationItemProps) {
     }
   };
 
-  const getIcon = (type: string, severity: string) => {
+  const getIcon = (type: string) => {
     const iconClass = 'w-5 h-5 flex-shrink-0';
     switch (type) {
       case 'outage':
@@ -84,7 +84,7 @@ function NotificationItem({ notification, onDismiss }: NotificationItemProps) {
   return (
     <div className={`border rounded-lg p-4 flex items-start gap-3 ${getSeverityStyles(notification.severity)}`}>
       <div className="flex-shrink-0 mt-0.5">
-        {getIcon(notification.type, notification.severity)}
+        {getIcon(notification.type)}
       </div>
       <div className="flex-1 min-w-0">
         <h3 className="font-semibold text-sm mb-1">{notification.title}</h3>

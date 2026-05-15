@@ -79,11 +79,15 @@ class EmailService {
       };
     } catch (error) {
       // Update log status to failed
-      await supabase
-        .from('email_logs')
-        .update({ status: 'failed' })
-        .eq('id', logData.id)
-        .catch(() => {}); // Ignore errors on rollback
+      try {
+        await supabase
+          .from('email_logs')
+          .update({ status: 'failed' })
+          .eq('id', logData.id);
+      } catch (rollbackError) {
+        // Ignore errors on rollback
+        console.error('Failed to update log status:', rollbackError);
+      }
 
       throw error;
     }

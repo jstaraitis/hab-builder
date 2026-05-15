@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { AlertTriangle, Plus, Trash2, CheckCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { AlertTriangle, Trash2, CheckCircle } from 'lucide-react';
 import { systemNotificationService, SystemNotification } from '../../services/systemNotificationService';
 import { emailService, EmailLog } from '../../services/emailService';
 
@@ -7,7 +7,6 @@ export function NotificationManager() {
   const [notifications, setNotifications] = useState<SystemNotification[]>([]);
   const [emailLogs, setEmailLogs] = useState<EmailLog[]>([]);
   const [activeTab, setActiveTab] = useState<'manage' | 'create' | 'history'>('manage');
-  const [loading, setLoading] = useState(false);
   
   // Form state
   const [title, setTitle] = useState('');

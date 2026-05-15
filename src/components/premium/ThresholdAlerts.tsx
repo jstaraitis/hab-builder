@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { AlertTriangle, AlertCircle, Info, CheckCircle2, ChevronRight } from 'lucide-react';
+import { AlertTriangle, AlertCircle, Info, ChevronRight } from 'lucide-react';
 import type { ThresholdAlert, AlertSeverity } from '../../types/thresholds';
 
 const SEVERITY_CONFIG: Record<AlertSeverity, {
