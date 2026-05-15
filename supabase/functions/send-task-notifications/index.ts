@@ -253,8 +253,9 @@ serve(async (req) => {
       const notifyTime = dueTime - (task.notification_minutes_before * 60 * 1000);
       const currentTime = now.getTime();
       
-      // Notify if we're within 15 minutes of the notification time (to account for cron intervals)
-      return currentTime >= notifyTime && currentTime <= notifyTime + (15 * 60 * 1000);
+      // Notify if we're within 2 minutes of the notification time
+      // (narrow window prevents duplicate notifications across cron cycles)
+      return currentTime >= notifyTime && currentTime <= notifyTime + (2 * 60 * 1000);
     });
 
     if (tasksToNotify.length === 0) {
