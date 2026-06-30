@@ -736,7 +736,7 @@ function TodayCarePlan({ tasks, completedIds, onComplete, onOpenTask, animalName
   const doneCount = dueToday.filter((t) => completedIds.has(t.id)).length;
   return (
     <div className="bg-card border border-divider rounded-2xl overflow-hidden mx-4">
-      <div className="flex items-center justify-between px-4 pt-4 pb-3">
+      <div className="flex flex-col gap-2 px-4 pt-4 pb-3">
         <div className="flex items-center gap-1.5">
             <Calendar className="w-4 h-4 text-green-400" />
             <h3 className="text-med font-bold text-white">

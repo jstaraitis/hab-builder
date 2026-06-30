@@ -1028,7 +1028,7 @@ export function CareCalendar() {
 
       {/* Task Action Modal */}
       {showSkipModal && (
-        <div className="fixed inset-0 z-50 bg-black/60 flex items-end sm:items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 bg-black/60 flex items-start justify-center p-4 pt-20">
           <div className="w-full max-w-md bg-card border border-divider rounded-2xl shadow-xl">
             <div className="px-4 py-3 border-b border-divider">
               <h3 className="text-white font-semibold">Task Action</h3>
