@@ -46,6 +46,7 @@ export interface CareTask {
   description?: string;
   type: TaskType;
   frequency: TaskFrequency;
+  supplementType?: string; // For feeding tasks: predefined supplement to use (e.g., 'Calcium + D3')
   customFrequencyDays?: number; // For custom frequency
   customFrequencyWeekdays?: number[]; // JS day indices (0=Sun ... 6=Sat) for custom weekday schedules
   

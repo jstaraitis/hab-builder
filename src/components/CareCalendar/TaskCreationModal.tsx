@@ -30,6 +30,7 @@ interface TaskFormData {
   scheduledTime: string;
   notificationEnabled: boolean;
   notificationMinutesBefore: number;
+  supplementType?: string; // For feeding tasks
 }
 
 export function TaskCreationModal({
@@ -249,6 +250,7 @@ export function TaskCreationModal({
           isActive: true,
           notificationEnabled: taskData.notificationEnabled,
           notificationMinutesBefore: taskData.notificationMinutesBefore,
+          supplementType: taskData.supplementType,
         };
 
         await careTaskService.createTask(newTask);
@@ -576,6 +578,25 @@ export function TaskCreationModal({
                         </select>
                       </div>
                     </div>
+
+                    {/* Supplement type (for feeding tasks) */}
+                    {task.type === 'feeding' && (
+                      <div className="px-4 py-3 border-b border-divider">
+                        <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Supplement Type</label>
+                        <select
+                          value={task.supplementType || ''}
+                          onChange={(e) => updateTask(index, 'supplementType', e.target.value || undefined)}
+                          className={selectClass}
+                        >
+                          <option value="">None</option>
+                          <option value="Calcium (no D3)">Calcium (no D3)</option>
+                          <option value="Calcium + D3">Calcium + D3</option>
+                          <option value="Multivitamin">Multivitamin</option>
+                          <option value="Calcium + Multivitamin">Calcium + Multivitamin</option>
+                        </select>
+                        <p className="text-xs text-muted mt-1.5">This will be pre-filled when completing feeding tasks</p>
+                      </div>
+                    )}
 
                     {/* Custom weekdays */}
                     {task.frequency === 'custom' && (

@@ -3,6 +3,7 @@ import type { FeedingLog } from '../services/feedingLogService';
 import type { HumidityLog } from '../services/humidityLogService';
 import type { TempLog } from '../services/tempLogService';
 import type { WeightLog } from './weightTracking';
+import type { CareTaskWithLogs } from './careCalendar';
 
 export type AlertSeverity = 'info' | 'warning' | 'urgent';
 
@@ -19,6 +20,7 @@ export interface ThresholdInput {
   animalName: string;
   speciesId: string;
   feedingLogs: FeedingLog[];
+  feedingTasks?: CareTaskWithLogs[];
   weightLogs: WeightLog[];
   humidityLogs: HumidityLog[];
   tempLogs: TempLog[];

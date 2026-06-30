@@ -1018,6 +1018,7 @@ export function CareCalendar() {
       <FeedingLogModal
         isOpen={showFeedingModal}
         taskTitle={feedingTask?.title || ''}
+        task={feedingTask}
         onClose={() => {
           setShowFeedingModal(false);
           setFeedingTask(null);

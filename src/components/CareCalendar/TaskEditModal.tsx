@@ -44,6 +44,7 @@ export function TaskEditModal({
         startDate: task.startDate,
         notes: task.notes,
         enclosureId: task.enclosureId,
+        supplementType: task.supplementType,
         // Explicitly set to false if undefined to ensure updates work correctly
         notificationEnabled: task.notificationEnabled ?? false,
         notificationMinutesBefore: task.notificationMinutesBefore || 15,
@@ -386,6 +387,28 @@ export function TaskEditModal({
                       )}
                     </>
                   )}
+                </div>
+              )}
+
+              {/* Supplement type (for feeding tasks) */}
+              {formData.type === 'feeding' && (
+                <div className="px-4 py-3 border-t border-divider">
+                  <label htmlFor="supplementType" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+                    Supplement Type
+                  </label>
+                  <select
+                    id="supplementType"
+                    value={formData.supplementType || ''}
+                    onChange={(e) => updateField('supplementType', e.target.value || undefined)}
+                    className={selectClass}
+                  >
+                    <option value="">None</option>
+                    <option value="Calcium (no D3)">Calcium (no D3)</option>
+                    <option value="Calcium + D3">Calcium + D3</option>
+                    <option value="Multivitamin">Multivitamin</option>
+                    <option value="Calcium + Multivitamin">Calcium + Multivitamin</option>
+                  </select>
+                  <p className="text-xs text-muted mt-1.5">This will be pre-filled when completing feeding tasks</p>
                 </div>
               )}
 

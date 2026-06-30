@@ -1,5 +1,6 @@
 import { supabase } from '../lib/supabase';
 import type { CareTask, CareLog, CareTaskWithLogs } from '../types/careCalendar';
+import { feedingLogService } from './feedingLogService';
 import {
   decodeCustomWeekdaysFromStorage,
   encodeCustomWeekdaysForStorage,
@@ -258,6 +259,26 @@ export class SupabaseCareService implements ICareTaskService {
 
     if (logError) throw logError;
 
+    // If this is a feeding task, also create a feeding log entry for health tracking
+    if (task.type === 'feeding' && task.enclosureId) {
+      try {
+        await feedingLogService.createLog(task.userId, {
+          enclosureId: task.enclosureId,
+          careTaskId: taskId,
+          loggedAt: completedAt.toISOString(),
+          feederType: additionalLogData?.feederType as string | undefined,
+          quantityOffered: additionalLogData?.quantityOffered?.toString(),
+          quantityEaten: additionalLogData?.quantityEaten?.toString(),
+          supplementUsed: additionalLogData?.supplementUsed as string | undefined,
+          refusalNoted: additionalLogData?.refusalNoted as boolean | undefined,
+          notes: additionalLogData?.notes,
+        });
+      } catch (feedingError) {
+        console.error('Failed to create feeding log entry:', feedingError);
+        // Don't throw - the task completion is already saved, feeding log is secondary
+      }
+    }
+
     // Update task's next due date
     await this.updateTask(taskId, { nextDueAt });
 
@@ -446,6 +467,7 @@ export class SupabaseCareService implements ICareTaskService {
       isActive: row.is_active,
       notificationEnabled: row.notification_enabled,
       notificationMinutesBefore: row.notification_minutes_before,
+      supplementType: row.supplement_type,
       createdAt: new Date(row.created_at),
       updatedAt: new Date(row.updated_at),
     };
@@ -480,6 +502,7 @@ export class SupabaseCareService implements ICareTaskService {
     if (task.isActive !== undefined) mapped.is_active = task.isActive;
     if (task.notificationEnabled !== undefined) mapped.notification_enabled = task.notificationEnabled;
     if (task.notificationMinutesBefore !== undefined) mapped.notification_minutes_before = task.notificationMinutesBefore;
+    if (task.supplementType !== undefined) mapped.supplement_type = task.supplementType;
     if (task.createdAt !== undefined) mapped.created_at = task.createdAt.toISOString();
     if (task.updatedAt !== undefined) mapped.updated_at = task.updatedAt.toISOString();
     

@@ -1,12 +1,13 @@
-﻿import { useState } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { X, UtensilsCrossed, Plus, Minus } from 'lucide-react';
-import type { CareLog } from '../../types/careCalendar';
+import type { CareLog, CareTask } from '../../types/careCalendar';
 
 interface FeedingLogModalProps {
   isOpen: boolean;
   taskTitle: string;
   onClose: () => void;
   onSubmit: (logData: Partial<CareLog>) => Promise<void>;
+  task?: CareTask; // Optional task to pre-fill supplement type
 }
 
 const COMMON_FEEDERS = [
@@ -32,7 +33,7 @@ const SUPPLEMENTS = [
   'Calcium + Multivitamin',
 ];
 
-export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit }: FeedingLogModalProps) {
+export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit, task }: FeedingLogModalProps) {
   const [feederType, setFeederType] = useState('');
   const [customFeeder, setCustomFeeder] = useState('');
   const [quantityOffered, setQuantityOffered] = useState<number>(0);
@@ -41,6 +42,16 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit }: Feedin
   const [supplementUsed, setSupplementUsed] = useState('None');
   const [notes, setNotes] = useState('');
   const [loading, setLoading] = useState(false);
+
+  // Pre-fill supplement from task when modal opens
+  useEffect(() => {
+    if (isOpen && task?.supplementType && task.type === 'feeding') {
+      setSupplementUsed(task.supplementType);
+    } else if (!isOpen) {
+      // Reset when modal closes
+      setSupplementUsed('None');
+    }
+  }, [isOpen, task]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -238,7 +249,14 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit }: Feedin
 
           {/* Supplement Section */}
           <div className="space-y-3 p-3 bg-accent/10 rounded-xl border border-accent/20">
-            <h3 className="text-xs font-semibold text-accent uppercase tracking-wide">Supplements</h3>
+            <div className="flex items-center justify-between">
+              <h3 className="text-xs font-semibold text-accent uppercase tracking-wide">Supplements</h3>
+              {task?.supplementType && task.type === 'feeding' && (
+                <span className="text-xs font-medium text-accent bg-accent/20 px-2 py-0.5 rounded">
+                  Pre-set
+                </span>
+              )}
+            </div>
             <select
               id="supplementUsed"
               value={supplementUsed}

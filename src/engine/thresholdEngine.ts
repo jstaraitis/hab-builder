@@ -3,6 +3,7 @@ import type { FeedingLog } from '../services/feedingLogService';
 import type { HumidityLog } from '../services/humidityLogService';
 import type { TempLog } from '../services/tempLogService';
 import type { WeightLog } from '../types/weightTracking';
+import type { CareTaskWithLogs } from '../types/careCalendar';
 import type { HumidityRange, TemperatureRange } from './types';
 
 const SEVERITY_ORDER: Record<ThresholdAlert['severity'], number> = {
@@ -81,14 +82,22 @@ export function checkFeedingOverdue(
   logs: FeedingLog[],
   animalName: string,
   speciesId: string,
+  tasks?: CareTaskWithLogs[],
 ): ThresholdAlert | null {
-  if (logs.length === 0) return null;
+  // Combine feeding logs with feeding task completions
+  const allFeedings: Array<{ date: Date }> = [
+    ...logs.map(log => ({ date: new Date(log.completedAt) })),
+    ...(tasks?.filter(t => t.type === 'feeding' && t.lastCompleted) ?? [])
+      .map(t => ({ date: new Date(t.lastCompleted as Date | string) }))
+  ];
 
-  const sorted = [...logs].sort(
-    (a, b) => new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime(),
+  if (allFeedings.length === 0) return null;
+
+  const sorted = [...allFeedings].sort(
+    (a, b) => b.date.getTime() - a.date.getTime(),
   );
 
-  const days = daysSince(sorted[0].completedAt);
+  const days = daysSince(sorted[0].date);
   const window = getFeedingWindowDays(speciesId);
 
   if (days < window.warning) return null;
@@ -271,11 +280,11 @@ export function checkUvbBulbAge(
 }
 
 export function runThresholdEngine(input: ThresholdInput): ThresholdAlert[] {
-  const { animalName, speciesId, feedingLogs, weightLogs, humidityLogs, tempLogs, uvbBulbInstalledOn, careTargets } = input;
+  const { animalName, speciesId, feedingLogs, feedingTasks, weightLogs, humidityLogs, tempLogs, uvbBulbInstalledOn, careTargets } = input;
 
   const results: (ThresholdAlert | null)[] = [
     checkFeedingRefusalStreak(feedingLogs, animalName, speciesId),
-    checkFeedingOverdue(feedingLogs, animalName, speciesId),
+    checkFeedingOverdue(feedingLogs, animalName, speciesId, feedingTasks),
     checkWeightDrop(weightLogs, animalName),
     checkHumidityLow(humidityLogs, careTargets?.humidity, animalName),
     checkHumidityHigh(humidityLogs, careTargets?.humidity, animalName),

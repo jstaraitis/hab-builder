@@ -14,7 +14,6 @@ import { App as CapacitorApp } from '@capacitor/app';
 import { PushNotifications } from '@capacitor/push-notifications';
 import { MobileNav } from './components/Navigation/MobileNav';
 import { DesktopNav } from './components/Navigation/DesktopNav';
-import { SystemNotificationBanner } from './components/UI/SystemNotificationBanner';
 import { AppRoutes } from './components/AppRoutes';
 
 function App() {
@@ -124,12 +123,6 @@ function App() {
 
       {/* Mobile progress indicator — hidden now, planner uses its own internal breadcrumb */}
 
-      {/* Global System Notifications */}
-      <div className="bg-surface">
-        <div className="max-w-7xl mx-auto px-4 py-2">
-          <SystemNotificationBanner />
-        </div>
-      </div>
 
       <main
         className={`max-w-7xl mx-auto px-4 py-4 lg:py-8 ${isNative ? 'pb-mobile-nav' : ''}`}

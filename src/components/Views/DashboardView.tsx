@@ -728,9 +728,10 @@ interface TodayCarePlanProps {
   completedIds: Set<string>;
   onComplete: (task: CareTaskWithLogs) => void;
   onOpenTask: (task: CareTaskWithLogs) => void;
+  animalName?: string;
 }
 
-function TodayCarePlan({ tasks, completedIds, onComplete, onOpenTask }: TodayCarePlanProps) {
+function TodayCarePlan({ tasks, completedIds, onComplete, onOpenTask, animalName }: TodayCarePlanProps) {
   const dueToday = tasks.filter(isTaskDueToday).slice(0, 6);
   const doneCount = dueToday.filter((t) => completedIds.has(t.id)).length;
   return (
@@ -738,7 +739,9 @@ function TodayCarePlan({ tasks, completedIds, onComplete, onOpenTask }: TodayCar
       <div className="flex items-center justify-between px-4 pt-4 pb-3">
         <div className="flex items-center gap-1.5">
             <Calendar className="w-4 h-4 text-green-400" />
-            <h3 className="text-med font-bold text-white">Today's Care Plan</h3>
+            <h3 className="text-med font-bold text-white">
+              Today's Care Plan: {animalName && <span className="text-green-400">{animalName}</span>}
+            </h3>
           </div>
         <span className="text-xs font-medium text-accent">{doneCount} of {dueToday.length} completed</span>
       </div>
@@ -975,10 +978,13 @@ export function DashboardView() {
 
           const enclosure = enclosures.find((e) => e.id === animal.enclosureId) ?? null;
           const profile = animal.speciesId ? (getAnimalById(animal.speciesId) ?? null) : null;
+          const feedingTasks = animalTasks.filter((t) => t.type === 'feeding');
+
           const alerts = runThresholdEngine({
             animalName: animal.name ?? 'Your animal',
             speciesId: animal.speciesId ?? '',
             feedingLogs: enclosureFeedingLogs as FeedingLog[],
+            feedingTasks,
             weightLogs: animalWeightLogs as WeightLog[],
             humidityLogs: [],
             tempLogs: [],
@@ -1103,8 +1109,19 @@ export function DashboardView() {
   const healthReasons = smartStatus.reasons;
 
   const selectedEnclosure = enclosures.find((e) => e.id === selectedEnclosureId) ?? null;
+  
+  // Memoize the filtered tasks for this animal to prevent unnecessary alert recalculations
+  const tasksForSelectedAnimal = useMemo(() => {
+    if (!selectedAnimalId) return [];
+    return tasks.filter((t) =>
+      t.enclosureAnimalId === selectedAnimalId ||
+      (selectedEnclosureId && t.enclosureId === selectedEnclosureId)
+    );
+  }, [selectedAnimalId, selectedEnclosureId, tasks]);
+  
   const thresholdAlerts = useMemo(() => {
     if (!selectedAnimal) return [];
+    
     const profile = selectedAnimal.speciesId ? (getAnimalById(selectedAnimal.speciesId) ?? null) : null;
     const speciesHumidity = profile?.careTargets?.humidity;
     const speciesTemp = profile?.careTargets?.temperature;
@@ -1134,17 +1151,20 @@ export function DashboardView() {
       } as TemperatureRange;
     }
 
+    const feedingTasksForThreshold = tasksForSelectedAnimal.filter((t) => t.type === 'feeding');
+
     return runThresholdEngine({
       animalName: selectedAnimal.name ?? 'Your animal',
       speciesId: selectedAnimal.speciesId ?? '',
       feedingLogs,
+      feedingTasks: feedingTasksForThreshold,
       weightLogs,
       humidityLogs,
       tempLogs,
       uvbBulbInstalledOn: enc?.uvbBulbInstalledOn ?? null,
       careTargets: { humidity: humidityTargets, temperature: tempTargets },
     });
-  }, [selectedAnimal, feedingLogs, weightLogs, humidityLogs, tempLogs, selectedEnclosure]);
+  }, [selectedAnimal, feedingLogs, weightLogs, humidityLogs, tempLogs, selectedEnclosure, tasksForSelectedAnimal]);
 
   if (loading) {
     return (
@@ -1177,6 +1197,7 @@ export function DashboardView() {
           completedIds={completedIds}
           onComplete={handleCompleteTask}
           onOpenTask={(task) => navigate(`/care-calendar/tasks/edit/${task.id}?returnTo=${encodeURIComponent('/')}`)}
+          animalName={selectedAnimal?.name}
         />
         <ActivePetCard
           animal={selectedAnimal}
@@ -1301,6 +1322,7 @@ export function DashboardView() {
       <FeedingLogModal
         isOpen={showFeedingModal}
         taskTitle={feedingTask?.title || ''}
+        task={feedingTask}
         onClose={() => {
           setShowFeedingModal(false);
           setFeedingTask(null);
