@@ -45,6 +45,8 @@ import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { profileService } from '../../services/profileService';
 import { enclosureService } from '../../services/enclosureService';
 import { UvbLifecycleCard } from '../premium/UvbLifecycleCard';
+import { HabitatScoreCard } from '../premium/HabitatScoreCard';
+import { calculateHabitatScore } from '../../engine/habitatScore';
 import { VerdictBanner } from '../Dashboard/VerdictBanner';
 import { AttentionList } from '../Dashboard/AttentionList';
 import { AnimalStatusGrid } from '../Dashboard/AnimalStatusGrid';
@@ -1081,7 +1083,15 @@ export function DashboardView() {
   };
 
   const selectedAnimal = animals.find((a) => a.id === selectedAnimalId) ?? null;
-  const speciesId = (selectedAnimal as any)?.enclosures?.animalId as string | undefined;
+  const selectedEnclosureForSpecies = enclosures.find((e) => e.id === selectedEnclosureId) ?? null;
+  // This previously read `selectedAnimal.enclosures.animalId` — a joined row
+  // that Supabase returns in snake_case (`animal_id`), so the camelCase lookup
+  // was always undefined and animalProfile was always null. The `as any` cast
+  // hid it from the compiler. The animal's own mapped speciesId is the real
+  // source; the enclosure's species is the fallback.
+  const speciesId = selectedAnimal?.speciesId
+    ?? selectedEnclosureForSpecies?.animalId
+    ?? undefined;
   const animalProfile: AnimalProfile | null = speciesId ? (getAnimalById(speciesId) ?? null) : null;
   const age = formatAge(selectedAnimal?.birthday);
   const weight = formatWeight(weightLogs);
@@ -1213,6 +1223,26 @@ export function DashboardView() {
     });
   }, [selectedAnimal, feedingLogs, weightLogs, humidityLogs, tempLogs, selectedEnclosure, tasksForSelectedAnimal]);
 
+  // Joins the species targets, the enclosure record and the logged readings —
+  // the three things the app already held separately.
+  const habitatScore = useMemo(() => {
+    if (!selectedEnclosure || !animalProfile) return null;
+    const { widthInches, depthInches, heightInches } = selectedEnclosure;
+    return calculateHabitatScore({
+      profile: animalProfile,
+      enclosure: selectedEnclosure,
+      tempLogs,
+      humidityLogs,
+      // Only pass dimensions when all three are known — a partial box can't be
+      // compared against a minimum, and guessing the missing side would score
+      // the keeper on something they never told us.
+      dimensions:
+        widthInches && depthInches && heightInches
+          ? { width: widthInches, depth: depthInches, height: heightInches, units: 'in' }
+          : undefined,
+    });
+  }, [selectedEnclosure, animalProfile, tempLogs, humidityLogs]);
+
   // Turn the per-animal alerts the dashboard already computes into a ranked
   // verdict plus an attention list, instead of discarding them into a border.
   const triage = useMemo(() => {
@@ -1305,11 +1335,22 @@ export function DashboardView() {
           />
         )}
 
+        {/* Free users get the grade and the top fix in full — the rest is
+            premium. A locked list with nothing readable reads as extraction. */}
+        {habitatScore && selectedEnclosure && (
+          <HabitatScoreCard
+            result={habitatScore}
+            enclosureName={selectedEnclosure.name}
+            isPremium={isPremium}
+          />
+        )}
+
         {isPremium && selectedEnclosure && (
           <UvbLifecycleCard
             enclosure={selectedEnclosure}
             onReplace={handleReplaceUvbBulb}
             onSetBulbType={handleSetUvbBulbType}
+            speciesNeedsUvb={animalProfile?.careTargets?.lighting?.uvbRequired}
           />
         )}
 

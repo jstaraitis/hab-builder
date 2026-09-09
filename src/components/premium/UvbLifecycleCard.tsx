@@ -28,9 +28,11 @@ interface UvbLifecycleCardProps {
   readonly onReplace: (bulbType: UvbBulbType) => Promise<void>;
   /** Persists a bulb type for an enclosure that has a date but no type yet. */
   readonly onSetBulbType: (bulbType: UvbBulbType) => Promise<void>;
+  /** Whether the species requires UVB — drives the empty-state prompt. */
+  readonly speciesNeedsUvb?: boolean;
 }
 
-export function UvbLifecycleCard({ enclosure, onReplace, onSetBulbType }: UvbLifecycleCardProps) {
+export function UvbLifecycleCard({ enclosure, onReplace, onSetBulbType, speciesNeedsUvb }: UvbLifecycleCardProps) {
   const [saving, setSaving] = useState(false);
   const [picking, setPicking] = useState(false);
 
@@ -39,11 +41,9 @@ export function UvbLifecycleCard({ enclosure, onReplace, onSetBulbType }: UvbLif
     enclosure.uvbBulbType
   );
 
-  if (!status) return null;
-
-  const styles = STATE_STYLES[status.state];
-  const needsType = !enclosure.uvbBulbType || enclosure.uvbBulbType === 'unknown';
-
+  // Declared above the early return below — the no-bulb branch renders a
+  // picker that calls it, and a const declared later would be in the temporal
+  // dead zone by the time that handler fires.
   const handlePick = async (bulbType: UvbBulbType, mode: 'replace' | 'identify') => {
     setSaving(true);
     try {
@@ -57,6 +57,60 @@ export function UvbLifecycleCard({ enclosure, onReplace, onSetBulbType }: UvbLif
       setSaving(false);
     }
   };
+
+  // No bulb on record. For a species that needs UVB this is worth prompting
+  // about — silently hiding the card is how a keeper never discovers the
+  // tracking exists. For a species that doesn't, stay out of the way.
+  if (!status) {
+    if (!speciesNeedsUvb) return null;
+
+    return (
+      <div className="bg-card border border-amber-400/30 rounded-2xl mx-4 p-4">
+        <div className="flex items-center gap-1.5 mb-2">
+          <Lightbulb className="w-4 h-4 text-amber-300" />
+          <h3 className="text-med font-bold text-white">UVB Bulb</h3>
+        </div>
+        <p className="text-sm font-semibold text-white">No bulb recorded</p>
+        <p className="text-xs text-muted mt-1 leading-relaxed">
+          This species needs UVB to process calcium. Add your bulb and we&apos;ll track its real
+          lifespan and tell you before the output fades.
+        </p>
+        <button
+          type="button"
+          onClick={() => setPicking(true)}
+          className="w-full min-h-[44px] mt-3 rounded-xl bg-accent text-on-accent text-sm font-semibold active:opacity-80 transition-opacity"
+        >
+          Add UVB bulb
+        </button>
+
+        {picking && (
+          <div className="mt-3 space-y-1.5">
+            {UVB_BULB_TYPE_ORDER.map((type) => {
+              const spec = UVB_BULB_SPECS[type];
+              return (
+                <button
+                  key={type}
+                  type="button"
+                  disabled={saving}
+                  onClick={() => { void handlePick(type, 'replace'); }}
+                  className="w-full flex items-center gap-3 p-2.5 rounded-xl bg-card-elevated border border-divider text-left active:opacity-70 transition-opacity disabled:opacity-50"
+                >
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium text-white">{spec.label}</p>
+                    <p className="text-[11px] text-muted mt-0.5">{spec.hint}</p>
+                  </div>
+                  <span className="text-[11px] text-muted flex-shrink-0">{spec.lifespanMonths} mo</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  const styles = STATE_STYLES[status.state];
+  const needsType = !enclosure.uvbBulbType || enclosure.uvbBulbType === "unknown";
 
   return (
     <div className={`bg-card border ${styles.ring} rounded-2xl overflow-hidden mx-4`}>

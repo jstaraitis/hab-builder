@@ -142,6 +142,10 @@ export interface Enclosure {
   uvbReplaceDueOn?: Date;
   /** Determines replacement interval — see src/engine/uvbLifecycle.ts */
   uvbBulbType?: UvbBulbType;
+  /** Interior size, stored in inches. See ENCLOSURE_DIMENSIONS_MIGRATION.sql */
+  widthInches?: number;
+  depthInches?: number;
+  heightInches?: number;
   mistingSystemType?: string;
   lightingScheduleHours?: number;
   baselineDayTempTarget?: number;

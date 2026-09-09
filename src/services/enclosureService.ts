@@ -148,6 +148,9 @@ class SupabaseEnclosureService implements IEnclosureService {
       uvbBulbInstalledOn: row.uvb_bulb_installed_on ? new Date(row.uvb_bulb_installed_on) : undefined,
       uvbReplaceDueOn: row.uvb_replace_due_on ? new Date(row.uvb_replace_due_on) : undefined,
       uvbBulbType: row.uvb_bulb_type ?? undefined,
+      widthInches: row.width_inches == null ? undefined : Number(row.width_inches),
+      depthInches: row.depth_inches == null ? undefined : Number(row.depth_inches),
+      heightInches: row.height_inches == null ? undefined : Number(row.height_inches),
       mistingSystemType: row.misting_system_type,
       lightingScheduleHours: row.lighting_schedule_hours == null ? undefined : Number(row.lighting_schedule_hours),
       baselineDayTempTarget: row.baseline_day_temp_target == null ? undefined : Number(row.baseline_day_temp_target),
@@ -183,6 +186,9 @@ class SupabaseEnclosureService implements IEnclosureService {
     if (enclosure.uvbBulbInstalledOn !== undefined) mapped.uvb_bulb_installed_on = enclosure.uvbBulbInstalledOn?.toISOString().split('T')[0];
     if (enclosure.uvbReplaceDueOn !== undefined) mapped.uvb_replace_due_on = enclosure.uvbReplaceDueOn?.toISOString().split('T')[0];
     if (enclosure.uvbBulbType !== undefined) mapped.uvb_bulb_type = enclosure.uvbBulbType;
+    if (enclosure.widthInches !== undefined) mapped.width_inches = enclosure.widthInches;
+    if (enclosure.depthInches !== undefined) mapped.depth_inches = enclosure.depthInches;
+    if (enclosure.heightInches !== undefined) mapped.height_inches = enclosure.heightInches;
     if (enclosure.mistingSystemType !== undefined) mapped.misting_system_type = enclosure.mistingSystemType;
     if (enclosure.lightingScheduleHours !== undefined) mapped.lighting_schedule_hours = enclosure.lightingScheduleHours;
     if (enclosure.baselineDayTempTarget !== undefined) mapped.baseline_day_temp_target = enclosure.baselineDayTempTarget;
