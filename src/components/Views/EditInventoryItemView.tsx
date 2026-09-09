@@ -103,6 +103,12 @@ export function EditInventoryItemView() {
     navigate(returnTo || '/inventory');
   };
 
+  const handleDelete = async () => {
+    if (!id) return;
+    await inventoryService.deleteItem(id);
+    navigate(returnTo || '/inventory');
+  };
+
   if (loading) {
     return (
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -134,7 +140,13 @@ export function EditInventoryItemView() {
           Back
         </button>
       </div>
-      <InventoryItemForm mode="edit" initialData={initialData} onSave={handleSave} onCancel={handleCancel} />
+      <InventoryItemForm
+        mode="edit"
+        initialData={initialData}
+        onSave={handleSave}
+        onCancel={handleCancel}
+        onDelete={handleDelete}
+      />
     </div>
   );
 }

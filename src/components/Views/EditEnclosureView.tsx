@@ -5,6 +5,7 @@ import { enclosureService } from '../../services/enclosureService';
 import { uploadEnclosurePhoto, deleteEnclosurePhoto } from '../../services/enclosurePhotoService';
 import { animalList } from '../../data/animals';
 import { EnclosureFormCRUD, type EnclosureFormData } from '../Forms/EnclosureFormCRUD';
+import { calculateReplaceDueOn } from '../../engine/uvbLifecycle';
 
 export function EditEnclosureView() {
   const { id } = useParams<{ id: string }>();
@@ -51,6 +52,7 @@ export function EditEnclosureView() {
           description: data.description || '',
           substrateType: data.substrateType || '',
           hasUVB: data.uvbBulbInstalledOn != null,
+          uvbBulbType: data.uvbBulbType ?? 'unknown',
           tempMin: data.baselineDayTempTarget,
           tempMax: data.baselineNightTempTarget,
           humidityMin: data.baselineHumidityMinTarget,
@@ -98,6 +100,10 @@ export function EditEnclosureView() {
       description: formData.description || undefined,
       substrateType: formData.substrateType || undefined,
       uvbBulbInstalledOn: formData.hasUVB ? (originalUvbInstalledOn ?? new Date()) : undefined,
+      uvbBulbType: formData.hasUVB ? formData.uvbBulbType : undefined,
+      uvbReplaceDueOn: formData.hasUVB
+        ? calculateReplaceDueOn(originalUvbInstalledOn ?? new Date(), formData.uvbBulbType)
+        : undefined,
       baselineDayTempTarget: formData.tempMin,
       baselineNightTempTarget: formData.tempMax,
       baselineHumidityMinTarget: formData.humidityMin,

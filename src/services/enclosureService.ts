@@ -1,5 +1,7 @@
 import { supabase } from '../lib/supabase';
 import type { Enclosure } from '../types/careCalendar';
+import { calculateReplaceDueOn, resolveBulbSpec, type UvbBulbType } from '../engine/uvbLifecycle';
+import { enclosureEventService } from './enclosureEventService';
 
 export interface IEnclosureService {
   getEnclosures(userId?: string): Promise<Enclosure[]>;
@@ -75,6 +77,40 @@ class SupabaseEnclosureService implements IEnclosureService {
     return this.mapEnclosureFromDb(data);
   }
 
+  /**
+   * Records a UVB bulb replacement: restarts the lifecycle from today and
+   * writes an enclosure event so the swap shows up on the history timeline.
+   *
+   * The event write is best-effort — losing a timeline entry is not a reason
+   * to leave the keeper's bulb dates stale.
+   */
+  async replaceUvbBulb(
+    id: string,
+    userId: string,
+    bulbType: UvbBulbType,
+    installedOn: Date = new Date()
+  ): Promise<Enclosure> {
+    const updated = await this.updateEnclosure(id, {
+      uvbBulbInstalledOn: installedOn,
+      uvbBulbType: bulbType,
+      uvbReplaceDueOn: calculateReplaceDueOn(installedOn, bulbType),
+    });
+
+    try {
+      await enclosureEventService.createEvent(userId, {
+        enclosureId: id,
+        eventDate: installedOn,
+        eventType: 'uvb_bulb_replaced',
+        severity: 'info',
+        notes: `Installed a ${resolveBulbSpec(bulbType).label} bulb.`,
+      });
+    } catch (error) {
+      console.error('Bulb replaced, but the timeline event failed to save:', error);
+    }
+
+    return updated;
+  }
+
   async deleteEnclosure(id: string): Promise<void> {
     // First, delete all tasks associated with this enclosure
     const { error: tasksError } = await supabase
@@ -111,6 +147,7 @@ class SupabaseEnclosureService implements IEnclosureService {
       bioactiveStartedOn: row.bioactive_started_on ? new Date(row.bioactive_started_on) : undefined,
       uvbBulbInstalledOn: row.uvb_bulb_installed_on ? new Date(row.uvb_bulb_installed_on) : undefined,
       uvbReplaceDueOn: row.uvb_replace_due_on ? new Date(row.uvb_replace_due_on) : undefined,
+      uvbBulbType: row.uvb_bulb_type ?? undefined,
       mistingSystemType: row.misting_system_type,
       lightingScheduleHours: row.lighting_schedule_hours == null ? undefined : Number(row.lighting_schedule_hours),
       baselineDayTempTarget: row.baseline_day_temp_target == null ? undefined : Number(row.baseline_day_temp_target),
@@ -145,6 +182,7 @@ class SupabaseEnclosureService implements IEnclosureService {
     if (enclosure.bioactiveStartedOn !== undefined) mapped.bioactive_started_on = enclosure.bioactiveStartedOn?.toISOString().split('T')[0];
     if (enclosure.uvbBulbInstalledOn !== undefined) mapped.uvb_bulb_installed_on = enclosure.uvbBulbInstalledOn?.toISOString().split('T')[0];
     if (enclosure.uvbReplaceDueOn !== undefined) mapped.uvb_replace_due_on = enclosure.uvbReplaceDueOn?.toISOString().split('T')[0];
+    if (enclosure.uvbBulbType !== undefined) mapped.uvb_bulb_type = enclosure.uvbBulbType;
     if (enclosure.mistingSystemType !== undefined) mapped.misting_system_type = enclosure.mistingSystemType;
     if (enclosure.lightingScheduleHours !== undefined) mapped.lighting_schedule_hours = enclosure.lightingScheduleHours;
     if (enclosure.baselineDayTempTarget !== undefined) mapped.baseline_day_temp_target = enclosure.baselineDayTempTarget;

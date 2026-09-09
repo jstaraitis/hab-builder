@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <style>
+    body { margin: 0; font-family: Inter, system-ui, -apple-system, sans-serif; }
+    a { color: #2D9B8F; } a:hover { color: #1F6B5E; }
+    .row { display: flex; align-items: center; gap: 12px; padding: 14px; }
+    .tick { width: 26px; height: 26px; border-radius: 999px; border: 2px solid #2A2D35; flex-shrink: 0; }
+    .ttl { font-size: 15px; font-weight: 600; color: #FFFFFF; }
+    .sub { font-size: 11px; color: #8B909A; margin-top: 2px; }
+  </style>
+</helmet>
+
+<div style="width: 390px; height: 1180px; background: #0F1117; display: flex; flex-direction: column; padding: 16px 0 0;">
+
+  <div style="padding: 0 16px 14px; display: flex; align-items: center; justify-content: space-between;">
+    <span style="font-size: 21px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.01em;">Care</span>
+    <div style="width: 34px; height: 34px; border-radius: 999px; background: #2D9B8F; display: flex; align-items: center; justify-content: center;">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+    </div>
+  </div>
+
+  <!-- The split: doing vs managing are different jobs -->
+  <div style="margin: 0 16px 16px; background: #1A1D24; border: 1px solid #2A2D35; border-radius: 11px; padding: 3px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3px;">
+    <div style="padding: 8px; border-radius: 9px; background: #2D9B8F; text-align: center;">
+      <span style="font-size: 13px; font-weight: 700; color: #FFFFFF;">To do</span>
+    </div>
+    <div style="padding: 8px; border-radius: 9px; text-align: center;">
+      <span style="font-size: 13px; font-weight: 600; color: #8B909A;">Schedules</span>
+    </div>
+  </div>
+
+  <!-- TO DO: almost no chrome at all -->
+  <div style="padding: 0 16px;">
+    <div style="font-size: 26px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.015em;">3 left today</div>
+    <div style="font-size: 12px; color: #8B909A; margin-top: 5px;">One is overdue from yesterday.</div>
+  </div>
+
+  <div style="margin: 16px 16px 0; background: #1A1D24; border: 1px solid #2A2D35; border-radius: 16px; overflow: hidden;">
+
+    <div class="row" style="background: rgba(252,165,165,0.06); border-bottom: 1px solid #2A2D35;">
+      <div class="tick" style="border-color: rgba(252,165,165,0.5);"></div>
+      <div style="flex: 1; min-width: 0;">
+        <div class="ttl">Mist enclosure</div>
+        <div class="sub">Frogs &middot; <span style="color: #fca5a5;">overdue since yesterday</span></div>
+      </div>
+    </div>
+
+    <div class="row" style="border-bottom: 1px solid #2A2D35;">
+      <div class="tick"></div>
+      <div style="flex: 1; min-width: 0;">
+        <div class="ttl">Insects</div>
+        <div class="sub">Sir Rand Barnaby &middot; 6:00 PM &middot; Calcium w/o D3</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="tick"></div>
+      <div style="flex: 1; min-width: 0;">
+        <div class="ttl">Salad</div>
+        <div class="sub">Sir Rand Barnaby &middot; 6:00 PM</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 14px 16px 0; padding: 13px; text-align: center; border: 1px dashed #2A2D35; border-radius: 14px;">
+    <span style="font-size: 12px; color: #8B909A;">4 completed today</span>
+  </div>
+
+  <!-- What the other tab holds — the detail this page currently forces on everyone -->
+  <div style="margin: 26px 16px 0; padding-top: 18px; border-top: 1px dashed #2A2D35;">
+    <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: #8B909A; margin-bottom: 11px;">The &ldquo;Schedules&rdquo; tab</div>
+
+    <div style="background: #1A1D24; border: 1px solid #2A2D35; border-radius: 14px; overflow: hidden;">
+      <div style="padding: 13px 14px; border-bottom: 1px solid #2A2D35;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 14px; font-weight: 600; color: #FFFFFF;">Insects</span>
+          <span style="font-size: 11px; color: #fb923c; font-weight: 700;">&#9733; 5 week streak</span>
+        </div>
+        <div style="font-size: 11px; color: #8B909A; margin-top: 4px;">Sir Rand Barnaby &middot; Sun, Mon, Wed, Fri at 6:00 PM</div>
+        <div style="font-size: 11px; color: #8B909A; margin-top: 2px;">Calcium w/o D3</div>
+      </div>
+      <div style="padding: 13px 14px; border-bottom: 1px solid #2A2D35;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 14px; font-weight: 600; color: #FFFFFF;">Salad</span>
+          <span style="font-size: 11px; color: #fb923c; font-weight: 700;">&#9733; 3 week streak</span>
+        </div>
+        <div style="font-size: 11px; color: #8B909A; margin-top: 4px;">Sir Rand Barnaby &middot; Daily at 6:00 PM</div>
+      </div>
+      <div style="padding: 13px 14px;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 14px; font-weight: 600; color: #FFFFFF;">Water Change</span>
+          <span style="font-size: 11px; color: #fb923c; font-weight: 700;">&#9733; 1 week streak</span>
+        </div>
+        <div style="font-size: 11px; color: #8B909A; margin-top: 4px;">Kiwi &middot; Mon, Thu at 8:00 PM</div>
+      </div>
+    </div>
+
+    <div style="font-size: 11px; color: #8B909A; line-height: 1.55; margin-top: 11px; text-wrap: pretty;">
+      Recurrence rules and streaks live here, where they are the point &mdash; instead of on every row of a list you are trying to work through.
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

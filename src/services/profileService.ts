@@ -1,4 +1,5 @@
 import { supabase } from '../lib/supabase';
+import type { StatusSensitivity } from './smartStatusService';
 
 export interface UserProfile {
   id: string;
@@ -8,6 +9,10 @@ export interface UserProfile {
   subscriptionCancelAt?: string;
   subscriptionPlatform?: string;
   onboardingCompleted?: boolean;
+  subscriptionStatus?: string;
+  trialEnd?: string;
+  hasUsedTrial?: boolean;
+  statusSensitivity?: StatusSensitivity;
 }
 
 export interface IProfileService {
@@ -20,7 +25,7 @@ export class SupabaseProfileService implements IProfileService {
   async getProfile(userId: string): Promise<UserProfile | null> {
     const { data, error } = await supabase
       .from('profiles')
-      .select('id, display_name, is_premium, mobile_nav_order, subscription_cancel_at, subscription_platform, onboarding_completed')
+      .select('id, display_name, is_premium, mobile_nav_order, subscription_cancel_at, subscription_platform, onboarding_completed, subscription_status, trial_end, has_used_trial, status_sensitivity')
       .eq('id', userId)
       .single();
 
@@ -37,6 +42,10 @@ export class SupabaseProfileService implements IProfileService {
       subscriptionCancelAt: data.subscription_cancel_at ?? undefined,
       subscriptionPlatform: data.subscription_platform ?? undefined,
       onboardingCompleted: data.onboarding_completed ?? undefined,
+      subscriptionStatus: data.subscription_status ?? undefined,
+      trialEnd: data.trial_end ?? undefined,
+      hasUsedTrial: data.has_used_trial ?? false,
+      statusSensitivity: data.status_sensitivity ?? undefined,
     };
   }
 
@@ -50,6 +59,7 @@ export class SupabaseProfileService implements IProfileService {
     if (updates.isPremium !== undefined) payload.is_premium = updates.isPremium;
     if (updates.mobileNavOrder !== undefined) payload.mobile_nav_order = updates.mobileNavOrder;
     if (updates.onboardingCompleted !== undefined) payload.onboarding_completed = updates.onboardingCompleted;
+    if (updates.statusSensitivity !== undefined) payload.status_sensitivity = updates.statusSensitivity;
 
     const { error } = await supabase
       .from('profiles')

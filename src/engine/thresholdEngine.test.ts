@@ -583,21 +583,28 @@ describe('checkUvbBulbAge', () => {
     expect(checkUvbBulbAge(undefined, 'Mango')).toBeNull();
   });
 
-  it('returns null when bulb is under 150 days old', () => {
+  it('stays quiet while the bulb has meaningful life left', () => {
+    // Warning starts at 80% of the bulb's rated life, so a 6-month bulb is
+    // quiet until roughly day 146.
     expect(checkUvbBulbAge(daysAgo(90), 'Mango')).toBeNull();
-    expect(checkUvbBulbAge(daysAgo(149), 'Mango')).toBeNull();
+    expect(checkUvbBulbAge(daysAgo(140), 'Mango')).toBeNull();
   });
 
-  it('returns info when bulb is 150–179 days old', () => {
+  it('returns info as the bulb approaches replacement', () => {
     const result = checkUvbBulbAge(daysAgo(160), 'Mango');
     expect(result).not.toBeNull();
     expect(result?.severity).toBe('info');
     expect(result?.id).toBe('uvb-bulb-age');
   });
 
-  it('returns warning when bulb is 180+ days old', () => {
+  it('returns warning once past the replacement date', () => {
     const result = checkUvbBulbAge(daysAgo(200), 'Mango');
     expect(result?.severity).toBe('warning');
+  });
+
+  it('escalates to urgent when the bulb is far past its life', () => {
+    const result = checkUvbBulbAge(daysAgo(300), 'Mango');
+    expect(result?.severity).toBe('urgent');
   });
 
   it('includes animal name in alert body', () => {
@@ -605,9 +612,21 @@ describe('checkUvbBulbAge', () => {
     expect(result?.body).toContain('Mango');
   });
 
-  it('includes month count in alert title', () => {
-    const result = checkUvbBulbAge(daysAgo(210), 'Mango');
-    expect(result?.title).toContain('7');  // 210 days ≈ 7 months
+  // The reason this check is bulb-type aware at all: the same 200-day-old bulb
+  // is overdue if it's a compact coil and perfectly fine if it's a T5 HO.
+  it('holds a 200-day-old T5 HO bulb quiet while flagging a compact coil', () => {
+    expect(checkUvbBulbAge(daysAgo(200), 'Mango', 't5-ho')).toBeNull();
+    expect(checkUvbBulbAge(daysAgo(200), 'Mango', 'compact')?.severity).toBe('warning');
+  });
+
+  it('names the bulb type in the alert so the keeper buys the right one', () => {
+    const result = checkUvbBulbAge(daysAgo(400), 'Mango', 't5-ho');
+    expect(result?.body).toContain('T5 HO');
+  });
+
+  it('assumes the shortest lifespan when the bulb type is unrecorded', () => {
+    // Under-warning costs bone density; over-warning costs a bulb.
+    expect(checkUvbBulbAge(daysAgo(200), 'Mango', null)?.severity).toBe('warning');
   });
 });
 

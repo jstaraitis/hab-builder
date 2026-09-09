@@ -1,9 +1,12 @@
 ﻿import { useState, useEffect } from 'react';
-import { Moon, Play, Square, Calendar, Trash2 } from 'lucide-react';
+import { Moon, Play, Square, Calendar, Trash2, Lock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useToast } from '../../contexts/ToastContext';
 import { brumationLogService, type BrumationLog } from '../../services/brumationLogService';
 import { formStyles, fieldLayouts } from '../../lib/formStyles';
+import { usePremium } from '../../contexts/PremiumContext';
+import { BrumationSafetyPanel } from '../premium/BrumationSafetyPanel';
 import type { EnclosureAnimal } from '../../types/careCalendar';
 
 interface BrumationTrackerProps {
@@ -15,6 +18,7 @@ interface BrumationTrackerProps {
 export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrackerProps) {
   const { user } = useAuth();
   const { showToast } = useToast();
+  const { isPremium } = usePremium();
   
   const [activeBrumation, setActiveBrumation] = useState<BrumationLog | null>(null);
   const [history, setHistory] = useState<BrumationLog[]>([]);
@@ -130,6 +134,37 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
 
   return (
     <div className="space-y-4">
+      {/* Safety assessment — reads the real weight log during brumation rather
+          than waiting for the manual weight-loss entry at the end, which
+          arrives too late to act on. Premium only. */}
+      {activeBrumation && isPremium && (
+        <BrumationSafetyPanel
+          animal={animal}
+          startDate={activeBrumation.startDate}
+          refreshKey={refreshKey}
+        />
+      )}
+
+      {activeBrumation && !isPremium && (
+        <Link
+          to="/upgrade"
+          className="block bg-card-elevated border border-divider rounded-xl p-4 hover:border-accent/50 transition-colors"
+        >
+          <div className="flex items-start gap-3">
+            <Lock className="w-5 h-5 text-muted flex-shrink-0 mt-0.5" />
+            <div className="min-w-0">
+              <p className="text-sm font-semibold text-white">Brumation Safety monitoring</p>
+              <p className="text-xs text-muted mt-1 leading-relaxed">
+                Premium watches {animal.name || 'your animal'}&apos;s weight against its
+                pre-brumation baseline and tells you when loss passes the point where brumation
+                stops explaining it — plus when brumation has run too long for the species.
+              </p>
+              <p className="text-xs font-semibold text-accent mt-2">See what&apos;s included →</p>
+            </div>
+          </div>
+        </Link>
+      )}
+
       {/* Active Brumation Status */}
       {activeBrumation ? (
         <div className="bg-blue-500/10 border border-blue-200 dark:border-blue-800 rounded-lg p-4">

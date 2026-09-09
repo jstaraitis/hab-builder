@@ -1,0 +1,39 @@
+{
+  "artboards": [
+    { "file": "Current.dc.html", "x": 0, "y": 0, "w": 800, "h": 1180, "title": "Today — what's not working" },
+    { "file": "Main.dc.html", "x": 920, "y": 0, "w": 390, "h": 1180, "title": "A — The doing list" },
+    { "file": "DirectionB.dc.html", "x": 1410, "y": 0, "w": 390, "h": 1180, "title": "B — Do / Manage split" },
+    { "file": "DirectionC.dc.html", "x": 1900, "y": 0, "w": 390, "h": 1180, "title": "C — Day rail" }
+  ],
+  "annotations": [
+    {
+      "id": "note-current",
+      "x": 0,
+      "y": -160,
+      "w": 800,
+      "text": "THE PROBLEM\nThe page shows everything a task KNOWS while the keeper is trying to DO a chore.\n\nRecurrence rules, streaks, enclosure and animal names, full dates — all at 10px, on every row, above three filter rows that consume roughly 15% of the screen before a single task appears."
+    },
+    {
+      "id": "note-a",
+      "x": 920,
+      "y": -160,
+      "w": 390,
+      "text": "A — THE DOING LIST\n\nOne scope row instead of three. Overdue pinned above the day. Rows carry a title and one context line; recurrence and streak move to editing. Swipe right to complete, with an Undo toast replacing the silent \"All Done\".\n\nTradeoff: incremental. It fixes this page rather than questioning whether one page should do both jobs."
+    },
+    {
+      "id": "note-b",
+      "x": 1410,
+      "y": -160,
+      "w": 390,
+      "text": "B — DO / MANAGE SPLIT\n\nTwo tabs. \"To do\" is a short, almost chrome-free list you work through. \"Schedules\" is where recurrence rules and streaks live, because there they are the point.\n\nTradeoff: a keeper who wants to tweak a schedule mid-chore now has to switch tabs. Costs a tap to save a lot of density."
+    },
+    {
+      "id": "note-c",
+      "x": 1900,
+      "y": -160,
+      "w": 390,
+      "text": "C — DAY RAIL\n\nToday laid out on a time rail with a NOW marker, so you see the shape of the day: where work clusters, what is already behind, how much of the evening is committed.\n\nTradeoff: only works for a single day, and it wastes vertical space when someone has three tasks. Weak for the \"All Tasks\" view."
+    }
+  ],
+  "launch": { "view": "canvas" }
+}

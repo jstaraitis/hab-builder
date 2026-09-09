@@ -5,6 +5,7 @@ import type { TempLog } from '../services/tempLogService';
 import type { WeightLog } from '../types/weightTracking';
 import type { CareTaskWithLogs } from '../types/careCalendar';
 import type { HumidityRange, TemperatureRange } from './types';
+import { getUvbLifecycleStatus, isReplacementDue, type UvbBulbType } from './uvbLifecycle';
 
 const SEVERITY_ORDER: Record<ThresholdAlert['severity'], number> = {
   urgent: 3,
@@ -248,22 +249,34 @@ export function checkTemperatureOutOfRange(
 export function checkUvbBulbAge(
   installedOn: Date | null | undefined,
   animalName: string,
+  bulbType?: UvbBulbType | null,
 ): ThresholdAlert | null {
-  if (!installedOn) return null;
-
-  const days = daysSince(installedOn);
-
-  if (days < 150) return null;
+  // Lifespan is bulb-specific: a T5 HO runs 12 months where a compact coil
+  // runs 6, so a single global interval nags half of users and under-warns
+  // the other half.
+  const status = getUvbLifecycleStatus(installedOn, bulbType);
+  if (!status || !isReplacementDue(status)) return null;
 
   const name = animalName || 'Your animal';
-  const months = Math.floor(days / 30);
+  const months = Math.max(1, Math.round(status.daysInstalled / 30));
 
-  if (days >= 180) {
+  if (status.state === 'critical') {
+    return {
+      id: 'uvb-bulb-age',
+      severity: 'urgent',
+      title: `Replace UVB bulb now`,
+      body: `${name}'s ${status.spec.label} bulb is ${months} months old — ${Math.abs(status.daysRemaining)} days past its ${status.spec.lifespanMonths}-month life. It may be producing almost no usable UVB, which over time leads to metabolic bone disease.`,
+      actionLabel: 'View Enclosure',
+      actionPath: '/care-calendar',
+    };
+  }
+
+  if (status.state === 'overdue') {
     return {
       id: 'uvb-bulb-age',
       severity: 'warning',
-      title: `UVB bulb is ${months} months old`,
-      body: `${name}'s UVB bulb was installed ${days} days ago. UV output degrades before the bulb stops glowing — replacement is recommended every 6 months.`,
+      title: `UVB bulb is ${Math.abs(status.daysRemaining)} days overdue`,
+      body: `${name}'s ${status.spec.label} bulb passed its ${status.spec.lifespanMonths}-month replacement point. UV output falls off well before the bulb stops glowing.`,
       actionLabel: 'View Enclosure',
       actionPath: '/care-calendar',
     };
@@ -272,15 +285,15 @@ export function checkUvbBulbAge(
   return {
     id: 'uvb-bulb-age',
     severity: 'info',
-    title: `UVB bulb approaching replacement`,
-    body: `${name}'s UVB bulb is ${months} months old. Consider replacing it soon — UV output begins degrading around 6 months.`,
+    title: `UVB bulb due in ${status.daysRemaining} days`,
+    body: `${name}'s ${status.spec.label} bulb is nearing the end of its ${status.spec.lifespanMonths}-month UV life. Ordering now avoids a gap in coverage.`,
     actionLabel: 'View Enclosure',
     actionPath: '/care-calendar',
   };
 }
 
 export function runThresholdEngine(input: ThresholdInput): ThresholdAlert[] {
-  const { animalName, speciesId, feedingLogs, feedingTasks, weightLogs, humidityLogs, tempLogs, uvbBulbInstalledOn, careTargets } = input;
+  const { animalName, speciesId, feedingLogs, feedingTasks, weightLogs, humidityLogs, tempLogs, uvbBulbInstalledOn, uvbBulbType, careTargets } = input;
 
   const results: (ThresholdAlert | null)[] = [
     checkFeedingRefusalStreak(feedingLogs, animalName, speciesId),
@@ -289,7 +302,7 @@ export function runThresholdEngine(input: ThresholdInput): ThresholdAlert[] {
     checkHumidityLow(humidityLogs, careTargets?.humidity, animalName),
     checkHumidityHigh(humidityLogs, careTargets?.humidity, animalName),
     checkTemperatureOutOfRange(tempLogs, careTargets?.temperature, animalName),
-    checkUvbBulbAge(uvbBulbInstalledOn, animalName),
+    checkUvbBulbAge(uvbBulbInstalledOn, animalName, uvbBulbType),
   ];
 
   return results

@@ -44,6 +44,12 @@ import { Lock } from 'lucide-react';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { profileService } from '../../services/profileService';
 import { enclosureService } from '../../services/enclosureService';
+import { UvbLifecycleCard } from '../premium/UvbLifecycleCard';
+import { VerdictBanner } from '../Dashboard/VerdictBanner';
+import { AttentionList } from '../Dashboard/AttentionList';
+import { AnimalStatusGrid } from '../Dashboard/AnimalStatusGrid';
+import { buildDashboardTriage, buildAnimalSummary } from '../../engine/dashboardTriage';
+import { calculateReplaceDueOn, type UvbBulbType } from '../../engine/uvbLifecycle';
 import { careTaskService } from '../../services/careTaskService';
 import { weightTrackingService } from '../../services/weightTrackingService';
 import { shedLogService } from '../../services/shedLogService';
@@ -52,9 +58,8 @@ import { tempLogService, type TempLog } from '../../services/tempLogService';
 import { humidityLogService, type HumidityLog } from '../../services/humidityLogService';
 import { uvbLogService, type UvbLog } from '../../services/uvbLogService';
 import { feedingLogService, type FeedingLog } from '../../services/feedingLogService';
-import { computeSmartStatus, type SmartStatusLevel } from '../../services/smartStatusService';
+import { computeSmartStatus, freshnessDaysFor, DEFAULT_STATUS_SENSITIVITY, type SmartStatusLevel, type StatusSensitivity } from '../../services/smartStatusService';
 import { runThresholdEngine } from '../../engine/thresholdEngine';
-import { ThresholdAlerts } from '../premium/ThresholdAlerts';
 import { PremiumPaywall } from '../Upgrade/PremiumPaywall';
 import type { Enclosure, EnclosureAnimal, CareTaskWithLogs, CareLog } from '../../types/careCalendar';
 import { FeedingLogModal } from '../CareCalendar/FeedingLogModal';
@@ -461,57 +466,6 @@ function EmptyState({ onAdd }: { onAdd: () => void }) {
   );
 }
 
-function AnimalPills({ animals, selectedId, onSelect, statusByAnimalId, alertsByAnimalId }: { animals: EnclosureAnimal[]; selectedId: string; onSelect: (id: string) => void; statusByAnimalId: Record<string, SmartStatusLevel>; alertsByAnimalId: Record<string, ThresholdAlert[]> }) {
-  if (animals.length === 0) return null;
-
-  const getImageBorderClass = (status?: SmartStatusLevel): string => {
-    switch (status) {
-      case 'healthy':
-        return 'border-accent/90';
-      case 'watch':
-        return 'border-sky-400/90';
-      case 'needs-check':
-        return 'border-amber-400/90';
-      case 'urgent':
-        return 'border-red-400/90';
-      default:
-        return 'border-divider';
-    }
-  };
-
-  return (
-    <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4">
-      {animals.map((a) => {
-        const animalAlerts = alertsByAnimalId[a.id] ?? [];
-        const hasUrgent = animalAlerts.some((al) => al.severity === 'urgent');
-        const hasAlert = animalAlerts.length > 0;
-
-        return (
-          <button
-            key={a.id}
-            onClick={() => onSelect(a.id)}
-            className={`flex-shrink-0 w-[86px] rounded-2xl border p-2 transition-colors ${a.id === selectedId ? 'border-emerald-400/70 bg-emerald-500/15' : 'border-divider bg-card'}`}
-          >
-            <div className="relative mx-auto w-14 h-14">
-              <div className={`w-full h-full rounded-2xl overflow-hidden border-2 bg-card-elevated flex items-center justify-center ${getImageBorderClass(statusByAnimalId[a.id])}`}>
-                {a.photoUrl ? (
-                  <img src={a.photoUrl} alt={a.name || `Animal #${a.animalNumber ?? 1}`} className="w-full h-full object-cover" />
-                ) : (
-                  <Turtle className="w-5 h-5 text-muted" />
-                )}
-              </div>
-              {hasAlert && (
-                <span className={`absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full border-2 border-surface ${hasUrgent ? 'bg-red-500' : 'bg-amber-400'}`} />
-              )}
-            </div>
-            <p className={`mt-1.5 text-sm font-semibold truncate ${a.id === selectedId ? 'text-emerald-300' : 'text-white'}`}>{a.name || `#${a.animalNumber ?? 1}`}</p>
-          </button>
-        );
-      })}
-    </div>
-  );
-}
-
 interface ActivePetCardProps {
   animal: EnclosureAnimal;
   age: string;
@@ -564,7 +518,7 @@ function ActivePetCard({ animal, age, weight, weightTrend, lastFed, consistencyS
 
   const statusConfig: Record<SmartStatusLevel, { label: string; textClass: string; bgClass: string; borderClass: string; icon: React.ReactNode }> = {
     healthy: {
-      label: 'Healthy',
+      label: 'On track',
       textClass: 'text-accent',
       bgClass: 'bg-accent/10',
       borderClass: 'border-accent/30',
@@ -578,7 +532,7 @@ function ActivePetCard({ animal, age, weight, weightTrend, lastFed, consistencyS
       icon: <Circle className="w-4 h-4 text-sky-400" />,
     },
     'needs-check': {
-      label: 'Needs Check',
+      label: 'Needs a look',
       textClass: 'text-amber-300',
       bgClass: 'bg-amber-500/10',
       borderClass: 'border-amber-400/30',
@@ -728,28 +682,56 @@ interface TodayCarePlanProps {
   completedIds: Set<string>;
   onComplete: (task: CareTaskWithLogs) => void;
   onOpenTask: (task: CareTaskWithLogs) => void;
-  animalName?: string;
+  /** Whether any task exists at all — separates "done" from "never set up". */
+  hasAnyTasks: boolean;
+  onSetUpTasks: () => void;
 }
 
-function TodayCarePlan({ tasks, completedIds, onComplete, onOpenTask, animalName }: TodayCarePlanProps) {
+function TodayCarePlan({ tasks, completedIds, onComplete, onOpenTask, hasAnyTasks, onSetUpTasks }: TodayCarePlanProps) {
   const dueToday = tasks.filter(isTaskDueToday).slice(0, 6);
   const doneCount = dueToday.filter((t) => completedIds.has(t.id)).length;
+  const progressPct = dueToday.length > 0 ? (doneCount / dueToday.length) * 100 : 0;
+
   return (
     <div className="bg-card border border-divider rounded-2xl overflow-hidden mx-4">
-      <div className="flex flex-col gap-2 px-4 pt-4 pb-3">
+      {dueToday.length > 0 && (
+        <div className="h-[3px] bg-divider">
+          <div className="h-full bg-accent transition-all" style={{ width: `${progressPct}%` }} />
+        </div>
+      )}
+      <div className="flex items-center justify-between px-4 pt-4 pb-3">
         <div className="flex items-center gap-1.5">
-            <Calendar className="w-4 h-4 text-green-400" />
-            <h3 className="text-med font-bold text-white">
-              Today's Care Plan: {animalName && <span className="text-green-400">{animalName}</span>}
-            </h3>
-          </div>
-        <span className="text-xs font-medium text-accent">{doneCount} of {dueToday.length} completed</span>
+          <Calendar className="w-4 h-4 text-accent" />
+          <h3 className="text-med font-bold text-white">Today</h3>
+        </div>
+        {dueToday.length > 0 && (
+          <span className="text-xs font-medium text-muted">{doneCount} of {dueToday.length} done</span>
+        )}
       </div>
       {dueToday.length === 0 ? (
-        <div className="px-4 pb-4 text-center">
-          <CheckCircle2 className="w-8 h-8 text-accent mx-auto mb-2" />
-          <p className="text-sm text-muted">All caught up for today!</p>
-        </div>
+        // Distinguish "you finished everything" from "you never set anything
+        // up" — celebrating an empty schedule teaches people to ignore this card.
+        hasAnyTasks ? (
+          <div className="px-4 pb-4 text-center">
+            <CheckCircle2 className="w-8 h-8 text-accent mx-auto mb-2" />
+            <p className="text-sm text-muted">Nothing else scheduled today.</p>
+          </div>
+        ) : (
+          <div className="px-4 pb-4">
+            <p className="text-sm text-white font-semibold">No care tasks yet</p>
+            <p className="text-xs text-muted mt-1 leading-relaxed">
+              Reminders are what keep a routine from slipping. Set them up once and
+              they repeat on their own.
+            </p>
+            <button
+              type="button"
+              onClick={onSetUpTasks}
+              className="w-full min-h-[44px] mt-3 rounded-xl bg-accent text-on-accent text-sm font-semibold active:opacity-80 transition-opacity"
+            >
+              Set up care tasks
+            </button>
+          </div>
+        )
       ) : (
         <ul className="divide-y divide-divider">
           {dueToday.map((task) => {
@@ -811,6 +793,9 @@ export function DashboardView() {
   const [consistencyStreak, setConsistencyStreak] = useState(0);
   const [animalStatusById, setAnimalStatusById] = useState<Record<string, SmartStatusLevel>>({});
   const [alertsByAnimalId, setAlertsByAnimalId] = useState<Record<string, ThresholdAlert[]>>({});
+  const [animalSummaryById, setAnimalSummaryById] = useState<Record<string, string>>({});
+  const [animalReasonsById, setAnimalReasonsById] = useState<Record<string, string[]>>({});
+  const [statusSensitivity, setStatusSensitivity] = useState<StatusSensitivity>(DEFAULT_STATUS_SENSITIVITY);
   const [completedIds, setCompletedIds] = useState<Set<string>>(new Set());
   const [loading, setLoading] = useState(true);
   const [displayName, setDisplayName] = useState<string>('');
@@ -818,7 +803,10 @@ export function DashboardView() {
   useEffect(() => {
     if (!user) return;
     profileService.getProfile(user.id)
-      .then((p) => setDisplayName(p?.displayName || ''))
+      .then((p) => {
+        setDisplayName(p?.displayName || '');
+        setStatusSensitivity(p?.statusSensitivity ?? DEFAULT_STATUS_SENSITIVITY);
+      })
       .catch(console.error);
   }, [user]);
 
@@ -974,6 +962,7 @@ export function DashboardView() {
             latestWeightAt,
             latestPoopAt,
             streakDays: animalStreak,
+            tuning: { freshnessDays: freshnessDaysFor(statusSensitivity) },
           });
 
           const enclosure = enclosures.find((e) => e.id === animal.enclosureId) ?? null;
@@ -989,35 +978,55 @@ export function DashboardView() {
             humidityLogs: [],
             tempLogs: [],
             uvbBulbInstalledOn: enclosure?.uvbBulbInstalledOn ?? null,
+            uvbBulbType: enclosure?.uvbBulbType ?? null,
             careTargets: profile?.careTargets,
           });
 
-          return [animal.id, animalStatus.level, alerts] as [string, SmartStatusLevel, ThresholdAlert[]];
+          // The loop already has the freshest feeding and weight facts for
+          // this animal — carry them out instead of recomputing later.
+          const summary = buildAnimalSummary({
+            latestFeedingAt,
+            latestWeightGrams: animalWeightLogs[0]?.weightGrams ?? null,
+            latestWeightAt,
+          });
+
+          return [animal.id, animalStatus.level, alerts, summary, animalStatus.reasons] as [
+            string,
+            SmartStatusLevel,
+            ThresholdAlert[],
+            string,
+            string[],
+          ];
         })
       );
 
       if (cancelled) return;
       setAnimalStatusById(Object.fromEntries(statusEntries.map(([id, level]) => [id, level])));
       setAlertsByAnimalId(Object.fromEntries(statusEntries.map(([id, , alerts]) => [id, alerts])));
+      setAnimalSummaryById(Object.fromEntries(statusEntries.map(([id, , , summary]) => [id, summary])));
+      setAnimalReasonsById(Object.fromEntries(statusEntries.map(([id, , , , reasons]) => [id, reasons])));
     }
 
     loadAnimalStatuses().catch(() => {
       if (!cancelled) {
         setAnimalStatusById({});
         setAlertsByAnimalId({});
+        setAnimalSummaryById({});
+        setAnimalReasonsById({});
       }
     });
 
     return () => {
       cancelled = true;
     };
-  }, [animals, tasks, enclosures]);
+  }, [animals, tasks, enclosures, statusSensitivity]);
 
   const [feedingTask, setFeedingTask] = useState<CareTaskWithLogs | null>(null);
   const [showFeedingModal, setShowFeedingModal] = useState(false);
   const [envTask, setEnvTask] = useState<CareTaskWithLogs | null>(null);
   const [showEnvModal, setShowEnvModal] = useState(false);
   const [showExamples, setShowExamples] = useState(false);
+  const [showAllAttention, setShowAllAttention] = useState(false);
   const [showPremiumModal, setShowPremiumModal] = useState(false);
 
   const handleCompleteTask = useCallback((task: CareTaskWithLogs) => {
@@ -1103,13 +1112,50 @@ export function DashboardView() {
     latestWeightAt: latestWeightDate,
     latestPoopAt: latestPoopDate,
     streakDays: consistencyStreak,
+    tuning: { freshnessDays: freshnessDaysFor(statusSensitivity) },
   });
   const healthStatus = smartStatus.level;
   const healthScore = smartStatus.score;
   const healthReasons = smartStatus.reasons;
 
   const selectedEnclosure = enclosures.find((e) => e.id === selectedEnclosureId) ?? null;
-  
+
+  // Apply optimistically so every status recomputes on the next render, then
+  // persist. A failed write leaves the UI ahead of the server for this
+  // session only — the setting reloads correctly next time.
+  const handleToggleSensitivity = useCallback(() => {
+    const next: StatusSensitivity = statusSensitivity === 'relaxed' ? 'precise' : 'relaxed';
+    setStatusSensitivity(next);
+    if (!user) return;
+    profileService
+      .updateProfile(user.id, { statusSensitivity: next })
+      .catch((error) => console.error('Failed to save status sensitivity:', error));
+  }, [statusSensitivity, user]);
+
+  // Patch the updated enclosure into local state rather than refetching the
+  // whole dashboard — the card should reflect the new bulb immediately.
+  const applyEnclosureUpdate = useCallback((updated: Enclosure) => {
+    setEnclosures((prev) => prev.map((e) => (e.id === updated.id ? updated : e)));
+  }, []);
+
+  const handleReplaceUvbBulb = useCallback(async (bulbType: UvbBulbType) => {
+    if (!selectedEnclosure || !user) return;
+    const updated = await enclosureService.replaceUvbBulb(selectedEnclosure.id, user.id, bulbType);
+    applyEnclosureUpdate(updated);
+  }, [selectedEnclosure, user, applyEnclosureUpdate]);
+
+  // Identifying an existing bulb corrects its lifespan without restarting the
+  // clock — the bulb has been in there the whole time.
+  const handleSetUvbBulbType = useCallback(async (bulbType: UvbBulbType) => {
+    if (!selectedEnclosure) return;
+    const installedOn = selectedEnclosure.uvbBulbInstalledOn;
+    const updated = await enclosureService.updateEnclosure(selectedEnclosure.id, {
+      uvbBulbType: bulbType,
+      ...(installedOn && { uvbReplaceDueOn: calculateReplaceDueOn(installedOn, bulbType) }),
+    });
+    applyEnclosureUpdate(updated);
+  }, [selectedEnclosure, applyEnclosureUpdate]);
+
   // Memoize the filtered tasks for this animal to prevent unnecessary alert recalculations
   const tasksForSelectedAnimal = useMemo(() => {
     if (!selectedAnimalId) return [];
@@ -1162,9 +1208,30 @@ export function DashboardView() {
       humidityLogs,
       tempLogs,
       uvbBulbInstalledOn: enc?.uvbBulbInstalledOn ?? null,
+      uvbBulbType: enc?.uvbBulbType ?? null,
       careTargets: { humidity: humidityTargets, temperature: tempTargets },
     });
   }, [selectedAnimal, feedingLogs, weightLogs, humidityLogs, tempLogs, selectedEnclosure, tasksForSelectedAnimal]);
+
+  // Turn the per-animal alerts the dashboard already computes into a ranked
+  // verdict plus an attention list, instead of discarding them into a border.
+  const triage = useMemo(() => {
+    const enclosureNameById: Record<string, string> = {};
+    for (const enc of enclosures) enclosureNameById[enc.id] = enc.name;
+
+    // Temp and humidity logs are only fetched for the selected enclosure, so
+    // the per-animal pass computes its alerts without them. Overlay the richer
+    // selected-animal result here — otherwise folding the alerts card into the
+    // triage list would silently drop every environment alert.
+    const merged: Record<string, ThresholdAlert[]> = { ...alertsByAnimalId };
+    if (selectedAnimalId) merged[selectedAnimalId] = thresholdAlerts;
+
+    return buildDashboardTriage({
+      animals: animals.map((a) => ({ id: a.id, name: a.name, enclosureId: a.enclosureId })),
+      alertsByAnimalId: merged,
+      enclosureNameById,
+    });
+  }, [animals, alertsByAnimalId, enclosures, selectedAnimalId, thresholdAlerts]);
 
   if (loading) {
     return (
@@ -1189,35 +1256,66 @@ export function DashboardView() {
   return (
     <div className="min-h-screen bg-surface pb-28">
       <div className="space-y-4 pt-3">
-        <div className="px-4 pt-1 pb-0">
+        <div className="px-4 pt-1 pb-0 flex items-baseline justify-between">
           <h1 className="text-xl font-bold text-white">{greeting}, <span className="text-accent">{greetingName}</span></h1>
+          <span className="text-xs text-muted">
+            {new Date().toLocaleDateString(undefined, { weekday: 'short', day: 'numeric', month: 'short' })}
+          </span>
         </div>
+
+        {/* The verdict leads: one answer to "does anything need me?" */}
+        <VerdictBanner verdict={triage.verdict} />
+
+        {/* Then only what's wrong, most severe first. Premium — free users
+            get the locked teaser further down. */}
+        {isPremium && (
+          <AttentionList
+            items={triage.items}
+            showingAll={showAllAttention}
+            onShowAll={() => setShowAllAttention(true)}
+          />
+        )}
+
         <TodayCarePlan
-          tasks={animalTasks}
+          tasks={tasks}
           completedIds={completedIds}
           onComplete={handleCompleteTask}
           onOpenTask={(task) => navigate(`/care-calendar/tasks/edit/${task.id}?returnTo=${encodeURIComponent('/')}`)}
-          animalName={selectedAnimal?.name}
-        />
-        <ActivePetCard
-          animal={selectedAnimal}
-          age={age}
-          weight={weight}
-          weightTrend={weightTrend}
-          lastFed={lastFed}
-          consistencyStreak={consistencyStreak}
-          healthStatus={healthStatus}
-          healthScore={healthScore}
-          healthReasons={healthReasons}
-          shedLogs={shedLogs}
-          shedStatus={shedStatus}
-          poopLogs={poopLogs}
-          onTap={() => navigate(`/my-animals/${selectedAnimal.id}`)}
+          hasAnyTasks={tasks.length > 0}
+          onSetUpTasks={() => navigate('/care-calendar/tasks/add')}
         />
 
-        {isPremium ? (
-          <ThresholdAlerts alerts={thresholdAlerts} />
-        ) : (
+        {/* The single-animal keeper doesn't need a grid of one — show the
+            detail card instead, which is what they came for. */}
+        {animals.length === 1 && (
+          <ActivePetCard
+            animal={selectedAnimal}
+            age={age}
+            weight={weight}
+            weightTrend={weightTrend}
+            lastFed={lastFed}
+            consistencyStreak={consistencyStreak}
+            healthStatus={healthStatus}
+            healthScore={healthScore}
+            healthReasons={healthReasons}
+            shedLogs={shedLogs}
+            shedStatus={shedStatus}
+            poopLogs={poopLogs}
+            onTap={() => navigate(`/my-animals/${selectedAnimal.id}`)}
+          />
+        )}
+
+        {isPremium && selectedEnclosure && (
+          <UvbLifecycleCard
+            enclosure={selectedEnclosure}
+            onReplace={handleReplaceUvbBulb}
+            onSetBulbType={handleSetUvbBulbType}
+          />
+        )}
+
+        {/* Free users: the attention list above is premium, so this is where
+            they learn what it would tell them. */}
+        {!isPremium && (
           <div className="mx-4 space-y-2">
             {/* Collapsible header */}
             <button
@@ -1290,13 +1388,31 @@ export function DashboardView() {
           </div>
         )}
 
-        <div>
-          <div className="px-4 mb-2 flex items-center justify-between">
-            <p className="text-base font-semibold text-white">All Pets</p>
-            <p className="text-xs text-muted">Swipe to see more</p>
+        {/* Every animal legible at a glance, rather than six thumbnails whose
+            only signal is a 2px border colour. */}
+        {animals.length > 1 && (
+          <div>
+            <div className="px-4 mb-2 flex items-center justify-between">
+              <p className="text-base font-semibold text-white">Your animals</p>
+              <button
+                type="button"
+                onClick={() => navigate('/my-animals')}
+                className="text-xs font-semibold text-accent active:opacity-70"
+              >
+                All {animals.length}
+              </button>
+            </div>
+            <AnimalStatusGrid
+              animals={animals}
+              statusByAnimalId={animalStatusById}
+              alertsByAnimalId={alertsByAnimalId}
+              summaryByAnimalId={animalSummaryById}
+              reasonsByAnimalId={animalReasonsById}
+              sensitivity={statusSensitivity}
+              onToggleSensitivity={handleToggleSensitivity}
+            />
           </div>
-          <AnimalPills animals={animals} selectedId={selectedAnimalId} onSelect={setSelectedAnimalId} statusByAnimalId={animalStatusById} alertsByAnimalId={alertsByAnimalId} />
-        </div>
+        )}
 
         {selectedEnclosureId && enclosures.length > 0 ? (
           <EnclosureOverviewSection

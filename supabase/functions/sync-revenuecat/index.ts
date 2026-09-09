@@ -70,6 +70,11 @@ serve(async (req) => {
     // expires_date = end of current billing period (null = lifetime/no expiry)
     const expiresDate = premiumEntitlement?.expires_date ?? null
 
+    // period_type is 'normal' | 'intro' | 'trial'. Mirror an App Store
+    // introductory trial onto the same columns Stripe writes, so the app has
+    // one consistent notion of "trialing" across both platforms.
+    const isTrialing = isPremium && premiumEntitlement?.period_type === 'trial'
+
     // Always update is_premium first — guaranteed columns only
     const { error: coreError } = await adminClient
       .from('profiles')
@@ -90,8 +95,12 @@ serve(async (req) => {
         {
           id: user.id,
           subscription_platform: isPremium ? 'ios' : null,
-          subscription_status: isPremium ? 'active' : 'canceled',
+          subscription_status: isTrialing ? 'trialing' : (isPremium ? 'active' : 'canceled'),
           subscription_cancel_at: expiresDate,
+          trial_end: isTrialing ? expiresDate : null,
+          // Once an App Store intro trial is seen, never offer a Stripe trial
+          // to the same account on the web.
+          ...(isTrialing && { has_used_trial: true }),
           updated_at: new Date().toISOString(),
         },
         { onConflict: 'id' }

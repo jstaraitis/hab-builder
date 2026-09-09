@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { animalList, getAnimalById } from '../../data/animals';
+import { UVB_BULB_SPECS, UVB_BULB_TYPE_ORDER, type UvbBulbType } from '../../engine/uvbLifecycle';
 
 type SubstrateType = '' | 'bioactive' | 'soil' | 'paper' | 'sand' | 'reptile-carpet' | 'tile' | 'other';
 
@@ -11,6 +12,7 @@ export interface EnclosureFormData {
   description: string;
   substrateType: SubstrateType;
   hasUVB: boolean;
+  uvbBulbType: UvbBulbType;
   tempMin?: number;
   tempMax?: number;
   humidityMin?: number;
@@ -25,6 +27,7 @@ export const EMPTY_ENCLOSURE_FORM: EnclosureFormData = {
   description: '',
   substrateType: '',
   hasUVB: false,
+  uvbBulbType: 'unknown',
   tempMin: undefined,
   tempMax: undefined,
   humidityMin: undefined,
@@ -280,6 +283,34 @@ export function EnclosureFormCRUD({ mode, initialData, entityLabel, onSave, onCa
               />
             </button>
           </div>
+
+          {/* Bulb type drives the replacement interval — a T5 HO lasts twice
+              as long as a compact coil, so one global interval can't work. */}
+          {formData.hasUVB && (
+            <div className="mt-4 pt-4 border-t border-divider">
+              <label htmlFor="uvb-bulb-type" className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1">
+                Bulb Type
+              </label>
+              <p className="text-xs text-muted mb-2">
+                Sets when we remind you to replace it. UVB output fades long before the bulb stops glowing.
+              </p>
+              <select
+                id="uvb-bulb-type"
+                value={formData.uvbBulbType}
+                onChange={(e) => setFormData(prev => ({ ...prev, uvbBulbType: e.target.value as UvbBulbType }))}
+                className="w-full px-3 py-2.5 bg-card border border-divider rounded-xl text-white text-sm focus:outline-none focus:border-accent"
+              >
+                {UVB_BULB_TYPE_ORDER.map((type) => (
+                  <option key={type} value={type}>
+                    {UVB_BULB_SPECS[type].label} ({UVB_BULB_SPECS[type].lifespanMonths} months)
+                  </option>
+                ))}
+              </select>
+              <p className="text-[11px] text-muted mt-1.5">
+                {UVB_BULB_SPECS[formData.uvbBulbType].hint}
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Environment Targets */}

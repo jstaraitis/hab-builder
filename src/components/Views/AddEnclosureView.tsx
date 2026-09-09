@@ -9,6 +9,7 @@ import { buildTasksFromEnclosureById } from '../../services/enclosureTaskBuilder
 import { animalList } from '../../data/animals';
 import { EnclosureFormCRUD, type EnclosureFormData } from '../Forms/EnclosureFormCRUD';
 import { PremiumPaywall } from '../Upgrade/PremiumPaywall';
+import { calculateReplaceDueOn } from '../../engine/uvbLifecycle';
 import type { Enclosure } from '../../types/careCalendar';
 
 export function AddEnclosureView() {
@@ -63,6 +64,10 @@ export function AddEnclosureView() {
       description: formData.description || undefined,
       substrateType: formData.substrateType || undefined,
       uvbBulbInstalledOn: formData.hasUVB ? new Date() : undefined,
+      uvbBulbType: formData.hasUVB ? formData.uvbBulbType : undefined,
+      uvbReplaceDueOn: formData.hasUVB
+        ? calculateReplaceDueOn(new Date(), formData.uvbBulbType)
+        : undefined,
       isActive: true
     });
 

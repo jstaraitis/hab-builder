@@ -276,6 +276,46 @@ serve(async (req) => {
       return acc;
     }, {} as Record<string, Task[]>);
 
+    // Push reminders are a premium feature. Free users still see every task in
+    // the in-app care calendar — they just don't get pushed to about it.
+    // Checked here rather than in the task query so the lookup covers only the
+    // handful of users with a task actually firing in this cron cycle.
+    const candidateUserIds = Object.keys(tasksByUser);
+    const { data: premiumProfiles, error: premiumError } = await supabaseClient
+      .from('profiles')
+      .select('id')
+      .in('id', candidateUserIds)
+      .eq('is_premium', true);
+
+    if (premiumError) {
+      // Fail closed: without a verified premium list we can't tell paid from
+      // free, and sending to everyone is what this change exists to stop.
+      console.error('Premium lookup failed, skipping this cycle:', premiumError.message);
+      throw premiumError;
+    }
+
+    const premiumUserIds = new Set((premiumProfiles ?? []).map(p => p.id));
+    const skippedFreeUsers = candidateUserIds.filter(id => !premiumUserIds.has(id));
+
+    for (const userId of skippedFreeUsers) {
+      delete tasksByUser[userId];
+    }
+
+    console.log(
+      `Notification eligibility: ${premiumUserIds.size} premium, ${skippedFreeUsers.length} free (skipped)`
+    );
+
+    if (Object.keys(tasksByUser).length === 0) {
+      return new Response(
+        JSON.stringify({
+          message: 'No premium users with tasks ready for notification',
+          tasksReady: tasksToNotify.length,
+          freeUsersSkipped: skippedFreeUsers.length,
+        }),
+        { headers: { ...corsHeaders, 'Content-Type': 'application/json' }, status: 200 }
+      );
+    }
+
     let notificationsSent = 0;
     let notificationsFailed = 0;
     const expiredWebSubscriptions: string[] = [];
@@ -388,8 +428,9 @@ serve(async (req) => {
 
     return new Response(
       JSON.stringify({ 
-        message: 'Notifications processed', 
+        message: 'Notifications processed',
         tasksFound: tasksToNotify.length,
+        freeUsersSkipped: skippedFreeUsers.length,
         notificationsSent,
         notificationsFailed,
         expiredWebSubscriptionsRemoved: expiredWebSubscriptions.length,

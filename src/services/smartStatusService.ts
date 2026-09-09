@@ -3,6 +3,27 @@ import { getCustomWeekdayIntervalDays } from '../utils/customTaskFrequency';
 
 export type SmartStatusLevel = 'healthy' | 'watch' | 'needs-check' | 'urgent';
 
+/**
+ * How quickly a quiet log turns into a "Watch".
+ *
+ * The old fixed 14-day window assumed every animal is fed, weighed and passes
+ * stool on a fortnightly rhythm. Plenty don't — a well-fed adult snake can go
+ * a month between meals — so a keeper doing nothing wrong saw most of their
+ * collection flagged. 'relaxed' is the default for that reason.
+ */
+export type StatusSensitivity = 'relaxed' | 'precise';
+
+export const SENSITIVITY_FRESHNESS_DAYS: Record<StatusSensitivity, number> = {
+  relaxed: 30,
+  precise: 14,
+};
+
+export const DEFAULT_STATUS_SENSITIVITY: StatusSensitivity = 'relaxed';
+
+export function freshnessDaysFor(sensitivity?: StatusSensitivity | null): number {
+  return SENSITIVITY_FRESHNESS_DAYS[sensitivity ?? DEFAULT_STATUS_SENSITIVITY];
+}
+
 export interface SmartStatusResult {
   level: SmartStatusLevel;
   score: number;
@@ -232,7 +253,7 @@ export function computeSmartStatus(input: SmartStatusInput): SmartStatusResult {
     reasons.push({ message: "Tasks are starting to be missed more often", priority: 45 });
   }
 
-  const freshnessDays = tuning?.freshnessDays ?? 14;
+  const freshnessDays = tuning?.freshnessDays ?? freshnessDaysFor(DEFAULT_STATUS_SENSITIVITY);
 
   if (!input.latestFeedingAt) {
     score -= 15;

@@ -1,8 +1,10 @@
 /**
  * Care Calendar Types
- * 
+ *
  * Defines data structures for tracking habitat care tasks and completion logs
  */
+
+import type { UvbBulbType } from '../engine/uvbLifecycle';
 
 export type TaskType = 
   | 'feeding'
@@ -138,6 +140,8 @@ export interface Enclosure {
   bioactiveStartedOn?: Date;
   uvbBulbInstalledOn?: Date;
   uvbReplaceDueOn?: Date;
+  /** Determines replacement interval — see src/engine/uvbLifecycle.ts */
+  uvbBulbType?: UvbBulbType;
   mistingSystemType?: string;
   lightingScheduleHours?: number;
   baselineDayTempTarget?: number;

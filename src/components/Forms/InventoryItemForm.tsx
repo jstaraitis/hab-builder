@@ -12,11 +12,13 @@ interface InventoryItemFormProps {
   readonly initialData?: InventoryFormState;
   readonly onSave: (form: InventoryFormState) => Promise<void>;
   readonly onCancel: () => void;
+  readonly onDelete?: () => Promise<void>;
 }
 
-export function InventoryItemForm({ mode, initialData, onSave, onCancel }: InventoryItemFormProps) {
+export function InventoryItemForm({ mode, initialData, onSave, onCancel, onDelete }: InventoryItemFormProps) {
   const [form, setForm] = useState<InventoryFormState>(initialData ?? EMPTY_INVENTORY_FORM);
   const [saving, setSaving] = useState(false);
+  const [deleting, setDeleting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -37,6 +39,26 @@ export function InventoryItemForm({ mode, initialData, onSave, onCancel }: Inven
     } finally {
       setSaving(false);
     }
+  };
+
+  const handleDelete = async () => {
+    if (!onDelete) return;
+    // Deleting the record is permanent — the row is removed, not archived.
+    if (!confirm(`Delete "${form.title || 'this item'}"? This permanently removes the item and its reminder.`)) {
+      return;
+    }
+
+    try {
+      setDeleting(true);
+      setError(null);
+      await onDelete();
+    } catch (err) {
+      console.error('❌ Failed to delete inventory item:', err);
+      setError('Failed to delete inventory item.');
+      setDeleting(false);
+    }
+    // On success the view navigates away, so `deleting` stays true to keep
+    // the button disabled through the transition.
   };
 
   return (
@@ -173,12 +195,24 @@ export function InventoryItemForm({ mode, initialData, onSave, onCancel }: Inven
                 </button>
                 <button
                   type="submit"
-                  disabled={saving}
+                  disabled={saving || deleting}
                   className="px-6 py-2.5 rounded-lg bg-accent text-on-accent font-semibold hover:bg-accent-dim disabled:opacity-60 transition-colors text-sm"
                 >
                   {saving ? 'Saving...' : mode === 'add' ? 'Create Reminder' : 'Save Changes'}
                 </button>
               </div>
+
+              {/* Delete (edit mode only) */}
+              {mode === 'edit' && onDelete && (
+                <button
+                  type="button"
+                  onClick={() => { void handleDelete(); }}
+                  disabled={saving || deleting}
+                  className="w-full px-3 py-1.5 border border-rose-500/30 text-rose-300 hover:bg-rose-500/10 rounded-lg transition-colors disabled:opacity-60 font-medium text-xs"
+                >
+                  {deleting ? 'Deleting...' : 'Delete Item'}
+                </button>
+              )}
             </form>
           </div>
         </div>

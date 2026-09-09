@@ -4,6 +4,7 @@ import { Check, Sparkles, Calendar, TrendingUp, Package, Bell, Zap } from 'lucid
 import { useAuth } from '../../contexts/AuthContext';
 import { usePremium } from '../../contexts/PremiumContext';
 import { stripeService } from '../../services/stripeService';
+import { TRIAL_DAYS } from '../../constants/billing';
 import { purchaseService } from '../../services/purchaseService';
 import { supabase } from '../../lib/supabase';
 
@@ -15,12 +16,16 @@ const PRICE_IDS = {
 
 export function UpgradePage() {
   const { user } = useAuth();
-  const { refreshProfile } = usePremium();
+  const { refreshProfile, isTrialEligibleFor } = usePremium();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
   const [error, setError] = useState<string | null>(null);
   const isNative = purchaseService.isNative();
+
+  // Per-cycle: the App Store can have an introductory offer on one product and
+  // not the other, and this page is where the user picks which one they buy.
+  const cycleHasTrial = isTrialEligibleFor(billingCycle);
 
   const handleUpgrade = async () => {
     if (!user) {
@@ -110,13 +115,15 @@ export function UpgradePage() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full text-sm font-medium mb-4">
             <Sparkles className="w-4 h-4" />
-            Upgrade to Premium
+            {cycleHasTrial ? `${TRIAL_DAYS} days free` : 'Upgrade to Premium'}
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Never Miss a Care Task Again
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Unlock powerful care tracking tools to keep your animals healthy and thriving
+            {cycleHasTrial
+              ? `Try every premium care tool free for ${TRIAL_DAYS} days. Cancel before it ends and you won't be charged.`
+              : 'Unlock powerful care tracking tools to keep your animals healthy and thriving'}
           </p>
         </div>
 
@@ -161,6 +168,12 @@ export function UpgradePage() {
                 Just $1.92/month when billed annually
               </p>
             )}
+            {cycleHasTrial && (
+              <p className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm font-medium">
+                <Sparkles className="w-4 h-4" />
+                Free for {TRIAL_DAYS} days, then ${billingCycle === 'monthly' ? monthlyPrice.toFixed(2) : annualPrice.toFixed(2)}/{billingCycle === 'monthly' ? 'month' : 'year'}
+              </p>
+            )}
           </div>
 
           {/* Features List */}
@@ -182,8 +195,8 @@ export function UpgradePage() {
             />
             <FeatureItem
               icon={<Bell className="w-5 h-5" />}
-              title="Push Notifications"
-              description="Get timely reminders on your phone or desktop (PWA)"
+              title="Push Reminders"
+              description="Care tasks come to you — on your phone, watch, or desktop"
             />
             <FeatureItem
               icon={<Turtle className="w-5 h-5" />}
@@ -193,7 +206,7 @@ export function UpgradePage() {
             <FeatureItem
               icon={<Zap className="w-5 h-5" />}
               title="Advanced Features"
-              description="Weight tracking, photo journals (coming soon!), vet records, and more"
+              description="Weight tracking, shed and feeding logs, vet records, and more"
             />
           </div>
 
@@ -215,7 +228,9 @@ export function UpgradePage() {
               </>
             ) : (
               <>
-                {isNative ? 'Subscribe with Apple' : 'Upgrade Now'}
+                {cycleHasTrial
+                  ? `Start ${TRIAL_DAYS}-Day Free Trial`
+                  : (isNative ? 'Subscribe with Apple' : 'Upgrade Now')}
               </>
             )}
           </button>
@@ -231,9 +246,10 @@ export function UpgradePage() {
           )}
 
           <p className="text-xs text-gray-500 dark:text-gray-400 text-center mt-2">
+            {cycleHasTrial && `No charge for ${TRIAL_DAYS} days. `}
             {isNative
-              ? 'Payment will be charged to your Apple ID. Cancel anytime in your App Store subscriptions.'
-              : 'Cancel anytime. No questions asked.'}
+              ? `Payment will be charged to your Apple ID${cycleHasTrial ? ' when the trial ends' : ''}. Cancel anytime in your App Store subscriptions.`
+              : `${cycleHasTrial ? 'Cancel before the trial ends and you pay nothing. ' : ''}Cancel anytime. No questions asked.`}
           </p>
         </div>
 
@@ -244,10 +260,10 @@ export function UpgradePage() {
           </h3>
           <div className="text-sm text-gray-600 dark:text-gray-400 space-y-3">
             <p>
-              <strong>Free plan:</strong> Unlimited build plans, care guides, and the enclosure designer. Plus 1 enclosure, 1 animal, and unlimited care tasks to get started.
+              <strong>Free plan:</strong> Unlimited build plans, care guides, and the enclosure designer. Plus 1 enclosure, 1 animal, and unlimited care tasks you can check off in the app.
             </p>
             <p>
-              <strong>Premium plan:</strong> Everything above PLUS unlimited animals &amp; enclosures, unlimited care tasks, health tracking, smart reminders, push notifications, and inventory management.
+              <strong>Premium plan:</strong> Everything above PLUS push reminders that reach you when a task is due, unlimited animals &amp; enclosures, health tracking and analytics, and inventory management.
             </p>
             <p>
               Premium helps us keep the lights on while providing world-class care tools. 100% of proceeds go toward improving the app and adding new species.

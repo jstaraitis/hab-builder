@@ -4,6 +4,7 @@ import type { HumidityLog } from '../services/humidityLogService';
 import type { TempLog } from '../services/tempLogService';
 import type { WeightLog } from './weightTracking';
 import type { CareTaskWithLogs } from './careCalendar';
+import type { UvbBulbType } from '../engine/uvbLifecycle';
 
 export type AlertSeverity = 'info' | 'warning' | 'urgent';
 
@@ -25,6 +26,7 @@ export interface ThresholdInput {
   humidityLogs: HumidityLog[];
   tempLogs: TempLog[];
   uvbBulbInstalledOn?: Date | null;
+  uvbBulbType?: UvbBulbType | null;
   careTargets?: {
     humidity?: HumidityRange;
     temperature?: TemperatureRange;

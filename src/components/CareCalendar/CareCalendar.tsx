@@ -35,12 +35,12 @@ import {
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { usePremium } from '../../contexts/PremiumContext';
+import { useToast } from '../../contexts/ToastContext';
 import { Auth } from '../Auth';
 import { careTaskService } from '../../services/careTaskService';
 import { enclosureService } from '../../services/enclosureService';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
 import { estimateCustomWeekdayOccurrences } from '../../utils/customTaskFrequency';
-import { formatCareTaskFrequency } from '../../utils/careTaskFrequencyLabel';
 import { FeedingLogModal } from './FeedingLogModal';
 import { EnvironmentReadingsModal } from './EnvironmentReadingsModal';
 import { CareAnalyticsDashboard } from '../CareAnalytics';
@@ -69,9 +69,6 @@ const toDateTimeLocalInputValue = (value: Date): string => {
   return local.toISOString().slice(0, 16);
 };
 
-const formatTaskFrequencySummary = (task: CareTaskWithLogs): string => {
-  return formatCareTaskFrequency(task);
-};
 
 // Memoized Task Item Component for better list performance
 const TaskItem = memo(({ 
@@ -117,7 +114,22 @@ const TaskItem = memo(({
 }) => {
   const isBeingSwiped = swipedTask === task.id;
   const swipeTransform = isBeingSwiped ? `translateX(${swipeOffset}px)` : 'translateX(0)';
-  
+
+  const animalName = task.enclosureAnimalId ? getAnimalName(task.enclosureAnimalId) : null;
+  const enclosureName = task.enclosureId ? getEnclosureName(task.enclosureId) : null;
+  // Name the animal when we have one; fall back to the enclosure. Showing both
+  // is how "Sir Rand Barnaby · Sir Rand Barnaby" ends up on a row.
+  const subject = animalName ?? enclosureName;
+  // Inside a dated section the date is already stated — only the time adds
+  // anything, and only for tasks that carry one.
+  const when = task.scheduledTime
+    ? (isDueToday || isOverdue
+        ? formatTime(task.scheduledTime)
+        : `${formatShortDate(task.nextDueAt)} ${formatTime(task.scheduledTime)}`)
+    : null;
+  const contextLine = [subject, when].filter(Boolean).join(' · ');
+
+
   return (
     <div className="relative overflow-hidden">
       {/* Swipe Action Background */}
@@ -158,30 +170,13 @@ const TaskItem = memo(({
           {/* Content */}
           <div className="flex-1 min-w-0">
             <p className="text-sm font-semibold text-white truncate">{task.title || 'Untitled Task'}</p>
-            <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
-              {task.enclosureId && (
-                <span className="text-[10px] text-muted truncate">{getEnclosureName(task.enclosureId)}</span>
-              )}
-              {task.enclosureAnimalId && (
-                <span className="text-[10px] font-medium px-1.5 py-0.5 bg-accent/15 text-accent rounded-full">
-                  {getAnimalName(task.enclosureAnimalId)}
-                </span>
-              )}
-              {task.scheduledTime && (
-                <span className="text-[10px] text-muted">{formatShortDate(task.nextDueAt)} {formatTime(task.scheduledTime)}</span>
-              )}
-              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-card-elevated text-muted">
-                {formatTaskFrequencySummary(task)}
-              </span>
-              {task.streak > 0 && (
-                <span className="text-[10px] inline-flex items-center gap-0.5 text-orange-400 font-semibold">
-                  <Flame className="w-2.5 h-2.5" />
-                  {task.streak}
-                </span>
-              )}
-            </div>
+            {/* One context line: who and when. The enclosure is dropped when
+                it repeats the animal's name (keepers often name the tank after
+                the animal), and recurrence + streak move to the edit screen —
+                they're authoring detail, noise while working through a list. */}
+            <p className="text-[11px] text-muted truncate mt-0.5">{contextLine}</p>
             {task.notes && (
-              <p className="text-xs text-muted mt-1 truncate">{task.notes}</p>
+              <p className="text-[11px] text-muted/80 mt-0.5 truncate">{task.notes}</p>
             )}
           </div>
 
@@ -222,6 +217,7 @@ TaskItem.displayName = 'TaskItem';
 export function CareCalendar() {
   const { user, loading: authLoading } = useAuth();
   const { isPremium } = usePremium();
+  const { showToast } = useToast();
   const navigate = useNavigate();
   const location = useLocation();
   const [tasks, setTasks] = useState<CareTaskWithLogs[]>([]);
@@ -248,6 +244,8 @@ export function CareCalendar() {
   const [rescheduleAt, setRescheduleAt] = useState('');
   const [updateFrequencyOnSkip, setUpdateFrequencyOnSkip] = useState(false);
   const [updatedFrequency, setUpdatedFrequency] = useState<EditableFrequency>('weekly');
+  const [bulkConfirm, setBulkConfirm] = useState<{ label: string; tasks: CareTaskWithLogs[] } | null>(null);
+  const [bulkProgress, setBulkProgress] = useState<{ done: number; total: number } | null>(null);
 
   // ALL HOOKS MUST BE CALLED BEFORE ANY RETURNS
   useEffect(() => {
@@ -547,17 +545,99 @@ export function CareCalendar() {
     return icons[block];
   };
 
-  const completeBulkTasks = async (taskIds: string[]) => {
-    try {
-      for (const taskId of taskIds) {
-        await careTaskService.completeTask(taskId);
+  /**
+   * Bulk completion writes real history — a care_log per task, a feeding_log
+   * for feeding tasks, and a new due date — and none of it is cheaply
+   * reversible. So it asks first, shows progress while it runs, and reports
+   * per-task results instead of collapsing a partial failure into one
+   * generic error.
+   */
+  // The two filter states are kept as-is underneath; the single control just
+  // encodes which one it's setting.
+  // Today's completion, counted from the logs rather than the visible list so
+  // filtering the view doesn't change what "done today" means.
+  const todayProgress = (() => {
+    const today = new Date().toDateString();
+    const dueToday = tasks.filter(
+      (t) => t.isActive && new Date(t.nextDueAt).toDateString() === today
+    );
+    const doneToday = tasks.filter((t) =>
+      t.lastCompleted ? new Date(t.lastCompleted).toDateString() === today : false
+    );
+    const total = dueToday.length + doneToday.length;
+    return { done: doneToday.length, total };
+  })();
+
+  const overdueCount = tasks.filter(
+    (t) => t.isActive && new Date(t.nextDueAt).getTime() < Date.now()
+  ).length;
+
+  const scopeValue = filterAnimalId
+    ? `animal:${filterAnimalId}`
+    : filterEnclosureId
+      ? `enc:${filterEnclosureId}`
+      : '';
+
+  const applyScope = (value: string) => {
+    if (value.startsWith('animal:')) {
+      setFilterAnimalId(value.slice('animal:'.length));
+      setFilterEnclosureId('');
+    } else if (value.startsWith('enc:')) {
+      setFilterEnclosureId(value.slice('enc:'.length));
+      setFilterAnimalId('');
+    } else {
+      setFilterEnclosureId('');
+      setFilterAnimalId('');
+    }
+  };
+
+  const completeBulkTasks = async (taskIds: string[], blockLabel: string) => {
+    const tasksToComplete = tasks.filter((t) => taskIds.includes(t.id));
+    if (tasksToComplete.length === 0) return;
+
+    setBulkConfirm({ label: blockLabel, tasks: tasksToComplete });
+  };
+
+  const runBulkComplete = async () => {
+    if (!bulkConfirm) return;
+
+    const { tasks: tasksToComplete } = bulkConfirm;
+    setBulkProgress({ done: 0, total: tasksToComplete.length });
+
+    const failed: string[] = [];
+    let completed = 0;
+
+    for (const task of tasksToComplete) {
+      try {
+        await careTaskService.completeTask(task.id);
+        completed += 1;
+      } catch (err) {
+        console.error(`Failed to complete "${task.title}":`, err);
+        failed.push(task.title || 'Untitled task');
       }
-      await loadTasks();
-      setSelectedTasks(new Set());
-      setSelectionMode(false);
-    } catch (err) {
-      console.error('Failed to complete tasks:', err);
-      setError('Failed to complete some tasks.');
+      setBulkProgress({ done: completed + failed.length, total: tasksToComplete.length });
+    }
+
+    await loadTasks();
+    setSelectedTasks(new Set());
+    setSelectionMode(false);
+    setBulkProgress(null);
+    setBulkConfirm(null);
+
+    // Say exactly what happened, naming what didn't work.
+    if (failed.length === 0) {
+      showToast(
+        `${completed} ${completed === 1 ? 'task' : 'tasks'} marked done`,
+        'success'
+      );
+    } else if (completed === 0) {
+      showToast(`Couldn't complete ${failed.length === 1 ? failed[0] : `${failed.length} tasks`}`, 'error');
+    } else {
+      showToast(
+        `${completed} done · ${failed.length} failed (${failed.slice(0, 2).join(', ')}${failed.length > 2 ? '…' : ''})`,
+        'warning',
+        6000
+      );
     }
   };
 
@@ -788,6 +868,32 @@ export function CareCalendar() {
         )
       ) : (
         <div className="space-y-4 pt-2">
+          {/* Progress — a care routine is something you finish, and the page
+              never used to say so. */}
+          {todayProgress.total > 0 && (
+            <div className="px-4">
+              <div className="flex items-baseline justify-between mb-1.5">
+                <span className="text-xs text-muted">
+                  <span className="text-white font-semibold">
+                    {todayProgress.done} of {todayProgress.total}
+                  </span>{' '}
+                  done today
+                </span>
+                {overdueCount > 0 && (
+                  <span className="text-xs font-semibold text-red-300">
+                    {overdueCount} overdue
+                  </span>
+                )}
+              </div>
+              <div className="h-1 bg-card rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-accent transition-all"
+                  style={{ width: `${(todayProgress.done / todayProgress.total) * 100}%` }}
+                />
+              </div>
+            </div>
+          )}
+
           {/* Filters */}
           {enclosures.length > 0 && (
             <div className="flex flex-col gap-2 px-4">
@@ -805,45 +911,33 @@ export function CareCalendar() {
                   </button>
                 ))}
               </div>
-              {/* Enclosure filter pills */}
-              {enclosures.length > 1 && (
-                <div className="flex gap-2 overflow-x-auto scrollbar-hide">
-                  <button
-                    onClick={() => setFilterEnclosureId('')}
-                    className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                      filterEnclosureId === '' ? 'bg-card-elevated text-white border border-accent/30' : 'bg-card text-muted border border-divider'
-                    }`}
-                  >
-                    All Pets
-                  </button>
-                  {enclosures.map((enc) => (
-                    <button
-                      key={enc.id}
-                      onClick={() => setFilterEnclosureId(enc.id)}
-                      className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                        filterEnclosureId === enc.id ? 'bg-card-elevated text-white border border-accent/30' : 'bg-card text-muted border border-divider'
-                      }`}
-                    >
-                      {enc.name}
-                    </button>
-                  ))}
-                </div>
-              )}
-
-              {animals.length > 0 && (
+              {/* One scope control. Previously this was an enclosure pill row
+                  labelled "All Pets" sitting above an animal dropdown labelled
+                  "All Animals" — two filters whose labels contradicted what
+                  they actually filtered. Animals are nested under the
+                  enclosure they live in, so one control covers both. */}
+              {(enclosures.length > 1 || animals.length > 0) && (
                 <div className="relative">
                   <select
-                    value={filterAnimalId}
-                    onChange={(e) => setFilterAnimalId(e.target.value)}
+                    value={scopeValue}
+                    onChange={(e) => applyScope(e.target.value)}
                     className="w-full appearance-none h-10 pl-3 pr-10 rounded-xl bg-card border border-divider text-white text-sm font-medium focus:outline-none focus:border-accent/50"
                   >
-                    <option value="">All Animals</option>
-                    <option value="none">Unassigned</option>
-                    {animals.map((animal) => (
-                      <option key={animal.id} value={animal.id}>
-                        {animal.name || `Animal #${animal.animalNumber || '?'}`}
-                      </option>
-                    ))}
+                    <option value="">Everything</option>
+                    {enclosures.map((enc) => {
+                      const encAnimals = animals.filter((a) => a.enclosureId === enc.id);
+                      return (
+                        <optgroup key={enc.id} label={enc.name}>
+                          <option value={`enc:${enc.id}`}>All of {enc.name}</option>
+                          {encAnimals.map((animal) => (
+                            <option key={animal.id} value={`animal:${animal.id}`}>
+                              {animal.name || `Animal #${animal.animalNumber || '?'}`}
+                            </option>
+                          ))}
+                        </optgroup>
+                      );
+                    })}
+                    <option value="enc:none">Not assigned to an enclosure</option>
                   </select>
                   <ChevronDown className="w-4 h-4 text-muted absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
@@ -900,7 +994,7 @@ export function CareCalendar() {
                         <button
                           onClick={() => selectionMode
                             ? selectAllInBlock(blockTasks.map(t => t.id))
-                            : completeBulkTasks(blockTasks.map(t => t.id))
+                            : void completeBulkTasks(blockTasks.map(t => t.id), getTimeBlockLabel(block))
                           }
                           className={`ml-3 px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1 ${
                             isOverdue ? 'bg-red-500/20 text-red-400' : 'bg-accent/15 text-accent'
@@ -984,7 +1078,7 @@ export function CareCalendar() {
               <button onClick={deselectAll} className="text-sm text-muted">Clear</button>
             </div>
             <button
-              onClick={() => completeBulkTasks(Array.from(selectedTasks))}
+              onClick={() => { void completeBulkTasks(Array.from(selectedTasks), 'your selection'); }}
               className="px-4 py-2 bg-accent text-on-accent rounded-full font-semibold text-sm flex items-center gap-2"
             >
               <Check className="w-4 h-4" />
@@ -1025,6 +1119,68 @@ export function CareCalendar() {
         }}
         onSubmit={handleFeedingLogSubmit}
       />
+
+      {/* Bulk complete — confirm, then show progress in place */}
+      {bulkConfirm && (
+        <div className="fixed inset-0 z-50 bg-black/60 flex items-end sm:items-center justify-center p-4">
+          <div className="w-full max-w-sm bg-card border border-divider rounded-2xl overflow-hidden">
+            <div className="p-5">
+              <h3 className="text-base font-bold text-white">
+                Mark {bulkConfirm.tasks.length} {bulkConfirm.tasks.length === 1 ? 'task' : 'tasks'} done?
+              </h3>
+              <p className="text-xs text-muted mt-1.5 leading-relaxed">
+                This logs {bulkConfirm.tasks.length === 1 ? 'it' : 'them'} as completed now in {bulkConfirm.label}.
+                Feeding tasks also record a feeding, which health tracking reads. There&apos;s no undo.
+              </p>
+
+              <ul className="mt-3.5 space-y-1.5 max-h-44 overflow-y-auto">
+                {bulkConfirm.tasks.map((task) => (
+                  <li key={task.id} className="flex items-center gap-2.5 text-sm text-white">
+                    <Check className="w-3.5 h-3.5 text-accent flex-shrink-0" />
+                    <span className="truncate">{task.title || 'Untitled task'}</span>
+                    {task.type === 'feeding' && (
+                      <span className="ml-auto text-[10px] text-muted flex-shrink-0">logs feeding</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+
+              {bulkProgress && (
+                <div className="mt-4">
+                  <div className="h-1 bg-card-elevated rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-accent transition-all"
+                      style={{ width: `${(bulkProgress.done / bulkProgress.total) * 100}%` }}
+                    />
+                  </div>
+                  <p className="text-[11px] text-muted mt-1.5">
+                    Completing {bulkProgress.done} of {bulkProgress.total}…
+                  </p>
+                </div>
+              )}
+            </div>
+
+            <div className="flex border-t border-divider">
+              <button
+                type="button"
+                onClick={() => setBulkConfirm(null)}
+                disabled={bulkProgress !== null}
+                className="flex-1 min-h-[48px] text-sm font-semibold text-muted border-r border-divider active:opacity-70 disabled:opacity-40"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={() => { void runBulkComplete(); }}
+                disabled={bulkProgress !== null}
+                className="flex-1 min-h-[48px] text-sm font-bold text-accent active:opacity-70 disabled:opacity-40"
+              >
+                {bulkProgress ? 'Working…' : 'Mark all done'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Task Action Modal */}
       {showSkipModal && (

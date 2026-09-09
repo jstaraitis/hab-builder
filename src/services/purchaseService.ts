@@ -1,5 +1,5 @@
 import { Capacitor } from '@capacitor/core';
-import { Purchases, LOG_LEVEL } from '@revenuecat/purchases-capacitor';
+import { Purchases, LOG_LEVEL, INTRO_ELIGIBILITY_STATUS } from '@revenuecat/purchases-capacitor';
 import { supabase } from '../lib/supabase';
 
 const REVENUECAT_API_KEY = import.meta.env.VITE_REVENUECAT_API_KEY as string;
@@ -7,6 +7,9 @@ const OFFERING_ID = 'habitatbuilder';
 const ENTITLEMENT_ID = 'Habitat Builder Premium';
 
 export type PurchaseBillingCycle = 'monthly' | 'annual';
+
+/** Per-cycle answer to "will this purchase start a free trial?" */
+export type TrialEligibility = Record<PurchaseBillingCycle, boolean>;
 
 class PurchaseService {
   private configured = false;
@@ -84,6 +87,56 @@ class PurchaseService {
 
     const { customerInfo } = await Purchases.purchasePackage({ aPackage: pkg });
     return !!customerInfo.entitlements.active[ENTITLEMENT_ID];
+  }
+
+  /**
+   * Asks the App Store whether this Apple ID would actually receive the
+   * introductory free trial, per billing cycle.
+   *
+   * Apple — not our database — decides this: eligibility is per subscription
+   * group per Apple ID, and anyone who has ever subscribed in that group is
+   * ineligible. Our `has_used_trial` column can't see that, so on iOS it is
+   * the wrong source of truth for what the paywall promises.
+   *
+   * Returns null when there's no answer to be had (web, RC not configured, or
+   * the lookup failed) so callers can fall back to the server-side flag.
+   *
+   * Anything short of an explicit ELIGIBLE is treated as not eligible:
+   * under-promising costs a conversion, over-promising means the user is
+   * charged immediately after being shown the word "free".
+   */
+  async checkTrialEligibility(): Promise<TrialEligibility | null> {
+    if (!this.isNative()) return null;
+    if (!REVENUECAT_API_KEY) return null;
+
+    try {
+      await this.configureEarly();
+
+      const offering = await this.getOffering();
+      const monthlyId = offering?.monthly?.product.identifier;
+      const annualId = offering?.annual?.product.identifier;
+
+      const productIdentifiers = [monthlyId, annualId].filter(
+        (id): id is string => typeof id === 'string' && id.length > 0
+      );
+      if (productIdentifiers.length === 0) return null;
+
+      const { eligibility } = await Purchases.checkTrialOrIntroductoryPriceEligibility({
+        productIdentifiers,
+      });
+
+      const isEligible = (productId?: string) =>
+        !!productId &&
+        eligibility[productId]?.status === INTRO_ELIGIBILITY_STATUS.INTRO_ELIGIBILITY_STATUS_ELIGIBLE;
+
+      return {
+        monthly: isEligible(monthlyId),
+        annual: isEligible(annualId),
+      };
+    } catch (error) {
+      console.error('[RC] Trial eligibility check failed:', error);
+      return null;
+    }
   }
 
   async checkEntitlement(): Promise<boolean> {

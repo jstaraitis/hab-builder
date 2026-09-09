@@ -1,0 +1,39 @@
+{
+  "pages": [
+    { "id": "page-1", "name": "Chosen — Triage first" },
+    { "id": "page-2", "name": "Alternates (not taken)" }
+  ],
+  "artboards": [
+    { "file": "Current.dc.html", "x": 0, "y": 0, "w": 780, "h": 1240, "title": "Before", "page": "page-1" },
+    { "file": "Main.dc.html", "x": 900, "y": 0, "w": 390, "h": 1300, "title": "After — shipped", "page": "page-1" },
+    { "file": "DirectionB.dc.html", "x": 0, "y": 0, "w": 390, "h": 1000, "title": "B — Quiet by default", "page": "page-2" },
+    { "file": "DirectionC.dc.html", "x": 490, "y": 0, "w": 390, "h": 1120, "title": "C — The habitat board", "page": "page-2" }
+  ],
+  "annotations": [
+    {
+      "id": "note-before",
+      "x": 0,
+      "y": -150,
+      "w": 780,
+      "page": "page-1",
+      "text": "BEFORE\nThe dashboard answered \"how is Kiwi?\" while the keeper was asking \"does anything need me?\"\n\nIt already ran the full threshold engine for every animal on every load, then discarded each result into a 2px border colour on a thumbnail."
+    },
+    {
+      "id": "note-after",
+      "x": 900,
+      "y": -150,
+      "w": 390,
+      "page": "page-1",
+      "text": "AFTER — now built\nVerdict leads, then only what's wrong (most severe first), then today, then every animal legible at a glance.\n\nOne change from this mockup: at one animal the status grid is skipped and the detail card shown instead — a grid of one is noise, and the free tier caps at one animal."
+    },
+    {
+      "id": "note-alternates",
+      "x": 0,
+      "y": -130,
+      "w": 880,
+      "page": "page-2",
+      "text": "NOT TAKEN — kept for reference.\n\nB traded ambient awareness for calm; C organised by enclosure, which added a layer for the single-animal keeper who is most of the free tier."
+    }
+  ],
+  "launch": { "view": "canvas", "page": "page-1" }
+}

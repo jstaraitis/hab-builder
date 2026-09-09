@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <style>
+    body { margin: 0; font-family: Inter, system-ui, -apple-system, sans-serif; }
+    a { color: #2D9B8F; } a:hover { color: #1F6B5E; }
+    .row { display: flex; align-items: center; gap: 11px; padding: 13px 14px; }
+    .tick { width: 24px; height: 24px; border-radius: 999px; border: 2px solid #2A2D35; flex-shrink: 0; }
+    .ttl { font-size: 14px; font-weight: 600; color: #FFFFFF; }
+    .sub { font-size: 11px; color: #8B909A; margin-top: 2px; }
+    .tag { width: 30px; height: 30px; border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  </style>
+</helmet>
+
+<div style="width: 390px; height: 1180px; background: #0F1117; display: flex; flex-direction: column; padding: 16px 0 0;">
+
+  <!-- Header with progress -->
+  <div style="padding: 0 16px 14px;">
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+      <span style="font-size: 21px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.01em;">Care Tasks</span>
+      <div style="display: flex; gap: 8px;">
+        <div style="width: 34px; height: 34px; border-radius: 999px; background: #1A1D24; border: 1px solid #2A2D35; display: flex; align-items: center; justify-content: center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8B909A" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-6 3 3 5-7"/></svg>
+        </div>
+        <div style="width: 34px; height: 34px; border-radius: 999px; background: #2D9B8F; display: flex; align-items: center; justify-content: center;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 11px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 6px;">
+        <span style="font-size: 12px; color: #8B909A;"><span style="color: #FFFFFF; font-weight: 600;">4 of 9</span> done today</span>
+        <span style="font-size: 11px; color: #fca5a5; font-weight: 600;">1 overdue</span>
+      </div>
+      <div style="height: 4px; background: #1A1D24; border-radius: 999px; overflow: hidden;">
+        <div style="width: 44%; height: 100%; background: #2D9B8F;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ONE scope row: view switch + a single "who" control -->
+  <div style="padding: 0 16px 14px; display: flex; align-items: center; gap: 8px;">
+    <div style="display: flex; gap: 6px; flex: 1;">
+      <span style="font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: #2D9B8F; color: #FFFFFF;">Today</span>
+      <span style="font-size: 12px; font-weight: 500; padding: 6px 12px; border-radius: 999px; background: #1A1D24; color: #8B909A; border: 1px solid #2A2D35;">Week</span>
+      <span style="font-size: 12px; font-weight: 500; padding: 6px 12px; border-radius: 999px; background: #1A1D24; color: #8B909A; border: 1px solid #2A2D35;">All</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 5px; padding: 6px 10px; border-radius: 999px; background: #1A1D24; border: 1px solid #2A2D35;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8B909A" stroke-width="2"><circle cx="8.5" cy="9" r="2"/><circle cx="15.5" cy="9" r="2"/><path d="M4 14c0 4 3.5 6 8 6s8-2 8-6"/></svg>
+      <span style="font-size: 12px; font-weight: 500; color: #FFFFFF;">All animals</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8B909A" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+  </div>
+
+  <!-- OVERDUE pinned, not just another section -->
+  <div style="margin: 0 16px 12px; background: #1A1D24; border: 1px solid rgba(252,165,165,0.35); border-radius: 14px; overflow: hidden;">
+    <div style="display: flex; align-items: center; gap: 7px; padding: 10px 14px; background: rgba(252,165,165,0.07);">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fca5a5" stroke-width="2" stroke-linecap="round"><path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L14.7 3.9a2 2 0 00-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+      <span style="font-size: 12px; font-weight: 700; color: #fca5a5;">Overdue</span>
+    </div>
+    <div class="row">
+      <div class="tick" style="border-color: rgba(252,165,165,0.5);"></div>
+      <div class="tag" style="background: rgba(96,165,250,0.12);">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M12 2.7S5 10 5 14a7 7 0 0014 0c0-4-7-11.3-7-11.3z"/></svg>
+      </div>
+      <div style="flex: 1; min-width: 0;">
+        <div class="ttl">Mist enclosure</div>
+        <div class="sub">Frogs &middot; <span style="color: #fca5a5;">yesterday, 6:00 PM</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TODAY — one grouping axis, time of day as a light subhead -->
+  <div style="padding: 0 16px;">
+    <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: #8B909A; margin-bottom: 8px;">Evening</div>
+
+    <div style="background: #1A1D24; border: 1px solid #2A2D35; border-radius: 14px; overflow: hidden;">
+
+      <!-- Swipe affordance shown mid-gesture on the first row -->
+      <div style="position: relative; overflow: hidden; border-bottom: 1px solid #2A2D35;">
+        <div style="position: absolute; inset: 0; background: #2D9B8F; display: flex; align-items: center; padding-left: 16px;">
+          <div style="display: flex; align-items: center; gap: 7px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>
+            <span style="font-size: 13px; font-weight: 700; color: #FFFFFF;">Done</span>
+          </div>
+        </div>
+        <div class="row" style="background: #1A1D24; transform: translateX(84px);">
+          <div class="tick"></div>
+          <div class="tag" style="background: rgba(45,155,143,0.12);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2D9B8F" stroke-width="2"><path d="M4 3v8a2 2 0 004 0V3M6 11v10M18 3c-1.5 2-2 4-2 6s.5 3 2 3 2-1 2-3-.5-4-2-6zM18 12v9"/></svg>
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <div class="ttl">Insects</div>
+            <div class="sub">Sir Rand Barnaby &middot; 6:00 PM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="border-bottom: 1px solid #2A2D35;">
+        <div class="tick"></div>
+        <div class="tag" style="background: rgba(45,155,143,0.12);">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2D9B8F" stroke-width="2"><path d="M12 2a9 9 0 00-9 9c0 5 9 11 9 11s9-6 9-11a9 9 0 00-9-9z"/><path d="M12 7v8M8 11h8"/></svg>
+        </div>
+        <div style="flex: 1; min-width: 0;">
+          <div class="ttl">Salad</div>
+          <div class="sub">Sir Rand Barnaby &middot; 6:00 PM</div>
+        </div>
+      </div>
+
+      <div class="row" style="opacity: 0.42;">
+        <div class="tick" style="border: none; background: #2D9B8F; display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>
+        </div>
+        <div class="tag" style="background: #21252E;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8B909A" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
+        </div>
+        <div style="flex: 1; min-width: 0;">
+          <div class="ttl" style="text-decoration: line-through;">Spot clean</div>
+          <div class="sub">Frogs &middot; done 2:14 PM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOMORROW -->
+  <div style="padding: 16px 16px 0;">
+    <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: #8B909A; margin-bottom: 8px;">Tomorrow</div>
+    <div style="background: #1A1D24; border: 1px solid #2A2D35; border-radius: 14px; overflow: hidden;">
+      <div class="row" style="border-bottom: 1px solid #2A2D35;">
+        <div class="tick"></div>
+        <div class="tag" style="background: rgba(96,165,250,0.12);">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M3 8h18M3 12h18M3 16h18"/></svg>
+        </div>
+        <div style="flex: 1; min-width: 0;">
+          <div class="ttl">Water Change</div>
+          <div class="sub">Kiwi &middot; 8:00 PM</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="tick"></div>
+        <div class="tag" style="background: rgba(45,155,143,0.12);">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2D9B8F" stroke-width="2"><path d="M4 3v8a2 2 0 004 0V3M6 11v10M18 3c-1.5 2-2 4-2 6s.5 3 2 3 2-1 2-3-.5-4-2-6zM18 12v9"/></svg>
+        </div>
+        <div style="flex: 1; min-width: 0;">
+          <div class="ttl">Feed Frogs</div>
+          <div class="sub">Kiwi &middot; 8:00 PM &middot; Calcium + Multivitamin</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Undo pattern replaces the silent bulk complete -->
+  <div style="margin: 20px 16px 0; background: #21252E; border: 1px solid #2A2D35; border-radius: 12px; padding: 11px 13px; display: flex; align-items: center; gap: 10px;">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2D9B8F" stroke-width="2" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>
+    <span style="font-size: 12px; color: #FFFFFF; flex: 1;">Spot clean completed</span>
+    <span style="font-size: 12px; font-weight: 700; color: #2D9B8F;">Undo</span>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>
