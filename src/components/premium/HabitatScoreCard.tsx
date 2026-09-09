@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ClipboardCheck, Lock, ChevronDown, HelpCircle } from 'lucide-react';
 import type {
+  HabitatDimensionId,
   HabitatScoreResult,
   HabitatGrade,
   FindingSeverity,
@@ -45,9 +46,21 @@ interface HabitatScoreCardProps {
   readonly result: HabitatScoreResult;
   readonly enclosureName: string;
   readonly isPremium: boolean;
+  /**
+   * Dimensions already shown elsewhere on screen — the attention list at the
+   * top, or the dedicated UVB card. Their findings are hidden here so one
+   * problem isn't reported three times, but they still count toward the score:
+   * suppressing the display must never quietly improve the grade.
+   */
+  readonly suppressDimensions?: ReadonlySet<HabitatDimensionId>;
 }
 
-export function HabitatScoreCard({ result, enclosureName, isPremium }: HabitatScoreCardProps) {
+export function HabitatScoreCard({
+  result,
+  enclosureName,
+  isPremium,
+  suppressDimensions,
+}: HabitatScoreCardProps) {
   const [showAll, setShowAll] = useState(false);
 
   // A grade built on almost no evidence would be worse than no grade — say
@@ -68,8 +81,14 @@ export function HabitatScoreCard({ result, enclosureName, isPremium }: HabitatSc
   }
 
   const grade = GRADE_STYLES[result.grade];
-  const issues = result.findings.length;
+  const visibleFindings = suppressDimensions
+    ? result.findings.filter((f) => !suppressDimensions.has(f.dimension))
+    : result.findings;
+  const issues = visibleFindings.length;
   const hidden = Math.max(0, issues - 1);
+  // Counted from the full set, so the grade and the "issues found" line never
+  // disagree with each other.
+  const suppressed = result.findings.length - issues;
 
   return (
     <div className={`mx-4 bg-card border rounded-2xl overflow-hidden ${grade.ring}`}>
@@ -97,12 +116,14 @@ export function HabitatScoreCard({ result, enclosureName, isPremium }: HabitatSc
           </p>
           <p className="text-[11px] text-muted mt-1">
             Scored on {result.assessedCount} of {result.totalCount} checks
+            {suppressed > 0 && ` · ${suppressed} shown above`}
           </p>
         </div>
       </div>
 
-      {/* Dimension breakdown — premium */}
-      {isPremium && (
+      {/* The per-check breakdown is a report, not a daily glance — it lives
+          behind the expand so the dashboard stays scannable. */}
+      {isPremium && showAll && (
         <div className="px-4 pb-3 space-y-1.5">
           {result.dimensions.map((dim) => (
             <div key={dim.id} className="flex items-center gap-2.5">
@@ -126,14 +147,14 @@ export function HabitatScoreCard({ result, enclosureName, isPremium }: HabitatSc
       {/* Findings */}
       {issues > 0 && (
         <div className="px-4 pb-4 space-y-2">
-          {(isPremium && showAll ? result.findings : result.findings.slice(0, 1)).map((finding) => (
+          {(isPremium && showAll ? visibleFindings : visibleFindings.slice(0, 1)).map((finding) => (
             <FindingBlock key={finding.id} finding={finding} />
           ))}
 
           {/* Premium users expand; free users see the paywall in its place.
               The first fix is given away in full — a locked list with nothing
               readable reads as extraction rather than help. */}
-          {hidden > 0 && (
+          {(hidden > 0 || isPremium) && (
             isPremium ? (
               !showAll && (
                 <button
@@ -141,8 +162,7 @@ export function HabitatScoreCard({ result, enclosureName, isPremium }: HabitatSc
                   onClick={() => setShowAll(true)}
                   className="w-full min-h-[44px] rounded-xl bg-card-elevated border border-divider text-sm font-semibold text-muted active:opacity-70 transition-opacity flex items-center justify-center gap-1.5"
                 >
-                  Show {hidden} more
-                  <ChevronDown className="w-4 h-4" />
+                  View full report                  <ChevronDown className="w-4 h-4" />
                 </button>
               )
             ) : (

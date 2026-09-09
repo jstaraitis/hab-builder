@@ -46,7 +46,7 @@ import { profileService } from '../../services/profileService';
 import { enclosureService } from '../../services/enclosureService';
 import { UvbLifecycleCard } from '../premium/UvbLifecycleCard';
 import { HabitatScoreCard } from '../premium/HabitatScoreCard';
-import { calculateHabitatScore } from '../../engine/habitatScore';
+import { calculateHabitatScore, type HabitatDimensionId } from '../../engine/habitatScore';
 import { VerdictBanner } from '../Dashboard/VerdictBanner';
 import { AttentionList } from '../Dashboard/AttentionList';
 import { AnimalStatusGrid } from '../Dashboard/AnimalStatusGrid';
@@ -1263,6 +1263,36 @@ export function DashboardView() {
     });
   }, [animals, alertsByAnimalId, enclosures, selectedAnimalId, thresholdAlerts]);
 
+  /**
+   * A problem should appear once, in the highest-priority place it qualifies
+   * for. The attention list at the top owns anything it surfaces; the UVB card
+   * owns the bulb whenever it renders. Habitat Score reports whatever is left.
+   *
+   * Only the DISPLAY is deduplicated — every check still counts toward the
+   * grade, so hiding a finding never quietly improves the score.
+   */
+  const habitatSuppressed = useMemo(() => {
+    const suppressed = new Set<HabitatDimensionId>();
+
+    // The attention list is premium-only, so nothing is surfaced there for
+    // free users and nothing should be hidden from them here.
+    if (isPremium) {
+      const categoryToDimension: Record<string, HabitatDimensionId> = {
+        UVB: 'uvb',
+        Temperature: 'temperature',
+        Humidity: 'humidity',
+      };
+      for (const item of triage.items) {
+        const dimension = categoryToDimension[item.category];
+        if (dimension) suppressed.add(dimension);
+      }
+      // The UVB card sits in the same Habitat section with its own actions.
+      if (selectedEnclosure) suppressed.add('uvb');
+    }
+
+    return suppressed;
+  }, [isPremium, triage.items, selectedEnclosure]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-surface pb-28">
@@ -1335,24 +1365,6 @@ export function DashboardView() {
           />
         )}
 
-        {/* Free users get the grade and the top fix in full — the rest is
-            premium. A locked list with nothing readable reads as extraction. */}
-        {habitatScore && selectedEnclosure && (
-          <HabitatScoreCard
-            result={habitatScore}
-            enclosureName={selectedEnclosure.name}
-            isPremium={isPremium}
-          />
-        )}
-
-        {isPremium && selectedEnclosure && (
-          <UvbLifecycleCard
-            enclosure={selectedEnclosure}
-            onReplace={handleReplaceUvbBulb}
-            onSetBulbType={handleSetUvbBulbType}
-            speciesNeedsUvb={animalProfile?.careTargets?.lighting?.uvbRequired}
-          />
-        )}
 
         {/* Free users: the attention list above is premium, so this is where
             they learn what it would tell them. */}
@@ -1453,6 +1465,34 @@ export function DashboardView() {
               onToggleSensitivity={handleToggleSensitivity}
             />
           </div>
+        )}
+
+        {/* ── Habitat ──────────────────────────────────────────────────────
+            Everything about the enclosure, grouped. Previously the score and
+            the bulb sat above the animal grid while the environment readings
+            sat below it, so enclosure content was interrupted by six cards. */}
+        {selectedEnclosure && (
+          <div className="px-4 pt-2">
+            <p className="text-base font-semibold text-white">Habitat</p>
+          </div>
+        )}
+
+        {habitatScore && selectedEnclosure && (
+          <HabitatScoreCard
+            result={habitatScore}
+            enclosureName={selectedEnclosure.name}
+            isPremium={isPremium}
+            suppressDimensions={habitatSuppressed}
+          />
+        )}
+
+        {isPremium && selectedEnclosure && (
+          <UvbLifecycleCard
+            enclosure={selectedEnclosure}
+            onReplace={handleReplaceUvbBulb}
+            onSetBulbType={handleSetUvbBulbType}
+            speciesNeedsUvb={animalProfile?.careTargets?.lighting?.uvbRequired}
+          />
         )}
 
         {selectedEnclosureId && enclosures.length > 0 ? (
