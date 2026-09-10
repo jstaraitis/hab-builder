@@ -71,7 +71,9 @@
       "uvbRecommended": true,
       "coveragePercent": 50,
       "photoperiod": "12-14h light for day/night cycle",
-      "uvbStrength": "5.0"
+      "uvbStrength": "5.0",
+      "fergusonZone": 1,
+      "fergusonZoneNote": "Crepuscular ambush snake; pythons cited in Zone 1."
     },
     "gradient": "Horizontal thermal gradient required (88-92°F warm side → 76-80°F cool side)"
   },

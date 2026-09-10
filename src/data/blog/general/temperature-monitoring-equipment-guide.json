@@ -69,7 +69,7 @@
     },
     {
       "type": "highlight",
-      "content": "CRITICAL: The laser pointer on IR guns does NOT measure where the laser hits°it just marks the center of the measurement area. The gun measures a circular area around the laser point, with size depending on distance."
+      "content": "CRITICAL: The laser pointer on IR guns does NOT measure where the laser hits—it just marks the center of the measurement area. The gun measures a circular area around the laser point, with size depending on distance."
     },
     {
       "type": "text",
@@ -93,11 +93,11 @@
       "type": "table",
       "headers": ["Step", "Technique", "Common Mistake to Avoid"],
       "rows": [
-        ["1. Point at surface", "Aim directly at basking rock, substrate, or branch", "Measuring air or through glass°won't work"],
+        ["1. Point at surface", "Aim directly at basking rock, substrate, or branch", "Measuring air or through glass—won't work"],
         ["2. Get close", "Within 6-12\" for small spots like basking surfaces", "Too far away = measurement area too large, averages temps"],
         ["3. Pull trigger", "Hold trigger 1-2 seconds for reading to stabilize", "Quick trigger pull = inaccurate reading"],
         ["4. Read display", "Note temperature while trigger held", "Reading changes after releasing trigger"],
-        ["5. Repeat multiple spots", "Measure basking, warm zone, mid, cool zone, hides", "Only checking one spot°need full gradient map"]
+        ["5. Repeat multiple spots", "Measure basking, warm zone, mid, cool zone, hides", "Only checking one spot—need full gradient map"]
       ]
     },
     {
@@ -153,7 +153,7 @@
       "rows": [
         ["Warm/Basking Zone", "At animal height (not on hot surface!)", "Ambient air temp in warm zone", "Shows air temperature animal breathes while basking"],
         ["Cool Zone", "At animal height on opposite end", "Ambient air temp in cool retreat", "Verifies gradient exists, cool zone is adequate"],
-        ["Inside Hide (optional)", "Place probe inside hide", "Hide interior temperature", "Animals spend most time in hides°shows actual temps they experience"],
+        ["Inside Hide (optional)", "Place probe inside hide", "Hide interior temperature", "Animals spend most time in hides—shows actual temps they experience"],
         ["Mid-Zone (optional)", "Middle height, center of enclosure", "Transition zone temperature", "Helps map full gradient"],
         ["AVOID substrate surface", "Don't place probe touching basking rock", "Will read basking surface temp (too high)", "Use IR gun for surface temps, probes for air temps"]
       ]
@@ -224,7 +224,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "Calibrate your thermostat against your IR temperature gun. Thermostat probes can be off by °5°F. Set the thermostat to whatever number produces your target temperature°don't assume the display is accurate."
+      "content": "Calibrate your thermostat against your IR temperature gun. Thermostat probes can be off by °5°F. Set the thermostat to whatever number produces your target temperature—don't assume the display is accurate."
     },
     {
       "type": "section",
@@ -232,7 +232,7 @@
     },
     {
       "type": "text",
-      "text": "Hygrometers measure relative humidity (% moisture in air). Many species-specific guides discuss humidity requirements°here's how to measure it accurately."
+      "text": "Hygrometers measure relative humidity (% moisture in air). Many species-specific guides discuss humidity requirements—here's how to measure it accurately."
     },
     {
       "type": "text",
@@ -267,7 +267,7 @@
     {
       "type": "warning",
       "severity": "tip",
-      "content": "Place hygrometer probes where your animal spends time°inside hides or mid-level in arboreal setups. Don't place at enclosure top where humidity is lowest. You want to measure humidity the animal actually experiences."
+      "content": "Place hygrometer probes where your animal spends time—inside hides or mid-level in arboreal setups. Don't place at enclosure top where humidity is lowest. You want to measure humidity the animal actually experiences."
     },
     {
       "type": "section",
@@ -297,7 +297,7 @@
     {
       "type": "warning",
       "severity": "important",
-      "content": "If your setup currently uses stick-on dial thermometers, replace them immediately. These are °10°F inaccurate°you could think your enclosure is 85°F when it's actually 75°F or 95°F. This causes serious health issues."
+      "content": "If your setup currently uses stick-on dial thermometers, replace them immediately. These are °10°F inaccurate—you could think your enclosure is 85°F when it's actually 75°F or 95°F. This causes serious health issues."
     },
     {
       "type": "section",
@@ -359,7 +359,7 @@
         "Receive alerts if temperature/humidity goes out of range (equipment failure, power outage)",
         "Track seasonal changes and adjust heating/cooling proactively",
         "See exact temperature/humidity patterns over days, weeks, months",
-        "Monitor while traveling°ensure pet sitter maintains proper conditions",
+        "Monitor while traveling—ensure pet sitter maintains proper conditions",
         "Document conditions for breeding projects (brumation cycles, seasonal cooling)",
         "Troubleshoot issues with historical data (when did temps start fluctuating?)"
       ]
@@ -398,11 +398,11 @@
     {
       "type": "list",
       "items": [
-        "Surface temps (IR gun): Measure basking rock/platform, warm zone substrate, cool zone substrate°these show where animal sits",
-        "Air temps (probe): Monitor warm zone air, cool zone air continuously with probes°these show breathing conditions",
-        "Both measurements matter: A basking rock can be 95°F (surface) while air temp 6\" above is 80°F°both are relevant",
+        "Surface temps (IR gun): Measure basking rock/platform, warm zone substrate, cool zone substrate—these show where animal sits",
+        "Air temps (probe): Monitor warm zone air, cool zone air continuously with probes—these show breathing conditions",
+        "Both measurements matter: A basking rock can be 95°F (surface) while air temp 6\" above is 80°F—both are relevant",
         "Time of day: Measure morning (after night cooling), afternoon (peak heat), evening (as basking lamp turns off)",
-        "Multiple locations: Don't just check one spot°map temperatures across entire enclosure"
+        "Multiple locations: Don't just check one spot—map temperatures across entire enclosure"
       ]
     },
     {
@@ -421,10 +421,10 @@
       "type": "table",
       "headers": ["Equipment", "Calibration Method", "Frequency", "Details"],
       "rows": [
-        ["IR Temperature Gun", "Ice water test (32°F/0°C)", "Every 6-12 months", "Fill cup with ice + water, measure surface°should read ~32°F"],
+        ["IR Temperature Gun", "Ice water test (32°F/0°C)", "Every 6-12 months", "Fill cup with ice + water, measure surface—should read ~32°F"],
         ["Digital Probe Thermometer", "Ice water test + boiling water test", "Every 6-12 months", "Ice water = 32°F, boiling water = 212°F (at sea level)"],
         ["Hygrometer", "Salt test (75% RH)", "Every 6 months", "Seal hygrometer + salt solution in bag 8-12 hrs, should read 75%"],
-        ["Thermostat Probe", "Compare to IR gun readings", "Monthly", "Set thermostat to 90°F, measure actual surface temp with IR gun°adjust as needed"]
+        ["Thermostat Probe", "Compare to IR gun readings", "Monthly", "Set thermostat to 90°F, measure actual surface temp with IR gun—adjust as needed"]
       ]
     },
     {
@@ -444,12 +444,12 @@
       "headers": ["Problem", "Likely Cause", "Solution"],
       "rows": [
         ["Readings fluctuate wildly", "Probe touching heat source, drafts, cheap equipment", "Move probe to hang in air, seal drafts, upgrade equipment"],
-        ["IR gun shows different temp than probe", "IR measures surface, probe measures air°both correct", "This is normal°use each for their intended purpose"],
+        ["IR gun shows different temp than probe", "IR measures surface, probe measures air—both correct", "This is normal—use each for their intended purpose"],
         ["Thermostat shuts off but temps still too hot", "Thermostat probe poorly placed or calibration off", "Reposition probe, lower thermostat target temperature"],
         ["Temps vary 10-15°F throughout day", "Normal fluctuation, but may need thermostat/dimmer", "Some fluctuation is OK, but large swings need regulation"],
-        ["Display shows 'LLL' or 'HHH'", "Out of range (too low/too high)", "Probe disconnected or environment extreme°check probe connection"],
+        ["Display shows 'LLL' or 'HHH'", "Out of range (too low/too high)", "Probe disconnected or environment extreme—check probe connection"],
         ["Battery dies quickly", "Cheap batteries, high-drain unit, cold environment", "Use quality alkaline batteries, replace annually"],
-        ["Humidity reads 0% or 100%", "Hygrometer sensor failed or saturated", "Replace unit°sensor is damaged"]
+        ["Humidity reads 0% or 100%", "Hygrometer sensor failed or saturated", "Replace unit—sensor is damaged"]
       ]
     },
     {
@@ -476,7 +476,7 @@
     },
     {
       "type": "highlight",
-      "content": "Invest most in thermostats (prevent fires/overheating) and IR temperature guns (most-used tool). You can use budget probe thermometers without issue°they're less critical than IR guns and thermostats."
+      "content": "Invest most in thermostats (prevent fires/overheating) and IR temperature guns (most-used tool). You can use budget probe thermometers without issue—they're less critical than IR guns and thermostats."
     },
     {
       "type": "section",

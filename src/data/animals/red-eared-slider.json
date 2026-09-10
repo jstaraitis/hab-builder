@@ -72,7 +72,9 @@
       "uvbRecommended": true,
       "uvbStrength": "5.0",
       "coveragePercent": 50,
-      "photoperiod": "12h day / 12h night"
+      "photoperiod": "12h day / 12h night",
+      "fergusonZone": 3,
+      "fergusonZoneNote": "Heavy full-sun basker; sliders and similar turtles cited Zone 3."
     },
     "gradient": "Aquatic with heated basking area"
   },

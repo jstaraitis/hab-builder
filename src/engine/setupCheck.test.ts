@@ -9,60 +9,102 @@ function ids(answers: SetupCheckAnswers, context: SetupCheckContext = {}): strin
   return run(answers, context).findings.map((f) => f.id);
 }
 
-describe('setupCheck — UVB distance', () => {
-  it('flags a T5 HO mounted too far away as critical', () => {
-    const finding = run({ uvbDistanceInches: 26 }, { uvbBulbType: 't5-ho' }).findings[0];
-    expect(finding.id).toBe('uvb-too-far');
-    expect(finding.severity).toBe('critical');
-    expect(finding.detail).toContain('metabolic bone disease');
+describe('setupCheck — UVB, by Ferguson zone', () => {
+  // Zone 3 = open sun basker (bearded dragon, veiled chameleon).
+  const zone3 = { fergusonZone: 3 as const, uvbRequired: true, speciesName: 'Bearded Dragon' };
+  // Zone 1 = shade dweller (crested gecko, leopard gecko, ball python).
+  const zone1 = { fergusonZone: 1 as const, uvbRequired: true, speciesName: 'Crested Gecko' };
+
+  it('skips every UVB rule when the species has no zone', () => {
+    // Fully aquatic amphibians sit outside Ferguson's scheme entirely.
+    expect(ids({ uvbDistanceInches: 40 }, { uvbRequired: true })).toHaveLength(0);
   });
 
-  it('flags a T5 HO mounted too close, but less severely', () => {
-    // Too close is a real risk, but too far is worse: a lit bulb doing nothing
-    // looks correct to the keeper.
-    const finding = run({ uvbDistanceInches: 4 }, { uvbBulbType: 't5-ho' }).findings[0];
-    expect(finding.id).toBe('uvb-too-close');
-    expect(finding.severity).toBe('important');
+  it('skips UVB for a species that does not need it', () => {
+    expect(ids({ uvbDistanceInches: 40 }, { ...zone3, uvbRequired: false })).toHaveLength(0);
   });
 
-  it('accepts a distance inside the range for the bulb type', () => {
-    expect(ids({ uvbDistanceInches: 15 }, { uvbBulbType: 't5-ho' })).not.toContain('uvb-too-far');
-    expect(ids({ uvbDistanceInches: 15 }, { uvbBulbType: 't5-ho' })).not.toContain('uvb-too-close');
+  describe('the bulb itself being wrong for the zone', () => {
+    it('flags a compact lamp as too weak for a full-sun basker', () => {
+      // The failure a distance calculator cannot catch: no mounting height
+      // makes a compact bulb deliver Zone 4 UVI.
+      const finding = run({}, { fergusonZone: 4, uvbBulbType: 'compact', speciesName: 'Uromastyx' })
+        .findings[0];
+      expect(finding.id).toBe('uvb-bulb-too-weak');
+      expect(finding.severity).toBe('critical');
+      expect(finding.detail).toContain('Moving the lamp closer will not fix it');
+    });
+
+    it('flags a T8 as too weak for a Zone 3 basker', () => {
+      expect(ids({}, { ...zone3, uvbBulbType: 't8' })).toContain('uvb-bulb-too-weak');
+    });
+
+    it('flags a mercury vapour lamp as too strong for a shade dweller', () => {
+      const finding = run({}, { ...zone1, uvbBulbType: 'mercury-vapor' }).findings[0];
+      expect(finding.id).toBe('uvb-bulb-too-strong');
+      expect(finding.severity).toBe('critical');
+      expect(finding.fix).toContain('lower-output');
+    });
+
+    it('reports the wrong bulb even when no distance was given', () => {
+      // Bulb suitability does not depend on the distance answer at all.
+      expect(ids({}, { ...zone1, uvbBulbType: 'metal-halide' })).toContain('uvb-bulb-too-strong');
+    });
+
+    it('does not complain about a T5 HO in any zone', () => {
+      for (const zone of [1, 2, 3, 4] as const) {
+        const result = ids({}, { fergusonZone: zone, uvbBulbType: 't5-ho', uvbRequired: true });
+        expect(result).not.toContain('uvb-bulb-too-weak');
+        expect(result).not.toContain('uvb-bulb-too-strong');
+      }
+    });
   });
 
-  it('uses a different range for a compact bulb than a T5 HO', () => {
-    // 15" is fine for a T5 HO and much too far for a compact.
-    expect(ids({ uvbDistanceInches: 15 }, { uvbBulbType: 'compact' })).toContain('uvb-too-far');
-    expect(ids({ uvbDistanceInches: 15 }, { uvbBulbType: 't5-ho' })).not.toContain('uvb-too-far');
-  });
+  describe('distance, once the bulb is plausible', () => {
+    it('flags a lamp mounted too far away as critical', () => {
+      const finding = run({ uvbDistanceInches: 30 }, { ...zone3, uvbBulbType: 't5-ho' }).findings[0];
+      expect(finding.id).toBe('uvb-too-far');
+      expect(finding.severity).toBe('critical');
+      expect(finding.detail).toContain('metabolic bone disease');
+    });
 
-  it('requires a shorter distance when the lamp sits over mesh', () => {
-    // 17" passes for a T5 HO mounted inside, but not through mesh.
-    expect(ids({ uvbDistanceInches: 17, uvbOverMesh: false }, { uvbBulbType: 't5-ho' })).not.toContain(
-      'uvb-too-far'
-    );
-    expect(ids({ uvbDistanceInches: 17, uvbOverMesh: true }, { uvbBulbType: 't5-ho' })).toContain(
-      'uvb-too-far'
-    );
-  });
+    it('names the zone and its UVI target in the explanation', () => {
+      const finding = run({ uvbDistanceInches: 30 }, { ...zone3, uvbBulbType: 't5-ho' }).findings[0];
+      expect(finding.detail).toContain('Zone 3');
+      expect(finding.detail).toMatch(/UVI [\d.]+–[\d.]+ at the basking spot/);
+    });
 
-  it('mentions mesh in the explanation when it applies', () => {
-    const finding = run({ uvbDistanceInches: 30, uvbOverMesh: true }, { uvbBulbType: 't5-ho' })
-      .findings[0];
-    expect(finding.detail).toContain('Mesh');
-  });
+    it('flags a lamp mounted too close, less severely than too far', () => {
+      // Too far is worse: a lit bulb delivering nothing still looks correct.
+      const finding = run({ uvbDistanceInches: 4 }, { ...zone3, uvbBulbType: 't5-ho' }).findings[0];
+      expect(finding.id).toBe('uvb-too-close');
+      expect(finding.severity).toBe('important');
+    });
 
-  it('says nothing about UVB for a species that does not need it', () => {
-    expect(ids({ uvbDistanceInches: 40 }, { uvbRequired: false })).toHaveLength(0);
-  });
+    it('applies a different working range per zone for the same bulb', () => {
+      // A T5 HO at 19" is fine for a shade dweller and too far for a sun basker.
+      expect(ids({ uvbDistanceInches: 19 }, { ...zone1, uvbBulbType: 't5-ho' })).not.toContain('uvb-too-far');
+      expect(ids({ uvbDistanceInches: 19 }, { ...zone3, uvbBulbType: 't5-ho' })).toContain('uvb-too-far');
+    });
 
-  it('falls back to a conservative range when the bulb type is unknown', () => {
-    expect(ids({ uvbDistanceInches: 20 })).toContain('uvb-too-far');
-  });
+    it('requires a shorter distance when the lamp sits over mesh', () => {
+      expect(ids({ uvbDistanceInches: 17, uvbOverMesh: false }, { ...zone3, uvbBulbType: 't5-ho' })).not.toContain('uvb-too-far');
+      expect(ids({ uvbDistanceInches: 17, uvbOverMesh: true }, { ...zone3, uvbBulbType: 't5-ho' })).toContain('uvb-too-far');
+    });
 
-  it('points the keeper at the manufacturer chart rather than claiming precision', () => {
-    const finding = run({ uvbDistanceInches: 30 }, { uvbBulbType: 't5-ho' }).findings[0];
-    expect(finding.fix).toContain("manufacturer");
+    it('mentions mesh in the explanation when it applies', () => {
+      const finding = run({ uvbDistanceInches: 30, uvbOverMesh: true }, { ...zone3, uvbBulbType: 't5-ho' }).findings[0];
+      expect(finding.detail).toContain('Mesh');
+    });
+
+    it('falls back to a conservative range when the bulb type is unknown', () => {
+      expect(ids({ uvbDistanceInches: 30 }, zone3)).toContain('uvb-too-far');
+    });
+
+    it('points at the manufacturer chart rather than claiming precision', () => {
+      const finding = run({ uvbDistanceInches: 30 }, { ...zone3, uvbBulbType: 't5-ho' }).findings[0];
+      expect(finding.fix).toContain('manufacturer');
+    });
   });
 });
 
@@ -211,7 +253,7 @@ describe('setupCheck — ranking and completeness', () => {
         hidesWarmSide: 1,
         hidesCoolSide: 0,
       },
-      { uvbBulbType: 't5-ho' }
+      { uvbBulbType: 't5-ho', fergusonZone: 3, uvbRequired: true }
     );
     const severities = result.findings.map((f) => f.severity);
     expect(severities[0]).toBe('critical');
@@ -221,7 +263,7 @@ describe('setupCheck — ranking and completeness', () => {
   it('gives every finding an actionable fix, not just a complaint', () => {
     const result = run(
       { uvbDistanceInches: 30, probeLocation: 'cool-end', hidesWarmSide: 0, hidesCoolSide: 0 },
-      { uvbBulbType: 't5-ho' }
+      { uvbBulbType: 't5-ho', fergusonZone: 3, uvbRequired: true }
     );
     expect(result.findings.length).toBeGreaterThan(0);
     for (const finding of result.findings) {
@@ -242,7 +284,7 @@ describe('setupCheck — ranking and completeness', () => {
         heatSource: 'overhead-bulb',
         heatOnThermostat: true,
       },
-      { uvbBulbType: 't5-ho', uvbRequired: true, requiresThermalGradient: true }
+      { uvbBulbType: 't5-ho', uvbRequired: true, fergusonZone: 3, requiresThermalGradient: true }
     );
 
     expect(result.findings).toHaveLength(0);

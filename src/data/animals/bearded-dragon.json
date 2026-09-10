@@ -2,7 +2,13 @@
   "id": "bearded-dragon",
   "commonName": "Bearded Dragon",
   "scientificName": "Pogona vitticeps",
-  "searchQuery": ["bearded dragon", "pogona vitticeps", "beardie", "agama", "lizard"],
+  "searchQuery": [
+    "bearded dragon",
+    "pogona vitticeps",
+    "beardie",
+    "agama",
+    "lizard"
+  ],
   "careLevel": "beginner",
   "emoji": "🦎",
   "imageUrl": "/animals/bearded-dragon/bearded-dragon-1.jpg",
@@ -66,7 +72,9 @@
       "uvbRecommended": true,
       "uvbStrength": "10.0",
       "coveragePercent": 65,
-      "photoperiod": "12h day / 12h night"
+      "photoperiod": "12h day / 12h night",
+      "fergusonZone": 3,
+      "fergusonZoneNote": "Cited as Zone 3 (some sources 4); lower zone chosen."
     },
     "gradient": "Horizontal thermal gradient required"
   },
@@ -74,35 +82,41 @@
     "preferVertical": false,
     "verticalSpacePercent": 30,
     "thermalGradient": "horizontal",
-    "requiredZones": ["basking", "hide", "water"],
-    "optionalZones": ["feeding"]
+    "requiredZones": [
+      "basking",
+      "hide",
+      "water"
+    ],
+    "optionalZones": [
+      "feeding"
+    ]
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
-  "heatSource": "basking",
-  "humidity": "low",
-  "lighting": "uvb-desert",
-  "substrate": [
-    "paper",
-    "sand",
-    "soil",
-    "bioactive"
-  ],
-  "diet": [
-    "omnivore"
-  ],
-  "waterFeature": "large-bowl",
-  "decor": [
-    "hides",
-    "branches",
-    "plants"
-  ],
-  "climbing": "both",
-  "activity": "terrestrial",
-  "climate": "arid",
-  "animalType": "reptile",
-  "bioactiveSubstrate": "arid"
-},
+    "heatSource": "basking",
+    "humidity": "low",
+    "lighting": "uvb-desert",
+    "substrate": [
+      "paper",
+      "sand",
+      "soil",
+      "bioactive"
+    ],
+    "diet": [
+      "omnivore"
+    ],
+    "waterFeature": "large-bowl",
+    "decor": [
+      "hides",
+      "branches",
+      "plants"
+    ],
+    "climbing": "both",
+    "activity": "terrestrial",
+    "climate": "arid",
+    "animalType": "reptile",
+    "bioactiveSubstrate": "arid"
+  },
   "lifespan": "10-15 years in captivity, 20-25 possible with excellent care",
   "dietType": "Omnivore",
   "adultSize": "16-24 inches (including tail)",
@@ -113,7 +127,7 @@
     "Provide basking platform under heat lamp for thermoregulation",
     "Include branches and rocks for climbing enrichment",
     "Full-spectrum lighting is essential for health, such as ~6500k daylight bulbs"
-    ],
+  ],
   "notes": [
     "One of the most popular pet lizards due to interactive personality and handleability",
     "Communicate through arm waving (submission signal to dominant dragons) and head bobbing (territorial display or courtship behavior)",
@@ -127,7 +141,6 @@
       "message": "UVB lighting is essential - use tube-style UVB 12.0/10.0 bulbs, not compact coils",
       "category": "common_mistake"
     },
-
     {
       "severity": "critical",
       "message": "Avoid housing multiple bearded dragons together - they are territorial and may fight",

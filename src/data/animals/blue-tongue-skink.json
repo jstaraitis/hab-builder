@@ -66,7 +66,9 @@
       "uvbRecommended": true,
       "uvbStrength": "5-10%",
       "coveragePercent": 70,
-      "photoperiod": "12 hours light, 12 hours dark"
+      "photoperiod": "12 hours light, 12 hours dark",
+      "fergusonZone": 2,
+      "fergusonZoneNote": "Cited as Zone 2-3; lower zone chosen deliberately."
     },
     "gradient": "Ground-dwelling lizard. Requires strong basking area and UVB for calcium metabolism."
   },

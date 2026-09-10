@@ -100,7 +100,7 @@
         },
         {
           "type": "text",
-          "text": "<strong>Feeding Your CUC</strong><br/>CUC feeds primarily on animal waste, but supplement during establishment or low-waste periods:<br/>° Fish flakes (small pinch weekly)<br/>° Vegetable scraps (carrot, zucchini, cucumber°remove after 24 hours)<br/>° Leaf litter (primary food source)<br/>° Calcium powder (dusted on food or cuttlebone in corner)"
+          "text": "<strong>Feeding Your CUC</strong><br/>CUC feeds primarily on animal waste, but supplement during establishment or low-waste periods:<br/>— Fish flakes (small pinch weekly)<br/>— Vegetable scraps (carrot, zucchini, cucumber—remove after 24 hours)<br/>— Leaf litter (primary food source)<br/>— Calcium powder (dusted on food or cuttlebone in corner)"
         }
       ]
     },
@@ -133,11 +133,11 @@
         },
         {
           "type": "text",
-          "text": "<strong>Planting Methods</strong><br/>° <strong>Direct planting:</strong> Bury roots in substrate, best for long-term setups<br/>° <strong>Potted plants:</strong> Bury pot under substrate, easy to replace but limits root growth<br/>° <strong>Epiphytic mounting:</strong> Attach air plants, bromeliads to cork bark with fishing line"
+          "text": "<strong>Planting Methods</strong><br/>— <strong>Direct planting:</strong> Bury roots in substrate, best for long-term setups<br/>— <strong>Potted plants:</strong> Bury pot under substrate, easy to replace but limits root growth<br/>— <strong>Epiphytic mounting:</strong> Attach air plants, bromeliads to cork bark with fishing line"
         },
         {
           "type": "text",
-          "text": "<strong>Lighting for Plants</strong><br/>Most bioactive plants need 8-12 hours of light daily. Options:<br/>° Natural indirect sunlight (avoid direct sun = temperature spikes)<br/>° LED grow lights (6500K spectrum, 15-25 watts for 18x18 enclosure)<br/>° UVB lighting (if required for animal) provides enough for low-light plants"
+          "text": "<strong>Lighting for Plants</strong><br/>Most bioactive plants need 8-12 hours of light daily. Options:<br/>— Natural indirect sunlight (avoid direct sun = temperature spikes)<br/>— LED grow lights (6500K spectrum, 15-25 watts for 18x18 enclosure)<br/>— UVB lighting (if required for animal) provides enough for low-light plants"
         }
       ]
     },
@@ -183,8 +183,8 @@
         {
           "type": "list",
           "items": [
-            "Monitor CUC population°add 10-20 isopods if you see <5 on surface at night",
-            "Check leaf litter depth°add 1-2 inches when existing leaves mostly decomposed",
+            "Monitor CUC population—add 10-20 isopods if you see <5 on surface at night",
+            "Check leaf litter depth—add 1-2 inches when existing leaves mostly decomposed",
             "Trim overgrown plants to prevent light blocking",
             "Check for standing water in drainage layer (use drainage tube if installed)",
             "Supplement CUC with fish flakes if waste output is low"
@@ -200,7 +200,7 @@
             "Top off substrate if compaction occurs (add 1-2 inches fresh mix)",
             "Replace plants that died or outgrew enclosure",
             "Check drainage layer for clogs or excessive water",
-            "Assess CUC diversity°add new species if population looks inbred (genetic diversity)"
+            "Assess CUC diversity—add new species if population looks inbred (genetic diversity)"
           ]
         },
         {

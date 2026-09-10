@@ -384,7 +384,7 @@
     {
       "type": "list",
       "items": [
-        "Enclosure dimensions (L°W°H in inches)",
+        "Enclosure dimensions (L—W—H in inches)",
         "Distance from lid to substrate surface",
         "Whether frog is albino",
         "Type of enclosure top (screen vs solid)"

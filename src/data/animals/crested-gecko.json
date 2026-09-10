@@ -2,7 +2,13 @@
   "id": "crested-gecko",
   "commonName": "Crested Gecko",
   "scientificName": "Correlophus ciliatus",
-  "searchQuery": ["crested gecko", "crested-gecko", "correlophus ciliatus", "gecko", "climbing gecko"],
+  "searchQuery": [
+    "crested gecko",
+    "crested-gecko",
+    "correlophus ciliatus",
+    "gecko",
+    "climbing gecko"
+  ],
   "careLevel": "beginner",
   "emoji": "🦎",
   "imageUrl": "/animals/crested-gecko/crested-gecko-1.jpg",
@@ -66,7 +72,9 @@
       "uvbRecommended": true,
       "coveragePercent": 50,
       "photoperiod": "12h day / 12h night",
-      "uvbStrength": "5.0"
+      "uvbStrength": "5.0",
+      "fergusonZone": 1,
+      "fergusonZoneNote": "Named in Zone 1 by Ferguson-zone references."
     },
     "gradient": "Vertical temperature gradient"
   },
@@ -74,24 +82,42 @@
     "preferVertical": true,
     "verticalSpacePercent": 60,
     "thermalGradient": "vertical",
-    "requiredZones": ["hide", "climbing", "water"],
-    "optionalZones": ["feeding"]
+    "requiredZones": [
+      "hide",
+      "climbing",
+      "water"
+    ],
+    "optionalZones": [
+      "feeding"
+    ]
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
     "climbing": "vertical",
-    "substrate": ["bioactive", "soil", "paper", "foam"],
+    "substrate": [
+      "bioactive",
+      "soil",
+      "paper",
+      "foam"
+    ],
     "bioactiveSubstrate": "tropical",
     "humidity": "high",
     "heatSource": "ambient",
     "waterFeature": "shallow-dish",
     "lighting": "uvb-forest",
-    "diet": ["omnivore", "frugivore"],
+    "diet": [
+      "omnivore",
+      "frugivore"
+    ],
     "animalType": "reptile",
     "climate": "tropical",
     "activity": "arboreal",
-    "requiredEquipment": ["moist-hide"],
-    "humidity-aids": ["sphagnum-moss"]
+    "requiredEquipment": [
+      "moist-hide"
+    ],
+    "humidity-aids": [
+      "sphagnum-moss"
+    ]
   },
   "lifespan": "15-20 years in captivity",
   "dietType": "Omnivore",

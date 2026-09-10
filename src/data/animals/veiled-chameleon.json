@@ -65,7 +65,9 @@
       "uvbRecommended": true,
       "uvbStrength": "5-10%",
       "coveragePercent": 70,
-      "photoperiod": "12 hours light, 12 hours dark"
+      "photoperiod": "12 hours light, 12 hours dark",
+      "fergusonZone": 3,
+      "fergusonZoneNote": "Yemen chameleon named in Zone 3 by Ferguson references."
     },
     "gradient": "Requires strong basking spot and vertical temperature gradient. UVB essential for calcium metabolism."
   },

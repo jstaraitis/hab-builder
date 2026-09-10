@@ -65,7 +65,9 @@
       "uvbRecommended": true,
       "uvbStrength": "5.0",
       "coveragePercent": 65,
-      "photoperiod": "12h day / 12h night"
+      "photoperiod": "12h day / 12h night",
+      "fergusonZone": 1,
+      "fergusonZoneNote": "Amphibian; low-level UVB widely recommended."
     },
     "gradient": "Warm zone at top (80-85°F) with cooler areas below. Nighttime drop to 70-75°F mimics wild temperature fluctuations."
   },

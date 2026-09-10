@@ -3,6 +3,7 @@ import {
   ChevronRight,
   Home,
   Plus,
+  FileSpreadsheet,
   Search,
   SlidersHorizontal,
   Turtle,
@@ -308,14 +309,24 @@ export function MyAnimals() {
             <Turtle className="h-4 w-4 text-accent" />
             My Pets
           </h2>
-          <button
-            onClick={() => navigate(`/my-animals/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-            className="inline-flex items-center gap-1 rounded-lg border border-emerald-500/40 bg-accent/15 px-3 py-1.5 text-sm font-semibold text-accent transition-colors hover:bg-emerald-500/25"
-            title={!isPremium && animals.length >= 1 ? 'Upgrade to add more animals' : 'Add pet'}
-          >
-            <Plus className="h-4 w-4" />
-            Add Pet
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => navigate('/my-animals/import')}
+              className="inline-flex items-center gap-1 rounded-lg border border-divider bg-card-elevated px-3 py-1.5 text-sm font-semibold text-muted transition-colors hover:text-white"
+              title="Import a collection from a spreadsheet or another app"
+            >
+              <FileSpreadsheet className="h-4 w-4" />
+              Import
+            </button>
+            <button
+              onClick={() => navigate(`/my-animals/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
+              className="inline-flex items-center gap-1 rounded-lg border border-accent/40 bg-accent/15 px-3 py-1.5 text-sm font-semibold text-accent transition-colors hover:bg-accent/25"
+              title={!isPremium && animals.length >= 1 ? 'Upgrade to add more animals' : 'Add pet'}
+            >
+              <Plus className="h-4 w-4" />
+              Add Pet
+            </button>
+          </div>
         </div>
 
         {animals.length === 0 ? (

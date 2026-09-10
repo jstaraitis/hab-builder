@@ -2,7 +2,13 @@
   "id": "whites-tree-frog",
   "commonName": "White's Tree Frog",
   "scientificName": "Litoria caerulea",
-  "searchQuery": ["whites tree frog", "white's tree frog", "litoria caerulea", "tree frog", "frog"],
+  "searchQuery": [
+    "whites tree frog",
+    "white's tree frog",
+    "litoria caerulea",
+    "tree frog",
+    "frog"
+  ],
   "careLevel": "beginner",
   "emoji": "🐸",
   "imageUrl": "/animals/whites-tree-frog/whites-tree-frog-3.jpg",
@@ -86,7 +92,9 @@
       "uvbRecommended": true,
       "uvbStrength": "5.0",
       "coveragePercent": 65,
-      "photoperiod": "12h day / 12h night"
+      "photoperiod": "12h day / 12h night",
+      "fergusonZone": 1,
+      "fergusonZoneNote": "Amphibian; low-level UVB widely recommended."
     },
     "gradient": "Warm zone at top (85-88°F for basking/digestion) with cooler areas below. Critical nighttime drop to 70-75°F mimics wild temperature fluctuations."
   },
@@ -108,17 +116,26 @@
   "bioactiveCompatible": true,
   "equipmentNeeds": {
     "climbing": "vertical",
-    "substrate": ["bioactive", "soil", "paper", "foam"],
+    "substrate": [
+      "bioactive",
+      "soil",
+      "paper",
+      "foam"
+    ],
     "bioactiveSubstrate": "tropical",
     "humidity": "low",
     "heatSource": "basking",
     "waterFeature": "shallow-dish",
     "lighting": "uvb-forest",
-    "diet": ["insectivore"],
+    "diet": [
+      "insectivore"
+    ],
     "animalType": "amphibian",
     "climate": "semi-arid",
     "activity": "arboreal",
-    "water": ["water-dish-large"]
+    "water": [
+      "water-dish-large"
+    ]
   },
   "lifespan": "12-16 years in captivity, up to 20+ years with excellent care",
   "dietType": "Insectivore",

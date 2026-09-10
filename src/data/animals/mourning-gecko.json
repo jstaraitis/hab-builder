@@ -2,7 +2,13 @@
   "id": "mourning-gecko",
   "commonName": "Mourning Gecko",
   "scientificName": "Lepidodactylus lugubris",
-  "searchQuery": ["mourning gecko", "mourning-gecko", "lepidodactylus lugubris", "gecko", "parthenogenesis gecko"],
+  "searchQuery": [
+    "mourning gecko",
+    "mourning-gecko",
+    "lepidodactylus lugubris",
+    "gecko",
+    "parthenogenesis gecko"
+  ],
   "careLevel": "beginner",
   "emoji": "🦎",
   "imageUrl": "/animals/mourning-gecko/mourning-gecko-1.jpg",
@@ -66,7 +72,9 @@
       "uvbRecommended": true,
       "uvbStrength": "5.0",
       "coveragePercent": 50,
-      "photoperiod": "12h day / 12h night"
+      "photoperiod": "12h day / 12h night",
+      "fergusonZone": 1,
+      "fergusonZoneNote": "Nocturnal/crepuscular arboreal gecko."
     },
     "gradient": "Vertical temperature gradient with warmth at top near heat lamp and cooler areas toward bottom"
   },
@@ -74,23 +82,40 @@
     "preferVertical": true,
     "verticalSpacePercent": 70,
     "thermalGradient": "vertical",
-    "requiredZones": ["basking", "hide", "climbing"],
-    "optionalZones": ["feeding", "secondary_hide"]
+    "requiredZones": [
+      "basking",
+      "hide",
+      "climbing"
+    ],
+    "optionalZones": [
+      "feeding",
+      "secondary_hide"
+    ]
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
     "climbing": "vertical",
-    "substrate": ["bioactive", "soil", "paper", "foam"],
+    "substrate": [
+      "bioactive",
+      "soil",
+      "paper",
+      "foam"
+    ],
     "bioactiveSubstrate": "tropical",
     "humidity": "high",
     "heatSource": "low-wattage-bulb",
     "waterFeature": "misting-only",
     "lighting": "uvb-forest",
-    "diet": ["omnivore", "frugivore"],
+    "diet": [
+      "omnivore",
+      "frugivore"
+    ],
     "animalType": "reptile",
     "climate": "tropical",
     "activity": "arboreal",
-    "requiredEquipment": ["moist-hide"]
+    "requiredEquipment": [
+      "moist-hide"
+    ]
   },
   "lifespan": "10+ years in captivity",
   "dietType": "Omnivore",

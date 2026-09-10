@@ -2,7 +2,13 @@
   "id": "red-eyed-tree-frog",
   "commonName": "Red-Eyed Tree Frog",
   "scientificName": "Agalychnis callidryas",
-  "searchQuery": ["red-eyed tree frog", "red eyed tree frog", "agalychnis callidryas", "tree frog", "frog"],
+  "searchQuery": [
+    "red-eyed tree frog",
+    "red eyed tree frog",
+    "agalychnis callidryas",
+    "tree frog",
+    "frog"
+  ],
   "careLevel": "intermediate",
   "emoji": "🐸",
   "imageUrl": "/animals/red-eyed-tree-frog/red-eyed-tree-frog-main.jpg",
@@ -83,7 +89,9 @@
       "uvbRecommended": true,
       "uvbStrength": "5.0",
       "coveragePercent": 50,
-      "photoperiod": "12 hours"
+      "photoperiod": "12 hours",
+      "fergusonZone": 1,
+      "fergusonZoneNote": "Amphibian; low-level UVB widely recommended."
     },
     "gradient": "Subtle vertical gradient with cooler water (72-76°F) and slightly warmer canopy (74-80°F)"
   },
@@ -91,23 +99,40 @@
     "preferVertical": true,
     "verticalSpacePercent": 85,
     "thermalGradient": "vertical",
-    "requiredZones": ["basking", "hide", "climbing", "water"],
-    "optionalZones": ["feeding", "secondary_hide"]
+    "requiredZones": [
+      "basking",
+      "hide",
+      "climbing",
+      "water"
+    ],
+    "optionalZones": [
+      "feeding",
+      "secondary_hide"
+    ]
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
     "climbing": "vertical",
-    "substrate": ["bioactive", "soil", "paper", "foam"],
+    "substrate": [
+      "bioactive",
+      "soil",
+      "paper",
+      "foam"
+    ],
     "bioactiveSubstrate": "tropical",
     "humidity": "low",
     "heatSource": "basking",
     "waterFeature": "shallow-dish",
     "lighting": "uvb-forest",
-    "diet": ["insectivore"],
+    "diet": [
+      "insectivore"
+    ],
     "animalType": "amphibian",
     "climate": "semi-arid",
     "activity": "arboreal",
-    "water": ["water-dish-large"]
+    "water": [
+      "water-dish-large"
+    ]
   },
   "lifespan": "5-8+ years",
   "dietType": "Insectivore",
@@ -213,8 +238,15 @@
       "Frogs drink by absorbing water through skin"
     ],
     "nativeHabitat": {
-      "regions": ["Mexico", "Central America", "Colombia"],
-      "biomes": ["Tropical Rainforest", "Humid Lowland Forest"],
+      "regions": [
+        "Mexico",
+        "Central America",
+        "Colombia"
+      ],
+      "biomes": [
+        "Tropical Rainforest",
+        "Humid Lowland Forest"
+      ],
       "conservationStatus": "Least Concern (LC)"
     }
   }

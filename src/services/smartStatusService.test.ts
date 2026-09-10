@@ -77,7 +77,15 @@ describe('computeSmartStatus', () => {
     });
 
     expect(result.level).toBe('urgent');
-    expect(result.reasons.some((r) => r.toLowerCase().includes('critical'))).toBe(true);
+    // Asserts the RANKING, not an adjective. This previously required the word
+    // "critical", which is the engine's internal name for the severity — the
+    // copy shown to keepers says "important". The wording was softened and this
+    // assertion silently went stale, leaving the suite red while the behaviour
+    // was correct throughout. What actually matters is that the urgent verdict
+    // is explained by the missed task rather than by an unrelated gap such as
+    // "no poop logged yet".
+    expect(result.reasons.length).toBeGreaterThan(0);
+    expect(result.reasons[0]).toMatch(/task/i);
   });
 
   it('penalizes missed feeding more than missed spot-clean', () => {

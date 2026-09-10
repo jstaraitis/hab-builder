@@ -3,8 +3,8 @@
   "title": "Red-Eyed Tree Frog Enclosure Setup Guide",
   "species": "red-eyed-tree-frog",
   "category": "enclosure",
-  "description": "Complete guide to setting up a proper paludarium habitat for Red-Eyed Tree Frogs, including size requirements, vertical layout design, water section, and naturalistic d°cor.",
-  "excerpt": "Complete guide to setting up a proper paludarium habitat for Red-Eyed Tree Frogs, including size requirements, vertical layout design, water section, and naturalistic d°cor.",
+  "description": "Complete guide to setting up a proper paludarium habitat for Red-Eyed Tree Frogs, including size requirements, vertical layout design, water section, and naturalistic d—cor.",
+  "excerpt": "Complete guide to setting up a proper paludarium habitat for Red-Eyed Tree Frogs, including size requirements, vertical layout design, water section, and naturalistic d—cor.",
   "lastUpdated": "2026-01-28",
   "tags": ["red-eyed-tree-frog", "enclosure", "paludarium", "arboreal", "semi-aquatic"],
   "status": "community-reviewed",
@@ -24,7 +24,7 @@
     },
     {
       "type": "table",
-      "headers": ["Group Size", "Minimum Dimensions (W°D°H)", "Gallons", "Notes"],
+      "headers": ["Group Size", "Minimum Dimensions (W—D—H)", "Gallons", "Notes"],
       "rows": [
         ["2-3 frogs", "18°18°24 inches", "~20 gal", "Minimum viable paludarium"],
         ["3-4 frogs", "18°18°36 inches", "~30 gal", "Recommended for breeding groups"],
@@ -94,7 +94,7 @@
     {
       "type": "list",
       "items": [
-        "Diagonal Branches: Position branches at 30-60° angles from bottom to top, creating highways to climb. Use natural hardwood branches (avoid resinous woods) or cork bark tubes.",
+        "Diagonal Branches: Position branches at 30-60— angles from bottom to top, creating highways to climb. Use natural hardwood branches (avoid resinous woods) or cork bark tubes.",
         "Vines & Lianas: Add bendable Jungle Vines or Moss Vines to fill gaps and create 3D climbing networks. Twist multiple vines together for structural complexity.",
         "Cork Bark Panels: Attach flat Cork Bark pieces to back and side walls to expand climbable surface area. Also creates hiding spaces behind bark.",
         "Live Plant Vines: Pothos (Epipremnum), Philodendron, and Scindapsus provide natural climbing routes and large leaves for sleeping spots. Train vines to grow across entire enclosure."
@@ -173,7 +173,7 @@
     },
     {
       "type": "section",
-      "heading": "Additional D°cor & Enrichment"
+      "heading": "Additional D—cor & Enrichment"
     },
     {
       "type": "text",

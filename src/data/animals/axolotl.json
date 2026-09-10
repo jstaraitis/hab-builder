@@ -69,7 +69,9 @@
       "uvbRecommended": false,
       "uvbStrength": null,
       "coveragePercent": 0,
-      "photoperiod": "Natural/indoor light sufficient - no special lighting needed"
+      "photoperiod": "Natural/indoor light sufficient - no special lighting needed",
+      "fergusonZone": null,
+      "fergusonZoneNote": "Fully aquatic amphibian; UVB provision is not standard practice."
     },
     "gradient": "Aquatic species - no thermal gradient needed. Maintain stable cold water temperature 60-68°F throughout tank."
   },

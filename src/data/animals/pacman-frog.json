@@ -2,7 +2,15 @@
   "id": "pacman-frog",
   "commonName": "Pacman Frog",
   "scientificName": "Ceratophrys spp.",
-  "searchQuery": ["pacman frog", "horned frog", "ceratophrys", "cranwelli", "ornata", "cornuta", "fantasy frog"],
+  "searchQuery": [
+    "pacman frog",
+    "horned frog",
+    "ceratophrys",
+    "cranwelli",
+    "ornata",
+    "cornuta",
+    "fantasy frog"
+  ],
   "careLevel": "beginner",
   "emoji": "🐸",
   "imageUrl": "/animals/pacman-frog/pacman-frog-1.jpg",
@@ -67,7 +75,9 @@
       "uvbRecommended": true,
       "uvbStrength": "5.0",
       "coveragePercent": 50,
-      "photoperiod": "12h day / 12h night"
+      "photoperiod": "12h day / 12h night",
+      "fergusonZone": 1,
+      "fergusonZoneNote": "Amphibian, largely fossorial; minimal UVB."
     },
     "gradient": "Horizontal thermal gradient with warm side 80-85°F and cool side 70-75°F"
   },
@@ -75,32 +85,39 @@
     "preferVertical": false,
     "verticalSpacePercent": 20,
     "thermalGradient": "horizontal",
-    "requiredZones": ["warm", "cool", "burrow", "water"],
-    "optionalZones": ["secondary_hide"]
+    "requiredZones": [
+      "warm",
+      "cool",
+      "burrow",
+      "water"
+    ],
+    "optionalZones": [
+      "secondary_hide"
+    ]
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
-  "heatSource": "ambient",
-  "humidity": "high",
-  "lighting": "uvb-forest",
-  "substrate": [
-    "bioactive",
-    "soil"
-  ],
-  "diet": [
-    "insectivore"
-  ],
-  "waterFeature": "large-bowl",
-  "decor": [
-    "hides",
-    "plants"
-  ],
-  "climbing": "ground",
-  "activity": "terrestrial",
-  "climate": "tropical",
-  "animalType": "amphibian",
-  "bioactiveSubstrate": "tropical"
-},
+    "heatSource": "ambient",
+    "humidity": "high",
+    "lighting": "uvb-forest",
+    "substrate": [
+      "bioactive",
+      "soil"
+    ],
+    "diet": [
+      "insectivore"
+    ],
+    "waterFeature": "large-bowl",
+    "decor": [
+      "hides",
+      "plants"
+    ],
+    "climbing": "ground",
+    "activity": "terrestrial",
+    "climate": "tropical",
+    "animalType": "amphibian",
+    "bioactiveSubstrate": "tropical"
+  },
   "lifespan": "5-10 years in captivity",
   "dietType": "Insectivor",
   "adultSize": "3-7 inches diameter (females larger than males, varies by species)",
@@ -195,7 +212,6 @@
     "pacman-frog-feeding-guide",
     "pacman-frog-hydration-guide"
   ],
-
   "lifestyle": {
     "lifespan": "medium",
     "handling": "minimal",
@@ -260,8 +276,15 @@
       "hybrid": "Fantasy Pacman Frog (C. cranwelli × C. cornuta hybrid) - Standard tropical care, various color morphs."
     },
     "nativeHabitat": {
-      "regions": ["South America: Argentina, Brazil, Paraguay, Bolivia, Uruguay, Colombia, Venezuela, Suriname"],
-      "biomes": ["Gran Chaco (semi-arid grasslands)", "Amazon Rainforest", "Atlantic Rainforest", "Temperate grasslands"],
+      "regions": [
+        "South America: Argentina, Brazil, Paraguay, Bolivia, Uruguay, Colombia, Venezuela, Suriname"
+      ],
+      "biomes": [
+        "Gran Chaco (semi-arid grasslands)",
+        "Amazon Rainforest",
+        "Atlantic Rainforest",
+        "Temperate grasslands"
+      ],
       "conservationStatus": "Least Concern (LC) - most species"
     }
   }

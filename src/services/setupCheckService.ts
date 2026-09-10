@@ -2,6 +2,7 @@ import { supabase } from '../lib/supabase';
 import { enclosureService } from './enclosureService';
 import { animalProfiles } from '../data/animals';
 import type { SetupCheckAnswers, SetupCheckContext } from '../engine/setupCheck';
+import { parseZone } from '../engine/fergusonZones';
 
 /**
  * Loads and saves Setup Check answers against an enclosure.
@@ -69,6 +70,9 @@ class SetupCheckService {
       uvbBulbType: enclosure.uvbBulbType,
       uvbRequired: targets?.lighting?.uvbRequired,
       uvbStrength: targets?.lighting?.uvbStrength,
+      // Undefined for species outside the scheme (fully aquatic amphibians),
+      // which skips every UVB rule rather than guessing a zone for them.
+      fergusonZone: parseZone((targets?.lighting as { fergusonZone?: unknown })?.fergusonZone),
       requiresThermalGradient: targets?.temperature?.thermalGradient,
       prefersVertical: profile?.layoutRules?.preferVertical,
       speciesName: enclosure.animalName ?? profile?.commonName,

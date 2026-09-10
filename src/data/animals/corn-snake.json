@@ -71,7 +71,9 @@
       "uvbRecommended": true,
       "coveragePercent": 50,
       "photoperiod": "12-14h light (spring/summer), 10-12h (fall/winter)",
-      "uvbStrength": "5.0"
+      "uvbStrength": "5.0",
+      "fergusonZone": 1,
+      "fergusonZoneNote": "Colubrid, crepuscular; milk snake cited in Zone 1."
     },
     "gradient": "Horizontal thermal gradient required (90°F basking surface → 75°F cool zone)"
   },

@@ -67,7 +67,9 @@
       "uvbRecommended": true,
       "uvbStrength": "10.0",
       "coveragePercent": 60,
-      "photoperiod": "12-14 hours light in summer, 10-12 in winter"
+      "photoperiod": "12-14 hours light in summer, 10-12 in winter",
+      "fergusonZone": 4,
+      "fergusonZoneNote": "Named in Zone 4 by Ferguson-zone references."
     },
     "gradient": "Requires very high basking heat for digestion. Keep humidity low with a humid burrow rather than overall high moisture."
   },
@@ -110,7 +112,9 @@
     "climate": "arid",
     "animalType": "reptile",
     "bioactiveSubstrate": "arid",
-    "requiredEquipment" : ["feeding-dish"]
+    "requiredEquipment": [
+      "feeding-dish"
+    ]
   },
   "lifespan": "25+ years; some exceed 40",
   "dietType": "Herbivore",

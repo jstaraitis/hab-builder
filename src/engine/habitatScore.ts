@@ -25,6 +25,7 @@ import type { TempLog } from '../services/tempLogService';
 import type { HumidityLog } from '../services/humidityLogService';
 import { getUvbLifecycleStatus, isReplacementDue } from './uvbLifecycle';
 import { runSetupCheck, type SetupCheckAnswers, type SetupCheckContext } from './setupCheck';
+import { parseZone } from './fergusonZones';
 
 export type HabitatGrade = 'A' | 'B' | 'C' | 'D' | 'F';
 export type FindingSeverity = 'critical' | 'important' | 'minor';
@@ -432,6 +433,9 @@ function assessPlacement(
     uvbBulbType: enclosure.uvbBulbType,
     uvbRequired: profile.careTargets?.lighting?.uvbRequired,
     uvbStrength: profile.careTargets?.lighting?.uvbStrength,
+    fergusonZone: parseZone(
+      (profile.careTargets?.lighting as { fergusonZone?: unknown } | undefined)?.fergusonZone
+    ),
     requiresThermalGradient: profile.careTargets?.temperature?.thermalGradient,
     prefersVertical: profile.layoutRules?.preferVertical,
     speciesName: profile.commonName,

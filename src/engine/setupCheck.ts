@@ -24,6 +24,13 @@
  */
 
 import type { UvbBulbType } from './uvbLifecycle';
+import {
+  ZONE_SPECS,
+  getBulbGuidance,
+  workingDistance,
+  baskingUviTarget,
+  type FergusonZone,
+} from './fergusonZones';
 
 export type SetupSeverity = 'critical' | 'important' | 'advisory';
 
@@ -78,6 +85,8 @@ export interface SetupCheckContext {
   uvbRequired?: boolean;
   /** e.g. "5.0" or "10.0". */
   uvbStrength?: string;
+  /** Ferguson zone from the species profile. Undefined skips all UVB rules. */
+  fergusonZone?: FergusonZone;
   requiresThermalGradient?: boolean;
   /** True for arboreal species, where a horizontal gradient matters less. */
   prefersVertical?: boolean;
@@ -98,30 +107,7 @@ export interface SetupCheckResult {
 // Thresholds
 // ---------------------------------------------------------------------------
 
-/**
- * Working distance ranges from the lamp to the basking surface, in inches,
- * with no mesh in between.
- *
- * Deliberately wide. Actual safe distance depends on the specific model, and
- * these exist to catch setups that are clearly wrong — a compact bulb 24
- * inches away is doing nothing, a T5 HO four inches away risks overexposure —
- * not to fine-tune a correct one.
- */
-const UVB_DISTANCE_RANGES: Record<UvbBulbType, { min: number; max: number }> = {
-  'compact': { min: 6, max: 12 },
-  't8': { min: 6, max: 12 },
-  't5-ho': { min: 12, max: 18 },
-  'mercury-vapor': { min: 12, max: 24 },
-  'metal-halide': { min: 12, max: 24 },
-  'unknown': { min: 8, max: 16 },
-};
 
-/**
- * Mesh blocks a large share of UVB — commonly cited around a third to a half,
- * depending on weave. A lamp resting on a mesh lid therefore needs to sit
- * proportionally closer than the same lamp mounted inside.
- */
-const MESH_DISTANCE_FACTOR = 0.7;
 
 /** Below this, a horizontal thermal gradient is not physically achievable. */
 const MIN_GRADIENT_LENGTH_INCHES = 24;
@@ -156,40 +142,75 @@ function checkUvbDistance(
   context: SetupCheckContext,
   findings: SetupFinding[]
 ): boolean {
-  // Nothing to check for a species that does not need UVB at all.
+  // Nothing to check for a species that does not need UVB at all, or one that
+  // sits outside the Ferguson scheme (fully aquatic amphibians).
   if (context.uvbRequired === false) return false;
+  const zone = context.fergusonZone;
+  if (zone === undefined) return false;
+
+  const spec = ZONE_SPECS[zone];
+  const guidance = getBulbGuidance(context.uvbBulbType, zone);
+
+  // THE BULB ITSELF CAN BE WRONG, independently of where it is mounted. This is
+  // the failure a distance calculator cannot catch, and it is the more common
+  // and more expensive mistake — the keeper has bought the wrong lamp.
+  if (guidance.fit === 'too-weak') {
+    findings.push({
+      id: 'uvb-bulb-too-weak',
+      severity: 'critical',
+      title: `This bulb cannot reach ${spec.label.split('—')[0].trim()} levels`,
+      detail: `${context.speciesName ?? 'This species'} needs ${baskingUviTarget(
+        zone
+      )}. ${guidance.note} Moving the lamp closer will not fix it — the animal would be against the lamp before the target is met.`,
+      fix: 'Replace the lamp with a type rated for this zone, then set its height from the manufacturer distance chart.',
+    });
+    return true;
+  }
+
+  if (guidance.fit === 'too-strong') {
+    findings.push({
+      id: 'uvb-bulb-too-strong',
+      severity: 'critical',
+      title: `This bulb is too strong for ${spec.label.split('—')[0].trim()}`,
+      detail: `${context.speciesName ?? 'This species'} is a ${spec.behaviour.toLowerCase()} ${guidance.note} Overexposure risks eye and skin damage, and raising the lamp does not make it appropriate.`,
+      fix: 'Swap to a lower-output lamp suited to this zone — usually a T5 HO 5.0 or a linear tube.',
+    });
+    return true;
+  }
+
+  // Only once the lamp is plausible does distance become the question.
   if (answers.uvbDistanceInches === undefined) return false;
 
-  const range = UVB_DISTANCE_RANGES[context.uvbBulbType ?? 'unknown'];
-  const factor = answers.uvbOverMesh ? MESH_DISTANCE_FACTOR : 1;
-  const min = Math.round(range.min * factor);
-  const max = Math.round(range.max * factor);
-  const distance = answers.uvbDistanceInches;
+  const range = workingDistance(context.uvbBulbType, zone, answers.uvbOverMesh === true);
+  if (!range) return false;
 
+  const distance = answers.uvbDistanceInches;
   const meshNote = answers.uvbOverMesh
-    ? ' Mesh blocks a large share of UVB, so the lamp needs to sit closer than it would mounted inside.'
+    ? ' Mesh blocks a large share of UVB, so the lamp must sit closer than it would mounted inside.'
     : '';
 
-  if (distance > max) {
+  if (distance > range.max) {
     findings.push({
       id: 'uvb-too-far',
       // Too far is the more dangerous direction: the keeper sees a lit bulb and
       // assumes the requirement is met while the animal receives almost nothing.
       severity: 'critical',
       title: `UVB is ${distance}" from the basking spot`,
-      detail: `For this bulb type the usual working range is ${min}–${max}".${meshNote} At this distance the animal is likely receiving very little usable UVB, which is the common path to metabolic bone disease.`,
-      fix: `Lower the lamp or raise the basking surface to bring it within ${min}–${max}", then confirm against the manufacturer's distance chart for your exact model.`,
+      detail: `${context.speciesName ?? 'This species'} is ${spec.label} and needs ${baskingUviTarget(
+        zone
+      )}. For this lamp that usually means ${range.min}–${range.max}".${meshNote} At this height the animal is likely receiving very little usable UVB, which is the common path to metabolic bone disease.`,
+      fix: `Lower the lamp or raise the basking surface to ${range.min}–${range.max}", then confirm against the manufacturer's distance chart for your exact model.`,
     });
     return true;
   }
 
-  if (distance < min) {
+  if (distance < range.min) {
     findings.push({
       id: 'uvb-too-close',
       severity: 'important',
       title: `UVB is only ${distance}" from the basking spot`,
-      detail: `Closer than the usual ${min}–${max}" range for this bulb type. Overexposure can cause eye and skin damage, and the animal cannot move out of range if the basking spot is the only warm place.`,
-      fix: `Raise the lamp to at least ${min}", and make sure there is shaded basking area the animal can retreat to.`,
+      detail: `Closer than the usual ${range.min}–${range.max}" for this lamp at ${spec.label}. Overexposure can cause eye and skin damage, and the animal cannot move out of range if the basking spot is the only warm place.`,
+      fix: `Raise the lamp to at least ${range.min}", and provide shaded basking area the animal can retreat to.`,
     });
     return true;
   }

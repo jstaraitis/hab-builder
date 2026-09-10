@@ -17,7 +17,10 @@ const profile = {
   careTargets: {
     temperature: { min: 72, max: 78, unit: 'F' },
     humidity: { day: { min: 60, max: 80 }, night: { min: 70, max: 90 }, shedding: { min: 70, max: 90 }, unit: '%' },
-    lighting: { uvbRequired: true, uvbStrength: '5.0', coveragePercent: 60, photoperiod: '12h/12h' },
+    // Crested geckos are Ferguson Zone 1 (shade dweller). Without this the UVB
+    // placement rules correctly decline to run, since a zone is what they judge
+    // against — so the fixture has to carry one.
+    lighting: { uvbRequired: true, uvbStrength: '5.0', fergusonZone: 1, coveragePercent: 60, photoperiod: '12h/12h' },
     gradient: 'vertical',
   },
   layoutRules: { preferVertical: true, verticalSpacePercent: 60, thermalGradient: 'vertical', requiredZones: [], optionalZones: [] },

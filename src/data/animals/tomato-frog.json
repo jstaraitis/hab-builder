@@ -63,7 +63,9 @@
       "uvbRecommended": true,
       "uvbStrength": "5.0",
       "coveragePercent": 65,
-      "photoperiod": "12 hours on / 12 hours off"
+      "photoperiod": "12 hours on / 12 hours off",
+      "fergusonZone": 1,
+      "fergusonZoneNote": "Amphibian; low-level UVB widely recommended."
     },
     "gradient": "Terrestrial burrowing frog. High humidity essential. Provide deep substrate for burrowing."
   },
@@ -82,27 +84,27 @@
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
-  "heatSource": "ambient",
-  "humidity": "high",
-  "lighting": "uvb-forest",
-  "substrate": [
-    "bioactive",
-    "soil"
-  ],
-  "diet": [
-    "insectivore"
-  ],
-  "waterFeature": "large-bowl",
-  "decor": [
-    "hides",
-    "plants"
-  ],
-  "climbing": "ground",
-  "activity": "terrestrial",
-  "climate": "tropical",
-  "animalType": "amphibian",
-  "bioactiveSubstrate": "tropical"
-},
+    "heatSource": "ambient",
+    "humidity": "high",
+    "lighting": "uvb-forest",
+    "substrate": [
+      "bioactive",
+      "soil"
+    ],
+    "diet": [
+      "insectivore"
+    ],
+    "waterFeature": "large-bowl",
+    "decor": [
+      "hides",
+      "plants"
+    ],
+    "climbing": "ground",
+    "activity": "terrestrial",
+    "climate": "tropical",
+    "animalType": "amphibian",
+    "bioactiveSubstrate": "tropical"
+  },
   "lifespan": "6-8 years in captivity",
   "dietType": "Insectivore",
   "adultSize": "3-4 inches (females), 2-2.5 inches (males)",

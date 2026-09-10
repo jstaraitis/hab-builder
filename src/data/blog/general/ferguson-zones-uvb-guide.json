@@ -1,0 +1,128 @@
+{
+  "id": "ferguson-zones-uvb-guide",
+  "title": "Ferguson Zones: How Much UVB Does Your Reptile Actually Need?",
+  "species": "general",
+  "category": "lighting",
+  "excerpt": "Ferguson Zones classify reptiles by the UV Index they seek out in the wild. Learn which zone your species falls into, how to pick the right bulb, and why mounting distance matters more than the number on the box.",
+  "description": "A complete guide to Ferguson Zones 1-4 for reptile keepers: UV Index targets per zone, species examples, choosing between UVB 5.0 and 10.0, correct mounting distances, and why mesh changes everything.",
+  "lastUpdated": "2026-09-10",
+  "tags": ["uvb", "lighting", "ferguson-zones", "uv-index", "metabolic-bone-disease", "husbandry"],
+  "status": "community-reviewed",
+  "content": [
+    {
+      "type": "intro",
+      "heading": "The Number on the Box Doesn't Tell You Much",
+      "text": "A bulb labelled \"10.0\" tells you almost nothing on its own. What matters is the UV Index reaching the spot where your animal actually sits, and that depends on the lamp, the fixture, the distance, and whether there is mesh in between. Ferguson Zones exist to turn \"does this species need UVB\" into a number you can aim at."
+    },
+    {
+      "type": "section",
+      "heading": "What Ferguson Zones Are"
+    },
+    {
+      "type": "text",
+      "text": "In 2010, Dr Gary Ferguson and colleagues observed wild reptiles and recorded the UV Index each species voluntarily exposed itself to. Rather than guessing from habitat descriptions, they measured what animals actually chose. The result groups reptiles into four zones by their basking behaviour."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-white block mb-2'>The Four Zones:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Zone", "Behaviour", "Average UVI", "Basking UVI", "Example species"],
+      "rows": [
+        ["Zone 1", "Crepuscular or shade dweller", "0 – 0.7", "0.6 – 1.4", "Crested gecko, leopard gecko, ball python, corn snake"],
+        ["Zone 2", "Partial sun, occasional basker", "0.7 – 1.0", "1.1 – 3.0", "Boa constrictor, green anole, blue tongue skink"],
+        ["Zone 3", "Open or partial sun basker", "1.0 – 2.6", "2.9 – 7.4", "Bearded dragon, veiled chameleon, red-eared slider"],
+        ["Zone 4", "Full sun basker", "2.6 – 3.5", "4.5 – 9.5", "Uromastyx, chuckwalla, rhinoceros iguana"]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "important",
+      "text": "Zone boundaries are not universally agreed. Bearded dragons are placed in Zone 3 by most sources and Zone 4 by some; blue tongue skinks sit between 2 and 3. Where sources disagree, the lower zone is the safer starting point — you can raise UV provision after observing the animal, but you cannot undo photo-damage."
+    },
+    {
+      "type": "section",
+      "heading": "The Mistake That Distance Calculators Miss"
+    },
+    {
+      "type": "text",
+      "text": "Most UVB advice online is about mounting height. That matters, but it assumes you already own a lamp capable of reaching your species' zone — and often that assumption is wrong."
+    },
+    {
+      "type": "text",
+      "text": "A compact or coil UVB bulb cannot deliver Zone 3 or Zone 4 levels across a basking area at <em>any</em> mounting height. Moving it closer does not fix the problem; the animal would be pressed against the lamp before the target UVI is met. Conversely, a mercury vapour lamp over a crested gecko is far too strong for a Zone 1 shade dweller, and raising it does not make it appropriate."
+    },
+    {
+      "type": "text",
+      "text": "<span class='text-base font-semibold text-white block mb-2'>Bulb Type by Zone:</span>"
+    },
+    {
+      "type": "table",
+      "headers": ["Bulb type", "Zone 1", "Zone 2", "Zone 3", "Zone 4"],
+      "rows": [
+        ["Compact / coil", "Suitable, 6-12\"", "Suitable, 6-10\"", "Too weak", "Too weak"],
+        ["T8 linear tube", "Suitable, 6-12\"", "Suitable, 6-10\"", "Too weak", "Too weak"],
+        ["T5 HO linear tube", "5.0 at 14-20\"", "5.0 at 12-18\"", "10.0 at 12-18\"", "10.0 at 10-14\""],
+        ["Mercury vapour", "Too strong", "Too strong", "Suitable, 12-18\"", "Suitable, 12-16\""],
+        ["Metal halide", "Too strong", "Too strong", "Suitable, 12-20\"", "Suitable, 12-18\""]
+      ]
+    },
+    {
+      "type": "warning",
+      "severity": "caution",
+      "text": "These ranges are general guidance for catching setups that are clearly wrong. Output varies considerably between brands and models, and the definitive answer is the manufacturer's own distance chart for your exact lamp. A UV Index meter is the only way to confirm what your animal is actually receiving."
+    },
+    {
+      "type": "section",
+      "heading": "Mesh Changes Everything"
+    },
+    {
+      "type": "text",
+      "text": "A UVB lamp resting on a mesh lid loses a large share of its output before the light reaches the animal — commonly cited between a third and a half, depending on the weave. Every distance in the table above assumes the lamp is mounted inside the enclosure. If yours sits on mesh, it needs to be roughly 30% closer to deliver the same UVI."
+    },
+    {
+      "type": "text",
+      "text": "This is one of the most common reasons a correctly chosen bulb still fails to do its job. The keeper reads a distance chart, mounts the lamp at the recommended height, and never learns that the chart assumed no mesh."
+    },
+    {
+      "type": "section",
+      "heading": "Why Getting This Wrong Takes Months to Show"
+    },
+    {
+      "type": "text",
+      "text": "Insufficient UVB does not produce an immediate symptom. The animal continues eating and behaving normally while its ability to metabolise calcium quietly declines. By the time metabolic bone disease is visible — tremors, a soft or deformed jaw, reluctance to climb, spinal kinking — the deficiency has been running for months."
+    },
+    {
+      "type": "text",
+      "text": "That delay is why a lit bulb is so misleading. UVB output falls off long before a lamp stops emitting visible light, so a fixture that looks like it is working may have been doing nothing useful for half a year. Replace UVB lamps on schedule — typically 6 months for compact and T8, 12 months for T5 HO and mercury vapour — regardless of whether they still light up."
+    },
+    {
+      "type": "list",
+      "items": [
+        "<strong>Identify your species' zone</strong> before buying a lamp, not after.",
+        "<strong>Match the bulb type to the zone</strong> — a compact bulb cannot serve a Zone 3 or 4 basker.",
+        "<strong>Measure to the basking surface</strong>, not to the floor or the top of the enclosure.",
+        "<strong>Account for mesh</strong> by mounting roughly 30% closer, or mount the fixture inside.",
+        "<strong>Provide shade</strong> so the animal can move out of UV when it chooses to.",
+        "<strong>Replace on schedule</strong>, because output fades long before the light does."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Shade Is Part of the Requirement"
+    },
+    {
+      "type": "text",
+      "text": "Ferguson Zones describe the UVI a species <em>seeks out</em>, not a level it should be held at constantly. Wild reptiles move in and out of sun throughout the day. An enclosure that delivers the correct basking UVI but offers nowhere shaded to retreat gives the animal no way to regulate its own exposure — which is as much a husbandry failure as too little UVB."
+    },
+    {
+      "type": "text",
+      "text": "Hides, foliage and cover at both the warm and cool ends are part of a correct lighting setup, not decoration."
+    },
+    {
+      "type": "highlight",
+      "text": "Habitat Builder's Setup Check reads your species' Ferguson zone, your bulb type and your mounting distance together, and flags both wrong-bulb and wrong-distance problems — including the mesh adjustment. It takes about two minutes and can be re-run after any change."
+    }
+  ]
+}

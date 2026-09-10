@@ -75,7 +75,9 @@
       "uvbRecommended": true,
       "coveragePercent": 50,
       "photoperiod": "12-14h light (summer), 8-10h light (winter)",
-      "uvbStrength": "5.0"
+      "uvbStrength": "5.0",
+      "fergusonZone": 1,
+      "fergusonZoneNote": "Named in Zone 1 by Ferguson-zone references."
     },
     "gradient": "Horizontal thermal gradient required"
   },
@@ -97,32 +99,32 @@
   },
   "bioactiveCompatible": true,
   "equipmentNeeds": {
-  "heatSource": "basking",
-  "humidity": "moderate",
-  "lighting": "uvb-forest",
-  "substrate": [
-    "bioactive",
-    "paper",
-    "sand",
-    "soil"
-  ],
-  "diet": [
-    "insectivore"
-  ],
-  "waterFeature": "shallow-dish",
-  "decor": [
-    "branches",
-    "hides",
-    "humid-hide",
-    "ledges",
-    "plants"
-  ],
-  "climbing": "ground",
-  "activity": "terrestrial",
-  "climate": "semi-arid",
-  "animalType": "reptile",
-  "bioactiveSubstrate": "arid"
-},
+    "heatSource": "basking",
+    "humidity": "moderate",
+    "lighting": "uvb-forest",
+    "substrate": [
+      "bioactive",
+      "paper",
+      "sand",
+      "soil"
+    ],
+    "diet": [
+      "insectivore"
+    ],
+    "waterFeature": "shallow-dish",
+    "decor": [
+      "branches",
+      "hides",
+      "humid-hide",
+      "ledges",
+      "plants"
+    ],
+    "climbing": "ground",
+    "activity": "terrestrial",
+    "climate": "semi-arid",
+    "animalType": "reptile",
+    "bioactiveSubstrate": "arid"
+  },
   "lifespan": "10-20 years in captivity",
   "dietType": "Insectivore",
   "adultSize": "7-10 inches (females smaller than males)",

@@ -64,7 +64,9 @@
       "uvbRecommended": false,
       "uvbStrength": null,
       "coveragePercent": 0,
-      "photoperiod": "Natural room light sufficient"
+      "photoperiod": "Natural room light sufficient",
+      "fergusonZone": null,
+      "fergusonZoneNote": "Fully aquatic amphibian; UVB provision is not standard practice."
     },
     "gradient": "Fully aquatic. No thermal gradient needed. Maintain stable water temperature."
   },

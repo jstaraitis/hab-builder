@@ -1,9 +1,63 @@
 ﻿import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Lock, Sparkles, Calendar, TrendingUp, Package, Bell } from 'lucide-react';
+import {
+  Lock,
+  Sparkles,
+  TrendingUp,
+  Bell,
+  ClipboardCheck,
+  ClipboardList,
+  FileText,
+  History,
+  Pill,
+} from 'lucide-react';
 import { usePremium } from '../../contexts/PremiumContext';
 import { TRIAL_DAYS } from '../../constants/billing';
 import { track } from '../../services/analyticsService';
+import { copyForSource } from './paywallCopy';
+/**
+ * Ordered by how hard each is to get elsewhere, not by how much work it was.
+ * The judgement features come first because they are the only ones a keeper
+ * cannot get free from MorphMarket, SnekLog or The Reptile Keeper.
+ */
+const PREMIUM_FEATURES = [
+  {
+    icon: ClipboardCheck,
+    title: 'Setup Check & Habitat Score',
+    detail: "Graded against your species' Ferguson zone and care targets",
+  },
+  {
+    icon: FileText,
+    title: 'Vet-ready health report',
+    detail: 'Your whole history, printable, with the concerns picked out',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Growth percentiles',
+    detail: "Compare against other keepers' animals of the same age",
+  },
+  {
+    icon: History,
+    title: 'What changed?',
+    detail: 'Reconstructs the weeks before a problem started',
+  },
+  {
+    icon: Pill,
+    title: 'Nutrition analysis',
+    detail: 'Supplementation read against your UVB, not in isolation',
+  },
+  {
+    icon: ClipboardList,
+    title: 'Pet-sitter care sheet',
+    detail: 'A dated checklist for whoever covers while you travel',
+  },
+  {
+    icon: Bell,
+    title: 'Push reminders & unlimited animals',
+    detail: 'Plus inventory, care analytics and collection import',
+  },
+] as const;
+
 
 /** Which limit put the user in front of the wall. */
 export type PaywallSource =
@@ -16,6 +70,7 @@ export type PaywallSource =
   | 'sitter-sheet'
   | 'what-changed'
   | 'setup-check'
+  | 'import'
   | 'dashboard-alerts'
   | 'unknown';
 
@@ -25,6 +80,7 @@ interface PremiumPaywallProps {
 
 export function PremiumPaywall({ source = 'unknown' }: PremiumPaywallProps) {
   const { isTrialEligible } = usePremium();
+  const copy = copyForSource(source);
 
   // The paywall renders from several different limits. Knowing which one people
   // actually hit is the difference between guessing at the funnel and reading it.
@@ -40,13 +96,13 @@ export function PremiumPaywall({ source = 'unknown' }: PremiumPaywallProps) {
           <Lock className="w-7 h-7 text-accent" />
         </div>
 
-        {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-          {isTrialEligible ? `Try Premium free for ${TRIAL_DAYS} days` : 'Upgrade to Premium'}
-        </h2>
-        <p className="text-base text-muted mb-6">
-          Unlock push reminders, unlimited animals and enclosures, plus health tracking and analytics.
-          {isTrialEligible && ' Cancel before the trial ends and you pay nothing.'}
+        {/* Heading — led by what they were actually reaching for. */}
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">{copy.headline}</h2>
+        <p className="text-base text-muted mb-2">{copy.body}</p>
+        <p className="text-sm text-muted mb-6">
+          {isTrialEligible
+            ? `Free for ${TRIAL_DAYS} days. Cancel before it ends and you pay nothing.`
+            : 'Included with Premium.'}
         </p>
 
         {/* Free Plan Info */}
@@ -56,51 +112,30 @@ export function PremiumPaywall({ source = 'unknown' }: PremiumPaywallProps) {
             <span className="inline-block px-3 py-1 bg-card border border-divider rounded-full text-sm text-white">1 enclosure</span>
             <span className="inline-block px-3 py-1 bg-card border border-divider rounded-full text-sm text-white">1 animal</span>
             <span className="inline-block px-3 py-1 bg-card border border-divider rounded-full text-sm text-white">Unlimited in-app care tasks</span>
-            <span className="inline-block px-3 py-1 bg-card border border-divider rounded-full text-sm text-white">Build plans &amp; designer</span>
+            {/* "Designer" was advertised here after the enclosure designer was
+                removed. Build plans and shopping lists are still free; the
+                canvas is not a thing any more. */}
+            <span className="inline-block px-3 py-1 bg-card border border-divider rounded-full text-sm text-white">Build plans &amp; shopping lists</span>
           </div>
         </div>
 
-        {/* Feature Highlights */}
+        {/* Feature Highlights.
+            Deliberately led by the things no competitor offers. Reminders, a
+            care calendar and weight charts are given away free by several
+            rivals — listing them first invited the comparison we lose. */}
         <div className="grid sm:grid-cols-2 gap-3 mb-6">
-          <div className="flex gap-3 p-3 bg-card-elevated border border-divider rounded-xl">
-            <Bell className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-            <div className="text-left">
-              <div className="font-semibold text-white text-sm">Push Reminders</div>
-              <div className="text-xs text-muted mt-0.5">Tasks find you, not the other way around</div>
+          {PREMIUM_FEATURES.map((feature) => (
+            <div
+              key={feature.title}
+              className="flex gap-3 p-3 bg-card-elevated border border-divider rounded-xl"
+            >
+              <feature.icon className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+              <div className="text-left">
+                <div className="font-semibold text-white text-sm">{feature.title}</div>
+                <div className="text-xs text-muted mt-0.5">{feature.detail}</div>
+              </div>
             </div>
-          </div>
-
-          <div className="flex gap-3 p-3 bg-card-elevated border border-divider rounded-xl">
-            <Calendar className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-            <div className="text-left">
-              <div className="font-semibold text-white text-sm">Expanded Care Calendar</div>
-              <div className="text-xs text-muted mt-0.5">Never miss feeding or cleaning</div>
-            </div>
-          </div>
-
-          <div className="flex gap-3 p-3 bg-card-elevated border border-divider rounded-xl">
-            <TrendingUp className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-            <div className="text-left">
-              <div className="font-semibold text-white text-sm">Health Alerts and Task Analytics</div>
-              <div className="text-xs text-muted mt-0.5">Smart health monitoring</div>
-            </div>
-          </div>
-
-          <div className="flex gap-3 p-3 bg-card-elevated border border-divider rounded-xl">
-            <Package className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-            <div className="text-left">
-              <div className="font-semibold text-white text-sm">Inventory Manager</div>
-              <div className="text-xs text-muted mt-0.5">Track supplies & reorder alerts</div>
-            </div>
-          </div>
-
-          <div className="flex gap-3 p-3 bg-card-elevated border border-divider rounded-xl">
-            <Sparkles className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-            <div className="text-left">
-              <div className="font-semibold text-white text-sm">Unlimited Animals</div>
-              <div className="text-xs text-muted mt-0.5">Manage your entire collection</div>
-            </div>
-          </div>
+          ))}
         </div>
 
         {/* Pricing */}

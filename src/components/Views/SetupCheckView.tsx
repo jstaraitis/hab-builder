@@ -34,6 +34,7 @@ import {
   type SetupSeverity,
 } from '../../engine/setupCheck';
 import { track } from '../../services/analyticsService';
+import { ZONE_SPECS, baskingUviTarget } from '../../engine/fergusonZones';
 
 type QuestionId = keyof SetupCheckAnswers;
 
@@ -215,6 +216,8 @@ export function SetupCheckView() {
   );
 
   const result = useMemo(() => runSetupCheck(answers, context), [answers, context]);
+
+  const zoneSpec = context.fergusonZone ? ZONE_SPECS[context.fergusonZone] : null;
 
   const current = activeQuestions[step];
   const isLast = step >= activeQuestions.length - 1;
@@ -398,6 +401,18 @@ export function SetupCheckView() {
       <div className="bg-card border border-divider rounded-2xl p-5">
         <h1 className="text-lg font-bold text-white">{current.title}</h1>
         <p className="text-sm text-muted mt-1.5">{current.why}</p>
+
+        {/* On UVB questions, name the species' Ferguson zone and its UVI target.
+            It explains where the answer will be judged from, and it is the piece
+            of husbandry most keepers have never been told. */}
+        {zoneSpec && current.id.startsWith('uvb') && (
+          <div className="mt-3 px-3 py-2 rounded-xl bg-card-elevated border border-divider">
+            <p className="text-xs font-semibold text-accent">{zoneSpec.label}</p>
+            <p className="text-xs text-muted mt-0.5">
+              {zoneSpec.behaviour} Target: {baskingUviTarget(zoneSpec.zone)}.
+            </p>
+          </div>
+        )}
 
         <div className="mt-5 space-y-2">
           {current.kind === 'number' ? (
