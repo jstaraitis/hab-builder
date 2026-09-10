@@ -18,6 +18,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import {
   ArrowLeft,
   Printer,
+  Share2,
   Copy,
   Check,
   Loader2,
@@ -30,6 +31,7 @@ import { sitterSheetService, type SitterSheetBundle } from '../../services/sitte
 import { track } from '../../services/analyticsService';
 import { sitterSheetToPlainText } from '../../utils/sitterSheetText';
 import { PRINT_STYLES } from './printStyles';
+import { shareDocument, shareOutcomeMessage, shareActionLabel, canPrint } from '../../utils/shareDocument';
 
 /** Things a well-meaning sitter does that cause harm. Stated once, prominently. */
 const DO_NOT_LIST = [
@@ -147,8 +149,25 @@ export function SitterSheetView() {
       setTimeout(() => setCopied(false), 2500);
     } catch (err) {
       console.error('Clipboard write failed:', err);
-      setError('Could not copy to the clipboard. Use Print instead.');
+      setError('Could not copy to the clipboard.');
     }
+  };
+
+  // See utils/shareDocument: window.print() silently does nothing inside the
+  // iOS app, so the route is chosen from what the platform actually supports
+  // and the outcome is always reported.
+  const handleShare = async () => {
+    setError(null);
+    const outcome = await shareDocument({
+      title: "Care instructions — while I'm away",
+      text: plainText,
+    });
+    const message = shareOutcomeMessage(outcome);
+    if (outcome === 'copied') {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 4000);
+    }
+    if (message) setError(message);
   };
 
   const animalLabel = (enclosureId: string): string => {
@@ -181,12 +200,12 @@ export function SitterSheetView() {
             </button>
             <button
               type="button"
-              onClick={() => window.print()}
+              onClick={() => { void handleShare(); }}
               disabled={!bundle}
               className="inline-flex items-center gap-1.5 text-sm font-semibold px-3 py-2 rounded-xl bg-accent text-on-accent disabled:opacity-50"
             >
-              <Printer className="w-4 h-4" />
-              Print / Save PDF
+              {canPrint() ? <Printer className="w-4 h-4" /> : <Share2 className="w-4 h-4" />}
+              {shareActionLabel()}
             </button>
           </div>
         </div>

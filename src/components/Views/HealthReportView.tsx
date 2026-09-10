@@ -15,6 +15,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 import {
   ArrowLeft,
   Printer,
+  Share2,
   Copy,
   Check,
   AlertTriangle,
@@ -27,6 +28,7 @@ import { track } from '../../services/analyticsService';
 import { reportToPlainText } from '../../utils/healthReportText';
 import { NutritionInsights } from '../CareAnalytics/NutritionInsights';
 import { PRINT_STYLES } from './printStyles';
+import { shareDocument, shareOutcomeMessage, shareActionLabel, canPrint } from '../../utils/shareDocument';
 import { CohortGrowthCard } from '../premium/CohortGrowthCard';
 
 const SEVERITY_STYLES: Record<ConcernSeverity, { chip: string; label: string; border: string }> = {
@@ -148,8 +150,26 @@ export function HealthReportView() {
       setTimeout(() => setCopied(false), 2500);
     } catch (err) {
       console.error('Clipboard write failed:', err);
-      setError('Could not copy to the clipboard. Use Print instead.');
+      setError('Could not copy to the clipboard.');
     }
+  };
+
+  // Routes to print, the share sheet, or the clipboard depending on what the
+  // platform supports, and always reports which happened. window.print() is a
+  // silent no-op in the iOS app, so calling it blind made this button look
+  // broken on iPhone while raising no error.
+  const handleShare = async () => {
+    setError(null);
+    const outcome = await shareDocument({
+      title: `Health summary — ${report?.animalLabel ?? 'animal'}`,
+      text: plainText,
+    });
+    const message = shareOutcomeMessage(outcome);
+    if (outcome === 'copied') {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 4000);
+    }
+    if (message) setError(message);
   };
 
   if (loading) {
@@ -217,11 +237,11 @@ export function HealthReportView() {
           </button>
           <button
             type="button"
-            onClick={() => window.print()}
+            onClick={() => { void handleShare(); }}
             className="inline-flex items-center gap-1.5 text-sm font-semibold px-3 py-2 rounded-xl bg-accent text-on-accent"
           >
-            <Printer className="w-4 h-4" />
-            Print / Save PDF
+            {canPrint() ? <Printer className="w-4 h-4" /> : <Share2 className="w-4 h-4" />}
+            {shareActionLabel()}
           </button>
         </div>
       </div>
