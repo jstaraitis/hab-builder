@@ -83,7 +83,7 @@ export function PlanView({ plan, input }: PlanViewProps) {
       </div>
 
       <div className="grid gap-4 lg:grid-cols-2">
-        <div className="rounded-xl border border-blue-200/70 dark:border-blue-700/60 bg-gradient-to-br from-blue-50/80 to-white dark:from-blue-900/20 dark:to-gray-900/20 p-4">
+        <div className="rounded-xl border border-blue-200/70 dark:border-blue-700/60 bg-sky-500/10 p-4">
           <div className="flex items-start gap-3">
             <div className="rounded-full bg-blue-100 dark:bg-blue-900/40 p-2 text-blue-700 dark:text-blue-300">
               <Lightbulb className="w-5 h-5" />
@@ -106,7 +106,7 @@ export function PlanView({ plan, input }: PlanViewProps) {
         </div>
 
         {animalProfile?.setupTips?.length ? (
-          <div className="rounded-xl border border-purple-200/70 dark:border-purple-700/60 bg-gradient-to-br from-purple-50/80 to-white dark:from-purple-900/20 dark:to-gray-900/20 p-4">
+          <div className="rounded-xl border border-purple-200/70 dark:border-purple-700/60 bg-purple-500/10 p-4">
             <div className="flex items-start gap-3">
               <div className="rounded-full bg-purple-100 dark:bg-purple-900/40 p-2 text-purple-700 dark:text-purple-300">
                 <Bug className="w-5 h-5" />

@@ -418,7 +418,7 @@ export function Home() {
               className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 px-4 -mx-4"
             >
               {/* Care Tasks & Equipment Feature */}
-              <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-blue-50 via-teal-50 to-cyan-50 dark:from-blue-900/20 dark:via-teal-900/20 dark:to-cyan-900/20 rounded-2xl p-5 border-2 border-blue-200 dark:border-blue-800">
+              <div className="flex-shrink-0 w-[90%] snap-center bg-sky-500/10 rounded-2xl p-5 border-2 border-blue-200 dark:border-blue-800">
                 <div className="flex gap-2 mb-4">
                   <div className="w-12 h-12 bg-blue-600 dark:bg-blue-500 rounded-xl flex items-center justify-center">
                     <Bell className="w-6 h-6 text-white" />
@@ -480,7 +480,7 @@ export function Home() {
               </div>
 
               {/* Blog/Guides Feature */}
-              <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl p-5 border-2 border-amber-200 dark:border-amber-800">
+              <div className="flex-shrink-0 w-[90%] snap-center bg-amber-500/10 rounded-2xl p-5 border-2 border-amber-200 dark:border-amber-800">
                 <div className="w-16 h-16 bg-amber-600 dark:bg-amber-500 rounded-2xl flex items-center justify-center mb-4">
                   <GraduationCap className="w-8 h-8 text-white" />
                 </div>
@@ -527,7 +527,7 @@ export function Home() {
               </div>
 
               {/* Animal Profiles Feature */}
-              <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-900/20 dark:to-pink-900/20 rounded-2xl p-5 border-2 border-rose-200 dark:border-rose-800">
+              <div className="flex-shrink-0 w-[90%] snap-center bg-rose-500/10 rounded-2xl p-5 border-2 border-rose-200 dark:border-rose-800">
                 <div className="w-16 h-16 bg-rose-600 dark:bg-rose-500 rounded-2xl flex items-center justify-center mb-4">
                   <Turtle className="w-8 h-8 text-white" />
                 </div>
@@ -580,7 +580,7 @@ export function Home() {
               </div>
 
               {/* Visual Designer Feature */}
-              <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-5 border-2 border-purple-200 dark:border-purple-800">
+              <div className="flex-shrink-0 w-[90%] snap-center bg-purple-500/10 rounded-2xl p-5 border-2 border-purple-200 dark:border-purple-800">
                 <div className="w-16 h-16 bg-purple-600 dark:bg-purple-500 rounded-2xl flex items-center justify-center mb-4">
                   <Palette className="w-8 h-8 text-white" />
                 </div>
@@ -618,7 +618,7 @@ export function Home() {
               </div>
 
               {/* Care Analytics Feature */}
-              <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-900/20 dark:to-violet-900/20 rounded-2xl p-5 border-2 border-indigo-200 dark:border-indigo-800">
+              <div className="flex-shrink-0 w-[90%] snap-center bg-indigo-500/10 rounded-2xl p-5 border-2 border-indigo-200 dark:border-indigo-800">
                 <div className="w-16 h-16 bg-indigo-600 dark:bg-indigo-500 rounded-2xl flex items-center justify-center mb-4">
                   <BarChart3 className="w-8 h-8 text-white" />
                 </div>
@@ -657,7 +657,7 @@ export function Home() {
               </div>
 
               {/* Animal Search Feature */}
-              <div className="flex-shrink-0 w-[90%] snap-center bg-gradient-to-br from-accent/10 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-2xl p-5 border-2 border-accent/30">
+              <div className="flex-shrink-0 w-[90%] snap-center bg-accent/10 rounded-2xl p-5 border-2 border-accent/30">
                 <div className="w-16 h-16 bg-accent dark:bg-accent rounded-2xl flex items-center justify-center mb-4">
                   <Search className="w-8 h-8 text-white" />
                 </div>
@@ -721,7 +721,7 @@ export function Home() {
           {/* Desktop: Grid */}
           <div className="hidden md:grid md:grid-cols-2 gap-6 lg:gap-8">
             {/* Care Tasks & Equipment Feature */}
-            <div className="bg-gradient-to-br from-blue-50 via-teal-50 to-cyan-50 dark:from-blue-900/20 dark:via-teal-900/20 dark:to-cyan-900/20 rounded-2xl p-8 border-2 border-blue-200 dark:border-blue-800">
+            <div className="bg-sky-500/10 rounded-2xl p-8 border-2 border-blue-200 dark:border-blue-800">
               <div className="flex gap-3 mb-4">
                 <div className="w-14 h-14 bg-blue-600 dark:bg-blue-500 rounded-xl flex items-center justify-center">
                   <Bell className="w-7 h-7 text-white" />
@@ -784,7 +784,7 @@ export function Home() {
             </div>
 
             {/* Blog/Guides Feature */}
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl p-8 border-2 border-amber-200 dark:border-amber-800">
+            <div className="bg-amber-500/10 rounded-2xl p-8 border-2 border-amber-200 dark:border-amber-800">
               <div className="w-16 h-16 bg-amber-600 dark:bg-amber-500 rounded-2xl flex items-center justify-center mb-4">
                 <GraduationCap className="w-8 h-8 text-white" />
               </div>
@@ -831,7 +831,7 @@ export function Home() {
             </div>
 
             {/* Animal Profiles Feature */}
-            <div className="bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-900/20 dark:to-pink-900/20 rounded-2xl p-8 border-2 border-rose-200 dark:border-rose-800">
+            <div className="bg-rose-500/10 rounded-2xl p-8 border-2 border-rose-200 dark:border-rose-800">
               <div className="w-16 h-16 bg-rose-600 dark:bg-rose-500 rounded-2xl flex items-center justify-center mb-4">
                 <Turtle className="w-8 h-8 text-white" />
               </div>
@@ -884,7 +884,7 @@ export function Home() {
             </div>
 
             {/* Visual Designer Feature */}
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-8 border-2 border-purple-200 dark:border-purple-800">
+            <div className="bg-purple-500/10 rounded-2xl p-8 border-2 border-purple-200 dark:border-purple-800">
               <div className="w-16 h-16 bg-purple-600 dark:bg-purple-500 rounded-2xl flex items-center justify-center mb-4">
                 <Palette className="w-8 h-8 text-white" />
               </div>
@@ -921,7 +921,7 @@ export function Home() {
             </div>
 
             {/* Care Analytics Feature */}
-            <div className="bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-900/20 dark:to-violet-900/20 rounded-2xl p-8 border-2 border-indigo-200 dark:border-indigo-800">
+            <div className="bg-indigo-500/10 rounded-2xl p-8 border-2 border-indigo-200 dark:border-indigo-800">
               <div className="w-16 h-16 bg-indigo-600 dark:bg-indigo-500 rounded-2xl flex items-center justify-center mb-4">
                 <BarChart3 className="w-8 h-8 text-white" />
               </div>
@@ -959,7 +959,7 @@ export function Home() {
             </div>
 
             {/* Animal Search Feature */}
-            <div className="bg-gradient-to-br from-accent/10 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-2xl p-8 border-2 border-accent/30">
+            <div className="bg-accent/10 rounded-2xl p-8 border-2 border-accent/30">
               <div className="w-16 h-16 bg-accent dark:bg-accent rounded-2xl flex items-center justify-center mb-4">
                 <Search className="w-8 h-8 text-white" />
               </div>
@@ -1146,7 +1146,7 @@ export function Home() {
         </section>
 
         {/* Personal Story Section */}
-        <section className="bg-gradient-to-br from-accent/10 via-teal-50 to-green-50 dark:from-gray-800 dark:via-gray-800 dark:to-gray-800 border-2 border-accent/30 rounded-2xl p-8 md:p-10">
+        <section className="bg-accent/10 border-2 border-accent/30 rounded-2xl p-8 md:p-10">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 text-center">
             Why I Built This
           </h2>
@@ -1188,7 +1188,7 @@ export function Home() {
                     'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="400"%3E%3Crect width="800" height="400" fill="%2322c55e"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="24" fill="white"%3EMango, Kiwi, and Fig%3C/text%3E%3C/svg%3E';
                 }}
               />
-              <div className="bg-gradient-to-r from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/30 px-4 py-3 border-t-2 border-accent/30">
+              <div className="bg-accent/10 px-4 py-3 border-t-2 border-accent/30">
                 <p className="text-center text-sm text-secondary font-medium italic">
                   Mango, Kiwi, and Fig—happy, healthy, and thriving
                 </p>

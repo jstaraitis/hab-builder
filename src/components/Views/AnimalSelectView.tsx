@@ -204,7 +204,7 @@ export function AnimalSelectView({
                     {selectedProfile.notes.map((note: string, idx: number) => (
                       <div
                         key={`note-card-${note.substring(0, 20)}`}
-                        className="snap-center flex-shrink-0 w-[85vw] bg-gradient-to-br from-jade-50 to-teal-50 dark:from-card dark:to-card-elevated border border-jade-200 dark:border-jade-700 rounded-xl p-4 first:ml-4"
+                        className="snap-center flex-shrink-0 w-[85vw] bg-card-elevated border border-jade-200 dark:border-jade-700 rounded-xl p-4 first:ml-4"
                       >
                         <div className="flex items-start gap-3">
                           <Lightbulb className="w-6 h-6 text-jade-600 dark:text-accent flex-shrink-0" />
@@ -251,7 +251,7 @@ export function AnimalSelectView({
         <div className="sticky bottom-20 lg:bottom-0 lg:static z-20 animate-in slide-in-from-bottom duration-300">
           <button
             onClick={onContinue}
-            className="group w-full lg:w-auto lg:float-right px-12 py-5 lg:py-4 bg-gradient-to-r from-accent to-green-600 hover:from-accent-dim hover:to-green-700 text-white font-bold text-lg lg:text-xl rounded-xl shadow-2xl transition-all duration-300 hover:-translate-y-1 active:scale-95 active:rotate-1 border-2 border-emerald-400/20"
+            className="group w-full lg:w-auto lg:float-right px-12 py-5 lg:py-4 bg-accent hover:bg-accent-dim text-white font-bold text-lg lg:text-xl rounded-xl shadow-2xl transition-all duration-300 hover:-translate-y-1 active:scale-95 active:rotate-1 border-2 border-emerald-400/20"
           >
             <span className="inline-block transition-transform duration-200 group-active:translate-x-1">
               Continue to Design →

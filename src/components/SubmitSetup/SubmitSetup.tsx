@@ -6,7 +6,7 @@ export function SubmitSetup() {
 
   if (!isOpen) {
     return (
-      <div className="bg-gradient-to-br from-accent/10 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 border-2 border-accent/30 rounded-xl p-6">
+      <div className="bg-accent/10 border-2 border-accent/30 rounded-xl p-6">
         <div className="flex items-start gap-4">
           <div className="text-4xl">
             <Camera className="w-10 h-10" />
@@ -19,7 +19,7 @@ export function SubmitSetup() {
             </p>
             <button
               onClick={() => setIsOpen(true)}
-              className="px-6 py-3 bg-gradient-to-r from-accent to-teal-600 hover:from-accent-dim hover:to-teal-700 text-white font-semibold rounded-xl transition-all transform hover:scale-105"
+              className="px-6 py-3 bg-accent hover:bg-accent-dim text-white font-semibold rounded-xl transition-all transform hover:scale-105"
             >
               Submit Your Setup →
             </button>
@@ -42,7 +42,7 @@ export function SubmitSetup() {
       </div>
 
       <div className="space-y-4">
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 mb-6">
+        <div className="bg-sky-500/10 border border-blue-200 dark:border-blue-800 rounded-xl p-4 mb-6">
           <p className="text-sm text-blue-900 dark:text-blue-200 font-medium mb-2">
             <Mail className="inline-block w-5 h-5 mr-2" /> Email Your Submission
           </p>
@@ -148,7 +148,7 @@ export function SubmitSetup() {
         <div className="flex gap-3 pt-4">
           <a
             href="mailto:josh.habitat.builder@gmail.com?subject=Enclosure Setup Submission"
-            className="flex-1 px-6 py-3 bg-gradient-to-r from-accent to-teal-600 hover:from-accent-dim hover:to-teal-700 text-white font-semibold rounded-xl transition-all text-center"
+            className="flex-1 px-6 py-3 bg-accent hover:bg-accent-dim text-white font-semibold rounded-xl transition-all text-center"
           >
             <Mail className="inline-block w-4 h-4 mr-2" /> Send via Email
           </a>

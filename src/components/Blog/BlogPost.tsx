@@ -115,7 +115,7 @@ function renderBlock(block: ContentBlock, index: number): JSX.Element {
       return (
         <div
           key={index}
-          className="bg-gradient-to-br from-jade-50 to-teal-50 dark:from-card dark:to-card-elevated border-l-4 border-jade-600 dark:border-accent p-6 rounded-xl mb-12"
+          className="bg-card-elevated border-l-4 border-jade-600 dark:border-accent p-6 rounded-xl mb-12"
         >
           <p className="text-lg font-medium text-white leading-relaxed">
             {block.text || (typeof block.content === 'string' ? block.content : '')}
@@ -127,7 +127,7 @@ function renderBlock(block: ContentBlock, index: number): JSX.Element {
       return (
         <div key={index}>
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 mt-20 first:mt-0 flex items-center gap-3">
-            <span className="w-1.5 h-8 bg-gradient-to-b from-jade-600 to-teal-600 dark:from-accent dark:to-jade-500 rounded-full"></span>
+            <span className="w-1.5 h-8 bg-accent rounded-full"></span>
             {block.heading || ''}
           </h2>
           {block.content && Array.isArray(block.content) && (
@@ -221,7 +221,7 @@ function renderBlock(block: ContentBlock, index: number): JSX.Element {
       return (
         <div
           key={index}
-          className="bg-gradient-to-r from-jade-50 to-teal-50 dark:from-card dark:to-card-elevated border-l-4 border-jade-600 dark:border-accent p-6 rounded-xl mb-12"
+          className="bg-card-elevated border-l-4 border-jade-600 dark:border-accent p-6 rounded-xl mb-12"
         >
           <p className="text-jade-900 dark:text-jade-200 font-medium leading-relaxed">
             <span

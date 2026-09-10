@@ -7,6 +7,35 @@ export default {
   ],
   theme: {
     extend: {
+      /**
+       * Type scale.
+       *
+       * 76% of the app's text is `text-sm` or `text-xs`, which is normal for a
+       * data-dense tool but was rendering cramped at Tailwind's default
+       * leading. Rather than migrate ~1,600 class usages, the scale itself is
+       * retuned — every existing class gets better rhythm for free.
+       *
+       * Two opposite moves, which is what separates considered typography from
+       * default typography:
+       *
+       *   - SMALL TEXT gets MORE leading. Dense UI copy at 1.33 line-height is
+       *     a wall; at 1.5 it reads. This is the single biggest readability win
+       *     available without touching markup.
+       *   - DISPLAY TEXT gets LESS leading and negative tracking. Large type at
+       *     body-text leading looks loose and unset, which is exactly the
+       *     "assembled from defaults" impression we are trying to shake.
+       */
+      fontSize: {
+        xs: ['0.75rem', { lineHeight: '1.125rem' }],   // 12/18 — was 12/16
+        sm: ['0.875rem', { lineHeight: '1.375rem' }],  // 14/22 — was 14/20
+        base: ['1rem', { lineHeight: '1.5625rem' }],   // 16/25 — was 16/24
+        lg: ['1.125rem', { lineHeight: '1.75rem' }],
+        xl: ['1.25rem', { lineHeight: '1.6875rem', letterSpacing: '-0.01em' }],
+        '2xl': ['1.5rem', { lineHeight: '1.9375rem', letterSpacing: '-0.015em' }],
+        '3xl': ['1.875rem', { lineHeight: '2.25rem', letterSpacing: '-0.02em' }],
+        '4xl': ['2.25rem', { lineHeight: '2.5rem', letterSpacing: '-0.022em' }],
+        '5xl': ['3rem', { lineHeight: '1.08', letterSpacing: '-0.025em' }],
+      },
       fontFamily: {
         // Matches the :root stack in index.css so `font-sans` and inherited
         // text resolve to the same font rather than diverging.

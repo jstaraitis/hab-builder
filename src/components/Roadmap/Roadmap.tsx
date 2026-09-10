@@ -146,7 +146,7 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
       />
 
       <div className="max-w-4xl mx-auto space-y-6">
-        <div className="bg-gradient-to-r from-accent to-teal-600 rounded-2xl p-6 text-white">
+        <div className="bg-accent rounded-2xl p-6 text-white">
           <h1 className="text-2xl md:text-3xl font-bold mb-2">What We're Building</h1>
           <p className="text-base md:text-lg text-white/80">
             Here's what we're cooking up and what's on deck
@@ -296,7 +296,7 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
           </ul>
         </section>
 
-        <section className="bg-gradient-to-r from-accent to-teal-600 rounded-2xl p-6 text-white">
+        <section className="bg-accent rounded-2xl p-6 text-white">
           <div className="flex items-center gap-3 mb-4">
             <MessageCircle className="w-7 h-7" />
             <h2 className="text-2xl font-bold">Got Ideas or Feedback?</h2>

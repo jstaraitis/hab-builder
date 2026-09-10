@@ -181,7 +181,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
           {/* Minimum Tier */}
           <button
             onClick={() => onChange({ ...value, setupTier: 'minimum' })}
-            className={`group relative overflow-hidden rounded-xl px-3 py-4 sm:px-4 sm:py-5 text-sm font-medium transition-all duration-200 ${value.setupTier === 'minimum' ? 'bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-800 border-2 border-slate-400 dark:border-slate-500 scale-[1.02]' : 'bg-card border-2 border-slate-200 dark:border-divider hover:border-slate-300 dark:hover:border-slate-600 hover:scale-[1.01]'}`}
+            className={`group relative overflow-hidden rounded-xl px-3 py-4 sm:px-4 sm:py-5 text-sm font-medium transition-all duration-200 ${value.setupTier === 'minimum' ? 'bg-card-elevated border-2 border-slate-400 dark:border-slate-500 scale-[1.02]' : 'bg-card border-2 border-slate-200 dark:border-divider hover:border-slate-300 dark:hover:border-slate-600 hover:scale-[1.01]'}`}
           >
             <div className="flex flex-col items-center text-center">
               <CheckCircle
@@ -195,11 +195,11 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
           {/* Recommended Tier - Emphasized */}
           <button
             onClick={() => onChange({ ...value, setupTier: 'recommended' })}
-            className={`group relative overflow-hidden rounded-xl px-3 py-5 sm:px-4 sm:py-6 text-sm font-medium transition-all duration-200 ${value.setupTier === 'recommended' ? 'bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 dark:from-amber-900/50 dark:via-yellow-900/50 dark:to-amber-800/50 border-2 border-amber-400 dark:border-amber-500 shadow-xl scale-105 sm:scale-110 z-10' : 'bg-card border-2 border-amber-200 dark:border-amber-900/40 hover:border-amber-300 dark:hover:border-amber-700 hover:scale-[1.03] sm:hover:scale-[1.08]'}`}
+            className={`group relative overflow-hidden rounded-xl px-3 py-5 sm:px-4 sm:py-6 text-sm font-medium transition-all duration-200 ${value.setupTier === 'recommended' ? 'bg-amber-500/10 border-2 border-amber-400 dark:border-amber-500 shadow-xl scale-105 sm:scale-110 z-10' : 'bg-card border-2 border-amber-200 dark:border-amber-900/40 hover:border-amber-300 dark:hover:border-amber-700 hover:scale-[1.03] sm:hover:scale-[1.08]'}`}
           >
             {/* Popular Badge */}
             <div
-              className={`absolute -top-1 -right-1 px-2 py-0.5 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[10px] font-bold rounded-bl-xl rounded-tr-xl transition-opacity ${value.setupTier === 'recommended' ? 'opacity-100' : 'opacity-0 group-hover:opacity-80'}`}
+              className={`absolute -top-1 -right-1 px-2 py-0.5 bg-amber-500 text-white text-[10px] font-bold rounded-bl-xl rounded-tr-xl transition-opacity ${value.setupTier === 'recommended' ? 'opacity-100' : 'opacity-0 group-hover:opacity-80'}`}
             >
               POPULAR
             </div>
@@ -217,7 +217,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
           {/* Ideal Tier */}
           <button
             onClick={() => onChange({ ...value, setupTier: 'ideal' })}
-            className={`group relative overflow-hidden rounded-xl px-3 py-4 sm:px-4 sm:py-5 text-sm font-medium transition-all duration-200 ${value.setupTier === 'ideal' ? 'bg-gradient-to-br from-emerald-100 to-green-200 dark:from-emerald-900/50 dark:to-green-900/50 border-2 border-accent dark:border-accent scale-[1.02]' : 'bg-card border-2 border-accent/30 dark:border-emerald-900/40 hover:border-accent/30 dark:hover:border-accent/30 hover:scale-[1.01]'}`}
+            className={`group relative overflow-hidden rounded-xl px-3 py-4 sm:px-4 sm:py-5 text-sm font-medium transition-all duration-200 ${value.setupTier === 'ideal' ? 'bg-accent/15 border-2 border-accent dark:border-accent scale-[1.02]' : 'bg-card border-2 border-accent/30 dark:border-emerald-900/40 hover:border-accent/30 dark:hover:border-accent/30 hover:scale-[1.01]'}`}
           >
             <div className="flex flex-col items-center text-center">
               <Award
@@ -767,7 +767,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
       </div>
 
       {/* Ambient Room Temperature */}
-      <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 border-2 border-red-200 dark:border-red-800 p-5">
+      <div className="relative overflow-hidden rounded-xl bg-red-500/10 border-2 border-red-200 dark:border-red-800 p-5">
         <div className="flex items-center justify-between mb-3">
           <label className="text-sm font-semibold text-white flex items-center gap-2">
             <div className="bg-red-100 dark:bg-red-900/40 rounded-full p-2">
@@ -801,7 +801,7 @@ export function EnclosureForm({ value, onChange, animalProfile }: EnclosureFormP
 
       {/* Ambient Room Humidity - Hidden for fully aquatic animals */}
       {animalProfile?.equipmentNeeds?.waterFeature !== 'fully-aquatic' && (
-        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border-2 border-blue-200 dark:border-blue-800 p-5">
+        <div className="relative overflow-hidden rounded-xl bg-sky-500/10 border-2 border-blue-200 dark:border-blue-800 p-5">
           <div className="flex items-center justify-between mb-3">
             <label className="text-sm font-semibold text-white flex items-center gap-2">
               <div className="bg-blue-100 dark:bg-blue-900/40 rounded-full p-2">

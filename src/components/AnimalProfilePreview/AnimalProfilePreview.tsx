@@ -20,7 +20,7 @@ export function AnimalProfilePreview() {
   return (
     <div className="max-w-7xl mx-auto p-6 space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl p-6 text-white">
+      <div className="bg-purple-500 rounded-xl p-6 text-white">
         <h1 className="text-3xl font-bold mb-2"><Search className="inline-block w-6 h-6 mr-2"/> Animal Profile Inspector</h1>
         <p className="text-purple-100">Development tool for reviewing animal data</p>
       </div>

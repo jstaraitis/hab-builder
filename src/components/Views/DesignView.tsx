@@ -51,7 +51,7 @@ export function DesignView({ selectedProfile, input, setInput, plan, error, onGe
       <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3">
         <button
           onClick={onGenerate}
-          className="w-full sm:w-auto px-8 py-5 sm:py-4 bg-gradient-to-r from-accent to-green-600 hover:from-accent-dim hover:to-green-700 text-white font-bold text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-200 hover:-translate-y-1 active:scale-95"
+          className="w-full sm:w-auto px-8 py-5 sm:py-4 bg-accent hover:bg-accent-dim text-white font-bold text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-200 hover:-translate-y-1 active:scale-95"
         >
           Generate Build Plan
         </button>

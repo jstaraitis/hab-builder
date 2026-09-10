@@ -32,7 +32,7 @@ export function About({ onOpenFeedback }: AboutProps) {
 
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Hero */}
-        <div className="bg-gradient-to-r from-accent to-teal-600 rounded-2xl p-6 text-white">
+        <div className="bg-accent rounded-2xl p-6 text-white">
           <h1 className="text-2xl md:text-3xl font-bold mb-2">About Habitat Builder</h1>
           <p className="text-base md:text-lg text-white/80">
             A beginner-friendly way to build a safe, species-correct enclosure with confidence.

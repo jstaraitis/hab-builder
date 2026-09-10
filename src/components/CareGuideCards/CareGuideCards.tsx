@@ -22,7 +22,7 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
       secondaryId: getBlogId('substrate'),
       title: 'Housing Guide',
       icon: <Home className="w-7 h-7" />,
-      gradient: 'from-jade-50 to-teal-50 dark:from-card dark:to-card-elevated',
+      tint: 'bg-accent/10',
       border: 'border-jade-200 dark:border-jade-700',
       iconBg: 'bg-jade-100 dark:bg-jade-900/40',
       iconColor: 'text-jade-600 dark:text-accent',
@@ -37,7 +37,7 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
       id: getBlogId('temp-humidity') || getBlogId('temperature'),
       title: 'Temperature & Humidity',
       icon: <Thermometer className="w-7 h-7" />,
-      gradient: 'from-red-50 to-orange-50 dark:from-red-900/10 dark:to-orange-900/10',
+      tint: 'bg-red-500/10',
       border: 'border-red-200 dark:border-red-700',
       iconBg: 'bg-red-100 dark:bg-red-900/30',
       iconColor: 'text-red-600 dark:text-red-300',
@@ -91,7 +91,7 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
       id: getBlogId('lighting') || getBlogId('uvb'),
       title: 'Lighting & UVB',
       icon: <Sun className="w-7 h-7" />,
-      gradient: 'from-amber-50 to-yellow-50 dark:from-amber-900/10 dark:to-yellow-900/10',
+      tint: 'bg-amber-500/10',
       border: 'border-amber-200 dark:border-amber-700',
       iconBg: 'bg-amber-100 dark:bg-amber-900/30',
       iconColor: 'text-amber-600 dark:text-amber-300',
@@ -106,7 +106,7 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
       id: getBlogId('feeding'),
       title: 'Feeding Guide',
       icon: <Utensils className="w-7 h-7" />,
-      gradient: 'from-jade-50 to-emerald-50 dark:from-card dark:to-card-elevated',
+      tint: 'bg-accent/10',
       border: 'border-jade-200 dark:border-jade-700',
       iconBg: 'bg-jade-100 dark:bg-jade-900/40',
       iconColor: 'text-jade-600 dark:text-accent',
@@ -121,7 +121,7 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
       id: getBlogId('hydration') || getBlogId('water'),
       title: 'Hydration & Water',
       icon: <Droplets className="w-7 h-7" />,
-      gradient: 'from-cyan-50 to-blue-50 dark:from-cyan-900/10 dark:to-blue-900/10',
+      tint: 'bg-sky-500/10',
       border: 'border-cyan-200 dark:border-cyan-700',
       iconBg: 'bg-cyan-100 dark:bg-cyan-900/30',
       iconColor: 'text-cyan-600 dark:text-cyan-300',
@@ -136,7 +136,7 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
       id: getBlogId('enrichment') || getBlogId('welfare'),
       title: 'Enrichment & Welfare',
       icon: <Heart className="w-7 h-7" />,
-      gradient: 'from-rose-50 to-pink-50 dark:from-rose-900/10 dark:to-pink-900/10',
+      tint: 'bg-rose-500/10',
       border: 'border-rose-200 dark:border-rose-700',
       iconBg: 'bg-rose-100 dark:bg-rose-900/30',
       iconColor: 'text-rose-600 dark:text-rose-300',
@@ -160,7 +160,7 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
           guide.id ? (
             <div
               key={index}
-              className={`relative overflow-hidden rounded-xl bg-gradient-to-br ${guide.gradient} border-2 ${guide.border} p-3 sm:p-4 h-full flex flex-col`}
+              className={`relative overflow-hidden rounded-xl ${guide.tint} border-2 ${guide.border} p-3 sm:p-4 h-full flex flex-col`}
             >
               <div className="flex items-start justify-between mb-2">
                 <div className={`${guide.iconBg} rounded-full p-2`}>
@@ -206,7 +206,7 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
           ) : (
             <div
               key={index}
-              className={`relative overflow-hidden rounded-xl bg-gradient-to-br ${guide.gradient} border-2 ${guide.border} border-dashed p-5 opacity-50 h-full flex flex-col`}
+              className={`relative overflow-hidden rounded-xl ${guide.tint} border-2 ${guide.border} border-dashed p-5 opacity-50 h-full flex flex-col`}
             >
               <div className="flex items-start justify-between mb-3">
                 <div className={`${guide.iconBg} rounded-full p-3 opacity-50`}>

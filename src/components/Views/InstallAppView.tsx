@@ -5,7 +5,7 @@ export function InstallAppView() {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       {/* iOS App Store banner — most prominent option */}
-      <div className="bg-gradient-to-r from-accent to-teal-600 rounded-2xl p-6 sm:p-8 text-white">
+      <div className="bg-accent rounded-2xl p-6 sm:p-8 text-white">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
             <Phone className="w-8 h-8 text-white" />

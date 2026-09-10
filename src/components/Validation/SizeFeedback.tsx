@@ -13,7 +13,7 @@ export function SizeFeedback({ validation, animalName }: SizeFeedbackProps) {
   
   if (validation.isValid && validation.warnings.length === 0) {
     return (
-      <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/30 dark:to-emerald-900/30 border-2 border-green-300 dark:border-green-700 rounded-xl p-4">
+      <div className="bg-accent/10 border-2 border-green-300 dark:border-green-700 rounded-xl p-4">
         <div className="flex items-start">
             <div className="flex-shrink-0">
               <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-400" />
@@ -31,7 +31,7 @@ export function SizeFeedback({ validation, animalName }: SizeFeedbackProps) {
   return (
     <div className="space-y-3">
       {validation.tooSmall && (
-        <div className="bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-900/30 dark:to-pink-900/30 border-2 border-red-300 dark:border-red-700 rounded-xl p-4">
+        <div className="bg-red-500/10 border-2 border-red-300 dark:border-red-700 rounded-xl p-4">
           <div className="flex items-start">
             <div className="flex-shrink-0">
               <XCircle className="h-5 w-5 text-red-600 dark:text-red-400" />
@@ -46,7 +46,7 @@ export function SizeFeedback({ validation, animalName }: SizeFeedbackProps) {
       )}
 
       {validation.warnings.length > 0 && (
-        <div className="bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-900/30 dark:to-amber-900/30 border-2 border-yellow-300 dark:border-yellow-700 rounded-xl p-4">
+        <div className="bg-amber-500/10 border-2 border-yellow-300 dark:border-yellow-700 rounded-xl p-4">
           <div className="flex">
             <div className="flex-shrink-0">
               <AlertTriangle className="h-5 w-5 text-yellow-600 dark:text-yellow-400" />
@@ -66,7 +66,7 @@ export function SizeFeedback({ validation, animalName }: SizeFeedbackProps) {
       )}
 
       {validation.tooSmall && (
-        <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/30 dark:to-cyan-900/30 border-2 border-blue-300 dark:border-blue-700 rounded-xl p-4">
+        <div className="bg-sky-500/10 border-2 border-blue-300 dark:border-blue-700 rounded-xl p-4">
           <div className="flex">
             <div className="flex-shrink-0">
               <svg className="h-5 w-5 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20">

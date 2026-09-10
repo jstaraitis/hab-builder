@@ -12,7 +12,7 @@ export function PrivacyPolicy() {
 
       <div className="max-w-4xl mx-auto space-y-8 pb-12">
         {/* Hero */}
-        <div className="bg-gradient-to-r from-accent to-teal-600 rounded-xl p-6 text-white">
+        <div className="bg-accent rounded-xl p-6 text-white">
           <h1 className="text-2xl md:text-3xl font-bold mb-2">Privacy Policy</h1>
           <p className="text-base text-accent">Last updated: March 2026</p>
         </div>

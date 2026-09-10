@@ -175,7 +175,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
                   decoding="async"
                 />
               ) : (
-                <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+                <div className="w-full h-full bg-card-elevated flex items-center justify-center">
                   <div className="text-5xl group-hover:scale-110 transition-transform duration-300">
                     {animal.image}
                   </div>
@@ -431,7 +431,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
                       decoding="async"
                     />
                   ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+                    <div className="w-full h-full bg-card-elevated flex items-center justify-center">
                       <div className="text-5xl group-hover:scale-110 transition-transform duration-300">
                         {animal.image}
                       </div>

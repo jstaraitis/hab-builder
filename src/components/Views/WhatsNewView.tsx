@@ -5,7 +5,7 @@ import { changelogEntries } from '../../data/changelog';
 export function WhatsNewView() {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
-      <div className="bg-gradient-to-r from-accent to-teal-600 rounded-2xl p-6 sm:p-8 text-white">
+      <div className="bg-accent rounded-2xl p-6 sm:p-8 text-white">
         <div className="flex items-start gap-4">
           <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center text-white">
             <Sparkles className="w-6 h-6" />

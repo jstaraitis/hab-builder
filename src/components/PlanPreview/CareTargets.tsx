@@ -13,7 +13,7 @@ export function CareTargets({ targets, showHeader = true, infoWarnings = [], mis
   const cards = (
     <>
       {/* Temperature Card */}
-        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 border-2 border-red-200 dark:border-red-800 p-5 transition- h-full flex flex-col">
+        <div className="relative overflow-hidden rounded-xl bg-red-500/10 border-2 border-red-200 dark:border-red-800 p-5 transition- h-full flex flex-col">
           <div className="flex items-start justify-between mb-3">
             <div className="bg-red-100 dark:bg-red-900/40 rounded-full p-3">
               <svg className="w-8 h-8 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -65,7 +65,7 @@ export function CareTargets({ targets, showHeader = true, infoWarnings = [], mis
         </div>
 
         {/* Humidity Card */}
-        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border-2 border-blue-200 dark:border-blue-800 p-5 transition- h-full flex flex-col">
+        <div className="relative overflow-hidden rounded-xl bg-sky-500/10 border-2 border-blue-200 dark:border-blue-800 p-5 transition- h-full flex flex-col">
           <div className="flex items-start justify-between mb-3">
             <div className="bg-blue-100 dark:bg-blue-900/40 rounded-full p-3">
               <svg className="w-8 h-8 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
@@ -130,7 +130,7 @@ export function CareTargets({ targets, showHeader = true, infoWarnings = [], mis
         </div>
 
         {/* Lighting Card */}
-        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-2 border-amber-200 dark:border-amber-800 p-5 transition- h-full flex flex-col">
+        <div className="relative overflow-hidden rounded-xl bg-amber-500/10 border-2 border-amber-200 dark:border-amber-800 p-5 transition- h-full flex flex-col">
           <div className="flex items-start justify-between mb-3">
             <div className="bg-amber-100 dark:bg-amber-900/40 rounded-full p-3">
               <svg className="w-8 h-8 text-amber-600 dark:text-amber-400" fill="currentColor" viewBox="0 0 24 24">

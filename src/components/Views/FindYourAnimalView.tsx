@@ -89,7 +89,7 @@ export function FindYourAnimalView({ onAnimalSelected }: FindYourAnimalViewProps
 
   if (!hasSubmitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 py-8 px-4">
+      <div className="min-h-screen bg-card py-8 px-4">
         <SEO
           title="Find Your Perfect Animal - Enclosure Compatibility Tool"
           description={dynamicDescription}
@@ -145,7 +145,7 @@ export function FindYourAnimalView({ onAnimalSelected }: FindYourAnimalViewProps
 
   if (!recommendations || recommendations.length === 0) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 py-8 px-4">
+      <div className="min-h-screen bg-card py-8 px-4">
         <div className="max-w-4xl mx-auto">
           <button
             onClick={() => setHasSubmitted(false)}
@@ -166,7 +166,7 @@ export function FindYourAnimalView({ onAnimalSelected }: FindYourAnimalViewProps
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 py-8 px-4">
+    <div className="min-h-screen bg-card py-8 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="mb-8">

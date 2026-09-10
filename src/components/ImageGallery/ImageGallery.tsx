@@ -38,7 +38,7 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative overflow-hidden rounded-xl lg:rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-purple-200 dark:border-purple-800 hover:border-purple-400 dark:hover:border-purple-600 transition-all cursor-pointer group"
+            className="relative overflow-hidden rounded-xl lg:rounded-xl bg-card border-2 border-purple-200 dark:border-purple-800 hover:border-purple-400 dark:hover:border-purple-600 transition-all cursor-pointer group"
             onClick={() => {
               setSelectedIndex(index);
               setIsLightboxOpen(true);

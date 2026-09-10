@@ -680,7 +680,7 @@ export function AnimalDetailView() {
 
         {/* Hero */}
         <div className="relative overflow-hidden rounded-2xl border border-divider bg-card p-4 sm:p-5 mb-4">
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-jade-500/10 via-transparent to-cyan-500/10" />
+          <div className="pointer-events-none absolute inset-0 bg-accent/10" />
 
           <div className="relative flex flex-col gap-4">
             <div className="h-52 w-full overflow-hidden rounded-2xl border border-divider bg-card-elevated flex items-center justify-center text-muted sm:h-56 shrink-0">

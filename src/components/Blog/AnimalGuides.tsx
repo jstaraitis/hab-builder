@@ -77,7 +77,7 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
     <div className="space-y-6">
       {/* General Guides Section */}
       {generalGuides.length > 0 && (
-        <div className="bg-gradient-to-r from-jade-50 to-teal-50 dark:from-card dark:to-card-elevated rounded-xl border border-jade-200 dark:border-jade-700 p-3 sm:p-4 lg:p-6">
+        <div className="bg-card-elevated rounded-xl border border-jade-200 dark:border-jade-700 p-3 sm:p-4 lg:p-6">
           <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 flex items-center gap-2">
             <Book className="w-5 h-5 sm:w-6 sm:h-6 text-jade-600 dark:text-accent" />
             General Care Guides
@@ -98,7 +98,7 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
                   <Link
                     key={blog.id}
                     to={`/blog/${blog.id}`}
-                    className="group relative bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 hover:from-amber-100 hover:to-yellow-100 dark:hover:from-amber-900/40 dark:hover:to-yellow-900/30 border-2 border-amber-300 dark:border-amber-700 hover:border-amber-400 dark:hover:border-amber-600 rounded-xl p-3 sm:p-4 transition-all"
+                    className="group relative bg-amber-500/10 hover:bg-amber-500/20 border-2 border-amber-300 dark:border-amber-700 hover:border-amber-400 dark:hover:border-amber-600 rounded-xl p-3 sm:p-4 transition-all"
                   >
                     <div className="absolute -top-2 -right-2">
                       <span className="inline-flex items-center justify-center w-6 h-6 bg-amber-500 text-white rounded-full">
@@ -202,7 +202,7 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
 
       <div className="border-t border-divider my-6"></div>
       {selectedAnimal && (
-        <div className="bg-gradient-to-r from-accent/10 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-xl border border-accent/30 p-3 sm:p-4 lg:p-6">
+        <div className="bg-accent/10 rounded-xl border border-accent/30 p-3 sm:p-4 lg:p-6">
           <h3 className="text-base sm:text-lg font-semibold text-white mb-3">
             Guides for {animals.find((a) => a.id === selectedAnimal)?.commonName}
           </h3>

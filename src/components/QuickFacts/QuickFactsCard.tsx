@@ -236,7 +236,7 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-3 sm:p-4 mb-6 border border-divider">
+    <div className="bg-card rounded-xl p-3 sm:p-4 mb-6 border border-divider">
       <div className="flex items-center gap-2 mb-3">
         <div className="p-1.5 bg-accent/15 rounded-xl">
           <Ruler className="w-5 h-5 text-accent" />

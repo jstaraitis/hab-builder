@@ -164,7 +164,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
   // No results case
   if (perfectMatches.length === 0 && goodFits.length === 0 && possibleMatches.length === 0) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 py-8 px-4">
+      <div className="min-h-screen bg-card py-8 px-4">
         <SEO title="No Recommendations Found" description="Try adjusting your enclosure parameters" />
         <div className="max-w-4xl mx-auto">
           <button
@@ -184,7 +184,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 py-8 px-4">
+    <div className="min-h-screen bg-card py-8 px-4">
       <SEO
         title="Your Animal Recommendations"
         description={dynamicDescription}

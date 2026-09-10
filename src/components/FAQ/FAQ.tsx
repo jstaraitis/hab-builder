@@ -232,7 +232,7 @@ export function FAQ() {
 
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Hero */}
-        <div className="bg-gradient-to-r from-accent to-teal-600 rounded-xl p-6 text-white">
+        <div className="bg-accent rounded-xl p-6 text-white">
           <div className="flex items-center gap-3 mb-2">
             <HelpCircle className="w-7 h-7" />
             <h1 className="text-2xl md:text-3xl font-bold">Frequently Asked Questions</h1>

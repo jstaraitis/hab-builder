@@ -35,7 +35,7 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
   return (
     <div className="space-y-4 sm:space-y-6">
       {/* Main Header Card - Improved Design */}
-      <div className="bg-gradient-to-br from-purple-50 via-indigo-50 to-purple-100 dark:from-purple-900/30 dark:via-indigo-900/30 dark:to-purple-800/30 border-2 border-purple-200 dark:border-purple-700 rounded-xl p-4 sm:p-6">
+      <div className="bg-purple-500/10 border-2 border-purple-200 dark:border-purple-700 rounded-xl p-4 sm:p-6">
         <div className="flex items-start gap-3 sm:gap-4">
           <div className="p-2 sm:p-2.5 bg-card rounded-xl">
             <Star className="w-6 h-6 sm:w-7 sm:h-7 text-purple-600 dark:text-purple-400" />
@@ -47,7 +47,7 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
             </p>
             
             {/* Premium Feature Callout - Redesigned */}
-            <div className="relative overflow-hidden bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/30 dark:to-emerald-900/30 rounded-xl p-3 sm:p-4 border-2 border-green-200 dark:border-green-700">
+            <div className="relative overflow-hidden bg-accent/10 rounded-xl p-3 sm:p-4 border-2 border-green-200 dark:border-green-700">
               <div className="absolute top-0 right-0 w-20 h-20 bg-green-200/30 dark:bg-green-600/20 rounded-full -mr-10 -mt-10" />
               <div className="relative">
                 <div className="flex items-center gap-2 mb-1.5">
@@ -81,7 +81,7 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
             className="bg-card rounded-xl border border-divider overflow-hidden transition- flex-shrink-0 w-[85%] md:w-auto snap-center"
           >
             {/* Image placeholder */}
-            <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center relative">
+            <div className="aspect-video bg-card-elevated flex items-center justify-center relative">
               <div className="text-center px-4">
                 <Image className="w-12 h-12 mb-2 text-muted mx-auto" />
                 <p className="text-sm text-muted font-medium mb-3">{example.name}</p>
@@ -139,7 +139,7 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
 
       {/* Species-Specific Setup Tips */}
       {speciesSetupTips.length > 0 && (
-        <div className="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 border border-purple-200 dark:border-purple-800 rounded-xl p-4">
+        <div className="bg-purple-500/10 border border-purple-200 dark:border-purple-800 rounded-xl p-4">
           <h4 className="font-semibold text-purple-900 dark:text-purple-200 mb-2 flex items-center gap-2"><Bug className="w-5 h-5" />Species-Specific Tips</h4>
           <ul className="text-sm text-purple-800 dark:text-purple-300 space-y-2">
             {speciesSetupTips.map((tip, index) => (
