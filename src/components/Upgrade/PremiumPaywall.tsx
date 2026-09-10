@@ -14,6 +14,7 @@ export type PaywallSource =
   | 'care-analytics'
   | 'health-report'
   | 'sitter-sheet'
+  | 'what-changed'
   | 'dashboard-alerts'
   | 'unknown';
 

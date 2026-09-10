@@ -1,6 +1,9 @@
-﻿import { useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { Scale, Plus } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
+import { weightTrackingService } from '../../services/weightTrackingService';
+import { CohortGrowthCard } from '../premium/CohortGrowthCard';
+import type { WeightLog } from '../../types/weightTracking';
 import { WeightLogForm } from './WeightLogForm';
 import { WeightChart } from './WeightChart';
 import { WeightHistory } from './WeightHistory';
@@ -15,11 +18,44 @@ export function WeightTracker({ animal }: WeightTrackerProps) {
   const { user } = useAuth();
   const [showAddForm, setShowAddForm] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
+  const [latestLog, setLatestLog] = useState<WeightLog | null>(null);
 
   const handleLogCreated = () => {
     setShowAddForm(false);
     setRefreshKey(prev => prev + 1); // Trigger refresh of stats/chart/history
   };
+
+  // Keyed on refreshKey so the cohort comparison moves the moment a weight is
+  // logged — that is the point at which a keeper actually wants to know where
+  // their animal now sits.
+  useEffect(() => {
+    let cancelled = false;
+
+    weightTrackingService
+      .getWeightLogs(animal.id)
+      .then(logs => {
+        if (!cancelled) setLatestLog(logs[0] ?? null);
+      })
+      .catch((error: unknown) => {
+        // The benchmark is supplementary; the tracker itself must still work.
+        console.error('Failed to load latest weight for cohort comparison:', error);
+        if (!cancelled) setLatestLog(null);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [animal.id, refreshKey]);
+
+  // Age at the weigh-in, not age today — the cohort bucket has to match when
+  // the measurement was actually taken.
+  const birth = animal.birthday ?? animal.acquisitionDate;
+  const cohortAgeDays =
+    birth && latestLog
+      ? Math.floor(
+          (latestLog.measurementDate.getTime() - new Date(birth).getTime()) / 86400000
+        )
+      : null;
 
   if (!user) {
     return (
@@ -79,9 +115,18 @@ export function WeightTracker({ animal }: WeightTrackerProps) {
       )}
 
       {/* Stats Overview */}
-      <WeightStats 
-        enclosureAnimalId={animal.id} 
+      <WeightStats
+        enclosureAnimalId={animal.id}
         refreshKey={refreshKey}
+      />
+
+      {/* How this animal compares to others of its species. Sits directly under
+          the numbers it contextualises. */}
+      <CohortGrowthCard
+        speciesId={animal.speciesId}
+        speciesName={animal.speciesName}
+        ageDays={cohortAgeDays}
+        currentWeightGrams={latestLog?.weightGrams ?? null}
       />
 
       {/* Weight Chart */}

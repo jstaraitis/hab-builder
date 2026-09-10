@@ -1,5 +1,6 @@
 import { supabase } from '../lib/supabase';
 import type { WeightLog, WeightLogInput, WeightStats, WeightAnalytics } from '../types/weightTracking';
+import { cohortService } from './cohortService';
 
 /**
  * Weight Tracking Service
@@ -86,7 +87,18 @@ class WeightTrackingService {
       throw new Error('Failed to create weight log');
     }
 
-    return this.mapToWeightLog(data);
+    const log = this.mapToWeightLog(data);
+
+    // Contribute an anonymised copy to the species growth benchmark. Deliberately
+    // not awaited and unable to throw: the keeper's weigh-in has already been
+    // saved, and a benchmark write must never be able to fail it.
+    cohortService.contribute(userId, {
+      enclosureAnimalId: input.enclosureAnimalId,
+      weightGrams: input.weightGrams,
+      measurementDate: log.measurementDate,
+    });
+
+    return log;
   }
 
   /**

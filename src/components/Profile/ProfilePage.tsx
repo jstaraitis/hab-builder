@@ -25,6 +25,7 @@ import { supabase } from '../../lib/supabase';
 import { notificationService } from '../../services/notificationService';
 import { userSurveyService, type UserSurveyInput } from '../../services/userSurveyService';
 import { UserSurveyForm } from './UserSurveyModal';
+import { CohortConsentSetting } from './CohortConsentSetting';
 
 interface ProfileFormState {
   displayName: string;
@@ -584,6 +585,8 @@ export function ProfilePage() {
           </div>
 
           <div className="space-y-3">
+            {user?.id && <CohortConsentSetting userId={user.id} />}
+
             <button
               type="button"
               onClick={() => setShowDisplayNameEditor((prev) => !prev)}

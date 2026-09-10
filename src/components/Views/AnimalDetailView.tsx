@@ -38,7 +38,8 @@ import {
   Trash2,
   ChevronRight,
   ChevronDown,
-  FileText
+  FileText,
+  History
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
@@ -701,6 +702,14 @@ export function AnimalDetailView() {
             >
               <FileText className="w-3.5 h-3.5" />
               Vet Report
+            </button>
+            <button
+              onClick={() => navigate(`/my-animals/${animal.id}/what-changed`)}
+              className="inline-flex w-auto self-start px-3 py-1.5 bg-card-elevated border border-divider text-white rounded-lg text-sm font-semibold items-center justify-center gap-1.5 hover:border-jade-500/50 transition-colors"
+              title="Reconstruct what changed before a problem started"
+            >
+              <History className="w-3.5 h-3.5" />
+              What Changed?
             </button>
           </div>
         </div>

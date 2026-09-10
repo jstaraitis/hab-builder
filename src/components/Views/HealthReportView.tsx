@@ -27,6 +27,7 @@ import { track } from '../../services/analyticsService';
 import { reportToPlainText } from '../../utils/healthReportText';
 import { NutritionInsights } from '../CareAnalytics/NutritionInsights';
 import { PRINT_STYLES } from './printStyles';
+import { CohortGrowthCard } from '../premium/CohortGrowthCard';
 
 const SEVERITY_STYLES: Record<ConcernSeverity, { chip: string; label: string; border: string }> = {
   urgent: {
@@ -180,6 +181,15 @@ export function HealthReportView() {
   if (!report || !bundle) return null;
 
   const { animal, enclosure } = bundle;
+  // Age at the most recent weigh-in, not age today — the cohort bucket must
+  // match when the weight was actually taken.
+  const birthForAge = animal.birthday ?? animal.acquisitionDate;
+  const cohortAgeDays =
+    birthForAge && report.weight
+      ? Math.floor(
+          (report.weight.currentDate.getTime() - new Date(birthForAge).getTime()) / 86400000
+        )
+      : null;
   const dimensions =
     enclosure?.widthInches && enclosure?.depthInches && enclosure?.heightInches
       ? `${enclosure.widthInches}" W × ${enclosure.depthInches}" D × ${enclosure.heightInches}" H`
@@ -386,6 +396,18 @@ export function HealthReportView() {
           <p className="text-sm text-muted">No weight has ever been recorded for this animal.</p>
         )}
       </Section>
+
+      {/* Cohort comparison sits with weight because it is a reading of the
+          same number, not a separate finding. Screen only: the curve depends
+          on a live population and would be stale the moment it is printed. */}
+      <div className="no-print">
+        <CohortGrowthCard
+          speciesId={animal.speciesId}
+          speciesName={animal.speciesName ?? enclosure?.animalName}
+          ageDays={cohortAgeDays}
+          currentWeightGrams={report.weight?.currentGrams ?? null}
+        />
+      </div>
 
       {/* Feeding */}
       <Section title="Feeding">
