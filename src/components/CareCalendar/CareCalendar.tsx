@@ -863,7 +863,7 @@ export function CareCalendar() {
           </div>
         ) : (
           <div className="px-4 pt-2">
-            <PremiumPaywall />
+            <PremiumPaywall source="care-analytics" />
           </div>
         )
       ) : (

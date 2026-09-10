@@ -122,11 +122,27 @@ export interface OwnerUserDetails {
   fetchedAt: string;
 }
 
+export interface OwnerFunnelStep {
+  event: string;
+  /** Distinct people, not raw events. */
+  people: number;
+}
+
+export interface OwnerFunnelAnalytics {
+  sinceDays: number;
+  totalEvents: number;
+  steps: OwnerFunnelStep[];
+  paywallSources: OwnerSurveyDistribution[];
+  /** Null when no trials have started yet — not 0%. */
+  trialConversionRate: number | null;
+}
+
 interface OwnerAppStatsResponse {
   metrics?: OwnerMetric[];
   recentProfiles?: RecentProfile[];
   recentProfilesError?: string;
   surveyAnalytics?: OwnerSurveyAnalytics;
+  funnelAnalytics?: OwnerFunnelAnalytics;
   selectedUser?: OwnerUserProfileDetail | null;
   selectedUserError?: string;
   userDetails?: {
@@ -249,6 +265,17 @@ class OwnerDashboardService {
 
       throw error;
     }
+  }
+
+  async getFunnelAnalytics(days = 30): Promise<OwnerFunnelAnalytics> {
+    const { data, error } = await supabase.functions.invoke<OwnerAppStatsResponse>('owner-app-stats', {
+      body: { funnelAnalytics: true, funnelDays: days },
+    });
+
+    if (error) throw error;
+    if (!data?.funnelAnalytics) throw new Error('No funnel data returned');
+
+    return data.funnelAnalytics;
   }
 
   async getSurveyAnalytics(): Promise<OwnerSurveyAnalytics> {

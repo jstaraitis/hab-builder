@@ -53,6 +53,9 @@ export function EditEnclosureView() {
           substrateType: data.substrateType || '',
           hasUVB: data.uvbBulbInstalledOn != null,
           uvbBulbType: data.uvbBulbType ?? 'unknown',
+          widthInches: data.widthInches,
+          depthInches: data.depthInches,
+          heightInches: data.heightInches,
           tempMin: data.baselineDayTempTarget,
           tempMax: data.baselineNightTempTarget,
           humidityMin: data.baselineHumidityMinTarget,
@@ -104,6 +107,9 @@ export function EditEnclosureView() {
       uvbReplaceDueOn: formData.hasUVB
         ? calculateReplaceDueOn(originalUvbInstalledOn ?? new Date(), formData.uvbBulbType)
         : undefined,
+      widthInches: formData.widthInches,
+      depthInches: formData.depthInches,
+      heightInches: formData.heightInches,
       baselineDayTempTarget: formData.tempMin,
       baselineNightTempTarget: formData.tempMax,
       baselineHumidityMinTarget: formData.humidityMin,

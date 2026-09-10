@@ -1,6 +1,15 @@
 import { useState } from 'react';
 import { animalList, getAnimalById } from '../../data/animals';
 import { UVB_BULB_SPECS, UVB_BULB_TYPE_ORDER, type UvbBulbType } from '../../engine/uvbLifecycle';
+import { inchesToCm, cmToInches } from '../../utils/unitConversion';
+
+type DimensionKey = 'widthInches' | 'depthInches' | 'heightInches';
+
+const DIMENSION_FIELDS: ReadonlyArray<{ key: DimensionKey; label: string }> = [
+  { key: 'widthInches', label: 'Width' },
+  { key: 'depthInches', label: 'Depth' },
+  { key: 'heightInches', label: 'Height' },
+];
 
 type SubstrateType = '' | 'bioactive' | 'soil' | 'paper' | 'sand' | 'reptile-carpet' | 'tile' | 'other';
 
@@ -13,6 +22,10 @@ export interface EnclosureFormData {
   substrateType: SubstrateType;
   hasUVB: boolean;
   uvbBulbType: UvbBulbType;
+  /** Interior size, always held in inches. The inputs convert for display. */
+  widthInches?: number;
+  depthInches?: number;
+  heightInches?: number;
   tempMin?: number;
   tempMax?: number;
   humidityMin?: number;
@@ -28,6 +41,9 @@ export const EMPTY_ENCLOSURE_FORM: EnclosureFormData = {
   substrateType: '',
   hasUVB: false,
   uvbBulbType: 'unknown',
+  widthInches: undefined,
+  depthInches: undefined,
+  heightInches: undefined,
   tempMin: undefined,
   tempMax: undefined,
   humidityMin: undefined,
@@ -48,10 +64,55 @@ interface EnclosureFormCRUDProps {
 
 export function EnclosureFormCRUD({ mode, initialData, entityLabel, onSave, onCancel, onDelete }: EnclosureFormCRUDProps) {
   const [formData, setFormData] = useState<EnclosureFormData>({ ...EMPTY_ENCLOSURE_FORM, ...initialData });
+  const [dimensionUnit, setDimensionUnit] = useState<'in' | 'cm'>('in');
 
-  const speciesProfile = getAnimalById(formData.animalId);
-  const speciesTemp = speciesProfile?.careTargets?.temperature;
-  const speciesHumidity = speciesProfile?.careTargets?.humidity;
+  const selectedProfile = formData.animalId && formData.animalId !== 'custom'
+    ? getAnimalById(formData.animalId)
+    : null;
+
+  const minSize = selectedProfile?.minEnclosureSize ?? null;
+  const minSizeHint = minSize
+    ? `${minSize.width}×${minSize.depth}×${minSize.height} ${minSize.units}`
+    : null;
+
+  // Values live in inches; the input shows whichever unit is selected.
+  const displayDimension = (inches?: number): string => {
+    if (inches === undefined) return '';
+    return dimensionUnit === 'cm' ? String(Math.round(inchesToCm(inches) * 10) / 10) : String(inches);
+  };
+
+  const setDimension = (key: DimensionKey, raw: string) => {
+    if (raw === '') {
+      setFormData((prev) => ({ ...prev, [key]: undefined }));
+      return;
+    }
+    const parsed = Number(raw);
+    if (Number.isNaN(parsed) || parsed < 0) return;
+    const inches = dimensionUnit === 'cm' ? cmToInches(parsed) : parsed;
+    // Round to avoid a cm round-trip drifting the stored value each edit.
+    setFormData((prev) => ({ ...prev, [key]: Math.round(inches * 100) / 100 }));
+  };
+
+  // Immediate feedback beats discovering the tank is too small on the
+  // dashboard three screens later.
+  const sizeWarning = (() => {
+    if (!minSize) return null;
+    const { widthInches, depthInches, heightInches } = formData;
+    if (!widthInches || !depthInches || !heightInches) return null;
+
+    const toIn = (v: number) => (minSize.units === 'cm' ? v / 2.54 : v);
+    const short: string[] = [];
+    if (widthInches < toIn(minSize.width)) short.push('width');
+    if (depthInches < toIn(minSize.depth)) short.push('depth');
+    if (heightInches < toIn(minSize.height)) short.push('height');
+
+    if (short.length === 0) return null;
+    return `Below the minimum for ${selectedProfile?.commonName} on ${short.join(', ')}. You can still save this — Habitat Score will flag it.`;
+  })();
+
+  // selectedProfile above is the same lookup, guarded for the custom species case.
+  const speciesTemp = selectedProfile?.careTargets?.temperature;
+  const speciesHumidity = selectedProfile?.careTargets?.humidity;
 
   const effectiveTempMin = speciesTemp?.coolSide?.min ?? speciesTemp?.min;
   const effectiveTempMax = speciesTemp?.warmSide?.max ?? speciesTemp?.max;
@@ -238,6 +299,58 @@ export function EnclosureFormCRUD({ mode, initialData, entityLabel, onSave, onCa
             />
           </div>
         )}
+
+        {/* Interior dimensions. Stored in inches; entered in whichever unit
+            the keeper works in. Size is the one husbandry problem equipment
+            can't fix, so Habitat Score can't grade a setup without it. */}
+        <div className="bg-card-elevated border border-divider rounded-2xl p-4">
+          <div className="flex items-baseline justify-between mb-1">
+            <p className="text-xs font-semibold text-muted uppercase tracking-wide">Interior Size</p>
+            <button
+              type="button"
+              onClick={() => setDimensionUnit((u) => (u === 'in' ? 'cm' : 'in'))}
+              className="text-xs font-semibold text-accent active:opacity-70"
+            >
+              {dimensionUnit === 'in' ? 'Use cm' : 'Use inches'}
+            </button>
+          </div>
+          <p className="text-xs text-muted mb-3">
+            {minSizeHint
+              ? `${selectedProfile?.commonName} needs at least ${minSizeHint}.`
+              : 'Used to check the enclosure against the minimum for this species.'}
+          </p>
+
+          <div className="grid grid-cols-3 gap-2">
+            {DIMENSION_FIELDS.map(({ key, label }) => (
+              <div key={key}>
+                <label
+                  htmlFor={`enclosure-${key}`}
+                  className="block text-[11px] text-muted mb-1"
+                >
+                  {label}
+                </label>
+                <div className="flex items-center gap-1 bg-card border border-divider rounded-xl px-2.5">
+                  <input
+                    id={`enclosure-${key}`}
+                    type="number"
+                    inputMode="decimal"
+                    min={0}
+                    step="0.5"
+                    value={displayDimension(formData[key])}
+                    onChange={(e) => setDimension(key, e.target.value)}
+                    placeholder="—"
+                    className="w-full h-11 bg-transparent text-white text-sm focus:outline-none"
+                  />
+                  <span className="text-[11px] text-muted flex-shrink-0">{dimensionUnit}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {sizeWarning && (
+            <p className="text-xs text-amber-300 mt-2.5 leading-relaxed">{sizeWarning}</p>
+          )}
+        </div>
 
         {/* Substrate Type */}
         <div className="bg-card-elevated border border-divider rounded-2xl p-4">

@@ -68,6 +68,9 @@ export function AddEnclosureView() {
       uvbReplaceDueOn: formData.hasUVB
         ? calculateReplaceDueOn(new Date(), formData.uvbBulbType)
         : undefined,
+      widthInches: formData.widthInches,
+      depthInches: formData.depthInches,
+      heightInches: formData.heightInches,
       isActive: true
     });
 
@@ -105,7 +108,7 @@ export function AddEnclosureView() {
   if (!limitChecked) return null;
 
   if (atEnclosureLimit) {
-    return <PremiumPaywall />;
+    return <PremiumPaywall source="enclosure-limit" />;
   }
 
   // Task setup prompt — shown after enclosure is saved

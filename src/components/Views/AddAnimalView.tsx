@@ -100,7 +100,7 @@ export function AddAnimalView() {
   }
 
   if (atAnimalLimit) {
-    return <PremiumPaywall />;
+    return <PremiumPaywall source="animal-limit" />;
   }
 
   return (

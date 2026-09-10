@@ -4,6 +4,8 @@ export interface FeedingLog {
   id: string;
   userId: string;
   enclosureId?: string;
+  /** The specific animal this log describes. Undefined means enclosure-level. */
+  enclosureAnimalId?: string;
   careTaskId?: string;
   completedAt: string;
   feederType?: string;
@@ -29,13 +31,28 @@ export interface FeedingLogInput {
   notes?: string;
 }
 
+const LOG_COLUMNS =
+  'id, user_id, enclosure_id, enclosure_animal_id, completed_at, feeder_type, quantity_offered, quantity_eaten, refusal_noted, supplement_used, notes, task_id';
+
+/** What a set of feeding logs actually describes. */
+export interface FeedingLogScope {
+  logs: FeedingLog[];
+  /**
+   * True when some returned logs are not attributed to a specific animal and
+   * the enclosure holds more than one, so the set describes the group.
+   */
+  includesGroupLevelLogs: boolean;
+  /** How many of the returned logs name this animal explicitly. */
+  attributedCount: number;
+}
+
 class FeedingLogService {
   async getRecentLogs(enclosureId: string | undefined, limit?: number): Promise<FeedingLog[]> {
     if (!enclosureId) return [];
 
     let query = supabase
       .from('care_logs')
-      .select('id, user_id, completed_at, feeder_type, quantity_offered, quantity_eaten, refusal_noted, supplement_used, notes, task_id')
+      .select(LOG_COLUMNS)
       .eq('enclosure_id', enclosureId)
       .or('feeder_type.not.is.null,task_id.is.null')
       .order('completed_at', { ascending: false });
@@ -47,7 +64,59 @@ class FeedingLogService {
     const { data, error } = await query;
 
     if (error) throw error;
-    return (data || []).map(this.mapFromDb);
+    return (data || []).map((row) => this.mapFromDb(row));
+  }
+
+  /**
+   * Feeding history for one animal.
+   *
+   * Returns logs naming this animal, plus any unattributed logs from its
+   * enclosure — those predate attribution or were entered against the
+   * enclosure as a whole, and dropping them would silently shorten the
+   * animal's history. The caller is told how much of the set is group-level so
+   * it can say so rather than implying a precision the data does not have.
+   *
+   * In a single-animal enclosure the unattributed logs genuinely are this
+   * animal's, so no caveat is raised.
+   */
+  async getLogsForAnimal(
+    enclosureAnimalId: string,
+    enclosureId: string | undefined,
+    options: { limit?: number; enclosureAnimalCount?: number } = {}
+  ): Promise<FeedingLogScope> {
+    const { limit, enclosureAnimalCount } = options;
+
+    // Without an enclosure there is nothing to fall back to, so this is simply
+    // every log naming the animal.
+    const filter = enclosureId
+      ? `enclosure_animal_id.eq.${enclosureAnimalId},and(enclosure_id.eq.${enclosureId},enclosure_animal_id.is.null)`
+      : `enclosure_animal_id.eq.${enclosureAnimalId}`;
+
+    let query = supabase
+      .from('care_logs')
+      .select(LOG_COLUMNS)
+      .or(filter)
+      .not('feeder_type', 'is', null)
+      .order('completed_at', { ascending: false });
+
+    if (typeof limit === 'number') {
+      query = query.limit(limit);
+    }
+
+    const { data, error } = await query;
+    if (error) throw error;
+
+    const logs = (data || []).map((row) => this.mapFromDb(row));
+    const attributedCount = logs.filter((log) => log.enclosureAnimalId === enclosureAnimalId).length;
+    const unattributedCount = logs.length - attributedCount;
+
+    return {
+      logs,
+      // Only a genuine ambiguity: unattributed logs in an enclosure that holds
+      // more than one animal. One animal means no ambiguity to disclose.
+      includesGroupLevelLogs: unattributedCount > 0 && (enclosureAnimalCount ?? 1) > 1,
+      attributedCount,
+    };
   }
 
   async createLog(userId: string, input: FeedingLogInput): Promise<FeedingLog> {
@@ -56,6 +125,9 @@ class FeedingLogService {
       .insert({
         user_id: userId,
         enclosure_id: input.enclosureId,
+        // Was accepted on the input type but silently dropped here, so every
+        // manually created feeding log landed unattributed.
+        enclosure_animal_id: input.enclosureAnimalId ?? null,
         task_id: input.careTaskId,
         completed_at: input.loggedAt || new Date().toISOString(),
         feeder_type: input.feederType,
@@ -86,6 +158,7 @@ class FeedingLogService {
       id: row.id,
       userId: row.user_id,
       enclosureId: row.enclosure_id,
+      enclosureAnimalId: row.enclosure_animal_id ?? undefined,
       careTaskId: row.task_id,
       completedAt: row.completed_at,
       feederType: row.feeder_type,

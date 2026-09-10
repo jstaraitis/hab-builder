@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { track } from '../../services/analyticsService';
 import { ClipboardCheck, Lock, ChevronDown, HelpCircle } from 'lucide-react';
 import type {
   HabitatDimensionId,
@@ -62,6 +63,11 @@ export function HabitatScoreCard({
   suppressDimensions,
 }: HabitatScoreCardProps) {
   const [showAll, setShowAll] = useState(false);
+
+  // Does anyone actually open the flagship feature?
+  useEffect(() => {
+    track('feature_opened', { feature: 'habitat_score', grade: result.grade });
+  }, [result.grade]);
 
   // A grade built on almost no evidence would be worse than no grade — say
   // what's missing instead of inventing confidence.

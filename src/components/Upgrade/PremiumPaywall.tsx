@@ -1,10 +1,33 @@
-﻿import { Link } from 'react-router-dom';
+﻿import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Lock, Sparkles, Calendar, TrendingUp, Package, Bell } from 'lucide-react';
 import { usePremium } from '../../contexts/PremiumContext';
 import { TRIAL_DAYS } from '../../constants/billing';
+import { track } from '../../services/analyticsService';
 
-export function PremiumPaywall() {
+/** Which limit put the user in front of the wall. */
+export type PaywallSource =
+  | 'animal-limit'
+  | 'enclosure-limit'
+  | 'inventory'
+  | 'weight-tracker'
+  | 'care-analytics'
+  | 'health-report'
+  | 'dashboard-alerts'
+  | 'unknown';
+
+interface PremiumPaywallProps {
+  readonly source?: PaywallSource;
+}
+
+export function PremiumPaywall({ source = 'unknown' }: PremiumPaywallProps) {
   const { isTrialEligible } = usePremium();
+
+  // The paywall renders from several different limits. Knowing which one people
+  // actually hit is the difference between guessing at the funnel and reading it.
+  useEffect(() => {
+    track('paywall_viewed', { source, trialEligible: isTrialEligible });
+  }, [source, isTrialEligible]);
 
   return (
     <div className="min-h-[60vh] flex items-center justify-center px-4 py-8">

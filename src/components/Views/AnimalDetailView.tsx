@@ -37,7 +37,8 @@ import {
   Turtle,
   Trash2,
   ChevronRight,
-  ChevronDown
+  ChevronDown,
+  FileText
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
@@ -436,6 +437,8 @@ export function AnimalDetailView() {
     try {
       await feedingLogService.createLog(user.id, {
         enclosureId: enclosure.id,
+        // Logged from this animal's own page, so it is unambiguously theirs.
+        enclosureAnimalId: animalId,
         loggedAt: new Date().toISOString(),
         feederType: logData.feederType,
         quantityOffered: logData.quantityOffered?.toString(),
@@ -683,7 +686,7 @@ export function AnimalDetailView() {
             </div>
           </div>
 
-          <div className="relative mt-4 space-y-2">
+          <div className="relative mt-4 flex flex-wrap gap-2">
             <button
               onClick={() => navigate(`/my-animals/edit/${animal.id}`)}
               className="inline-flex w-auto self-start px-3 py-1.5 bg-card-elevated border border-divider text-white rounded-lg text-sm font-semibold items-center justify-center gap-1.5 hover:border-jade-500/50 transition-colors"
@@ -691,7 +694,14 @@ export function AnimalDetailView() {
               <Pencil className="w-3.5 h-3.5" />
               Edit Profile
             </button>
-
+            <button
+              onClick={() => navigate(`/my-animals/${animal.id}/health-report`)}
+              className="inline-flex w-auto self-start px-3 py-1.5 bg-card-elevated border border-divider text-white rounded-lg text-sm font-semibold items-center justify-center gap-1.5 hover:border-jade-500/50 transition-colors"
+              title="A printable summary of this animal's records for a vet visit"
+            >
+              <FileText className="w-3.5 h-3.5" />
+              Vet Report
+            </button>
           </div>
         </div>
 

@@ -1,3 +1,4 @@
+import { FunnelPanel } from '../OwnerDashboard/FunnelPanel';
 import { useCallback, useEffect, useMemo, useState, type ComponentType } from 'react';
 import { RefreshCw, Users, Gem, Activity, Clock3, AlertCircle, CreditCard, Search } from 'lucide-react';
 import {
@@ -98,6 +99,8 @@ export function OwnerDashboardView() {
       </div>
 
       <OwnerSectionNav />
+
+      <FunnelPanel />
 
       {error && (
         <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-900 dark:text-red-200 rounded-lg p-4">

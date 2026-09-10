@@ -20,6 +20,7 @@ const TaskCreationView = lazy(() => import('./Views/TaskCreationView').then(m =>
 const TaskEditView = lazy(() => import('./Views/TaskEditView').then(m => ({ default: m.TaskEditView })));
 const MyAnimalsView = lazy(() => import('./Views/MyAnimalsView').then(m => ({ default: m.MyAnimalsView })));
 const AnimalDetailView = lazy(() => import('./Views/AnimalDetailView').then(m => ({ default: m.AnimalDetailView })));
+const HealthReportView = lazy(() => import('./Views/HealthReportView').then(m => ({ default: m.HealthReportView })));
 const WeightTrackerView = lazy(() => import('./Views/WeightTrackerView').then(m => ({ default: m.WeightTrackerView })));
 const EditAnimalView = lazy(() => import('./Views/EditAnimalView').then(m => ({ default: m.EditAnimalView })));
 const AddAnimalView = lazy(() => import('./Views/AddAnimalView').then(m => ({ default: m.AddAnimalView })));
@@ -179,6 +180,7 @@ export function AppRoutes({ onOpenFeedback }: AppRoutesProps) {
         <Route path="/my-animals" element={<AuthRoute><MyAnimalsView /></AuthRoute>} />
         <Route path="/weight-tracker/:id" element={<PremiumRoute><WeightTrackerView /></PremiumRoute>} />
         <Route path="/my-animals/:animalId" element={<AuthRoute><AnimalDetailView /></AuthRoute>} />
+        <Route path="/my-animals/:animalId/health-report" element={<PremiumRoute paywallSource="health-report"><HealthReportView /></PremiumRoute>} />
         <Route path="/my-animals/edit/:id" element={<AuthRoute><EditAnimalView /></AuthRoute>} />
         <Route path="/my-animals/add" element={<AuthRoute><AddAnimalView /></AuthRoute>} />
         <Route path="/care-calendar/enclosures/add" element={<AuthRoute><AddEnclosureView /></AuthRoute>} />

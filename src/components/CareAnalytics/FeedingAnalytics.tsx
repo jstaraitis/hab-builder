@@ -3,6 +3,8 @@ import { UtensilsCrossed, TrendingUp, AlertTriangle, Pill, PieChart } from 'luci
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { supabase } from '../../lib/supabase';
 import type { CareLog } from '../../types/careCalendar';
+import { analyzeNutrition } from '../../engine/nutritionAnalysis';
+import { NutritionInsights } from './NutritionInsights';
 
 interface FeedingAnalyticsProps {
   userId: string;
@@ -244,6 +246,20 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
   const trendData = getTrendData();
   const feederTypeData = getFeederTypeData();
   const supplementData = getSupplementData();
+
+  // The analysis window follows the selected range so the insights can never
+  // disagree with the charts sitting directly above them.
+  const nutrition = analyzeNutrition({
+    feedings: feedingLogs.map(log => ({
+      date: log.completedAt,
+      feederType: log.feederType,
+      supplementUsed: log.supplementUsed,
+      quantityOffered: log.quantityOffered,
+      quantityEaten: log.quantityEaten,
+      refusalNoted: log.refusalNoted,
+    })),
+    windowDays: timeRange === '7d' ? 7 : timeRange === '30d' ? 30 : timeRange === '90d' ? 90 : 3650,
+  });
   const refusalStats = getRefusalStats();
   const avgConsumption = getAverageConsumption();
 
@@ -398,6 +414,9 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
             </ResponsiveContainer>
           </div>
         )}
+
+        {/* Interpretation of the same records the charts above count. */}
+        <NutritionInsights analysis={nutrition} />
 
         {/* Supplement Usage */}
         {supplementData.length > 0 && (

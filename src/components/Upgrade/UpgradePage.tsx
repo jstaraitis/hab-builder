@@ -5,6 +5,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { usePremium } from '../../contexts/PremiumContext';
 import { stripeService } from '../../services/stripeService';
 import { TRIAL_DAYS } from '../../constants/billing';
+import { track } from '../../services/analyticsService';
 import { purchaseService } from '../../services/purchaseService';
 import { supabase } from '../../lib/supabase';
 
@@ -35,6 +36,14 @@ export function UpgradePage() {
 
     setLoading(true);
     setError(null);
+
+    // Recorded before the handoff — once Stripe redirects or Apple's sheet
+    // takes over, we may never run code on this page again.
+    track('checkout_started', {
+      cycle: billingCycle,
+      platform: isNative ? 'ios' : 'web',
+      withTrial: cycleHasTrial,
+    });
 
     try {
       if (isNative) {

@@ -67,6 +67,20 @@ serve(async (req) => {
 
         if (error) console.error('Database error:', error)
         else console.log('User upgraded to premium', startedTrial ? '(trial started)' : '(paid)')
+
+        // Recorded here rather than in the browser: after the Stripe redirect
+        // the client may never run our code again, so this is the only place
+        // that reliably sees a conversion. Never let it break the webhook.
+        try {
+          await supabase.from('analytics_events').insert({
+            user_id: session.client_reference_id,
+            event: startedTrial ? 'trial_started' : 'subscription_activated',
+            properties: { platform: 'web', subscriptionStatus },
+            platform: 'web',
+          })
+        } catch (analyticsError) {
+          console.error('Analytics insert failed (ignored):', analyticsError)
+        }
         break
       }
 

@@ -12,13 +12,15 @@ import { Loader2 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { usePremium } from '../../contexts/PremiumContext';
 import { Auth } from './index';
-import { PremiumPaywall } from '../Upgrade/PremiumPaywall';
+import { PremiumPaywall, type PaywallSource } from '../Upgrade/PremiumPaywall';
 
 interface PremiumRouteProps {
   readonly children: ReactNode;
+  /** Which gated feature the user was reaching for, for funnel attribution. */
+  readonly paywallSource?: PaywallSource;
 }
 
-export function PremiumRoute({ children }: PremiumRouteProps) {
+export function PremiumRoute({ children, paywallSource = 'weight-tracker' }: PremiumRouteProps) {
   const { user } = useAuth();
   const { isPremium, profileLoading } = usePremium();
 
@@ -44,7 +46,7 @@ export function PremiumRoute({ children }: PremiumRouteProps) {
   }
 
   if (!isPremium) {
-    return <PremiumPaywall />;
+    return <PremiumPaywall source={paywallSource} />;
   }
 
   return <>{children}</>;

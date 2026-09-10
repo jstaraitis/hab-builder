@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useMemo, useCallback, type ReactNo
 import { useNavigate } from 'react-router-dom';
 import type { EnclosureInput, BuildPlan, AnimalProfile } from '../engine/types';
 import { generatePlan } from '../engine/generatePlan';
+import { track } from '../services/analyticsService';
 import { animalProfiles } from '../data/animals';
 
 interface PlannerContextType {
@@ -88,6 +89,9 @@ export function PlannerProvider({ children }: { readonly children: ReactNode }) 
       setError('');
       const generatedPlan = generatePlan(input);
       setPlan(generatedPlan);
+      // Top of the funnel: most people who reach this point aren't signed in
+      // yet, which is exactly why anonymous events matter.
+      track('plan_generated', { species: input.animal, units: input.units });
       navigate('/supplies');
     } catch (err) {
       const errorMsg = err instanceof Error ? err.message : 'Unknown error';

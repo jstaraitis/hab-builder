@@ -1,6 +1,5 @@
 import { supabase } from '../lib/supabase';
 import type { CareTask, CareLog, CareTaskWithLogs } from '../types/careCalendar';
-import { feedingLogService } from './feedingLogService';
 import {
   decodeCustomWeekdaysFromStorage,
   encodeCustomWeekdaysForStorage,
@@ -259,25 +258,13 @@ export class SupabaseCareService implements ICareTaskService {
 
     if (logError) throw logError;
 
-    // If this is a feeding task, also create a feeding log entry for health tracking
-    if (task.type === 'feeding' && task.enclosureId) {
-      try {
-        await feedingLogService.createLog(task.userId, {
-          enclosureId: task.enclosureId,
-          careTaskId: taskId,
-          loggedAt: completedAt.toISOString(),
-          feederType: additionalLogData?.feederType as string | undefined,
-          quantityOffered: additionalLogData?.quantityOffered?.toString(),
-          quantityEaten: additionalLogData?.quantityEaten?.toString(),
-          supplementUsed: additionalLogData?.supplementUsed as string | undefined,
-          refusalNoted: additionalLogData?.refusalNoted as boolean | undefined,
-          notes: additionalLogData?.notes,
-        });
-      } catch (feedingError) {
-        console.error('Failed to create feeding log entry:', feedingError);
-        // Don't throw - the task completion is already saved, feeding log is secondary
-      }
-    }
+    // A second feeding-log insert used to happen here. It was a duplicate: the
+    // insert above already spreads `additionalLogData`, so feeder_type,
+    // quantities, refusal, supplement and notes all land on that row. The
+    // extra write produced two care_logs rows per feeding completion, which
+    // doubled every feeding count and, worse, doubled apparent refusal streaks.
+    // See CARE_LOG_ANIMAL_ATTRIBUTION_MIGRATION.sql for cleaning up the rows
+    // this already created.
 
     // Update task's next due date
     await this.updateTask(taskId, { nextDueAt });

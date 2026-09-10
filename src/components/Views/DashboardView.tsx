@@ -1551,7 +1551,7 @@ export function DashboardView() {
               </button>
             </div>
             <div className="px-4 pb-8">
-              <PremiumPaywall />
+              <PremiumPaywall source="dashboard-alerts" />
             </div>
           </div>
         </div>

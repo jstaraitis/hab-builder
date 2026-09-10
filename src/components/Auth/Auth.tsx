@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
+import { track } from '../../services/analyticsService';
 
 export function Auth() {
   const [email, setEmail] = useState('');
@@ -63,6 +64,7 @@ export function Auth() {
         // User already exists but not confirmed
         setMessage('Error: This email is already registered. Check your email for confirmation link, or try signing in if already confirmed.');
       } else {
+        track('signup_completed');
         setMessage('✓ Account created! Signing you in...');
         // Auto sign in after signup
         setTimeout(() => window.location.reload(), 1000);

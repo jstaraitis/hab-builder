@@ -12,6 +12,8 @@ type UserDetailsRequest = {
   userId?: string
   includeAllProfiles?: boolean
   surveyAnalytics?: boolean
+  funnelAnalytics?: boolean
+  funnelDays?: number
 }
 
 type DistributionItem = {
@@ -248,6 +250,80 @@ serve(async (req) => {
     const selectedUserId = body.userId?.trim()
     const includeAllProfiles = body.includeAllProfiles === true
     const surveyAnalyticsRequested = body.surveyAnalytics === true
+
+    if (body.funnelAnalytics === true) {
+      const sinceDays = Number(body.funnelDays) > 0 ? Number(body.funnelDays) : 30
+      const since = new Date(Date.now() - sinceDays * 86_400_000).toISOString()
+
+      const { data: events, error: eventsError } = await admin
+        .from('analytics_events')
+        .select('event, properties, user_id, anonymous_id, created_at')
+        .gte('created_at', since)
+
+      if (eventsError) {
+        throw new Error(eventsError.message)
+      }
+
+      const rows = (events ?? []) as Array<{
+        event: string
+        properties: Record<string, unknown> | null
+        user_id: string | null
+        anonymous_id: string | null
+      }>
+
+      // Count distinct people, not raw events — one person generating six
+      // plans is one person considering the product, not six.
+      const distinct = (name: string): number => {
+        const ids = new Set<string>()
+        for (const row of rows) {
+          if (row.event !== name) continue
+          const id = row.user_id ?? row.anonymous_id
+          if (id) ids.add(id)
+        }
+        return ids.size
+      }
+
+      const stepNames = [
+        'plan_generated',
+        'signup_completed',
+        'paywall_viewed',
+        'checkout_started',
+        'trial_started',
+        'subscription_activated',
+      ]
+
+      const steps = stepNames.map((name) => ({ event: name, people: distinct(name) }))
+
+      // Which wall people actually hit — the reason paywall_viewed carries a
+      // source at all.
+      const paywallSources: Record<string, number> = {}
+      for (const row of rows) {
+        if (row.event !== 'paywall_viewed') continue
+        const source = String(row.properties?.source ?? 'unknown')
+        paywallSources[source] = (paywallSources[source] ?? 0) + 1
+      }
+
+      const trials = distinct('trial_started')
+      const conversions = distinct('subscription_activated')
+
+      return new Response(
+        JSON.stringify({
+          funnelAnalytics: {
+            sinceDays,
+            totalEvents: rows.length,
+            steps,
+            paywallSources: Object.entries(paywallSources)
+              .map(([label, count]) => ({ label, count }))
+              .sort((a, b) => b.count - a.count),
+            // Null rather than 0 when no trials have started — an honest
+            // "no data yet" beats a confident 0%.
+            trialConversionRate: trials > 0 ? Math.round((conversions / trials) * 100) : null,
+          },
+          fetchedAt: new Date().toISOString(),
+        }),
+        { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
 
     if (surveyAnalyticsRequested) {
       const { data: surveys, error: surveysError } = await admin
