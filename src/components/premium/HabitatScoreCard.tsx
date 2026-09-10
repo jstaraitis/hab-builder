@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { track } from '../../services/analyticsService';
-import { ClipboardCheck, Lock, ChevronDown, HelpCircle } from 'lucide-react';
+import { ClipboardCheck, Lock, ChevronDown, ChevronRight, HelpCircle } from 'lucide-react';
 import type {
   HabitatDimensionId,
   HabitatScoreResult,
@@ -54,6 +54,8 @@ interface HabitatScoreCardProps {
    * suppressing the display must never quietly improve the grade.
    */
   readonly suppressDimensions?: ReadonlySet<HabitatDimensionId>;
+  /** Link to this enclosure's Setup Check. Omitted when there is no enclosure. */
+  readonly setupCheckHref?: string;
 }
 
 export function HabitatScoreCard({
@@ -61,8 +63,12 @@ export function HabitatScoreCard({
   enclosureName,
   isPremium,
   suppressDimensions,
+  setupCheckHref,
 }: HabitatScoreCardProps) {
   const [showAll, setShowAll] = useState(false);
+
+  const placementUnassessed =
+    result.dimensions.find((d) => d.id === 'placement')?.score === null;
 
   // Does anyone actually open the flagship feature?
   useEffect(() => {
@@ -82,6 +88,18 @@ export function HabitatScoreCard({
           Not enough recorded yet to score {enclosureName}. Log a temperature reading, or add
           the enclosure&apos;s dimensions and UVB bulb, and a grade will appear here.
         </p>
+        {/* Offered here too: with nothing else recorded, the Setup Check is the
+            fastest way to give this card something real to work with. */}
+        {setupCheckHref && (
+          <Link
+            to={setupCheckHref}
+            className="mt-3 w-full min-h-[44px] rounded-xl bg-card-elevated border border-divider text-sm font-semibold text-white active:opacity-70 transition-opacity flex items-center justify-center gap-2"
+          >
+            <ClipboardCheck className="w-4 h-4 text-accent" />
+            Run setup check
+            <ChevronRight className="w-4 h-4 text-muted" />
+          </Link>
+        )}
       </div>
     );
   }
@@ -147,6 +165,7 @@ export function HabitatScoreCard({
               </span>
             </div>
           ))}
+
         </div>
       )}
 
@@ -192,6 +211,29 @@ export function HabitatScoreCard({
               </Link>
             )
           )}
+        </div>
+      )}
+
+      {/* Always present, not tucked behind the expand and not hidden once the
+          check has been run. The findings it produces are the actionable half
+          of this score, so the route back to them has to stay visible — a
+          keeper fixing a probe position needs to reopen the list, not remember
+          what it said. */}
+      {setupCheckHref && (
+        <div className="px-4 pb-3">
+          <Link
+            to={setupCheckHref}
+            className="w-full min-h-[44px] rounded-xl bg-card-elevated border border-divider text-sm font-semibold text-white active:opacity-70 transition-opacity flex items-center justify-center gap-2"
+          >
+            <ClipboardCheck className="w-4 h-4 text-accent" />
+            {placementUnassessed ? 'Run setup check' : 'Review setup check'}
+            <ChevronRight className="w-4 h-4 text-muted" />
+          </Link>
+          <p className="text-[11px] text-muted mt-1.5 text-center">
+            {placementUnassessed
+              ? 'Placement is not scored yet — eight questions, about two minutes.'
+              : 'Re-run it after moving equipment or rebuilding.'}
+          </p>
         </div>
       )}
 

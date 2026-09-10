@@ -274,3 +274,92 @@ describe('calculateHabitatScore — findings order', () => {
     expect(result.findings[0].severity).toBe('critical');
   });
 });
+
+describe('calculateHabitatScore — placement dimension', () => {
+  const goodAnswers = {
+    uvbDistanceInches: 14,
+    uvbOverMesh: false,
+    baskingToCoolInches: 30,
+    hidesWarmSide: 1,
+    hidesCoolSide: 1,
+    waterPosition: 'cool-end' as const,
+    probeLocation: 'basking-surface' as const,
+    heatSource: 'overhead-bulb' as const,
+    heatOnThermostat: true,
+  };
+
+  const withAnswers = (setupAnswers?: Parameters<typeof calculateHabitatScore>[0]['setupAnswers']) =>
+    calculateHabitatScore({
+      profile,
+      enclosure,
+      tempLogs: [temp(75), temp(74)],
+      humidityLogs: [humidity(70), humidity(72)],
+      dimensions: { width: 18, depth: 18, height: 24, units: 'in' },
+      setupAnswers,
+      now: NOW,
+    });
+
+  const placementOf = (result: ReturnType<typeof withAnswers>) =>
+    result.dimensions.find((d) => d.id === 'placement');
+
+  it('is unassessable and SILENT when the check has not been run', () => {
+    // Silence matters: a finding here would become topFinding for every keeper
+    // who has not run the check, hijacking the free tier's single revealed fix.
+    const result = withAnswers(undefined);
+    const placement = placementOf(result);
+    expect(placement?.score).toBeNull();
+    expect(placement?.findings).toHaveLength(0);
+    expect(result.findings).toHaveLength(0);
+    expect(result.topFinding).toBeNull();
+  });
+
+  it('scores 100 for a correctly placed setup', () => {
+    expect(placementOf(withAnswers(goodAnswers))?.score).toBe(100);
+  });
+
+  it('stays unassessable rather than perfect when barely answered', () => {
+    // An empty questionnaire must not be able to lift the overall grade.
+    const placement = placementOf(withAnswers({ hidesWarmSide: 1 }));
+    expect(placement?.score).toBeNull();
+  });
+
+  it('penalises a critical placement error heavily', () => {
+    const placement = placementOf(withAnswers({ ...goodAnswers, probeLocation: 'cool-end' }));
+    expect(placement?.score).toBe(55);
+  });
+
+  it('surfaces the placement problem as the top finding when it is worst', () => {
+    const result = withAnswers({ ...goodAnswers, probeLocation: 'cool-end' });
+    expect(result.topFinding?.dimension).toBe('placement');
+    expect(result.topFinding?.severity).toBe('critical');
+  });
+
+  it('drags the overall grade down when placement is bad', () => {
+    const good = withAnswers(goodAnswers);
+    const bad = withAnswers({
+      ...goodAnswers,
+      probeLocation: 'cool-end',
+      hidesCoolSide: 0,
+      uvbDistanceInches: 30,
+    });
+    expect(bad.score).toBeLessThan(good.score);
+  });
+
+  it('separates bulb age from bulb position', () => {
+    // The enclosure's bulb is 30 days old, so the uvb dimension is happy while
+    // placement fails on distance. Both readings are correct simultaneously.
+    const result = withAnswers({ ...goodAnswers, uvbDistanceInches: 40 });
+    const uvb = result.dimensions.find((d) => d.id === 'uvb');
+    expect(uvb?.findings).toHaveLength(0);
+    expect(placementOf(result)?.findings.some((f) => f.id.includes('uvb-too-far'))).toBe(true);
+  });
+
+  it('carries an actionable fix onto every placement finding', () => {
+    const result = withAnswers({ ...goodAnswers, probeLocation: 'cool-end', hidesCoolSide: 0 });
+    const placement = placementOf(result);
+    expect(placement?.findings.length).toBeGreaterThan(0);
+    for (const finding of placement?.findings ?? []) {
+      expect(finding.fix.length).toBeGreaterThan(10);
+    }
+  });
+});

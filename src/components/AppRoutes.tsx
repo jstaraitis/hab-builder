@@ -23,6 +23,7 @@ const AnimalDetailView = lazy(() => import('./Views/AnimalDetailView').then(m =>
 const HealthReportView = lazy(() => import('./Views/HealthReportView').then(m => ({ default: m.HealthReportView })));
 const SitterSheetView = lazy(() => import('./Views/SitterSheetView').then(m => ({ default: m.SitterSheetView })));
 const WhatChangedView = lazy(() => import('./Views/WhatChangedView').then(m => ({ default: m.WhatChangedView })));
+const SetupCheckView = lazy(() => import('./Views/SetupCheckView').then(m => ({ default: m.SetupCheckView })));
 const WeightTrackerView = lazy(() => import('./Views/WeightTrackerView').then(m => ({ default: m.WeightTrackerView })));
 const EditAnimalView = lazy(() => import('./Views/EditAnimalView').then(m => ({ default: m.EditAnimalView })));
 const AddAnimalView = lazy(() => import('./Views/AddAnimalView').then(m => ({ default: m.AddAnimalView })));
@@ -33,7 +34,6 @@ const AddInventoryItemView = lazy(() => import('./Views/AddInventoryItemView').t
 const EditInventoryItemView = lazy(() => import('./Views/EditInventoryItemView').then(m => ({ default: m.EditInventoryItemView })));
 const InventoryView = lazy(() => import('./Views/InventoryView').then(m => ({ default: m.InventoryView })));
 const ProfileView = lazy(() => import('./Views/ProfileView').then(m => ({ default: m.ProfileView })));
-const CanvasDesigner = lazy(() => import('./EnclosureDesigner/CanvasDesigner'));
 const BlogList = lazy(() => import('./Blog/BlogList').then(m => ({ default: m.BlogList })));
 const BlogPost = lazy(() => import('./Blog/BlogPost').then(m => ({ default: m.BlogPost })));
 const AnimalProfilePreview = lazy(() => import('./AnimalProfilePreview/AnimalProfilePreview').then(m => ({ default: m.AnimalProfilePreview })));
@@ -143,31 +143,6 @@ export function AppRoutes({ onOpenFeedback }: AppRoutesProps) {
           }
         />
         <Route path="/plan" element={<PlanView plan={plan} input={input} />} />
-        <Route
-          path="/designer"
-          element={
-            plan ? (
-              <div className="space-y-6">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <h2 className="text-2xl font-bold text-white">💎 In Development - Interactive Designer</h2>
-                    <p className="text-sm text-muted">Drag, rotate, and resize equipment to design your perfect enclosure</p>
-                  </div>
-                  <Link to="/plan" className="hidden lg:inline text-blue-700 dark:text-blue-400 font-medium underline">Back to Plan</Link>
-                </div>
-                <div className="bg-card rounded-lg shadow-sm border border-divider p-4">
-                  <CanvasDesigner enclosureInput={input} shoppingList={plan.shoppingList} />
-                </div>
-              </div>
-            ) : (
-              <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 text-yellow-900 dark:text-yellow-200 rounded-lg p-4 space-y-2">
-                <p className="font-semibold">No plan yet.</p>
-                <p className="text-sm">Generate a plan in Design first.</p>
-                <Link to="/design" className="text-blue-700 dark:text-blue-400 font-medium underline">Back to Design</Link>
-              </div>
-            )
-          }
-        />
         <Route path="/supplies" element={<SuppliesView plan={plan} input={input} />} />
         <Route path="/premium" element={<PremiumExplainerPage />} />
         <Route path="/upgrade" element={<UpgradePage />} />
@@ -185,6 +160,7 @@ export function AppRoutes({ onOpenFeedback }: AppRoutesProps) {
         <Route path="/my-animals/:animalId/health-report" element={<PremiumRoute paywallSource="health-report"><HealthReportView /></PremiumRoute>} />
         <Route path="/sitter-sheet" element={<PremiumRoute paywallSource="sitter-sheet"><SitterSheetView /></PremiumRoute>} />
         <Route path="/my-animals/:animalId/what-changed" element={<PremiumRoute paywallSource="what-changed"><WhatChangedView /></PremiumRoute>} />
+        <Route path="/care-calendar/enclosures/:enclosureId/setup-check" element={<PremiumRoute paywallSource="setup-check"><SetupCheckView /></PremiumRoute>} />
         <Route path="/my-animals/edit/:id" element={<AuthRoute><EditAnimalView /></AuthRoute>} />
         <Route path="/my-animals/add" element={<AuthRoute><AddAnimalView /></AuthRoute>} />
         <Route path="/care-calendar/enclosures/add" element={<AuthRoute><AddEnclosureView /></AuthRoute>} />

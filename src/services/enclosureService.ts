@@ -148,6 +148,21 @@ class SupabaseEnclosureService implements IEnclosureService {
       uvbBulbInstalledOn: row.uvb_bulb_installed_on ? new Date(row.uvb_bulb_installed_on) : undefined,
       uvbReplaceDueOn: row.uvb_replace_due_on ? new Date(row.uvb_replace_due_on) : undefined,
       uvbBulbType: row.uvb_bulb_type ?? undefined,
+      // Setup Check answers. NULL stays undefined throughout — a missing answer
+      // must never resolve to a default, or an unasked question becomes a pass.
+      uvbDistanceInches: row.uvb_distance_inches == null ? undefined : Number(row.uvb_distance_inches),
+      uvbOverMesh: row.uvb_over_mesh ?? undefined,
+      baskingToCoolInches:
+        row.basking_to_cool_inches == null ? undefined : Number(row.basking_to_cool_inches),
+      hidesWarmSide: row.hides_warm_side == null ? undefined : Number(row.hides_warm_side),
+      hidesCoolSide: row.hides_cool_side == null ? undefined : Number(row.hides_cool_side),
+      waterPosition: row.water_position ?? undefined,
+      probeLocation: row.probe_location ?? undefined,
+      heatSource: row.heat_source ?? undefined,
+      heatOnThermostat: row.heat_on_thermostat ?? undefined,
+      // Narrowed rather than relying on the mapper's `any`, so this line does
+      // not add to the file's existing unsafe-argument count.
+      setupCheckedAt: row.setup_checked_at ? new Date(row.setup_checked_at as string) : undefined,
       widthInches: row.width_inches == null ? undefined : Number(row.width_inches),
       depthInches: row.depth_inches == null ? undefined : Number(row.depth_inches),
       heightInches: row.height_inches == null ? undefined : Number(row.height_inches),

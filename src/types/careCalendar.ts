@@ -142,6 +142,23 @@ export interface Enclosure {
   uvbReplaceDueOn?: Date;
   /** Determines replacement interval — see src/engine/uvbLifecycle.ts */
   uvbBulbType?: UvbBulbType;
+  /**
+   * Setup Check answers — placement and configuration measurements.
+   * See SETUP_CHECK_MIGRATION.sql. Every field is optional on purpose:
+   * undefined means "not answered", which skips a rule rather than passing it.
+   */
+  uvbDistanceInches?: number;
+  uvbOverMesh?: boolean;
+  baskingToCoolInches?: number;
+  hidesWarmSide?: number;
+  hidesCoolSide?: number;
+  waterPosition?: 'warm-end' | 'middle' | 'cool-end' | 'none';
+  probeLocation?: 'basking-surface' | 'ambient-warm' | 'cool-end' | 'none' | 'unknown';
+  heatSource?: 'overhead-bulb' | 'ceramic-emitter' | 'deep-heat-projector' | 'heat-mat' | 'radiant-panel' | 'none';
+  heatOnThermostat?: boolean;
+  /** When the Setup Check was last completed. */
+  setupCheckedAt?: Date;
+
   /** Interior size, stored in inches. See ENCLOSURE_DIMENSIONS_MIGRATION.sql */
   widthInches?: number;
   depthInches?: number;

@@ -24,6 +24,7 @@ import type { Enclosure } from '../types/careCalendar';
 import type { TempLog } from '../services/tempLogService';
 import type { HumidityLog } from '../services/humidityLogService';
 import { getUvbLifecycleStatus, isReplacementDue } from './uvbLifecycle';
+import { runSetupCheck, type SetupCheckAnswers, type SetupCheckContext } from './setupCheck';
 
 export type HabitatGrade = 'A' | 'B' | 'C' | 'D' | 'F';
 export type FindingSeverity = 'critical' | 'important' | 'minor';
@@ -33,7 +34,8 @@ export type HabitatDimensionId =
   | 'uvb'
   | 'size'
   | 'substrate'
-  | 'monitoring';
+  | 'monitoring'
+  | 'placement';
 
 export interface HabitatFinding {
   id: string;
@@ -80,6 +82,11 @@ const WEIGHTS: Record<HabitatDimensionId, number> = {
   size: 20,
   substrate: 10,
   monitoring: 5,
+  // Placement errors are as consequential as the equipment itself: a probe at
+  // the cool end drives a basking lamp to full power, and a UVB lamp mounted
+  // out of range delivers nothing while looking correct. Weighted alongside
+  // UVB and size rather than treated as finishing detail.
+  placement: 20,
 };
 
 const SEVERITY_RANK: Record<FindingSeverity, number> = {
@@ -127,6 +134,8 @@ export interface HabitatScoreInput {
   humidityLogs: HumidityLog[];
   /** Not stored on the enclosure yet — passed in when known. */
   dimensions?: { width: number; depth: number; height: number; units: Units };
+  /** Setup Check answers, when the keeper has completed it. */
+  setupAnswers?: SetupCheckAnswers;
   now?: Date;
 }
 
@@ -379,6 +388,91 @@ function assessSubstrate(profile: AnimalProfile, enclosure: Enclosure): Dimensio
   };
 }
 
+// ─── Placement ───────────────────────────────────────────────────────────────
+
+/** Deductions per finding. Tuned so one critical error cannot still grade well. */
+const PLACEMENT_PENALTY: Record<'critical' | 'important' | 'advisory', number> = {
+  critical: 45,
+  important: 20,
+  advisory: 7,
+};
+
+/**
+ * Scores where things are, as opposed to whether they exist.
+ *
+ * Delegates entirely to the Setup Check engine rather than restating its rules.
+ * Two copies of "how far should a T5 HO sit from the basking spot" would drift
+ * apart, and then the wizard and the score would disagree in front of the user.
+ *
+ * Note the division of labour with the `uvb` dimension: that one asks whether
+ * the bulb is still producing usable output (age), this one asks whether it is
+ * mounted where the animal can benefit from it (distance). A fresh bulb thirty
+ * inches away passes the first and fails the second, which is exactly right.
+ */
+function assessPlacement(
+  profile: AnimalProfile,
+  enclosure: Enclosure,
+  answers: SetupCheckAnswers | undefined
+): DimensionResult {
+  const findings: HabitatFinding[] = [];
+
+  // Unassessable, with NO finding — matching every other dimension. A finding
+  // asserts something is wrong with the habitat, and not having filled in a
+  // questionnaire is not a husbandry problem. It would also hijack topFinding,
+  // turning the free tier's single revealed fix into an upsell for every keeper
+  // who has not run the check. Prompting for it belongs in the UI.
+  if (!answers) {
+    return { id: 'placement', label: 'Placement', score: null, weight: WEIGHTS.placement, findings };
+  }
+
+  const longest = Math.max(enclosure.widthInches ?? 0, enclosure.depthInches ?? 0) || undefined;
+
+  const context: SetupCheckContext = {
+    enclosureLengthInches: longest,
+    uvbBulbType: enclosure.uvbBulbType,
+    uvbRequired: profile.careTargets?.lighting?.uvbRequired,
+    uvbStrength: profile.careTargets?.lighting?.uvbStrength,
+    requiresThermalGradient: profile.careTargets?.temperature?.thermalGradient,
+    prefersVertical: profile.layoutRules?.preferVertical,
+    speciesName: profile.commonName,
+  };
+
+  const result = runSetupCheck(answers, context);
+
+  // Too few answers is unassessable, not perfect. Scoring 100 here would let an
+  // empty questionnaire lift the overall grade.
+  if (result.insufficientAnswers) {
+    return { id: 'placement', label: 'Placement', score: null, weight: WEIGHTS.placement, findings };
+  }
+
+  const severityMap: Record<'critical' | 'important' | 'advisory', FindingSeverity> = {
+    critical: 'critical',
+    important: 'important',
+    advisory: 'minor',
+  };
+
+  let score = 100;
+  for (const finding of result.findings) {
+    score -= PLACEMENT_PENALTY[finding.severity];
+    findings.push({
+      id: `placement-${finding.id}`,
+      dimension: 'placement',
+      severity: severityMap[finding.severity],
+      title: finding.title,
+      detail: finding.detail,
+      fix: finding.fix,
+    });
+  }
+
+  return {
+    id: 'placement',
+    label: 'Placement',
+    score: Math.max(0, Math.min(100, score)),
+    weight: WEIGHTS.placement,
+    findings,
+  };
+}
+
 // ─── Monitoring ──────────────────────────────────────────────────────────────
 
 function assessMonitoring(
@@ -446,6 +540,7 @@ export function calculateHabitatScore(input: HabitatScoreInput): HabitatScoreRes
     assessSize(profile, input),
     assessSubstrate(profile, enclosure),
     assessMonitoring(tempLogs, humidityLogs, now),
+    assessPlacement(profile, enclosure, input.setupAnswers),
   ];
 
   const assessed = dimensions.filter(

@@ -1,5 +1,6 @@
 ﻿import { useEffect, useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { ClipboardCheck } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureService } from '../../services/enclosureService';
 import { uploadEnclosurePhoto, deleteEnclosurePhoto } from '../../services/enclosurePhotoService';
@@ -154,6 +155,16 @@ export function EditEnclosureView() {
           className="text-sm text-accent hover:text-accent font-medium"
         >
           Back
+        </button>
+        {/* The Setup Check lives here rather than on a route of its own, because
+            it is a property of this enclosure and gets re-run after changes to it. */}
+        <button
+          type="button"
+          onClick={() => navigate(`/care-calendar/enclosures/${id}/setup-check`)}
+          className="inline-flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-xl bg-card-elevated border border-divider text-white hover:border-accent/40 transition-colors"
+        >
+          <ClipboardCheck className="w-4 h-4 text-accent" />
+          Setup check
         </button>
       </div>
       <EnclosureFormCRUD

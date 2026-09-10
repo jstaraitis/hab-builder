@@ -1240,6 +1240,21 @@ export function DashboardView() {
         widthInches && depthInches && heightInches
           ? { width: widthInches, depth: depthInches, height: heightInches, units: 'in' }
           : undefined,
+      // Only passed once the keeper has actually completed the check. Sending a
+      // half-empty object would let the engine treat unasked questions as data.
+      setupAnswers: selectedEnclosure.setupCheckedAt
+        ? {
+            uvbDistanceInches: selectedEnclosure.uvbDistanceInches,
+            uvbOverMesh: selectedEnclosure.uvbOverMesh,
+            baskingToCoolInches: selectedEnclosure.baskingToCoolInches,
+            hidesWarmSide: selectedEnclosure.hidesWarmSide,
+            hidesCoolSide: selectedEnclosure.hidesCoolSide,
+            waterPosition: selectedEnclosure.waterPosition,
+            probeLocation: selectedEnclosure.probeLocation,
+            heatSource: selectedEnclosure.heatSource,
+            heatOnThermostat: selectedEnclosure.heatOnThermostat,
+          }
+        : undefined,
     });
   }, [selectedEnclosure, animalProfile, tempLogs, humidityLogs]);
 
@@ -1483,6 +1498,7 @@ export function DashboardView() {
             enclosureName={selectedEnclosure.name}
             isPremium={isPremium}
             suppressDimensions={habitatSuppressed}
+            setupCheckHref={`/care-calendar/enclosures/${selectedEnclosure.id}/setup-check`}
           />
         )}
 

@@ -15,6 +15,7 @@ export type PaywallSource =
   | 'health-report'
   | 'sitter-sheet'
   | 'what-changed'
+  | 'setup-check'
   | 'dashboard-alerts'
   | 'unknown';
 
