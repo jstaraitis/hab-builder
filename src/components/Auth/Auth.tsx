@@ -94,17 +94,17 @@ export function Auth() {
   if (mode === 'forgot-password') {
     return (
       <div className="max-w-md mx-auto p-6">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+        <div className="bg-card rounded-lg shadow-lg p-8">
           <div className="text-center mb-6">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Reset Password</h2>
-            <p className="text-gray-600 dark:text-gray-400">
+            <h2 className="text-3xl font-bold text-white mb-2">Reset Password</h2>
+            <p className="text-muted">
               Enter your email and we'll send you a reset link.
             </p>
           </div>
 
           <form onSubmit={handleForgotPassword} className="space-y-4">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-secondary mb-2">
                 Email Address
               </label>
               <input
@@ -113,7 +113,7 @@ export function Auth() {
                 placeholder="your@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                className="w-full px-4 py-3 border border-divider rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent bg-card-elevated text-white"
                 required
                 disabled={loading}
               />
@@ -122,7 +122,7 @@ export function Auth() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full px-6 py-3 bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-400 text-white font-medium rounded-lg transition-colors"
+              className="w-full px-6 py-3 bg-accent hover:bg-accent-dim disabled:bg-gray-400 text-white font-medium rounded-lg transition-colors"
             >
               {loading ? 'Sending...' : 'Send Reset Link'}
             </button>
@@ -131,7 +131,7 @@ export function Auth() {
           {message && (
             <div className={`mt-4 p-3 rounded-lg text-sm ${
               message.startsWith('✓')
-                ? 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-200'
+                ? 'bg-accent/10 text-accent'
                 : 'bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200'
             }`}>
               {message}
@@ -141,7 +141,7 @@ export function Auth() {
           <div className="mt-6 text-center">
             <button
               onClick={() => switchMode('signin')}
-              className="text-sm text-emerald-600 dark:text-emerald-400 hover:underline"
+              className="text-sm text-accent hover:underline"
             >
               Back to sign in
             </button>
@@ -153,12 +153,12 @@ export function Auth() {
 
   return (
     <div className="max-w-md mx-auto p-6">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+      <div className="bg-card rounded-lg shadow-lg p-8">
         <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+          <h2 className="text-3xl font-bold text-white mb-2">
             {mode === 'signin' ? 'Welcome Back' : 'Get Started'}
           </h2>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-muted">
             {mode === 'signin' 
               ? 'Sign in to access your care tasks'
               : 'Create an account to start tracking care tasks'}
@@ -167,7 +167,7 @@ export function Auth() {
 
         <form onSubmit={handleAuth} className="space-y-4">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-secondary mb-2">
               Email Address
             </label>
             <input
@@ -176,7 +176,7 @@ export function Auth() {
               placeholder="your@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full px-4 py-3 border border-divider rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent bg-card-elevated text-white"
               required
               disabled={loading}
             />
@@ -184,14 +184,14 @@ export function Auth() {
 
           <div>
             <div className="flex items-center justify-between mb-2">
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              <label htmlFor="password" className="block text-sm font-medium text-secondary">
                 Password
               </label>
               {mode === 'signin' && (
                 <button
                   type="button"
                   onClick={() => switchMode('forgot-password')}
-                  className="text-xs text-emerald-600 dark:text-emerald-400 hover:underline"
+                  className="text-xs text-accent hover:underline"
                 >
                   Forgot password?
                 </button>
@@ -203,7 +203,7 @@ export function Auth() {
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full px-4 py-3 border border-divider rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent bg-card-elevated text-white"
               required
               disabled={loading}
               minLength={6}
@@ -213,7 +213,7 @@ export function Auth() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full px-6 py-3 bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-400 text-white font-medium rounded-lg transition-colors"
+            className="w-full px-6 py-3 bg-accent hover:bg-accent-dim disabled:bg-gray-400 text-white font-medium rounded-lg transition-colors"
           >
             {loading ? 'Loading...' : mode === 'signin' ? 'Sign In' : 'Sign Up'}
           </button>
@@ -222,7 +222,7 @@ export function Auth() {
         {message && (
           <div className={`mt-4 p-3 rounded-lg text-sm ${
             message.startsWith('✓') 
-              ? 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-200'
+              ? 'bg-accent/10 text-accent'
               : 'bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200'
           }`}>
             {message}
@@ -232,7 +232,7 @@ export function Auth() {
         <div className="mt-6 text-center">
           <button
             onClick={() => switchMode(mode === 'signin' ? 'signup' : 'signin')}
-            className="text-sm text-emerald-600 dark:text-emerald-400 hover:underline"
+            className="text-sm text-accent hover:underline"
           >
             {mode === 'signin' 
               ? "Don't have an account? Sign up"
@@ -240,8 +240,8 @@ export function Auth() {
           </button>
         </div>
 
-        <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-          <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
+        <div className="mt-6 pt-6 border-t border-divider">
+          <p className="text-xs text-muted text-center">
             Password must be at least 6 characters
           </p>
         </div>

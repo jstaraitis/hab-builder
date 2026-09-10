@@ -65,10 +65,10 @@ export function NotificationPrompt({ show, onClose }: NotificationPromptProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 animate-fade-in">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl border-2 border-blue-500 dark:border-blue-600 p-4 w-full max-w-md relative animate-scale-up">
+      <div className="bg-card rounded-lg shadow-xl border-2 border-blue-500 dark:border-blue-600 p-4 w-full max-w-md relative animate-scale-up">
         <button
           onClick={handleDismiss}
-          className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+          className="absolute top-2 right-2 text-muted hover:text-muted dark:hover:text-gray-300"
           aria-label="Dismiss"
         >
           <X className="w-5 h-5" />
@@ -79,10 +79,10 @@ export function NotificationPrompt({ show, onClose }: NotificationPromptProps) {
             <Lightbulb className="w-6 h-6 text-blue-600 dark:text-blue-400" />
           </div>
           <div className="flex-1">
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+            <h3 className="font-semibold text-white mb-1">
               {permission === 'granted' ? 'Reconnect notifications' : 'Enable notifications to get reminders'}
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-muted">
               {permission === 'granted' 
                 ? 'Your notifications need to be reconnected. This may happen after reinstalling the app or updating your browser.'
                 : 'You enabled a notification for this task, but push notifications aren\'t set up yet. Enable now to receive reminders when your care tasks are due.'}
@@ -100,7 +100,7 @@ export function NotificationPrompt({ show, onClose }: NotificationPromptProps) {
           </button>
           <button
             onClick={handleDismiss}
-            className="px-4 py-2 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded-lg transition-colors text-sm"
+            className="px-4 py-2 bg-card-elevated hover:bg-card-elevated dark:hover:bg-card-elevated text-secondary font-medium rounded-lg transition-colors text-sm"
           >
             Not Now
           </button>

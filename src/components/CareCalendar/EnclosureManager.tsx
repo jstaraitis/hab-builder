@@ -88,9 +88,9 @@ export function EnclosureManager({ onEnclosuresChanged, isPremium }: Readonly<En
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {enclosures.map(enclosure => (
             <div key={enclosure.id} className="space-y-2">
-              <div className="bg-card border border-divider rounded-lg p-3 hover:border-emerald-300 dark:hover:border-emerald-700 hover:shadow-md transition-all">
+              <div className="bg-card border border-divider rounded-lg p-3 hover:border-accent/30 dark:hover:border-accent/30 hover:shadow-md transition-all">
                 <div className="flex items-start gap-3">
-                  <div className="h-20 w-20 rounded-lg border border-divider bg-gray-100 bg-card overflow-hidden flex items-center justify-center text-gray-400 flex-shrink-0">
+                  <div className="h-20 w-20 rounded-lg border border-divider bg-card-elevated bg-card overflow-hidden flex items-center justify-center text-muted flex-shrink-0">
                     {enclosure.photoUrl ? (
                       <img
                         src={enclosure.photoUrl}
@@ -116,7 +116,7 @@ export function EnclosureManager({ onEnclosuresChanged, isPremium }: Readonly<En
                       <div className="flex gap-1 shrink-0">
                         <button
                           onClick={() => navigate(`/care-calendar/enclosures/edit/${enclosure.id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-                          className="p-1.5 text-gray-600 hover:text-gray-900 text-muted dark:hover:text-white transition-colors"
+                          className="p-1.5 text-muted hover:text-white text-muted dark:hover:text-white transition-colors"
                           title="Edit"
                         >
                           <Pencil className="w-4 h-4" />

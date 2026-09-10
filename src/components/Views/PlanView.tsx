@@ -49,13 +49,13 @@ export function PlanView({ plan, input }: PlanViewProps) {
       {/* Header Section */}
       <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
         <div>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Complete Build Plan</h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400">Your step-by-step guide to building a {animalName} enclosure</p>
+          <h2 className="text-2xl font-bold text-white">Complete Build Plan</h2>
+          <p className="text-sm text-muted">Your step-by-step guide to building a {animalName} enclosure</p>
         </div>
         <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
           <button
             onClick={handleDownloadPDF}
-            className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-colors shadow-sm"
+            className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-accent hover:bg-accent-dim text-white font-medium rounded-lg transition-colors shadow-sm"
           >
             <Download className="w-4 h-4" />
             Download PDF
@@ -67,15 +67,15 @@ export function PlanView({ plan, input }: PlanViewProps) {
         </div>
       </div>
 
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+      <div className="bg-card rounded-lg shadow-sm border border-divider p-6">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white">Example Enclosure Setups</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Curated reference builds to visualize layout and equipment placement</p>
+            <h3 className="text-xl font-bold text-white">Example Enclosure Setups</h3>
+            <p className="text-sm text-muted mt-1">Curated reference builds to visualize layout and equipment placement</p>
           </div>
           <Link
             to="/blog/example-enclosure-setups"
-            className="text-emerald-700 dark:text-emerald-400 font-medium underline"
+            className="text-accent font-medium underline"
           >
             View the example setups blog
           </Link>
@@ -131,22 +131,22 @@ export function PlanView({ plan, input }: PlanViewProps) {
       </div>
 
       {/* Build Steps Section */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+      <div className="bg-card rounded-lg shadow-sm border border-divider p-6">
         <div className="border-l-4 border-blue-500 pl-4 mb-4">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white">Build Instructions</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Follow these steps to assemble your enclosure</p>
+          <h3 className="text-xl font-bold text-white">Build Instructions</h3>
+          <p className="text-sm text-muted mt-1">Follow these steps to assemble your enclosure</p>
         </div>
         <BuildSteps steps={plan.steps} showHeader={false} animalName={animalName} />
       </div>
 
-      <div className="rounded-lg border border-emerald-200/70 dark:border-emerald-700/60 bg-emerald-50/70 dark:bg-emerald-900/20 p-4 text-sm text-emerald-900 dark:text-emerald-200">
+      <div className="rounded-lg border border-accent/30 bg-accent/10 bg-accent/10 p-4 text-sm text-accent text-accent">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p>
             If you want a little extra reassurance, premium includes care reminders to help you stay on track.
           </p>
           <Link
             to="/premium"
-            className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-emerald-700"
+            className="inline-flex items-center justify-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-dim"
           >
             Explore premium
           </Link>

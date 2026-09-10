@@ -76,7 +76,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
     if (status === 'in-progress') {
       return (
         <div className="absolute top-0 right-0 overflow-hidden w-24 h-24 pointer-events-none">
-          <div className="absolute top-4 -right-8 bg-yellow-400/70 dark:bg-yellow-400/70 backdrop-blur-md text-gray-900 text-[10px] md:text-xs font-bold py-1 px-10 rotate-45 shadow-lg flex items-center justify-center gap-1">
+          <div className="absolute top-4 -right-8 bg-yellow-400/70 dark:bg-yellow-400/70 backdrop-blur-md text-white text-[10px] md:text-xs font-bold py-1 px-10 rotate-45 shadow-lg flex items-center justify-center gap-1">
             <Clock className="w-3 h-3 md:w-3.5 md:h-3.5" />
             <span>NEW</span>
           </div>
@@ -140,7 +140,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
         className={`group relative overflow-hidden rounded-xl transition-all duration-300 text-left ${
           selected === animal.id
             ? `${colors.bg} ring-4 ${colors.border} shadow-xl scale-[1.02]`
-            : 'bg-white dark:bg-gray-800 hover:shadow-lg hover:scale-[1.01]'
+            : 'bg-card hover:shadow-lg hover:scale-[1.01]'
         } ${isDraft ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'}`}
       >
         {/* Image with colored border and text overlay */}
@@ -190,8 +190,8 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
 
   return (
     <div className="bg-white dark:bg-card rounded-lg shadow-md p-3 sm:p-6">
-      <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">Select Animal</h2>
-      <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">Choose your animal and we'll build a habitat for it.</p>
+      <h2 className="text-2xl font-bold text-white mb-2">Select Animal</h2>
+      <p className="text-sm text-secondary mb-4">Choose your animal and we'll build a habitat for it.</p>
       
       {/* Category Selection - Dropdown on Mobile, Tabs on Desktop */}
       <div className="mb-4">
@@ -200,7 +200,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value as Category)}
-            className="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 dark:border-divider bg-white dark:bg-card text-gray-900 dark:text-gray-100 font-medium focus:outline-none focus:ring-2 focus:ring-jade-500 dark:focus:ring-accent"
+            className="w-full px-4 py-2.5 rounded-lg border-2 border-divider dark:border-divider bg-white dark:bg-card text-white font-medium focus:outline-none focus:ring-2 focus:ring-jade-500 dark:focus:ring-accent"
           >
             <option value="all">All Animals</option>
             <option value="frogs">Frogs & Toads</option>
@@ -214,13 +214,13 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
         </div>
 
         {/* Desktop Tabs */}
-        <div className="hidden md:flex gap-2 border-b border-gray-200 dark:border-divider pb-3">
+        <div className="hidden md:flex gap-2 border-b border-divider dark:border-divider pb-3">
           <button
             onClick={() => setCategoryFilter('all')}
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
               categoryFilter === 'all'
                 ? 'bg-jade-600 dark:bg-accent text-white shadow-md'
-                : 'bg-gray-100 dark:bg-card text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-card-elevated'
+                : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'
             }`}
           >
             All Animals
@@ -230,7 +230,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${
               categoryFilter === 'frogs'
                 ? 'bg-jade-600 dark:bg-accent text-white shadow-md'
-                : 'bg-gray-100 dark:bg-card text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-card-elevated'
+                : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'
             }`}
           >
             Frogs & Toads
@@ -240,7 +240,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${
               categoryFilter === 'salamanders'
                 ? 'bg-jade-600 dark:bg-accent text-white shadow-md'
-                : 'bg-gray-100 dark:bg-card text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-card-elevated'
+                : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'
             }`}
           >
             Salamanders & Newts
@@ -250,7 +250,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
               categoryFilter === 'geckos'
                 ? 'bg-jade-600 dark:bg-accent text-white shadow-md'
-                : 'bg-gray-100 dark:bg-card text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-card-elevated'
+                : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'
             }`}
           >
             Geckos
@@ -260,7 +260,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
               categoryFilter === 'chameleons'
                 ? 'bg-jade-600 dark:bg-accent text-white shadow-md'
-                : 'bg-gray-100 dark:bg-card text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-card-elevated'
+                : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'
             }`}
           >
             Chameleons
@@ -270,7 +270,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
               categoryFilter === 'snakes'
                 ? 'bg-jade-600 dark:bg-accent text-white shadow-md'
-                : 'bg-gray-100 dark:bg-card text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-card-elevated'
+                : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'
             }`}
           >
             Snakes
@@ -280,7 +280,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
               categoryFilter === 'lizards'
                 ? 'bg-jade-600 dark:bg-accent text-white shadow-md'
-                : 'bg-gray-100 dark:bg-card text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-card-elevated'
+                : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'
             }`}
           >
             Lizards
@@ -290,7 +290,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${
               categoryFilter === 'turtles'
                 ? 'bg-jade-600 dark:bg-accent text-white shadow-md'
-                : 'bg-gray-100 dark:bg-card text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-card-elevated'
+                : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'
             }`}
           >
             Turtles & Tortoises
@@ -306,10 +306,10 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
             placeholder="Search animals (e.g., snake, gecko, turtle)..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-3 pl-11 border-2 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+            className="w-full px-4 py-3 pl-11 border-2 border-divider rounded-lg bg-card-elevated text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-jade-500 focus:border-transparent transition-all"
           />
           <svg 
-            className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500"
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted"
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
@@ -324,8 +324,8 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
             onClick={() => setCareLevelFilter('all')}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
               careLevelFilter === 'all'
-                ? 'bg-primary-600 text-white shadow-md'
-                : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                ? 'bg-jade-600 text-white shadow-md'
+                : 'bg-card-elevated text-secondary hover:bg-card-elevated'
             }`}
           >
             All
@@ -335,7 +335,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
               careLevelFilter === 'beginner'
                 ? 'bg-green-500 text-white shadow-md'
-                : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                : 'bg-card-elevated text-secondary hover:bg-card-elevated'
             }`}
           >
             <CheckCircle className="inline-block w-4 h-4 mr-2" /> Beginner
@@ -345,7 +345,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
               careLevelFilter === 'intermediate'
                 ? 'bg-orange-500 text-white shadow-md'
-                : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                : 'bg-card-elevated text-secondary hover:bg-card-elevated'
             }`}
           >
             <Sliders className="inline-block w-4 h-4 mr-2" /> Intermediate
@@ -355,7 +355,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
               careLevelFilter === 'advanced'
                 ? 'bg-red-500 text-white shadow-md'
-                : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                : 'bg-card-elevated text-secondary hover:bg-card-elevated'
             }`}
           >
             <Zap className="inline-block w-4 h-4 mr-2" /> Advanced
@@ -364,7 +364,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
 
         {/* Care level explanation - only visible when a specific level is selected */}
         {careLevelFilter !== 'all' && (
-          <div className="mt-3 p-3 rounded-md bg-gray-50 dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300">
+          <div className="mt-3 p-3 rounded-md bg-card text-sm text-secondary">
             {careLevelFilter === 'beginner' && (
               <>Beginner — Easygoing species and straightforward setups. Great for first-timers.</>
             )}
@@ -378,7 +378,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
         )}
         
         {searchQuery && (
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+          <p className="mt-2 text-sm text-muted">
             Found {filteredAnimals.length} {filteredAnimals.length === 1 ? 'animal' : 'animals'}
           </p>
         )}
@@ -426,7 +426,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
               className={`group relative overflow-hidden rounded-xl transition-all duration-300 text-left ${
                 selected === animal.id
                   ? `${colors.bg} ring-4 ${colors.border} shadow-xl scale-[1.02]`
-                  : 'bg-white dark:bg-gray-800 hover:shadow-lg hover:scale-[1.01]'
+                  : 'bg-card hover:shadow-lg hover:scale-[1.01]'
               } ${isDraft ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'}`}
             >
               {/* Image with colored border and text overlay */}

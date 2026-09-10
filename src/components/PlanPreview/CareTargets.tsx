@@ -23,10 +23,10 @@ export function CareTargets({ targets, showHeader = true, infoWarnings = [], mis
               </svg>
             </div>
           </div>
-          <h4 className="font-bold text-gray-900 dark:text-white text-lg md:text-xl mb-3">Temperature</h4>
+          <h4 className="font-bold text-white text-lg md:text-xl mb-3">Temperature</h4>
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-sm md:text-base text-gray-600 dark:text-gray-300 flex items-center gap-1">
+              <span className="text-sm md:text-base text-secondary flex items-center gap-1">
                 <svg className="w-4 h-4 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" />
                 </svg>
@@ -38,7 +38,7 @@ export function CareTargets({ targets, showHeader = true, infoWarnings = [], mis
             </div>
             {targets.temperature.nighttime && (
               <div className="flex items-center justify-between">
-                <span className="text-sm md:text-base text-gray-600 dark:text-gray-300 flex items-center gap-1">
+                <span className="text-sm md:text-base text-secondary flex items-center gap-1">
                   <svg className="w-4 h-4 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                   </svg>
@@ -51,7 +51,7 @@ export function CareTargets({ targets, showHeader = true, infoWarnings = [], mis
             )}
             {targets.temperature.basking !== null && targets.temperature.basking !== undefined && (
               <div className="flex items-center justify-between pt-2 border-t border-red-200 dark:border-red-800">
-                <span className="text-sm md:text-base text-gray-600 dark:text-gray-300">Basking</span>
+                <span className="text-sm md:text-base text-secondary">Basking</span>
                 <span className="text-lg font-semibold text-red-700 dark:text-red-300">
                   {typeof targets.temperature.basking === 'number' 
                     ? `${targets.temperature.basking}°${targets.temperature.unit}`
@@ -60,7 +60,7 @@ export function CareTargets({ targets, showHeader = true, infoWarnings = [], mis
                 </span>
               </div>
             )}
-            <p className="text-xs text-gray-600 dark:text-gray-400 pt-2">{targets.gradient}</p>
+            <p className="text-xs text-muted pt-2">{targets.gradient}</p>
           </div>
         </div>
 
@@ -73,7 +73,7 @@ export function CareTargets({ targets, showHeader = true, infoWarnings = [], mis
               </svg>
             </div>
           </div>
-          <h4 className="font-bold text-gray-900 dark:text-white text-lg md:text-xl mb-3">Humidity</h4>
+          <h4 className="font-bold text-white text-lg md:text-xl mb-3">Humidity</h4>
           <div className="space-y-2">
             {targets.humidity.day.min === 100 && targets.humidity.day.max === 100 ? (
               <>
@@ -82,28 +82,28 @@ export function CareTargets({ targets, showHeader = true, infoWarnings = [], mis
                     N/A - Aquatic Species
                   </span>
                 </div>
-                <p className="text-xs text-gray-600 dark:text-gray-400 pt-2 text-center">
+                <p className="text-xs text-muted pt-2 text-center">
                   Fully aquatic species - humidity not applicable. Focus on water quality and temperature instead.
                 </p>
               </>
             ) : (
               <>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm md:text-base text-gray-600 dark:text-gray-300">Day</span>
+                  <span className="text-sm md:text-base text-secondary">Day</span>
                   <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
                     {targets.humidity.day.min}–{targets.humidity.day.max}{targets.humidity.unit}
                   </span>
                 </div>
                 {targets.humidity.night.min !== targets.humidity.day.min && (
                   <div className="flex items-center justify-between">
-                    <span className="text-sm md:text-base text-gray-600 dark:text-gray-300">Night</span>
+                    <span className="text-sm md:text-base text-secondary">Night</span>
                     <span className="text-xl font-bold text-blue-500 dark:text-blue-300">
                       {targets.humidity.night.min}–{targets.humidity.night.max}{targets.humidity.unit}
                     </span>
                   </div>
                 )}
                 <div className="flex items-center justify-between pt-1 border-t border-blue-100 dark:border-blue-800/50">
-                  <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">Shedding</span>
+                  <span className="text-xs md:text-sm text-muted">Shedding</span>
                   <span className="text-base font-semibold text-blue-600 dark:text-blue-400">
                     {targets.humidity.shedding.min}–{targets.humidity.shedding.max}{targets.humidity.unit}
                   </span>
@@ -112,10 +112,10 @@ export function CareTargets({ targets, showHeader = true, infoWarnings = [], mis
             )}
             {mistingNotes.length > 0 && (
               <div className="pt-2 border-t border-blue-200 dark:border-blue-800">
-                <h5 className="text-sm md:text-base font-semibold text-gray-700 dark:text-gray-300 mb-2">Daily Misting</h5>
+                <h5 className="text-sm md:text-base font-semibold text-secondary mb-2">Daily Misting</h5>
                 <div className="space-y-1.5">
                   {mistingNotes.map((note, idx) => (
-                    <p key={`misting-${idx}`} className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed flex items-start gap-1.5">
+                    <p key={`misting-${idx}`} className="text-xs text-muted leading-relaxed flex items-start gap-1.5">
                       <span className="text-blue-500 mt-0.5">•</span>
                       <span>{note}</span>
                     </p>
@@ -123,7 +123,7 @@ export function CareTargets({ targets, showHeader = true, infoWarnings = [], mis
                 </div>
               </div>
             )}
-            <p className="text-xs text-gray-600 dark:text-gray-400 pt-2">
+            <p className="text-xs text-muted pt-2">
               Misters/foggers not recommended. High humidity increases risk of bacterial and respiratory infections.
             </p>
           </div>
@@ -138,28 +138,28 @@ export function CareTargets({ targets, showHeader = true, infoWarnings = [], mis
               </svg>
             </div>
           </div>
-          <h4 className="font-bold text-gray-900 dark:text-white text-lg md:text-xl mb-3">Lighting</h4>
+          <h4 className="font-bold text-white text-lg md:text-xl mb-3">Lighting</h4>
           <div className="space-y-2">
             {targets.lighting.uvbRequired ? (
               <>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm md:text-base text-gray-600 dark:text-gray-300">UVB</span>
+                  <span className="text-sm md:text-base text-secondary">UVB</span>
                   <span className="text-2xl font-bold text-amber-600 dark:text-amber-400">
                     {targets.lighting.uvbStrength}
                   </span>
                 </div>
                 <div className="flex items-center justify-between pt-2 border-t border-amber-200 dark:border-amber-800">
-                  <span className="text-sm md:text-base text-gray-600 dark:text-gray-300">Coverage</span>
+                  <span className="text-sm md:text-base text-secondary">Coverage</span>
                   <span className="text-lg font-semibold text-amber-700 dark:text-amber-300">
                     {targets.lighting.coveragePercent}%
                   </span>
                 </div>
               </>
             ) : (
-              <p className="text-sm md:text-base text-gray-600 dark:text-gray-400">UVB not required, but beneficial</p>
+              <p className="text-sm md:text-base text-muted">UVB not required, but beneficial</p>
             )}
             <div className="flex items-center justify-between pt-2 border-t border-amber-200 dark:border-amber-800">
-              <span className="text-sm md:text-base text-gray-600 dark:text-gray-300">Photo Period</span>
+              <span className="text-sm md:text-base text-secondary">Photo Period</span>
               <span className="text-lg font-semibold text-amber-700 dark:text-amber-300">
                 {targets.lighting.photoperiod}
               </span>
@@ -176,8 +176,8 @@ export function CareTargets({ targets, showHeader = true, infoWarnings = [], mis
   
   // When used with header, wrap in container with its own grid
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-      <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Care Parameters</h3>
+    <div className="bg-card rounded-lg shadow-md p-6">
+      <h3 className="text-2xl font-bold text-white mb-4">Care Parameters</h3>
       <div className="grid md:grid-cols-3 gap-4">
         {cards}
       </div>

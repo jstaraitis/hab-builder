@@ -13,7 +13,7 @@ export function OwnerRoute({ children }: OwnerRouteProps) {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[300px]">
-        <p className="text-sm text-gray-600 dark:text-gray-400">Loading...</p>
+        <p className="text-sm text-muted">Loading...</p>
       </div>
     );
   }

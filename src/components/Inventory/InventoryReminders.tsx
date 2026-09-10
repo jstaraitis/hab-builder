@@ -135,8 +135,8 @@ export function InventoryReminders() {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 dark:text-gray-400">Loading...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent mx-auto mb-4"></div>
+          <p className="text-muted">Loading...</p>
         </div>
       </div>
     );
@@ -255,7 +255,7 @@ export function InventoryReminders() {
                           ? 'bg-rose-500/20 text-rose-300'
                           : status === 'due-soon'
                             ? 'bg-amber-500/20 text-amber-300'
-                            : 'bg-emerald-500/20 text-emerald-300'
+                            : 'bg-accent/20 text-accent'
                       }`}>
                         {status === 'overdue' ? 'Overdue' : status === 'due-soon' ? 'Due Soon' : 'On Track'}
                       </span>
@@ -290,7 +290,7 @@ export function InventoryReminders() {
                                 ? 'bg-rose-500'
                                 : status === 'due-soon'
                                   ? 'bg-amber-500'
-                                  : 'bg-emerald-500'
+                                  : 'bg-accent'
                             }`}
                             style={{
                               width: `${Math.max(0, Math.min(100, (Math.max(0, daysLeft) / 30) * 100))}%`
@@ -309,7 +309,7 @@ export function InventoryReminders() {
                     <div className="flex items-center gap-2 pt-2">
                         <button
                           onClick={() => handleMarkReplaced(item.id)}
-                          className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium rounded-lg transition-colors flex items-center gap-1.5 whitespace-nowrap"
+                          className="px-3 py-1.5 bg-accent hover:bg-accent-dim text-white text-xs font-medium rounded-lg transition-colors flex items-center gap-1.5 whitespace-nowrap"
                         >
                           <Check className="w-3.5 h-3.5" />
                           Mark Replaced

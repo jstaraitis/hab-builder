@@ -71,7 +71,7 @@ export function LengthHistory({ enclosureAnimalId, refreshKey, onUpdate }: Lengt
   if (logs.length === 0) {
     return (
       <div className="text-center py-8">
-        <Calendar className="w-12 h-12 text-gray-400 dark:text-gray-600 mx-auto mb-3" />
+        <Calendar className="w-12 h-12 text-muted mx-auto mb-3" />
         <p className="text-muted">No length entries yet</p>
         <p className="text-sm text-muted mt-1">
           Click "Log Length" above to add your first measurement
@@ -107,7 +107,7 @@ export function LengthHistory({ enclosureAnimalId, refreshKey, onUpdate }: Lengt
           <div
             key={log.id}
             className="bg-card rounded-lg p-3 border border-divider
-                     hover:shadow-sm transition-shadow flex justify-between items-center"
+ hover:shadow-sm transition-shadow flex justify-between items-center"
           >
             <div className="flex-1">
               <div className="flex items-center gap-3">
@@ -120,7 +120,7 @@ export function LengthHistory({ enclosureAnimalId, refreshKey, onUpdate }: Lengt
               </div>
               
               {log.measurementType && (
-                <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
+                <p className="text-xs text-muted mt-1">
                   {log.measurementType === 'snout-to-vent' && 'Snout-to-Vent'}
                   {log.measurementType === 'total-length' && 'Total Length'}
                   {log.measurementType === 'carapace-length' && 'Carapace Length'}
@@ -139,7 +139,7 @@ export function LengthHistory({ enclosureAnimalId, refreshKey, onUpdate }: Lengt
               <button
                 onClick={() => setEditingLog(log)}
                 className="p-2 text-muted hover:text-accent dark:hover:text-accent
-                         hover:bg-card-elevated rounded transition-colors"
+ hover:bg-card-elevated rounded transition-colors"
                 title="Edit"
               >
                 <Edit2 className="w-4 h-4" />
@@ -147,7 +147,7 @@ export function LengthHistory({ enclosureAnimalId, refreshKey, onUpdate }: Lengt
               <button
                 onClick={() => handleDelete(log.id)}
                 className="p-2 text-muted hover:text-red-600 dark:hover:text-red-400
-                         hover:bg-card-elevated rounded transition-colors"
+ hover:bg-card-elevated rounded transition-colors"
                 title="Delete"
               >
                 <Trash2 className="w-4 h-4" />

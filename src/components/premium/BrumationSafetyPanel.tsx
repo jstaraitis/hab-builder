@@ -18,7 +18,7 @@ const SEVERITY_STYLES: Record<AlertSeverity, { border: string; bg: string; title
 };
 
 const LEVEL_STYLES: Record<BrumationConcernLevel, { ring: string; label: string; tone: string }> = {
-  ok: { ring: 'border-divider', label: 'On track', tone: 'text-emerald-300' },
+  ok: { ring: 'border-divider', label: 'On track', tone: 'text-accent' },
   watch: { ring: 'border-blue-400/30', label: 'Keep watching', tone: 'text-blue-300' },
   concern: { ring: 'border-amber-400/40', label: 'Needs attention', tone: 'text-amber-300' },
   urgent: { ring: 'border-red-500/40', label: 'Act now', tone: 'text-red-300' },
@@ -128,7 +128,7 @@ export function BrumationSafetyPanel({ animal, startDate, refreshKey }: Brumatio
       <div className="px-4 pb-4 space-y-2">
         {assessment.alerts.length === 0 ? (
           <div className="flex gap-2.5 p-3 rounded-xl border border-divider bg-card">
-            <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+            <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
             <p className="text-xs text-muted leading-relaxed">
               Weight loss and duration are both within a normal range. Keep weighing every two weeks
               and make sure fresh water stays available.

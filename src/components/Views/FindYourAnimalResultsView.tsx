@@ -21,22 +21,22 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect, onToggleCompa
   const { profile, compatibilityScore, reasons, warnings } = recommendation;
 
   const getScoreColor = (score: number) => {
-    if (score >= 80) return 'bg-emerald-100 dark:bg-emerald-900/30 border-emerald-300 dark:border-emerald-700';
+    if (score >= 80) return 'bg-accent/15 border-accent/30';
     if (score >= 60) return 'bg-amber-100 dark:bg-amber-900/30 border-amber-300 dark:border-amber-700';
     return 'bg-orange-100 dark:bg-orange-900/30 border-orange-300 dark:border-orange-700';
   };
 
   const getScoreTextColor = (score: number) => {
-    if (score >= 80) return 'text-emerald-700 dark:text-emerald-400';
+    if (score >= 80) return 'text-accent';
     if (score >= 60) return 'text-amber-700 dark:text-amber-400';
     return 'text-orange-700 dark:text-orange-400';
   };
 
   return (
-    <div className={`rounded-lg border-2 overflow-hidden flex flex-col ${getScoreColor(compatibilityScore)} ${isSelectedForComparison ? 'ring-4 ring-emerald-500 dark:ring-emerald-400' : ''}`}>
+    <div className={`rounded-lg border-2 overflow-hidden flex flex-col ${getScoreColor(compatibilityScore)} ${isSelectedForComparison ? 'ring-4 ring-accent dark:ring-accent' : ''}`}>
       {/* Image */}
       {profile.imageUrl && (
-        <div className="relative h-48 bg-gray-200 dark:bg-gray-700">
+        <div className="relative h-48 bg-card-elevated">
           <img
             src={profile.imageUrl}
             alt={profile.commonName}
@@ -56,11 +56,11 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect, onToggleCompa
             </div>
           )}
           {/* Score Badge Overlay */}
-          <div className="absolute top-3 right-3 bg-white dark:bg-gray-800 rounded-lg px-3 py-1 shadow-lg">
+          <div className="absolute top-3 right-3 bg-card rounded-lg px-3 py-1 shadow-lg">
             <div className={`text-xl font-bold ${getScoreTextColor(compatibilityScore)}`}>
               {compatibilityScore}%
             </div>
-            <p className="text-xs text-gray-600 dark:text-gray-400 text-center">Match</p>
+            <p className="text-xs text-muted text-center">Match</p>
           </div>
         </div>
       )}
@@ -69,8 +69,8 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect, onToggleCompa
       <div className="p-4 flex-1 flex flex-col">
         {/* Header */}
         <div className="mb-3">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white">{profile.commonName}</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 italic">{profile.scientificName}</p>
+          <h3 className="text-lg font-bold text-white">{profile.commonName}</h3>
+          <p className="text-sm text-muted italic">{profile.scientificName}</p>
         </div>
 
       {/* Reasons */}
@@ -78,8 +78,8 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect, onToggleCompa
         <div className="mb-3">
           {reasons.map((reason, idx) => (
             <div key={idx} className="flex items-start gap-2 text-sm mb-1">
-              <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
-              <span className="text-gray-700 dark:text-gray-300">{reason}</span>
+              <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+              <span className="text-secondary">{reason}</span>
             </div>
           ))}
         </div>
@@ -87,11 +87,11 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect, onToggleCompa
 
       {/* Warnings */}
       {warnings.length > 0 && (
-        <div className="mb-4 bg-white dark:bg-gray-900/50 rounded p-2">
+        <div className="mb-4 bg-surface/50 rounded p-2">
           {warnings.map((warning, idx) => (
             <div key={idx} className="flex items-start gap-2 text-xs mb-1">
               <AlertCircle className="w-3 h-3 text-orange-600 dark:text-orange-400 flex-shrink-0 mt-0.5" />
-              <span className="text-gray-700 dark:text-gray-300">{warning}</span>
+              <span className="text-secondary">{warning}</span>
             </div>
           ))}
         </div>
@@ -100,7 +100,7 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect, onToggleCompa
       {/* Action Button */}
       <button
         onClick={() => onSelect(recommendation.animalId)}
-        className="w-full px-4 py-2 bg-emerald-600 hover:bg-emerald-700 dark:hover:bg-emerald-600 text-white font-medium rounded-lg transition-colors mt-auto"
+        className="w-full px-4 py-2 bg-accent hover:bg-accent-dim text-white font-medium rounded-lg transition-colors mt-auto"
       >
         Choose {profile.commonName}
       </button>
@@ -169,7 +169,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
         <div className="max-w-4xl mx-auto">
           <button
             onClick={() => navigate('/find-animal')}
-            className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 mb-6 font-medium"
+            className="flex items-center gap-2 text-accent hover:text-accent mb-6 font-medium"
           >
             <ArrowLeft className="w-5 h-5" />
             Back to Form
@@ -195,17 +195,17 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
         <div className="mb-8">
           <button
             onClick={() => navigate('/find-animal')}
-            className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 mb-6 font-medium"
+            className="flex items-center gap-2 text-accent hover:text-accent mb-6 font-medium"
           >
             <ArrowLeft className="w-5 h-5" />
             Back to Form
           </button>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
             <div>
-              <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+              <h1 className="text-4xl font-bold text-white mb-2">
                 Your Recommendations
               </h1>
-              <p className="text-lg text-gray-600 dark:text-gray-400">
+              <p className="text-lg text-muted">
                 Based on your {input.width}×{input.depth}×{input.height}" {input.type} enclosure
               </p>
             </div>
@@ -220,8 +220,8 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
               }}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 showComparison
-                  ? 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
-                  : 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                  ? 'bg-card-elevated text-secondary'
+                  : 'bg-accent hover:bg-accent-dim text-white'
               }`}
             >
               {showComparison ? 'Cancel Comparison' : 'Compare Species'}
@@ -231,16 +231,16 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
 
         {/* Comparison Bar */}
         {showComparison && selectedForComparison.length > 0 && (
-          <div className="sticky top-4 z-10 mb-6 bg-emerald-600 dark:bg-emerald-700 text-white rounded-lg p-4 shadow-lg">
+          <div className="sticky top-4 z-10 mb-6 bg-accent dark:bg-accent-dim text-white rounded-lg p-4 shadow-lg">
             <div className="flex items-center justify-between gap-4">
               <div>
                 <p className="font-bold">{selectedForComparison.length} species selected</p>
-                <p className="text-sm text-emerald-100">Select 2-4 animals to compare</p>
+                <p className="text-sm text-accent">Select 2-4 animals to compare</p>
               </div>
               <button
                 onClick={handleShowComparison}
                 disabled={selectedForComparison.length < 2}
-                className="px-6 py-2 bg-white text-emerald-700 font-bold rounded-lg hover:bg-emerald-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-6 py-2 bg-white text-accent font-bold rounded-lg hover:bg-accent/10 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 View Comparison
               </button>
@@ -250,12 +250,12 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
 
         {/* Comparison Table View */}
         {showComparison && selectedForComparison.length >= 2 && (
-          <div className="mb-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 md:p-6 border border-gray-200 dark:border-gray-700">
+          <div className="mb-8 bg-card rounded-lg shadow-lg p-4 md:p-6 border border-divider">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">Species Comparison</h2>
+              <h2 className="text-xl md:text-2xl font-bold text-white">Species Comparison</h2>
               <button
                 onClick={() => setSelectedForComparison([])}
-                className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                className="text-sm text-muted hover:text-white"
               >
                 Clear Selection
               </button>
@@ -272,9 +272,9 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                 const size = rec.profile.minEnclosureSize;
                 
                 return (
-                  <div key={animalId} className="border-2 border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                  <div key={animalId} className="border-2 border-divider rounded-lg overflow-hidden">
                     {/* Header with Image */}
-                    <div className="relative h-40 bg-gray-200 dark:bg-gray-700">
+                    <div className="relative h-40 bg-card-elevated">
                       {rec.profile.imageUrl && (
                         <img
                           src={rec.profile.imageUrl}
@@ -284,9 +284,9 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                           decoding="async"
                         />
                       )}
-                      <div className="absolute top-2 right-2 bg-white dark:bg-gray-800 rounded-lg px-2 py-1">
+                      <div className="absolute top-2 right-2 bg-card rounded-lg px-2 py-1">
                         <span className={`text-lg font-bold ${
-                          rec.compatibilityScore >= 80 ? 'text-emerald-600 dark:text-emerald-400' :
+                          rec.compatibilityScore >= 80 ? 'text-accent' :
                           rec.compatibilityScore >= 60 ? 'text-amber-600 dark:text-amber-400' :
                           'text-orange-600 dark:text-orange-400'
                         }`}>
@@ -298,15 +298,15 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                     {/* Content */}
                     <div className="p-4 space-y-3">
                       <div>
-                        <div className="font-bold text-lg text-gray-900 dark:text-white">{rec.profile.commonName}</div>
-                        <div className="text-sm italic text-gray-600 dark:text-gray-400">{rec.profile.scientificName}</div>
+                        <div className="font-bold text-lg text-white">{rec.profile.commonName}</div>
+                        <div className="text-sm italic text-muted">{rec.profile.scientificName}</div>
                       </div>
                       
                       <div className="grid grid-cols-2 gap-3 text-sm">
                         <div>
-                          <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Care Level</div>
+                          <div className="text-xs font-semibold text-muted uppercase">Care Level</div>
                           <span className={`inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-medium ${
-                            rec.profile.careLevel === 'beginner' ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300' :
+                            rec.profile.careLevel === 'beginner' ? 'bg-accent/15 text-accent bg-accent/15 text-accent' :
                             rec.profile.careLevel === 'intermediate' ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300' :
                             'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300'
                           }`}>
@@ -315,13 +315,13 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                         </div>
                         
                         <div>
-                          <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Min Size</div>
-                          <div className="text-gray-900 dark:text-gray-100 mt-1">{formatDimensions(size?.width || 0, size?.depth || 0, size?.height || 0, isMetric)}</div>
+                          <div className="text-xs font-semibold text-muted uppercase">Min Size</div>
+                          <div className="text-white mt-1">{formatDimensions(size?.width || 0, size?.depth || 0, size?.height || 0, isMetric)}</div>
                         </div>
                         
                         <div>
-                          <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Temperature</div>
-                          <div className="text-gray-900 dark:text-gray-100 mt-1">
+                          <div className="text-xs font-semibold text-muted uppercase">Temperature</div>
+                          <div className="text-white mt-1">
                             {temp?.thermalGradient ? (
                               <div className="text-xs">
                                 <div>{formatTemp(temp.coolSide?.min || 0, isMetric)}-{formatTemp(temp.coolSide?.max || 0, isMetric)} (cool)</div>
@@ -334,22 +334,22 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                         </div>
                         
                         <div>
-                          <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Humidity</div>
-                          <div className="text-gray-900 dark:text-gray-100 mt-1">{humidity?.day?.min}-{humidity?.day?.max}%</div>
+                          <div className="text-xs font-semibold text-muted uppercase">Humidity</div>
+                          <div className="text-white mt-1">{humidity?.day?.min}-{humidity?.day?.max}%</div>
                         </div>
                         
                         <div>
-                          <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">UVB</div>
-                          <div className="text-gray-900 dark:text-gray-100 mt-1">
+                          <div className="text-xs font-semibold text-muted uppercase">UVB</div>
+                          <div className="text-white mt-1">
                             {lighting?.uvbRequired ? (lighting.uvbStrength || 'Required') : 'Not required'}
                           </div>
                         </div>
                         
                         <div>
-                          <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Bioactive</div>
+                          <div className="text-xs font-semibold text-muted uppercase">Bioactive</div>
                           <span className={`inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-medium ${
-                            rec.profile.bioactiveCompatible ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300' : 
-                            'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
+                            rec.profile.bioactiveCompatible ? 'bg-accent/15 text-accent bg-accent/15 text-accent' : 
+                            'bg-card-elevated text-white dark:bg-card-elevated dark:text-secondary'
                           }`}>
                             {rec.profile.bioactiveCompatible ? 'Compatible' : 'Not ideal'}
                           </span>
@@ -365,8 +365,8 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
             <div className="hidden md:block overflow-x-auto">
               <table className="w-full border-collapse">
                 <thead>
-                  <tr className="border-b-2 border-gray-300 dark:border-gray-600">
-                    <th className="text-left p-3 font-bold text-gray-700 dark:text-gray-300 sticky left-0 bg-white dark:bg-gray-800">Attribute</th>
+                  <tr className="border-b-2 border-divider">
+                    <th className="text-left p-3 font-bold text-secondary sticky left-0 bg-card">Attribute</th>
                     {selectedForComparison.map(animalId => {
                       const rec = recommendations.find((r: any) => r.animalId === animalId);
                       return (
@@ -381,8 +381,8 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                                 decoding="async"
                               />
                             )}
-                            <div className="font-bold text-gray-900 dark:text-white">{rec?.profile.commonName}</div>
-                            <div className="text-xs italic text-gray-600 dark:text-gray-400">{rec?.profile.scientificName}</div>
+                            <div className="font-bold text-white">{rec?.profile.commonName}</div>
+                            <div className="text-xs italic text-muted">{rec?.profile.scientificName}</div>
                           </div>
                         </th>
                       );
@@ -391,14 +391,14 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                 </thead>
                 <tbody>
                   {/* Compatibility Score */}
-                  <tr className="border-b border-gray-200 dark:border-gray-700">
-                    <td className="p-3 font-semibold text-gray-700 dark:text-gray-300 sticky left-0 bg-white dark:bg-gray-800">Match Score</td>
+                  <tr className="border-b border-divider">
+                    <td className="p-3 font-semibold text-secondary sticky left-0 bg-card">Match Score</td>
                     {selectedForComparison.map(animalId => {
                       const rec = recommendations.find((r: any) => r.animalId === animalId);
                       return (
                         <td key={animalId} className="p-3 text-center">
                           <span className={`text-2xl font-bold ${
-                            rec!.compatibilityScore >= 80 ? 'text-emerald-600 dark:text-emerald-400' :
+                            rec!.compatibilityScore >= 80 ? 'text-accent' :
                             rec!.compatibilityScore >= 60 ? 'text-amber-600 dark:text-amber-400' :
                             'text-orange-600 dark:text-orange-400'
                           }`}>
@@ -410,14 +410,14 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                   </tr>
 
                   {/* Care Level */}
-                  <tr className="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50">
-                    <td className="p-3 font-semibold text-gray-700 dark:text-gray-300 sticky left-0 bg-gray-50 dark:bg-gray-900/50">Care Level</td>
+                  <tr className="border-b border-divider bg-surface/50">
+                    <td className="p-3 font-semibold text-secondary sticky left-0 bg-surface/50">Care Level</td>
                     {selectedForComparison.map(animalId => {
                       const rec = recommendations.find((r: any) => r.animalId === animalId);
                       return (
                         <td key={animalId} className="p-3 text-center">
                           <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                            rec?.profile.careLevel === 'beginner' ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300' :
+                            rec?.profile.careLevel === 'beginner' ? 'bg-accent/15 text-accent bg-accent/15 text-accent' :
                             rec?.profile.careLevel === 'intermediate' ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300' :
                             'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300'
                           }`}>
@@ -429,13 +429,13 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                   </tr>
 
                   {/* Min Enclosure Size */}
-                  <tr className="border-b border-gray-200 dark:border-gray-700">
-                    <td className="p-3 font-semibold text-gray-700 dark:text-gray-300 sticky left-0 bg-white dark:bg-gray-800">Min Size</td>
+                  <tr className="border-b border-divider">
+                    <td className="p-3 font-semibold text-secondary sticky left-0 bg-card">Min Size</td>
                     {selectedForComparison.map(animalId => {
                       const rec = recommendations.find((r: any) => r.animalId === animalId);
                       const size = rec?.profile.minEnclosureSize;
                       return (
-                        <td key={animalId} className="p-3 text-center text-gray-900 dark:text-gray-100">
+                        <td key={animalId} className="p-3 text-center text-white">
                           {size && formatDimensions(size.width, size.depth, size.height, isMetric)}
                         </td>
                       );
@@ -443,13 +443,13 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                   </tr>
 
                   {/* Temperature */}
-                  <tr className="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50">
-                    <td className="p-3 font-semibold text-gray-700 dark:text-gray-300 sticky left-0 bg-gray-50 dark:bg-gray-900/50">Temperature</td>
+                  <tr className="border-b border-divider bg-surface/50">
+                    <td className="p-3 font-semibold text-secondary sticky left-0 bg-surface/50">Temperature</td>
                     {selectedForComparison.map(animalId => {
                       const rec = recommendations.find((r: any) => r.animalId === animalId);
                       const temp = rec?.profile.careTargets?.temperature;
                       return (
-                        <td key={animalId} className="p-3 text-center text-sm text-gray-900 dark:text-gray-100">
+                        <td key={animalId} className="p-3 text-center text-sm text-white">
                           {temp?.thermalGradient ? (
                             <div>
                               <div>Cool: {formatTemp(temp.coolSide?.min || 0, isMetric)}-{formatTemp(temp.coolSide?.max || 0, isMetric)}</div>
@@ -464,13 +464,13 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                   </tr>
 
                   {/* Humidity */}
-                  <tr className="border-b border-gray-200 dark:border-gray-700">
-                    <td className="p-3 font-semibold text-gray-700 dark:text-gray-300 sticky left-0 bg-white dark:bg-gray-800">Humidity</td>
+                  <tr className="border-b border-divider">
+                    <td className="p-3 font-semibold text-secondary sticky left-0 bg-card">Humidity</td>
                     {selectedForComparison.map(animalId => {
                       const rec = recommendations.find((r: any) => r.animalId === animalId);
                       const humidity = rec?.profile.careTargets?.humidity;
                       return (
-                        <td key={animalId} className="p-3 text-center text-sm text-gray-900 dark:text-gray-100">
+                        <td key={animalId} className="p-3 text-center text-sm text-white">
                           {humidity?.day?.min}-{humidity?.day?.max}%
                         </td>
                       );
@@ -478,14 +478,14 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                   </tr>
 
                   {/* UVB Required */}
-                  <tr className="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50">
-                    <td className="p-3 font-semibold text-gray-700 dark:text-gray-300 sticky left-0 bg-gray-50 dark:bg-gray-900/50">UVB</td>
+                  <tr className="border-b border-divider bg-surface/50">
+                    <td className="p-3 font-semibold text-secondary sticky left-0 bg-surface/50">UVB</td>
                     {selectedForComparison.map(animalId => {
                       const rec = recommendations.find((r: any) => r.animalId === animalId);
                       const uvb = rec?.profile.careTargets?.lighting?.uvbRequired;
                       const strength = rec?.profile.careTargets?.lighting?.uvbStrength;
                       return (
-                        <td key={animalId} className="p-3 text-center text-gray-900 dark:text-gray-100">
+                        <td key={animalId} className="p-3 text-center text-white">
                           {uvb ? (strength || 'Required') : 'Not required'}
                         </td>
                       );
@@ -493,16 +493,16 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                   </tr>
 
                   {/* Bioactive Compatible */}
-                  <tr className="border-b border-gray-200 dark:border-gray-700">
-                    <td className="p-3 font-semibold text-gray-700 dark:text-gray-300 sticky left-0 bg-white dark:bg-gray-800">Bioactive</td>
+                  <tr className="border-b border-divider">
+                    <td className="p-3 font-semibold text-secondary sticky left-0 bg-card">Bioactive</td>
                     {selectedForComparison.map(animalId => {
                       const rec = recommendations.find((r: any) => r.animalId === animalId);
                       const bioactive = rec?.profile.bioactiveCompatible;
                       return (
                         <td key={animalId} className="p-3 text-center">
                           <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                            bioactive ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300' : 
-                            'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
+                            bioactive ? 'bg-accent/15 text-accent bg-accent/15 text-accent' : 
+                            'bg-card-elevated text-white dark:bg-card-elevated dark:text-secondary'
                           }`}>
                             {bioactive ? 'Compatible' : 'Not ideal'}
                           </span>
@@ -520,8 +520,8 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
         {perfectMatches.length > 0 && (
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-4">
-              <Star className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Perfect Matches</h2>
+              <Star className="w-6 h-6 text-accent" />
+              <h2 className="text-2xl font-bold text-white">Perfect Matches</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {perfectMatches.map((rec) => (
@@ -541,7 +541,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
         {/* Good Fits */}
         {goodFits.length > 0 && (
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Good Fits</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">Good Fits</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {goodFits.map((rec) => (
                 <AnimalRecommendationCard
@@ -560,7 +560,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
         {/* Possible with Modifications */}
         {possibleMatches.length > 0 && (
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Possible (with modifications)</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">Possible (with modifications)</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {possibleMatches.map((rec) => (
                 <AnimalRecommendationCard
@@ -577,8 +577,8 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
         )}
 
         {/* Related Guides */}
-        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Learn More</h2>
+        <div className="mt-12 pt-8 border-t border-divider">
+          <h2 className="text-2xl font-bold text-white mb-6">Learn More</h2>
           <AnimalGuides />
         </div>
       </div>

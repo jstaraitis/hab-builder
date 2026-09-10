@@ -26,7 +26,19 @@
     "@typescript-eslint/no-unsafe-call": "warn",
     "@typescript-eslint/no-unsafe-return": "warn",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off"
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "JSXAttribute[name.name='className'] Literal[value=/(^|\\s)(dark:)?(hover:|focus:|active:|disabled:|group-hover:)?(text|bg|border|ring|divide)-(gray|slate|zinc|neutral|emerald|green)-[0-9]{2,3}(\\/[0-9]+)?(\\s|$)/]",
+        "message": "Use a design token instead of a raw Tailwind colour. text-white / text-secondary / text-muted for type; bg-surface / bg-card / bg-card-elevated for surfaces; border-divider for rules; accent / accent-dim for brand. Raw greys and emeralds are the legacy palette that was migrated away in Phase 2 — reintroducing them splits the design system again."
+      },
+      {
+        "selector": "JSXAttribute[name.name='className'] TemplateElement[value.raw=/(^|\\s)(dark:)?(hover:|focus:|active:|disabled:|group-hover:)?(text|bg|border|ring|divide)-(gray|slate|zinc|neutral|emerald|green)-[0-9]{2,3}(\\/[0-9]+)?(\\s|$)/]",
+        "message": "Use a design token instead of a raw Tailwind colour (see the className rule above). This one is inside a template literal."
+      }
+    ]
   },
   "ignorePatterns": [
     "dist",

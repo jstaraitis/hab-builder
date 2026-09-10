@@ -68,7 +68,7 @@ export function WeightHistory({ enclosureAnimalId, refreshKey, onUpdate }: Weigh
   if (logs.length === 0) {
     return (
       <div className="text-center py-8">
-        <Calendar className="w-12 h-12 text-gray-400 dark:text-gray-600 mx-auto mb-3" />
+        <Calendar className="w-12 h-12 text-muted mx-auto mb-3" />
         <p className="text-muted">No weight entries yet</p>
         <p className="text-sm text-muted mt-1">
           Click "Log Weight" above to add your first entry
@@ -102,12 +102,12 @@ export function WeightHistory({ enclosureAnimalId, refreshKey, onUpdate }: Weigh
           <div
             key={log.id}
             className="flex items-center justify-between p-4 bg-surface 
-                     rounded-lg border border-divider hover:border-emerald-300 
-                     dark:hover:border-emerald-700 transition-colors"
+ rounded-lg border border-divider hover:border-accent/30 
+ dark:hover:border-accent/30 transition-colors"
           >
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-1">
-                <span className="text-xl font-bold text-gray-900 ">
+                <span className="text-xl font-bold text-white ">
                   {log.weightGrams.toFixed(0)}g
                 </span>
                 <span className="text-sm text-muted">
@@ -125,8 +125,8 @@ export function WeightHistory({ enclosureAnimalId, refreshKey, onUpdate }: Weigh
               <button
                 onClick={() => setEditingLog(log)}
                 className="p-2 text-muted hover:text-accent 
-                         dark:hover:text-accent hover:bg-emerald-50 dark:hover:bg-emerald-900/20 
-                         rounded-lg transition-colors"
+ dark:hover:text-accent hover:bg-accent/10 dark:hover:bg-emerald-900/20 
+ rounded-lg transition-colors"
                 title="Edit entry"
               >
                 <Edit2 className="w-4 h-4" />
@@ -134,8 +134,8 @@ export function WeightHistory({ enclosureAnimalId, refreshKey, onUpdate }: Weigh
               <button
                 onClick={() => handleDelete(log.id)}
                 className="p-2 text-muted hover:text-red-600 
-                         dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 
-                         rounded-lg transition-colors"
+ dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 
+ rounded-lg transition-colors"
                 title="Delete entry"
               >
                 <Trash2 className="w-4 h-4" />

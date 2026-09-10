@@ -936,7 +936,7 @@ export function AnimalDetailView() {
 
                 {!showWeightForm && weightLogs.length === 0 && (
                   <div className="text-center py-6">
-                    <Scale className="w-9 h-9 text-gray-400 mx-auto mb-2" />
+                    <Scale className="w-9 h-9 text-muted mx-auto mb-2" />
                     <p className="text-sm text-muted">No weight data yet</p>
                   </div>
                 )}
@@ -1224,7 +1224,7 @@ export function AnimalDetailView() {
                 </div>
               ) : (
                 <div className="text-center py-8">
-                  <Clock className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                  <Clock className="w-12 h-12 text-muted mx-auto mb-3" />
                   <p className="text-muted mb-4">No care tasks yet</p>
                   <Link
                     to="/care-calendar"
@@ -1353,7 +1353,7 @@ export function AnimalDetailView() {
                             <button
                               onClick={() => handleDeleteFeedingLog(log.id)}
                               disabled={deletingLogId === log.id}
-                              className="p-1 text-gray-400 hover:text-red-500 transition-colors disabled:opacity-50"
+                              className="p-1 text-muted hover:text-red-500 transition-colors disabled:opacity-50"
                               title="Delete feeding log"
                             >
                               <Trash2 className="w-4 h-4" />
@@ -1417,7 +1417,7 @@ export function AnimalDetailView() {
                 </div>
               ) : (
                 <div className="text-center py-8">
-                  <UtensilsCrossed className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                  <UtensilsCrossed className="w-12 h-12 text-muted mx-auto mb-3" />
                   <p className="text-muted mb-4">No feeding records yet</p>
                   {enclosure && (
                     <Link
@@ -1520,7 +1520,7 @@ export function AnimalDetailView() {
                           <button
                             onClick={() => handleDeletePoopLog(log.id)}
                             disabled={deletingLogId === log.id}
-                            className="p-1 text-gray-400 hover:text-red-500 transition-colors disabled:opacity-50"
+                            className="p-1 text-muted hover:text-red-500 transition-colors disabled:opacity-50"
                             title="Delete poop log"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -1618,7 +1618,7 @@ export function AnimalDetailView() {
 
                 {!animal.source && !animal.acquisitionDate && !animal.acquisitionPrice && !animal.acquisitionNotes && (
                   <div className="text-center py-8">
-                    <Info className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                    <Info className="w-12 h-12 text-muted mx-auto mb-3" />
                     <p className="text-muted mb-4">No acquisition information recorded</p>
                     <button
                       onClick={() => navigate(`/my-animals/edit/${animal.id}`)}

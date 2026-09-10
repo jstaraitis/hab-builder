@@ -11,58 +11,58 @@ export const formStyles = {
   fullWidth: 'md:col-span-2',
 
   // Labels
-  label: 'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
-  labelRequired: 'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
+  label: 'block text-sm font-medium text-secondary mb-2',
+  labelRequired: 'block text-sm font-medium text-secondary mb-2',
 
   // Input fields
-  input: `px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg
-           bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
-           focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500`,
+  input: `px-3 py-2.5 border border-divider rounded-lg
+           bg-card-elevated text-white
+           focus:ring-2 focus:ring-accent focus:border-accent`,
 
-  inputFull: `w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg
-              bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
-              focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500`,
+  inputFull: `w-full px-3 py-2.5 border border-divider rounded-lg
+              bg-card-elevated text-white
+              focus:ring-2 focus:ring-accent focus:border-accent`,
 
-  inputSmall: `px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg
-               bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
-               focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500`,
+  inputSmall: `px-3 py-2 border border-divider rounded-lg
+               bg-card-elevated text-white
+               focus:ring-2 focus:ring-accent focus:border-accent`,
 
   // Select fields
-  select: `px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg
-           bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
-           focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 appearance-none`,
+  select: `px-3 py-2.5 border border-divider rounded-lg
+           bg-card-elevated text-white
+           focus:ring-2 focus:ring-accent focus:border-accent appearance-none`,
 
-  selectFull: `w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg
-               bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
-               focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 appearance-none`,
+  selectFull: `w-full px-3 py-2.5 border border-divider rounded-lg
+               bg-card-elevated text-white
+               focus:ring-2 focus:ring-accent focus:border-accent appearance-none`,
 
-  selectMedium: `px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg
-                 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-medium
-                 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 whitespace-nowrap`,
+  selectMedium: `px-4 py-2.5 border border-divider rounded-lg
+                 bg-card-elevated text-white font-medium
+                 focus:ring-2 focus:ring-accent focus:border-accent whitespace-nowrap`,
 
   // Text areas
-  textarea: `w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg
-             bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
-             focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 resize-none`,
+  textarea: `w-full px-3 py-2.5 border border-divider rounded-lg
+             bg-card-elevated text-white
+             focus:ring-2 focus:ring-accent focus:border-accent resize-none`,
 
   // Input containers
   inputContainer: 'flex gap-2 items-end',
   inputWithUnit: 'flex-1',
 
   // Helper text
-  helperText: 'text-xs text-gray-500 dark:text-gray-400 mt-2',
-  helperTextSmall: 'text-xs text-gray-500 dark:text-gray-400 mt-1',
+  helperText: 'text-xs text-muted mt-2',
+  helperTextSmall: 'text-xs text-muted mt-1',
 
   // Button containers
   buttonContainer: 'flex gap-3 pt-4',
   buttonContainerEnd: 'flex gap-3 pt-4 justify-end',
 
   // Buttons
-  buttonPrimary: `flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 
+  buttonPrimary: `flex items-center gap-2 px-4 py-2.5 bg-accent hover:bg-accent-dim 
                   text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed`,
 
-  buttonSecondary: `flex items-center gap-2 px-4 py-2.5 bg-gray-200 hover:bg-gray-300 
-                    dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 
+  buttonSecondary: `flex items-center gap-2 px-4 py-2.5 bg-card-elevated hover:bg-gray-300 
+                    dark:bg-card-elevated dark:hover:bg-card-elevated text-secondary 
                     rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed`,
 
   buttonColorful: (bgColor: string) =>
@@ -87,7 +87,7 @@ export const fieldLayouts = {
   // Input with select (like weight/length with units)
   inputWithSelect: 'flex gap-2 items-end',
   inputWithSelectInput: 'flex-1',
-  inputWithSelectSelect: 'px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-medium focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 whitespace-nowrap',
+  inputWithSelectSelect: 'px-4 py-2.5 border border-divider rounded-lg bg-card-elevated text-white font-medium focus:ring-2 focus:ring-accent focus:border-accent whitespace-nowrap',
 };
 
 /**
@@ -95,9 +95,9 @@ export const fieldLayouts = {
  */
 export const checkboxStyles = {
   container: 'flex items-center gap-3',
-  checkbox: `w-5 h-5 rounded border-gray-300 text-emerald-600 dark:border-gray-600 
-             focus:ring-2 focus:ring-emerald-500 cursor-pointer`,
-  label: 'text-sm text-gray-700 dark:text-gray-300 cursor-pointer font-medium',
+  checkbox: `w-5 h-5 rounded border-divider text-accent dark:border-divider 
+             focus:ring-2 focus:ring-accent cursor-pointer`,
+  label: 'text-sm text-secondary cursor-pointer font-medium',
 };
 
 /**
@@ -107,9 +107,9 @@ export const badgeStyles = {
   small: 'inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium',
   base: 'inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium',
   
-  success: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300',
+  success: 'bg-accent/15 text-accent',
   warning: 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300',
   error: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300',
   info: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300',
-  neutral: 'bg-gray-100 dark:bg-gray-900/30 text-gray-700 dark:text-gray-300',
+  neutral: 'bg-card-elevated dark:bg-gray-900/30 text-secondary',
 };

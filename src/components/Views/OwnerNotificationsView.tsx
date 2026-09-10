@@ -117,14 +117,14 @@ export function OwnerNotificationsView() {
             <Bell className="h-4 w-4" />
             Owner Dashboard
           </div>
-          <h1 className="mt-1 text-2xl font-bold text-gray-900 dark:text-white">Push Notifications</h1>
-          <p className="text-sm text-gray-600 dark:text-gray-400">Send announcements to all subscribers or target a specific user account from a dedicated notifications workspace.</p>
+          <h1 className="mt-1 text-2xl font-bold text-white">Push Notifications</h1>
+          <p className="text-sm text-muted">Send announcements to all subscribers or target a specific user account from a dedicated notifications workspace.</p>
         </div>
         <div className="flex items-center gap-2">
           <button
             onClick={() => loadProfiles()}
             disabled={loadingProfiles}
-            className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-60 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+            className="inline-flex items-center gap-2 rounded-lg border border-divider px-3 py-2 text-sm font-medium text-secondary hover:bg-card disabled:opacity-60 dark:border-divider dark:text-white dark:hover:bg-card-elevated"
           >
             <RefreshCw className={`h-4 w-4 ${loadingProfiles ? 'animate-spin' : ''}`} />
             Refresh
@@ -154,10 +154,10 @@ export function OwnerNotificationsView() {
         </div>
       )}
 
-      <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+      <div className="rounded-xl border border-divider bg-white p-4 shadow-sm dark:border-divider dark:bg-card">
         <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-base font-semibold text-gray-900 dark:text-white">Target Picker</h2>
-          <div className="inline-flex items-center gap-1 rounded-full bg-gray-100 px-2.5 py-1 text-xs text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+          <h2 className="text-base font-semibold text-white">Target Picker</h2>
+          <div className="inline-flex items-center gap-1 rounded-full bg-card-elevated px-2.5 py-1 text-xs text-secondary dark:bg-card-elevated dark:text-white">
             <Users className="h-3.5 w-3.5" />
             {(dashboardData?.recentProfiles.length ?? 0).toLocaleString()} loaded
           </div>
@@ -168,7 +168,7 @@ export function OwnerNotificationsView() {
         )}
 
         {!dashboardData?.recentProfiles.length ? (
-          <p className="text-sm text-gray-600 dark:text-gray-400">No profiles available for quick selection.</p>
+          <p className="text-sm text-muted">No profiles available for quick selection.</p>
         ) : (
           <div className="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-3">
             {dashboardData.recentProfiles.map((profile) => (
@@ -180,21 +180,21 @@ export function OwnerNotificationsView() {
                   setBroadcastUserId(profile.id);
                   setBroadcastResult(null);
                 }}
-                className={`rounded-lg border p-3 text-left transition-colors ${broadcastTarget === 'user' && broadcastUserIdTrimmed === profile.id ? 'border-emerald-400 bg-emerald-50/60 dark:border-emerald-500 dark:bg-emerald-900/20' : 'border-gray-200 bg-gray-50/60 hover:border-gray-300 dark:border-gray-700 dark:bg-gray-700/20 dark:hover:border-gray-600'}`}
+                className={`rounded-lg border p-3 text-left transition-colors ${broadcastTarget === 'user' && broadcastUserIdTrimmed === profile.id ? 'border-accent bg-emerald-50/60 dark:border-accent bg-accent/10' : 'border-divider bg-gray-50/60 hover:border-divider dark:bg-gray-700/20 dark:hover:border-gray-600'}`}
               >
-                <div className="truncate text-sm font-semibold text-gray-900 dark:text-white">{profile.display_name || 'Unnamed user'}</div>
-                <div className="mt-1 truncate text-xs text-gray-600 dark:text-gray-400">{profile.email || profile.id}</div>
-                <div className="mt-2 text-[11px] text-gray-500 dark:text-gray-400">{profile.subscription_status || 'unknown'} {profile.is_premium ? '• Premium' : '• Free'}</div>
+                <div className="truncate text-sm font-semibold text-white">{profile.display_name || 'Unnamed user'}</div>
+                <div className="mt-1 truncate text-xs text-muted">{profile.email || profile.id}</div>
+                <div className="mt-2 text-[11px] text-muted">{profile.subscription_status || 'unknown'} {profile.is_premium ? '• Premium' : '• Free'}</div>
               </button>
             ))}
           </div>
         )}
       </div>
 
-      <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+      <div className="rounded-xl border border-divider bg-white p-4 shadow-sm dark:border-divider dark:bg-card">
         <div className="mb-4 flex items-center gap-2">
           <Send className="h-4 w-4 text-amber-600 dark:text-amber-400" />
-          <h2 className="text-base font-semibold text-gray-900 dark:text-white">Compose Notification</h2>
+          <h2 className="text-base font-semibold text-white">Compose Notification</h2>
         </div>
 
         <form
@@ -286,7 +286,7 @@ export function OwnerNotificationsView() {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <label className="flex items-center gap-1.5 text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
+            <label className="flex items-center gap-1.5 text-sm text-secondary cursor-pointer">
               <input
                 type="radio"
                 name="target"
@@ -299,7 +299,7 @@ export function OwnerNotificationsView() {
               />
               All subscribers
             </label>
-            <label className="flex items-center gap-1.5 text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
+            <label className="flex items-center gap-1.5 text-sm text-secondary cursor-pointer">
               <input
                 type="radio"
                 name="target"
@@ -315,7 +315,7 @@ export function OwnerNotificationsView() {
           </div>
 
           {broadcastTarget === 'all' && (
-            <label className="flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50/50 p-2.5 text-xs text-gray-700 dark:border-amber-800 dark:bg-amber-950/20 dark:text-gray-300">
+            <label className="flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50/50 p-2.5 text-xs text-secondary dark:border-amber-800 dark:bg-amber-950/20 dark:text-secondary">
               <input
                 type="checkbox"
                 checked={confirmBroadcastAll}
@@ -338,7 +338,7 @@ export function OwnerNotificationsView() {
                 setBroadcastUserId(e.target.value);
                 setBroadcastResult(null);
               }}
-              className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              className="w-full rounded-lg border border-divider bg-white px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent dark:border-divider dark:bg-card-elevated dark:text-white"
               required
             />
           )}
@@ -353,10 +353,10 @@ export function OwnerNotificationsView() {
                 setBroadcastResult(null);
               }}
               maxLength={MAX_BROADCAST_TITLE_LENGTH}
-              className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              className="w-full rounded-lg border border-divider bg-white px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent dark:border-divider dark:bg-card-elevated dark:text-white"
               required
             />
-            <div className="text-right text-[11px] text-gray-500 dark:text-gray-400">{broadcastTitle.length}/{MAX_BROADCAST_TITLE_LENGTH}</div>
+            <div className="text-right text-[11px] text-muted">{broadcastTitle.length}/{MAX_BROADCAST_TITLE_LENGTH}</div>
           </div>
 
           <div className="space-y-1">
@@ -369,10 +369,10 @@ export function OwnerNotificationsView() {
               }}
               maxLength={MAX_BROADCAST_MESSAGE_LENGTH}
               rows={3}
-              className="w-full resize-none rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              className="w-full resize-none rounded-lg border border-divider bg-white px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent dark:border-divider dark:bg-card-elevated dark:text-white"
               required
             />
-            <div className="text-right text-[11px] text-gray-500 dark:text-gray-400">{broadcastMessage.length}/{MAX_BROADCAST_MESSAGE_LENGTH}</div>
+            <div className="text-right text-[11px] text-muted">{broadcastMessage.length}/{MAX_BROADCAST_MESSAGE_LENGTH}</div>
           </div>
 
           <div className="space-y-1">
@@ -384,18 +384,18 @@ export function OwnerNotificationsView() {
                 setBroadcastUrl(e.target.value);
                 setBroadcastResult(null);
               }}
-              className={`w-full rounded-lg border bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:bg-gray-700 dark:text-white ${isInvalidBroadcastUrl ? 'border-amber-400 dark:border-amber-500' : 'border-gray-300 dark:border-gray-600'}`}
+              className={`w-full rounded-lg border bg-white px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent dark:bg-card-elevated dark:text-white ${isInvalidBroadcastUrl ? 'border-amber-400 dark:border-amber-500' : 'border-divider'}`}
             />
-            <div className="text-[11px] text-gray-500 dark:text-gray-400">
+            <div className="text-[11px] text-muted">
               {isInvalidBroadcastUrl ? 'Tip: URL should start with / or use https://' : `Will open: ${normalizedBroadcastUrl}`}
             </div>
           </div>
 
-          <div className="rounded-lg border border-gray-200 bg-gray-50/70 p-3 dark:border-gray-700 dark:bg-gray-700/30">
-            <div className="mb-1 text-[11px] uppercase tracking-wide text-gray-500 dark:text-gray-400">Preview</div>
-            <div className="text-sm font-semibold text-gray-900 dark:text-white">{broadcastTitleTrimmed || 'Notification title'}</div>
-            <div className="mt-1 text-sm text-gray-700 dark:text-gray-300">{broadcastMessageTrimmed || 'Notification message preview appears here.'}</div>
-            <div className="mt-2 text-[11px] text-gray-500 dark:text-gray-400">Target: {broadcastTarget === 'all' ? 'All subscribers' : broadcastUserIdTrimmed || 'Specific user (not set)'}</div>
+          <div className="rounded-lg border border-divider bg-gray-50/70 p-3 dark:border-divider dark:bg-gray-700/30">
+            <div className="mb-1 text-[11px] uppercase tracking-wide text-muted">Preview</div>
+            <div className="text-sm font-semibold text-white">{broadcastTitleTrimmed || 'Notification title'}</div>
+            <div className="mt-1 text-sm text-secondary">{broadcastMessageTrimmed || 'Notification message preview appears here.'}</div>
+            <div className="mt-2 text-[11px] text-muted">Target: {broadcastTarget === 'all' ? 'All subscribers' : broadcastUserIdTrimmed || 'Specific user (not set)'}</div>
           </div>
 
           <button
@@ -419,7 +419,7 @@ export function OwnerNotificationsView() {
         </form>
 
         {broadcastResult && (
-          <div className={`mt-3 rounded-lg p-3 text-sm ${broadcastResult.ok ? 'bg-emerald-50 text-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-200' : 'bg-red-50 text-red-800 dark:bg-red-900/20 dark:text-red-200'}`}>
+          <div className={`mt-3 rounded-lg p-3 text-sm ${broadcastResult.ok ? 'bg-accent/10 text-accent bg-accent/10 text-accent' : 'bg-red-50 text-red-800 dark:bg-red-900/20 dark:text-red-200'}`}>
             <div>{broadcastResult.message}</div>
             {broadcastResult.stats && (
               <div className="mt-2 space-y-1 text-xs">

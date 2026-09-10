@@ -40,7 +40,7 @@ export function LengthStats({ enclosureAnimalId, refreshKey }: LengthStatsProps)
   if (!stats || stats.totalMeasurements === 0) {
     return (
       <div className="text-center py-8 bg-card rounded-lg">
-        <Ruler className="w-12 h-12 text-gray-400 dark:text-gray-600 mx-auto mb-2" />
+        <Ruler className="w-12 h-12 text-muted mx-auto mb-2" />
         <p className="text-muted">No length data yet</p>
         <p className="text-sm text-muted">
           Add measurements to see growth statistics
@@ -55,7 +55,7 @@ export function LengthStats({ enclosureAnimalId, refreshKey }: LengthStatsProps)
       <div className="bg-accent/10 border border-accent/30 rounded-lg p-4">
         <div className="flex items-center gap-2 mb-2">
           <TrendingUp className="w-5 h-5 text-accent" />
-          <h3 className="font-semibold text-emerald-900 dark:text-emerald-100">Total Growth</h3>
+          <h3 className="font-semibold text-accent">Total Growth</h3>
         </div>
         <p className="text-2xl font-bold text-accent">
           {stats.totalGrowth !== undefined 

@@ -4,7 +4,7 @@ import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Too
 import { ownerDashboardService, type OwnerSurveyAnalytics, type OwnerSurveyDistribution } from '../../services/ownerDashboardService';
 import { OwnerSectionNav } from '../OwnerDashboard/OwnerSectionNav';
 
-const cardClassName = 'rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 shadow-sm';
+const cardClassName = 'rounded-xl border border-divider bg-card p-4 shadow-sm';
 
 const distributionTitles: Array<{
   key: keyof Pick<OwnerSurveyAnalytics, 'heardAboutUs' | 'keeperLevel' | 'primaryGoal' | 'biggestChallenge' | 'requestedFeature' | 'animalsSelected'>;
@@ -44,9 +44,9 @@ function MetricCard({
     <div className={cardClassName}>
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">{title}</p>
-          <p className="mt-2 text-3xl font-semibold text-gray-900 dark:text-white">{value}</p>
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{subtitle}</p>
+          <p className="text-xs uppercase tracking-wide text-muted">{title}</p>
+          <p className="mt-2 text-3xl font-semibold text-white">{value}</p>
+          <p className="mt-2 text-sm text-muted">{subtitle}</p>
         </div>
         <div className="rounded-lg bg-indigo-100 p-2.5 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">
           <Icon className="h-5 w-5" />
@@ -65,11 +65,11 @@ function DistributionChart({ title, data, emptyLabel }: Readonly<{ title: string
   return (
     <section className={cardClassName}>
       <div className="mb-4 flex items-center justify-between gap-3">
-        <h2 className="text-base font-semibold text-gray-900 dark:text-white">{title}</h2>
-        <span className="text-xs text-gray-500 dark:text-gray-400">Top {Math.min(chartData.length, 8)}</span>
+        <h2 className="text-base font-semibold text-white">{title}</h2>
+        <span className="text-xs text-muted">Top {Math.min(chartData.length, 8)}</span>
       </div>
       {!chartData.length ? (
-        <p className="text-sm text-gray-600 dark:text-gray-400">{emptyLabel}</p>
+        <p className="text-sm text-muted">{emptyLabel}</p>
       ) : (
         <div className="h-72">
           <ResponsiveContainer width="100%" height="100%">
@@ -119,14 +119,14 @@ export function OwnerSurveyAnalyticsView() {
             <ClipboardList className="h-4 w-4" />
             Owner Dashboard
           </div>
-          <h1 className="mt-1 text-2xl font-bold text-gray-900 dark:text-white">Survey Analytics</h1>
-          <p className="text-sm text-gray-600 dark:text-gray-400">Aggregate view of user feedback survey responses across acquisition, satisfaction, roadmap demand, and written feedback.</p>
+          <h1 className="mt-1 text-2xl font-bold text-white">Survey Analytics</h1>
+          <p className="text-sm text-muted">Aggregate view of user feedback survey responses across acquisition, satisfaction, roadmap demand, and written feedback.</p>
         </div>
         <div className="flex items-center gap-2">
           <button
             onClick={() => loadAnalytics()}
             disabled={loading}
-            className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-60 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+            className="inline-flex items-center gap-2 rounded-lg border border-divider px-3 py-2 text-sm font-medium text-secondary hover:bg-card disabled:opacity-60 dark:border-divider dark:text-white dark:hover:bg-card-elevated"
           >
             <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
             Refresh
@@ -171,9 +171,9 @@ export function OwnerSurveyAnalyticsView() {
 
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
         <section className={cardClassName}>
-          <h2 className="mb-4 text-base font-semibold text-gray-900 dark:text-white">Submission trend</h2>
+          <h2 className="mb-4 text-base font-semibold text-white">Submission trend</h2>
           {!analytics?.timeline.length ? (
-            <p className="text-sm text-gray-600 dark:text-gray-400">No submissions yet.</p>
+            <p className="text-sm text-muted">No submissions yet.</p>
           ) : (
             <div className="h-72">
               <ResponsiveContainer width="100%" height="100%">
@@ -190,9 +190,9 @@ export function OwnerSurveyAnalyticsView() {
         </section>
 
         <section className={cardClassName}>
-          <h2 className="mb-4 text-base font-semibold text-gray-900 dark:text-white">Satisfaction distribution</h2>
+          <h2 className="mb-4 text-base font-semibold text-white">Satisfaction distribution</h2>
           {!analytics?.satisfactionDistribution.length ? (
-            <p className="text-sm text-gray-600 dark:text-gray-400">No satisfaction data yet.</p>
+            <p className="text-sm text-muted">No satisfaction data yet.</p>
           ) : (
             <div className="h-72">
               <ResponsiveContainer width="100%" height="100%">
@@ -221,22 +221,22 @@ export function OwnerSurveyAnalyticsView() {
       </div>
 
       <section className={cardClassName}>
-        <h2 className="text-base font-semibold text-gray-900 dark:text-white">Recent written feedback</h2>
-        <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">Latest survey responses that included optional comments.</p>
+        <h2 className="text-base font-semibold text-white">Recent written feedback</h2>
+        <p className="mt-1 text-sm text-muted">Latest survey responses that included optional comments.</p>
         {!feedbackResponses.length ? (
-          <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">No written feedback yet.</p>
+          <p className="mt-4 text-sm text-muted">No written feedback yet.</p>
         ) : (
           <div className="mt-4 grid grid-cols-1 gap-3 lg:grid-cols-2">
             {feedbackResponses.slice(0, 8).map((response) => (
-              <article key={response.id} className="rounded-lg border border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-900/30">
+              <article key={response.id} className="rounded-lg border border-divider bg-card p-4 dark:border-divider dark:bg-gray-900/30">
                 <div className="flex items-center justify-between gap-3">
-                  <span className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">{formatDate(response.createdAt)}</span>
+                  <span className="text-xs font-medium uppercase tracking-wide text-muted">{formatDate(response.createdAt)}</span>
                   <span className="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-medium text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">
                     {response.satisfactionScore}/5
                   </span>
                 </div>
-                <p className="mt-3 text-sm text-gray-800 dark:text-gray-200">{response.additionalFeedback}</p>
-                <div className="mt-3 text-xs text-gray-500 dark:text-gray-400">
+                <p className="mt-3 text-sm text-white">{response.additionalFeedback}</p>
+                <div className="mt-3 text-xs text-muted">
                   {response.primaryGoal} · {response.requestedFeature}
                 </div>
               </article>
@@ -246,15 +246,15 @@ export function OwnerSurveyAnalyticsView() {
       </section>
 
       <section className={cardClassName}>
-        <h2 className="text-base font-semibold text-gray-900 dark:text-white">Recent submissions</h2>
-        <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">Latest 12 survey rows for quick spot checks.</p>
+        <h2 className="text-base font-semibold text-white">Recent submissions</h2>
+        <p className="mt-1 text-sm text-muted">Latest 12 survey rows for quick spot checks.</p>
         {!analytics?.recentResponses.length ? (
-          <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">No survey submissions yet.</p>
+          <p className="mt-4 text-sm text-muted">No survey submissions yet.</p>
         ) : (
           <div className="mt-4 overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700">
+            <table className="min-w-full divide-y divide-divider text-sm dark:divide-gray-700">
               <thead>
-                <tr className="text-left text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                <tr className="text-left text-xs uppercase tracking-wide text-muted">
                   <th className="px-3 py-2">Date</th>
                   <th className="px-3 py-2">Source</th>
                   <th className="px-3 py-2">Keeper</th>
@@ -265,7 +265,7 @@ export function OwnerSurveyAnalyticsView() {
               </thead>
               <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
                 {analytics.recentResponses.map((response) => (
-                  <tr key={response.id} className="text-gray-700 dark:text-gray-200">
+                  <tr key={response.id} className="text-white">
                     <td className="px-3 py-2 whitespace-nowrap">{formatDate(response.createdAt)}</td>
                     <td className="px-3 py-2">{response.heardAboutUs}</td>
                     <td className="px-3 py-2">{response.keeperLevel}</td>

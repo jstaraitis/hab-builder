@@ -155,7 +155,7 @@ const TaskItem = memo(({
               type="checkbox"
               checked={selectedTasks.has(task.id)}
               onChange={() => onToggleSelection(task.id)}
-              className="w-4 h-4 text-accent border-gray-300 rounded"
+              className="w-4 h-4 text-accent border-divider rounded"
             />
           )}
 

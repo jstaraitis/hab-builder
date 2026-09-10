@@ -80,7 +80,7 @@ export function SizeFeedback({ validation, animalName }: SizeFeedbackProps) {
               <p className="text-sm text-blue-700 dark:text-blue-300 mb-2">
                 Minimum recommended dimensions:
               </p>
-              <div className="bg-white dark:bg-gray-800 border border-blue-200 dark:border-blue-700 rounded-lg p-2 text-sm font-mono text-blue-900 dark:text-blue-100">
+              <div className="bg-card border border-blue-200 dark:border-blue-700 rounded-lg p-2 text-sm font-mono text-blue-900 dark:text-blue-100">
                 {formatDimensions(validation.suggestions.minWidth, validation.suggestions.minDepth, validation.suggestions.minHeight, isMetric)}
               </div>
             </div>

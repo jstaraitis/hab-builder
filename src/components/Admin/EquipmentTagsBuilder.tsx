@@ -327,7 +327,7 @@ export default function EquipmentTagsBuilder() {
   // Only show in development
   if (import.meta.env.PROD) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
+      <div className="min-h-screen bg-surface p-8">
         <div className="max-w-4xl mx-auto">
           <div className="bg-red-50 dark:bg-red-900/20 border-2 border-red-500 rounded-lg p-6">
             <h1 className="text-2xl font-bold text-red-700 dark:text-red-400 mb-2">
@@ -396,7 +396,7 @@ export default function EquipmentTagsBuilder() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
+    <div className="min-h-screen bg-surface py-8">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="bg-yellow-50 dark:bg-yellow-900/20 border-2 border-yellow-500 rounded-lg p-4 mb-6">
@@ -412,17 +412,17 @@ export default function EquipmentTagsBuilder() {
           {/* Tag Selection */}
           <div className="xl:col-span-2 space-y-6">
             {tagsByField.map((group) => (
-              <div key={group.field} className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2 border-b-2 border-green-500 pb-2">
+              <div key={group.field} className="bg-card rounded-lg shadow-md p-6">
+                <h2 className="text-xl font-bold text-white mb-2 border-b-2 border-green-500 pb-2">
                   {group.field}
                 </h2>
                 {FIELD_DESCRIPTIONS[group.field] && (
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                  <p className="text-sm text-secondary mb-4">
                     {FIELD_DESCRIPTIONS[group.field]}
                   </p>
                 )}
                 {group.tags.length === 0 ? (
-                  <p className="text-sm text-gray-500 dark:text-gray-400">No tags available.</p>
+                  <p className="text-sm text-muted">No tags available.</p>
                 ) : (
                   <div className="space-y-3">
                     {group.tags.map((value) => {
@@ -430,7 +430,7 @@ export default function EquipmentTagsBuilder() {
                       return (
                         <label
                           key={tag}
-                          className="flex items-start gap-3 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
+                          className="flex items-start gap-3 cursor-pointer hover:bg-card-elevated p-3 rounded-lg transition-colors"
                         >
                           <input
                             type="checkbox"
@@ -443,7 +443,7 @@ export default function EquipmentTagsBuilder() {
                               {tag}
                             </div>
                             {VALUE_DESCRIPTIONS[group.field]?.[value] && (
-                              <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                              <div className="text-xs text-muted mt-1">
                                 {VALUE_DESCRIPTIONS[group.field][value]}
                               </div>
                             )}
@@ -461,8 +461,8 @@ export default function EquipmentTagsBuilder() {
           <div className="xl:col-span-1">
             <div className="sticky top-8 space-y-4">
               {/* Summary */}
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-2">
+              <div className="bg-card rounded-lg shadow-md p-4">
+                <h3 className="font-bold text-white mb-2">
                   Selected Tags
                 </h3>
                 <p className="text-3xl font-bold text-green-600 dark:text-green-400">
@@ -471,9 +471,9 @@ export default function EquipmentTagsBuilder() {
               </div>
 
               {/* Generated JSON */}
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4">
+              <div className="bg-card rounded-lg shadow-md p-4">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-bold text-gray-900 dark:text-white">
+                  <h3 className="font-bold text-white">
                     Generated JSON
                   </h3>
                   <button
@@ -493,18 +493,18 @@ export default function EquipmentTagsBuilder() {
                     )}
                   </button>
                 </div>
-                <pre className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 overflow-x-auto text-xs font-mono text-gray-800 dark:text-gray-200 max-h-[300px] overflow-y-auto">
+                <pre className="bg-surface rounded-lg p-4 overflow-x-auto text-xs font-mono text-white max-h-[300px] overflow-y-auto">
                   {selectedTags.size > 0 ? generateJSON() : '// Select tags to generate JSON'}
                 </pre>
               </div>
 
               {/* Supplies Preview */}
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-3 border-b-2 border-purple-500 pb-2">
+              <div className="bg-card rounded-lg shadow-md p-4">
+                <h3 className="font-bold text-white mb-3 border-b-2 border-purple-500 pb-2">
                   📦 Complete Shopping List Preview
                 </h3>
                 {previewSupplies.length === 0 ? (
-                  <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+                  <p className="text-sm text-muted italic">
                     Select tags to preview supplies
                   </p>
                 ) : (
@@ -512,7 +512,7 @@ export default function EquipmentTagsBuilder() {
                     <div className="text-xs bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-500 rounded p-2 mb-3">
                       <strong>Note:</strong> Shows complete setup including baseline items (enclosure, substrate, monitoring, etc.) plus equipment matching your selected tags.
                     </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+                    <div className="text-sm text-secondary mb-2">
                       <strong>{previewSupplies.length}</strong> total items for 48×24×24" glass enclosure
                     </div>
                     {Array.from(suppliesByCategory.entries()).map(([category, items]) => (
@@ -524,18 +524,18 @@ export default function EquipmentTagsBuilder() {
                           {items.map((item, idx) => (
                             <div 
                               key={item.uid || `${item.id}-${idx}`}
-                              className="text-xs bg-gray-50 dark:bg-gray-900 rounded p-2"
+                              className="text-xs bg-surface rounded p-2"
                             >
-                              <div className="font-semibold text-gray-800 dark:text-gray-200">
+                              <div className="font-semibold text-white">
                                 {item.name}
                               </div>
                               {item.quantity && (
-                                <div className="text-gray-600 dark:text-gray-400">
+                                <div className="text-muted">
                                   Qty: {item.quantity}
                                 </div>
                               )}
                               {item.importance && (() => {
-                                let colorClass = 'text-gray-500 dark:text-gray-400';
+                                let colorClass = 'text-muted';
                                 if (item.importance === 'required') {
                                   colorClass = 'text-red-600 dark:text-red-400';
                                 } else if (item.importance === 'recommended') {

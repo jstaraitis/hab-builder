@@ -213,7 +213,7 @@ export function MyAnimals() {
 
         <div className="grid grid-cols-2 gap-2 sm:gap-3">
           <div className="rounded-xl border border-divider bg-card p-3 text-center">
-            <div className="mb-1 inline-flex h-5 w-5 items-center justify-center rounded bg-emerald-500/20 text-emerald-300">
+            <div className="mb-1 inline-flex h-5 w-5 items-center justify-center rounded bg-accent/20 text-accent">
               <Turtle className="h-3.5 w-3.5" />
             </div>
             <p className="text-xs text-muted">Pets</p>
@@ -236,7 +236,7 @@ export function MyAnimals() {
             value={search}
             onChange={(event) => setSearch(event.target.value)}
             placeholder="Search pets..."
-            className="w-full rounded-xl border border-divider bg-card py-2.5 pl-10 pr-3 text-sm text-white placeholder:text-muted focus:border-emerald-500 focus:outline-none"
+            className="w-full rounded-xl border border-divider bg-card py-2.5 pl-10 pr-3 text-sm text-white placeholder:text-muted focus:border-accent focus:outline-none"
           />
         </label>
 
@@ -245,7 +245,7 @@ export function MyAnimals() {
           <select
             value={filter}
             onChange={(event) => setFilter(event.target.value as AnimalFilter)}
-            className="w-full appearance-none rounded-xl border border-divider bg-card py-2.5 pl-10 pr-8 text-sm text-white focus:border-emerald-500 focus:outline-none"
+            className="w-full appearance-none rounded-xl border border-divider bg-card py-2.5 pl-10 pr-8 text-sm text-white focus:border-accent focus:outline-none"
             aria-label="Filter pets"
           >
             <option value="all">All pets</option>
@@ -265,12 +265,12 @@ export function MyAnimals() {
       <section className="mb-6">
         <div className="mb-3 flex items-center justify-between gap-3">
           <h2 className="inline-flex items-center gap-2 text-lg font-semibold text-white">
-            <Home className="h-4 w-4 text-emerald-300" />
+            <Home className="h-4 w-4 text-accent" />
             My Enclosures
           </h2>
           <button
             onClick={() => navigate(`/care-calendar/enclosures/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-            className="inline-flex items-center gap-1 rounded-lg border border-emerald-500/40 bg-emerald-500/15 px-3 py-1.5 text-sm font-semibold text-emerald-300 transition-colors hover:bg-emerald-500/25"
+            className="inline-flex items-center gap-1 rounded-lg border border-emerald-500/40 bg-accent/15 px-3 py-1.5 text-sm font-semibold text-accent transition-colors hover:bg-emerald-500/25"
             title={!isPremium && enclosures.length >= 1 ? 'Upgrade to add more enclosures' : 'Add enclosure'}
           >
             <Plus className="h-4 w-4" />
@@ -305,12 +305,12 @@ export function MyAnimals() {
       <section>
         <div className="mb-3 flex items-center justify-between gap-3">
           <h2 className="inline-flex items-center gap-2 text-lg font-semibold text-white">
-            <Turtle className="h-4 w-4 text-emerald-300" />
+            <Turtle className="h-4 w-4 text-accent" />
             My Pets
           </h2>
           <button
             onClick={() => navigate(`/my-animals/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-            className="inline-flex items-center gap-1 rounded-lg border border-emerald-500/40 bg-emerald-500/15 px-3 py-1.5 text-sm font-semibold text-emerald-300 transition-colors hover:bg-emerald-500/25"
+            className="inline-flex items-center gap-1 rounded-lg border border-emerald-500/40 bg-accent/15 px-3 py-1.5 text-sm font-semibold text-accent transition-colors hover:bg-emerald-500/25"
             title={!isPremium && animals.length >= 1 ? 'Upgrade to add more animals' : 'Add pet'}
           >
             <Plus className="h-4 w-4" />

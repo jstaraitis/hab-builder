@@ -41,7 +41,7 @@ export function AnalyticsOverview({ analytics, consistencyScore = null }: Readon
             <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent" />
             <span className="text-xs sm:text-sm text-muted">Consistency</span>
           </div>
-          <p className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
+          <p className="text-xl sm:text-2xl font-bold text-white">
             {consistencyScore}%
           </p>
           <p className="text-xs text-muted mt-0.5 sm:mt-1">
@@ -56,7 +56,7 @@ export function AnalyticsOverview({ analytics, consistencyScore = null }: Readon
           <CircleOff className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-500" />
           <span className="text-xs sm:text-sm text-muted">Skip Rate</span>
         </div>
-        <p className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
+        <p className="text-xl sm:text-2xl font-bold text-white">
           {analytics.skipRateLast30Days}%
         </p>
         <p className="text-xs text-muted mt-0.5 sm:mt-1">
@@ -67,10 +67,10 @@ export function AnalyticsOverview({ analytics, consistencyScore = null }: Readon
       {/* Coverage Score */}
       <div className="bg-card rounded-lg border border-divider p-3 sm:p-4">
         <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
-          <Target className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-500" />
+          <Target className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent" />
           <span className="text-xs sm:text-sm text-muted">Coverage Score</span>
         </div>
-        <p className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
+        <p className="text-xl sm:text-2xl font-bold text-white">
           {analytics.coverageScoreLast30Days}%
         </p>
         <p className="text-xs text-muted mt-0.5 sm:mt-1">
@@ -84,7 +84,7 @@ export function AnalyticsOverview({ analytics, consistencyScore = null }: Readon
           <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent" />
           <span className="text-xs sm:text-sm text-muted">Completed</span>
         </div>
-        <p className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
+        <p className="text-xl sm:text-2xl font-bold text-white">
           {analytics.completedLast30Days}
         </p>
         <p className="text-xs text-muted mt-0.5 sm:mt-1">
@@ -98,7 +98,7 @@ export function AnalyticsOverview({ analytics, consistencyScore = null }: Readon
           <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-600 dark:text-orange-400" />
           <span className="text-xs sm:text-sm text-muted">Current Best Streak</span>
         </div>
-        <p className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
+        <p className="text-xl sm:text-2xl font-bold text-white">
           {analytics.currentStreak}
           <span className="text-sm sm:text-base font-normal text-muted ml-0.5 sm:ml-1">
             {analytics.currentStreak === 1 ? 'completion' : 'completions'}
@@ -120,7 +120,7 @@ export function AnalyticsOverview({ analytics, consistencyScore = null }: Readon
           <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-600 dark:text-purple-400" />
           <span className="text-xs sm:text-sm text-muted">Longest Streak</span>
         </div>
-        <p className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
+        <p className="text-xl sm:text-2xl font-bold text-white">
           {analytics.longestStreak}
           <span className="text-sm sm:text-base font-normal text-muted ml-0.5 sm:ml-1">
             {analytics.longestStreak === 1 ? 'completion' : 'completions'}

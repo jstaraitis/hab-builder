@@ -24,7 +24,7 @@ export function WhatsNewView() {
           <section key={entry.version} className="bg-card border border-divider rounded-2xl p-5 transition-colors hover:border-accent/40">
             <header className="mb-3 flex items-start justify-between gap-3">
               <h2 className="text-lg font-semibold text-white">{entry.title}</h2>
-              <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full bg-accent/15 border border-accent/30 text-emerald-300 whitespace-nowrap">
+              <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full bg-accent/15 border border-accent/30 text-accent whitespace-nowrap">
                 v{entry.version}
               </span>
             </header>

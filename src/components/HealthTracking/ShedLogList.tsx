@@ -58,7 +58,7 @@ export function ShedLogList({ animal, refreshKey, onUpdate }: ShedLogListProps) 
     switch (quality) {
       case 'complete':
         return (
-          <span className="flex items-center gap-1 px-2 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 rounded-full text-xs font-semibold">
+          <span className="flex items-center gap-1 px-2 py-1 bg-accent/20 text-accent border border-emerald-400/30 rounded-full text-xs font-semibold">
             <CheckCircle className="w-3 h-3" />
             Complete
           </span>
@@ -101,7 +101,7 @@ export function ShedLogList({ animal, refreshKey, onUpdate }: ShedLogListProps) 
   if (logs.length === 0) {
     return (
       <div className="text-center py-8">
-        <Calendar className="w-12 h-12 text-gray-400 dark:text-gray-600 mx-auto mb-3" />
+        <Calendar className="w-12 h-12 text-muted mx-auto mb-3" />
         <p className="text-muted">No shed records yet</p>
         <p className="text-sm text-muted mt-1">
           Start tracking your animal's shedding cycles

@@ -13,9 +13,9 @@ interface RoadmapItemProps {
 function RoadmapItem({ title, description, status, priority, eta, icon }: RoadmapItemProps) {
   const statusConfig = {
     completed: { 
-      accent: 'bg-emerald-500',
-      badgeBg: 'bg-emerald-500/15 border border-emerald-500/30',
-      badgeText: 'text-emerald-300',
+      accent: 'bg-accent',
+      badgeBg: 'bg-accent/15 border border-emerald-500/30',
+      badgeText: 'text-accent',
       icon: <CheckCircle2 className="w-4 h-4" />,
       label: 'Done'
     },
@@ -112,7 +112,7 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
 
         <section className="bg-card border border-divider rounded-2xl p-6">
           <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-            <CheckCircle2 className="w-6 h-6 text-emerald-500" />
+            <CheckCircle2 className="w-6 h-6 text-accent" />
             Recently Completed
           </h2>
           <div className="space-y-3">
@@ -120,7 +120,7 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
               title="Animal Browser"
               description="Browse species with filters for experience level, space requirements, and care difficulty to find your perfect match."
               status="completed"
-              icon={<ListTree className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />}
+              icon={<ListTree className="w-5 h-5 text-accent" />}
             />
             <RoadmapItem
               title="Care Checklists"
@@ -148,7 +148,7 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
               description="Adding your favorite reptiles and amphibians—we're working through the most-requested species every month."
               status="in-progress"
               priority="high"
-              icon={<Squirrel className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />}
+              icon={<Squirrel className="w-5 h-5 text-accent" />}
             />
             <RoadmapItem
               title="Example Setup Gallery"
@@ -251,10 +251,10 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
             <MessageCircle className="w-7 h-7" />
             <h2 className="text-2xl font-bold">Got Ideas or Feedback?</h2>
           </div>
-          <p className="mb-4 text-emerald-50">
+          <p className="mb-4 text-accent">
             This tool is built <em>for</em> the community, <em>by</em> the community. Help us make it better:
           </p>
-          <ul className="space-y-2 text-emerald-50 mb-6">
+          <ul className="space-y-2 text-accent mb-6">
             <li className="flex items-start gap-2">
               <Squirrel className="w-4 h-4 flex-shrink-0 mt-1" />
               <span>Request species you want to see added</span>

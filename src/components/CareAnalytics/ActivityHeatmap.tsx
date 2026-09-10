@@ -16,7 +16,7 @@ export function ActivityHeatmap({ heatmapData }: ActivityHeatmapProps) {
   // Completed-only days stay green, skipped-only days are red, mixed days are amber.
   const getColorClass = (day: HeatmapDay): string => {
     if (day.completedCount === 0 && day.skippedCount === 0) {
-      return 'bg-gray-100 dark:bg-gray-800';
+      return 'bg-card';
     }
 
     if (day.completedCount > 0 && day.skippedCount > 0) {
@@ -30,17 +30,17 @@ export function ActivityHeatmap({ heatmapData }: ActivityHeatmapProps) {
         case 2: return 'bg-rose-400 dark:bg-rose-700/60';
         case 3: return 'bg-rose-500 dark:bg-rose-600/80';
         case 4: return 'bg-rose-600 dark:bg-rose-500';
-        default: return 'bg-gray-100 dark:bg-gray-800';
+        default: return 'bg-card';
       }
     }
 
     const intensity = Math.ceil((day.completedCount / maxCompletedCount) * 4);
     switch (intensity) {
-      case 1: return 'bg-emerald-200 dark:bg-emerald-900/40';
+      case 1: return 'bg-emerald-200 bg-accent/15';
       case 2: return 'bg-emerald-400 dark:bg-emerald-700/60';
       case 3: return 'bg-accent dark:bg-accent/80';
       case 4: return 'bg-accent dark:bg-accent';
-      default: return 'bg-gray-100 dark:bg-gray-800';
+      default: return 'bg-card';
     }
   };
 
@@ -63,7 +63,7 @@ export function ActivityHeatmap({ heatmapData }: ActivityHeatmapProps) {
   return (
     <div className="bg-card rounded-lg border border-divider p-3 sm:p-6">
       <div className="mb-3 sm:mb-4">
-        <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+        <h2 className="text-base sm:text-lg font-semibold text-white">
           Activity Heatmap (Last 90 Days)
         </h2>
         <div className="mt-2 flex flex-wrap items-center gap-2 sm:gap-3 text-xs text-muted">
@@ -101,7 +101,7 @@ export function ActivityHeatmap({ heatmapData }: ActivityHeatmapProps) {
                     className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-sm ${getColorClass(dayData)} hover:ring-2 hover:ring-accent/70 transition-all cursor-pointer group relative`}
                     title={formatDaySummary(dayData)}
                   >
-                    <div className="hidden group-hover:block absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 dark:bg-gray-700 text-white text-xs rounded whitespace-nowrap z-10">
+                    <div className="hidden group-hover:block absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 dark:bg-card-elevated text-white text-xs rounded whitespace-nowrap z-10">
                       {formatDaySummary(dayData)}
                       <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900 dark:border-t-gray-700"></div>
                     </div>

@@ -149,12 +149,12 @@ export function AppRoutes({ onOpenFeedback }: AppRoutesProps) {
               <div className="space-y-6">
                 <div className="flex justify-between items-center">
                   <div>
-                    <h2 className="text-2xl font-bold text-gray-800 dark:text-white">💎 In Development - Interactive Designer</h2>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Drag, rotate, and resize equipment to design your perfect enclosure</p>
+                    <h2 className="text-2xl font-bold text-white">💎 In Development - Interactive Designer</h2>
+                    <p className="text-sm text-muted">Drag, rotate, and resize equipment to design your perfect enclosure</p>
                   </div>
                   <Link to="/plan" className="hidden lg:inline text-blue-700 dark:text-blue-400 font-medium underline">Back to Plan</Link>
                 </div>
-                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
+                <div className="bg-card rounded-lg shadow-sm border border-divider p-4">
                   <CanvasDesigner enclosureInput={input} shoppingList={plan.shoppingList} />
                 </div>
               </div>

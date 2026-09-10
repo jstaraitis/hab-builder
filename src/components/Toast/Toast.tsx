@@ -46,7 +46,7 @@ export function Toast({
   };
 
   const colors = {
-    success: 'bg-emerald-600 dark:bg-emerald-700',
+    success: 'bg-accent dark:bg-accent-dim',
     error: 'bg-red-600 dark:bg-red-700',
     info: 'bg-blue-600 dark:bg-blue-700',
     warning: 'bg-amber-600 dark:bg-amber-700',

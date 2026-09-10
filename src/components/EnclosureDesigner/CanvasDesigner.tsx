@@ -279,12 +279,12 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
   return (
     <div className="space-y-4">
       {/* Controls */}
-      <div className="flex justify-between items-center bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md border border-gray-200 dark:border-gray-700">
+      <div className="flex justify-between items-center bg-card rounded-lg p-4 shadow-md border border-divider">
         <div className="flex gap-3">
           <button
             onClick={undo}
             disabled={historyStep === 0}
-            className="px-4 py-2 bg-indigo-50 hover:bg-indigo-100 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed text-indigo-700 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 dark:text-indigo-300 rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow"
+            className="px-4 py-2 bg-indigo-50 hover:bg-indigo-100 disabled:bg-card-elevated disabled:text-muted disabled:cursor-not-allowed text-indigo-700 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 dark:text-indigo-300 rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow"
             title="Undo (Ctrl+Z)"
           >
             ↶ Undo
@@ -292,7 +292,7 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
           <button
             onClick={redo}
             disabled={historyStep === history.length - 1}
-            className="px-4 py-2 bg-indigo-50 hover:bg-indigo-100 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed text-indigo-700 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 dark:text-indigo-300 rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow"
+            className="px-4 py-2 bg-indigo-50 hover:bg-indigo-100 disabled:bg-card-elevated disabled:text-muted disabled:cursor-not-allowed text-indigo-700 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 dark:text-indigo-300 rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow"
             title="Redo (Ctrl+Y)"
           >
             ↷ Redo
@@ -300,7 +300,7 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
           <button
             onClick={handleDelete}
             disabled={!selectedId}
-            className="px-4 py-2 bg-red-50 hover:bg-red-100 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed text-red-700 dark:bg-red-900/30 dark:hover:bg-red-900/50 dark:text-red-300 rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow"
+            className="px-4 py-2 bg-red-50 hover:bg-red-100 disabled:bg-card-elevated disabled:text-muted disabled:cursor-not-allowed text-red-700 dark:bg-red-900/30 dark:hover:bg-red-900/50 dark:text-red-300 rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow"
             title="Delete (Delete key)"
           >
             🗑️ Delete
@@ -308,7 +308,7 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
           <button
             onClick={handleRemoveAll}
             disabled={equipment.length === 0}
-            className="px-4 py-2 bg-red-600 hover:bg-red-700 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed text-white rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow-md"
+            className="px-4 py-2 bg-red-600 hover:bg-red-700 disabled:bg-card-elevated disabled:text-muted disabled:cursor-not-allowed text-white rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow-md"
             title="Remove all items from canvas"
           >
             🗑️ Remove All
@@ -320,8 +320,8 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
             onClick={() => setShowGrid(!showGrid)}
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow ${
               showGrid 
-                ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300' 
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
+                ? 'bg-accent/15 text-accent bg-accent/15 text-accent' 
+                : 'bg-card-elevated text-secondary hover:bg-card-elevated dark:text-secondary dark:hover:bg-card-elevated'
             }`}
           >
             {showGrid ? '☑' : '☐'} Grid
@@ -330,8 +330,8 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
             onClick={() => setShowZones(!showZones)}
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow ${
               showZones 
-                ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300' 
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
+                ? 'bg-accent/15 text-accent bg-accent/15 text-accent' 
+                : 'bg-card-elevated text-secondary hover:bg-card-elevated dark:text-secondary dark:hover:bg-card-elevated'
             }`}
           >
             {showZones ? '☑' : '☐'} Zones
@@ -340,15 +340,15 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
             onClick={() => setShowLabels(!showLabels)}
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow ${
               showLabels 
-                ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300' 
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
+                ? 'bg-accent/15 text-accent bg-accent/15 text-accent' 
+                : 'bg-card-elevated text-secondary hover:bg-card-elevated dark:text-secondary dark:hover:bg-card-elevated'
             }`}
           >
             {showLabels ? '☑' : '☐'} Labels
           </button>
           <button
             onClick={handleExport}
-            className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow-md"
+            className="px-4 py-2 bg-accent hover:bg-accent-dim text-white rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow-md"
           >
             📸 Export PNG
           </button>
@@ -391,7 +391,7 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
                 <span className="text-indigo-500 dark:text-indigo-400">None</span>
               )}
             </div>
-            <div className="text-xs text-gray-600 dark:text-gray-400">
+            <div className="text-xs text-muted">
               {selectedItem ? (
                 <>
                   Size: {Math.round(selectedItem.width)}×{Math.round(selectedItem.height)} |
@@ -405,12 +405,12 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
           
           <div className="flex gap-2 flex-wrap">
             {/* Rotation Controls */}
-            <div className="flex items-center gap-1 bg-white dark:bg-gray-800 rounded-lg px-2 py-1 shadow-sm">
-              <span className="text-xs font-medium text-gray-600 dark:text-gray-400 mr-1">Rotate:</span>
+            <div className="flex items-center gap-1 bg-card rounded-lg px-2 py-1 shadow-sm">
+              <span className="text-xs font-medium text-muted mr-1">Rotate:</span>
               <button
                 onClick={() => handleRotate(-15)}
                 disabled={!selectedItem}
-                className="px-3 py-1 bg-indigo-100 hover:bg-indigo-200 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed dark:bg-indigo-900/40 dark:hover:bg-indigo-900/60 dark:disabled:bg-gray-700 dark:disabled:text-gray-500 text-indigo-700 dark:text-indigo-300 rounded text-sm font-semibold transition-all"
+                className="px-3 py-1 bg-indigo-100 hover:bg-indigo-200 disabled:bg-card-elevated disabled:text-muted disabled:cursor-not-allowed dark:bg-indigo-900/40 dark:hover:bg-indigo-900/60 dark:disabled:bg-gray-700 dark:disabled:text-muted text-indigo-700 dark:text-indigo-300 rounded text-sm font-semibold transition-all"
                 title="Rotate 15° counter-clockwise"
               >
                 ↶ 15°
@@ -418,7 +418,7 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
               <button
                 onClick={() => handleRotate(15)}
                 disabled={!selectedItem}
-                className="px-3 py-1 bg-indigo-100 hover:bg-indigo-200 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed dark:bg-indigo-900/40 dark:hover:bg-indigo-900/60 dark:disabled:bg-gray-700 dark:disabled:text-gray-500 text-indigo-700 dark:text-indigo-300 rounded text-sm font-semibold transition-all"
+                className="px-3 py-1 bg-indigo-100 hover:bg-indigo-200 disabled:bg-card-elevated disabled:text-muted disabled:cursor-not-allowed dark:bg-indigo-900/40 dark:hover:bg-indigo-900/60 dark:disabled:bg-gray-700 dark:disabled:text-muted text-indigo-700 dark:text-indigo-300 rounded text-sm font-semibold transition-all"
                 title="Rotate 15° clockwise"
               >
                 ↷ 15°
@@ -426,7 +426,7 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
               <button
                 onClick={handleResetRotation}
                 disabled={!selectedItem}
-                className="px-3 py-1 bg-gray-100 hover:bg-gray-200 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed dark:bg-gray-700 dark:hover:bg-gray-600 dark:disabled:bg-gray-700 dark:disabled:text-gray-500 text-gray-700 dark:text-gray-300 rounded text-sm font-semibold transition-all"
+                className="px-3 py-1 bg-card-elevated hover:bg-card-elevated disabled:bg-card-elevated disabled:text-muted disabled:cursor-not-allowed dark:bg-card-elevated dark:hover:bg-card-elevated dark:disabled:bg-gray-700 dark:disabled:text-muted text-secondary rounded text-sm font-semibold transition-all"
                 title="Reset rotation to 0°"
               >
                 ⟲ Reset
@@ -434,12 +434,12 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
             </div>
 
             {/* Size Controls */}
-            <div className="flex items-center gap-1 bg-white dark:bg-gray-800 rounded-lg px-2 py-1 shadow-sm">
-              <span className="text-xs font-medium text-gray-600 dark:text-gray-400 mr-1">Size:</span>
+            <div className="flex items-center gap-1 bg-card rounded-lg px-2 py-1 shadow-sm">
+              <span className="text-xs font-medium text-muted mr-1">Size:</span>
               <button
                 onClick={() => handleScale(0.9)}
                 disabled={!selectedItem}
-                className="px-3 py-1 bg-purple-100 hover:bg-purple-200 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed dark:bg-purple-900/40 dark:hover:bg-purple-900/60 dark:disabled:bg-gray-700 dark:disabled:text-gray-500 text-purple-700 dark:text-purple-300 rounded text-sm font-semibold transition-all"
+                className="px-3 py-1 bg-purple-100 hover:bg-purple-200 disabled:bg-card-elevated disabled:text-muted disabled:cursor-not-allowed dark:bg-purple-900/40 dark:hover:bg-purple-900/60 dark:disabled:bg-gray-700 dark:disabled:text-muted text-purple-700 dark:text-purple-300 rounded text-sm font-semibold transition-all"
                 title="Decrease size by 10%"
               >
                 − 10%
@@ -447,7 +447,7 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
               <button
                 onClick={() => handleScale(1.1)}
                 disabled={!selectedItem}
-                className="px-3 py-1 bg-purple-100 hover:bg-purple-200 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed dark:bg-purple-900/40 dark:hover:bg-purple-900/60 dark:disabled:bg-gray-700 dark:disabled:text-gray-500 text-purple-700 dark:text-purple-300 rounded text-sm font-semibold transition-all"
+                className="px-3 py-1 bg-purple-100 hover:bg-purple-200 disabled:bg-card-elevated disabled:text-muted disabled:cursor-not-allowed dark:bg-purple-900/40 dark:hover:bg-purple-900/60 dark:disabled:bg-gray-700 dark:disabled:text-muted text-purple-700 dark:text-purple-300 rounded text-sm font-semibold transition-all"
                 title="Increase size by 10%"
               >
                 + 10%
@@ -461,7 +461,7 @@ export default function CanvasDesigner({ enclosureInput, shoppingList }: CanvasD
       <div className="grid lg:grid-cols-4 gap-4">
         {/* Canvas */}
         <div className="lg:col-span-3" ref={containerRef}>
-          <div className="border-2 border-gray-300 dark:border-gray-600 rounded-lg overflow-hidden shadow-lg">
+          <div className="border-2 border-divider rounded-lg overflow-hidden shadow-lg">
             <Stage
               ref={stageRef}
               width={canvasWidth}

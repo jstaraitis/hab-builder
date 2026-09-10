@@ -37,7 +37,7 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
       {/* Main Header Card - Improved Design */}
       <div className="bg-gradient-to-br from-purple-50 via-indigo-50 to-purple-100 dark:from-purple-900/30 dark:via-indigo-900/30 dark:to-purple-800/30 border-2 border-purple-200 dark:border-purple-700 rounded-xl p-4 sm:p-6 shadow-lg">
         <div className="flex items-start gap-3 sm:gap-4">
-          <div className="p-2 sm:p-2.5 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+          <div className="p-2 sm:p-2.5 bg-card rounded-lg shadow-md">
             <Star className="w-6 h-6 sm:w-7 sm:h-7 text-purple-600 dark:text-purple-400" />
           </div>
           <div className="flex-1">
@@ -67,10 +67,10 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
       <div className="md:hidden flex justify-center items-center gap-2 mt-3">
         <div className="flex items-center gap-1.5">
           <div className="w-2 h-2 rounded-full bg-purple-400"></div>
-          <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600"></div>
-          <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+          <div className="w-2 h-2 rounded-full bg-card-elevated"></div>
+          <div className="w-2 h-2 rounded-full bg-card-elevated"></div>
         </div>
-        <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">Swipe to see more</span>
+        <span className="text-xs text-muted ml-2">Swipe to see more</span>
       </div>
 
       {/* Mobile: Horizontal scrollable cards, Desktop: Grid */}
@@ -78,16 +78,16 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
         {examples.map((example) => (
           <div
             key={example.id}
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow flex-shrink-0 w-[85%] md:w-auto snap-center"
+            className="bg-card rounded-lg shadow-sm border border-divider overflow-hidden hover:shadow-lg transition-shadow flex-shrink-0 w-[85%] md:w-auto snap-center"
           >
             {/* Image placeholder */}
             <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center relative">
               <div className="text-center px-4">
-                <Image className="w-12 h-12 mb-2 text-gray-600 dark:text-gray-400 mx-auto" />
-                <p className="text-sm text-gray-600 dark:text-gray-400 font-medium mb-3">{example.name}</p>
+                <Image className="w-12 h-12 mb-2 text-muted mx-auto" />
+                <p className="text-sm text-muted font-medium mb-3">{example.name}</p>
                 <button 
                   onClick={onOpenFeedback}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-emerald-600 hover:bg-emerald-700 rounded-md transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-accent hover:bg-accent-dim rounded-md transition-colors"
                 >
                   <Upload className="w-3.5 h-3.5" />
                   Submit Your Setup
@@ -107,12 +107,12 @@ export default function ExampleSetups({ animalType = 'tree-frog', speciesSetupTi
             </div>
 
             <div className="p-4">
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">{example.name}</h4>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{example.description}</p>
+              <h4 className="font-semibold text-white mb-2">{example.name}</h4>
+              <p className="text-sm text-muted mb-3">{example.description}</p>
               
               <div className="space-y-1">
-                <p className="text-xs font-medium text-gray-700 dark:text-gray-300">Key Features:</p>
-                <ul className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
+                <p className="text-xs font-medium text-secondary">Key Features:</p>
+                <ul className="text-xs text-muted space-y-1">
                   {example.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />

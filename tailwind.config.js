@@ -7,6 +7,19 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        // Matches the :root stack in index.css so `font-sans` and inherited
+        // text resolve to the same font rather than diverging.
+        sans: [
+          'Inter Variable',
+          'Inter',
+          'system-ui',
+          '-apple-system',
+          'Segoe UI',
+          'Roboto',
+          'sans-serif',
+        ],
+      },
       colors: {
         // Jade color scale (replaces legacy green/emerald)
         jade: {
@@ -21,24 +34,20 @@ export default {
           800: '#14736c',
           900: '#0f5d55',
         },
-        // Legacy primary scale (kept for backward compat - now jade)
-        primary: {
-          50: '#f0fdf9',
-          100: '#d4f7f1',
-          200: '#a8e8de',
-          300: '#7cdccf',
-          400: '#50cfc0',
-          500: '#2fb5ad',
-          600: '#259f9a',
-          700: '#1a8983',
-          800: '#14736c',
-          900: '#0f5d55',
-        },
-        // New dark-first design system tokens
+        // The `primary` scale lived here as a byte-identical duplicate of
+        // `jade`. Two names for one colour is how a palette drifts, so its 39
+        // usages were renamed to jade and the duplicate removed.
+        // Dark-first design system tokens
         surface: '#0F1117',          // App/page background
         card: '#1A1D24',             // Default card background
         'card-elevated': '#21252E',  // Slightly raised cards / modals
         divider: '#2A2D35',          // Borders and separators
+        // Body copy: brighter than `muted`, softer than pure white. The legacy
+        // palette drew a real distinction between dark:text-gray-300 (body) and
+        // dark:text-gray-400 (labels); without a token in between, migrating
+        // both to `muted` would flatten three levels of hierarchy into two.
+        // 9.8:1 on `card`, so it clears AA comfortably for body text.
+        secondary: '#C6CBD4',
         accent: '#2D9B8F',           // Primary jade action color
         'accent-dim': '#1F6B5E',     // Darker jade for hover/pressed
         muted: '#8B909A',            // Secondary / placeholder text

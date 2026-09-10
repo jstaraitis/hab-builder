@@ -56,7 +56,7 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
 
   const getVisitTypeBadge = (type: string) => {
     const styles: Record<string, string> = {
-      checkup: 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/30',
+      checkup: 'bg-accent/20 text-accent border border-emerald-400/30',
       illness: 'bg-yellow-500/20 text-yellow-300 border border-yellow-400/30',
       injury: 'bg-orange-500/20 text-orange-300 border border-orange-400/30',
       surgery: 'bg-red-500/20 text-red-300 border border-red-400/30',
@@ -95,7 +95,7 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
   if (records.length === 0) {
     return (
       <div className="text-center py-8">
-        <Calendar className="w-12 h-12 text-gray-400 dark:text-gray-600 mx-auto mb-3" />
+        <Calendar className="w-12 h-12 text-muted mx-auto mb-3" />
         <p className="text-muted">No vet records yet</p>
         <p className="text-sm text-muted mt-1">
           Track your animal's veterinary visits and health records

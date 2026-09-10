@@ -5,15 +5,15 @@ const baseLinkClassName = 'inline-flex items-center gap-2 rounded-lg border px-3
 
 function linkClassName(isActive: boolean): string {
   if (isActive) {
-    return `${baseLinkClassName} border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200`;
+    return `${baseLinkClassName} border-accent/30 bg-accent/10 text-accent border-accent/30 bg-accent/15 text-accent`;
   }
 
-  return `${baseLinkClassName} border-gray-300 text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700`;
+  return `${baseLinkClassName} border-divider text-secondary hover:bg-card dark:border-divider dark:text-white dark:hover:bg-card-elevated`;
 }
 
 export function OwnerSectionNav() {
   return (
-    <nav className="rounded-xl border border-gray-200 bg-white p-3 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+    <nav className="rounded-xl border border-divider bg-white p-3 shadow-sm dark:border-divider dark:bg-card">
       <div className="flex flex-wrap items-center gap-2">
         <NavLink to="/owner-dashboard" end className={({ isActive }) => linkClassName(isActive)}>
           <LayoutDashboard className="h-4 w-4" />

@@ -12,7 +12,7 @@ function ChecklistItemComponent({ item, onChange }: {
   onChange: (id: string, completed: boolean) => void;
 }) {
   return (
-    <div className="flex items-start p-3 bg-gray-50 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors">
+    <div className="flex items-start p-3 bg-card rounded-md border border-divider hover:bg-card-elevated transition-colors">
       <input
         type="checkbox"
         checked={item.completed || false}
@@ -20,11 +20,11 @@ function ChecklistItemComponent({ item, onChange }: {
         className="mt-1 h-4 w-4 text-blue-600 rounded focus:ring-blue-500"
       />
       <div className="ml-3 flex-1">
-        <p className={`text-sm font-medium ${item.completed ? 'line-through text-gray-500' : 'text-gray-900'}`}>
+        <p className={`text-sm font-medium ${item.completed ? 'line-through text-muted' : 'text-white'}`}>
           {item.task}
         </p>
         {item.notes && (
-          <p className="text-xs text-gray-600 mt-1">
+          <p className="text-xs text-muted mt-1">
             <Lightbulb className="inline-block w-4 h-4 mr-1 text-yellow-500" /> {item.notes}
           </p>
         )}

@@ -68,7 +68,7 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
   if (loading) {
     return (
       <div className="text-center py-8">
-        <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-emerald-600 border-r-transparent"></div>
+        <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-accent border-r-transparent"></div>
       </div>
     );
   }
@@ -77,12 +77,12 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
     <div className="space-y-4">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-sm font-semibold text-white">
           Animals ({animals.length})
         </h3>
         <button
           onClick={() => navigate(`/my-animals/add?enclosureId=${encodeURIComponent(enclosureId)}&speciesName=${encodeURIComponent(speciesName)}&returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-          className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-emerald-600 text-white rounded-md hover:bg-emerald-700 transition-colors text-xs font-medium"
+          className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-accent text-white rounded-md hover:bg-accent-dim transition-colors text-xs font-medium"
         >
           <Plus className="w-3.5 h-3.5" />
           Add Animal
@@ -91,8 +91,8 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
 
       {/* Animals List */}
       {animals.length === 0 ? (
-        <div className="text-center py-8 bg-gray-50 dark:bg-gray-800 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600">
-          <p className="text-gray-500 dark:text-gray-400">
+        <div className="text-center py-8 bg-card rounded-lg border-2 border-dashed border-divider">
+          <p className="text-muted">
             No animals added yet. Click "Add Animal" to track individuals.
           </p>
         </div>
@@ -101,11 +101,11 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
           {animals.map(animal => (
             <div
               key={animal.id}
-              className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-2.5"
+              className="bg-card border border-divider rounded-lg p-2.5"
             >
               {/* Header: Name + Action Buttons */}
               <div className="flex items-center justify-between gap-2 mb-1">
-                <h4 className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                <h4 className="text-sm font-medium text-white truncate">
                   {animal.name || `Animal #${animal.animalNumber || '?'}`}
                 </h4>
                 
@@ -113,21 +113,21 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
                 <div className="flex items-center gap-0.5 shrink-0">
                   <button
                     onClick={() => navigate(`/weight-tracker/${animal.id}`)}
-                    className="p-1 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                    className="p-1 text-muted hover:text-accent transition-colors"
                     title="Track weight"
                   >
                     <Scale className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => navigate(`/my-animals/edit/${animal.id}`)}
-                    className="p-1 text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                    className="p-1 text-muted hover:text-accent transition-colors"
                     title="Edit animal"
                   >
                     <Pencil className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => handleDelete(animal)}
-                    className="p-1 text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors"
+                    className="p-1 text-muted hover:text-red-600 dark:hover:text-red-400 transition-colors"
                     title="Remove animal"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -167,7 +167,7 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
 
               {/* Birthday Date */}
               {animal.birthday && (
-                <div className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-500 mb-1">
+                <div className="flex items-center gap-1 text-xs text-muted mb-1">
                   <Calendar className="w-3 h-3 shrink-0" />
                   <span>{animal.birthday.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' })}</span>
                 </div>
@@ -175,7 +175,7 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
 
               {/* Notes */}
               {animal.notes && (
-                <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-1 pt-1 border-t border-gray-200 dark:border-gray-700">
+                <p className="text-xs text-muted line-clamp-1 pt-1 border-t border-divider">
                   {animal.notes}
                 </p>
               )}

@@ -28,9 +28,9 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
   }));
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
+    <div className="bg-card rounded-lg shadow-sm border border-divider p-4">
       {title && (
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">{title}</h3>
+        <h3 className="text-lg font-semibold text-white mb-4">{title}</h3>
       )}
       
       {/* Image Grid */}
@@ -64,8 +64,8 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
 
             {/* Caption */}
             {image.caption && (
-              <div className="p-2 lg:p-3 bg-white dark:bg-gray-700">
-                <p className="text-xs lg:text-sm text-gray-700 dark:text-gray-300 text-center line-clamp-2">{image.caption}</p>
+              <div className="p-2 lg:p-3 bg-card-elevated">
+                <p className="text-xs lg:text-sm text-secondary text-center line-clamp-2">{image.caption}</p>
               </div>
             )}
           </div>

@@ -1,3 +1,17 @@
+/* Inter, self-hosted rather than pulled from a CDN.
+ *
+ * The app previously declared `font-family: Inter` but never loaded the font,
+ * so every screen silently fell back to system-ui — Segoe UI on Windows,
+ * Roboto on Android, SF on iOS. The layout was drawn for Inter's metrics and
+ * was getting three fonts it was never designed against.
+ *
+ * Self-hosted because this ships as a Capacitor app: a CDN font would swap
+ * mid-session for offline users, and there is no reason to hand Google a
+ * request on every cold start. The variable build covers weights 100-900 in
+ * one file, and unicode-range subsetting means a latin-only user downloads
+ * only the latin subset. */
+@import '@fontsource-variable/inter';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -71,18 +85,32 @@
     display: none !important;
   }
 
-  /* Blog content heading styles */
-  .text-base.font-semibold,
-  p > span.font-semibold:only-child {
-    @apply text-gray-900 dark:text-white block mb-2;
+  /* Blog content heading styles.
+   *
+   * Scoped to .blog-content. These selectors were previously global, which
+   * meant every element in the app carrying both `text-base` and
+   * `font-semibold` — 27 of them across 14 files — was silently forced to
+   * `display: block` with a bottom margin, breaking inline layouts far from
+   * the blog. The colour was hardcoded light-mode grey too. */
+  .blog-content .text-base.font-semibold,
+  .blog-content p > span.font-semibold:only-child {
+    @apply text-white block mb-2;
   }
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter Variable', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: dark;
+
+  /* Light text on a near-black ground renders noticeably heavy without this.
+   * Subpixel antialiasing assumes dark-on-light, so on a dark theme it thickens
+   * every stroke; greyscale antialiasing is what makes dark UIs look crisp
+   * rather than muddy. */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 * {

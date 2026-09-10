@@ -26,14 +26,14 @@ export function AnimalProfilePreview() {
       </div>
 
       {/* Animal Selector */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4">
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+      <div className="bg-card rounded-lg shadow-md p-4">
+        <label className="block text-sm font-medium text-white mb-2">
           Select Animal to Preview
         </label>
         <select
           value={selectedId}
           onChange={(e) => setSelectedId(e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+          className="w-full px-4 py-2 border border-divider rounded-md bg-card-elevated text-white"
         >
           {Object.entries(animalProfiles).map(([id, p]) => (
             <option key={id} value={id}>
@@ -44,8 +44,8 @@ export function AnimalProfilePreview() {
       </div>
 
       {/* Basic Info */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Basic Information</h2>
+      <div className="bg-card rounded-lg shadow-md p-6">
+        <h2 className="text-xl font-bold text-white mb-4">Basic Information</h2>
         <div className="grid md:grid-cols-2 gap-4 text-sm">
           <InfoRow label="ID" value={profile.id} />
           <InfoRow label="Common Name" value={profile.commonName} />
@@ -61,18 +61,18 @@ export function AnimalProfilePreview() {
       </div>
 
       {/* Enclosure Requirements */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Enclosure Requirements</h2>
+      <div className="bg-card rounded-lg shadow-md p-6">
+        <h2 className="text-xl font-bold text-white mb-4">Enclosure Requirements</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2">Minimum Size</h3>
-            <p className="text-gray-900 dark:text-white">
+            <h3 className="font-semibold text-white mb-2">Minimum Size</h3>
+            <p className="text-white">
               {profile.minEnclosureSize.width}×{profile.minEnclosureSize.depth}×{profile.minEnclosureSize.height}" ({profile.minEnclosureSize.units})
             </p>
           </div>
           <div>
-            <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2">Layout Preference</h3>
-            <p className="text-gray-900 dark:text-white">
+            <h3 className="font-semibold text-white mb-2">Layout Preference</h3>
+            <p className="text-white">
               {profile.layoutRules.preferVertical ? <><Ruler className="inline-block w-4 h-4 mr-2"/>Vertical</> : <>Horizontal</>}
             </p>
           </div>
@@ -80,7 +80,7 @@ export function AnimalProfilePreview() {
         
         {profile.layoutRules.requiredZones && (
           <div className="mt-4">
-            <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2">Required Zones</h3>
+            <h3 className="font-semibold text-white mb-2">Required Zones</h3>
             <div className="flex flex-wrap gap-2">
               {profile.layoutRules.requiredZones.map((zone: string) => (
                 <span key={zone} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs">
@@ -93,12 +93,12 @@ export function AnimalProfilePreview() {
       </div>
 
       {/* Care Targets */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Care Parameters</h2>
+      <div className="bg-card rounded-lg shadow-md p-6">
+        <h2 className="text-xl font-bold text-white mb-4">Care Parameters</h2>
         <div className="space-y-4">
           <div>
-            <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2"><Thermometer className="inline-block w-5 h-5 mr-2"/> Temperature</h3>
-            <div className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+            <h3 className="font-semibold text-white mb-2"><Thermometer className="inline-block w-5 h-5 mr-2"/> Temperature</h3>
+            <div className="text-sm text-secondary space-y-1">
               <p>Range: {profile.careTargets.temperature.min}-{profile.careTargets.temperature.max}°{profile.careTargets.temperature.unit}</p>
               {profile.careTargets.temperature.basking && (
                 <p>Basking: {typeof profile.careTargets.temperature.basking === 'number' 
@@ -112,15 +112,15 @@ export function AnimalProfilePreview() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2"><Droplet className="inline-block w-5 h-5 mr-2"/> Humidity</h3>
-            <p className="text-sm text-gray-700 dark:text-gray-300">
+            <h3 className="font-semibold text-white mb-2"><Droplet className="inline-block w-5 h-5 mr-2"/> Humidity</h3>
+            <p className="text-sm text-secondary">
               {profile.careTargets.humidity.min}-{profile.careTargets.humidity.max}{profile.careTargets.humidity.unit}
             </p>
           </div>
 
           <div>
-            <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2"><Sun className="inline-block w-5 h-5 mr-2"/> Lighting</h3>
-            <div className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+            <h3 className="font-semibold text-white mb-2"><Sun className="inline-block w-5 h-5 mr-2"/> Lighting</h3>
+            <div className="text-sm text-secondary space-y-1">
               <p>UVB Required: {profile.careTargets.lighting.uvbRequired ? (<><CheckCircle className="inline-block w-4 h-4 mr-1 text-green-600"/>Yes</>) : (<><XCircle className="inline-block w-4 h-4 mr-1 text-red-600"/>No</>)}</p>
               <p>UVB Strength: {profile.careTargets.lighting.uvbStrength}</p>
               <p>Coverage: {profile.careTargets.lighting.coveragePercent}%</p>
@@ -130,16 +130,16 @@ export function AnimalProfilePreview() {
 
           {profile.careTargets.gradient && (
             <div>
-              <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2"><Thermometer className="inline-block w-5 h-5 mr-2"/> Thermal Gradient</h3>
-              <p className="text-sm text-gray-700 dark:text-gray-300">{profile.careTargets.gradient}</p>
+              <h3 className="font-semibold text-white mb-2"><Thermometer className="inline-block w-5 h-5 mr-2"/> Thermal Gradient</h3>
+              <p className="text-sm text-secondary">{profile.careTargets.gradient}</p>
             </div>
           )}
         </div>
       </div>
 
       {/* Warnings */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+      <div className="bg-card rounded-lg shadow-md p-6">
+        <h2 className="text-xl font-bold text-white mb-4">
           <AlertTriangle className="inline-block w-5 h-5 mr-2"/> Warnings ({profile.warnings.length})
         </h2>
         <div className="space-y-3">
@@ -155,14 +155,14 @@ export function AnimalProfilePreview() {
               }`}
             >
               <div className="flex items-start gap-2">
-                <span className="text-xs font-bold uppercase text-gray-600 dark:text-gray-400">
+                <span className="text-xs font-bold uppercase text-muted">
                   {warning.severity}
                 </span>
-                <span className="text-xs px-2 py-0.5 rounded bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+                <span className="text-xs px-2 py-0.5 rounded bg-card-elevated text-secondary">
                   {warning.category}
                 </span>
               </div>
-              <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">{warning.message}</p>
+              <p className="text-sm text-secondary mt-2">{warning.message}</p>
             </div>
           ))}
         </div>
@@ -170,11 +170,11 @@ export function AnimalProfilePreview() {
 
       {/* Notes */}
       {profile.notes && profile.notes.length > 0 && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="bg-card rounded-lg shadow-md p-6">
+          <h2 className="text-xl font-bold text-white mb-4">
             <FileText className="inline-block w-5 h-5 mr-2"/> Notes ({profile.notes.length})
           </h2>
-          <ul className="list-disc list-inside space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <ul className="list-disc list-inside space-y-2 text-sm text-secondary">
             {profile.notes.map((note, idx) => (
               <li key={idx}>{note}</li>
             ))}
@@ -184,12 +184,12 @@ export function AnimalProfilePreview() {
 
       {/* Care Guidance */}
       {profile.careGuidance && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4"><Book className="inline-block w-5 h-5 mr-2"/> Care Guidance</h2>
+        <div className="bg-card rounded-lg shadow-md p-6">
+          <h2 className="text-xl font-bold text-white mb-4"><Book className="inline-block w-5 h-5 mr-2"/> Care Guidance</h2>
           <div className="space-y-4">
             <div>
-              <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2">Feeding</h3>
-              <ul className="list-disc list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300">
+              <h3 className="font-semibold text-white mb-2">Feeding</h3>
+              <ul className="list-disc list-inside space-y-1 text-sm text-secondary">
                 {profile.careGuidance.feedingRequirements?.map((note: string, idx: number) => (
                   <li key={idx}>{note}</li>
                 ))}
@@ -199,16 +199,16 @@ export function AnimalProfilePreview() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2">Water</h3>
-              <ul className="list-disc list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300">
+              <h3 className="font-semibold text-white mb-2">Water</h3>
+              <ul className="list-disc list-inside space-y-1 text-sm text-secondary">
                 {profile.careGuidance.waterNotes.map((note: string, idx: number) => (
                   <li key={idx}>{note}</li>
                 ))}
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-gray-700 dark:text-gray-200 mb-2">Misting</h3>
-              <ul className="list-disc list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300">
+              <h3 className="font-semibold text-white mb-2">Misting</h3>
+              <ul className="list-disc list-inside space-y-1 text-sm text-secondary">
                 {profile.careGuidance.mistingNotes.map((note, idx) => (
                   <li key={idx}>{note}</li>
                 ))}
@@ -220,8 +220,8 @@ export function AnimalProfilePreview() {
 
       {/* Related Blogs */}
       {profile.relatedBlogs && profile.relatedBlogs.length > 0 && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
+        <div className="bg-card rounded-lg shadow-md p-6">
+          <h2 className="text-xl font-bold text-white mb-4">
             <Book className="inline-block w-5 h-5 mr-2"/> Related Blogs ({profile.relatedBlogs.length})
           </h2>
           <div className="flex flex-wrap gap-2">
@@ -253,13 +253,13 @@ interface InfoRowProps {
 function InfoRow({ label, value, badge }: InfoRowProps) {
   return (
     <div>
-      <span className="text-gray-600 dark:text-gray-400 text-xs">{label}</span>
+      <span className="text-muted text-xs">{label}</span>
       {badge ? (
         <span className="ml-2 px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-sm font-medium">
           {value}
         </span>
       ) : (
-        <p className="text-gray-900 dark:text-white font-medium">{value}</p>
+        <p className="text-white font-medium">{value}</p>
       )}
     </div>
   );

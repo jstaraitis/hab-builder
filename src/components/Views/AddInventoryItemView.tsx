@@ -59,7 +59,7 @@ export function AddInventoryItemView() {
         <button
           type="button"
           onClick={handleCancel}
-          className="text-sm text-emerald-700 dark:text-emerald-300 hover:text-emerald-800 dark:hover:text-emerald-200 font-medium"
+          className="text-sm text-accent hover:text-accent font-medium"
         >
           Back
         </button>

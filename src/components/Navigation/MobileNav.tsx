@@ -87,7 +87,7 @@ const FAB_ACTIONS: FabAction[] = [
     label: 'Log Poop',
     description: 'Open poop log form',
     icon: ClipboardList,
-    color: 'bg-emerald-500/20 text-emerald-300',
+    color: 'bg-accent/20 text-accent',
   },
   {
     id: 'log-shedding',

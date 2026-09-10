@@ -175,7 +175,7 @@ export default function SmartStatusTuner() {
   });
 
   const statusStyles: Record<string, string> = {
-    healthy: 'bg-emerald-500/20 text-emerald-300 border-emerald-400/40',
+    healthy: 'bg-accent/20 text-accent border-emerald-400/40',
     watch: 'bg-sky-500/20 text-sky-300 border-sky-400/40',
     'needs-check': 'bg-amber-500/20 text-amber-300 border-amber-400/40',
     urgent: 'bg-red-500/20 text-red-300 border-red-400/40',
@@ -198,7 +198,7 @@ export default function SmartStatusTuner() {
                 onClick={() => setScenarioKey(scenario.key)}
                 className={`text-left rounded-xl border px-3 py-2 transition-colors ${
                   scenario.key === selectedScenario.key
-                    ? 'border-emerald-400/60 bg-emerald-500/10'
+                    ? 'border-emerald-400/60 bg-accent/10'
                     : 'border-divider bg-card-elevated hover:border-emerald-500/40'
                 }`}
               >

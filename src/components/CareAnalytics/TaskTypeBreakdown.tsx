@@ -69,7 +69,7 @@ export function TaskTypeBreakdown({ taskTypeStats }: TaskTypeBreakdownProps) {
 
   return (
     <div className="bg-card rounded-lg border border-divider p-3 sm:p-6">
-      <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3 sm:mb-4">
+      <h2 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">
         Task Type Breakdown
       </h2>
 
@@ -113,17 +113,17 @@ export function TaskTypeBreakdown({ taskTypeStats }: TaskTypeBreakdownProps) {
           return (
             <div
               key={stat.type}
-              className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 dark:bg-gray-900 rounded-lg"
+              className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 bg-surface rounded-lg"
             >
               <div className={`p-1.5 sm:p-2 bg-${stat.color}-100 dark:bg-${stat.color}-900/30 rounded-lg flex-shrink-0`}>
                 {IconComponent && <IconComponent className={`w-4 h-4 sm:w-5 sm:h-5 text-${stat.color}-600 dark:text-${stat.color}-400`} />}
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-100">
+                <h3 className="text-xs sm:text-sm font-medium text-white">
                   {stat.label}
                 </h3>
                 <div className="flex items-center gap-2 mt-0.5 sm:mt-1">
-                  <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100">
+                  <span className="text-lg sm:text-xl font-bold text-white">
                     {stat.totalCompletions}
                   </span>
                   <span className="text-xs text-muted">

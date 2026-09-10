@@ -468,7 +468,7 @@ export function ProfilePage() {
         <section className="rounded-2xl border border-accent/30 bg-accent/10 p-4 sm:p-5">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-[1.2fr_repeat(4,1fr)] sm:items-center">
             <div className="col-span-2 flex items-start gap-3 sm:col-span-1">
-              <div className="rounded-2xl bg-emerald-500/20 p-3 text-emerald-300 ring-1 ring-emerald-400/30">
+              <div className="rounded-2xl bg-accent/20 p-3 text-accent ring-1 ring-accent/30">
                 <Crown className="h-6 w-6" />
               </div>
               <div>
@@ -480,7 +480,7 @@ export function ProfilePage() {
             </div>
 
             <div className="text-center">
-              <div className="mx-auto mb-2 inline-flex rounded-full bg-emerald-500/20 p-2 text-emerald-300 ring-1 ring-emerald-400/30">
+              <div className="mx-auto mb-2 inline-flex rounded-full bg-accent/20 p-2 text-accent ring-1 ring-accent/30">
                 <Infinity className="h-5 w-5" />
               </div>
               <p className="text-sm font-medium text-white">Unlimited</p>
@@ -488,7 +488,7 @@ export function ProfilePage() {
             </div>
 
             <div className="text-center">
-              <div className="mx-auto mb-2 inline-flex rounded-full bg-emerald-500/20 p-2 text-emerald-300 ring-1 ring-emerald-400/30">
+              <div className="mx-auto mb-2 inline-flex rounded-full bg-accent/20 p-2 text-accent ring-1 ring-accent/30">
                 <Bell className="h-5 w-5" />
               </div>
               <p className="text-sm font-medium text-white">Smart</p>
@@ -496,7 +496,7 @@ export function ProfilePage() {
             </div>
 
             <div className="text-center">
-              <div className="mx-auto mb-2 inline-flex rounded-full bg-emerald-500/20 p-2 text-emerald-300 ring-1 ring-emerald-400/30">
+              <div className="mx-auto mb-2 inline-flex rounded-full bg-accent/20 p-2 text-accent ring-1 ring-accent/30">
                 <Brain className="h-5 w-5" />
               </div>
               <p className="text-sm font-medium text-white">Advanced</p>
@@ -504,7 +504,7 @@ export function ProfilePage() {
             </div>
 
             <div className="text-center">
-              <div className="mx-auto mb-2 inline-flex rounded-full bg-emerald-500/20 p-2 text-emerald-300 ring-1 ring-emerald-400/30">
+              <div className="mx-auto mb-2 inline-flex rounded-full bg-accent/20 p-2 text-accent ring-1 ring-accent/30">
                 <Thermometer className="h-5 w-5" />
               </div>
               <p className="text-sm font-medium text-white">Environment</p>
@@ -567,7 +567,7 @@ export function ProfilePage() {
               <p className="mt-2 text-center text-xs text-muted">You can customize these after enabling.</p>
 
               {notificationSuccess && (
-                <div className="mt-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-2 text-xs text-emerald-200">
+                <div className="mt-2 rounded-lg border border-emerald-500/30 bg-accent/10 p-2 text-xs text-accent">
                   {notificationSuccess}
                 </div>
               )}
@@ -691,7 +691,7 @@ export function ProfilePage() {
                 )}
 
                 {passwordSuccess && (
-                  <div className="mt-3 rounded-lg border border-emerald-500/40 bg-emerald-500/10 p-2 text-xs text-emerald-200">
+                  <div className="mt-3 rounded-lg border border-emerald-500/40 bg-accent/10 p-2 text-xs text-accent">
                     {passwordSuccess}
                   </div>
                 )}

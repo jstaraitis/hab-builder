@@ -61,7 +61,7 @@ export function WeightTrackerView() {
       <div className="flex items-center justify-between mb-4">
         <Link
           to="/my-animals"
-          className="text-sm text-accent hover:text-emerald-800 dark:hover:text-emerald-200 font-medium"
+          className="text-sm text-accent hover:text-accent font-medium"
         >
           Back to My Animals
         </Link>

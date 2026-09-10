@@ -41,7 +41,7 @@ export function InstallAppView() {
               On Android or prefer the browser version? Save Habitat Builder to your home screen for quick access, full-screen mode, and faster loading.
             </p>
             <div className="flex flex-wrap gap-2 text-xs sm:text-sm">
-              <span className="px-3 py-1 rounded-full bg-accent/15 border border-accent/30 text-emerald-300 font-semibold">
+              <span className="px-3 py-1 rounded-full bg-accent/15 border border-accent/30 text-accent font-semibold">
                 Add to Home Screen
               </span>
               <span className="px-3 py-1 rounded-full bg-sky-500/15 border border-sky-500/30 text-sky-300 font-semibold">

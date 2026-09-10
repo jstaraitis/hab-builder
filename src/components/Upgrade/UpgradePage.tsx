@@ -122,14 +122,14 @@ export function UpgradePage() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full text-sm font-medium mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/15 text-accent rounded-full text-sm font-medium mb-4">
             <Sparkles className="w-4 h-4" />
             {cycleHasTrial ? `${TRIAL_DAYS} days free` : 'Upgrade to Premium'}
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Never Miss a Care Task Again
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-muted max-w-2xl mx-auto">
             {cycleHasTrial
               ? `Try every premium care tool free for ${TRIAL_DAYS} days. Cancel before it ends and you won't be charged.`
               : 'Unlock powerful care tracking tools to keep your animals healthy and thriving'}
@@ -142,8 +142,8 @@ export function UpgradePage() {
             onClick={() => setBillingCycle('monthly')}
             className={`px-6 py-3 rounded-lg font-medium transition-all ${
               billingCycle === 'monthly'
-                ? 'bg-emerald-600 text-white shadow-lg'
-                : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700'
+                ? 'bg-accent text-white shadow-lg'
+                : 'bg-card text-secondary border border-divider'
             }`}
           >
             Monthly
@@ -152,8 +152,8 @@ export function UpgradePage() {
             onClick={() => setBillingCycle('annual')}
             className={`px-6 py-3 rounded-lg font-medium transition-all relative ${
               billingCycle === 'annual'
-                ? 'bg-emerald-600 text-white shadow-lg'
-                : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700'
+                ? 'bg-accent text-white shadow-lg'
+                : 'bg-card text-secondary border border-divider'
             }`}
           >
             Annual
@@ -164,21 +164,21 @@ export function UpgradePage() {
         </div>
 
         {/* Pricing Card */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border-2 border-emerald-500 p-8 mb-8">
+        <div className="bg-card rounded-2xl shadow-xl border-2 border-accent p-8 mb-8">
           <div className="text-center mb-8">
-            <div className="text-5xl font-bold text-gray-900 dark:text-white mb-2">
+            <div className="text-5xl font-bold text-white mb-2">
               ${billingCycle === 'monthly' ? monthlyPrice.toFixed(2) : annualPrice.toFixed(2)}
-              <span className="text-2xl text-gray-500 dark:text-gray-400 font-normal">
+              <span className="text-2xl text-muted font-normal">
                 /{billingCycle === 'monthly' ? 'month' : 'year'}
               </span>
             </div>
             {billingCycle === 'annual' && (
-              <p className="text-sm text-emerald-600 dark:text-emerald-400 font-medium">
+              <p className="text-sm text-accent font-medium">
                 Just $1.92/month when billed annually
               </p>
             )}
             {cycleHasTrial && (
-              <p className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm font-medium">
+              <p className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 text-accent rounded-lg text-sm font-medium">
                 <Sparkles className="w-4 h-4" />
                 Free for {TRIAL_DAYS} days, then ${billingCycle === 'monthly' ? monthlyPrice.toFixed(2) : annualPrice.toFixed(2)}/{billingCycle === 'monthly' ? 'month' : 'year'}
               </p>
@@ -228,7 +228,7 @@ export function UpgradePage() {
           <button
             onClick={handleUpgrade}
             disabled={loading}
-            className="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full py-4 bg-accent hover:bg-accent-dim text-white font-bold rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {loading ? (
               <>
@@ -248,13 +248,13 @@ export function UpgradePage() {
             <button
               onClick={handleRestore}
               disabled={loading}
-              className="w-full py-2 text-sm text-emerald-600 dark:text-emerald-400 hover:underline disabled:opacity-50"
+              className="w-full py-2 text-sm text-accent hover:underline disabled:opacity-50"
             >
               Restore Purchases
             </button>
           )}
 
-          <p className="text-xs text-gray-500 dark:text-gray-400 text-center mt-2">
+          <p className="text-xs text-muted text-center mt-2">
             {cycleHasTrial && `No charge for ${TRIAL_DAYS} days. `}
             {isNative
               ? `Payment will be charged to your Apple ID${cycleHasTrial ? ' when the trial ends' : ''}. Cancel anytime in your App Store subscriptions.`
@@ -263,11 +263,11 @@ export function UpgradePage() {
         </div>
 
         {/* FAQ / Additional Info */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 space-y-4">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+        <div className="bg-card rounded-xl p-6 space-y-4">
+          <h3 className="text-lg font-semibold text-white mb-4">
             Why go Premium?
           </h3>
-          <div className="text-sm text-gray-600 dark:text-gray-400 space-y-3">
+          <div className="text-sm text-muted space-y-3">
             <p>
               <strong>Free plan:</strong> Unlimited build plans, care guides, and the enclosure designer. Plus 1 enclosure, 1 animal, and unlimited care tasks you can check off in the app.
             </p>
@@ -293,14 +293,14 @@ interface FeatureItemProps {
 function FeatureItem({ icon, title, description }: FeatureItemProps) {
   return (
     <div className="flex items-start gap-3">
-      <div className="flex-shrink-0 w-10 h-10 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+      <div className="flex-shrink-0 w-10 h-10 bg-accent/15 rounded-lg flex items-center justify-center text-accent">
         {icon}
       </div>
       <div className="flex-1">
-        <div className="font-semibold text-gray-900 dark:text-white">{title}</div>
-        <div className="text-sm text-gray-600 dark:text-gray-400">{description}</div>
+        <div className="font-semibold text-white">{title}</div>
+        <div className="text-sm text-muted">{description}</div>
       </div>
-      <Check className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+      <Check className="w-5 h-5 text-accent flex-shrink-0" />
     </div>
   );
 }

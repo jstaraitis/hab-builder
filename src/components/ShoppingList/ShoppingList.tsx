@@ -25,9 +25,9 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
   };
 
   const tierLabels = {
-    minimum: { label: 'Minimum', color: 'text-gray-600 dark:text-gray-400' },
+    minimum: { label: 'Minimum', color: 'text-muted' },
     recommended: { label: 'Recommended', color: 'text-amber-600 dark:text-amber-400' },
-    ideal: { label: 'Ideal', color: 'text-emerald-600 dark:text-emerald-400' },
+    ideal: { label: 'Ideal', color: 'text-accent' },
   };
 
   // Memoize expensive grouping calculation - only recalculates when items change
@@ -76,7 +76,7 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
     const tierOption = item.setupTierOptions?.[selectedTier];
     
     return (
-      <div className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/30 transition-colors">
+      <div className="bg-card hover:bg-card dark:hover:bg-gray-900/30 transition-colors">
         {/* Compact Row */}
         <div className="p-2.5 sm:p-3">
           <div className="flex items-start justify-between gap-1 sm:gap-3">
@@ -96,10 +96,10 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
                   <span className="w-2 h-2 rounded-full bg-yellow-500 flex-shrink-0 mt-1.5"></span>
                 )}
                 <div className="flex-1">
-                  <h5 className="font-medium text-sm sm:text-base text-gray-900 dark:text-white inline">
+                  <h5 className="font-medium text-sm sm:text-base text-white inline">
                     {item.name}
                   </h5>
-                  <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 ml-2 whitespace-nowrap">
+                  <span className="text-xs sm:text-sm text-muted ml-2 whitespace-nowrap">
                     × {item.quantity}
                   </span>
                 </div>
@@ -113,7 +113,7 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="flex-shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-medium rounded-lg transition-colors active:scale-95"
+                className="flex-shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 bg-accent hover:bg-accent-dim text-white text-xs sm:text-sm font-medium rounded-lg transition-colors active:scale-95"
               >
                 <ShoppingBag className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
                 <span className="hidden sm:inline">Buy Now</span>
@@ -125,19 +125,19 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
 
         {/* Expanded Details */}
         {isExpanded && (
-          <div className="px-2.5 pb-2.5 sm:px-3 sm:pb-3 space-y-1.5 border-t border-gray-100 dark:border-gray-700 pt-2">
+          <div className="px-2.5 pb-2.5 sm:px-3 sm:pb-3 space-y-1.5 border-t border-divider pt-2">
             {tierOption && (
               <div className="space-y-1">
-                <p className="text-xs lg:text-sm text-gray-700 dark:text-gray-300">
+                <p className="text-xs lg:text-sm text-secondary">
                   {tierOption.description}
                 </p>
                 {item.sizing && (
-                  <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-xs lg:text-sm text-muted">
                     {item.sizing}
                   </p>
                 )}
                 {item.notes && (
-                  <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-xs lg:text-sm text-muted">
                     {item.notes}
                   </p>
                 )}
@@ -149,7 +149,7 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
                   item.importance === 'required' ? 'text-red-600 dark:text-red-400' :
                   item.importance === 'recommended' ? 'text-cyan-500 dark:text-cyan-400' :
                   item.importance === 'conditional' ? 'text-yellow-600 dark:text-yellow-400' :
-                  'text-gray-600 dark:text-gray-400'
+                  'text-muted'
                 }`}>
                   {item.importance === 'required' ? '● Required' :
                   item.importance === 'recommended' ? '● Recommended' :
@@ -167,11 +167,11 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
   ShoppingItem.displayName = 'ShoppingItem';
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md px-0 py-3 sm:px-2 sm:py-4">
+    <div className="bg-card rounded-lg shadow-md px-0 py-3 sm:px-2 sm:py-4">
       {showHeader && (
         <div className="mb-2">
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white mb-1.5">Shopping List</h3>
-          <p className="text-base text-gray-600 dark:text-gray-400">
+          <h3 className="text-xl sm:text-2xl font-bold text-white mb-1.5">Shopping List</h3>
+          <p className="text-base text-muted">
             Showing <span className={`font-semibold ${tierLabels[selectedTier].color}`}>{tierLabels[selectedTier].label}</span> tier
           </p>
         </div>
@@ -181,35 +181,35 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
         {Object.entries(groupedItems).map(([category, categoryItems]) => {
           const isExpanded = expandedCategories[category];
           return (
-            <div key={category} className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+            <div key={category} className="border border-divider rounded-lg overflow-hidden">
               <button
                 onClick={() => toggleCategory(category)}
-                className="w-full flex items-center justify-between p-2.5 sm:p-3 bg-gray-50 dark:bg-gray-900/50 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
+                className="w-full flex items-center justify-between p-2.5 sm:p-3 bg-surface/50 hover:bg-card-elevated dark:hover:bg-gray-900 transition-colors"
               >
                 <div className="flex items-center gap-2 sm:gap-3">
                   {(() => {
                     const imap: Record<string, React.ReactNode> = {
-                      enclosure: <Home className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
-                      equipment: <Wrench className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
-                      substrate: <Layers className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
-                      decor: <Image className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
-                      live_plants: <Leaf className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
-                      cleanup_crew: <Bug className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
-                      nutrition: <Utensils className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
-                      monitoring: <Gauge className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
-                      maintenance: <Sparkles className="w-4 h-4 lg:w-5 lg:h-5 text-emerald-600" />,
+                      enclosure: <Home className="w-4 h-4 lg:w-5 lg:h-5 text-accent" />,
+                      equipment: <Wrench className="w-4 h-4 lg:w-5 lg:h-5 text-accent" />,
+                      substrate: <Layers className="w-4 h-4 lg:w-5 lg:h-5 text-accent" />,
+                      decor: <Image className="w-4 h-4 lg:w-5 lg:h-5 text-accent" />,
+                      live_plants: <Leaf className="w-4 h-4 lg:w-5 lg:h-5 text-accent" />,
+                      cleanup_crew: <Bug className="w-4 h-4 lg:w-5 lg:h-5 text-accent" />,
+                      nutrition: <Utensils className="w-4 h-4 lg:w-5 lg:h-5 text-accent" />,
+                      monitoring: <Gauge className="w-4 h-4 lg:w-5 lg:h-5 text-accent" />,
+                      maintenance: <Sparkles className="w-4 h-4 lg:w-5 lg:h-5 text-accent" />,
                     };
                     return imap[category] ?? null;
                   })()}
-                  <h4 className="text-sm sm:text-base font-semibold text-gray-800 dark:text-gray-100">
+                  <h4 className="text-sm sm:text-base font-semibold text-white">
                     {categories[category as keyof typeof categories]}
                   </h4>
-                  <span className="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded-full">
+                  <span className="text-xs sm:text-sm font-medium text-muted bg-card-elevated px-2 py-1 rounded-full">
                     {categoryItems.length}
                   </span>
                 </div>
                 <svg
-                  className={`w-4 h-4 lg:w-5 lg:h-5 text-gray-400 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
+                  className={`w-4 h-4 lg:w-5 lg:h-5 text-muted transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -219,7 +219,7 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
               </button>
               
               {isExpanded && (
-                <div className="divide-y divide-gray-200 dark:divide-gray-700">
+                <div className="divide-y divide-divider dark:divide-gray-700">
                   {categoryItems.map((item, index) => {
                     const itemKey = item.uid ?? `${category}-${item.id}-${index}`;
                     return (

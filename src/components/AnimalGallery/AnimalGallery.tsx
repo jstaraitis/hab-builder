@@ -86,7 +86,7 @@ export function AnimalGallery({ animal, onUpdate }: AnimalGalleryProps) {
     <div className="space-y-4">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-lg font-semibold text-white">
           Gallery
         </h3>
         <div className="flex items-center gap-3">
@@ -95,14 +95,14 @@ export function AnimalGallery({ animal, onUpdate }: AnimalGalleryProps) {
               onClick={() => setDeleteMode(!deleteMode)}
               className={`text-sm font-medium transition-colors ${
                 deleteMode
-                  ? 'text-emerald-600 dark:text-emerald-400'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                  ? 'text-accent'
+                  : 'text-muted hover:text-white dark:hover:text-gray-200'
               }`}
             >
               {deleteMode ? 'Done' : 'Delete'}
             </button>
           )}
-          <span className="text-sm text-gray-500 dark:text-gray-400">
+          <span className="text-sm text-muted">
             {images.length} / {MAX_IMAGES}
           </span>
         </div>
@@ -121,7 +121,7 @@ export function AnimalGallery({ animal, onUpdate }: AnimalGalleryProps) {
         {images.map((imageUrl, index) => (
           <div
             key={imageUrl}
-            className="relative aspect-square rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 group cursor-pointer"
+            className="relative aspect-square rounded-lg overflow-hidden border border-divider group cursor-pointer"
             onClick={() => !deleteMode && setSelectedImage(imageUrl)}
           >
             <img
@@ -147,7 +147,7 @@ export function AnimalGallery({ animal, onUpdate }: AnimalGalleryProps) {
 
         {/* Add new image button */}
         {canAddMore && (
-          <label className="relative aspect-square rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-emerald-500 dark:hover:border-emerald-500 cursor-pointer flex flex-col items-center justify-center gap-2 transition-colors group">
+          <label className="relative aspect-square rounded-lg border-2 border-dashed border-divider hover:border-accent dark:hover:border-accent cursor-pointer flex flex-col items-center justify-center gap-2 transition-colors group">
             <input
               type="file"
               accept={UPLOAD_IMAGE_ACCEPT}
@@ -156,11 +156,11 @@ export function AnimalGallery({ animal, onUpdate }: AnimalGalleryProps) {
               className="hidden"
             />
             {uploading ? (
-              <Loader2 className="w-8 h-8 text-gray-400 animate-spin" />
+              <Loader2 className="w-8 h-8 text-muted animate-spin" />
             ) : (
               <>
-                <Plus className="w-8 h-8 text-gray-400 group-hover:text-emerald-500 transition-colors" />
-                <span className="text-xs text-gray-500 dark:text-gray-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                <Plus className="w-8 h-8 text-muted group-hover:text-accent transition-colors" />
+                <span className="text-xs text-muted group-hover:text-accent dark:group-hover:text-accent transition-colors">
                   Upload Photo
                 </span>
               </>
@@ -171,7 +171,7 @@ export function AnimalGallery({ animal, onUpdate }: AnimalGalleryProps) {
 
       {/* Empty state */}
       {images.length === 0 && (
-        <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+        <div className="text-center py-8 text-muted">
           <ImageIcon className="w-12 h-12 mx-auto mb-2 opacity-50" />
           <p className="text-sm">No images yet</p>
           <p className="text-xs mt-1">Add photos to document growth and memories</p>

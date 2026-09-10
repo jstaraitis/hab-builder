@@ -104,30 +104,30 @@ export function FindYourAnimalView({ onAnimalSelected }: FindYourAnimalViewProps
           <div className="mb-8">
             <button
               onClick={() => navigate('/animal')}
-              className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 mb-6 font-medium"
+              className="flex items-center gap-2 text-accent hover:text-accent mb-6 font-medium"
             >
               <ArrowLeft className="w-5 h-5" />
               Back to Animals
             </button>
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">
+            <h1 className="text-4xl font-bold text-white mb-3">
               Find Your Perfect Animal
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <p className="text-lg text-muted">
               Tell us about your space and preferences, and we'll recommend animals that fit your setup.
             </p>
           </div>
 
           {/* Form */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700">
+          <div className="bg-card rounded-lg shadow-md p-6 border border-divider">
             <div className="mb-6">
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Enclosure Specifications</h2>
-              <p className="text-gray-600 dark:text-gray-400">Tell us about your setup and we'll find the best match</p>
+              <h2 className="text-xl font-bold text-white mb-2">Enclosure Specifications</h2>
+              <p className="text-muted">Tell us about your setup and we'll find the best match</p>
             </div>
             <EnclosureForm value={input} onChange={handleFormChange} />
             <div className="mt-6">
               <button
                 onClick={handleSubmit}
-                className="w-full px-6 py-3 bg-emerald-600 hover:bg-emerald-700 dark:hover:bg-emerald-600 text-white font-bold rounded-lg transition-colors"
+                className="w-full px-6 py-3 bg-accent hover:bg-accent-dim text-white font-bold rounded-lg transition-colors"
               >
                 Get Recommendations
               </button>
@@ -144,7 +144,7 @@ export function FindYourAnimalView({ onAnimalSelected }: FindYourAnimalViewProps
         <div className="max-w-4xl mx-auto">
           <button
             onClick={() => setHasSubmitted(false)}
-            className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 mb-6 font-medium"
+            className="flex items-center gap-2 text-accent hover:text-accent mb-6 font-medium"
           >
             <ArrowLeft className="w-5 h-5" />
             Back to Form
@@ -165,15 +165,15 @@ export function FindYourAnimalView({ onAnimalSelected }: FindYourAnimalViewProps
         <div className="mb-8">
           <button
             onClick={() => setHasSubmitted(false)}
-            className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 mb-6 font-medium"
+            className="flex items-center gap-2 text-accent hover:text-accent mb-6 font-medium"
           >
             <ArrowLeft className="w-5 h-5" />
             Back to Form
           </button>
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+          <h1 className="text-4xl font-bold text-white mb-2">
             Your Recommendations
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+          <p className="text-lg text-muted">
             Based on your setup preferences, here are the best animals for your space
           </p>
         </div>
@@ -182,8 +182,8 @@ export function FindYourAnimalView({ onAnimalSelected }: FindYourAnimalViewProps
         {perfectMatches.length > 0 && (
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-4">
-              <Star className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Perfect Matches</h2>
+              <Star className="w-6 h-6 text-accent" />
+              <h2 className="text-2xl font-bold text-white">Perfect Matches</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {perfectMatches.map((rec) => (
@@ -200,7 +200,7 @@ export function FindYourAnimalView({ onAnimalSelected }: FindYourAnimalViewProps
         {/* Good Fits */}
         {goodFits.length > 0 && (
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Good Fits</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">Good Fits</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {goodFits.map((rec) => (
                 <AnimalRecommendationCard
@@ -216,7 +216,7 @@ export function FindYourAnimalView({ onAnimalSelected }: FindYourAnimalViewProps
         {/* Possible with Modifications */}
         {possibleMatches.length > 0 && (
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Possible (with modifications)</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">Possible (with modifications)</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {possibleMatches.map((rec) => (
                 <AnimalRecommendationCard
@@ -230,8 +230,8 @@ export function FindYourAnimalView({ onAnimalSelected }: FindYourAnimalViewProps
         )}
 
         {/* Related Guides */}
-        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Learn More</h2>
+        <div className="mt-12 pt-8 border-t border-divider">
+          <h2 className="text-2xl font-bold text-white mb-6">Learn More</h2>
           <AnimalGuides />
         </div>
       </div>
@@ -249,13 +249,13 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect }: AnimalRecom
   const { profile, compatibilityScore, reasons, warnings } = recommendation;
 
   const getScoreColor = (score: number) => {
-    if (score >= 80) return 'bg-emerald-100 dark:bg-emerald-900/30 border-emerald-300 dark:border-emerald-700';
+    if (score >= 80) return 'bg-accent/15 border-accent/30';
     if (score >= 60) return 'bg-amber-100 dark:bg-amber-900/30 border-amber-300 dark:border-amber-700';
     return 'bg-orange-100 dark:bg-orange-900/30 border-orange-300 dark:border-orange-700';
   };
 
   const getScoreTextColor = (score: number) => {
-    if (score >= 80) return 'text-emerald-700 dark:text-emerald-400';
+    if (score >= 80) return 'text-accent';
     if (score >= 60) return 'text-amber-700 dark:text-amber-400';
     return 'text-orange-700 dark:text-orange-400';
   };
@@ -264,7 +264,7 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect }: AnimalRecom
     <div className={`rounded-lg border-2 overflow-hidden flex flex-col ${getScoreColor(compatibilityScore)}`}>
       {/* Image */}
       {profile.imageUrl && (
-        <div className="relative h-48 bg-gray-200 dark:bg-gray-700">
+        <div className="relative h-48 bg-card-elevated">
           <img
             src={profile.imageUrl}
             alt={profile.commonName}
@@ -273,11 +273,11 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect }: AnimalRecom
             decoding="async"
           />
           {/* Score Badge Overlay */}
-          <div className="absolute top-3 right-3 bg-white dark:bg-gray-800 rounded-lg px-3 py-1 shadow-lg">
+          <div className="absolute top-3 right-3 bg-card rounded-lg px-3 py-1 shadow-lg">
             <div className={`text-xl font-bold ${getScoreTextColor(compatibilityScore)}`}>
               {compatibilityScore}%
             </div>
-            <p className="text-xs text-gray-600 dark:text-gray-400 text-center">Match</p>
+            <p className="text-xs text-muted text-center">Match</p>
           </div>
         </div>
       )}
@@ -286,8 +286,8 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect }: AnimalRecom
       <div className="p-4 flex-1 flex flex-col">
         {/* Header */}
         <div className="mb-3">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white">{profile.commonName}</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 italic">{profile.scientificName}</p>
+          <h3 className="text-lg font-bold text-white">{profile.commonName}</h3>
+          <p className="text-sm text-muted italic">{profile.scientificName}</p>
         </div>
 
       {/* Reasons */}
@@ -295,8 +295,8 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect }: AnimalRecom
         <div className="mb-3">
           {reasons.map((reason, idx) => (
             <div key={idx} className="flex items-start gap-2 text-sm mb-1">
-              <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
-              <span className="text-gray-700 dark:text-gray-300">{reason}</span>
+              <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+              <span className="text-secondary">{reason}</span>
             </div>
           ))}
         </div>
@@ -304,11 +304,11 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect }: AnimalRecom
 
       {/* Warnings */}
       {warnings.length > 0 && (
-        <div className="mb-4 bg-white dark:bg-gray-900/50 rounded p-2">
+        <div className="mb-4 bg-surface/50 rounded p-2">
           {warnings.map((warning, idx) => (
             <div key={idx} className="flex items-start gap-2 text-xs mb-1">
               <AlertCircle className="w-3 h-3 text-orange-600 dark:text-orange-400 flex-shrink-0 mt-0.5" />
-              <span className="text-gray-700 dark:text-gray-300">{warning}</span>
+              <span className="text-secondary">{warning}</span>
             </div>
           ))}
         </div>
@@ -317,7 +317,7 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect }: AnimalRecom
       {/* Action Button */}
       <button
         onClick={() => onSelect(recommendation.animalId)}
-        className="w-full px-4 py-2 bg-emerald-600 hover:bg-emerald-700 dark:hover:bg-emerald-600 text-white font-medium rounded-lg transition-colors mt-auto"
+        className="w-full px-4 py-2 bg-accent hover:bg-accent-dim text-white font-medium rounded-lg transition-colors mt-auto"
       >
         Choose {profile.commonName}
       </button>

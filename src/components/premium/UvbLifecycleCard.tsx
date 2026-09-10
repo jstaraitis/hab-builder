@@ -16,8 +16,8 @@ const STATE_STYLES: Record<UvbLifecycleState, {
   ring: string;
   label: string;
 }> = {
-  fresh: { bar: 'bg-emerald-500', text: 'text-emerald-300', ring: 'border-divider', label: 'Good' },
-  good: { bar: 'bg-emerald-500', text: 'text-emerald-300', ring: 'border-divider', label: 'Good' },
+  fresh: { bar: 'bg-accent', text: 'text-accent', ring: 'border-divider', label: 'Good' },
+  good: { bar: 'bg-accent', text: 'text-accent', ring: 'border-divider', label: 'Good' },
   'due-soon': { bar: 'bg-amber-400', text: 'text-amber-300', ring: 'border-amber-400/30', label: 'Due soon' },
   overdue: { bar: 'bg-orange-500', text: 'text-orange-300', ring: 'border-orange-500/40', label: 'Overdue' },
   critical: { bar: 'bg-red-500', text: 'text-red-300', ring: 'border-red-500/40', label: 'Replace now' },

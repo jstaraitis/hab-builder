@@ -19,7 +19,7 @@ export function RecentActivity({ recentLogs }: RecentActivityProps) {
         onClick={() => setIsExpanded(!isExpanded)}
         className="w-full flex items-center justify-between p-3 sm:p-6 hover:bg-card-elevated transition-colors"
       >
-        <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
+        <h2 className="text-base sm:text-lg font-semibold text-white">
           Recent Activity
         </h2>
         <ChevronDown
@@ -37,8 +37,8 @@ export function RecentActivity({ recentLogs }: RecentActivityProps) {
           return (
             <div
               key={item.log.id}
-              className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 dark:bg-gray-900 rounded-lg
-                       hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 bg-surface rounded-lg
+ hover:bg-card-elevated dark:hover:bg-gray-800 transition-colors"
             >
               {/* Icon */}
               <div className={`p-1.5 sm:p-2 rounded-lg flex-shrink-0 ${
@@ -57,7 +57,7 @@ export function RecentActivity({ recentLogs }: RecentActivityProps) {
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-sm sm:text-base font-medium text-gray-900 dark:text-gray-100 truncate">
+                    <h3 className="text-sm sm:text-base font-medium text-white truncate">
                       {item.taskTitle}
                     </h3>
                     <div className="flex items-center gap-2 mt-0.5 text-xs text-muted">

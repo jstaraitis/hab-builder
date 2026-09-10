@@ -636,7 +636,7 @@ export function EnclosureEnvironmentView() {
 
   const stageBadgeClass =
     analytics.stage === 'stable'
-      ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40'
+      ? 'bg-accent/15 text-accent border-emerald-500/40'
       : analytics.stage === 'stabilizing'
         ? 'bg-amber-500/15 text-amber-300 border-amber-500/40'
         : analytics.stage === 'cycling'
@@ -724,7 +724,7 @@ export function EnclosureEnvironmentView() {
           <button
             type="button"
             onClick={() => setActiveTab('bioactive')}
-            className={`rounded-xl px-3 py-2 text-sm font-semibold transition-colors ${activeTab === 'bioactive' ? 'bg-emerald-600 text-white' : 'text-muted hover:text-white'}`}
+            className={`rounded-xl px-3 py-2 text-sm font-semibold transition-colors ${activeTab === 'bioactive' ? 'bg-accent text-white' : 'text-muted hover:text-white'}`}
           >
             Bioactive Maintenance
           </button>
@@ -1048,7 +1048,7 @@ export function EnclosureEnvironmentView() {
         <div className="order-5 rounded-2xl border border-divider bg-card p-4 space-y-3">
           <div className="flex items-center justify-between gap-2 flex-wrap">
             <h2 className="text-base font-bold text-white">Bioactive and Plant Timeline</h2>
-            <span className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Quick Log</span>
+            <span className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-accent/15 text-accent border border-emerald-500/30">Quick Log</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -1103,7 +1103,7 @@ export function EnclosureEnvironmentView() {
             type="button"
             onClick={() => saveEcoEvent().catch(console.error)}
             disabled={savingEvent}
-            className="w-full flex items-center justify-center gap-2 rounded-xl bg-emerald-600 py-3 text-sm font-bold text-white disabled:opacity-60"
+            className="w-full flex items-center justify-center gap-2 rounded-xl bg-accent py-3 text-sm font-bold text-white disabled:opacity-60"
           >
             <Save className="w-4 h-4" />
             {savingEvent ? 'Saving Event…' : 'Save Ecosystem Event'}

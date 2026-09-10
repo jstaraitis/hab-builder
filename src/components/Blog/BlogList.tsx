@@ -16,11 +16,11 @@ export function BlogList({ selectedAnimal }: BlogListProps) {
       />
       
       <div>
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2 flex items-center gap-3">
+        <h1 className="text-3xl font-bold text-white mb-2 flex items-center gap-3">
           <BookOpen className="w-8 h-8 text-jade-600 dark:text-accent" />
           Care Guides & Resources
         </h1>
-        <p className="text-gray-600 dark:text-gray-400">
+        <p className="text-muted">
           Expert guides for keeping healthy reptiles and amphibians
         </p>
       </div>

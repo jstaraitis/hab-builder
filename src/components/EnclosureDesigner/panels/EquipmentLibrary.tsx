@@ -175,9 +175,9 @@ export function EquipmentLibrary({ onAddItem }: Readonly<EquipmentLibraryProps>)
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col" style={{ height: '600px' }}>
-      <div className="p-4 border-b border-gray-200 dark:border-gray-700">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Equipment Library</h3>
+    <div className="bg-card rounded-lg shadow-sm border border-divider overflow-hidden flex flex-col" style={{ height: '600px' }}>
+      <div className="p-4 border-b border-divider">
+        <h3 className="text-lg font-semibold text-white">Equipment Library</h3>
       </div>
       
       <div className="flex-1 overflow-y-auto p-4">
@@ -188,7 +188,7 @@ export function EquipmentLibrary({ onAddItem }: Readonly<EquipmentLibraryProps>)
           <div key={category.name} className="space-y-2">
             <button
               onClick={() => toggleCategory(category.name)}
-              className="w-full text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2 hover:text-green-600 dark:hover:text-green-400 transition-colors"
+              className="w-full text-sm font-semibold text-secondary flex items-center gap-2 hover:text-green-600 dark:hover:text-green-400 transition-colors"
             >
               <span className="text-lg flex items-center gap-2">
                 {(() => {
@@ -225,11 +225,11 @@ export function EquipmentLibrary({ onAddItem }: Readonly<EquipmentLibraryProps>)
                 <button
                   key={`${item.type}-${item.name}-${item.variant || 'default'}-${index}`}
                   onClick={() => onAddItem(item.type, item.variant)}
-                  className="w-full aspect-square rounded-lg border border-gray-200 dark:border-gray-600 hover:border-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors group p-1.5"
+                  className="w-full aspect-square rounded-lg border border-divider hover:border-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors group p-1.5"
                   title={item.name}
                   aria-label={`Add ${item.name}`}
                 >
-                  <div className="w-full h-full rounded-md overflow-hidden bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 flex items-center justify-center">
+                  <div className="w-full h-full rounded-md overflow-hidden bg-card-elevated border border-divider flex items-center justify-center">
                     {imageSrc ? (
                       <img
                         src={imageSrc}
@@ -242,7 +242,7 @@ export function EquipmentLibrary({ onAddItem }: Readonly<EquipmentLibraryProps>)
                     ) : null}
                     <div
                       style={{ display: imageSrc ? 'none' : 'flex' }}
-                      className="w-full h-full items-center justify-center text-gray-500 dark:text-gray-300"
+                      className="w-full h-full items-center justify-center text-secondary"
                     >
                       {getTypeIcon(item.type)}
                     </div>

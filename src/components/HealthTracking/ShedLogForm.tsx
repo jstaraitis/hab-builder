@@ -179,7 +179,7 @@ export function ShedLogForm({ animal, onSuccess, onCancel, initialData }: ShedLo
               className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
                 problemAreas.includes(area)
                   ? 'bg-orange-500 text-white'
-                  : 'bg-card-elevated text-white hover:bg-gray-200 dark:hover:bg-gray-600'
+                  : 'bg-card-elevated text-white hover:bg-card-elevated'
               }`}
             >
               {area}

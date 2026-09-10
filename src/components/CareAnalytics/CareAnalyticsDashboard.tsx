@@ -47,7 +47,7 @@ export function CareAnalyticsDashboard({ consistencyScore = null }: Readonly<Car
       <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
         <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 sm:p-6 text-center">
           <BarChart3 className="w-10 h-10 sm:w-12 sm:h-12 text-yellow-600 dark:text-yellow-400 mx-auto mb-3 sm:mb-4" />
-          <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+          <h3 className="text-base sm:text-lg font-semibold text-white mb-2">
             Sign In to View Analytics
           </h3>
           <p className="text-sm sm:text-base text-muted">
@@ -92,13 +92,13 @@ export function CareAnalyticsDashboard({ consistencyScore = null }: Readonly<Car
       <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
         <div className="bg-blue-500/10 border border-blue-200 dark:border-blue-800 rounded-lg p-6 sm:p-8 text-center">
           <Activity className="w-12 h-12 sm:w-16 sm:h-16 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
-          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+          <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">
             No Care History Yet
           </h3>
           <p className="text-sm sm:text-base text-muted mb-4">
             Start completing care tasks to see your analytics and track your routine!
           </p>
-          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500">
+          <p className="text-xs sm:text-sm text-muted">
             Your feeding, misting, cleaning, and other care activities will appear here.
           </p>
         </div>

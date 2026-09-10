@@ -150,9 +150,9 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
   ];
 
   return (
-    <div className="bg-white dark:bg-card rounded-lg shadow-sm border border-gray-200 dark:border-divider p-3 sm:p-4">
+    <div className="bg-white dark:bg-card rounded-lg shadow-sm border border-divider dark:border-divider p-3 sm:p-4">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-900 dark:text-white">Complete Care Guides</h3>
+        <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white">Complete Care Guides</h3>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -168,11 +168,11 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
                 </div>
               </div>
               
-              <h4 className="font-bold text-gray-900 dark:text-white text-base sm:text-lg mb-2">{guide.title}</h4>
+              <h4 className="font-bold text-white text-base sm:text-lg mb-2">{guide.title}</h4>
               
               <div className="space-y-1.5 flex-grow">
                 {guide.info.map((item, idx) => (
-                  <p key={idx} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                  <p key={idx} className="text-sm text-secondary flex items-start gap-2">
                     <span className={`${guide.iconColor} mt-0.5`}>•</span>
                     <span>{item}</span>
                   </p>
@@ -214,9 +214,9 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
                 </div>
               </div>
               
-              <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-3">{guide.title}</h4>
+              <h4 className="font-bold text-white text-lg mb-3">{guide.title}</h4>
               
-              <p className="text-sm text-gray-600 dark:text-gray-400 italic">
+              <p className="text-sm text-muted italic">
                 Guide coming soon
               </p>
             </div>

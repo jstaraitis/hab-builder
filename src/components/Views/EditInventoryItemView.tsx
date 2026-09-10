@@ -112,7 +112,7 @@ export function EditInventoryItemView() {
   if (loading) {
     return (
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 text-sm text-gray-600 dark:text-gray-300">
+        <div className="bg-card border border-divider rounded-lg p-4 text-sm text-secondary">
           Loading inventory item...
         </div>
       </div>
@@ -135,7 +135,7 @@ export function EditInventoryItemView() {
         <button
           type="button"
           onClick={handleCancel}
-          className="text-sm text-emerald-700 dark:text-emerald-300 hover:text-emerald-800 dark:hover:text-emerald-200 font-medium"
+          className="text-sm text-accent hover:text-accent font-medium"
         >
           Back
         </button>
