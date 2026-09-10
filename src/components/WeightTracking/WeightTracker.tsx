@@ -22,7 +22,7 @@ export function WeightTracker({ animal }: WeightTrackerProps) {
 
   const handleLogCreated = () => {
     setShowAddForm(false);
-    setRefreshKey(prev => prev + 1); // Trigger refresh of stats/chart/history
+    setRefreshKey((prev) => prev + 1); // Trigger refresh of stats/chart/history
   };
 
   // Keyed on refreshKey so the cohort comparison moves the moment a weight is
@@ -33,7 +33,7 @@ export function WeightTracker({ animal }: WeightTrackerProps) {
 
     weightTrackingService
       .getWeightLogs(animal.id)
-      .then(logs => {
+      .then((logs) => {
         if (!cancelled) setLatestLog(logs[0] ?? null);
       })
       .catch((error: unknown) => {
@@ -52,9 +52,7 @@ export function WeightTracker({ animal }: WeightTrackerProps) {
   const birth = animal.birthday ?? animal.acquisitionDate;
   const cohortAgeDays =
     birth && latestLog
-      ? Math.floor(
-          (latestLog.measurementDate.getTime() - new Date(birth).getTime()) / 86400000
-        )
+      ? Math.floor((latestLog.measurementDate.getTime() - new Date(birth).getTime()) / 86400000)
       : null;
 
   if (!user) {
@@ -82,9 +80,7 @@ export function WeightTracker({ animal }: WeightTrackerProps) {
             <Scale className="w-5 h-5 text-accent" />
           </div>
           <div className="min-w-0 flex-1">
-            <h1 className="text-3xl font-bold text-white truncate">
-              Weight Tracker
-            </h1>
+            <h1 className="text-3xl font-bold text-white truncate">Weight Tracker</h1>
             <p className="text-sm text-white truncate">
               {animal.name || `Animal #${animal.animalNumber || '?'}`}
             </p>
@@ -115,10 +111,7 @@ export function WeightTracker({ animal }: WeightTrackerProps) {
       )}
 
       {/* Stats Overview */}
-      <WeightStats
-        enclosureAnimalId={animal.id}
-        refreshKey={refreshKey}
-      />
+      <WeightStats enclosureAnimalId={animal.id} refreshKey={refreshKey} />
 
       {/* How this animal compares to others of its species. Sits directly under
           the numbers it contextualises. */}
@@ -131,30 +124,19 @@ export function WeightTracker({ animal }: WeightTrackerProps) {
 
       {/* Weight Chart */}
       <div className="bg-card rounded-2xl border border-divider p-4">
-        <h2 className="text-lg font-semibold text-white mb-3">
-          Weight History Chart
-        </h2>
-        <WeightChart 
-          enclosureAnimalId={animal.id} 
-          refreshKey={refreshKey}
-        />
+        <h2 className="text-lg font-semibold text-white mb-3">Weight History Chart</h2>
+        <WeightChart enclosureAnimalId={animal.id} refreshKey={refreshKey} />
       </div>
 
       {/* Weight History Table */}
       <div className="bg-card rounded-2xl border border-divider p-4">
-        <h2 className="text-lg font-semibold text-white mb-3">
-          All Entries
-        </h2>
-        <WeightHistory 
-          enclosureAnimalId={animal.id} 
+        <h2 className="text-lg font-semibold text-white mb-3">All Entries</h2>
+        <WeightHistory
+          enclosureAnimalId={animal.id}
           refreshKey={refreshKey}
-          onUpdate={() => setRefreshKey(prev => prev + 1)}
+          onUpdate={() => setRefreshKey((prev) => prev + 1)}
         />
       </div>
     </div>
   );
 }
-
-
-
-

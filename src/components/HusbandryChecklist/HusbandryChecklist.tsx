@@ -12,12 +12,12 @@ function ChecklistItemComponent({ item, onChange }: {
   onChange: (id: string, completed: boolean) => void;
 }) {
   return (
-    <div className="flex items-start p-3 bg-card rounded-md border border-divider hover:bg-card-elevated transition-colors">
+    <div className="flex items-start p-3 bg-card rounded-xl border border-divider hover:bg-card-elevated transition-colors">
       <input
         type="checkbox"
         checked={item.completed || false}
         onChange={(e) => onChange(item.id, e.target.checked)}
-        className="mt-1 h-4 w-4 text-blue-600 rounded focus:ring-blue-500"
+        className="mt-1 h-4 w-4 text-blue-600 rounded-xl focus:ring-blue-500"
       />
       <div className="ml-3 flex-1">
         <p className={`text-sm font-medium ${item.completed ? 'line-through text-muted' : 'text-white'}`}>

@@ -124,7 +124,7 @@ export function OwnerNotificationsView() {
           <button
             onClick={() => loadProfiles()}
             disabled={loadingProfiles}
-            className="inline-flex items-center gap-2 rounded-lg border border-divider px-3 py-2 text-sm font-medium text-secondary hover:bg-card disabled:opacity-60 dark:border-divider dark:text-white dark:hover:bg-card-elevated"
+            className="inline-flex items-center gap-2 rounded-xl border border-divider px-3 py-2 text-sm font-medium text-secondary hover:bg-card disabled:opacity-60 dark:border-divider dark:text-white dark:hover:bg-card-elevated"
           >
             <RefreshCw className={`h-4 w-4 ${loadingProfiles ? 'animate-spin' : ''}`} />
             Refresh
@@ -134,7 +134,7 @@ export function OwnerNotificationsView() {
 
       <OwnerSectionNav />
 
-      <div className="rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50/70 dark:bg-amber-950/30 p-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className="rounded-xl border border-amber-200 dark:border-amber-800 bg-amber-50/70 dark:bg-amber-950/30 p-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h2 className="text-sm font-semibold text-amber-900 dark:text-amber-100">Recent profiles for quick targeting</h2>
           <p className="text-sm text-amber-800/90 dark:text-amber-200/80">Click a user below to prefill the specific-user target field.</p>
@@ -142,19 +142,19 @@ export function OwnerNotificationsView() {
         <button
           onClick={toggleProfileScope}
           disabled={loadingProfiles}
-          className="inline-flex items-center justify-center rounded-lg bg-amber-600 px-4 py-2 text-sm font-medium text-white hover:bg-amber-700 disabled:opacity-60"
+          className="inline-flex items-center justify-center rounded-xl bg-amber-600 px-4 py-2 text-sm font-medium text-white hover:bg-amber-700 disabled:opacity-60"
         >
           {showAllProfiles ? 'Show latest 10' : 'Show all profiles'}
         </button>
       </div>
 
       {profilesError && (
-        <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-900 dark:border-red-800 dark:bg-red-900/20 dark:text-red-200">
+        <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-900 dark:border-red-800 dark:bg-red-900/20 dark:text-red-200">
           Failed to load profiles: {profilesError}
         </div>
       )}
 
-      <div className="rounded-xl border border-divider bg-white p-4 shadow-sm dark:border-divider dark:bg-card">
+      <div className="rounded-xl border border-divider bg-white p-4 dark:border-divider dark:bg-card">
         <div className="mb-3 flex items-center justify-between">
           <h2 className="text-base font-semibold text-white">Target Picker</h2>
           <div className="inline-flex items-center gap-1 rounded-full bg-card-elevated px-2.5 py-1 text-xs text-secondary dark:bg-card-elevated dark:text-white">
@@ -180,7 +180,7 @@ export function OwnerNotificationsView() {
                   setBroadcastUserId(profile.id);
                   setBroadcastResult(null);
                 }}
-                className={`rounded-lg border p-3 text-left transition-colors ${broadcastTarget === 'user' && broadcastUserIdTrimmed === profile.id ? 'border-accent bg-emerald-50/60 dark:border-accent bg-accent/10' : 'border-divider bg-gray-50/60 hover:border-divider dark:bg-gray-700/20 dark:hover:border-gray-600'}`}
+                className={`rounded-xl border p-3 text-left transition-colors ${broadcastTarget === 'user' && broadcastUserIdTrimmed === profile.id ? 'border-accent bg-emerald-50/60 dark:border-accent bg-accent/10' : 'border-divider bg-gray-50/60 hover:border-divider dark:bg-gray-700/20 dark:hover:border-gray-600'}`}
               >
                 <div className="truncate text-sm font-semibold text-white">{profile.display_name || 'Unnamed user'}</div>
                 <div className="mt-1 truncate text-xs text-muted">{profile.email || profile.id}</div>
@@ -191,7 +191,7 @@ export function OwnerNotificationsView() {
         )}
       </div>
 
-      <div className="rounded-xl border border-divider bg-white p-4 shadow-sm dark:border-divider dark:bg-card">
+      <div className="rounded-xl border border-divider bg-white p-4 dark:border-divider dark:bg-card">
         <div className="mb-4 flex items-center gap-2">
           <Send className="h-4 w-4 text-amber-600 dark:text-amber-400" />
           <h2 className="text-base font-semibold text-white">Compose Notification</h2>
@@ -246,7 +246,7 @@ export function OwnerNotificationsView() {
           }}
           className="space-y-3"
         >
-          <div className="rounded-lg border border-amber-200 bg-amber-50/60 p-3 dark:border-amber-800 dark:bg-amber-900/20">
+          <div className="rounded-xl border border-amber-200 bg-amber-50/60 p-3 dark:border-amber-800 dark:bg-amber-900/20">
             <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-amber-900 dark:text-amber-100">Quick templates</div>
             <div className="flex flex-wrap gap-2">
               <button
@@ -315,7 +315,7 @@ export function OwnerNotificationsView() {
           </div>
 
           {broadcastTarget === 'all' && (
-            <label className="flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50/50 p-2.5 text-xs text-secondary dark:border-amber-800 dark:bg-amber-950/20 dark:text-secondary">
+            <label className="flex items-start gap-2 rounded-xl border border-amber-200 bg-amber-50/50 p-2.5 text-xs text-secondary dark:border-amber-800 dark:bg-amber-950/20 dark:text-secondary">
               <input
                 type="checkbox"
                 checked={confirmBroadcastAll}
@@ -338,7 +338,7 @@ export function OwnerNotificationsView() {
                 setBroadcastUserId(e.target.value);
                 setBroadcastResult(null);
               }}
-              className="w-full rounded-lg border border-divider bg-white px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent dark:border-divider dark:bg-card-elevated dark:text-white"
+              className="w-full rounded-xl border border-divider bg-white px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent dark:border-divider dark:bg-card-elevated dark:text-white"
               required
             />
           )}
@@ -353,7 +353,7 @@ export function OwnerNotificationsView() {
                 setBroadcastResult(null);
               }}
               maxLength={MAX_BROADCAST_TITLE_LENGTH}
-              className="w-full rounded-lg border border-divider bg-white px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent dark:border-divider dark:bg-card-elevated dark:text-white"
+              className="w-full rounded-xl border border-divider bg-white px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent dark:border-divider dark:bg-card-elevated dark:text-white"
               required
             />
             <div className="text-right text-[11px] text-muted">{broadcastTitle.length}/{MAX_BROADCAST_TITLE_LENGTH}</div>
@@ -369,7 +369,7 @@ export function OwnerNotificationsView() {
               }}
               maxLength={MAX_BROADCAST_MESSAGE_LENGTH}
               rows={3}
-              className="w-full resize-none rounded-lg border border-divider bg-white px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent dark:border-divider dark:bg-card-elevated dark:text-white"
+              className="w-full resize-none rounded-xl border border-divider bg-white px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent dark:border-divider dark:bg-card-elevated dark:text-white"
               required
             />
             <div className="text-right text-[11px] text-muted">{broadcastMessage.length}/{MAX_BROADCAST_MESSAGE_LENGTH}</div>
@@ -384,14 +384,14 @@ export function OwnerNotificationsView() {
                 setBroadcastUrl(e.target.value);
                 setBroadcastResult(null);
               }}
-              className={`w-full rounded-lg border bg-white px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent dark:bg-card-elevated dark:text-white ${isInvalidBroadcastUrl ? 'border-amber-400 dark:border-amber-500' : 'border-divider'}`}
+              className={`w-full rounded-xl border bg-white px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent dark:bg-card-elevated dark:text-white ${isInvalidBroadcastUrl ? 'border-amber-400 dark:border-amber-500' : 'border-divider'}`}
             />
             <div className="text-[11px] text-muted">
               {isInvalidBroadcastUrl ? 'Tip: URL should start with / or use https://' : `Will open: ${normalizedBroadcastUrl}`}
             </div>
           </div>
 
-          <div className="rounded-lg border border-divider bg-gray-50/70 p-3 dark:border-divider dark:bg-gray-700/30">
+          <div className="rounded-xl border border-divider bg-gray-50/70 p-3 dark:border-divider dark:bg-gray-700/30">
             <div className="mb-1 text-[11px] uppercase tracking-wide text-muted">Preview</div>
             <div className="text-sm font-semibold text-white">{broadcastTitleTrimmed || 'Notification title'}</div>
             <div className="mt-1 text-sm text-secondary">{broadcastMessageTrimmed || 'Notification message preview appears here.'}</div>
@@ -401,14 +401,14 @@ export function OwnerNotificationsView() {
           <button
             type="submit"
             disabled={broadcastSending || !canSendBroadcast || Boolean(devSendBlockedReason)}
-            className="inline-flex items-center gap-2 rounded-lg bg-amber-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-amber-700 disabled:bg-gray-400"
+            className="inline-flex items-center gap-2 rounded-xl bg-amber-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-amber-700 disabled:bg-gray-400"
           >
             <Send className="h-3.5 w-3.5" />
             {broadcastSending ? 'Sending...' : 'Send Notification'}
           </button>
 
           {devSendBlockedReason && (
-            <div className="rounded-lg border border-amber-200 bg-amber-50/60 p-3 text-xs text-amber-900 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-200">
+            <div className="rounded-xl border border-amber-200 bg-amber-50/60 p-3 text-xs text-amber-900 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-200">
               <div className="mb-1 font-semibold">Send blocked in local dev</div>
               <div>{devSendBlockedReason}</div>
               <div className="mt-2">Run:</div>
@@ -419,7 +419,7 @@ export function OwnerNotificationsView() {
         </form>
 
         {broadcastResult && (
-          <div className={`mt-3 rounded-lg p-3 text-sm ${broadcastResult.ok ? 'bg-accent/10 text-accent bg-accent/10 text-accent' : 'bg-red-50 text-red-800 dark:bg-red-900/20 dark:text-red-200'}`}>
+          <div className={`mt-3 rounded-xl p-3 text-sm ${broadcastResult.ok ? 'bg-accent/10 text-accent bg-accent/10 text-accent' : 'bg-red-50 text-red-800 dark:bg-red-900/20 dark:text-red-200'}`}>
             <div>{broadcastResult.message}</div>
             {broadcastResult.stats && (
               <div className="mt-2 space-y-1 text-xs">

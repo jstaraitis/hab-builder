@@ -1,14 +1,14 @@
 ﻿import React, { useState, useEffect, memo } from 'react';
-import { 
-  Pencil, 
+import {
+  Pencil,
   Check,
   CheckCircle2,
   SkipForward,
-  UtensilsCrossed, 
-  Droplets, 
-  Waves, 
-  Brush, 
-  Sparkles, 
+  UtensilsCrossed,
+  Droplets,
+  Waves,
+  Brush,
+  Sparkles,
   Stethoscope,
   Pill,
   Wrench,
@@ -31,7 +31,7 @@ import {
   Leaf,
   Bug,
   ClipboardList,
-  type LucideIcon
+  type LucideIcon,
 } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
@@ -46,10 +46,19 @@ import { FeedingLogModal } from './FeedingLogModal';
 import { EnvironmentReadingsModal } from './EnvironmentReadingsModal';
 import { CareAnalyticsDashboard } from '../CareAnalytics';
 import { PremiumPaywall } from '../Upgrade/PremiumPaywall';
-import type { CareTaskWithLogs, TaskType, CareTask, CareLog, Enclosure, EnclosureAnimal, TaskFrequency } from '../../types/careCalendar';
+import type {
+  CareTaskWithLogs,
+  TaskType,
+  CareTask,
+  CareLog,
+  Enclosure,
+  EnclosureAnimal,
+  TaskFrequency,
+} from '../../types/careCalendar';
 
 type ViewMode = 'all' | 'today' | 'week' | 'analytics';
-type TimeBlock = 'overdue' | 'morning' | 'afternoon' | 'evening' | 'night' | 'tomorrow' | 'week' | 'future';
+type TimeBlock =
+  'overdue' | 'morning' | 'afternoon' | 'evening' | 'night' | 'tomorrow' | 'week' | 'future';
 type TaskActionMode = 'skip' | 'snooze' | 'reschedule';
 type EditableFrequency = Exclude<TaskFrequency, 'custom'>;
 
@@ -70,148 +79,153 @@ const toDateTimeLocalInputValue = (value: Date): string => {
   return local.toISOString().slice(0, 16);
 };
 
-
 // Memoized Task Item Component for better list performance
-const TaskItem = memo(({ 
-  task, 
-  isOverdue, 
-  isDueToday,
-  selectionMode,
-  selectedTasks,
-  swipedTask,
-  swipeOffset,
-  getTaskIcon,
-  getEnclosureName,
-  getAnimalName,
-  formatTime,
-  formatShortDate,
-  onToggleSelection,
-  onEdit,
-  onSkip,
-  onComplete,
-  onTouchStart,
-  onTouchMove,
-  onTouchEnd,
-}: {
-  task: CareTaskWithLogs;
-  isOverdue: boolean;
-  isDueToday: boolean;
-  selectionMode: boolean;
-  selectedTasks: Set<string>;
-  swipedTask: string | null;
-  swipeOffset: number;
-  getTaskIcon: (type: TaskType) => LucideIcon;
-  getEnclosureName: (id?: string) => string | null;
-  getAnimalName: (id?: string) => string | null;
-  formatTime: (time: string) => string;
-  formatShortDate: (date: Date) => string;
-  onToggleSelection: (id: string) => void;
-  onEdit: (id: string) => void;
-  onSkip: (id: string) => void;
-  onComplete: (id: string) => void;
-  onTouchStart: (e: React.TouchEvent, id: string) => void;
-  onTouchMove: (e: React.TouchEvent) => void;
-  onTouchEnd: (e: React.TouchEvent, id: string) => void;
-}) => {
-  const isBeingSwiped = swipedTask === task.id;
-  const swipeTransform = isBeingSwiped ? `translateX(${swipeOffset}px)` : 'translateX(0)';
+const TaskItem = memo(
+  ({
+    task,
+    isOverdue,
+    isDueToday,
+    selectionMode,
+    selectedTasks,
+    swipedTask,
+    swipeOffset,
+    getTaskIcon,
+    getEnclosureName,
+    getAnimalName,
+    formatTime,
+    formatShortDate,
+    onToggleSelection,
+    onEdit,
+    onSkip,
+    onComplete,
+    onTouchStart,
+    onTouchMove,
+    onTouchEnd,
+  }: {
+    task: CareTaskWithLogs;
+    isOverdue: boolean;
+    isDueToday: boolean;
+    selectionMode: boolean;
+    selectedTasks: Set<string>;
+    swipedTask: string | null;
+    swipeOffset: number;
+    getTaskIcon: (type: TaskType) => LucideIcon;
+    getEnclosureName: (id?: string) => string | null;
+    getAnimalName: (id?: string) => string | null;
+    formatTime: (time: string) => string;
+    formatShortDate: (date: Date) => string;
+    onToggleSelection: (id: string) => void;
+    onEdit: (id: string) => void;
+    onSkip: (id: string) => void;
+    onComplete: (id: string) => void;
+    onTouchStart: (e: React.TouchEvent, id: string) => void;
+    onTouchMove: (e: React.TouchEvent) => void;
+    onTouchEnd: (e: React.TouchEvent, id: string) => void;
+  }) => {
+    const isBeingSwiped = swipedTask === task.id;
+    const swipeTransform = isBeingSwiped ? `translateX(${swipeOffset}px)` : 'translateX(0)';
 
-  const animalName = task.enclosureAnimalId ? getAnimalName(task.enclosureAnimalId) : null;
-  const enclosureName = task.enclosureId ? getEnclosureName(task.enclosureId) : null;
-  // Name the animal when we have one; fall back to the enclosure. Showing both
-  // is how "Sir Rand Barnaby · Sir Rand Barnaby" ends up on a row.
-  const subject = animalName ?? enclosureName;
-  // Inside a dated section the date is already stated — only the time adds
-  // anything, and only for tasks that carry one.
-  const when = task.scheduledTime
-    ? (isDueToday || isOverdue
+    const animalName = task.enclosureAnimalId ? getAnimalName(task.enclosureAnimalId) : null;
+    const enclosureName = task.enclosureId ? getEnclosureName(task.enclosureId) : null;
+    // Name the animal when we have one; fall back to the enclosure. Showing both
+    // is how "Sir Rand Barnaby · Sir Rand Barnaby" ends up on a row.
+    const subject = animalName ?? enclosureName;
+    // Inside a dated section the date is already stated — only the time adds
+    // anything, and only for tasks that carry one.
+    const when = task.scheduledTime
+      ? isDueToday || isOverdue
         ? formatTime(task.scheduledTime)
-        : `${formatShortDate(task.nextDueAt)} ${formatTime(task.scheduledTime)}`)
-    : null;
-  const contextLine = [subject, when].filter(Boolean).join(' · ');
+        : `${formatShortDate(task.nextDueAt)} ${formatTime(task.scheduledTime)}`
+      : null;
+    const contextLine = [subject, when].filter(Boolean).join(' · ');
 
-
-  return (
-    <div className="relative overflow-hidden">
-      {/* Swipe Action Background */}
-      <div className="absolute inset-0 sm:hidden flex items-center justify-end px-4 bg-accent">
-        <div className="flex items-center gap-2 text-white font-semibold">
-          <Check className="w-5 h-5" />
-          <span>Complete</span>
-        </div>
-      </div>
-      
-      {/* Task Content */}
-      <div
-        className="relative bg-card px-4 py-3 touch-pan-y"
-        style={{ transform: swipeTransform, transition: isBeingSwiped ? 'none' : 'transform 0.3s ease' }}
-        onTouchStart={(e) => onTouchStart(e, task.id)}
-        onTouchMove={onTouchMove}
-        onTouchEnd={(e) => onTouchEnd(e, task.id)}
-      >
-        <div className="flex items-center gap-3">
-          {selectionMode && (
-            <input
-              type="checkbox"
-              checked={selectedTasks.has(task.id)}
-              onChange={() => onToggleSelection(task.id)}
-              className="w-4 h-4 text-accent border-divider rounded"
-            />
-          )}
-
-          {/* Icon */}
-          <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 ${
-            isOverdue ? 'bg-red-500/15' : isDueToday ? 'bg-accent/15' : 'bg-card-elevated'
-          }`}>
-            {React.createElement(getTaskIcon(task.type), {
-              className: `w-4 h-4 ${isOverdue ? 'text-red-400' : isDueToday ? 'text-accent' : 'text-muted'}`
-            })}
+    return (
+      <div className="relative overflow-hidden">
+        {/* Swipe Action Background */}
+        <div className="absolute inset-0 sm:hidden flex items-center justify-end px-4 bg-accent">
+          <div className="flex items-center gap-2 text-white font-semibold">
+            <Check className="w-5 h-5" />
+            <span>Complete</span>
           </div>
+        </div>
 
-          {/* Content */}
-          <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold text-white truncate">{task.title || 'Untitled Task'}</p>
-            {/* One context line: who and when. The enclosure is dropped when
+        {/* Task Content */}
+        <div
+          className="relative bg-card px-4 py-3 touch-pan-y"
+          style={{
+            transform: swipeTransform,
+            transition: isBeingSwiped ? 'none' : 'transform 0.3s ease',
+          }}
+          onTouchStart={(e) => onTouchStart(e, task.id)}
+          onTouchMove={onTouchMove}
+          onTouchEnd={(e) => onTouchEnd(e, task.id)}
+        >
+          <div className="flex items-center gap-3">
+            {selectionMode && (
+              <input
+                type="checkbox"
+                checked={selectedTasks.has(task.id)}
+                onChange={() => onToggleSelection(task.id)}
+                className="w-4 h-4 text-accent border-divider rounded-xl"
+              />
+            )}
+
+            {/* Icon */}
+            <div
+              className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 ${isOverdue ? 'bg-red-500/15' : isDueToday ? 'bg-accent/15' : 'bg-card-elevated'}`}
+            >
+              {React.createElement(getTaskIcon(task.type), {
+                className: `w-4 h-4 ${isOverdue ? 'text-red-400' : isDueToday ? 'text-accent' : 'text-muted'}`,
+              })}
+            </div>
+
+            {/* Content */}
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-semibold text-white truncate">
+                {task.title || 'Untitled Task'}
+              </p>
+              {/* One context line: who and when. The enclosure is dropped when
                 it repeats the animal's name (keepers often name the tank after
                 the animal), and recurrence + streak move to the edit screen —
                 they're authoring detail, noise while working through a list. */}
-            <p className="text-[11px] text-muted truncate mt-0.5">{contextLine}</p>
-            {task.notes && (
-              <p className="text-[11px] text-muted/80 mt-0.5 truncate">{task.notes}</p>
+              <p className="text-[11px] text-muted truncate mt-0.5">{contextLine}</p>
+              {task.notes && (
+                <p className="text-[11px] text-muted/80 mt-0.5 truncate">{task.notes}</p>
+              )}
+            </div>
+
+            {/* Actions */}
+            {!selectionMode && (
+              <div className="flex items-center gap-1.5 flex-shrink-0">
+                <button
+                  onClick={() => onEdit(task.id)}
+                  className="p-1.5 hover:bg-card-elevated rounded-xl transition-colors"
+                  title="Edit task"
+                >
+                  <Pencil className="w-3.5 h-3.5 text-muted" />
+                </button>
+                <button
+                  onClick={() => onSkip(task.id)}
+                  className="p-1.5 bg-card-elevated text-muted rounded-xl transition-colors hover:text-white"
+                  title="Skip, snooze, or reschedule"
+                >
+                  <SkipForward className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => onComplete(task.id)}
+                  className="p-1.5 bg-accent text-on-accent rounded-xl transition-colors"
+                  title="Mark as done"
+                >
+                  <Check className="w-4 h-4" />
+                </button>
+              </div>
             )}
           </div>
-
-          {/* Actions */}
-          {!selectionMode && (
-            <div className="flex items-center gap-1.5 flex-shrink-0">
-              <button
-                onClick={() => onEdit(task.id)}
-                className="p-1.5 hover:bg-card-elevated rounded-lg transition-colors"
-                title="Edit task"
-              >
-                <Pencil className="w-3.5 h-3.5 text-muted" />
-              </button>
-              <button
-                onClick={() => onSkip(task.id)}
-                className="p-1.5 bg-card-elevated text-muted rounded-lg transition-colors hover:text-white"
-                title="Skip, snooze, or reschedule"
-              >
-                <SkipForward className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => onComplete(task.id)}
-                className="p-1.5 bg-accent text-on-accent rounded-lg transition-colors"
-                title="Mark as done"
-              >
-                <Check className="w-4 h-4" />
-              </button>
-            </div>
-          )}
         </div>
       </div>
-    </div>
-  );
-});
+    );
+  }
+);
 
 TaskItem.displayName = 'TaskItem';
 
@@ -245,7 +259,10 @@ export function CareCalendar() {
   const [rescheduleAt, setRescheduleAt] = useState('');
   const [updateFrequencyOnSkip, setUpdateFrequencyOnSkip] = useState(false);
   const [updatedFrequency, setUpdatedFrequency] = useState<EditableFrequency>('weekly');
-  const [bulkConfirm, setBulkConfirm] = useState<{ label: string; tasks: CareTaskWithLogs[] } | null>(null);
+  const [bulkConfirm, setBulkConfirm] = useState<{
+    label: string;
+    tasks: CareTaskWithLogs[];
+  } | null>(null);
   const [bulkProgress, setBulkProgress] = useState<{ done: number; total: number } | null>(null);
 
   // ALL HOOKS MUST BE CALLED BEFORE ANY RETURNS
@@ -313,7 +330,7 @@ export function CareCalendar() {
 
   const handleCompleteTask = async (taskId: string) => {
     try {
-      const task = tasks.find(t => t.id === taskId);
+      const task = tasks.find((t) => t.id === taskId);
 
       const normalizedType = (task?.type || '').toLowerCase().trim();
       const normalizedTitle = (task?.title || '').toLowerCase();
@@ -327,7 +344,7 @@ export function CareCalendar() {
         normalizedType === 'humidity_check' ||
         normalizedType === 'humidity check' ||
         normalizedTitle.includes('humidity');
-      
+
       // If it's a feeding or gut-load task, show the detailed feeding modal
       if (task && (task.type === 'feeding' || task.type === 'gut-load')) {
         setFeedingTask(task);
@@ -341,7 +358,7 @@ export function CareCalendar() {
         setShowEnvModal(true);
         return;
       }
-      
+
       // For other tasks, complete directly
       await careTaskService.completeTask(taskId);
       await loadTasks(); // Refresh list
@@ -353,7 +370,7 @@ export function CareCalendar() {
 
   const handleFeedingLogSubmit = async (logData: Partial<CareLog>) => {
     if (!feedingTask) return;
-    
+
     try {
       await careTaskService.completeTask(feedingTask.id, logData);
       await loadTasks(); // Refresh list
@@ -379,7 +396,8 @@ export function CareCalendar() {
 
   const openSkipTaskModal = (taskId: string) => {
     const task = tasks.find((t) => t.id === taskId);
-    const initialFrequency = task && task.frequency !== 'custom' ? task.frequency as EditableFrequency : 'weekly';
+    const initialFrequency =
+      task && task.frequency !== 'custom' ? (task.frequency as EditableFrequency) : 'weekly';
     const defaultReschedule = task?.nextDueAt ?? new Date(Date.now() + 24 * 60 * 60 * 1000);
 
     setSkipTaskId(taskId);
@@ -441,10 +459,6 @@ export function CareCalendar() {
     }
   };
 
-
-
-
-
   const getTaskIcon = (type: TaskType): LucideIcon => {
     const icons: Record<TaskType, LucideIcon> = {
       feeding: UtensilsCrossed,
@@ -469,17 +483,13 @@ export function CareCalendar() {
     return icons[type] || FileText;
   };
 
-
-
-
-
   const formatTime = (time?: string): string | null => {
     if (!time) return null;
-    
+
     const [hours, minutes] = time.split(':').map(Number);
     const period = hours >= 12 ? 'PM' : 'AM';
     const displayHours = hours % 12 || 12;
-    
+
     return `${displayHours}:${minutes.toString().padStart(2, '0')} ${period}`;
   };
 
@@ -490,14 +500,14 @@ export function CareCalendar() {
   const getTimeBlock = (date: Date): TimeBlock => {
     const now = new Date();
     const hours = date.getHours(); // Local hour for time-of-day blocks
-    
+
     // Overdue
     if (date < now) return 'overdue';
-    
+
     // Use local dates for calendar day comparison (users think in their local timezone)
     const todayLocal = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
     const dateLocal = new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
-    
+
     // Today
     if (dateLocal === todayLocal) {
       if (hours < 12) return 'morning';
@@ -505,15 +515,15 @@ export function CareCalendar() {
       if (hours < 21) return 'evening';
       return 'night';
     }
-    
+
     // Tomorrow
-    const tomorrowLocal = todayLocal + (24 * 60 * 60 * 1000);
+    const tomorrowLocal = todayLocal + 24 * 60 * 60 * 1000;
     if (dateLocal === tomorrowLocal) return 'tomorrow';
-    
+
     // This week (next 7 days from today)
-    const weekEndLocal = todayLocal + (7 * 24 * 60 * 60 * 1000);
+    const weekEndLocal = todayLocal + 7 * 24 * 60 * 60 * 1000;
     if (dateLocal < weekEndLocal) return 'week';
-    
+
     // Future (more than 7 days away)
     return 'future';
   };
@@ -627,12 +637,12 @@ export function CareCalendar() {
 
     // Say exactly what happened, naming what didn't work.
     if (failed.length === 0) {
-      showToast(
-        `${completed} ${completed === 1 ? 'task' : 'tasks'} marked done`,
-        'success'
-      );
+      showToast(`${completed} ${completed === 1 ? 'task' : 'tasks'} marked done`, 'success');
     } else if (completed === 0) {
-      showToast(`Couldn't complete ${failed.length === 1 ? failed[0] : `${failed.length} tasks`}`, 'error');
+      showToast(
+        `Couldn't complete ${failed.length === 1 ? failed[0] : `${failed.length} tasks`}`,
+        'error'
+      );
     } else {
       showToast(
         `${completed} done · ${failed.length} failed (${failed.slice(0, 2).join(', ')}${failed.length > 2 ? '…' : ''})`,
@@ -643,7 +653,7 @@ export function CareCalendar() {
   };
 
   const toggleTaskSelection = (taskId: string) => {
-    setSelectedTasks(prev => {
+    setSelectedTasks((prev) => {
       const newSet = new Set(prev);
       if (newSet.has(taskId)) {
         newSet.delete(taskId);
@@ -659,9 +669,9 @@ export function CareCalendar() {
   };
 
   const selectAllInBlock = (taskIds: string[]) => {
-    setSelectedTasks(prev => {
+    setSelectedTasks((prev) => {
       const newSet = new Set(prev);
-      taskIds.forEach(id => newSet.add(id));
+      taskIds.forEach((id) => newSet.add(id));
       return newSet;
     });
     setSelectionMode(true);
@@ -686,7 +696,7 @@ export function CareCalendar() {
     const touch = e.touches[0];
     const startX = (e.currentTarget as any).swipeStartX;
     const diff = touch.clientX - startX;
-    
+
     // Only allow left swipe (negative diff)
     if (diff < 0) {
       setSwipeOffset(Math.max(diff, -120)); // Max swipe distance
@@ -695,28 +705,30 @@ export function CareCalendar() {
 
   const handleTouchEnd = async (_e: React.TouchEvent, taskId: string) => {
     if (!swipedTask || selectionMode) return;
-    
+
     // If swiped more than 80px, complete the task
     if (swipeOffset < -80) {
       await handleCompleteTask(taskId);
     }
-    
+
     // Reset swipe state
     setSwipedTask(null);
     setSwipeOffset(0);
   };
 
   // Helper to get enclosure name
-  let filteredTasks = filterEnclosureId === ''
-    ? tasks // Show all
-    : filterEnclosureId === 'none'
-    ? tasks.filter(t => !t.enclosureId) // Show tasks without enclosure
-    : tasks.filter(t => t.enclosureId === filterEnclosureId); // Show specific enclosure
+  let filteredTasks =
+    filterEnclosureId === ''
+      ? tasks // Show all
+      : filterEnclosureId === 'none'
+        ? tasks.filter((t) => !t.enclosureId) // Show tasks without enclosure
+        : tasks.filter((t) => t.enclosureId === filterEnclosureId); // Show specific enclosure
 
   if (filterAnimalId !== '') {
-    filteredTasks = filterAnimalId === 'none'
-      ? filteredTasks.filter(t => !t.enclosureAnimalId)
-      : filteredTasks.filter(t => t.enclosureAnimalId === filterAnimalId);
+    filteredTasks =
+      filterAnimalId === 'none'
+        ? filteredTasks.filter((t) => !t.enclosureAnimalId)
+        : filteredTasks.filter((t) => t.enclosureAnimalId === filterAnimalId);
   }
 
   // Apply view mode filter
@@ -729,17 +741,16 @@ export function CareCalendar() {
   weekEnd.setDate(weekEnd.getDate() + 7);
 
   if (viewMode === 'today') {
-    filteredTasks = filteredTasks.filter(t => {
+    filteredTasks = filteredTasks.filter((t) => {
       const taskDate = new Date(t.nextDueAt);
       return taskDate < tomorrow || taskDate < now; // Include overdue and today
     });
   } else if (viewMode === 'week') {
-    filteredTasks = filteredTasks.filter(t => {
+    filteredTasks = filteredTasks.filter((t) => {
       const taskDate = new Date(t.nextDueAt);
       return taskDate < weekEnd;
     });
   }
-
 
   const reliabilityWindowDays = 30;
   const reliabilityWindowStart = new Date(now);
@@ -775,7 +786,7 @@ export function CareCalendar() {
       const expected = expectedCountForTask(task);
       if (expected <= 0) return acc;
       const completed = task.logs.filter(
-        log => !log.skipped && new Date(log.completedAt) >= reliabilityWindowStart
+        (log) => !log.skipped && new Date(log.completedAt) >= reliabilityWindowStart
       ).length;
       return {
         expected: acc.expected + expected,
@@ -785,34 +796,47 @@ export function CareCalendar() {
     { expected: 0, completed: 0 }
   );
 
-  const reliabilityScore = reliabilityTotals.expected > 0
-    ? Math.round((reliabilityTotals.completed / reliabilityTotals.expected) * 100)
-    : 0;
+  const reliabilityScore =
+    reliabilityTotals.expected > 0
+      ? Math.round((reliabilityTotals.completed / reliabilityTotals.expected) * 100)
+      : 0;
 
   // Group tasks by time block
-  const groupedTasks = filteredTasks.reduce((acc, task) => {
-    const block = getTimeBlock(task.nextDueAt);
-    if (!acc[block]) acc[block] = [];
-    acc[block].push(task);
-    return acc;
-  }, {} as Record<TimeBlock, CareTaskWithLogs[]>);
+  const groupedTasks = filteredTasks.reduce(
+    (acc, task) => {
+      const block = getTimeBlock(task.nextDueAt);
+      if (!acc[block]) acc[block] = [];
+      acc[block].push(task);
+      return acc;
+    },
+    {} as Record<TimeBlock, CareTaskWithLogs[]>
+  );
 
   // Define display order for time blocks
-  const blockOrder: TimeBlock[] = ['overdue', 'morning', 'afternoon', 'evening', 'night', 'tomorrow', 'week', 'future'];
-  const visibleBlocks = blockOrder.filter(block => groupedTasks[block]?.length > 0);
+  const blockOrder: TimeBlock[] = [
+    'overdue',
+    'morning',
+    'afternoon',
+    'evening',
+    'night',
+    'tomorrow',
+    'week',
+    'future',
+  ];
+  const visibleBlocks = blockOrder.filter((block) => groupedTasks[block]?.length > 0);
 
   // Helper to get enclosure name
   const getEnclosureName = (enclosureId?: string) => {
     if (!enclosureId) return null;
-    const enclosure = enclosures.find(e => e.id === enclosureId);
+    const enclosure = enclosures.find((e) => e.id === enclosureId);
     return enclosure ? enclosure.name : 'Unknown';
   };
 
   // Helper to get animal name
   const getAnimalName = (animalId?: string) => {
     if (!animalId) return null;
-    const animal = animals.find(a => a.id === animalId);
-    return animal ? (animal.name || `Animal #${animal.animalNumber || '?'}`) : 'Unknown Animal';
+    const animal = animals.find((a) => a.id === animalId);
+    return animal ? animal.name || `Animal #${animal.animalNumber || '?'}` : 'Unknown Animal';
   };
 
   if (loading) {
@@ -849,7 +873,11 @@ export function CareCalendar() {
           )}
           {enclosures.length > 0 && (
             <button
-              onClick={() => navigate(`/care-calendar/tasks/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
+              onClick={() =>
+                navigate(
+                  `/care-calendar/tasks/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`
+                )
+              }
               className="flex items-center gap-1.5 bg-accent text-on-accent font-semibold px-3 py-1.5 rounded-full text-sm active:scale-95 transition-transform"
             >
               <Plus className="w-4 h-4" />
@@ -858,11 +886,11 @@ export function CareCalendar() {
           )}
           <button
             onClick={() => setViewMode(viewMode === 'analytics' ? 'week' : 'analytics')}
-            className={`w-9 h-9 rounded-full border flex items-center justify-center active:scale-95 transition-transform ${
-              viewMode === 'analytics' ? 'bg-accent border-accent text-on-accent' : 'bg-card border-divider'
-            }`}
+            className={`w-9 h-9 rounded-full border flex items-center justify-center active:scale-95 transition-transform ${viewMode === 'analytics' ? 'bg-accent border-accent text-on-accent' : 'bg-card border-divider'}`}
           >
-            <BarChart3 className={`w-4 h-4 ${viewMode === 'analytics' ? 'text-on-accent' : 'text-muted'}`} />
+            <BarChart3
+              className={`w-4 h-4 ${viewMode === 'analytics' ? 'text-on-accent' : 'text-muted'}`}
+            />
           </button>
         </div>
       </div>
@@ -870,7 +898,9 @@ export function CareCalendar() {
       {viewMode === 'analytics' ? (
         isPremium ? (
           <div className="px-4 pt-2">
-            <CareAnalyticsDashboard consistencyScore={reliabilityTotals.expected > 0 ? reliabilityScore : null} />
+            <CareAnalyticsDashboard
+              consistencyScore={reliabilityTotals.expected > 0 ? reliabilityScore : null}
+            />
           </div>
         ) : (
           <div className="px-4 pt-2">
@@ -880,7 +910,7 @@ export function CareCalendar() {
       ) : (
         <div className="space-y-4 pt-2">
           {/* Progress — a care routine is something you finish, and the page
-              never used to say so. */}
+ never used to say so. */}
           {todayProgress.total > 0 && (
             <div className="px-4">
               <div className="flex items-baseline justify-between mb-1.5">
@@ -891,9 +921,7 @@ export function CareCalendar() {
                   done today
                 </span>
                 {overdueCount > 0 && (
-                  <span className="text-xs font-semibold text-red-300">
-                    {overdueCount} overdue
-                  </span>
+                  <span className="text-xs font-semibold text-red-300">{overdueCount} overdue</span>
                 )}
               </div>
               <div className="h-1 bg-card rounded-full overflow-hidden">
@@ -914,19 +942,17 @@ export function CareCalendar() {
                   <button
                     key={mode}
                     onClick={() => setViewMode(mode)}
-                    className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
-                      viewMode === mode ? 'bg-accent text-on-accent' : 'bg-card text-muted border border-divider'
-                    }`}
+                    className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${viewMode === mode ? 'bg-accent text-on-accent' : 'bg-card text-muted border border-divider'}`}
                   >
                     {mode === 'today' ? 'Today' : mode === 'week' ? 'This Week' : 'All Tasks'}
                   </button>
                 ))}
               </div>
               {/* One scope control. Previously this was an enclosure pill row
-                  labelled "All Pets" sitting above an animal dropdown labelled
-                  "All Animals" — two filters whose labels contradicted what
-                  they actually filtered. Animals are nested under the
-                  enclosure they live in, so one control covers both. */}
+ labelled "All Pets" sitting above an animal dropdown labelled
+ "All Animals" — two filters whose labels contradicted what
+ they actually filtered. Animals are nested under the
+ enclosure they live in, so one control covers both. */}
               {(enclosures.length > 1 || animals.length > 0) && (
                 <div className="relative">
                   <select
@@ -953,7 +979,6 @@ export function CareCalendar() {
                   <ChevronDown className="w-4 h-4 text-muted absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               )}
-
             </div>
           )}
 
@@ -965,9 +990,17 @@ export function CareCalendar() {
                 <h2 className="text-sm font-semibold text-white">Welcome to Care Tasks!</h2>
               </div>
               <div className="space-y-2 text-xs text-muted">
-                <p><span className="text-white font-medium">Step 1:</span> Create your first pet enclosure</p>
-                <p><span className="text-white font-medium">Step 2:</span> Add recurring care tasks</p>
-                <p><span className="text-white font-medium">Step 3:</span> Complete tasks to build your streak!</p>
+                <p>
+                  <span className="text-white font-medium">Step 1:</span> Create your first pet
+                  enclosure
+                </p>
+                <p>
+                  <span className="text-white font-medium">Step 2:</span> Add recurring care tasks
+                </p>
+                <p>
+                  <span className="text-white font-medium">Step 3:</span> Complete tasks to build
+                  your streak!
+                </p>
               </div>
             </div>
           )}
@@ -975,27 +1008,36 @@ export function CareCalendar() {
           {/* No enclosure empty */}
           {enclosures.length === 0 && (
             <div className="mx-4 bg-card border border-dashed border-divider rounded-2xl p-8 text-center">
-              <p className="text-muted text-sm">Create a pet enclosure to start adding care tasks</p>
+              <p className="text-muted text-sm">
+                Create a pet enclosure to start adding care tasks
+              </p>
             </div>
           )}
 
           {/* Task groups */}
           {enclosures.length > 0 && filteredTasks.length > 0 && (
             <div className="space-y-3 px-4">
-              {visibleBlocks.map(block => {
+              {visibleBlocks.map((block) => {
                 const blockTasks = groupedTasks[block];
                 const isExpanded = true;
                 const isOverdue = block === 'overdue';
 
                 return (
-                  <div key={block} className={`bg-card border rounded-2xl overflow-hidden ${isOverdue ? 'border-red-500/40' : 'border-divider'}`}>
+                  <div
+                    key={block}
+                    className={`bg-card border rounded-2xl overflow-hidden ${isOverdue ? 'border-red-500/40' : 'border-divider'}`}
+                  >
                     {/* Section header */}
-                    <div className={`flex items-center justify-between px-4 pt-3.5 pb-3 ${isExpanded ? 'border-b border-divider' : ''}`}>
+                    <div
+                      className={`flex items-center justify-between px-4 pt-3.5 pb-3 ${isExpanded ? 'border-b border-divider' : ''}`}
+                    >
                       <div className="flex items-center gap-2 flex-1 text-left">
                         {React.createElement(getTimeBlockIcon(block), {
-                          className: `w-4 h-4 ${isOverdue ? 'text-red-400' : 'text-muted'}`
+                          className: `w-4 h-4 ${isOverdue ? 'text-red-400' : 'text-muted'}`,
                         })}
-                        <span className={`text-sm font-semibold ${isOverdue ? 'text-red-400' : 'text-white'}`}>
+                        <span
+                          className={`text-sm font-semibold ${isOverdue ? 'text-red-400' : 'text-white'}`}
+                        >
                           {getTimeBlockLabel(block)}
                         </span>
                         <span className="text-xs text-muted">({blockTasks.length})</span>
@@ -1003,13 +1045,15 @@ export function CareCalendar() {
                       </div>
                       {isExpanded && blockTasks.length > 1 && (
                         <button
-                          onClick={() => selectionMode
-                            ? selectAllInBlock(blockTasks.map(t => t.id))
-                            : void completeBulkTasks(blockTasks.map(t => t.id), getTimeBlockLabel(block))
+                          onClick={() =>
+                            selectionMode
+                              ? selectAllInBlock(blockTasks.map((t) => t.id))
+                              : void completeBulkTasks(
+                                  blockTasks.map((t) => t.id),
+                                  getTimeBlockLabel(block)
+                                )
                           }
-                          className={`ml-3 px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1 ${
-                            isOverdue ? 'bg-red-500/20 text-red-400' : 'bg-accent/15 text-accent'
-                          }`}
+                          className={`ml-3 px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1 ${isOverdue ? 'bg-red-500/20 text-red-400' : 'bg-accent/15 text-accent'}`}
                         >
                           <Check className="w-3 h-3" />
                           {selectionMode ? 'Select All' : 'All Done'}
@@ -1020,8 +1064,9 @@ export function CareCalendar() {
                     {/* Task list */}
                     {isExpanded && (
                       <div className="divide-y divide-divider">
-                        {blockTasks.map(task => {
-                          const isDueToday = task.nextDueAt.toDateString() === new Date().toDateString();
+                        {blockTasks.map((task) => {
+                          const isDueToday =
+                            task.nextDueAt.toDateString() === new Date().toDateString();
                           return (
                             <TaskItem
                               key={task.id}
@@ -1038,7 +1083,11 @@ export function CareCalendar() {
                               formatTime={formatTime}
                               formatShortDate={formatShortDate}
                               onToggleSelection={toggleTaskSelection}
-                              onEdit={(id) => navigate(`/care-calendar/tasks/edit/${id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
+                              onEdit={(id) =>
+                                navigate(
+                                  `/care-calendar/tasks/edit/${id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`
+                                )
+                              }
                               onSkip={openSkipTaskModal}
                               onComplete={handleCompleteTask}
                               onTouchStart={handleTouchStart}
@@ -1063,8 +1112,8 @@ export function CareCalendar() {
                 {viewMode === 'today'
                   ? 'All caught up for today!'
                   : viewMode === 'week'
-                  ? 'No tasks due this week.'
-                  : 'No tasks yet. Tap "Add Task" to get started.'}
+                    ? 'No tasks due this week.'
+                    : 'No tasks yet. Tap "Add Task" to get started.'}
               </p>
             </div>
           )}
@@ -1080,16 +1129,18 @@ export function CareCalendar() {
 
       {/* Bulk action bar */}
       {selectedTasks.size > 0 && (
-        <div className="fixed bottom-16 sm:bottom-0 left-0 right-0 bg-card border-t border-divider shadow-lg z-50">
+        <div className="fixed bottom-16 sm:bottom-0 left-0 right-0 bg-card border-t border-divider z-50">
           <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <span className="text-sm font-medium text-white">
-                {selectedTasks.size} selected
-              </span>
-              <button onClick={deselectAll} className="text-sm text-muted">Clear</button>
+              <span className="text-sm font-medium text-white">{selectedTasks.size} selected</span>
+              <button onClick={deselectAll} className="text-sm text-muted">
+                Clear
+              </button>
             </div>
             <button
-              onClick={() => { void completeBulkTasks(Array.from(selectedTasks), 'your selection'); }}
+              onClick={() => {
+                void completeBulkTasks(Array.from(selectedTasks), 'your selection');
+              }}
               className="px-4 py-2 bg-accent text-on-accent rounded-full font-semibold text-sm flex items-center gap-2"
             >
               <Check className="w-4 h-4" />
@@ -1109,7 +1160,10 @@ export function CareCalendar() {
             envTask.enclosureAnimalId ||
             animals.find((a) => a.enclosureId === envTask.enclosureId)?.id
           }
-          onClose={() => { setShowEnvModal(false); setEnvTask(null); }}
+          onClose={() => {
+            setShowEnvModal(false);
+            setEnvTask(null);
+          }}
           onSubmit={async () => {
             await careTaskService.completeTask(envTask.id);
             await loadTasks();
@@ -1137,11 +1191,13 @@ export function CareCalendar() {
           <div className="w-full max-w-sm bg-card border border-divider rounded-2xl overflow-hidden">
             <div className="p-5">
               <h3 className="text-base font-bold text-white">
-                Mark {bulkConfirm.tasks.length} {bulkConfirm.tasks.length === 1 ? 'task' : 'tasks'} done?
+                Mark {bulkConfirm.tasks.length} {bulkConfirm.tasks.length === 1 ? 'task' : 'tasks'}{' '}
+                done?
               </h3>
               <p className="text-xs text-muted mt-1.5 leading-relaxed">
-                This logs {bulkConfirm.tasks.length === 1 ? 'it' : 'them'} as completed now in {bulkConfirm.label}.
-                Feeding tasks also record a feeding, which health tracking reads. There&apos;s no undo.
+                This logs {bulkConfirm.tasks.length === 1 ? 'it' : 'them'} as completed now in{' '}
+                {bulkConfirm.label}. Feeding tasks also record a feeding, which health tracking
+                reads. There&apos;s no undo.
               </p>
 
               <ul className="mt-3.5 space-y-1.5 max-h-44 overflow-y-auto">
@@ -1150,7 +1206,9 @@ export function CareCalendar() {
                     <Check className="w-3.5 h-3.5 text-accent flex-shrink-0" />
                     <span className="truncate">{task.title || 'Untitled task'}</span>
                     {task.type === 'feeding' && (
-                      <span className="ml-auto text-[10px] text-muted flex-shrink-0">logs feeding</span>
+                      <span className="ml-auto text-[10px] text-muted flex-shrink-0">
+                        logs feeding
+                      </span>
                     )}
                   </li>
                 ))}
@@ -1182,7 +1240,9 @@ export function CareCalendar() {
               </button>
               <button
                 type="button"
-                onClick={() => { void runBulkComplete(); }}
+                onClick={() => {
+                  void runBulkComplete();
+                }}
                 disabled={bulkProgress !== null}
                 className="flex-1 min-h-[48px] text-sm font-bold text-accent active:opacity-70 disabled:opacity-40"
               >
@@ -1203,8 +1263,8 @@ export function CareCalendar() {
                 {actionMode === 'skip'
                   ? 'Skip this occurrence and keep a reason in your history.'
                   : actionMode === 'snooze'
-                  ? 'Move this occurrence out by a short amount of time.'
-                  : 'Set an exact new due date and time for this occurrence.'}
+                    ? 'Move this occurrence out by a short amount of time.'
+                    : 'Set an exact new due date and time for this occurrence.'}
               </p>
             </div>
             <div className="px-4 py-3 space-y-3">
@@ -1212,33 +1272,21 @@ export function CareCalendar() {
                 <button
                   type="button"
                   onClick={() => setActionMode('skip')}
-                  className={`px-3 py-2 rounded-xl text-xs font-semibold border ${
-                    actionMode === 'skip'
-                      ? 'bg-amber-500/20 border-amber-500/50 text-amber-300'
-                      : 'bg-card-elevated border-divider text-muted'
-                  }`}
+                  className={`px-3 py-2 rounded-xl text-xs font-semibold border ${actionMode === 'skip' ? 'bg-amber-500/20 border-amber-500/50 text-amber-300' : 'bg-card-elevated border-divider text-muted'}`}
                 >
                   Skip
                 </button>
                 <button
                   type="button"
                   onClick={() => setActionMode('snooze')}
-                  className={`px-3 py-2 rounded-xl text-xs font-semibold border ${
-                    actionMode === 'snooze'
-                      ? 'bg-blue-500/20 border-blue-500/50 text-blue-300'
-                      : 'bg-card-elevated border-divider text-muted'
-                  }`}
+                  className={`px-3 py-2 rounded-xl text-xs font-semibold border ${actionMode === 'snooze' ? 'bg-blue-500/20 border-blue-500/50 text-blue-300' : 'bg-card-elevated border-divider text-muted'}`}
                 >
                   Snooze
                 </button>
                 <button
                   type="button"
                   onClick={() => setActionMode('reschedule')}
-                  className={`px-3 py-2 rounded-xl text-xs font-semibold border ${
-                    actionMode === 'reschedule'
-                      ? 'bg-violet-500/20 border-violet-500/50 text-violet-300'
-                      : 'bg-card-elevated border-divider text-muted'
-                  }`}
+                  className={`px-3 py-2 rounded-xl text-xs font-semibold border ${actionMode === 'reschedule' ? 'bg-violet-500/20 border-violet-500/50 text-violet-300' : 'bg-card-elevated border-divider text-muted'}`}
                 >
                   Reschedule
                 </button>
@@ -1247,7 +1295,9 @@ export function CareCalendar() {
               {actionMode === 'skip' && (
                 <>
                   <div>
-                    <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Reason</label>
+                    <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+                      Reason
+                    </label>
                     <textarea
                       value={skipReason}
                       onChange={(e) => setSkipReason(e.target.value)}
@@ -1262,14 +1312,16 @@ export function CareCalendar() {
                       type="checkbox"
                       checked={updateFrequencyOnSkip}
                       onChange={(e) => setUpdateFrequencyOnSkip(e.target.checked)}
-                      className="w-4 h-4 rounded border-divider bg-card-elevated text-accent"
+                      className="w-4 h-4 rounded-xl border-divider bg-card-elevated text-accent"
                     />
                     Update frequency for future occurrences
                   </label>
 
                   {updateFrequencyOnSkip && (
                     <div>
-                      <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">New Frequency</label>
+                      <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+                        New Frequency
+                      </label>
                       <select
                         value={updatedFrequency}
                         onChange={(e) => setUpdatedFrequency(e.target.value as EditableFrequency)}
@@ -1288,7 +1340,9 @@ export function CareCalendar() {
 
               {actionMode === 'snooze' && (
                 <div>
-                  <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">Snooze Duration</label>
+                  <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+                    Snooze Duration
+                  </label>
                   <select
                     value={snoozeHours}
                     onChange={(e) => setSnoozeHours(Number(e.target.value))}
@@ -1296,7 +1350,9 @@ export function CareCalendar() {
                   >
                     {SNOOZE_OPTIONS_HOURS.map((hours) => (
                       <option key={hours} value={hours}>
-                        {hours < 24 ? `${hours} hour${hours === 1 ? '' : 's'}` : `${hours / 24} day${hours / 24 === 1 ? '' : 's'}`}
+                        {hours < 24
+                          ? `${hours} hour${hours === 1 ? '' : 's'}`
+                          : `${hours / 24} day${hours / 24 === 1 ? '' : 's'}`}
                       </option>
                     ))}
                   </select>
@@ -1305,7 +1361,9 @@ export function CareCalendar() {
 
               {actionMode === 'reschedule' && (
                 <div>
-                  <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">New Due Date & Time</label>
+                  <label className="block text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+                    New Due Date & Time
+                  </label>
                   <input
                     type="datetime-local"
                     value={rescheduleAt}
@@ -1330,7 +1388,11 @@ export function CareCalendar() {
                 disabled={actionMode === 'skip' && skipReason.trim().length === 0}
                 className="px-4 py-2 rounded-full bg-accent text-on-accent text-sm font-semibold disabled:opacity-50"
               >
-                {actionMode === 'skip' ? 'Skip Task' : actionMode === 'snooze' ? 'Snooze Task' : 'Reschedule Task'}
+                {actionMode === 'skip'
+                  ? 'Skip Task'
+                  : actionMode === 'snooze'
+                    ? 'Snooze Task'
+                    : 'Reschedule Task'}
               </button>
             </div>
           </div>
@@ -1339,4 +1401,3 @@ export function CareCalendar() {
     </div>
   );
 }
-

@@ -76,7 +76,9 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
     };
 
     return (
-      <span className={`px-2 py-1 rounded-full text-xs font-semibold ${styles[type] || styles.other}`}>
+      <span
+        className={`px-2 py-1 rounded-full text-xs font-semibold ${styles[type] || styles.other}`}
+      >
         {labels[type] || type}
       </span>
     );
@@ -86,7 +88,7 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
     return (
       <div className="space-y-2">
         {[...Array(3)].map((_, i) => (
-          <div key={i} className="animate-pulse bg-card-elevated rounded-lg h-32"></div>
+          <div key={i} className="animate-pulse bg-card-elevated rounded-xl h-32"></div>
         ))}
       </div>
     );
@@ -109,7 +111,7 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
       {records.map((record) => {
         if (editingRecord?.id === record.id) {
           return (
-            <div key={record.id} className="bg-surface rounded-lg p-3 border border-divider">
+            <div key={record.id} className="bg-surface rounded-xl p-3 border border-divider">
               <VetRecordForm
                 animal={animal}
                 onSuccess={handleEditSuccess}
@@ -133,10 +135,7 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
         }
 
         return (
-          <div
-            key={record.id}
-            className="bg-surface rounded-lg p-3 border border-divider"
-          >
+          <div key={record.id} className="bg-surface rounded-xl p-3 border border-divider">
             <div className="flex justify-between items-start gap-3">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
@@ -195,14 +194,14 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
               <div className="flex items-center gap-1.5">
                 <button
                   onClick={() => setEditingRecord(record)}
-                  className="px-2 py-1 rounded-md border border-divider bg-card text-white hover:bg-card-elevated"
+                  className="px-2 py-1 rounded-xl border border-divider bg-card text-white hover:bg-card-elevated"
                   title="Edit"
                 >
                   <Edit2 className="w-3.5 h-3.5" />
                 </button>
                 <button
                   onClick={() => handleDelete(record.id)}
-                  className="px-2 py-1 rounded-md border border-red-400/30 bg-red-500/10 text-red-300 hover:bg-red-500/20"
+                  className="px-2 py-1 rounded-xl border border-red-400/30 bg-red-500/10 text-red-300 hover:bg-red-500/20"
                   title="Delete"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
@@ -215,7 +214,3 @@ export function VetRecordList({ animal, refreshKey, onUpdate }: VetRecordListPro
     </div>
   );
 }
-
-
-
-

@@ -167,7 +167,7 @@ export function InventoryReminders() {
             </div>
             <button
               onClick={() => navigate(`/inventory/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-              className="p-2.5 bg-accent hover:bg-accent-dim text-white rounded-lg transition-colors flex-shrink-0"
+              className="p-2.5 bg-accent hover:bg-accent-dim text-white rounded-xl transition-colors flex-shrink-0"
               title="Add Item"
             >
               <Plus className="w-6 h-6" />
@@ -209,7 +209,7 @@ export function InventoryReminders() {
               placeholder="Search inventory..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-card border border-divider rounded-lg pl-10 pr-4 py-2.5 text-white placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+              className="w-full bg-card border border-divider rounded-xl pl-10 pr-4 py-2.5 text-white placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
             />
           </div>
         </div>
@@ -218,7 +218,7 @@ export function InventoryReminders() {
       {/* Content */}
       <div className="max-w-7xl mx-auto px-4 py-6">
         {error && (
-          <div className="bg-rose-500/10 border border-rose-500/30 text-rose-300 rounded-lg p-4 mb-6">
+          <div className="bg-rose-500/10 border border-rose-500/30 text-rose-300 rounded-xl p-4 mb-6">
             {error}
           </div>
         )}
@@ -250,13 +250,7 @@ export function InventoryReminders() {
                     {/* Header - Title and Status Badge */}
                     <div className="flex items-start justify-between gap-3">
                       <h3 className="text-lg font-semibold text-white flex-1">{item.title}</h3>
-                      <span className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap flex-shrink-0 flex items-center gap-1 ${
-                        status === 'overdue'
-                          ? 'bg-rose-500/20 text-rose-300'
-                          : status === 'due-soon'
-                            ? 'bg-amber-500/20 text-amber-300'
-                            : 'bg-accent/20 text-accent'
-                      }`}>
+                      <span className={`px-2.5 py-1 rounded-xl text-xs font-semibold whitespace-nowrap flex-shrink-0 flex items-center gap-1 ${ status === 'overdue' ? 'bg-rose-500/20 text-rose-300' : status === 'due-soon' ? 'bg-amber-500/20 text-amber-300' : 'bg-accent/20 text-accent' }`}>
                         {status === 'overdue' ? 'Overdue' : status === 'due-soon' ? 'Due Soon' : 'On Track'}
                       </span>
                     </div>
@@ -285,13 +279,7 @@ export function InventoryReminders() {
                       <div className="flex items-center gap-2 mb-1">
                         <div className="flex-1 h-2.5 bg-card-elevated rounded-full overflow-hidden">
                           <div
-                            className={`h-full transition-all ${
-                              status === 'overdue'
-                                ? 'bg-rose-500'
-                                : status === 'due-soon'
-                                  ? 'bg-amber-500'
-                                  : 'bg-accent'
-                            }`}
+                            className={`h-full transition-all ${ status === 'overdue' ? 'bg-rose-500' : status === 'due-soon' ? 'bg-amber-500' : 'bg-accent' }`}
                             style={{
                               width: `${Math.max(0, Math.min(100, (Math.max(0, daysLeft) / 30) * 100))}%`
                             }}
@@ -309,14 +297,14 @@ export function InventoryReminders() {
                     <div className="flex items-center gap-2 pt-2">
                         <button
                           onClick={() => handleMarkReplaced(item.id)}
-                          className="px-3 py-1.5 bg-accent hover:bg-accent-dim text-white text-xs font-medium rounded-lg transition-colors flex items-center gap-1.5 whitespace-nowrap"
+                          className="px-3 py-1.5 bg-accent hover:bg-accent-dim text-white text-xs font-medium rounded-xl transition-colors flex items-center gap-1.5 whitespace-nowrap"
                         >
                           <Check className="w-3.5 h-3.5" />
                           Mark Replaced
                         </button>
                         <button
                           onClick={() => navigate(`/inventory/edit/${item.id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-                          className="px-3 py-1.5 border border-divider hover:bg-card-elevated text-muted hover:text-white text-xs font-medium rounded-lg transition-colors flex items-center gap-1.5 whitespace-nowrap"
+                          className="px-3 py-1.5 border border-divider hover:bg-card-elevated text-muted hover:text-white text-xs font-medium rounded-xl transition-colors flex items-center gap-1.5 whitespace-nowrap"
                         >
                           <Pencil className="w-3.5 h-3.5" />
                           Edit
@@ -326,7 +314,7 @@ export function InventoryReminders() {
                               href={buyAgainUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="px-3 py-1.5 border border-divider hover:bg-card-elevated text-muted hover:text-white text-xs font-medium rounded-lg transition-colors flex items-center gap-1.5 whitespace-nowrap"
+                              className="px-3 py-1.5 border border-divider hover:bg-card-elevated text-muted hover:text-white text-xs font-medium rounded-xl transition-colors flex items-center gap-1.5 whitespace-nowrap"
                             >
                               <LinkIcon className="w-3.5 h-3.5" />
                               Buy

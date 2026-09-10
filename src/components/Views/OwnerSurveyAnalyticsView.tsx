@@ -4,7 +4,7 @@ import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Too
 import { ownerDashboardService, type OwnerSurveyAnalytics, type OwnerSurveyDistribution } from '../../services/ownerDashboardService';
 import { OwnerSectionNav } from '../OwnerDashboard/OwnerSectionNav';
 
-const cardClassName = 'rounded-xl border border-divider bg-card p-4 shadow-sm';
+const cardClassName = 'rounded-xl border border-divider bg-card p-4 ';
 
 const distributionTitles: Array<{
   key: keyof Pick<OwnerSurveyAnalytics, 'heardAboutUs' | 'keeperLevel' | 'primaryGoal' | 'biggestChallenge' | 'requestedFeature' | 'animalsSelected'>;
@@ -48,7 +48,7 @@ function MetricCard({
           <p className="mt-2 text-3xl font-semibold text-white">{value}</p>
           <p className="mt-2 text-sm text-muted">{subtitle}</p>
         </div>
-        <div className="rounded-lg bg-indigo-100 p-2.5 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">
+        <div className="rounded-xl bg-indigo-100 p-2.5 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">
           <Icon className="h-5 w-5" />
         </div>
       </div>
@@ -126,7 +126,7 @@ export function OwnerSurveyAnalyticsView() {
           <button
             onClick={() => loadAnalytics()}
             disabled={loading}
-            className="inline-flex items-center gap-2 rounded-lg border border-divider px-3 py-2 text-sm font-medium text-secondary hover:bg-card disabled:opacity-60 dark:border-divider dark:text-white dark:hover:bg-card-elevated"
+            className="inline-flex items-center gap-2 rounded-xl border border-divider px-3 py-2 text-sm font-medium text-secondary hover:bg-card disabled:opacity-60 dark:border-divider dark:text-white dark:hover:bg-card-elevated"
           >
             <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
             Refresh
@@ -137,7 +137,7 @@ export function OwnerSurveyAnalyticsView() {
       <OwnerSectionNav />
 
       {error && (
-        <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-900 dark:border-red-800 dark:bg-red-900/20 dark:text-red-200">
+        <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-900 dark:border-red-800 dark:bg-red-900/20 dark:text-red-200">
           Failed to load survey analytics: {error}
         </div>
       )}
@@ -228,7 +228,7 @@ export function OwnerSurveyAnalyticsView() {
         ) : (
           <div className="mt-4 grid grid-cols-1 gap-3 lg:grid-cols-2">
             {feedbackResponses.slice(0, 8).map((response) => (
-              <article key={response.id} className="rounded-lg border border-divider bg-card p-4 dark:border-divider dark:bg-gray-900/30">
+              <article key={response.id} className="rounded-xl border border-divider bg-card p-4 dark:border-divider dark:bg-gray-900/30">
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-xs font-medium uppercase tracking-wide text-muted">{formatDate(response.createdAt)}</span>
                   <span className="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-medium text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">

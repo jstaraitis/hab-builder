@@ -56,7 +56,7 @@ export function Toast({
 
   return (
     <div 
-      className={`${colors[type]} text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 min-w-[300px] max-w-md animate-slide-up`}
+      className={`${colors[type]} text-white px-4 py-3 rounded-xl flex items-center gap-3 min-w-[300px] max-w-md animate-slide-up`}
       role="alert"
     >
       <Icon className="w-5 h-5 flex-shrink-0" />
@@ -111,7 +111,7 @@ export function Toast({
       </div>
       <button
         onClick={onClose}
-        className="flex-shrink-0 hover:bg-white/20 rounded p-1 transition-colors"
+        className="flex-shrink-0 hover:bg-white/20 rounded-xl p-1 transition-colors"
         aria-label="Close"
       >
         <X className="w-4 h-4" />

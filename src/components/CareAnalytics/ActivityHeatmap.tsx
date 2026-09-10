@@ -61,22 +61,22 @@ export function ActivityHeatmap({ heatmapData }: ActivityHeatmapProps) {
   });
 
   return (
-    <div className="bg-card rounded-lg border border-divider p-3 sm:p-6">
+    <div className="bg-card rounded-xl border border-divider p-3 sm:p-6">
       <div className="mb-3 sm:mb-4">
         <h2 className="text-base sm:text-lg font-semibold text-white">
           Activity Heatmap (Last 90 Days)
         </h2>
         <div className="mt-2 flex flex-wrap items-center gap-2 sm:gap-3 text-xs text-muted">
           <div className="flex items-center gap-1">
-            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-accent dark:bg-accent rounded-sm"></div>
+            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-accent dark:bg-accent rounded-xl"></div>
             <span>Completed</span>
           </div>
           <div className="flex items-center gap-1">
-            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-rose-500 dark:bg-rose-600 rounded-sm"></div>
+            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-rose-500 dark:bg-rose-600 rounded-xl"></div>
             <span>Skipped</span>
           </div>
           <div className="flex items-center gap-1">
-            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-amber-400 dark:bg-amber-600/80 rounded-sm"></div>
+            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-amber-400 dark:bg-amber-600/80 rounded-xl"></div>
             <span>Mixed</span>
           </div>
         </div>
@@ -98,10 +98,10 @@ export function ActivityHeatmap({ heatmapData }: ActivityHeatmapProps) {
                 return (
                   <div
                     key={weekIndex}
-                    className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-sm ${getColorClass(dayData)} hover:ring-2 hover:ring-accent/70 transition-all cursor-pointer group relative`}
+                    className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-xl ${getColorClass(dayData)} hover:ring-2 hover:ring-accent/70 transition-all cursor-pointer group relative`}
                     title={formatDaySummary(dayData)}
                   >
-                    <div className="hidden group-hover:block absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 dark:bg-card-elevated text-white text-xs rounded whitespace-nowrap z-10">
+                    <div className="hidden group-hover:block absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 dark:bg-card-elevated text-white text-xs rounded-xl whitespace-nowrap z-10">
                       {formatDaySummary(dayData)}
                       <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900 dark:border-t-gray-700"></div>
                     </div>

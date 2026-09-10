@@ -35,19 +35,17 @@ function StepIndicator({ current }: { current: Step }) {
 
         return (
           <div key={step.id} className="flex items-center gap-2">
-            <div className={`flex items-center justify-center w-8 h-8 rounded-full text-xs font-bold transition-colors ${
-              isDone ? 'bg-accent text-on-accent' :
-              isActive ? 'bg-accent/20 text-accent border-2 border-accent' :
-              'bg-card border border-divider text-muted'
-            }`}>
+            <div
+              className={`flex items-center justify-center w-8 h-8 rounded-full text-xs font-bold transition-colors ${isDone ? 'bg-accent text-on-accent' : isActive ? 'bg-accent/20 text-accent border-2 border-accent' : 'bg-card border border-divider text-muted'}`}
+            >
               {isDone ? <Check className="w-4 h-4" /> : i + 1}
             </div>
-            <span className={`text-xs font-medium hidden sm:block ${isActive ? 'text-white' : isDone ? 'text-accent' : 'text-muted'}`}>
+            <span
+              className={`text-xs font-medium hidden sm:block ${isActive ? 'text-white' : isDone ? 'text-accent' : 'text-muted'}`}
+            >
               {step.label}
             </span>
-            {i < STEPS.length - 1 && (
-              <ChevronRight className="w-3 h-3 text-muted" />
-            )}
+            {i < STEPS.length - 1 && <ChevronRight className="w-3 h-3 text-muted" />}
           </div>
         );
       })}
@@ -70,11 +68,11 @@ export function OnboardingWizard() {
     if (!user) throw new Error('Not authenticated');
 
     const isCustom = formData.animalId === 'custom';
-    const selected = animalList.find(a => a.id === formData.animalId);
+    const selected = animalList.find((a) => a.id === formData.animalId);
     const animalId = isCustom ? 'custom' : formData.animalId;
     const animalName = isCustom
       ? formData.customSpeciesName.trim()
-      : (selected?.name || 'Unknown Species');
+      : selected?.name || 'Unknown Species';
 
     let photoUrl: string | undefined;
     if (photoFile) photoUrl = await uploadEnclosurePhoto(user.id, photoFile);
@@ -103,15 +101,15 @@ export function OnboardingWizard() {
     if (photoFile) photoUrl = await uploadAnimalPhoto(user.id, photoFile);
 
     const isCustomSpecies = !formData.speciesId || formData.speciesId === 'custom';
-    const selected = animalList.find(a => a.id === formData.speciesId);
+    const selected = animalList.find((a) => a.id === formData.speciesId);
     const speciesName = isCustomSpecies
       ? formData.customSpeciesName.trim()
-      : (selected?.name || createdEnclosure.animalName);
+      : selected?.name || createdEnclosure.animalName;
 
     await enclosureAnimalService.createAnimal({
       userId: user.id,
       enclosureId: createdEnclosure.id,
-      speciesId: formData.speciesId === 'custom' ? 'custom' : (formData.speciesId || undefined),
+      speciesId: formData.speciesId === 'custom' ? 'custom' : formData.speciesId || undefined,
       name: formData.name.trim() || undefined,
       speciesName,
       gender: formData.gender || undefined,
@@ -127,7 +125,10 @@ export function OnboardingWizard() {
 
   // ─── Task setup ──────────────────────────────────────────────────────────────
   const goToTasks = async () => {
-    if (!createdEnclosure || !user) { finishOnboarding(); return; }
+    if (!createdEnclosure || !user) {
+      finishOnboarding();
+      return;
+    }
 
     const tasks = await buildTasksFromEnclosureById(createdEnclosure, user.id);
     if (tasks && tasks.length > 0) {
@@ -139,7 +140,10 @@ export function OnboardingWizard() {
   };
 
   const handleSetUpTasks = async () => {
-    if (!createdEnclosure || !user) { finishOnboarding(); return; }
+    if (!createdEnclosure || !user) {
+      finishOnboarding();
+      return;
+    }
     setSettingUpTasks(true);
     try {
       const tasks = await buildTasksFromEnclosureById(createdEnclosure, user.id);
@@ -177,7 +181,8 @@ export function OnboardingWizard() {
           <div>
             <h1 className="text-2xl font-bold text-white mb-2">Welcome to Habitat Builder</h1>
             <p className="text-muted text-sm leading-relaxed">
-              Let's get your first enclosure set up so you can start tracking care tasks, monitoring your animal's health, and never miss a feeding.
+              Let's get your first enclosure set up so you can start tracking care tasks, monitoring
+              your animal's health, and never miss a feeding.
             </p>
           </div>
 
@@ -188,10 +193,17 @@ export function OnboardingWizard() {
                   <s.icon className="w-4 h-4 text-accent" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-white">Step {i + 1}: {s.label === 'Enclosure' ? 'Create your enclosure' : s.label === 'Animal' ? 'Add your animal' : 'Generate care tasks'}</p>
+                  <p className="text-sm font-semibold text-white">
+                    Step {i + 1}:{' '}
+                    {s.label === 'Enclosure'
+                      ? 'Create your enclosure'
+                      : s.label === 'Animal'
+                        ? 'Add your animal'
+                        : 'Generate care tasks'}
+                  </p>
                   <p className="text-xs text-muted">
                     {s.label === 'Enclosure' && 'Name it, pick the species, and set up the basics.'}
-                    {s.label === 'Animal' && 'Add your pet\'s name, gender, morph, and birthday.'}
+                    {s.label === 'Animal' && "Add your pet's name, gender, morph, and birthday."}
                     {s.label === 'Tasks' && 'Get a full care schedule generated automatically.'}
                   </p>
                 </div>
@@ -238,22 +250,31 @@ export function OnboardingWizard() {
         <div className="max-w-lg mx-auto px-4 py-4 space-y-3">
           <div className="bg-accent/10 border border-accent/30 rounded-2xl px-4 py-3 flex items-center gap-2">
             <Check className="w-4 h-4 text-accent shrink-0" />
-            <p className="text-sm text-accent font-medium">Enclosure "{createdEnclosure?.name}" created</p>
+            <p className="text-sm text-accent font-medium">
+              Enclosure "{createdEnclosure?.name}" created
+            </p>
           </div>
           <AnimalForm
             mode="add"
             enclosures={createdEnclosure ? [createdEnclosure] : []}
             initialData={{
               enclosureId: createdEnclosure?.id ?? '',
-              speciesId: createdEnclosure?.animalId === 'custom' ? '' : (createdEnclosure?.animalId ?? ''),
+              speciesId:
+                createdEnclosure?.animalId === 'custom' ? '' : (createdEnclosure?.animalId ?? ''),
             }}
             onSave={handleAnimalSave}
-            onCancel={async () => { setSkippedAnimal(true); await goToTasks(); }}
+            onCancel={async () => {
+              setSkippedAnimal(true);
+              await goToTasks();
+            }}
           />
           {!skippedAnimal && (
             <button
               type="button"
-              onClick={async () => { setSkippedAnimal(true); await goToTasks(); }}
+              onClick={async () => {
+                setSkippedAnimal(true);
+                await goToTasks();
+              }}
               className="w-full text-xs text-muted py-2 hover:text-white transition-colors"
             >
               Skip — add animal later
@@ -275,7 +296,9 @@ export function OnboardingWizard() {
           {!skippedAnimal && (
             <div className="w-full bg-accent/10 border border-accent/30 rounded-2xl px-4 py-3 flex items-center gap-2">
               <Check className="w-4 h-4 text-accent shrink-0" />
-              <p className="text-sm text-accent font-medium">Animal added to {createdEnclosure?.name}</p>
+              <p className="text-sm text-accent font-medium">
+                Animal added to {createdEnclosure?.name}
+              </p>
             </div>
           )}
 
@@ -286,10 +309,15 @@ export function OnboardingWizard() {
           <div>
             <h2 className="text-xl font-bold text-white mb-1">Set up your care schedule</h2>
             <p className="text-muted text-sm">
-              <span className="text-white font-semibold">{suggestedTaskCount} care tasks</span> have been generated for{' '}
-              <span className="text-white font-semibold">{createdEnclosure?.animalName}</span> based on species requirements.
+              <span className="text-white font-semibold">{suggestedTaskCount} care tasks</span> have
+              been generated for{' '}
+              <span className="text-white font-semibold">{createdEnclosure?.animalName}</span> based
+              on species requirements.
             </p>
-            <p className="text-muted text-xs mt-1">Includes feeding, misting, health checks, temperature monitoring, and more. You can edit or remove any task after setup.</p>
+            <p className="text-muted text-xs mt-1">
+              Includes feeding, misting, health checks, temperature monitoring, and more. You can
+              edit or remove any task after setup.
+            </p>
           </div>
 
           <div className="flex flex-col gap-2 w-full max-w-xs">
@@ -301,8 +329,20 @@ export function OnboardingWizard() {
               {settingUpTasks ? (
                 <>
                   <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                      fill="none"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    />
                   </svg>
                   Creating tasks…
                 </>
@@ -335,15 +375,27 @@ export function OnboardingWizard() {
           <p className="text-muted text-sm">
             Your enclosure is ready
             {!skippedAnimal ? ', your animal is added,' : ''} and your care calendar
-            {suggestedTaskCount > 0 ? ` has ${suggestedTaskCount} tasks waiting` : ' is ready for tasks'}.
+            {suggestedTaskCount > 0
+              ? ` has ${suggestedTaskCount} tasks waiting`
+              : ' is ready for tasks'}
+            .
           </p>
         </div>
 
         <div className="bg-card border border-divider rounded-2xl p-4 text-left space-y-2">
-          <p className="text-xs font-semibold text-muted uppercase tracking-wide mb-2">What to do next</p>
-          <p className="text-sm text-white flex items-start gap-2"><span className="text-accent">→</span> Complete your first task in the Care Calendar</p>
-          <p className="text-sm text-white flex items-start gap-2"><span className="text-accent">→</span> Add more animals or enclosures in My Pets</p>
-          <p className="text-sm text-white flex items-start gap-2"><span className="text-accent">→</span> Check Environment settings to set baseline targets</p>
+          <p className="text-xs font-semibold text-muted uppercase tracking-wide mb-2">
+            What to do next
+          </p>
+          <p className="text-sm text-white flex items-start gap-2">
+            <span className="text-accent">→</span> Complete your first task in the Care Calendar
+          </p>
+          <p className="text-sm text-white flex items-start gap-2">
+            <span className="text-accent">→</span> Add more animals or enclosures in My Pets
+          </p>
+          <p className="text-sm text-white flex items-start gap-2">
+            <span className="text-accent">→</span> Check Environment settings to set baseline
+            targets
+          </p>
         </div>
 
         <button

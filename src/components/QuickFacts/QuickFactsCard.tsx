@@ -236,9 +236,9 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-lg p-3 sm:p-4 mb-6 border border-divider">
+    <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-3 sm:p-4 mb-6 border border-divider">
       <div className="flex items-center gap-2 mb-3">
-        <div className="p-1.5 bg-accent/15 rounded-lg">
+        <div className="p-1.5 bg-accent/15 rounded-xl">
           <Ruler className="w-5 h-5 text-accent" />
         </div>
         <h3 className="text-xl sm:text-2xl font-bold text-white">
@@ -250,7 +250,7 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
         {facts.map((fact, index) => (
           <div
             key={index}
-            className="group relative flex flex-col items-center text-center p-3 rounded-xl bg-card border-2 border-divider hover:border-accent dark:hover:border-accent hover:shadow-lg transition-all duration-200 hover:-translate-y-1"
+            className="group relative flex flex-col items-center text-center p-3 rounded-xl bg-card border-2 border-divider hover:border-accent dark:hover:border-accent transition-all duration-200 hover:-translate-y-1"
           >
             <div className="mb-2 text-accent group-hover:scale-110 transition-transform duration-200">
               {fact.icon}
@@ -271,7 +271,7 @@ export const QuickFactsCard: React.FC<QuickFactsCardProps> = ({ profile }) => {
       </div>
       
       <div className="mt-4 pt-3 border-t-2 border-divider">
-        <div className="flex items-start gap-2 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-200 dark:border-yellow-800">
+        <div className="flex items-start gap-2 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl border border-yellow-200 dark:border-yellow-800">
           <Sun className="w-5 h-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />
           <p className="text-sm text-secondary">
             <strong className="text-yellow-700 dark:text-yellow-400">Pro Tip:</strong> These are baseline requirements. Larger enclosures are always better for your animal's health and happiness!

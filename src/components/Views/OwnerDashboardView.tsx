@@ -90,7 +90,7 @@ export function OwnerDashboardView() {
           <button
             onClick={() => loadData()}
             disabled={loading}
-            className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-divider text-sm font-medium text-white hover:bg-card-elevated disabled:opacity-60"
+            className="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-divider text-sm font-medium text-white hover:bg-card-elevated disabled:opacity-60"
           >
             <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
             Refresh
@@ -103,14 +103,14 @@ export function OwnerDashboardView() {
       <FunnelPanel />
 
       {error && (
-        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-900 dark:text-red-200 rounded-lg p-4">
+        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-900 dark:text-red-200 rounded-xl p-4">
           Failed to load dashboard data: {error}
         </div>
       )}
 
       <div className="grid grid-cols-2 xl:grid-cols-3 gap-2 sm:gap-4">
         {(data?.metrics ?? []).map((metric) => (
-          <div key={metric.key} className="bg-card rounded-lg sm:rounded-xl border border-divider p-3 sm:p-4 shadow-sm">
+          <div key={metric.key} className="bg-card rounded-xl sm:rounded-xl border border-divider p-3 sm:p-4">
             <div className="flex items-start justify-between gap-2 sm:gap-3">
               <div>
                 <p className="text-xs uppercase tracking-wide text-muted">{metric.label}</p>
@@ -118,7 +118,7 @@ export function OwnerDashboardView() {
                   {metric.value === null ? 'N/A' : metric.value.toLocaleString()}
                 </p>
               </div>
-              <div className={`p-2 sm:p-2.5 rounded-lg ${metricStyles[metric.key]?.iconBg ?? 'bg-card-elevated'}`}>
+              <div className={`p-2 sm:p-2.5 rounded-xl ${metricStyles[metric.key]?.iconBg ?? 'bg-card-elevated'}`}>
                 {(() => {
                   const Icon = metricStyles[metric.key]?.icon ?? Users;
                   return <Icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${metricStyles[metric.key]?.accent ?? 'text-secondary'}`} />;
@@ -136,7 +136,7 @@ export function OwnerDashboardView() {
         ))}
       </div>
 
-      <div className="bg-card rounded-lg sm:rounded-xl border border-divider p-3 sm:p-4 shadow-sm">
+      <div className="bg-card rounded-xl sm:rounded-xl border border-divider p-3 sm:p-4">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-base sm:text-lg font-semibold text-white">All Profiles</h2>
           <div className="flex items-center gap-2">
@@ -161,7 +161,7 @@ export function OwnerDashboardView() {
               placeholder="Search by email"
               value={profileSearch}
               onChange={(e) => setProfileSearch(e.target.value)}
-              className="w-full rounded-lg border border-divider bg-white py-1.5 pl-8 pr-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent dark:border-divider dark:bg-card-elevated dark:text-white"
+              className="w-full rounded-xl border border-divider bg-white py-1.5 pl-8 pr-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent dark:border-divider dark:bg-card-elevated dark:text-white"
             />
           </label>
           <div className="text-xs text-muted">
@@ -182,7 +182,7 @@ export function OwnerDashboardView() {
               <button
                 key={profile.id}
                 onClick={() => handleProfileClick(profile.id)}
-                className={`w-full text-left rounded-lg border p-2.5 transition-colors ${selectedProfileId === profile.id ? 'border-accent dark:border-accent bg-emerald-50/50 bg-accent/10' : 'border-divider bg-gray-50/50 dark:bg-gray-700/20 hover:border-divider dark:hover:border-gray-600'}`}
+                className={`w-full text-left rounded-xl border p-2.5 transition-colors ${selectedProfileId === profile.id ? 'border-accent dark:border-accent bg-emerald-50/50 bg-accent/10' : 'border-divider bg-gray-50/50 dark:bg-gray-700/20 hover:border-divider dark:hover:border-gray-600'}`}
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="min-w-0 flex-1">
@@ -204,7 +204,7 @@ export function OwnerDashboardView() {
         )}
       </div>
 
-      <div className="bg-card rounded-lg sm:rounded-xl border border-divider p-3 sm:p-4 shadow-sm">
+      <div className="bg-card rounded-xl sm:rounded-xl border border-divider p-3 sm:p-4">
         <h2 className="text-base sm:text-lg font-semibold text-white mb-3">Selected User Details</h2>
 
         {!selectedProfileId && (
@@ -221,7 +221,7 @@ export function OwnerDashboardView() {
 
         {selectedUserDetails && !detailsLoading && !detailsError && (
           <div className="space-y-4">
-            <div className="rounded-lg border border-divider p-2.5 sm:p-3 bg-gray-50/70 dark:bg-gray-700/30">
+            <div className="rounded-xl border border-divider p-2.5 sm:p-3 bg-gray-50/70 dark:bg-gray-700/30">
               <div className="font-medium text-white">
                 {selectedUserDetails.selectedUser?.display_name || selectedUserDetails.selectedUser?.id || selectedProfileId}
               </div>
@@ -232,14 +232,14 @@ export function OwnerDashboardView() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
-              <div className="rounded-lg border border-divider p-2.5 sm:p-3">
+              <div className="rounded-xl border border-divider p-2.5 sm:p-3">
                 <div className="font-medium text-white mb-2">Enclosures ({selectedUserDetails.userDetails.enclosures.length})</div>
                 {selectedUserDetails.userDetailsErrors?.enclosures && (
                   <div className="text-xs text-amber-700 dark:text-amber-300 mb-2">{selectedUserDetails.userDetailsErrors.enclosures}</div>
                 )}
                 <div className="space-y-2 max-h-52 sm:max-h-64 overflow-auto">
                   {selectedUserDetails.userDetails.enclosures.map((enclosure) => (
-                    <div key={enclosure.id} className="text-xs rounded bg-card-elevated/50 p-2">
+                    <div key={enclosure.id} className="text-xs rounded-xl bg-card-elevated/50 p-2">
                       <div className="font-medium text-white">{enclosure.name || enclosure.id}</div>
                       <div className="text-muted">{enclosure.animal_name || 'Unknown species'}</div>
                     </div>
@@ -250,14 +250,14 @@ export function OwnerDashboardView() {
                 </div>
               </div>
 
-              <div className="rounded-lg border border-divider p-2.5 sm:p-3">
+              <div className="rounded-xl border border-divider p-2.5 sm:p-3">
                 <div className="font-medium text-white mb-2">Animals ({selectedUserDetails.userDetails.animals.length})</div>
                 {selectedUserDetails.userDetailsErrors?.animals && (
                   <div className="text-xs text-amber-700 dark:text-amber-300 mb-2">{selectedUserDetails.userDetailsErrors.animals}</div>
                 )}
                 <div className="space-y-2 max-h-52 sm:max-h-64 overflow-auto">
                   {selectedUserDetails.userDetails.animals.map((animal) => (
-                    <div key={animal.id} className="text-xs rounded bg-card-elevated/50 p-2">
+                    <div key={animal.id} className="text-xs rounded-xl bg-card-elevated/50 p-2">
                       <div className="font-medium text-white">{animal.name || `Animal #${animal.animal_number ?? 'n/a'}`}</div>
                       <div className="text-muted">Enclosure: {animal.enclosure_id || 'Unassigned'}</div>
                     </div>
@@ -268,14 +268,14 @@ export function OwnerDashboardView() {
                 </div>
               </div>
 
-              <div className="rounded-lg border border-divider p-2.5 sm:p-3">
+              <div className="rounded-xl border border-divider p-2.5 sm:p-3">
                 <div className="font-medium text-white mb-2">Tasks ({selectedUserDetails.userDetails.tasks.length})</div>
                 {selectedUserDetails.userDetailsErrors?.tasks && (
                   <div className="text-xs text-amber-700 dark:text-amber-300 mb-2">{selectedUserDetails.userDetailsErrors.tasks}</div>
                 )}
                 <div className="space-y-2 max-h-52 sm:max-h-64 overflow-auto">
                   {selectedUserDetails.userDetails.tasks.map((task) => (
-                    <div key={task.id} className="text-xs rounded bg-card-elevated/50 p-2">
+                    <div key={task.id} className="text-xs rounded-xl bg-card-elevated/50 p-2">
                       <div className="font-medium text-white">{task.title || task.id}</div>
                       <div className="text-muted">{task.type || 'custom'} • {formatCareTaskFrequency(task)}</div>
                     </div>

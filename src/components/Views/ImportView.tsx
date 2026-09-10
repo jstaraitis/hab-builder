@@ -70,7 +70,9 @@ export function ImportView() {
     setError(null);
 
     if (file.size > MAX_FILE_BYTES) {
-      setError('That file is larger than 5 MB. Export just your animal list rather than everything.');
+      setError(
+        'That file is larger than 5 MB. Export just your animal list rather than everything.'
+      );
       return;
     }
 
@@ -215,10 +217,7 @@ export function ImportView() {
             <div className="mt-4 space-y-2.5">
               {IMPORT_FIELDS.map((field) => (
                 <div key={field.id} className="flex items-center gap-3">
-                  <label
-                    htmlFor={`map-${field.id}`}
-                    className="text-xs text-muted w-32 shrink-0"
-                  >
+                  <label htmlFor={`map-${field.id}`} className="text-xs text-muted w-32 shrink-0">
                     {field.label}
                     {field.required && <span className="text-red-300"> *</span>}
                   </label>
@@ -283,9 +282,7 @@ export function ImportView() {
                 </div>
               ))}
               {preview.animals.length > 50 && (
-                <p className="text-xs text-muted pt-1">
-                  …and {preview.animals.length - 50} more.
-                </p>
+                <p className="text-xs text-muted pt-1">…and {preview.animals.length - 50} more.</p>
               )}
             </div>
           </div>
@@ -372,7 +369,9 @@ export function ImportView() {
             <button
               type="button"
               disabled={importing || preview.animals.length === 0}
-              onClick={() => { void handleImport(); }}
+              onClick={() => {
+                void handleImport();
+              }}
               className="flex-1 inline-flex items-center justify-center gap-1.5 text-sm font-semibold px-4 py-3 rounded-xl bg-accent text-on-accent disabled:opacity-50"
             >
               {importing ? (
@@ -416,7 +415,7 @@ export function ImportView() {
           )}
 
           {/* Failures are named individually. "Something went wrong" is useless
-              to someone who has just moved their whole collection across. */}
+ to someone who has just moved their whole collection across. */}
           {outcome.failed.length > 0 && (
             <div className="bg-red-500/10 border border-red-500/30 rounded-2xl p-4">
               <p className="text-xs font-semibold text-red-300 uppercase tracking-wide mb-2">

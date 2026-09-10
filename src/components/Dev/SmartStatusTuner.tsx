@@ -196,11 +196,7 @@ export default function SmartStatusTuner() {
               <button
                 key={scenario.key}
                 onClick={() => setScenarioKey(scenario.key)}
-                className={`text-left rounded-xl border px-3 py-2 transition-colors ${
-                  scenario.key === selectedScenario.key
-                    ? 'border-emerald-400/60 bg-accent/10'
-                    : 'border-divider bg-card-elevated hover:border-emerald-500/40'
-                }`}
+                className={`text-left rounded-xl border px-3 py-2 transition-colors ${ scenario.key === selectedScenario.key ? 'border-emerald-400/60 bg-accent/10' : 'border-divider bg-card-elevated hover:border-emerald-500/40' }`}
               >
                 <div className="text-sm font-semibold text-white">{scenario.label}</div>
                 <div className="text-[11px] text-muted mt-1">{scenario.description}</div>
@@ -231,7 +227,7 @@ export default function SmartStatusTuner() {
             <h3 className="text-xs uppercase tracking-wide text-muted mb-2">Top reasons</h3>
             <ul className="space-y-1.5">
               {result.reasons.map((reason, idx) => (
-                <li key={idx} className="text-sm text-white bg-card-elevated border border-divider rounded-lg px-3 py-2">
+                <li key={idx} className="text-sm text-white bg-card-elevated border border-divider rounded-xl px-3 py-2">
                   {reason}
                 </li>
               ))}

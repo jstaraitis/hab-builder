@@ -164,9 +164,21 @@ const QUESTIONS: Question[] = [
 ];
 
 const SEVERITY_STYLE: Record<SetupSeverity, { chip: string; label: string; border: string }> = {
-  critical: { chip: 'bg-red-500/15 text-red-300 border-red-500/30', label: 'Fix this', border: 'border-l-red-400' },
-  important: { chip: 'bg-amber-500/15 text-amber-300 border-amber-500/30', label: 'Worth changing', border: 'border-l-amber-400' },
-  advisory: { chip: 'bg-sky-500/15 text-sky-300 border-sky-500/30', label: 'Minor', border: 'border-l-sky-400' },
+  critical: {
+    chip: 'bg-red-500/15 text-red-300 border-red-500/30',
+    label: 'Fix this',
+    border: 'border-l-red-400',
+  },
+  important: {
+    chip: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
+    label: 'Worth changing',
+    border: 'border-l-amber-400',
+  },
+  advisory: {
+    chip: 'bg-sky-500/15 text-sky-300 border-sky-500/30',
+    label: 'Minor',
+    border: 'border-l-sky-400',
+  },
 };
 
 export function SetupCheckView() {
@@ -441,14 +453,12 @@ export function SetupCheckView() {
                   key={String(choice.value)}
                   type="button"
                   onClick={() => setAnswer(current.id, choice.value)}
-                  className={`w-full text-left px-4 py-3 rounded-xl border transition-colors ${
-                    selected
-                      ? 'bg-accent/15 border-accent text-white'
-                      : 'bg-card-elevated border-divider text-secondary'
-                  }`}
+                  className={`w-full text-left px-4 py-3 rounded-xl border transition-colors ${selected ? 'bg-accent/15 border-accent text-white' : 'bg-card-elevated border-divider text-secondary'}`}
                 >
                   <span className="text-sm font-medium">{choice.label}</span>
-                  {choice.hint && <span className="block text-xs text-muted mt-0.5">{choice.hint}</span>}
+                  {choice.hint && (
+                    <span className="block text-xs text-muted mt-0.5">{choice.hint}</span>
+                  )}
                 </button>
               );
             })
@@ -456,7 +466,7 @@ export function SetupCheckView() {
         </div>
 
         {/* Skipping is a first-class answer. A guessed measurement produces a
-            confident wrong finding; a skip just means the rule does not run. */}
+ confident wrong finding; a skip just means the rule does not run. */}
         <button
           type="button"
           onClick={() => {

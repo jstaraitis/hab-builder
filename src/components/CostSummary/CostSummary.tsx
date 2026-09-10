@@ -44,7 +44,7 @@ export function CostSummary({ costEstimate, selectedTier, onTierChange, compact 
 
   if (compact) {
     return (
-      <div className="bg-card rounded-lg shadow-md p-4 border-2 border-accent/30">
+      <div className="bg-card rounded-xl p-4 border-2 border-accent/30">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-accent" />
@@ -66,7 +66,7 @@ export function CostSummary({ costEstimate, selectedTier, onTierChange, compact 
   }
 
   return (
-    <div className="bg-card rounded-lg shadow-md p-4 sm:p-6 space-y-4">
+    <div className="bg-card rounded-xl p-4 sm:p-6 space-y-4">
       {/* Header */}
       <div className="flex items-center gap-2 border-b border-divider pb-3">
         <DollarSign className="w-6 h-6 text-accent" />
@@ -74,7 +74,7 @@ export function CostSummary({ costEstimate, selectedTier, onTierChange, compact 
       </div>
 
       {/* Selected Tier Total */}
-      <div className={`${selectedTierInfo.bgColor} rounded-lg p-4`}>
+      <div className={`${selectedTierInfo.bgColor} rounded-xl p-4`}>
         <p className="text-sm font-medium text-muted mb-1">
           {selectedTierInfo.label} Tier Total
         </p>
@@ -100,11 +100,7 @@ export function CostSummary({ costEstimate, selectedTier, onTierChange, compact 
                 <button
                   key={tier}
                   onClick={() => onTierChange(tier)}
-                  className={`p-2 rounded-lg border-2 transition-all ${
-                    isSelected
-                      ? 'border-accent bg-accent/10'
-                      : 'border-divider hover:border-accent dark:hover:border-accent'
-                  }`}
+                  className={`p-2 rounded-xl border-2 transition-all ${ isSelected ? 'border-accent bg-accent/10' : 'border-divider hover:border-accent dark:hover:border-accent' }`}
                 >
                   <p className="text-xs font-medium text-muted">
                     {tierInfo.label}
@@ -118,7 +114,7 @@ export function CostSummary({ costEstimate, selectedTier, onTierChange, compact 
           </div>
 
           {tierComparisons && (
-            <div className="text-xs text-muted bg-surface/50 p-2 rounded">
+            <div className="text-xs text-muted bg-surface/50 p-2 rounded-xl">
               <TrendingUp className="w-3 h-3 inline mr-1" />
               {tierComparisons.recommended.avgPercent > 0 ? (
                 <span>
@@ -149,7 +145,7 @@ export function CostSummary({ costEstimate, selectedTier, onTierChange, compact 
         
         {/* Stacked Category Bar */}
         <div className="space-y-2">
-          <div className="flex h-8 bg-card-elevated rounded-lg overflow-hidden shadow-sm border-2 border-divider">
+          <div className="flex h-8 bg-card-elevated rounded-xl overflow-hidden border-2 border-divider">
             {costEstimate.byCategory.map((cat, idx) => {
               const percentage = Math.round((cat.max / currentTotal.max) * 100);
               const colors = [
@@ -194,7 +190,7 @@ export function CostSummary({ costEstimate, selectedTier, onTierChange, compact 
               
               return (
                 <div key={cat.category} className="flex items-center gap-2 text-xs">
-                  <div className={`${color} w-3 h-3 rounded-sm flex-shrink-0`} />
+                  <div className={`${color} w-3 h-3 rounded-xl flex-shrink-0`} />
                   <div className="min-w-0 flex-1">
                     <p className="font-medium text-secondary truncate">
                       {cat.category}
@@ -211,7 +207,7 @@ export function CostSummary({ costEstimate, selectedTier, onTierChange, compact 
       </div>
 
       {/* Disclaimer */}
-      <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3">
+      <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-3">
         <p className="text-xs text-blue-800 dark:text-blue-300">
           <span className="font-semibold">Note:</span> Prices are estimates based on typical market
           prices and may vary by retailer, sales, and region. Use these ranges as planning guides.

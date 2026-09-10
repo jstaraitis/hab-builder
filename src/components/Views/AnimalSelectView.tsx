@@ -16,8 +16,13 @@ interface AnimalSelectViewProps {
   readonly onContinue: () => void;
 }
 
-export function AnimalSelectView({ input, selectedProfile, profileCareTargets, onSelect, onContinue }: AnimalSelectViewProps) {
-
+export function AnimalSelectView({
+  input,
+  selectedProfile,
+  profileCareTargets,
+  onSelect,
+  onContinue,
+}: AnimalSelectViewProps) {
   const animalDataRef = useRef<HTMLDivElement>(null);
   const [showContinueButton, setShowContinueButton] = useState(false);
   const [showTestingNotice, setShowTestingNotice] = useState(() => {
@@ -48,7 +53,7 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
       const timer = setTimeout(() => {
         setShowContinueButton(true);
       }, 800);
-      
+
       return () => clearTimeout(timer);
     } else {
       setShowContinueButton(false);
@@ -56,26 +61,29 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
   }, [input.animal]);
 
   // SEO metadata for animal-specific pages
-  const animalSEO = selectedProfile ? {
-    title: `${selectedProfile.commonName} Enclosure Setup Guide`,
-    description: `Complete ${selectedProfile.commonName} (${selectedProfile.scientificName}) care guide. Learn proper enclosure size, temperature (${profileCareTargets?.temperature.min}-${profileCareTargets?.temperature.max}°F / ${Math.round((profileCareTargets?.temperature.min - 32) * 5/9)}-${Math.round((profileCareTargets?.temperature.max - 32) * 5/9)}°C), humidity (${profileCareTargets?.humidity.min}-${profileCareTargets?.humidity.max}%), and lighting requirements.`,
-    keywords: [
-      `${selectedProfile.commonName.toLowerCase()} enclosure`,
-      `${selectedProfile.commonName.toLowerCase()} habitat`,
-      `${selectedProfile.commonName.toLowerCase()} setup`,
-      `${selectedProfile.scientificName.toLowerCase()} care`,
-      `${selectedProfile.careLevel} reptile`,
-      'bioactive vivarium'
-    ]
-  } : {
-    title: 'Choose Your Reptile or Amphibian',
-    description: 'Select from our database of reptiles and amphibians to generate a custom enclosure plan with care parameters, shopping lists, and build instructions.'
-  };
+  const animalSEO = selectedProfile
+    ? {
+        title: `${selectedProfile.commonName} Enclosure Setup Guide`,
+        description: `Complete ${selectedProfile.commonName} (${selectedProfile.scientificName}) care guide. Learn proper enclosure size, temperature (${profileCareTargets?.temperature.min}-${profileCareTargets?.temperature.max}°F / ${Math.round(((profileCareTargets?.temperature.min - 32) * 5) / 9)}-${Math.round(((profileCareTargets?.temperature.max - 32) * 5) / 9)}°C), humidity (${profileCareTargets?.humidity.min}-${profileCareTargets?.humidity.max}%), and lighting requirements.`,
+        keywords: [
+          `${selectedProfile.commonName.toLowerCase()} enclosure`,
+          `${selectedProfile.commonName.toLowerCase()} habitat`,
+          `${selectedProfile.commonName.toLowerCase()} setup`,
+          `${selectedProfile.scientificName.toLowerCase()} care`,
+          `${selectedProfile.careLevel} reptile`,
+          'bioactive vivarium',
+        ],
+      }
+    : {
+        title: 'Choose Your Reptile or Amphibian',
+        description:
+          'Select from our database of reptiles and amphibians to generate a custom enclosure plan with care parameters, shopping lists, and build instructions.',
+      };
 
   return (
     <div className="space-y-6">
       <SEO {...animalSEO} />
-      
+
       {/* Testing Notice Modal */}
       {showTestingNotice && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -87,7 +95,7 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
             >
               <X className="w-6 h-6" />
             </button>
-            
+
             <div className="mb-4">
               <div className="w-12 h-12 bg-jade-100 dark:bg-jade-900/30 rounded-full flex items-center justify-center mb-4">
                 <Sparkles className="w-6 h-6 text-jade-600 dark:text-accent" />
@@ -96,28 +104,30 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
                 Welcome!
               </h2>
             </div>
-            
+
             <div className="space-y-3 text-secondary mb-6">
               <p className="font-medium">
-                Thanks for checking out Habitat Builder! We're excited to help you design the perfect home for your pet.
+                Thanks for checking out Habitat Builder! We're excited to help you design the
+                perfect home for your pet.
               </p>
-              <p className="text-sm">
-                Just a heads up — this app is still growing and improving:
-              </p>
+              <p className="text-sm">Just a heads up — this app is still growing and improving:</p>
               <ul className="list-disc list-inside space-y-1 text-sm text-muted">
                 <li>We're adding new features regularly</li>
                 <li>Equipment recommendations are being fine-tuned</li>
                 <li>Animal information is being peer reviewed by trusted sources!</li>
               </ul>
-              <div className="text-sm bg-cyan-50 dark:bg-cyan-900/20 border border-cyan-200 dark:border-cyan-700 rounded-lg p-3 flex items-start gap-2">
+              <div className="text-sm bg-cyan-50 dark:bg-cyan-900/20 border border-cyan-200 dark:border-cyan-700 rounded-xl p-3 flex items-start gap-2">
                 <MessageCircle className="w-5 h-5 text-cyan-600 dark:text-cyan-300 flex-shrink-0 mt-0.5" />
-                <p>Got feedback or spotted an issue? Use the feedback button to let us know — we'd love to hear from you!</p>
+                <p>
+                  Got feedback or spotted an issue? Use the feedback button to let us know — we'd
+                  love to hear from you!
+                </p>
               </div>
             </div>
-            
+
             <button
               onClick={handleDismissNotice}
-              className="w-full px-6 py-3 bg-jade-600 hover:bg-jade-700 dark:bg-accent dark:hover:bg-jade-500 text-white font-bold rounded-lg transition-colors flex items-center justify-center gap-2"
+              className="w-full px-6 py-3 bg-jade-600 hover:bg-jade-700 dark:bg-accent dark:hover:bg-jade-500 text-white font-bold rounded-xl transition-colors flex items-center justify-center gap-2"
             >
               Let's get started!
               <Rocket className="w-5 h-5" />
@@ -129,13 +139,20 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
       <AnimalPicker selected={input.animal} onSelect={onSelect} />
 
       {selectedProfile && (
-        <div ref={animalDataRef} className="bg-white dark:bg-card rounded-lg shadow-sm border border-divider dark:border-divider p-3 sm:p-4 text-base text-secondary">
+        <div
+          ref={animalDataRef}
+          className="bg-white dark:bg-card rounded-xl border border-divider dark:border-divider p-3 sm:p-4 text-base text-secondary"
+        >
           <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3">Species Overview</h3>
-          
+
           {/* Header with badges */}
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <p className="font-semibold text-lg sm:text-xl text-white">{selectedProfile.commonName}</p>
-            <p className="text-muted italic text-sm sm:text-base">{selectedProfile.scientificName}</p>
+            <p className="font-semibold text-lg sm:text-xl text-white">
+              {selectedProfile.commonName}
+            </p>
+            <p className="text-muted italic text-sm sm:text-base">
+              {selectedProfile.scientificName}
+            </p>
             <span className="px-3 py-1.5 rounded-full bg-jade-50 dark:bg-jade-900/30 text-jade-700 dark:text-jade-200 text-sm font-medium">
               Care: {selectedProfile.careLevel}
             </span>
@@ -145,7 +162,7 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
           </div>
 
           {/* Quick Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 p-2 md:p-3 bg-card dark:bg-card-elevated rounded-lg">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 p-2 md:p-3 bg-card dark:bg-card-elevated rounded-xl">
             {selectedProfile.adultSize && (
               <div>
                 <p className="text-xs text-muted uppercase tracking-wide mb-0.5">Adult Size</p>
@@ -167,11 +184,14 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
             {selectedProfile.notes?.length > 0 && (
               <div className="md:col-span-2">
                 <p className="text-xs text-muted uppercase tracking-wide mb-3">Fun Facts</p>
-                
+
                 {/* Desktop: List View */}
                 <ul className="hidden md:block space-y-1.5">
                   {selectedProfile.notes.map((note: string) => (
-                    <li key={`note-${note.substring(0, 20)}`} className="text-sm text-secondary flex items-start gap-2">
+                    <li
+                      key={`note-${note.substring(0, 20)}`}
+                      className="text-sm text-secondary flex items-start gap-2"
+                    >
                       <span className="text-jade-500 dark:text-accent mt-0.5">•</span>
                       <span>{note}</span>
                     </li>
@@ -184,7 +204,7 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
                     {selectedProfile.notes.map((note: string, idx: number) => (
                       <div
                         key={`note-card-${note.substring(0, 20)}`}
-                        className="snap-center flex-shrink-0 w-[85vw] bg-gradient-to-br from-jade-50 to-teal-50 dark:from-card dark:to-card-elevated border border-jade-200 dark:border-jade-700 rounded-xl p-4 shadow-sm first:ml-4"
+                        className="snap-center flex-shrink-0 w-[85vw] bg-gradient-to-br from-jade-50 to-teal-50 dark:from-card dark:to-card-elevated border border-jade-200 dark:border-jade-700 rounded-xl p-4 first:ml-4"
                       >
                         <div className="flex items-start gap-3">
                           <Lightbulb className="w-6 h-6 text-jade-600 dark:text-accent flex-shrink-0" />
@@ -192,7 +212,10 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
                             <div className="text-xs font-semibold text-jade-700 dark:text-jade-300 uppercase mb-2">
                               Fact {idx + 1} of {selectedProfile.notes.length}
                             </div>
-                            <p className="text-sm text-white leading-relaxed" dangerouslySetInnerHTML={{ __html: note }} />
+                            <p
+                              className="text-sm text-white leading-relaxed"
+                              dangerouslySetInnerHTML={{ __html: note }}
+                            />
                           </div>
                         </div>
                       </div>
@@ -200,7 +223,10 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
                   </div>
                   <div className="flex justify-center gap-1.5 mt-2">
                     {selectedProfile.notes.map((_, idx: number) => (
-                      <div key={idx} className="w-1.5 h-1.5 rounded-full bg-jade-500 dark:bg-accent" />
+                      <div
+                        key={idx}
+                        className="w-1.5 h-1.5 rounded-full bg-jade-500 dark:bg-accent"
+                      />
                     ))}
                   </div>
                 </div>
@@ -215,16 +241,21 @@ export function AnimalSelectView({ input, selectedProfile, profileCareTargets, o
       {selectedProfile && <CareGuideCards profile={selectedProfile} />}
 
       {selectedProfile?.gallery && selectedProfile.gallery.length > 0 && (
-        <ImageGallery images={selectedProfile.gallery} title={`${selectedProfile.commonName} Gallery`} />
+        <ImageGallery
+          images={selectedProfile.gallery}
+          title={`${selectedProfile.commonName} Gallery`}
+        />
       )}
 
       {input.animal && showContinueButton && (
         <div className="sticky bottom-20 lg:bottom-0 lg:static z-20 animate-in slide-in-from-bottom duration-300">
           <button
             onClick={onContinue}
-            className="group w-full lg:w-auto lg:float-right px-12 py-5 lg:py-4 bg-gradient-to-r from-accent to-green-600 hover:from-accent-dim hover:to-green-700 text-white font-bold text-lg lg:text-xl rounded-xl shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 hover:-translate-y-1 active:scale-95 active:rotate-1 border-2 border-emerald-400/20"
+            className="group w-full lg:w-auto lg:float-right px-12 py-5 lg:py-4 bg-gradient-to-r from-accent to-green-600 hover:from-accent-dim hover:to-green-700 text-white font-bold text-lg lg:text-xl rounded-xl shadow-2xl transition-all duration-300 hover:-translate-y-1 active:scale-95 active:rotate-1 border-2 border-emerald-400/20"
           >
-            <span className="inline-block transition-transform duration-200 group-active:translate-x-1">Continue to Design →</span>
+            <span className="inline-block transition-transform duration-200 group-active:translate-x-1">
+              Continue to Design →
+            </span>
           </button>
         </div>
       )}

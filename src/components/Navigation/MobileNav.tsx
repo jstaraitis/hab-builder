@@ -291,7 +291,7 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
       {showAnimalPicker && (
         <div className={`fixed bottom-0 left-0 right-0 z-50 ${isNative ? 'block' : 'lg:hidden'} animate-sheet-up`}>
           <div
-            className="bg-card rounded-t-3xl border-t border-divider shadow-2xl pb-mobile-sheet"
+            className="bg-card rounded-t-2xl border-t border-divider shadow-2xl pb-mobile-sheet"
             style={sheetStyle}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -350,7 +350,7 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
       {showMore && (
         <div className={`fixed bottom-0 left-0 right-0 z-50 ${isNative ? 'block' : 'lg:hidden'} animate-sheet-up`}>
           <div
-            className="bg-card rounded-t-3xl border-t border-divider shadow-2xl pb-mobile-sheet"
+            className="bg-card rounded-t-2xl border-t border-divider shadow-2xl pb-mobile-sheet"
             style={sheetStyle}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -405,7 +405,7 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
       {showFab && (
         <div className={`fixed bottom-0 left-0 right-0 z-50 ${isNative ? 'block' : 'lg:hidden'} animate-sheet-up`}>
           <div
-            className="bg-card rounded-t-3xl border-t border-divider shadow-2xl pb-mobile-sheet"
+            className="bg-card rounded-t-2xl border-t border-divider shadow-2xl pb-mobile-sheet"
             style={sheetStyle}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -460,7 +460,7 @@ export function MobileNav({ onOpenFeedback, isNative = false, isIOS = false }: R
                   <div key="fab" className="flex items-center justify-center pb-1">
                     <button
                       onClick={() => { setShowFab(true); setShowMore(false); }}
-                      className="w-12 h-12 -translate-y-0 rounded-full bg-accent shadow-sm shadow-accent/30 flex items-center justify-center active:scale-95 transition-transform"
+                      className="w-12 h-12 -translate-y-0 rounded-full bg-accent shadow-accent/30 flex items-center justify-center active:scale-95 transition-transform"
                     >
                       <Plus className="w-7 h-7 text-white stroke-[2.5]" />
                     </button>

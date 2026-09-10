@@ -649,7 +649,7 @@ export function EnclosureEnvironmentView() {
     return (
       <div className="min-h-screen bg-surface px-4 pt-6">
         <div className="animate-pulse space-y-3">
-          <div className="h-7 w-44 bg-card rounded-lg" />
+          <div className="h-7 w-44 bg-card rounded-xl" />
           <div className="h-24 bg-card rounded-2xl" />
           <div className="h-72 bg-card rounded-2xl" />
         </div>
@@ -684,7 +684,7 @@ export function EnclosureEnvironmentView() {
           <button
             type="button"
             onClick={() => navigate(`/care-calendar/enclosures/edit/${selectedEnclosure.id}?returnTo=${encodeURIComponent(selectedEnclosureEnvironmentPath)}`)}
-            className="inline-flex items-center gap-1.5 rounded-md border border-divider px-2.5 py-1.5 text-xs font-semibold text-muted hover:text-white transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-xl border border-divider px-2.5 py-1.5 text-xs font-semibold text-muted hover:text-white transition-colors"
           >
             <Pencil className="h-3.5 w-3.5" />
             Edit Enclosure
@@ -756,7 +756,7 @@ export function EnclosureEnvironmentView() {
 
           <div className="mt-4 space-y-3">
             <div className="flex items-center justify-between gap-2">
-              <div className="flex rounded-lg border border-divider overflow-hidden text-xs font-semibold">
+              <div className="flex rounded-xl border border-divider overflow-hidden text-xs font-semibold">
                 {(['24H', '7D', '30D', '90D'] as const).map((range) => (
                   <button
                     key={range}
@@ -841,8 +841,8 @@ export function EnclosureEnvironmentView() {
             <div>
               <label className="block text-xs text-muted mb-1">Temperature</label>
               <div className="flex gap-2">
-                <input type="number" step="0.1" value={tempValue} onChange={(e) => setTempValue(e.target.value)} className="flex-1 min-w-0 rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="79.2" />
-                <select value={tempUnit} onChange={(e) => setTempUnit(e.target.value as 'f' | 'c')} className="rounded-lg border border-divider bg-card-elevated px-2 py-2.5 text-sm text-white">
+                <input type="number" step="0.1" value={tempValue} onChange={(e) => setTempValue(e.target.value)} className="flex-1 min-w-0 rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="79.2" />
+                <select value={tempUnit} onChange={(e) => setTempUnit(e.target.value as 'f' | 'c')} className="rounded-xl border border-divider bg-card-elevated px-2 py-2.5 text-sm text-white">
                   <option value="f">°F</option>
                   <option value="c">°C</option>
                 </select>
@@ -850,7 +850,7 @@ export function EnclosureEnvironmentView() {
             </div>
             <div>
               <label className="block text-xs text-muted mb-1">Temp Zone</label>
-              <select value={tempZone || 'ambient'} onChange={(e) => setTempZone(e.target.value as TempLog['zone'])} className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white">
+              <select value={tempZone || 'ambient'} onChange={(e) => setTempZone(e.target.value as TempLog['zone'])} className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white">
                 <option value="ambient">Ambient</option>
                 <option value="basking">Basking</option>
                 <option value="cool">Cool</option>
@@ -866,15 +866,15 @@ export function EnclosureEnvironmentView() {
             <div>
               <label className="block text-xs text-muted mb-1">Basking Temp</label>
               <div className="flex gap-2">
-                <input type="number" step="0.1" value={baskingTemp} onChange={(e) => setBaskingTemp(e.target.value)} className="flex-1 min-w-0 rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="85.1" />
-                <span className="flex items-center rounded-lg border border-divider bg-card-elevated px-2.5 text-sm text-muted">{tempUnit === 'f' ? '°F' : '°C'}</span>
+                <input type="number" step="0.1" value={baskingTemp} onChange={(e) => setBaskingTemp(e.target.value)} className="flex-1 min-w-0 rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="85.1" />
+                <span className="flex items-center rounded-xl border border-divider bg-card-elevated px-2.5 text-sm text-muted">{tempUnit === 'f' ? '°F' : '°C'}</span>
               </div>
             </div>
             <div>
               <label className="block text-xs text-muted mb-1">Cool Side Temp</label>
               <div className="flex gap-2">
-                <input type="number" step="0.1" value={coolTemp} onChange={(e) => setCoolTemp(e.target.value)} className="flex-1 min-w-0 rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="72.3" />
-                <span className="flex items-center rounded-lg border border-divider bg-card-elevated px-2.5 text-sm text-muted">{tempUnit === 'f' ? '°F' : '°C'}</span>
+                <input type="number" step="0.1" value={coolTemp} onChange={(e) => setCoolTemp(e.target.value)} className="flex-1 min-w-0 rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="72.3" />
+                <span className="flex items-center rounded-xl border border-divider bg-card-elevated px-2.5 text-sm text-muted">{tempUnit === 'f' ? '°F' : '°C'}</span>
               </div>
             </div>
           </div>
@@ -884,13 +884,13 @@ export function EnclosureEnvironmentView() {
             <div>
               <label className="block text-xs text-muted mb-1">Humidity</label>
               <div className="flex gap-2">
-                <input type="number" min="0" max="100" value={humidityValue} onChange={(e) => setHumidityValue(e.target.value)} className="flex-1 min-w-0 rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="72" />
-                <span className="flex items-center rounded-lg border border-divider bg-card-elevated px-2.5 text-sm text-muted">%</span>
+                <input type="number" min="0" max="100" value={humidityValue} onChange={(e) => setHumidityValue(e.target.value)} className="flex-1 min-w-0 rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="72" />
+                <span className="flex items-center rounded-xl border border-divider bg-card-elevated px-2.5 text-sm text-muted">%</span>
               </div>
             </div>
             <div>
               <label className="block text-xs text-muted mb-1">Humidity Zone</label>
-              <select value={humidityZone || 'ambient'} onChange={(e) => setHumidityZone(e.target.value as HumidityLog['zone'])} className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white">
+              <select value={humidityZone || 'ambient'} onChange={(e) => setHumidityZone(e.target.value as HumidityLog['zone'])} className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white">
                 <option value="ambient">Ambient</option>
                 <option value="hide">Hide</option>
                 <option value="substrate">Substrate</option>
@@ -904,11 +904,11 @@ export function EnclosureEnvironmentView() {
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="block text-xs text-muted mb-1">UVB Index</label>
-              <input type="number" step="0.1" value={uvIndex} onChange={(e) => setUvIndex(e.target.value)} className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="2.4" />
+              <input type="number" step="0.1" value={uvIndex} onChange={(e) => setUvIndex(e.target.value)} className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="2.4" />
             </div>
             <div>
               <label className="block text-xs text-muted mb-1">UVB Zone</label>
-              <select value={uvbZone || 'basking'} onChange={(e) => setUvbZone(e.target.value as UvbLog['zone'])} className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white">
+              <select value={uvbZone || 'basking'} onChange={(e) => setUvbZone(e.target.value as UvbLog['zone'])} className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white">
                 <option value="basking">Basking</option>
                 <option value="ambient">Ambient</option>
                 <option value="other">Other</option>
@@ -919,11 +919,11 @@ export function EnclosureEnvironmentView() {
           {/* Notes */}
           <div>
             <label className="block text-xs text-muted mb-1">Notes (optional)</label>
-            <input type="text" value={notes} onChange={(e) => setNotes(e.target.value)} className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="e.g. Added new plants, changed light position..." />
+            <input type="text" value={notes} onChange={(e) => setNotes(e.target.value)} className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted" placeholder="e.g. Added new plants, changed light position..." />
           </div>
 
           {error && (
-            <div className="rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-xs text-red-300">{error}</div>
+            <div className="rounded-xl border border-red-500/30 bg-red-500/10 px-3 py-2 text-xs text-red-300">{error}</div>
           )}
 
           <button
@@ -945,21 +945,21 @@ export function EnclosureEnvironmentView() {
               <h2 className="text-base font-bold text-white">Alerts and Forecasts</h2>
               <p className="text-xs text-muted mt-1">Bioactive phase, mold activity, and substrate forecast based on your logs.</p>
             </div>
-            <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-lg border uppercase tracking-wide ${stageBadgeClass}`}>
+            <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-xl border uppercase tracking-wide ${stageBadgeClass}`}>
               {analytics.stage.replace('-', ' ')}
             </span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-            <div className="rounded-lg border border-divider bg-card-elevated p-2.5">
+            <div className="rounded-xl border border-divider bg-card-elevated p-2.5">
               <p className="text-[11px] text-muted">Mold Events (30d)</p>
               <p className="text-lg font-bold text-white mt-0.5">{analytics.moldEventsLast30Days}</p>
             </div>
-            <div className="rounded-lg border border-divider bg-card-elevated p-2.5">
+            <div className="rounded-xl border border-divider bg-card-elevated p-2.5">
               <p className="text-[11px] text-muted">Avg Substrate Interval</p>
               <p className="text-lg font-bold text-white mt-0.5">{analytics.avgIntervalDays}d</p>
             </div>
-            <div className="rounded-lg border border-divider bg-card-elevated p-2.5">
+            <div className="rounded-xl border border-divider bg-card-elevated p-2.5">
               <p className="text-[11px] text-muted">Next Substrate Forecast</p>
               <p className="text-sm font-bold text-white mt-1">
                 {analytics.nextForecastDate
@@ -986,25 +986,25 @@ export function EnclosureEnvironmentView() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
             <div>
               <label className="block text-[11px] text-muted mb-1">Plant Health</label>
-              <select value={weeklyPlantHealth} onChange={(e) => setWeeklyPlantHealth(Number(e.target.value) as EnclosureHealthScore)} className="w-full rounded-lg border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
+              <select value={weeklyPlantHealth} onChange={(e) => setWeeklyPlantHealth(Number(e.target.value) as EnclosureHealthScore)} className="w-full rounded-xl border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
                 {[1, 2, 3, 4, 5].map((n) => <option key={n} value={n}>{n}/5</option>)}
               </select>
             </div>
             <div>
               <label className="block text-[11px] text-muted mb-1">Cleanup Crew</label>
-              <select value={weeklyCleanupCrew} onChange={(e) => setWeeklyCleanupCrew(Number(e.target.value) as EnclosureHealthScore)} className="w-full rounded-lg border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
+              <select value={weeklyCleanupCrew} onChange={(e) => setWeeklyCleanupCrew(Number(e.target.value) as EnclosureHealthScore)} className="w-full rounded-xl border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
                 {[1, 2, 3, 4, 5].map((n) => <option key={n} value={n}>{n}/5</option>)}
               </select>
             </div>
             <div>
               <label className="block text-[11px] text-muted mb-1">Substrate Moisture</label>
-              <select value={weeklySubstrateMoisture} onChange={(e) => setWeeklySubstrateMoisture(Number(e.target.value) as EnclosureHealthScore)} className="w-full rounded-lg border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
+              <select value={weeklySubstrateMoisture} onChange={(e) => setWeeklySubstrateMoisture(Number(e.target.value) as EnclosureHealthScore)} className="w-full rounded-xl border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
                 {[1, 2, 3, 4, 5].map((n) => <option key={n} value={n}>{n}/5</option>)}
               </select>
             </div>
             <div>
               <label className="block text-[11px] text-muted mb-1">Compaction</label>
-              <select value={weeklySubstrateCompaction} onChange={(e) => setWeeklySubstrateCompaction(Number(e.target.value) as EnclosureHealthScore)} className="w-full rounded-lg border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
+              <select value={weeklySubstrateCompaction} onChange={(e) => setWeeklySubstrateCompaction(Number(e.target.value) as EnclosureHealthScore)} className="w-full rounded-xl border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
                 {[1, 2, 3, 4, 5].map((n) => <option key={n} value={n}>{n}/5</option>)}
               </select>
             </div>
@@ -1013,7 +1013,7 @@ export function EnclosureEnvironmentView() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <div>
               <label className="block text-[11px] text-muted mb-1">Mold Severity</label>
-              <select value={weeklyMoldSeverity} onChange={(e) => setWeeklyMoldSeverity(e.target.value as MoldSeverity)} className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white">
+              <select value={weeklyMoldSeverity} onChange={(e) => setWeeklyMoldSeverity(e.target.value as MoldSeverity)} className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white">
                 <option value="none">None</option>
                 <option value="light">Light</option>
                 <option value="moderate">Moderate</option>
@@ -1026,7 +1026,7 @@ export function EnclosureEnvironmentView() {
                 type="text"
                 value={weeklySnapshotNotes}
                 onChange={(e) => setWeeklySnapshotNotes(e.target.value)}
-                className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted"
+                className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted"
                 placeholder="Optional notes"
               />
             </div>
@@ -1048,7 +1048,7 @@ export function EnclosureEnvironmentView() {
         <div className="order-5 rounded-2xl border border-divider bg-card p-4 space-y-3">
           <div className="flex items-center justify-between gap-2 flex-wrap">
             <h2 className="text-base font-bold text-white">Bioactive and Plant Timeline</h2>
-            <span className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-accent/15 text-accent border border-emerald-500/30">Quick Log</span>
+            <span className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-accent/15 text-accent border border-emerald-500/30">Quick Log</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -1057,7 +1057,7 @@ export function EnclosureEnvironmentView() {
               <select
                 value={eventType}
                 onChange={(e) => setEventType(e.target.value as EnclosureEventType)}
-                className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white"
+                className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white"
               >
                 {EVENT_TYPE_OPTIONS.map((option) => (
                   <option key={option.value} value={option.value}>{option.label}</option>
@@ -1069,7 +1069,7 @@ export function EnclosureEnvironmentView() {
               <select
                 value={eventSeverity}
                 onChange={(e) => setEventSeverity(e.target.value as EnclosureEventSeverity)}
-                className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white"
+                className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white"
               >
                 <option value="info">Info</option>
                 <option value="watch">Watch</option>
@@ -1083,7 +1083,7 @@ export function EnclosureEnvironmentView() {
                 type="date"
                 value={eventDate}
                 onChange={(e) => setEventDate(e.target.value)}
-                className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white"
+                className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white"
               />
             </div>
           </div>
@@ -1094,7 +1094,7 @@ export function EnclosureEnvironmentView() {
               type="text"
               value={eventNotes}
               onChange={(e) => setEventNotes(e.target.value)}
-              className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted"
+              className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-sm text-white placeholder:text-muted"
               placeholder="Example: white mold appeared in rear drainage corner"
             />
           </div>
@@ -1116,16 +1116,16 @@ export function EnclosureEnvironmentView() {
                 <p className="text-xs text-muted">No ecosystem events yet.</p>
               ) : (
                 ecoEvents.slice(0, 8).map((event) => (
-                  <div key={event.id} className="rounded-lg border border-divider p-2.5">
+                  <div key={event.id} className="rounded-xl border border-divider p-2.5">
                     {editingEventId === event.id ? (
                       <div className="space-y-2">
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                          <select value={editEventType} onChange={(e) => setEditEventType(e.target.value as EnclosureEventType)} className="w-full rounded-lg border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
+                          <select value={editEventType} onChange={(e) => setEditEventType(e.target.value as EnclosureEventType)} className="w-full rounded-xl border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
                             {EVENT_TYPE_OPTIONS.map((option) => (
                               <option key={option.value} value={option.value}>{option.label}</option>
                             ))}
                           </select>
-                          <select value={editEventSeverity} onChange={(e) => setEditEventSeverity(e.target.value as EnclosureEventSeverity)} className="w-full rounded-lg border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
+                          <select value={editEventSeverity} onChange={(e) => setEditEventSeverity(e.target.value as EnclosureEventSeverity)} className="w-full rounded-xl border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
                             <option value="info">Info</option>
                             <option value="watch">Watch</option>
                             <option value="caution">Caution</option>
@@ -1135,20 +1135,20 @@ export function EnclosureEnvironmentView() {
                             type="date"
                             value={editEventDate}
                             onChange={(e) => setEditEventDate(e.target.value)}
-                            className="w-full rounded-lg border border-divider bg-card-elevated px-2 py-2 text-sm text-white"
+                            className="w-full rounded-xl border border-divider bg-card-elevated px-2 py-2 text-sm text-white"
                           />
                         </div>
-                        <input type="text" value={editEventNotes} onChange={(e) => setEditEventNotes(e.target.value)} className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2 text-sm text-white" placeholder="Event notes" />
+                        <input type="text" value={editEventNotes} onChange={(e) => setEditEventNotes(e.target.value)} className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2 text-sm text-white" placeholder="Event notes" />
                         <div className="flex justify-end gap-2">
-                          <button type="button" onClick={() => setEditingEventId(null)} className="inline-flex items-center gap-1 rounded-md border border-divider px-2 py-1 text-xs text-muted"><X className="h-3.5 w-3.5" />Cancel</button>
-                          <button type="button" onClick={() => saveEventEdit(event.id).catch(console.error)} className="inline-flex items-center gap-1 rounded-md bg-accent px-2 py-1 text-xs font-semibold text-on-accent"><Check className="h-3.5 w-3.5" />Save</button>
+                          <button type="button" onClick={() => setEditingEventId(null)} className="inline-flex items-center gap-1 rounded-xl border border-divider px-2 py-1 text-xs text-muted"><X className="h-3.5 w-3.5" />Cancel</button>
+                          <button type="button" onClick={() => saveEventEdit(event.id).catch(console.error)} className="inline-flex items-center gap-1 rounded-xl bg-accent px-2 py-1 text-xs font-semibold text-on-accent"><Check className="h-3.5 w-3.5" />Save</button>
                         </div>
                       </div>
                     ) : (
                       <>
                         <div className="flex items-center justify-between gap-2">
                           <p className="text-sm font-semibold text-white">{formatEventType(event.eventType)}</p>
-                          <span className="text-[10px] uppercase tracking-wide rounded px-2 py-0.5 border border-divider text-muted">
+                          <span className="text-[10px] uppercase tracking-wide rounded-full px-2 py-0.5 border border-divider text-muted">
                             {event.severity || 'info'}
                           </span>
                         </div>
@@ -1156,8 +1156,8 @@ export function EnclosureEnvironmentView() {
                         <div className="mt-1 flex items-center justify-between gap-2">
                           <p className="text-xs text-muted">{event.eventDate.toLocaleString()}</p>
                           <div className="flex items-center gap-1">
-                            <button type="button" onClick={() => startEventEdit(event)} className="rounded-md border border-divider px-2 py-1 text-xs text-muted hover:text-white">Edit</button>
-                            <button type="button" onClick={() => deleteEvent(event.id).catch(console.error)} className="inline-flex items-center gap-1 rounded-md border border-red-500/40 px-2 py-1 text-xs text-red-400 hover:text-red-300"><Trash2 className="h-3.5 w-3.5" />Delete</button>
+                            <button type="button" onClick={() => startEventEdit(event)} className="rounded-xl border border-divider px-2 py-1 text-xs text-muted hover:text-white">Edit</button>
+                            <button type="button" onClick={() => deleteEvent(event.id).catch(console.error)} className="inline-flex items-center gap-1 rounded-xl border border-red-500/40 px-2 py-1 text-xs text-red-400 hover:text-red-300"><Trash2 className="h-3.5 w-3.5" />Delete</button>
                           </div>
                         </div>
                       </>
@@ -1190,16 +1190,16 @@ export function EnclosureEnvironmentView() {
                     <p className="text-xs text-muted">No temperature readings yet.</p>
                   ) : (
                     tempLogs.map((log) => (
-                      <div key={log.id} className="rounded-lg border border-divider p-3">
+                      <div key={log.id} className="rounded-xl border border-divider p-3">
                         {editingTempId === log.id ? (
                           <div className="space-y-2">
                             <div className="flex gap-2">
-                              <input type="number" step="0.1" value={editTempValue} onChange={(e) => setEditTempValue(e.target.value)} className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2 text-sm text-white" />
-                              <select value={editTempUnit} onChange={(e) => setEditTempUnit(e.target.value as 'f' | 'c')} className="rounded-lg border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
+                              <input type="number" step="0.1" value={editTempValue} onChange={(e) => setEditTempValue(e.target.value)} className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2 text-sm text-white" />
+                              <select value={editTempUnit} onChange={(e) => setEditTempUnit(e.target.value as 'f' | 'c')} className="rounded-xl border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
                                 <option value="f">F</option>
                                 <option value="c">C</option>
                               </select>
-                              <select value={editTempZone || 'ambient'} onChange={(e) => setEditTempZone(e.target.value as TempLog['zone'])} className="rounded-lg border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
+                              <select value={editTempZone || 'ambient'} onChange={(e) => setEditTempZone(e.target.value as TempLog['zone'])} className="rounded-xl border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
                                 <option value="ambient">Ambient</option>
                                 <option value="basking">Basking</option>
                                 <option value="cool">Cool</option>
@@ -1209,8 +1209,8 @@ export function EnclosureEnvironmentView() {
                               </select>
                             </div>
                             <div className="flex justify-end gap-2">
-                              <button type="button" onClick={() => setEditingTempId(null)} className="inline-flex items-center gap-1 rounded-md border border-divider px-2 py-1 text-xs text-muted"><X className="h-3.5 w-3.5" />Cancel</button>
-                              <button type="button" onClick={() => saveTempEdit(log.id).catch(console.error)} className="inline-flex items-center gap-1 rounded-md bg-accent px-2 py-1 text-xs font-semibold text-on-accent"><Check className="h-3.5 w-3.5" />Save</button>
+                              <button type="button" onClick={() => setEditingTempId(null)} className="inline-flex items-center gap-1 rounded-xl border border-divider px-2 py-1 text-xs text-muted"><X className="h-3.5 w-3.5" />Cancel</button>
+                              <button type="button" onClick={() => saveTempEdit(log.id).catch(console.error)} className="inline-flex items-center gap-1 rounded-xl bg-accent px-2 py-1 text-xs font-semibold text-on-accent"><Check className="h-3.5 w-3.5" />Save</button>
                             </div>
                           </div>
                         ) : (
@@ -1220,8 +1220,8 @@ export function EnclosureEnvironmentView() {
                               <p className="text-xs text-muted">{formatLoggedAt(log.recordedAt)}</p>
                             </div>
                             <div className="flex items-center gap-1">
-                              <button type="button" onClick={() => startTempEdit(log)} className="rounded-md border border-divider px-2 py-1 text-xs text-muted hover:text-white">Edit</button>
-                              <button type="button" onClick={() => deleteTempLog(log.id).catch(console.error)} className="inline-flex items-center gap-1 rounded-md border border-red-500/40 px-2 py-1 text-xs text-red-400 hover:text-red-300"><Trash2 className="h-3.5 w-3.5" />Delete</button>
+                              <button type="button" onClick={() => startTempEdit(log)} className="rounded-xl border border-divider px-2 py-1 text-xs text-muted hover:text-white">Edit</button>
+                              <button type="button" onClick={() => deleteTempLog(log.id).catch(console.error)} className="inline-flex items-center gap-1 rounded-xl border border-red-500/40 px-2 py-1 text-xs text-red-400 hover:text-red-300"><Trash2 className="h-3.5 w-3.5" />Delete</button>
                             </div>
                           </div>
                         )}
@@ -1238,12 +1238,12 @@ export function EnclosureEnvironmentView() {
                     <p className="text-xs text-muted">No humidity readings yet.</p>
                   ) : (
                     humidityLogs.map((log) => (
-                      <div key={log.id} className="rounded-lg border border-divider p-3">
+                      <div key={log.id} className="rounded-xl border border-divider p-3">
                         {editingHumidityId === log.id ? (
                           <div className="space-y-2">
                             <div className="flex gap-2">
-                              <input type="number" min="0" max="100" value={editHumidityValue} onChange={(e) => setEditHumidityValue(e.target.value)} className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2 text-sm text-white" />
-                              <select value={editHumidityZone || 'ambient'} onChange={(e) => setEditHumidityZone(e.target.value as HumidityLog['zone'])} className="rounded-lg border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
+                              <input type="number" min="0" max="100" value={editHumidityValue} onChange={(e) => setEditHumidityValue(e.target.value)} className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2 text-sm text-white" />
+                              <select value={editHumidityZone || 'ambient'} onChange={(e) => setEditHumidityZone(e.target.value as HumidityLog['zone'])} className="rounded-xl border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
                                 <option value="ambient">Ambient</option>
                                 <option value="hide">Hide</option>
                                 <option value="substrate">Substrate</option>
@@ -1252,8 +1252,8 @@ export function EnclosureEnvironmentView() {
                               </select>
                             </div>
                             <div className="flex justify-end gap-2">
-                              <button type="button" onClick={() => setEditingHumidityId(null)} className="inline-flex items-center gap-1 rounded-md border border-divider px-2 py-1 text-xs text-muted"><X className="h-3.5 w-3.5" />Cancel</button>
-                              <button type="button" onClick={() => saveHumidityEdit(log.id).catch(console.error)} className="inline-flex items-center gap-1 rounded-md bg-accent px-2 py-1 text-xs font-semibold text-on-accent"><Check className="h-3.5 w-3.5" />Save</button>
+                              <button type="button" onClick={() => setEditingHumidityId(null)} className="inline-flex items-center gap-1 rounded-xl border border-divider px-2 py-1 text-xs text-muted"><X className="h-3.5 w-3.5" />Cancel</button>
+                              <button type="button" onClick={() => saveHumidityEdit(log.id).catch(console.error)} className="inline-flex items-center gap-1 rounded-xl bg-accent px-2 py-1 text-xs font-semibold text-on-accent"><Check className="h-3.5 w-3.5" />Save</button>
                             </div>
                           </div>
                         ) : (
@@ -1263,8 +1263,8 @@ export function EnclosureEnvironmentView() {
                               <p className="text-xs text-muted">{formatLoggedAt(log.recordedAt)}</p>
                             </div>
                             <div className="flex items-center gap-1">
-                              <button type="button" onClick={() => startHumidityEdit(log)} className="rounded-md border border-divider px-2 py-1 text-xs text-muted hover:text-white">Edit</button>
-                              <button type="button" onClick={() => deleteHumidityLog(log.id).catch(console.error)} className="inline-flex items-center gap-1 rounded-md border border-red-500/40 px-2 py-1 text-xs text-red-400 hover:text-red-300"><Trash2 className="h-3.5 w-3.5" />Delete</button>
+                              <button type="button" onClick={() => startHumidityEdit(log)} className="rounded-xl border border-divider px-2 py-1 text-xs text-muted hover:text-white">Edit</button>
+                              <button type="button" onClick={() => deleteHumidityLog(log.id).catch(console.error)} className="inline-flex items-center gap-1 rounded-xl border border-red-500/40 px-2 py-1 text-xs text-red-400 hover:text-red-300"><Trash2 className="h-3.5 w-3.5" />Delete</button>
                             </div>
                           </div>
                         )}
@@ -1281,20 +1281,20 @@ export function EnclosureEnvironmentView() {
                     <p className="text-xs text-muted">No UVB readings yet.</p>
                   ) : (
                     uvbLogs.map((log) => (
-                      <div key={log.id} className="rounded-lg border border-divider p-3">
+                      <div key={log.id} className="rounded-xl border border-divider p-3">
                         {editingUvbId === log.id ? (
                           <div className="space-y-2">
                             <div className="flex gap-2">
-                              <input type="number" step="0.1" value={editUvbValue} onChange={(e) => setEditUvbValue(e.target.value)} className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2 text-sm text-white" />
-                              <select value={editUvbZone || 'basking'} onChange={(e) => setEditUvbZone(e.target.value as UvbLog['zone'])} className="rounded-lg border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
+                              <input type="number" step="0.1" value={editUvbValue} onChange={(e) => setEditUvbValue(e.target.value)} className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2 text-sm text-white" />
+                              <select value={editUvbZone || 'basking'} onChange={(e) => setEditUvbZone(e.target.value as UvbLog['zone'])} className="rounded-xl border border-divider bg-card-elevated px-2 py-2 text-sm text-white">
                                 <option value="basking">Basking</option>
                                 <option value="ambient">Ambient</option>
                                 <option value="other">Other</option>
                               </select>
                             </div>
                             <div className="flex justify-end gap-2">
-                              <button type="button" onClick={() => setEditingUvbId(null)} className="inline-flex items-center gap-1 rounded-md border border-divider px-2 py-1 text-xs text-muted"><X className="h-3.5 w-3.5" />Cancel</button>
-                              <button type="button" onClick={() => saveUvbEdit(log.id).catch(console.error)} className="inline-flex items-center gap-1 rounded-md bg-accent px-2 py-1 text-xs font-semibold text-on-accent"><Check className="h-3.5 w-3.5" />Save</button>
+                              <button type="button" onClick={() => setEditingUvbId(null)} className="inline-flex items-center gap-1 rounded-xl border border-divider px-2 py-1 text-xs text-muted"><X className="h-3.5 w-3.5" />Cancel</button>
+                              <button type="button" onClick={() => saveUvbEdit(log.id).catch(console.error)} className="inline-flex items-center gap-1 rounded-xl bg-accent px-2 py-1 text-xs font-semibold text-on-accent"><Check className="h-3.5 w-3.5" />Save</button>
                             </div>
                           </div>
                         ) : (
@@ -1304,8 +1304,8 @@ export function EnclosureEnvironmentView() {
                               <p className="text-xs text-muted">{formatLoggedAt(log.recordedAt)}</p>
                             </div>
                             <div className="flex items-center gap-1">
-                              <button type="button" onClick={() => startUvbEdit(log)} className="rounded-md border border-divider px-2 py-1 text-xs text-muted hover:text-white">Edit</button>
-                              <button type="button" onClick={() => deleteUvbLog(log.id).catch(console.error)} className="inline-flex items-center gap-1 rounded-md border border-red-500/40 px-2 py-1 text-xs text-red-400 hover:text-red-300"><Trash2 className="h-3.5 w-3.5" />Delete</button>
+                              <button type="button" onClick={() => startUvbEdit(log)} className="rounded-xl border border-divider px-2 py-1 text-xs text-muted hover:text-white">Edit</button>
+                              <button type="button" onClick={() => deleteUvbLog(log.id).catch(console.error)} className="inline-flex items-center gap-1 rounded-xl border border-red-500/40 px-2 py-1 text-xs text-red-400 hover:text-red-300"><Trash2 className="h-3.5 w-3.5" />Delete</button>
                             </div>
                           </div>
                         )}

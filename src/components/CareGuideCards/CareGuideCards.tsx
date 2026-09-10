@@ -150,7 +150,7 @@ export function CareGuideCards({ profile }: CareGuideCardsProps) {
   ];
 
   return (
-    <div className="bg-white dark:bg-card rounded-lg shadow-sm border border-divider dark:border-divider p-3 sm:p-4">
+    <div className="bg-white dark:bg-card rounded-xl border border-divider dark:border-divider p-3 sm:p-4">
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white">Complete Care Guides</h3>
       </div>

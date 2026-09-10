@@ -48,11 +48,7 @@ export function FunnelPanel() {
               key={range}
               type="button"
               onClick={() => setDays(range)}
-              className={`text-xs font-semibold px-2.5 py-1 rounded-full transition-colors ${
-                days === range
-                  ? 'bg-accent text-on-accent'
-                  : 'bg-card-elevated text-muted border border-divider'
-              }`}
+              className={`text-xs font-semibold px-2.5 py-1 rounded-full transition-colors ${ days === range ? 'bg-accent text-on-accent' : 'bg-card-elevated text-muted border border-divider' }`}
             >
               {range}d
             </button>

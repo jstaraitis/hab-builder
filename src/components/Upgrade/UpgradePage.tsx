@@ -62,13 +62,18 @@ export function UpgradePage() {
             await refreshProfile();
             navigate('/profile');
           } else {
-            setError('Purchase completed, but premium activation is delayed. Please tap "Restore Purchases" in a moment.');
+            setError(
+              'Purchase completed, but premium activation is delayed. Please tap "Restore Purchases" in a moment.'
+            );
             setLoading(false);
           }
         }
       } else {
         // Web — use Stripe
-        const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+        const {
+          data: { session },
+          error: sessionError,
+        } = await supabase.auth.getSession();
         if (sessionError || !session) {
           throw new Error('Unable to authenticate. Please try logging in again.');
         }
@@ -114,8 +119,8 @@ export function UpgradePage() {
   };
 
   const monthlyPrice = 2.99;
-  const annualPrice = 23.00; // ~$1.92/month
-  const savings = ((monthlyPrice * 12 - annualPrice) / (monthlyPrice * 12) * 100).toFixed(0);
+  const annualPrice = 23.0; // ~$1.92/month
+  const savings = (((monthlyPrice * 12 - annualPrice) / (monthlyPrice * 12)) * 100).toFixed(0);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4">
@@ -140,21 +145,13 @@ export function UpgradePage() {
         <div className="flex items-center justify-center gap-4 mb-8">
           <button
             onClick={() => setBillingCycle('monthly')}
-            className={`px-6 py-3 rounded-lg font-medium transition-all ${
-              billingCycle === 'monthly'
-                ? 'bg-accent text-white shadow-lg'
-                : 'bg-card text-secondary border border-divider'
-            }`}
+            className={`px-6 py-3 rounded-xl font-medium transition-all ${billingCycle === 'monthly' ? 'bg-accent text-white ' : 'bg-card text-secondary border border-divider'}`}
           >
             Monthly
           </button>
           <button
             onClick={() => setBillingCycle('annual')}
-            className={`px-6 py-3 rounded-lg font-medium transition-all relative ${
-              billingCycle === 'annual'
-                ? 'bg-accent text-white shadow-lg'
-                : 'bg-card text-secondary border border-divider'
-            }`}
+            className={`px-6 py-3 rounded-xl font-medium transition-all relative ${billingCycle === 'annual' ? 'bg-accent text-white ' : 'bg-card text-secondary border border-divider'}`}
           >
             Annual
             <span className="absolute -top-2 -right-2 bg-amber-500 text-white text-xs px-2 py-0.5 rounded-full">
@@ -178,9 +175,11 @@ export function UpgradePage() {
               </p>
             )}
             {cycleHasTrial && (
-              <p className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 text-accent rounded-lg text-sm font-medium">
+              <p className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 text-accent rounded-xl text-sm font-medium">
                 <Sparkles className="w-4 h-4" />
-                Free for {TRIAL_DAYS} days, then ${billingCycle === 'monthly' ? monthlyPrice.toFixed(2) : annualPrice.toFixed(2)}/{billingCycle === 'monthly' ? 'month' : 'year'}
+                Free for {TRIAL_DAYS} days, then $
+                {billingCycle === 'monthly' ? monthlyPrice.toFixed(2) : annualPrice.toFixed(2)}/
+                {billingCycle === 'monthly' ? 'month' : 'year'}
               </p>
             )}
           </div>
@@ -221,7 +220,7 @@ export function UpgradePage() {
 
           {/* CTA Button */}
           {error && (
-            <div className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-700 dark:text-red-300 text-sm">
+            <div className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-red-700 dark:text-red-300 text-sm">
               {error}
             </div>
           )}
@@ -239,7 +238,9 @@ export function UpgradePage() {
               <>
                 {cycleHasTrial
                   ? `Start ${TRIAL_DAYS}-Day Free Trial`
-                  : (isNative ? 'Subscribe with Apple' : 'Upgrade Now')}
+                  : isNative
+                    ? 'Subscribe with Apple'
+                    : 'Upgrade Now'}
               </>
             )}
           </button>
@@ -264,18 +265,21 @@ export function UpgradePage() {
 
         {/* FAQ / Additional Info */}
         <div className="bg-card rounded-xl p-6 space-y-4">
-          <h3 className="text-lg font-semibold text-white mb-4">
-            Why go Premium?
-          </h3>
+          <h3 className="text-lg font-semibold text-white mb-4">Why go Premium?</h3>
           <div className="text-sm text-muted space-y-3">
             <p>
-              <strong>Free plan:</strong> Unlimited build plans, care guides, and the enclosure designer. Plus 1 enclosure, 1 animal, and unlimited care tasks you can check off in the app.
+              <strong>Free plan:</strong> Unlimited build plans, care guides, and the enclosure
+              designer. Plus 1 enclosure, 1 animal, and unlimited care tasks you can check off in
+              the app.
             </p>
             <p>
-              <strong>Premium plan:</strong> Everything above PLUS push reminders that reach you when a task is due, unlimited animals &amp; enclosures, health tracking and analytics, and inventory management.
+              <strong>Premium plan:</strong> Everything above PLUS push reminders that reach you
+              when a task is due, unlimited animals &amp; enclosures, health tracking and analytics,
+              and inventory management.
             </p>
             <p>
-              Premium helps us keep the lights on while providing world-class care tools. 100% of proceeds go toward improving the app and adding new species.
+              Premium helps us keep the lights on while providing world-class care tools. 100% of
+              proceeds go toward improving the app and adding new species.
             </p>
           </div>
         </div>
@@ -293,7 +297,7 @@ interface FeatureItemProps {
 function FeatureItem({ icon, title, description }: FeatureItemProps) {
   return (
     <div className="flex items-start gap-3">
-      <div className="flex-shrink-0 w-10 h-10 bg-accent/15 rounded-lg flex items-center justify-center text-accent">
+      <div className="flex-shrink-0 w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent">
         {icon}
       </div>
       <div className="flex-1">

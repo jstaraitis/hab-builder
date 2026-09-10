@@ -141,7 +141,7 @@ export function EditAnimalView() {
   if (loading) {
     return (
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="bg-card border border-divider rounded-lg p-4 text-sm text-secondary">
+        <div className="bg-card border border-divider rounded-xl p-4 text-sm text-secondary">
           Loading animal...
         </div>
       </div>
@@ -151,7 +151,7 @@ export function EditAnimalView() {
   if (error || !initialData) {
     return (
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 text-sm text-red-700 dark:text-red-200">
+        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4 text-sm text-red-700 dark:text-red-200">
           {error || 'Animal not found.'}
         </div>
       </div>

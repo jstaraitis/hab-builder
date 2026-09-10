@@ -8,15 +8,18 @@ export function SubmitSetup() {
     return (
       <div className="bg-gradient-to-br from-accent/10 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 border-2 border-accent/30 rounded-xl p-6">
         <div className="flex items-start gap-4">
-          <div className="text-4xl"><Camera className="w-10 h-10" /></div>
+          <div className="text-4xl">
+            <Camera className="w-10 h-10" />
+          </div>
           <div className="flex-1">
             <h3 className="text-xl font-bold text-accent text-accent mb-2">Share Your Setup!</h3>
             <p className="text-accent text-accent mb-4">
-              Built an amazing enclosure? We'd love to feature it! Share your setup photos and help inspire other keepers in the community.
+              Built an amazing enclosure? We'd love to feature it! Share your setup photos and help
+              inspire other keepers in the community.
             </p>
             <button
               onClick={() => setIsOpen(true)}
-              className="px-6 py-3 bg-gradient-to-r from-accent to-teal-600 hover:from-accent-dim hover:to-teal-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all transform hover:scale-105"
+              className="px-6 py-3 bg-gradient-to-r from-accent to-teal-600 hover:from-accent-dim hover:to-teal-700 text-white font-semibold rounded-xl transition-all transform hover:scale-105"
             >
               Submit Your Setup →
             </button>
@@ -27,7 +30,7 @@ export function SubmitSetup() {
   }
 
   return (
-    <div className="bg-card border-2 border-accent/30 rounded-xl p-6 shadow-lg">
+    <div className="bg-card border-2 border-accent/30 rounded-xl p-6">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-xl font-bold text-white">Submit Your Enclosure Setup</h3>
         <button
@@ -39,66 +42,59 @@ export function SubmitSetup() {
       </div>
 
       <div className="space-y-4">
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-6">
-          <p className="text-sm text-blue-900 dark:text-blue-200 font-medium mb-2"><Mail className="inline-block w-5 h-5 mr-2"/> Email Your Submission</p>
+        <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 mb-6">
+          <p className="text-sm text-blue-900 dark:text-blue-200 font-medium mb-2">
+            <Mail className="inline-block w-5 h-5 mr-2" /> Email Your Submission
+          </p>
           <p className="text-sm text-blue-800 dark:text-blue-300 mb-3">
             Send us your setup photos and details at <strong>josh.habitat.builder@gmail.com</strong>
           </p>
           <p className="text-xs text-blue-700 dark:text-blue-400">
-            Include: Species name, enclosure dimensions, setup type (bioactive/standard), and 2-5 high-quality photos
+            Include: Species name, enclosure dimensions, setup type (bioactive/standard), and 2-5
+            high-quality photos
           </p>
         </div>
 
         <div className="grid gap-4">
           <div>
-            <label className="block text-sm font-medium text-secondary mb-2">
-              Species *
-            </label>
+            <label className="block text-sm font-medium text-secondary mb-2">Species *</label>
             <input
               type="text"
               placeholder="e.g., White's Tree Frog"
-              className="w-full px-4 py-2 border border-divider rounded-lg bg-card-elevated text-white focus:ring-2 focus:ring-accent focus:border-transparent"
+              className="w-full px-4 py-2 border border-divider rounded-xl bg-card-elevated text-white focus:ring-2 focus:ring-accent focus:border-transparent"
             />
           </div>
 
           <div className="grid md:grid-cols-3 gap-4">
             <div>
-              <label className="block text-sm font-medium text-secondary mb-2">
-                Width *
-              </label>
+              <label className="block text-sm font-medium text-secondary mb-2">Width *</label>
               <input
                 type="number"
                 placeholder="18"
-                className="w-full px-4 py-2 border border-divider rounded-lg bg-card-elevated text-white focus:ring-2 focus:ring-accent focus:border-transparent"
+                className="w-full px-4 py-2 border border-divider rounded-xl bg-card-elevated text-white focus:ring-2 focus:ring-accent focus:border-transparent"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-secondary mb-2">
-                Depth *
-              </label>
+              <label className="block text-sm font-medium text-secondary mb-2">Depth *</label>
               <input
                 type="number"
                 placeholder="18"
-                className="w-full px-4 py-2 border border-divider rounded-lg bg-card-elevated text-white focus:ring-2 focus:ring-accent focus:border-transparent"
+                className="w-full px-4 py-2 border border-divider rounded-xl bg-card-elevated text-white focus:ring-2 focus:ring-accent focus:border-transparent"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-secondary mb-2">
-                Height *
-              </label>
+              <label className="block text-sm font-medium text-secondary mb-2">Height *</label>
               <input
                 type="number"
                 placeholder="24"
-                className="w-full px-4 py-2 border border-divider rounded-lg bg-card-elevated text-white focus:ring-2 focus:ring-accent focus:border-transparent"
+                className="w-full px-4 py-2 border border-divider rounded-xl bg-card-elevated text-white focus:ring-2 focus:ring-accent focus:border-transparent"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-secondary mb-2">
-              Setup Type *
-            </label>
-            <select className="w-full px-4 py-2 border border-divider rounded-lg bg-card-elevated text-white focus:ring-2 focus:ring-accent focus:border-transparent">
+            <label className="block text-sm font-medium text-secondary mb-2">Setup Type *</label>
+            <select className="w-full px-4 py-2 border border-divider rounded-xl bg-card-elevated text-white focus:ring-2 focus:ring-accent focus:border-transparent">
               <option value="">Select type...</option>
               <option value="minimalist">Minimalist</option>
               <option value="bioactive">Bioactive/Naturalistic</option>
@@ -107,13 +103,11 @@ export function SubmitSetup() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-secondary mb-2">
-              Description
-            </label>
+            <label className="block text-sm font-medium text-secondary mb-2">Description</label>
             <textarea
               rows={4}
               placeholder="Tell us about your setup... What equipment did you use? Any tips for other keepers?"
-              className="w-full px-4 py-2 border border-divider rounded-lg bg-card-elevated text-white focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
+              className="w-full px-4 py-2 border border-divider rounded-xl bg-card-elevated text-white focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
             />
           </div>
 
@@ -124,27 +118,23 @@ export function SubmitSetup() {
             <input
               type="text"
               placeholder="For photo credit"
-              className="w-full px-4 py-2 border border-divider rounded-lg bg-card-elevated text-white focus:ring-2 focus:ring-accent focus:border-transparent"
+              className="w-full px-4 py-2 border border-divider rounded-xl bg-card-elevated text-white focus:ring-2 focus:ring-accent focus:border-transparent"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-secondary mb-2">
-              Email *
-            </label>
+            <label className="block text-sm font-medium text-secondary mb-2">Email *</label>
             <input
               type="email"
               placeholder="your@email.com"
-              className="w-full px-4 py-2 border border-divider rounded-lg bg-card-elevated text-white focus:ring-2 focus:ring-accent focus:border-transparent"
+              className="w-full px-4 py-2 border border-divider rounded-xl bg-card-elevated text-white focus:ring-2 focus:ring-accent focus:border-transparent"
             />
-            <p className="text-xs text-muted mt-1">
-              We'll contact you if we feature your setup
-            </p>
+            <p className="text-xs text-muted mt-1">We'll contact you if we feature your setup</p>
           </div>
 
-          <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4">
+          <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-xl p-4">
             <p className="text-sm text-yellow-900 dark:text-yellow-200 font-medium mb-2">
-              <FileText className="inline-block w-5 h-5 mr-2"/> Submission Guidelines
+              <FileText className="inline-block w-5 h-5 mr-2" /> Submission Guidelines
             </p>
             <ul className="text-xs text-yellow-800 dark:text-yellow-300 space-y-1">
               <li>• Photos should be high quality (good lighting, clear focus)</li>
@@ -158,13 +148,13 @@ export function SubmitSetup() {
         <div className="flex gap-3 pt-4">
           <a
             href="mailto:josh.habitat.builder@gmail.com?subject=Enclosure Setup Submission"
-            className="flex-1 px-6 py-3 bg-gradient-to-r from-accent to-teal-600 hover:from-accent-dim hover:to-teal-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all text-center"
+            className="flex-1 px-6 py-3 bg-gradient-to-r from-accent to-teal-600 hover:from-accent-dim hover:to-teal-700 text-white font-semibold rounded-xl transition-all text-center"
           >
-            <Mail className="inline-block w-4 h-4 mr-2"/> Send via Email
+            <Mail className="inline-block w-4 h-4 mr-2" /> Send via Email
           </a>
           <button
             onClick={() => setIsOpen(false)}
-            className="px-6 py-3 bg-card-elevated hover:bg-gray-300 dark:bg-card-elevated dark:hover:bg-card-elevated text-secondary font-semibold rounded-lg transition-all"
+            className="px-6 py-3 bg-card-elevated hover:bg-gray-300 dark:bg-card-elevated dark:hover:bg-card-elevated text-secondary font-semibold rounded-xl transition-all"
           >
             Cancel
           </button>

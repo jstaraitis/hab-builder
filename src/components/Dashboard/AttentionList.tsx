@@ -19,7 +19,7 @@ function AttentionCard({ item }: { readonly item: AttentionItem }) {
         <div className="flex items-center gap-2 flex-wrap">
           <span className="text-sm font-bold text-white">{item.subjectName}</span>
           <span
-            className={`text-[10px] font-bold uppercase tracking-wide rounded px-1.5 py-0.5 ${styles.chipText} ${styles.chipBg}`}
+            className={`text-[10px] font-bold uppercase tracking-wide rounded-full px-1.5 py-0.5 ${styles.chipText} ${styles.chipBg}`}
           >
             {item.category}
           </span>

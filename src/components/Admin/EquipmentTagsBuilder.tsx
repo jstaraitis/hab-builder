@@ -329,7 +329,7 @@ export default function EquipmentTagsBuilder() {
     return (
       <div className="min-h-screen bg-surface p-8">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-red-50 dark:bg-red-900/20 border-2 border-red-500 rounded-lg p-6">
+          <div className="bg-red-50 dark:bg-red-900/20 border-2 border-red-500 rounded-xl p-6">
             <h1 className="text-2xl font-bold text-red-700 dark:text-red-400 mb-2">
               Development Tool Only
             </h1>
@@ -399,7 +399,7 @@ export default function EquipmentTagsBuilder() {
     <div className="min-h-screen bg-surface py-8">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
-        <div className="bg-yellow-50 dark:bg-yellow-900/20 border-2 border-yellow-500 rounded-lg p-4 mb-6">
+        <div className="bg-yellow-50 dark:bg-yellow-900/20 border-2 border-yellow-500 rounded-xl p-4 mb-6">
           <h1 className="text-2xl font-bold text-yellow-900 dark:text-yellow-200 mb-2">
             🔧 Equipment Tags Builder (Dev Only)
           </h1>
@@ -412,7 +412,7 @@ export default function EquipmentTagsBuilder() {
           {/* Tag Selection */}
           <div className="xl:col-span-2 space-y-6">
             {tagsByField.map((group) => (
-              <div key={group.field} className="bg-card rounded-lg shadow-md p-6">
+              <div key={group.field} className="bg-card rounded-xl p-6">
                 <h2 className="text-xl font-bold text-white mb-2 border-b-2 border-green-500 pb-2">
                   {group.field}
                 </h2>
@@ -430,13 +430,13 @@ export default function EquipmentTagsBuilder() {
                       return (
                         <label
                           key={tag}
-                          className="flex items-start gap-3 cursor-pointer hover:bg-card-elevated p-3 rounded-lg transition-colors"
+                          className="flex items-start gap-3 cursor-pointer hover:bg-card-elevated p-3 rounded-xl transition-colors"
                         >
                           <input
                             type="checkbox"
                             checked={selectedTags.has(tag)}
                             onChange={() => toggleTag(tag)}
-                            className="mt-1 w-5 h-5 text-green-600 rounded focus:ring-green-500"
+                            className="mt-1 w-5 h-5 text-green-600 rounded-xl focus:ring-green-500"
                           />
                           <div>
                             <div className="font-mono text-sm font-semibold text-green-600 dark:text-green-400">
@@ -461,7 +461,7 @@ export default function EquipmentTagsBuilder() {
           <div className="xl:col-span-1">
             <div className="sticky top-8 space-y-4">
               {/* Summary */}
-              <div className="bg-card rounded-lg shadow-md p-4">
+              <div className="bg-card rounded-xl p-4">
                 <h3 className="font-bold text-white mb-2">
                   Selected Tags
                 </h3>
@@ -471,14 +471,14 @@ export default function EquipmentTagsBuilder() {
               </div>
 
               {/* Generated JSON */}
-              <div className="bg-card rounded-lg shadow-md p-4">
+              <div className="bg-card rounded-xl p-4">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="font-bold text-white">
                     Generated JSON
                   </h3>
                   <button
                     onClick={copyToClipboard}
-                    className="flex items-center gap-2 px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm transition-colors"
+                    className="flex items-center gap-2 px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded-xl text-sm transition-colors"
                   >
                     {copied ? (
                       <>
@@ -493,13 +493,13 @@ export default function EquipmentTagsBuilder() {
                     )}
                   </button>
                 </div>
-                <pre className="bg-surface rounded-lg p-4 overflow-x-auto text-xs font-mono text-white max-h-[300px] overflow-y-auto">
+                <pre className="bg-surface rounded-xl p-4 overflow-x-auto text-xs font-mono text-white max-h-[300px] overflow-y-auto">
                   {selectedTags.size > 0 ? generateJSON() : '// Select tags to generate JSON'}
                 </pre>
               </div>
 
               {/* Supplies Preview */}
-              <div className="bg-card rounded-lg shadow-md p-4">
+              <div className="bg-card rounded-xl p-4">
                 <h3 className="font-bold text-white mb-3 border-b-2 border-purple-500 pb-2">
                   📦 Complete Shopping List Preview
                 </h3>
@@ -509,7 +509,7 @@ export default function EquipmentTagsBuilder() {
                   </p>
                 ) : (
                   <div className="space-y-4 max-h-[500px] overflow-y-auto">
-                    <div className="text-xs bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-500 rounded p-2 mb-3">
+                    <div className="text-xs bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-500 rounded-xl p-2 mb-3">
                       <strong>Note:</strong> Shows complete setup including baseline items (enclosure, substrate, monitoring, etc.) plus equipment matching your selected tags.
                     </div>
                     <div className="text-sm text-secondary mb-2">
@@ -524,7 +524,7 @@ export default function EquipmentTagsBuilder() {
                           {items.map((item, idx) => (
                             <div 
                               key={item.uid || `${item.id}-${idx}`}
-                              className="text-xs bg-surface rounded p-2"
+                              className="text-xs bg-surface rounded-xl p-2"
                             >
                               <div className="font-semibold text-white">
                                 {item.name}
@@ -557,7 +557,7 @@ export default function EquipmentTagsBuilder() {
               </div>
 
               {/* Instructions */}
-              <div className="bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-500 rounded-lg p-4">
+              <div className="bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-500 rounded-xl p-4">
                 <h4 className="font-bold text-blue-900 dark:text-blue-200 mb-2">
                   📋 How to Use
                 </h4>
@@ -573,7 +573,7 @@ export default function EquipmentTagsBuilder() {
               {selectedTags.size > 0 && (
                 <button
                   onClick={() => setSelectedTags(new Set())}
-                  className="w-full px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+                  className="w-full px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl transition-colors"
                 >
                   Clear All
                 </button>

@@ -3,34 +3,49 @@ import { useState } from 'react';
 import { SEO } from '../SEO/SEO';
 import { blogPosts, ContentBlock } from '../../data/blog';
 import { generateArticleStructuredData } from '../../utils/structuredData';
-import { 
-  Clock, Award, ArrowRight, 
-  CheckCircle, AlertTriangle, Info, Lightbulb, ChevronDown, ChevronUp
+import {
+  Clock,
+  Award,
+  ArrowRight,
+  CheckCircle,
+  AlertTriangle,
+  Info,
+  Lightbulb,
+  ChevronDown,
+  ChevronUp,
 } from 'lucide-react';
 
 // Calculate estimated reading time
 function calculateReadingTime(content: ContentBlock[]): number {
   let wordCount = 0;
   const countWords = (text: string): number => {
-    return text.replace(/<[^>]*>/g, '').split(/\s+/).filter(Boolean).length;
+    return text
+      .replace(/<[^>]*>/g, '')
+      .split(/\s+/)
+      .filter(Boolean).length;
   };
   const processBlock = (block: ContentBlock) => {
     if (block.text) wordCount += countWords(block.text);
     if (typeof block.content === 'string') wordCount += countWords(block.content);
-    if (block.items) block.items.forEach(item => wordCount += countWords(item));
+    if (block.items) block.items.forEach((item) => (wordCount += countWords(item)));
     if (Array.isArray(block.content)) block.content.forEach(processBlock);
-    if (block.rows) block.rows.forEach(row => row.forEach(cell => wordCount += countWords(cell)));
+    if (block.rows)
+      block.rows.forEach((row) => row.forEach((cell) => (wordCount += countWords(cell))));
   };
   content.forEach(processBlock);
   return Math.ceil(wordCount / 200);
 }
 
 // Mobile table accordion component
-function MobileTableAccordion({ headers, rows, index }: Readonly<{ headers?: string[]; rows?: string[][]; index: number }>) {
+function MobileTableAccordion({
+  headers,
+  rows,
+  index,
+}: Readonly<{ headers?: string[]; rows?: string[][]; index: number }>) {
   const [expandedRows, setExpandedRows] = useState<Set<number>>(new Set());
 
   const toggleRow = (rowIndex: number) => {
-    setExpandedRows(prev => {
+    setExpandedRows((prev) => {
       const newSet = new Set(prev);
       if (newSet.has(rowIndex)) {
         newSet.delete(rowIndex);
@@ -58,18 +73,12 @@ function MobileTableAccordion({ headers, rows, index }: Readonly<{ headers?: str
               className="w-full px-4 py-4 flex items-center justify-between hover:bg-card transition-colors"
             >
               <div className="flex items-center gap-3 flex-1">
-                <div className="w-8 h-8 rounded-lg bg-accent/15 flex items-center justify-center flex-shrink-0">
-                  <span className="text-sm font-bold text-accent">
-                    {rowIndex + 1}
-                  </span>
+                <div className="w-8 h-8 rounded-xl bg-accent/15 flex items-center justify-center flex-shrink-0">
+                  <span className="text-sm font-bold text-accent">{rowIndex + 1}</span>
                 </div>
                 <div className="text-left">
-                  <div className="text-xs font-semibold text-muted mb-0.5">
-                    {headers?.[0]}
-                  </div>
-                  <div className="font-semibold text-white">
-                    {firstCell}
-                  </div>
+                  <div className="text-xs font-semibold text-muted mb-0.5">{headers?.[0]}</div>
+                  <div className="font-semibold text-white">{firstCell}</div>
                 </div>
               </div>
               {isExpanded ? (
@@ -84,12 +93,10 @@ function MobileTableAccordion({ headers, rows, index }: Readonly<{ headers?: str
               <div className="px-4 pb-4 pt-2 border-t border-divider bg-card dark:bg-card/50 space-y-3">
                 {restCells.map((cell, cellIndex) => (
                   <div key={`${index}-detail-${rowIndex}-${cellIndex}`}>
-                  <div className="text-xs font-bold text-jade-700 dark:text-jade-400 mb-1">
+                    <div className="text-xs font-bold text-jade-700 dark:text-jade-400 mb-1">
                       {headers?.[cellIndex + 1]}
                     </div>
-                    <div className="text-sm text-white leading-relaxed">
-                      {cell}
-                    </div>
+                    <div className="text-sm text-white leading-relaxed">{cell}</div>
                   </div>
                 ))}
               </div>
@@ -136,10 +143,12 @@ function renderBlock(block: ContentBlock, index: number): JSX.Element {
 
     case 'text':
       const textContent = (block.text || block.content || '') as string;
-      const hasHeading = textContent.includes("class='text-base font-semibold") || textContent.includes("class='font-semibold'");
-      
+      const hasHeading =
+        textContent.includes("class='text-base font-semibold") ||
+        textContent.includes("class='font-semibold'");
+
       return (
-        <div key={index} className={hasHeading ? "mb-6 mt-16" : "mb-6"}>
+        <div key={index} className={hasHeading ? 'mb-6 mt-16' : 'mb-6'}>
           <p
             className="text-secondary leading-relaxed text-base"
             dangerouslySetInnerHTML={{ __html: textContent }}
@@ -168,9 +177,9 @@ function renderBlock(block: ContentBlock, index: number): JSX.Element {
       const isCritical = block.severity === 'critical';
       const isImportant = block.severity === 'important';
       const isTip = block.severity === 'tip';
-      
+
       let bgColor, borderColor, textColor, icon;
-      
+
       if (isCritical) {
         bgColor = 'bg-red-50 dark:bg-red-900/20';
         borderColor = 'border-red-500';
@@ -200,7 +209,9 @@ function renderBlock(block: ContentBlock, index: number): JSX.Element {
         >
           <div className={textColor}>{icon}</div>
           <p className={`${textColor} font-medium leading-relaxed flex-1`}>
-            <span dangerouslySetInnerHTML={{ __html: (block.text || block.content || '') as string }} />
+            <span
+              dangerouslySetInnerHTML={{ __html: (block.text || block.content || '') as string }}
+            />
           </p>
         </div>
       );
@@ -213,7 +224,11 @@ function renderBlock(block: ContentBlock, index: number): JSX.Element {
           className="bg-gradient-to-r from-jade-50 to-teal-50 dark:from-card dark:to-card-elevated border-l-4 border-jade-600 dark:border-accent p-6 rounded-xl mb-12"
         >
           <p className="text-jade-900 dark:text-jade-200 font-medium leading-relaxed">
-            <span dangerouslySetInnerHTML={{ __html: typeof block.content === 'string' ? block.content : '' }} />
+            <span
+              dangerouslySetInnerHTML={{
+                __html: typeof block.content === 'string' ? block.content : '',
+              }}
+            />
           </p>
         </div>
       );
@@ -272,9 +287,7 @@ function renderBlock(block: ContentBlock, index: number): JSX.Element {
             />
           </div>
           {block.caption && (
-            <p className="text-sm text-center text-muted mt-3 italic">
-              {block.caption}
-            </p>
+            <p className="text-sm text-center text-muted mt-3 italic">{block.caption}</p>
           )}
         </div>
       );
@@ -304,10 +317,11 @@ export function BlogPost() {
   );
 
   // Get related posts
-  const relatedPosts = post.relatedBlogs
-    ?.map(id => blogPosts[id])
-    .filter(Boolean)
-    .slice(0, 3) || [];
+  const relatedPosts =
+    post.relatedBlogs
+      ?.map((id) => blogPosts[id])
+      .filter(Boolean)
+      .slice(0, 3) || [];
 
   // Build canonical URL
   const canonicalUrl = `${window.location.origin}${location.pathname}`;
@@ -331,13 +345,10 @@ export function BlogPost() {
       />
 
       {/* Hero Recipe Card */}
-      <div className="bg-card border-b border-divider shadow-sm">
+      <div className="bg-card border-b border-divider">
         <div className="max-w-5xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between mb-3">
-            <Link
-              to="/blog"
-              className="text-sm font-medium text-accent hover:text-accent"
-            >
+            <Link to="/blog" className="text-sm font-medium text-accent hover:text-accent">
               ← All Guides
             </Link>
             <div className="flex items-center gap-2 text-sm text-muted">
@@ -345,29 +356,29 @@ export function BlogPost() {
               <span>{readingTime} min read</span>
             </div>
           </div>
-          
-          <h1 className="text-2xl md:text-4xl font-bold text-white mb-4">
-            {post.title}
-          </h1>
+
+          <h1 className="text-2xl md:text-4xl font-bold text-white mb-4">{post.title}</h1>
 
           {/* Status badge */}
-          {post.status && post.status !== 'published' && (() => {
-            let statusLabel = 'In Progress';
-            if (post.status === 'community-reviewed') statusLabel = 'Community Reviewed';
-            if (post.status === 'expert-verified') statusLabel = 'Expert Verified';
-            return (
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-jade-100 dark:bg-jade-900/30 text-jade-800 dark:text-jade-200 rounded-full text-sm font-medium mb-4">
-                <Award className="w-4 h-4" />
-                <span>{statusLabel}</span>
-              </div>
-            );
-          })()}
+          {post.status &&
+            post.status !== 'published' &&
+            (() => {
+              let statusLabel = 'In Progress';
+              if (post.status === 'community-reviewed') statusLabel = 'Community Reviewed';
+              if (post.status === 'expert-verified') statusLabel = 'Expert Verified';
+              return (
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-jade-100 dark:bg-jade-900/30 text-jade-800 dark:text-jade-200 rounded-full text-sm font-medium mb-4">
+                  <Award className="w-4 h-4" />
+                  <span>{statusLabel}</span>
+                </div>
+              );
+            })()}
         </div>
       </div>
 
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <article className="blog-content bg-card rounded-2xl shadow-sm border border-divider p-6 md:p-10">
+        <article className="blog-content bg-card rounded-2xl border border-divider p-6 md:p-10">
           {post.content.map((block, index) => renderBlock(block, index))}
         </article>
 
@@ -380,14 +391,12 @@ export function BlogPost() {
                 <Link
                   key={relatedPost.id}
                   to={`/blog/${relatedPost.id}`}
-                  className="group bg-card rounded-xl border border-divider p-5 hover:border-accent dark:hover:border-accent transition-all hover:shadow-md"
+                  className="group bg-card rounded-xl border border-divider p-5 hover:border-accent dark:hover:border-accent transition-all"
                 >
                   <h3 className="font-bold text-white group-hover:text-accent dark:group-hover:text-accent mb-2 line-clamp-2">
                     {relatedPost.title}
                   </h3>
-                  <p className="text-sm text-muted line-clamp-2 mb-3">
-                    {relatedPost.excerpt}
-                  </p>
+                  <p className="text-sm text-muted line-clamp-2 mb-3">{relatedPost.excerpt}</p>
                   <div className="flex items-center gap-1 text-sm font-medium text-accent">
                     Read more
                     <ArrowRight className="w-4 h-4" />

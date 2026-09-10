@@ -86,7 +86,7 @@ export function BrumationSafetyPanel({ animal, startDate, refreshKey }: Brumatio
 
       {/* At-a-glance numbers */}
       <div className="grid grid-cols-2 gap-2 px-4 pb-3">
-        <div className="bg-card border border-divider rounded-lg p-3">
+        <div className="bg-card border border-divider rounded-xl p-3">
           <div className="flex items-center gap-1.5 text-muted mb-1">
             <CalendarDays className="w-3.5 h-3.5" />
             <span className="text-[11px] font-semibold uppercase tracking-wide">Elapsed</span>
@@ -102,7 +102,7 @@ export function BrumationSafetyPanel({ animal, startDate, refreshKey }: Brumatio
           </p>
         </div>
 
-        <div className="bg-card border border-divider rounded-lg p-3">
+        <div className="bg-card border border-divider rounded-xl p-3">
           <div className="flex items-center gap-1.5 text-muted mb-1">
             <Scale className="w-3.5 h-3.5" />
             <span className="text-[11px] font-semibold uppercase tracking-wide">Weight</span>

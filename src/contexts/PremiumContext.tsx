@@ -10,7 +10,7 @@ interface PremiumContextType {
   isTrialing: boolean;
   /** ISO timestamp the trial ends, when one is running. */
   trialEnd: string | null;
-  /** Whole days left in the trial, rounded up. Null when not trialing. */
+  /** Whole days left in the trial, rounded-xl up. Null when not trialing. */
   trialDaysRemaining: number | null;
   /**
    * Whether an upgrade would start a free trial rather than charge today.

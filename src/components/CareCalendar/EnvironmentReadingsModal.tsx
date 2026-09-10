@@ -132,7 +132,7 @@ export function EnvironmentReadingsModal({
           {/* Header */}
           <div className="flex items-center justify-between px-5 py-4 border-b border-divider shrink-0">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-accent/15 rounded-lg">
+              <div className="p-2 bg-accent/15 rounded-xl">
                 {isTemp
                   ? <Thermometer className="w-5 h-5 text-accent" />
                   : <Droplets className="w-5 h-5 text-accent" />
@@ -143,7 +143,7 @@ export function EnvironmentReadingsModal({
                 <p className="text-sm text-muted">{task.title}</p>
               </div>
             </div>
-            <button onClick={onClose} className="text-muted p-1 rounded-lg" type="button">
+            <button onClick={onClose} className="text-muted p-1 rounded-xl" type="button">
               <X className="w-5 h-5" />
             </button>
           </div>
@@ -154,7 +154,7 @@ export function EnvironmentReadingsModal({
               <>
                 <div className="flex items-center justify-between">
                   <h3 className="text-xs font-semibold text-muted uppercase tracking-wide">Temperature Readings</h3>
-                  <div className="flex rounded-lg overflow-hidden border border-divider text-xs">
+                  <div className="flex rounded-xl overflow-hidden border border-divider text-xs">
                     <button
                       type="button"
                       onClick={() => setTempUnit('f')}
@@ -236,7 +236,7 @@ export function EnvironmentReadingsModal({
             </div>
 
             {error && (
-              <p className="text-xs text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-3 py-2">{error}</p>
+              <p className="text-xs text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl px-3 py-2">{error}</p>
             )}
 
             <div className="flex flex-col gap-2 pt-1">

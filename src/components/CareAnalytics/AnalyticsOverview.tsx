@@ -23,7 +23,7 @@ export function AnalyticsOverview({ analytics, consistencyScore = null }: Readon
       </div>
 
       {showMetricHelp && (
-        <div className="bg-card rounded-lg border border-divider p-3 sm:p-4 text-xs sm:text-sm text-muted space-y-2">
+        <div className="bg-card rounded-xl border border-divider p-3 sm:p-4 text-xs sm:text-sm text-muted space-y-2">
           <p><span className="text-white font-medium">Completed:</span> Total non-skipped task completions. Subtitle shows non-skipped completions in the last 30 days.</p>
           <p><span className="text-white font-medium">Skip Rate (30d):</span> Skipped logs divided by all logs in the last 30 days.</p>
           <p><span className="text-white font-medium">Coverage Score (30d):</span> Percentage of active tasks completed at least once in the last 30 days.</p>
@@ -36,7 +36,7 @@ export function AnalyticsOverview({ analytics, consistencyScore = null }: Readon
       <div className="grid grid-cols-2 lg:grid-cols-6 gap-2 sm:gap-4">
       {/* Consistency Score */}
       {consistencyScore !== null && (
-        <div className="bg-card rounded-lg border border-divider p-3 sm:p-4">
+        <div className="bg-card rounded-xl border border-divider p-3 sm:p-4">
           <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
             <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent" />
             <span className="text-xs sm:text-sm text-muted">Consistency</span>
@@ -51,7 +51,7 @@ export function AnalyticsOverview({ analytics, consistencyScore = null }: Readon
       )}
 
       {/* Skip Rate */}
-      <div className="bg-card rounded-lg border border-divider p-3 sm:p-4">
+      <div className="bg-card rounded-xl border border-divider p-3 sm:p-4">
         <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
           <CircleOff className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-500" />
           <span className="text-xs sm:text-sm text-muted">Skip Rate</span>
@@ -65,7 +65,7 @@ export function AnalyticsOverview({ analytics, consistencyScore = null }: Readon
       </div>
 
       {/* Coverage Score */}
-      <div className="bg-card rounded-lg border border-divider p-3 sm:p-4">
+      <div className="bg-card rounded-xl border border-divider p-3 sm:p-4">
         <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
           <Target className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent" />
           <span className="text-xs sm:text-sm text-muted">Coverage Score</span>
@@ -79,7 +79,7 @@ export function AnalyticsOverview({ analytics, consistencyScore = null }: Readon
       </div>
 
       {/* Total Completions */}
-      <div className="bg-card rounded-lg border border-divider p-3 sm:p-4">
+      <div className="bg-card rounded-xl border border-divider p-3 sm:p-4">
         <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
           <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent" />
           <span className="text-xs sm:text-sm text-muted">Completed</span>
@@ -93,7 +93,7 @@ export function AnalyticsOverview({ analytics, consistencyScore = null }: Readon
       </div>
 
       {/* Current Streak */}
-      <div className="bg-card rounded-lg border border-divider p-3 sm:p-4">
+      <div className="bg-card rounded-xl border border-divider p-3 sm:p-4">
         <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
           <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-600 dark:text-orange-400" />
           <span className="text-xs sm:text-sm text-muted">Current Best Streak</span>
@@ -115,7 +115,7 @@ export function AnalyticsOverview({ analytics, consistencyScore = null }: Readon
       </div>
 
       {/* Longest Streak */}
-      <div className="bg-card rounded-lg border border-divider p-3 sm:p-4">
+      <div className="bg-card rounded-xl border border-divider p-3 sm:p-4">
         <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
           <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-600 dark:text-purple-400" />
           <span className="text-xs sm:text-sm text-muted">Longest Streak</span>

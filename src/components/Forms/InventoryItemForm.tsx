@@ -83,7 +83,7 @@ export function InventoryItemForm({ mode, initialData, onSave, onCancel, onDelet
                     id="inventory-title"
                     value={form.title}
                     onChange={(event) => setForm(prev => ({ ...prev, title: event.target.value }))}
-                    className="w-full rounded-lg border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+                    className="w-full rounded-xl border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
                     placeholder="Arcadia T5 UVB bulb"
                   />
                 </div>
@@ -93,7 +93,7 @@ export function InventoryItemForm({ mode, initialData, onSave, onCancel, onDelet
                     id="inventory-category"
                     value={form.category}
                     onChange={(event) => setForm(prev => ({ ...prev, category: event.target.value as InventoryCategory }))}
-                    className="w-full rounded-lg border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+                    className="w-full rounded-xl border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
                   >
                     {CATEGORY_OPTIONS.map(option => (
                       <option key={option.value} value={option.value}>{option.label}</option>
@@ -106,7 +106,7 @@ export function InventoryItemForm({ mode, initialData, onSave, onCancel, onDelet
                     id="inventory-brand"
                     value={form.brand}
                     onChange={(event) => setForm(prev => ({ ...prev, brand: event.target.value }))}
-                    className="w-full rounded-lg border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+                    className="w-full rounded-xl border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
                     placeholder="Arcadia"
                   />
                 </div>
@@ -117,7 +117,7 @@ export function InventoryItemForm({ mode, initialData, onSave, onCancel, onDelet
                     type="date"
                     value={form.lastReplacedAt}
                     onChange={(event) => setForm(prev => ({ ...prev, lastReplacedAt: event.target.value }))}
-                    className="w-full rounded-lg border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+                    className="w-full rounded-xl border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
                   />
                 </div>
                 <div>
@@ -126,7 +126,7 @@ export function InventoryItemForm({ mode, initialData, onSave, onCancel, onDelet
                     id="inventory-frequency"
                     value={form.reminderFrequency}
                     onChange={(event) => setForm(prev => ({ ...prev, reminderFrequency: event.target.value as InventoryFrequency }))}
-                    className="w-full rounded-lg border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+                    className="w-full rounded-xl border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
                   >
                     {FREQUENCY_OPTIONS.map(option => (
                       <option key={option.value} value={option.value}>{option.label}</option>
@@ -142,7 +142,7 @@ export function InventoryItemForm({ mode, initialData, onSave, onCancel, onDelet
                       min={1}
                       value={form.customFrequencyDays}
                       onChange={(event) => setForm(prev => ({ ...prev, customFrequencyDays: event.target.value }))}
-                      className="w-full rounded-lg border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+                      className="w-full rounded-xl border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
                     />
                   </div>
                 )}
@@ -153,7 +153,7 @@ export function InventoryItemForm({ mode, initialData, onSave, onCancel, onDelet
                     type="time"
                     value={form.reminderTime}
                     onChange={(event) => setForm(prev => ({ ...prev, reminderTime: event.target.value }))}
-                    className="w-full rounded-lg border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+                    className="w-full rounded-xl border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
                   />
                 </div>
                 <div>
@@ -162,7 +162,7 @@ export function InventoryItemForm({ mode, initialData, onSave, onCancel, onDelet
                     id="inventory-amazon-link"
                     value={form.buyAgainUrl}
                     onChange={(event) => setForm(prev => ({ ...prev, buyAgainUrl: event.target.value }))}
-                    className="w-full rounded-lg border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+                    className="w-full rounded-xl border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
                     placeholder="https://www.amazon.com/dp/..."
                   />
                 </div>
@@ -175,12 +175,12 @@ export function InventoryItemForm({ mode, initialData, onSave, onCancel, onDelet
                   value={form.notes}
                   onChange={(event) => setForm(prev => ({ ...prev, notes: event.target.value }))}
                   rows={3}
-                  className="w-full rounded-lg border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+                  className="w-full rounded-xl border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
                 />
               </div>
 
               {error && (
-                <div className="bg-rose-500/10 border border-rose-500/30 text-rose-300 rounded-lg p-4 text-sm">
+                <div className="bg-rose-500/10 border border-rose-500/30 text-rose-300 rounded-xl p-4 text-sm">
                   {error}
                 </div>
               )}
@@ -189,14 +189,14 @@ export function InventoryItemForm({ mode, initialData, onSave, onCancel, onDelet
                 <button
                   type="button"
                   onClick={onCancel}
-                  className="px-4 py-2.5 rounded-lg border border-divider text-white hover:bg-card-elevated transition-colors font-medium text-sm"
+                  className="px-4 py-2.5 rounded-xl border border-divider text-white hover:bg-card-elevated transition-colors font-medium text-sm"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={saving || deleting}
-                  className="px-6 py-2.5 rounded-lg bg-accent text-on-accent font-semibold hover:bg-accent-dim disabled:opacity-60 transition-colors text-sm"
+                  className="px-6 py-2.5 rounded-xl bg-accent text-on-accent font-semibold hover:bg-accent-dim disabled:opacity-60 transition-colors text-sm"
                 >
                   {saving ? 'Saving...' : mode === 'add' ? 'Create Reminder' : 'Save Changes'}
                 </button>
@@ -208,7 +208,7 @@ export function InventoryItemForm({ mode, initialData, onSave, onCancel, onDelet
                   type="button"
                   onClick={() => { void handleDelete(); }}
                   disabled={saving || deleting}
-                  className="w-full px-3 py-1.5 border border-rose-500/30 text-rose-300 hover:bg-rose-500/10 rounded-lg transition-colors disabled:opacity-60 font-medium text-xs"
+                  className="w-full px-3 py-1.5 border border-rose-500/30 text-rose-300 hover:bg-rose-500/10 rounded-xl transition-colors disabled:opacity-60 font-medium text-xs"
                 >
                   {deleting ? 'Deleting...' : 'Delete Item'}
                 </button>

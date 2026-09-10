@@ -44,11 +44,7 @@ function AnimalPills({
         <button
           key={a.id}
           onClick={() => onSelect(a.id)}
-          className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-            a.id === selectedId
-              ? 'bg-accent text-on-accent'
-              : 'bg-card text-muted border border-divider'
-          }`}
+          className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${ a.id === selectedId ? 'bg-accent text-on-accent' : 'bg-card text-muted border border-divider' }`}
         >
           {a.name || `Animal #${a.animalNumber ?? 1}`}
         </button>
@@ -190,11 +186,7 @@ export function HealthHubView() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex-1 flex flex-col items-center gap-0.5 py-2.5 border-b-2 text-xs font-medium transition-colors ${
-                  isActive
-                    ? 'border-accent text-accent'
-                    : 'border-transparent text-muted'
-                }`}
+                className={`flex-1 flex flex-col items-center gap-0.5 py-2.5 border-b-2 text-xs font-medium transition-colors ${ isActive ? 'border-accent text-accent' : 'border-transparent text-muted' }`}
               >
                 <Icon className="w-4 h-4" />
                 {tab.label}

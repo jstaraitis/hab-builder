@@ -28,7 +28,7 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
   }));
 
   return (
-    <div className="bg-card rounded-lg shadow-sm border border-divider p-4">
+    <div className="bg-card rounded-xl border border-divider p-4">
       {title && (
         <h3 className="text-lg font-semibold text-white mb-4">{title}</h3>
       )}
@@ -38,7 +38,7 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative overflow-hidden rounded-lg lg:rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-purple-200 dark:border-purple-800 hover:border-purple-400 dark:hover:border-purple-600 transition-all hover:shadow-lg cursor-pointer group"
+            className="relative overflow-hidden rounded-xl lg:rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-purple-200 dark:border-purple-800 hover:border-purple-400 dark:hover:border-purple-600 transition-all cursor-pointer group"
             onClick={() => {
               setSelectedIndex(index);
               setIsLightboxOpen(true);
@@ -55,7 +55,7 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
             
             {/* Expand Icon Overlay */}
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center">
-              <div className="opacity-0 group-hover:opacity-100 transition-opacity p-2 lg:p-2.5 rounded-full bg-purple-500 text-white shadow-lg">
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity p-2 lg:p-2.5 rounded-full bg-purple-500 text-white">
                 <svg className="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
                 </svg>

@@ -31,7 +31,12 @@ import { sitterSheetService, type SitterSheetBundle } from '../../services/sitte
 import { track } from '../../services/analyticsService';
 import { sitterSheetToPlainText } from '../../utils/sitterSheetText';
 import { PRINT_STYLES } from './printStyles';
-import { shareDocument, shareOutcomeMessage, shareActionLabel, canPrint } from '../../utils/shareDocument';
+import {
+  shareDocument,
+  shareOutcomeMessage,
+  shareActionLabel,
+  canPrint,
+} from '../../utils/shareDocument';
 
 /** Things a well-meaning sitter does that cause harm. Stated once, prominently. */
 const DO_NOT_LIST = [
@@ -191,7 +196,9 @@ export function SitterSheetView() {
           <div className="flex items-center gap-2">
             <button
               type="button"
-              onClick={() => { void handleCopy(); }}
+              onClick={() => {
+                void handleCopy();
+              }}
               disabled={!bundle}
               className="inline-flex items-center gap-1.5 text-sm font-semibold px-3 py-2 rounded-xl bg-card-elevated border border-divider text-white disabled:opacity-50"
             >
@@ -200,7 +207,9 @@ export function SitterSheetView() {
             </button>
             <button
               type="button"
-              onClick={() => { void handleShare(); }}
+              onClick={() => {
+                void handleShare();
+              }}
               disabled={!bundle}
               className="inline-flex items-center gap-1.5 text-sm font-semibold px-3 py-2 rounded-xl bg-accent text-on-accent disabled:opacity-50"
             >
@@ -329,7 +338,10 @@ export function SitterSheetView() {
           <Section title="The animals" subtitle="Where they live and what to keep them at.">
             <div className="space-y-3">
               {bundle.enclosures.map((entry) => (
-                <div key={entry.enclosure.id} className="report-visit border-l-2 border-divider pl-3">
+                <div
+                  key={entry.enclosure.id}
+                  className="report-visit border-l-2 border-divider pl-3"
+                >
                   <p className="text-sm font-semibold text-white">{entry.enclosure.name}</p>
                   <p className="text-xs text-muted">
                     {entry.animals.length > 0
@@ -344,7 +356,9 @@ export function SitterSheetView() {
                     {entry.dayTempTarget !== undefined
                       ? `${entry.dayTempTarget}°F by day`
                       : 'not recorded'}
-                    {entry.nightTempTarget !== undefined ? `, ${entry.nightTempTarget}°F at night` : ''}
+                    {entry.nightTempTarget !== undefined
+                      ? `, ${entry.nightTempTarget}°F at night`
+                      : ''}
                     {' · '}
                     Humidity:{' '}
                     {entry.humidityMin !== undefined && entry.humidityMax !== undefined
@@ -375,7 +389,9 @@ export function SitterSheetView() {
                     {formatDayLabel(day.date)}
                   </p>
                   {day.occurrences.length === 0 ? (
-                    <p className="text-xs text-muted mt-1">Nothing scheduled — just a quick look over.</p>
+                    <p className="text-xs text-muted mt-1">
+                      Nothing scheduled — just a quick look over.
+                    </p>
                   ) : (
                     <ul className="mt-2 space-y-1.5">
                       {day.occurrences.map((occurrence, index) => (
@@ -383,14 +399,17 @@ export function SitterSheetView() {
                           key={`${occurrence.taskId}-${index}`}
                           className="flex items-start gap-2 text-sm"
                         >
-                          <span className="print-checkbox w-4 h-4 mt-0.5 shrink-0 rounded border border-divider bg-card" />
+                          <span className="print-checkbox w-4 h-4 mt-0.5 shrink-0 rounded-xl border border-divider bg-card" />
                           <span className="flex-1">
                             <span className="text-white">{occurrence.title}</span>
                             {occurrence.scheduledTime && (
                               <span className="text-muted"> · {occurrence.scheduledTime}</span>
                             )}
                             {occurrence.enclosureId && (
-                              <span className="text-muted"> · {animalLabel(occurrence.enclosureId)}</span>
+                              <span className="text-muted">
+                                {' '}
+                                · {animalLabel(occurrence.enclosureId)}
+                              </span>
                             )}
                             {occurrence.wasOverdue && (
                               <span className="text-amber-300"> · was already due</span>
@@ -423,7 +442,9 @@ export function SitterSheetView() {
                 {bundle.schedule.asNeeded.map((item) => (
                   <li key={item.id} className="text-sm text-white">
                     • {item.title}
-                    {item.notes && <span className="block text-xs text-muted ml-3">{item.notes}</span>}
+                    {item.notes && (
+                      <span className="block text-xs text-muted ml-3">{item.notes}</span>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -442,7 +463,11 @@ export function SitterSheetView() {
       {!user && !loading && (
         <div className="text-center py-10">
           <p className="text-sm text-muted mb-3">Sign in to build a care sheet.</p>
-          <button type="button" onClick={() => navigate('/')} className="text-sm text-accent font-semibold">
+          <button
+            type="button"
+            onClick={() => navigate('/')}
+            className="text-sm text-accent font-semibold"
+          >
             Go home
           </button>
         </div>

@@ -66,7 +66,7 @@ export function EnclosureManager({ onEnclosuresChanged, isPremium }: Readonly<En
         </h3>
         <button
           onClick={() => navigate(`/care-calendar/enclosures/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-          className="p-2 bg-accent text-white rounded-lg hover:bg-accent-dim dark:bg-accent dark:hover:bg-accent-dim transition-colors"
+          className="p-2 bg-accent text-white rounded-xl hover:bg-accent-dim dark:bg-accent dark:hover:bg-accent-dim transition-colors"
           title={!isPremium && enclosures.length >= 1 ? 'Upgrade to add more enclosures' : 'Add Enclosure'}
         >
           <Plus className="w-5 h-5" />
@@ -74,7 +74,7 @@ export function EnclosureManager({ onEnclosuresChanged, isPremium }: Readonly<En
       </div>
 
       {error && (
-        <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-3 text-red-300 text-sm">
+        <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-3 text-red-300 text-sm">
           {error}
         </div>
       )}
@@ -88,9 +88,9 @@ export function EnclosureManager({ onEnclosuresChanged, isPremium }: Readonly<En
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {enclosures.map(enclosure => (
             <div key={enclosure.id} className="space-y-2">
-              <div className="bg-card border border-divider rounded-lg p-3 hover:border-accent/30 dark:hover:border-accent/30 hover:shadow-md transition-all">
+              <div className="bg-card border border-divider rounded-xl p-3 hover:border-accent/30 dark:hover:border-accent/30 transition-all">
                 <div className="flex items-start gap-3">
-                  <div className="h-20 w-20 rounded-lg border border-divider bg-card-elevated bg-card overflow-hidden flex items-center justify-center text-muted flex-shrink-0">
+                  <div className="h-20 w-20 rounded-xl border border-divider bg-card-elevated bg-card overflow-hidden flex items-center justify-center text-muted flex-shrink-0">
                     {enclosure.photoUrl ? (
                       <img
                         src={enclosure.photoUrl}
@@ -132,7 +132,7 @@ export function EnclosureManager({ onEnclosuresChanged, isPremium }: Readonly<En
                     </div>
                     <div className="flex flex-wrap gap-1.5 mt-1">
                       {enclosure.substrateType && (
-                        <span className="text-xs px-1.5 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded capitalize">
+                        <span className="text-xs px-1.5 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full capitalize">
                           {enclosure.substrateType}
                         </span>
                       )}
@@ -145,7 +145,7 @@ export function EnclosureManager({ onEnclosuresChanged, isPremium }: Readonly<En
                     <div className="mt-2 flex flex-wrap items-center gap-2">
                       <button
                         onClick={() => navigate(`/care-calendar/enclosures/${enclosure.id}/environment`)}
-                        className="inline-flex items-center gap-1.5 rounded-md border border-divider px-2 py-1 text-xs font-semibold text-accent hover:text-accent-dim transition-colors"
+                        className="inline-flex items-center gap-1.5 rounded-xl border border-divider px-2 py-1 text-xs font-semibold text-accent hover:text-accent-dim transition-colors"
                         title="Open environment controls"
                       >
                         <Thermometer className="w-3.5 h-3.5" />
@@ -153,7 +153,7 @@ export function EnclosureManager({ onEnclosuresChanged, isPremium }: Readonly<En
                       </button>
                       <button
                         onClick={() => navigate(`/care-calendar/enclosures/edit/${enclosure.id}?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-                        className="inline-flex items-center gap-1.5 rounded-md border border-divider px-2 py-1 text-xs font-semibold text-muted hover:text-white transition-colors"
+                        className="inline-flex items-center gap-1.5 rounded-xl border border-divider px-2 py-1 text-xs font-semibold text-muted hover:text-white transition-colors"
                         title="Edit enclosure"
                       >
                         <Pencil className="w-3.5 h-3.5" />
@@ -161,7 +161,7 @@ export function EnclosureManager({ onEnclosuresChanged, isPremium }: Readonly<En
                       </button>
                       <button
                         onClick={() => handleDelete(enclosure.id, enclosure.name)}
-                        className="inline-flex items-center gap-1.5 rounded-md border border-red-500/40 px-2 py-1 text-xs font-semibold text-red-400 hover:text-red-300 transition-colors"
+                        className="inline-flex items-center gap-1.5 rounded-xl border border-red-500/40 px-2 py-1 text-xs font-semibold text-red-400 hover:text-red-300 transition-colors"
                         title="Delete enclosure"
                       >
                         <Trash2 className="w-3.5 h-3.5" />

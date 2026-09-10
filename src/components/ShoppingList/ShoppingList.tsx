@@ -113,7 +113,7 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="flex-shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 bg-accent hover:bg-accent-dim text-white text-xs sm:text-sm font-medium rounded-lg transition-colors active:scale-95"
+                className="flex-shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 bg-accent hover:bg-accent-dim text-white text-xs sm:text-sm font-medium rounded-xl transition-colors active:scale-95"
               >
                 <ShoppingBag className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
                 <span className="hidden sm:inline">Buy Now</span>
@@ -145,12 +145,7 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
             )}
             {item.importance && (
               <p className="text-xs font-medium">
-                <span className={`${
-                  item.importance === 'required' ? 'text-red-600 dark:text-red-400' :
-                  item.importance === 'recommended' ? 'text-cyan-500 dark:text-cyan-400' :
-                  item.importance === 'conditional' ? 'text-yellow-600 dark:text-yellow-400' :
-                  'text-muted'
-                }`}>
+                <span className={`${ item.importance === 'required' ? 'text-red-600 dark:text-red-400' : item.importance === 'recommended' ? 'text-cyan-500 dark:text-cyan-400' : item.importance === 'conditional' ? 'text-yellow-600 dark:text-yellow-400' : 'text-muted' }`}>
                   {item.importance === 'required' ? '● Required' :
                   item.importance === 'recommended' ? '● Recommended' :
                   item.importance === 'conditional' ? '● Conditional' :
@@ -167,7 +162,7 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
   ShoppingItem.displayName = 'ShoppingItem';
 
   return (
-    <div className="bg-card rounded-lg shadow-md px-0 py-3 sm:px-2 sm:py-4">
+    <div className="bg-card rounded-xl px-0 py-3 sm:px-2 sm:py-4">
       {showHeader && (
         <div className="mb-2">
           <h3 className="text-xl sm:text-2xl font-bold text-white mb-1.5">Shopping List</h3>
@@ -181,7 +176,7 @@ export function ShoppingList({ items, selectedTier, input, showHeader = true, af
         {Object.entries(groupedItems).map(([category, categoryItems]) => {
           const isExpanded = expandedCategories[category];
           return (
-            <div key={category} className="border border-divider rounded-lg overflow-hidden">
+            <div key={category} className="border border-divider rounded-xl overflow-hidden">
               <button
                 onClick={() => toggleCategory(category)}
                 className="w-full flex items-center justify-between p-2.5 sm:p-3 bg-surface/50 hover:bg-card-elevated dark:hover:bg-gray-900 transition-colors"

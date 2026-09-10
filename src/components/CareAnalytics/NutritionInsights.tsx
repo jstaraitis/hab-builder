@@ -13,28 +13,43 @@
 import { Pill, AlertTriangle, Info, Utensils } from 'lucide-react';
 import type { NutritionAnalysis, NutritionFindingSeverity } from '../../engine/nutritionAnalysis';
 
-const SEVERITY_STYLES: Record<NutritionFindingSeverity, { chip: string; label: string; border: string }> = {
-  urgent: { chip: 'bg-red-500/15 text-red-300 border-red-500/30', label: 'Urgent', border: 'border-l-red-400' },
-  watch: { chip: 'bg-amber-500/15 text-amber-300 border-amber-500/30', label: 'Watch', border: 'border-l-amber-400' },
-  note: { chip: 'bg-sky-500/15 text-sky-300 border-sky-500/30', label: 'Note', border: 'border-l-sky-400' },
+const SEVERITY_STYLES: Record<
+  NutritionFindingSeverity,
+  { chip: string; label: string; border: string }
+> = {
+  urgent: {
+    chip: 'bg-red-500/15 text-red-300 border-red-500/30',
+    label: 'Urgent',
+    border: 'border-l-red-400',
+  },
+  watch: {
+    chip: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
+    label: 'Watch',
+    border: 'border-l-amber-400',
+  },
+  note: {
+    chip: 'bg-sky-500/15 text-sky-300 border-sky-500/30',
+    label: 'Note',
+    border: 'border-l-sky-400',
+  },
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
   'staple-insect': 'Staple',
   'occasional-insect': 'Occasional',
   'treat-insect': 'Treat',
-  'plant': 'Plant',
-  'vertebrate': 'Whole prey',
-  'unknown': 'Uncategorised',
+  plant: 'Plant',
+  vertebrate: 'Whole prey',
+  unknown: 'Uncategorised',
 };
 
 const CATEGORY_STYLES: Record<string, string> = {
   'staple-insect': 'bg-accent/15 text-accent',
   'occasional-insect': 'bg-sky-500/15 text-sky-300',
   'treat-insect': 'bg-amber-500/15 text-amber-300',
-  'plant': 'bg-accent/15 text-accent',
-  'vertebrate': 'bg-accent/15 text-accent',
-  'unknown': 'bg-card-elevated text-muted',
+  plant: 'bg-accent/15 text-accent',
+  vertebrate: 'bg-accent/15 text-accent',
+  unknown: 'bg-card-elevated text-muted',
 };
 
 interface NutritionInsightsProps {
@@ -61,7 +76,9 @@ export function NutritionInsights({ analysis, bare = false }: NutritionInsightsP
             <div className="bg-card-elevated rounded-xl p-3">
               <p className="text-xs text-muted">Feedings dusted</p>
               <p className="text-xl font-bold text-white mt-0.5">
-                {analysis.supplementationRatePercent === null ? '—' : `${analysis.supplementationRatePercent}%`}
+                {analysis.supplementationRatePercent === null
+                  ? '—'
+                  : `${analysis.supplementationRatePercent}%`}
               </p>
             </div>
             <div className="bg-card-elevated rounded-xl p-3">
@@ -80,8 +97,8 @@ export function NutritionInsights({ analysis, bare = false }: NutritionInsightsP
             <div className="flex items-start gap-2 text-sm text-muted mb-4">
               <Info className="w-4 h-4 shrink-0 mt-0.5 text-accent" />
               <span>
-                Nothing stood out across {analysis.totalFeedings} feedings — supplementation and feeder
-                variety both look reasonable for this diet.
+                Nothing stood out across {analysis.totalFeedings} feedings — supplementation and
+                feeder variety both look reasonable for this diet.
               </span>
             </div>
           ) : (
@@ -122,9 +139,7 @@ export function NutritionInsights({ analysis, bare = false }: NutritionInsightsP
                   <div key={feeder.name} className="flex items-center gap-3">
                     <span className="text-sm text-white flex-1 truncate">{feeder.name}</span>
                     <span
-                      className={`text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded shrink-0 ${
-                        CATEGORY_STYLES[feeder.category]
-                      }`}
+                      className={`text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-full shrink-0 ${CATEGORY_STYLES[feeder.category]}`}
                     >
                       {CATEGORY_LABELS[feeder.category]}
                     </span>
@@ -157,7 +172,7 @@ export function NutritionInsights({ analysis, bare = false }: NutritionInsightsP
   if (bare) return body;
 
   return (
-    <div className="bg-card rounded-lg border border-divider p-4">
+    <div className="bg-card rounded-xl border border-divider p-4">
       <div className="flex items-center gap-2 mb-4">
         <Pill className="w-5 h-5 text-accent" />
         <h3 className="text-lg font-semibold text-white">Nutrition insights</h3>
@@ -170,14 +185,14 @@ export function NutritionInsights({ analysis, bare = false }: NutritionInsightsP
 /** Shown when the analysis could not be run at all. */
 export function NutritionInsightsEmpty() {
   return (
-    <div className="bg-card rounded-lg border border-divider p-4">
+    <div className="bg-card rounded-xl border border-divider p-4">
       <div className="flex items-center gap-2 mb-2">
         <AlertTriangle className="w-5 h-5 text-amber-300" />
         <h3 className="text-lg font-semibold text-white">Nutrition insights</h3>
       </div>
       <p className="text-sm text-muted">
-        Log feeder type and supplement on your feeding tasks to see supplementation and diet analysis
-        here.
+        Log feeder type and supplement on your feeding tasks to see supplementation and diet
+        analysis here.
       </p>
     </div>
   );

@@ -231,7 +231,7 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
 
   if (feedingLogs.length === 0) {
     return (
-      <div className="bg-blue-500/10 border border-blue-200 dark:border-blue-800 rounded-lg p-6 text-center">
+      <div className="bg-blue-500/10 border border-blue-200 dark:border-blue-800 rounded-xl p-6 text-center">
         <UtensilsCrossed className="w-12 h-12 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
         <h3 className="text-lg font-semibold text-white mb-2">
           No Feeding Data Yet
@@ -268,7 +268,7 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
       {/* Header with Time Range Filter */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-accent/15 rounded-lg">
+          <div className="p-2 bg-accent/15 rounded-xl">
             <UtensilsCrossed className="w-6 h-6 text-accent" />
           </div>
           <div>
@@ -279,7 +279,7 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
         <select
           value={timeRange}
           onChange={(e) => setTimeRange(e.target.value as any)}
-          className="px-3 py-2 border border-divider rounded-lg bg-card-elevated text-white text-sm"
+          className="px-3 py-2 border border-divider rounded-xl bg-card-elevated text-white text-sm"
         >
           <option value="7d">Last 7 Days</option>
           <option value="30d">Last 30 Days</option>
@@ -291,7 +291,7 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
       {/* Key Stats Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
         {/* Average Offered */}
-        <div className="bg-card rounded-lg border border-divider p-4">
+        <div className="bg-card rounded-xl border border-divider p-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-muted">Avg Offered</span>
             <TrendingUp className="w-4 h-4 text-blue-600 dark:text-blue-400" />
@@ -301,7 +301,7 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
         </div>
 
         {/* Average Eaten */}
-        <div className="bg-card rounded-lg border border-divider p-4">
+        <div className="bg-card rounded-xl border border-divider p-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-muted">Avg Eaten</span>
             <UtensilsCrossed className="w-4 h-4 text-accent" />
@@ -311,7 +311,7 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
         </div>
 
         {/* Consumption Rate */}
-        <div className="bg-card rounded-lg border border-divider p-4">
+        <div className="bg-card rounded-xl border border-divider p-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-muted">Consumption Rate</span>
             <PieChart className="w-4 h-4 text-purple-600 dark:text-purple-400" />
@@ -321,7 +321,7 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
         </div>
 
         {/* Refusal Rate */}
-        <div className={`bg-card rounded-lg border ${refusalStats.refusalRate > 20 ? 'border-amber-300 dark:border-amber-700' : 'border-divider'} p-4`}>
+        <div className={`bg-card rounded-xl border ${refusalStats.refusalRate > 20 ? 'border-amber-300 dark:border-amber-700' : 'border-divider'} p-4`}>
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-muted">Refusal Rate</span>
             <AlertTriangle className={`w-4 h-4 ${refusalStats.refusalRate > 20 ? 'text-amber-600 dark:text-amber-400' : 'text-muted'}`} />
@@ -335,7 +335,7 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
 
       {/* Feeding Trend Chart */}
       {trendData.length > 0 && (
-        <div className="bg-card rounded-lg border border-divider p-4 sm:p-6">
+        <div className="bg-card rounded-xl border border-divider p-4 sm:p-6">
           <h3 className="text-lg font-semibold text-white mb-4">Feeding Trends</h3>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={trendData}>
@@ -383,7 +383,7 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Feeder Type Breakdown */}
         {feederTypeData.length > 0 && (
-          <div className="bg-card rounded-lg border border-divider p-4 sm:p-6">
+          <div className="bg-card rounded-xl border border-divider p-4 sm:p-6">
             <h3 className="text-lg font-semibold text-white mb-4">Feeder Types</h3>
             <ResponsiveContainer width="100%" height={250}>
               <BarChart data={feederTypeData}>
@@ -420,7 +420,7 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
 
         {/* Supplement Usage */}
         {supplementData.length > 0 && (
-          <div className="bg-card rounded-lg border border-divider p-4 sm:p-6">
+          <div className="bg-card rounded-xl border border-divider p-4 sm:p-6">
             <div className="flex items-center gap-2 mb-4">
               <Pill className="w-5 h-5 text-orange-600 dark:text-orange-400" />
               <h3 className="text-lg font-semibold text-white">Supplement Usage</h3>
@@ -450,7 +450,7 @@ export function FeedingAnalytics({ userId, animalId }: FeedingAnalyticsProps) {
 
       {/* Health Alerts */}
       {refusalStats.refusalRate > 20 && (
-        <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
+        <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4">
           <div className="flex items-start gap-3">
             <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
             <div>

@@ -1,5 +1,29 @@
 import { SEO } from '../SEO/SEO';
-import { CheckCircle2, Clock, Flame, Zap, Circle, MessageSquarePlus, Squirrel, Image, HelpCircle, Smartphone, ListTree, DollarSign, FileText, Box, ClipboardCheck, Users, Save, Hammer, Scale, CloudSun, Leaf, MessageCircle, Wrench } from 'lucide-react';
+import {
+  CheckCircle2,
+  Clock,
+  Flame,
+  Zap,
+  Circle,
+  MessageSquarePlus,
+  Squirrel,
+  Image,
+  HelpCircle,
+  Smartphone,
+  ListTree,
+  DollarSign,
+  FileText,
+  Box,
+  ClipboardCheck,
+  Users,
+  Save,
+  Hammer,
+  Scale,
+  CloudSun,
+  Leaf,
+  MessageCircle,
+  Wrench,
+} from 'lucide-react';
 
 interface RoadmapItemProps {
   readonly title: string;
@@ -12,33 +36,45 @@ interface RoadmapItemProps {
 
 function RoadmapItem({ title, description, status, priority, eta, icon }: RoadmapItemProps) {
   const statusConfig = {
-    completed: { 
+    completed: {
       accent: 'bg-accent',
       badgeBg: 'bg-accent/15 border border-emerald-500/30',
       badgeText: 'text-accent',
       icon: <CheckCircle2 className="w-4 h-4" />,
-      label: 'Done'
+      label: 'Done',
     },
-    'in-progress': { 
+    'in-progress': {
       accent: 'bg-sky-500',
       badgeBg: 'bg-sky-500/15 border border-sky-500/30',
       badgeText: 'text-sky-300',
       icon: <Wrench className="w-4 h-4" />,
-      label: 'Building'
+      label: 'Building',
     },
-    planned: { 
+    planned: {
       accent: 'bg-slate-500',
       badgeBg: 'bg-slate-500/15 border border-slate-500/30',
       badgeText: 'text-slate-300',
       icon: <Clock className="w-4 h-4" />,
-      label: 'Soon'
+      label: 'Soon',
     },
   };
 
   const priorityConfig = {
-    high: { icon: <Flame className="w-3.5 h-3.5" />, text: 'High Priority', color: 'text-rose-300 bg-rose-500/15 border border-rose-500/25' },
-    medium: { icon: <Zap className="w-3.5 h-3.5" />, text: 'Medium', color: 'text-amber-300 bg-amber-500/15 border border-amber-500/25' },
-    low: { icon: <Circle className="w-3.5 h-3.5" />, text: 'Low Priority', color: 'text-slate-300 bg-slate-500/15 border border-slate-500/25' },
+    high: {
+      icon: <Flame className="w-3.5 h-3.5" />,
+      text: 'High Priority',
+      color: 'text-rose-300 bg-rose-500/15 border border-rose-500/25',
+    },
+    medium: {
+      icon: <Zap className="w-3.5 h-3.5" />,
+      text: 'Medium',
+      color: 'text-amber-300 bg-amber-500/15 border border-amber-500/25',
+    },
+    low: {
+      icon: <Circle className="w-3.5 h-3.5" />,
+      text: 'Low Priority',
+      color: 'text-slate-300 bg-slate-500/15 border border-slate-500/25',
+    },
   };
 
   const config = statusConfig[status];
@@ -50,28 +86,30 @@ function RoadmapItem({ title, description, status, priority, eta, icon }: Roadma
       <div className="flex items-start gap-3 sm:gap-4">
         {icon && (
           <div className="flex-shrink-0 mt-0.5">
-            <div className="p-2 bg-accent/15 rounded-xl">
-              {icon}
-            </div>
+            <div className="p-2 bg-accent/15 rounded-xl">{icon}</div>
           </div>
         )}
-        
+
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-3 mb-2">
             <h3 className="font-semibold text-white text-base sm:text-lg">{title}</h3>
             <div className="flex items-center gap-2 flex-shrink-0">
-              <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full ${config.badgeBg} ${config.badgeText}`}>
+              <span
+                className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full ${config.badgeBg} ${config.badgeText}`}
+              >
                 {config.icon}
                 {config.label}
               </span>
             </div>
           </div>
-          
+
           <p className="text-sm text-muted leading-relaxed mb-2">{description}</p>
-          
+
           <div className="flex items-center gap-3 flex-wrap">
             {priorityInfo && (
-              <span className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-1 rounded ${priorityInfo.color}`}>
+              <span
+                className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-1 rounded-xl ${priorityInfo.color}`}
+              >
                 {priorityInfo.icon}
                 {priorityInfo.text}
               </span>
@@ -99,9 +137,14 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
       <SEO
         title="Roadmap - Habitat Builder"
         description="See what's coming next for Habitat Builder. Track new features, animal profiles, and community tools in development."
-        keywords={['habitat builder roadmap', 'upcoming features', 'reptile tool updates', 'development plans']}
+        keywords={[
+          'habitat builder roadmap',
+          'upcoming features',
+          'reptile tool updates',
+          'development plans',
+        ]}
       />
-      
+
       <div className="max-w-4xl mx-auto space-y-6">
         <div className="bg-gradient-to-r from-accent to-teal-600 rounded-2xl p-6 text-white">
           <h1 className="text-2xl md:text-3xl font-bold mb-2">What We're Building</h1>
@@ -210,40 +253,47 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
             Ideas We're Considering
           </h2>
           <div className="bg-accent/10 border border-accent/20 rounded-xl p-4 mb-4">
-            <p className="text-sm text-white/80">These are on our radar but need more feedback. Tell us what you'd actually use most.</p>
+            <p className="text-sm text-white/80">
+              These are on our radar but need more feedback. Tell us what you'd actually use most.
+            </p>
           </div>
           <ul className="space-y-3 text-muted text-sm">
-              <li className="flex items-start gap-3">
-                <Save className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-white">Saved Designs:</strong> Create an account to save multiple plans and compare different setups side-by-side
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <Hammer className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-white">DIY Builder Mode:</strong> Custom wood or PVC enclosure plans with cut lists, material estimates, and assembly guides
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <Scale className="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-white">Species Comparison:</strong> Compare care requirements between different animals when deciding what to get
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <CloudSun className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-white">Climate Tuning:</strong> Adjust equipment recommendations based on where you live (hot, cold, humid, dry)
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <Leaf className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-white">Plant Library:</strong> Searchable database of bioactive-safe plants with care requirements and toxicity info
-                </div>
-              </li>
-            </ul>
+            <li className="flex items-start gap-3">
+              <Save className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+              <div>
+                <strong className="text-white">Saved Designs:</strong> Create an account to save
+                multiple plans and compare different setups side-by-side
+              </div>
+            </li>
+            <li className="flex items-start gap-3">
+              <Hammer className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+              <div>
+                <strong className="text-white">DIY Builder Mode:</strong> Custom wood or PVC
+                enclosure plans with cut lists, material estimates, and assembly guides
+              </div>
+            </li>
+            <li className="flex items-start gap-3">
+              <Scale className="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" />
+              <div>
+                <strong className="text-white">Species Comparison:</strong> Compare care
+                requirements between different animals when deciding what to get
+              </div>
+            </li>
+            <li className="flex items-start gap-3">
+              <CloudSun className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+              <div>
+                <strong className="text-white">Climate Tuning:</strong> Adjust equipment
+                recommendations based on where you live (hot, cold, humid, dry)
+              </div>
+            </li>
+            <li className="flex items-start gap-3">
+              <Leaf className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+              <div>
+                <strong className="text-white">Plant Library:</strong> Searchable database of
+                bioactive-safe plants with care requirements and toxicity info
+              </div>
+            </li>
+          </ul>
         </section>
 
         <section className="bg-gradient-to-r from-accent to-teal-600 rounded-2xl p-6 text-white">
@@ -252,7 +302,8 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
             <h2 className="text-2xl font-bold">Got Ideas or Feedback?</h2>
           </div>
           <p className="mb-4 text-accent">
-            This tool is built <em>for</em> the community, <em>by</em> the community. Help us make it better:
+            This tool is built <em>for</em> the community, <em>by</em> the community. Help us make
+            it better:
           </p>
           <ul className="space-y-2 text-accent mb-6">
             <li className="flex items-start gap-2">

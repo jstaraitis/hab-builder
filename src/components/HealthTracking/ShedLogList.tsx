@@ -92,7 +92,7 @@ export function ShedLogList({ animal, refreshKey, onUpdate }: ShedLogListProps) 
     return (
       <div className="space-y-2">
         {[...Array(3)].map((_, i) => (
-          <div key={i} className="animate-pulse bg-card-elevated rounded-lg h-24"></div>
+          <div key={i} className="animate-pulse bg-card-elevated rounded-xl h-24"></div>
         ))}
       </div>
     );
@@ -103,9 +103,7 @@ export function ShedLogList({ animal, refreshKey, onUpdate }: ShedLogListProps) 
       <div className="text-center py-8">
         <Calendar className="w-12 h-12 text-muted mx-auto mb-3" />
         <p className="text-muted">No shed records yet</p>
-        <p className="text-sm text-muted mt-1">
-          Start tracking your animal's shedding cycles
-        </p>
+        <p className="text-sm text-muted mt-1">Start tracking your animal's shedding cycles</p>
       </div>
     );
   }
@@ -115,7 +113,7 @@ export function ShedLogList({ animal, refreshKey, onUpdate }: ShedLogListProps) 
       {logs.map((log) => {
         if (editingLog?.id === log.id) {
           return (
-            <div key={log.id} className="bg-surface rounded-lg p-3 border border-divider">
+            <div key={log.id} className="bg-surface rounded-xl p-3 border border-divider">
               <ShedLogForm
                 animal={animal}
                 onSuccess={handleEditSuccess}
@@ -135,10 +133,7 @@ export function ShedLogList({ animal, refreshKey, onUpdate }: ShedLogListProps) 
         }
 
         return (
-          <div
-            key={log.id}
-            className="bg-surface rounded-lg p-3 border border-divider"
-          >
+          <div key={log.id} className="bg-surface rounded-xl p-3 border border-divider">
             <div className="flex justify-between items-start gap-3">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
@@ -147,32 +142,30 @@ export function ShedLogList({ animal, refreshKey, onUpdate }: ShedLogListProps) 
                   </span>
                   {getQualityBadge(log.quality)}
                 </div>
-                
+
                 {log.shedInOnePiece !== undefined && (
                   <p className="text-xs text-muted">
                     Shed in one piece: {log.shedInOnePiece ? 'Yes' : 'No'}
                   </p>
                 )}
-                
+
                 {log.humidityPercent && (
-                  <p className="text-xs text-muted">
-                    Humidity: {log.humidityPercent}%
-                  </p>
+                  <p className="text-xs text-muted">Humidity: {log.humidityPercent}%</p>
                 )}
-                
+
                 {log.problemAreas && log.problemAreas.length > 0 && (
                   <div className="flex flex-wrap gap-1 mt-1.5">
-                    {log.problemAreas.map(area => (
+                    {log.problemAreas.map((area) => (
                       <span
                         key={area}
-                        className="px-2 py-0.5 bg-orange-500/20 border border-orange-400/30 text-orange-300 rounded text-xs"
+                        className="px-2 py-0.5 bg-orange-500/20 border border-orange-400/30 text-orange-300 rounded-full text-xs"
                       >
                         {area}
                       </span>
                     ))}
                   </div>
                 )}
-                
+
                 {log.notes && (
                   <p className="text-xs text-muted mt-2 pt-2 border-t border-divider">
                     {log.notes}
@@ -183,14 +176,14 @@ export function ShedLogList({ animal, refreshKey, onUpdate }: ShedLogListProps) 
               <div className="flex items-center gap-1.5">
                 <button
                   onClick={() => setEditingLog(log)}
-                  className="px-2 py-1 rounded-md border border-divider bg-card text-white hover:bg-card-elevated"
+                  className="px-2 py-1 rounded-xl border border-divider bg-card text-white hover:bg-card-elevated"
                   title="Edit"
                 >
                   <Edit2 className="w-3.5 h-3.5" />
                 </button>
                 <button
                   onClick={() => handleDelete(log.id)}
-                  className="px-2 py-1 rounded-md border border-red-400/30 bg-red-500/10 text-red-300 hover:bg-red-500/20"
+                  className="px-2 py-1 rounded-xl border border-red-400/30 bg-red-500/10 text-red-300 hover:bg-red-500/20"
                   title="Delete"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
@@ -203,7 +196,3 @@ export function ShedLogList({ animal, refreshKey, onUpdate }: ShedLogListProps) 
     </div>
   );
 }
-
-
-
-

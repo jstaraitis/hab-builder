@@ -2,7 +2,11 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PawPrint, Info } from 'lucide-react';
 import type { EnclosureAnimal } from '../../types/careCalendar';
-import { freshnessDaysFor, type SmartStatusLevel, type StatusSensitivity } from '../../services/smartStatusService';
+import {
+  freshnessDaysFor,
+  type SmartStatusLevel,
+  type StatusSensitivity,
+} from '../../services/smartStatusService';
 import type { ThresholdAlert } from '../../types/thresholds';
 
 const STATUS_META: Record<
@@ -106,8 +110,8 @@ export function AnimalStatusGrid({
               </button>
 
               {/* Tapping the status explains it rather than navigating away —
-                  "Watch" is usually about stale logs, not a sick animal, and
-                  that distinction is invisible without saying it. */}
+ "Watch" is usually about stale logs, not a sick animal, and
+ that distinction is invisible without saying it. */}
               <button
                 type="button"
                 onClick={() => setOpenId(isOpen ? null : animal.id)}
@@ -124,7 +128,11 @@ export function AnimalStatusGrid({
               </button>
             </div>
 
-            <button type="button" onClick={open} className="block w-full p-2.5 text-left active:opacity-70 transition-opacity">
+            <button
+              type="button"
+              onClick={open}
+              className="block w-full p-2.5 text-left active:opacity-70 transition-opacity"
+            >
               <p className="text-[13px] font-bold text-white truncate">
                 {animal.name || `#${animal.animalNumber ?? 1}`}
               </p>
@@ -140,7 +148,10 @@ export function AnimalStatusGrid({
                 {reasons.length > 0 && (
                   <ul className="mt-2 space-y-1">
                     {reasons.map((reason) => (
-                      <li key={reason} className="text-[10px] text-white/85 flex items-start gap-1.5 leading-relaxed">
+                      <li
+                        key={reason}
+                        className="text-[10px] text-white/85 flex items-start gap-1.5 leading-relaxed"
+                      >
                         <span className="mt-[3px] flex-shrink-0 w-1 h-1 rounded-full bg-current opacity-60" />
                         <span>{reason}</span>
                       </li>
@@ -155,9 +166,7 @@ export function AnimalStatusGrid({
                   onClick={onToggleSensitivity}
                   className="w-full mt-2 pt-2 border-t border-white/10 flex items-center justify-between text-[10px] active:opacity-70 transition-opacity"
                 >
-                  <span className="text-muted">
-                    {freshnessDays}-day activity window
-                  </span>
+                  <span className="text-muted">{freshnessDays}-day activity window</span>
                   <span className="font-semibold text-accent">
                     {sensitivity === 'relaxed' ? 'Use 14 days' : 'Use 30 days'}
                   </span>

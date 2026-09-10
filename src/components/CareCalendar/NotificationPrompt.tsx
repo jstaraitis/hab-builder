@@ -16,19 +16,19 @@ export function NotificationPrompt({ show, onClose }: NotificationPromptProps) {
 
   useEffect(() => {
     if (!notificationService.isSupported()) return;
-    
+
     const checkStatus = async () => {
       const currentPermission = notificationService.getPermissionStatus();
       const subscribed = await notificationService.isSubscribed();
       console.log('[NotificationPrompt] Status:', {
         permission: currentPermission,
         isSubscribed: subscribed,
-        show
+        show,
       });
       setPermission(currentPermission);
       setIsSubscribed(subscribed);
     };
-    
+
     checkStatus();
   }, [show]);
 
@@ -40,7 +40,7 @@ export function NotificationPrompt({ show, onClose }: NotificationPromptProps) {
       setIsSubscribed(true);
       onClose();
       localStorage.setItem('notification-prompt-seen', 'true');
-      success('🔔 Notifications enabled! You\'ll receive reminders for your care tasks.', 5000);
+      success("🔔 Notifications enabled! You'll receive reminders for your care tasks.", 5000);
     } catch (err) {
       console.error('Failed to enable notifications:', err);
       const errorMessage = err instanceof Error ? err.message : 'Failed to enable notifications';
@@ -65,7 +65,7 @@ export function NotificationPrompt({ show, onClose }: NotificationPromptProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 animate-fade-in">
-      <div className="bg-card rounded-lg shadow-xl border-2 border-blue-500 dark:border-blue-600 p-4 w-full max-w-md relative animate-scale-up">
+      <div className="bg-card rounded-xl shadow-xl border-2 border-blue-500 dark:border-blue-600 p-4 w-full max-w-md relative animate-scale-up">
         <button
           onClick={handleDismiss}
           className="absolute top-2 right-2 text-muted hover:text-muted dark:hover:text-gray-300"
@@ -75,17 +75,19 @@ export function NotificationPrompt({ show, onClose }: NotificationPromptProps) {
         </button>
 
         <div className="flex items-start gap-3 mb-4">
-          <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+          <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-xl">
             <Lightbulb className="w-6 h-6 text-blue-600 dark:text-blue-400" />
           </div>
           <div className="flex-1">
             <h3 className="font-semibold text-white mb-1">
-              {permission === 'granted' ? 'Reconnect notifications' : 'Enable notifications to get reminders'}
+              {permission === 'granted'
+                ? 'Reconnect notifications'
+                : 'Enable notifications to get reminders'}
             </h3>
             <p className="text-sm text-muted">
-              {permission === 'granted' 
+              {permission === 'granted'
                 ? 'Your notifications need to be reconnected. This may happen after reinstalling the app or updating your browser.'
-                : 'You enabled a notification for this task, but push notifications aren\'t set up yet. Enable now to receive reminders when your care tasks are due.'}
+                : "You enabled a notification for this task, but push notifications aren't set up yet. Enable now to receive reminders when your care tasks are due."}
             </p>
           </div>
         </div>
@@ -94,13 +96,13 @@ export function NotificationPrompt({ show, onClose }: NotificationPromptProps) {
           <button
             onClick={handleEnable}
             disabled={loading}
-            className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-medium rounded-lg transition-colors text-sm"
+            className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-medium rounded-xl transition-colors text-sm"
           >
             {loading ? 'Enabling...' : 'Enable Notifications'}
           </button>
           <button
             onClick={handleDismiss}
-            className="px-4 py-2 bg-card-elevated hover:bg-card-elevated dark:hover:bg-card-elevated text-secondary font-medium rounded-lg transition-colors text-sm"
+            className="px-4 py-2 bg-card-elevated hover:bg-card-elevated dark:hover:bg-card-elevated text-secondary font-medium rounded-xl transition-colors text-sm"
           >
             Not Now
           </button>

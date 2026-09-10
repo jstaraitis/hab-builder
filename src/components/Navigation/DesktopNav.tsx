@@ -50,20 +50,20 @@ export function DesktopNav({ onOpenFeedback }: DesktopNavProps) {
       {/* Main Workflow */}
       <Link
         to="/"
-        className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/') ? 'bg-gray-600 text-white border-gray-600' : 'bg-card-elevated text-white border-divider hover:border-gray-400'}`}
+        className={`px-4 py-2 rounded-xl border whitespace-nowrap ${isActive('/') ? 'bg-gray-600 text-white border-gray-600' : 'bg-card-elevated text-white border-divider hover:border-gray-400'}`}
       >
         <HomeIcon className="w-4 h-4 inline mr-1.5" /> Home
       </Link>
       <Link
         to="/animal"
-        className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/animal') ? 'bg-accent text-white border-accent' : 'bg-card-elevated text-white border-divider hover:border-accent'}`}
+        className={`px-4 py-2 rounded-xl border whitespace-nowrap ${isActive('/animal') ? 'bg-accent text-white border-accent' : 'bg-card-elevated text-white border-divider hover:border-accent'}`}
       >
         <Worm className="w-4 h-4 inline mr-1.5" /> Animal
       </Link>
       {input.animal && (
         <Link
           to="/design"
-          className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/design') ? 'bg-green-600 text-white border-green-600' : 'bg-card-elevated text-white border-divider hover:border-green-400'}`}
+          className={`px-4 py-2 rounded-xl border whitespace-nowrap ${isActive('/design') ? 'bg-green-600 text-white border-green-600' : 'bg-card-elevated text-white border-divider hover:border-green-400'}`}
           title="Design your enclosure"
         >
           <Pencil className="w-4 h-4 inline mr-1.5" /> Design
@@ -74,21 +74,21 @@ export function DesktopNav({ onOpenFeedback }: DesktopNavProps) {
         <>
           <Link
             to="/supplies"
-            className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/supplies') ? 'bg-purple-600 text-white border-purple-600' : 'bg-card-elevated text-white border-divider hover:border-purple-400'}`}
+            className={`px-4 py-2 rounded-xl border whitespace-nowrap ${isActive('/supplies') ? 'bg-purple-600 text-white border-purple-600' : 'bg-card-elevated text-white border-divider hover:border-purple-400'}`}
             title="View supplies and steps"
           >
             <ShoppingCart className="w-4 h-4 inline mr-1.5" /> Supplies
           </Link>
           <Link
             to="/plan"
-            className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/plan') ? 'bg-blue-600 text-white border-blue-600' : 'bg-card-elevated text-white border-divider hover:border-blue-400'}`}
+            className={`px-4 py-2 rounded-xl border whitespace-nowrap ${isActive('/plan') ? 'bg-blue-600 text-white border-blue-600' : 'bg-card-elevated text-white border-divider hover:border-blue-400'}`}
             title="View your generated plan"
           >
             <ClipboardList className="w-4 h-4 inline mr-1.5" /> Plan
           </Link>
           <Link
             to="/designer"
-            className={`px-4 py-2 rounded-lg border whitespace-nowrap ${isActive('/designer') ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-card-elevated text-white border-divider hover:border-indigo-400'}`}
+            className={`px-4 py-2 rounded-xl border whitespace-nowrap ${isActive('/designer') ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-card-elevated text-white border-divider hover:border-indigo-400'}`}
             title="Interactive Designer (Premium)"
           >
             <Gem className="w-4 h-4 inline mr-1.5" /> Designer
@@ -100,13 +100,13 @@ export function DesktopNav({ onOpenFeedback }: DesktopNavProps) {
       <div className="relative">
         <button
           onClick={() => setOpenDropdown(openDropdown === 'resources' ? null : 'resources')}
-          className={`px-4 py-2 rounded-lg border whitespace-nowrap flex items-center ${location.pathname.startsWith('/blog') ? 'bg-amber-600 text-white border-amber-600' : 'bg-card-elevated text-white border-divider hover:border-amber-400'}`}
+          className={`px-4 py-2 rounded-xl border whitespace-nowrap flex items-center ${location.pathname.startsWith('/blog') ? 'bg-amber-600 text-white border-amber-600' : 'bg-card-elevated text-white border-divider hover:border-amber-400'}`}
         >
           <BookOpen className="w-4 h-4 inline mr-1.5" /> Resources
           <ChevronDown className="w-3 h-3 ml-1" />
         </button>
         {openDropdown === 'resources' && (
-          <div className="absolute top-full mt-1 left-0 bg-card border border-divider rounded-lg shadow-lg py-1 min-w-[160px] z-50">
+          <div className="absolute top-full mt-1 left-0 bg-card border border-divider rounded-xl py-1 min-w-[160px] z-50">
             <Link
               to="/blog"
               onClick={() => setOpenDropdown(null)}
@@ -122,13 +122,13 @@ export function DesktopNav({ onOpenFeedback }: DesktopNavProps) {
       <div className="relative">
         <button
           onClick={() => setOpenDropdown(openDropdown === 'collection' ? null : 'collection')}
-          className={`px-4 py-2 rounded-lg border whitespace-nowrap flex items-center ${['/my-animals', '/inventory', '/care-calendar'].includes(location.pathname) ? 'bg-accent text-white border-accent' : 'bg-card-elevated text-white border-divider hover:border-accent'}`}
+          className={`px-4 py-2 rounded-xl border whitespace-nowrap flex items-center ${['/my-animals', '/inventory', '/care-calendar'].includes(location.pathname) ? 'bg-accent text-white border-accent' : 'bg-card-elevated text-white border-divider hover:border-accent'}`}
         >
           <Turtle className="w-4 h-4 inline mr-1.5" /> My Care
           <ChevronDown className="w-3 h-3 ml-1" />
         </button>
         {openDropdown === 'collection' && (
-          <div className="absolute top-full mt-1 left-0 bg-card border border-divider rounded-lg shadow-lg py-1 min-w-[160px] z-50">
+          <div className="absolute top-full mt-1 left-0 bg-card border border-divider rounded-xl py-1 min-w-[160px] z-50">
             <Link
               to="/my-animals"
               onClick={() => setOpenDropdown(null)}
@@ -157,7 +157,7 @@ export function DesktopNav({ onOpenFeedback }: DesktopNavProps) {
       {!user && (
         <Link
           to="/premium"
-          className="px-4 py-2 rounded-lg border whitespace-nowrap bg-accent text-white border-accent hover:bg-accent-dim hover:border-accent/30 transition-colors"
+          className="px-4 py-2 rounded-xl border whitespace-nowrap bg-accent text-white border-accent hover:bg-accent-dim hover:border-accent/30 transition-colors"
         >
           <Gem className="w-4 h-4 inline mr-1.5" /> Premium
         </Link>
@@ -167,13 +167,13 @@ export function DesktopNav({ onOpenFeedback }: DesktopNavProps) {
       <div className="relative">
         <button
           onClick={() => setOpenDropdown(openDropdown === 'settings' ? null : 'settings')}
-          className={`px-4 py-2 rounded-lg border whitespace-nowrap flex items-center ${location.pathname === '/profile' || location.pathname === '/about' || location.pathname === '/faq' || location.pathname.startsWith('/owner-dashboard') ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-card-elevated text-white border-divider hover:border-indigo-400'}`}
+          className={`px-4 py-2 rounded-xl border whitespace-nowrap flex items-center ${location.pathname === '/profile' || location.pathname === '/about' || location.pathname === '/faq' || location.pathname.startsWith('/owner-dashboard') ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-card-elevated text-white border-divider hover:border-indigo-400'}`}
         >
           <User className="w-4 h-4 inline mr-1.5" /> Account
           <ChevronDown className="w-3 h-3 ml-1" />
         </button>
         {openDropdown === 'settings' && (
-          <div className="absolute top-full mt-1 right-0 bg-card border border-divider rounded-lg shadow-lg py-1 min-w-[180px] z-50">
+          <div className="absolute top-full mt-1 right-0 bg-card border border-divider rounded-xl py-1 min-w-[180px] z-50">
             {user && (
               <div className="px-4 py-2 border-b border-divider">
                 <p className="text-xs text-muted">Signed in as</p>
@@ -245,20 +245,20 @@ export function DesktopNav({ onOpenFeedback }: DesktopNavProps) {
                 <button
                   onClick={handleZoomOut}
                   disabled={zoom <= 75}
-                  className="flex-1 px-2 py-1 text-xs bg-card-elevated text-white rounded hover:bg-card-elevated transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 px-2 py-1 text-xs bg-card-elevated text-white rounded-xl hover:bg-card-elevated transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <ZoomOut className="w-3 h-3 inline mr-1" /> -
                 </button>
                 <button
                   onClick={handleResetZoom}
-                  className="flex-1 px-2 py-1 text-xs bg-card-elevated text-white rounded hover:bg-card-elevated transition-colors"
+                  className="flex-1 px-2 py-1 text-xs bg-card-elevated text-white rounded-xl hover:bg-card-elevated transition-colors"
                 >
                   Reset
                 </button>
                 <button
                   onClick={handleZoomIn}
                   disabled={zoom >= 150}
-                  className="flex-1 px-2 py-1 text-xs bg-card-elevated text-white rounded hover:bg-card-elevated transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 px-2 py-1 text-xs bg-card-elevated text-white rounded-xl hover:bg-card-elevated transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <ZoomIn className="w-3 h-3 inline mr-1" /> +
                 </button>

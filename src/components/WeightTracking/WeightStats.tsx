@@ -33,8 +33,8 @@ export function WeightStats({ enclosureAnimalId, refreshKey }: WeightStatsProps)
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {[...Array(4)].map((_, i) => (
           <div key={i} className="bg-card rounded-2xl border border-divider p-4 animate-pulse">
-            <div className="h-4 bg-card-elevated rounded w-20 mb-2"></div>
-            <div className="h-8 bg-card-elevated rounded w-24"></div>
+            <div className="h-4 bg-card-elevated rounded-xl w-20 mb-2"></div>
+            <div className="h-8 bg-card-elevated rounded-xl w-24"></div>
           </div>
         ))}
       </div>
@@ -57,7 +57,7 @@ export function WeightStats({ enclosureAnimalId, refreshKey }: WeightStatsProps)
 
   const getTrendIcon = () => {
     if (!stats.trend) return <Minus className="w-5 h-5" />;
-    
+
     switch (stats.trend) {
       case 'gaining':
         return <TrendingUp className="w-5 h-5 text-accent" />;
@@ -70,7 +70,7 @@ export function WeightStats({ enclosureAnimalId, refreshKey }: WeightStatsProps)
 
   const getTrendColor = () => {
     if (!stats.trend) return 'bg-card';
-    
+
     switch (stats.trend) {
       case 'gaining':
         return 'bg-accent/10 border-accent/30';
@@ -163,6 +163,3 @@ export function WeightStats({ enclosureAnimalId, refreshKey }: WeightStatsProps)
     </div>
   );
 }
-
-
-

@@ -94,7 +94,13 @@ export function UserSurveyForm({ submitting, onSubmit }: Readonly<UserSurveyForm
     event.preventDefault();
     setError(null);
 
-    if (!form.heardAboutUs || !form.primaryGoal || !form.biggestChallenge || !form.requestedFeature || !form.keeperLevel) {
+    if (
+      !form.heardAboutUs ||
+      !form.primaryGoal ||
+      !form.biggestChallenge ||
+      !form.requestedFeature ||
+      !form.keeperLevel
+    ) {
       setError('Please complete all required questions before submitting.');
       return;
     }
@@ -109,8 +115,10 @@ export function UserSurveyForm({ submitting, onSubmit }: Readonly<UserSurveyForm
 
     const submittedForm = {
       ...form,
-      biggestChallenge: form.biggestChallenge === 'Other' ? customChallenge.trim() : form.biggestChallenge,
-      requestedFeature: form.requestedFeature === 'Other' ? customFeature.trim() : form.requestedFeature,
+      biggestChallenge:
+        form.biggestChallenge === 'Other' ? customChallenge.trim() : form.biggestChallenge,
+      requestedFeature:
+        form.requestedFeature === 'Other' ? customFeature.trim() : form.requestedFeature,
     };
 
     try {
@@ -145,156 +153,181 @@ export function UserSurveyForm({ submitting, onSubmit }: Readonly<UserSurveyForm
 
       {showForm && (
         <form onSubmit={handleSubmit} className="mt-4 space-y-4">
-        <label className="block text-sm">
-          <span className="mb-1 block text-slate-200">Where did you hear about us? *</span>
-          <select
-            value={form.heardAboutUs}
-            onChange={(e) => setForm((prev) => ({ ...prev, heardAboutUs: e.target.value }))}
-            className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-white"
-            required
-          >
-            <option value="">Select one</option>
-            {heardAboutUsOptions.map((option) => (
-              <option key={option} value={option}>{option}</option>
-            ))}
-          </select>
-        </label>
+          <label className="block text-sm">
+            <span className="mb-1 block text-slate-200">Where did you hear about us? *</span>
+            <select
+              value={form.heardAboutUs}
+              onChange={(e) => setForm((prev) => ({ ...prev, heardAboutUs: e.target.value }))}
+              className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-white"
+              required
+            >
+              <option value="">Select one</option>
+              {heardAboutUsOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </label>
 
-        <label className="block text-sm">
-          <span className="mb-1 block text-slate-200">What best describes you? *</span>
-          <select
-            value={form.keeperLevel}
-            onChange={(e) => setForm((prev) => ({ ...prev, keeperLevel: e.target.value }))}
-            className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-white"
-            required
-          >
-            <option value="">Select one</option>
-            {keeperLevelOptions.map((option) => (
-              <option key={option} value={option}>{option}</option>
-            ))}
-          </select>
-        </label>
+          <label className="block text-sm">
+            <span className="mb-1 block text-slate-200">What best describes you? *</span>
+            <select
+              value={form.keeperLevel}
+              onChange={(e) => setForm((prev) => ({ ...prev, keeperLevel: e.target.value }))}
+              className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-white"
+              required
+            >
+              <option value="">Select one</option>
+              {keeperLevelOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </label>
 
-        <fieldset>
-          <legend className="mb-2 text-sm text-slate-200">Which animals are you planning or caring for?</legend>
-          <div className="grid grid-cols-2 gap-2">
-            {animalOptions.map((animal) => (
-              <label key={animal} className="flex items-center gap-2 rounded-lg border border-divider bg-card-elevated px-2.5 py-2 text-xs text-slate-200">
-                <input
-                  type="checkbox"
-                  checked={form.animalsSelected.includes(animal)}
-                  onChange={() => toggleAnimal(animal)}
-                  className="h-4 w-4"
-                />
-                {animal}
-              </label>
-            ))}
+          <fieldset>
+            <legend className="mb-2 text-sm text-slate-200">
+              Which animals are you planning or caring for?
+            </legend>
+            <div className="grid grid-cols-2 gap-2">
+              {animalOptions.map((animal) => (
+                <label
+                  key={animal}
+                  className="flex items-center gap-2 rounded-xl border border-divider bg-card-elevated px-2.5 py-2 text-xs text-slate-200"
+                >
+                  <input
+                    type="checkbox"
+                    checked={form.animalsSelected.includes(animal)}
+                    onChange={() => toggleAnimal(animal)}
+                    className="h-4 w-4"
+                  />
+                  {animal}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <label className="block text-sm">
+            <span className="mb-1 block text-slate-200">
+              What is your main reason for using Habitat Builder? *
+            </span>
+            <select
+              value={form.primaryGoal}
+              onChange={(e) => setForm((prev) => ({ ...prev, primaryGoal: e.target.value }))}
+              className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-white"
+              required
+            >
+              <option value="">Select one</option>
+              {primaryGoalOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <div className="block text-sm">
+            <label className="mb-1 block text-slate-200">
+              What is the biggest challenge you still have? *
+            </label>
+            <select
+              value={form.biggestChallenge}
+              onChange={(e) => setForm((prev) => ({ ...prev, biggestChallenge: e.target.value }))}
+              className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-white"
+              required
+            >
+              <option value="">Select one</option>
+              {challengeOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+            {form.biggestChallenge === 'Other' && (
+              <input
+                type="text"
+                value={customChallenge}
+                onChange={(e) => setCustomChallenge(e.target.value)}
+                placeholder="Describe your challenge"
+                className="mt-2 w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-white placeholder:text-muted"
+              />
+            )}
           </div>
-        </fieldset>
 
-        <label className="block text-sm">
-          <span className="mb-1 block text-slate-200">What is your main reason for using Habitat Builder? *</span>
-          <select
-            value={form.primaryGoal}
-            onChange={(e) => setForm((prev) => ({ ...prev, primaryGoal: e.target.value }))}
-            className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-white"
-            required
-          >
-            <option value="">Select one</option>
-            {primaryGoalOptions.map((option) => (
-              <option key={option} value={option}>{option}</option>
-            ))}
-          </select>
-        </label>
-
-        <div className="block text-sm">
-          <label className="mb-1 block text-slate-200">What is the biggest challenge you still have? *</label>
-          <select
-            value={form.biggestChallenge}
-            onChange={(e) => setForm((prev) => ({ ...prev, biggestChallenge: e.target.value }))}
-            className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-white"
-            required
-          >
-            <option value="">Select one</option>
-            {challengeOptions.map((option) => (
-              <option key={option} value={option}>{option}</option>
-            ))}
-          </select>
-          {form.biggestChallenge === 'Other' && (
-            <input
-              type="text"
-              value={customChallenge}
-              onChange={(e) => setCustomChallenge(e.target.value)}
-              placeholder="Describe your challenge"
-              className="mt-2 w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-white placeholder:text-muted"
-            />
-          )}
-        </div>
-
-        <div className="block text-sm">
-          <label className="mb-1 block text-slate-200">Which feature would help you most next? *</label>
-          <select
-            value={form.requestedFeature}
-            onChange={(e) => setForm((prev) => ({ ...prev, requestedFeature: e.target.value }))}
-            className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-white"
-            required
-          >
-            <option value="">Select one</option>
-            {featureOptions.map((option) => (
-              <option key={option} value={option}>{option}</option>
-            ))}
-            <option value="Other">Other (describe below)</option>
-          </select>
-          {form.requestedFeature === 'Other' && (
-            <input
-              type="text"
-              value={customFeature}
-              onChange={(e) => setCustomFeature(e.target.value)}
-              placeholder="Describe the feature you need"
-              className="mt-2 w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-white placeholder:text-muted"
-            />
-          )}
-        </div>
-
-        <label className="block text-sm">
-          <span className="mb-1 block text-slate-200">How satisfied are you so far? ({form.satisfactionScore}/5)</span>
-          <input
-            type="range"
-            min={1}
-            max={5}
-            value={form.satisfactionScore}
-            onChange={(e) => setForm((prev) => ({ ...prev, satisfactionScore: Number(e.target.value) }))}
-            className="w-full"
-          />
-        </label>
-
-        <label className="block text-sm">
-          <span className="mb-1 block text-slate-200">Any additional feedback? (optional)</span>
-          <textarea
-            value={form.additionalFeedback}
-            onChange={(e) => setForm((prev) => ({ ...prev, additionalFeedback: e.target.value }))}
-            className="w-full rounded-lg border border-divider bg-card-elevated px-3 py-2.5 text-white"
-            rows={3}
-            placeholder="Share any ideas or pain points"
-          />
-        </label>
-
-        {error && (
-          <div className="rounded-lg border border-red-500/40 bg-red-500/10 p-2 text-xs text-red-200">
-            {error}
+          <div className="block text-sm">
+            <label className="mb-1 block text-slate-200">
+              Which feature would help you most next? *
+            </label>
+            <select
+              value={form.requestedFeature}
+              onChange={(e) => setForm((prev) => ({ ...prev, requestedFeature: e.target.value }))}
+              className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-white"
+              required
+            >
+              <option value="">Select one</option>
+              {featureOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+              <option value="Other">Other (describe below)</option>
+            </select>
+            {form.requestedFeature === 'Other' && (
+              <input
+                type="text"
+                value={customFeature}
+                onChange={(e) => setCustomFeature(e.target.value)}
+                placeholder="Describe the feature you need"
+                className="mt-2 w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-white placeholder:text-muted"
+              />
+            )}
           </div>
-        )}
 
-        <div className="flex justify-end">
-          <button
-            type="submit"
-            disabled={submitting}
-            className="rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-on-accent hover:bg-accent-dim disabled:opacity-50"
-          >
-            {submitting ? 'Submitting...' : 'Submit Survey'}
-          </button>
-        </div>
-      </form>
+          <label className="block text-sm">
+            <span className="mb-1 block text-slate-200">
+              How satisfied are you so far? ({form.satisfactionScore}/5)
+            </span>
+            <input
+              type="range"
+              min={1}
+              max={5}
+              value={form.satisfactionScore}
+              onChange={(e) =>
+                setForm((prev) => ({ ...prev, satisfactionScore: Number(e.target.value) }))
+              }
+              className="w-full"
+            />
+          </label>
+
+          <label className="block text-sm">
+            <span className="mb-1 block text-slate-200">Any additional feedback? (optional)</span>
+            <textarea
+              value={form.additionalFeedback}
+              onChange={(e) => setForm((prev) => ({ ...prev, additionalFeedback: e.target.value }))}
+              className="w-full rounded-xl border border-divider bg-card-elevated px-3 py-2.5 text-white"
+              rows={3}
+              placeholder="Share any ideas or pain points"
+            />
+          </label>
+
+          {error && (
+            <div className="rounded-xl border border-red-500/40 bg-red-500/10 p-2 text-xs text-red-200">
+              {error}
+            </div>
+          )}
+
+          <div className="flex justify-end">
+            <button
+              type="submit"
+              disabled={submitting}
+              className="rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-on-accent hover:bg-accent-dim disabled:opacity-50"
+            >
+              {submitting ? 'Submitting...' : 'Submit Survey'}
+            </button>
+          </div>
+        </form>
       )}
     </section>
   );

@@ -371,11 +371,7 @@ export function TaskEditModal({
                               key={weekday.value}
                               type="button"
                               onClick={() => toggleCustomWeekday(weekday.value)}
-                              className={`px-3 py-1.5 text-xs font-semibold rounded-full border transition-colors ${
-                                isSelected
-                                  ? 'bg-accent border-accent text-on-accent'
-                                  : 'bg-card-elevated border-divider text-muted'
-                              }`}
+                              className={`px-3 py-1.5 text-xs font-semibold rounded-full border transition-colors ${ isSelected ? 'bg-accent border-accent text-on-accent' : 'bg-card-elevated border-divider text-muted' }`}
                             >
                               {weekday.shortLabel}
                             </button>
@@ -481,7 +477,7 @@ export function TaskEditModal({
                     });
                     setFormData(prev => ({ ...prev, notificationEnabled: e.target.checked }));
                   }}
-                  className="w-5 h-5 accent-accent rounded"
+                  className="w-5 h-5 accent-accent rounded-xl"
                 />
               </label>
               {formData.notificationEnabled && (
@@ -553,7 +549,7 @@ export function TaskEditModal({
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-divider shrink-0">
         <h2 className="text-lg font-bold text-white">Edit Task</h2>
-        <button onClick={onClose} className="text-muted p-1 rounded-lg">
+        <button onClick={onClose} className="text-muted p-1 rounded-xl">
           <X className="w-5 h-5" />
         </button>
       </div>
@@ -687,7 +683,7 @@ export function TaskEditModal({
                 console.log('[TaskEditModal] Notification checkbox changed:', { checked: e.target.checked, previousValue: formData.notificationEnabled });
                 setFormData(prev => ({ ...prev, notificationEnabled: e.target.checked }));
               }}
-              className="w-4 h-4 accent-accent rounded" />
+              className="w-4 h-4 accent-accent rounded-xl" />
           </label>
           {formData.notificationEnabled && (
             <div className="px-3 py-3">

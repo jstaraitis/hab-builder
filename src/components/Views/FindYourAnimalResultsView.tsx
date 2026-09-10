@@ -33,7 +33,7 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect, onToggleCompa
   };
 
   return (
-    <div className={`rounded-lg border-2 overflow-hidden flex flex-col ${getScoreColor(compatibilityScore)} ${isSelectedForComparison ? 'ring-4 ring-accent dark:ring-accent' : ''}`}>
+    <div className={`rounded-xl border-2 overflow-hidden flex flex-col ${getScoreColor(compatibilityScore)} ${isSelectedForComparison ? 'ring-4 ring-accent dark:ring-accent' : ''}`}>
       {/* Image */}
       {profile.imageUrl && (
         <div className="relative h-48 bg-card-elevated">
@@ -51,12 +51,12 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect, onToggleCompa
                 type="checkbox"
                 checked={isSelectedForComparison}
                 onChange={() => onToggleComparison(recommendation.animalId)}
-                className="w-5 h-5 rounded border-2 border-white cursor-pointer accent-emerald-600"
+                className="w-5 h-5 rounded-xl border-2 border-white cursor-pointer accent-emerald-600"
               />
             </div>
           )}
           {/* Score Badge Overlay */}
-          <div className="absolute top-3 right-3 bg-card rounded-lg px-3 py-1 shadow-lg">
+          <div className="absolute top-3 right-3 bg-card rounded-xl px-3 py-1">
             <div className={`text-xl font-bold ${getScoreTextColor(compatibilityScore)}`}>
               {compatibilityScore}%
             </div>
@@ -87,7 +87,7 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect, onToggleCompa
 
       {/* Warnings */}
       {warnings.length > 0 && (
-        <div className="mb-4 bg-surface/50 rounded p-2">
+        <div className="mb-4 bg-surface/50 rounded-xl p-2">
           {warnings.map((warning, idx) => (
             <div key={idx} className="flex items-start gap-2 text-xs mb-1">
               <AlertCircle className="w-3 h-3 text-orange-600 dark:text-orange-400 flex-shrink-0 mt-0.5" />
@@ -100,7 +100,7 @@ const AnimalRecommendationCard = memo(({ recommendation, onSelect, onToggleCompa
       {/* Action Button */}
       <button
         onClick={() => onSelect(recommendation.animalId)}
-        className="w-full px-4 py-2 bg-accent hover:bg-accent-dim text-white font-medium rounded-lg transition-colors mt-auto"
+        className="w-full px-4 py-2 bg-accent hover:bg-accent-dim text-white font-medium rounded-xl transition-colors mt-auto"
       >
         Choose {profile.commonName}
       </button>
@@ -174,7 +174,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
             <ArrowLeft className="w-5 h-5" />
             Back to Form
           </button>
-          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 text-center">
+          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-6 text-center">
             <AlertCircle className="w-12 h-12 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
             <p className="text-blue-800 dark:text-blue-300">No recommendations found. Please try adjusting your parameters.</p>
           </div>
@@ -218,11 +218,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                   setShowComparison(true);
                 }
               }}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                showComparison
-                  ? 'bg-card-elevated text-secondary'
-                  : 'bg-accent hover:bg-accent-dim text-white'
-              }`}
+              className={`px-4 py-2 rounded-xl font-medium transition-colors ${ showComparison ? 'bg-card-elevated text-secondary' : 'bg-accent hover:bg-accent-dim text-white' }`}
             >
               {showComparison ? 'Cancel Comparison' : 'Compare Species'}
             </button>
@@ -231,7 +227,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
 
         {/* Comparison Bar */}
         {showComparison && selectedForComparison.length > 0 && (
-          <div className="sticky top-4 z-10 mb-6 bg-accent dark:bg-accent-dim text-white rounded-lg p-4 shadow-lg">
+          <div className="sticky top-4 z-10 mb-6 bg-accent dark:bg-accent-dim text-white rounded-xl p-4">
             <div className="flex items-center justify-between gap-4">
               <div>
                 <p className="font-bold">{selectedForComparison.length} species selected</p>
@@ -240,7 +236,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
               <button
                 onClick={handleShowComparison}
                 disabled={selectedForComparison.length < 2}
-                className="px-6 py-2 bg-white text-accent font-bold rounded-lg hover:bg-accent/10 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-6 py-2 bg-white text-accent font-bold rounded-xl hover:bg-accent/10 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 View Comparison
               </button>
@@ -250,7 +246,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
 
         {/* Comparison Table View */}
         {showComparison && selectedForComparison.length >= 2 && (
-          <div className="mb-8 bg-card rounded-lg shadow-lg p-4 md:p-6 border border-divider">
+          <div className="mb-8 bg-card rounded-xl p-4 md:p-6 border border-divider">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl md:text-2xl font-bold text-white">Species Comparison</h2>
               <button
@@ -272,7 +268,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                 const size = rec.profile.minEnclosureSize;
                 
                 return (
-                  <div key={animalId} className="border-2 border-divider rounded-lg overflow-hidden">
+                  <div key={animalId} className="border-2 border-divider rounded-xl overflow-hidden">
                     {/* Header with Image */}
                     <div className="relative h-40 bg-card-elevated">
                       {rec.profile.imageUrl && (
@@ -284,12 +280,8 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                           decoding="async"
                         />
                       )}
-                      <div className="absolute top-2 right-2 bg-card rounded-lg px-2 py-1">
-                        <span className={`text-lg font-bold ${
-                          rec.compatibilityScore >= 80 ? 'text-accent' :
-                          rec.compatibilityScore >= 60 ? 'text-amber-600 dark:text-amber-400' :
-                          'text-orange-600 dark:text-orange-400'
-                        }`}>
+                      <div className="absolute top-2 right-2 bg-card rounded-xl px-2 py-1">
+                        <span className={`text-lg font-bold ${ rec.compatibilityScore >= 80 ? 'text-accent' : rec.compatibilityScore >= 60 ? 'text-amber-600 dark:text-amber-400' : 'text-orange-600 dark:text-orange-400' }`}>
                           {rec.compatibilityScore}%
                         </span>
                       </div>
@@ -305,11 +297,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                       <div className="grid grid-cols-2 gap-3 text-sm">
                         <div>
                           <div className="text-xs font-semibold text-muted uppercase">Care Level</div>
-                          <span className={`inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-medium ${
-                            rec.profile.careLevel === 'beginner' ? 'bg-accent/15 text-accent bg-accent/15 text-accent' :
-                            rec.profile.careLevel === 'intermediate' ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300' :
-                            'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300'
-                          }`}>
+                          <span className={`inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-medium ${ rec.profile.careLevel === 'beginner' ? 'bg-accent/15 text-accent bg-accent/15 text-accent' : rec.profile.careLevel === 'intermediate' ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300' : 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300' }`}>
                             {rec.profile.careLevel}
                           </span>
                         </div>
@@ -347,10 +335,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                         
                         <div>
                           <div className="text-xs font-semibold text-muted uppercase">Bioactive</div>
-                          <span className={`inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-medium ${
-                            rec.profile.bioactiveCompatible ? 'bg-accent/15 text-accent bg-accent/15 text-accent' : 
-                            'bg-card-elevated text-white dark:bg-card-elevated dark:text-secondary'
-                          }`}>
+                          <span className={`inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-medium ${ rec.profile.bioactiveCompatible ? 'bg-accent/15 text-accent bg-accent/15 text-accent' : 'bg-card-elevated text-white dark:bg-card-elevated dark:text-secondary' }`}>
                             {rec.profile.bioactiveCompatible ? 'Compatible' : 'Not ideal'}
                           </span>
                         </div>
@@ -376,7 +361,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                               <img
                                 src={rec.profile.imageUrl}
                                 alt={rec.profile.commonName}
-                                className="w-full h-32 object-cover rounded-lg"
+                                className="w-full h-32 object-cover rounded-xl"
                                 loading="lazy"
                                 decoding="async"
                               />
@@ -397,11 +382,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                       const rec = recommendations.find((r: any) => r.animalId === animalId);
                       return (
                         <td key={animalId} className="p-3 text-center">
-                          <span className={`text-2xl font-bold ${
-                            rec!.compatibilityScore >= 80 ? 'text-accent' :
-                            rec!.compatibilityScore >= 60 ? 'text-amber-600 dark:text-amber-400' :
-                            'text-orange-600 dark:text-orange-400'
-                          }`}>
+                          <span className={`text-2xl font-bold ${ rec!.compatibilityScore >= 80 ? 'text-accent' : rec!.compatibilityScore >= 60 ? 'text-amber-600 dark:text-amber-400' : 'text-orange-600 dark:text-orange-400' }`}>
                             {rec?.compatibilityScore}%
                           </span>
                         </td>
@@ -416,11 +397,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                       const rec = recommendations.find((r: any) => r.animalId === animalId);
                       return (
                         <td key={animalId} className="p-3 text-center">
-                          <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                            rec?.profile.careLevel === 'beginner' ? 'bg-accent/15 text-accent bg-accent/15 text-accent' :
-                            rec?.profile.careLevel === 'intermediate' ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300' :
-                            'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300'
-                          }`}>
+                          <span className={`px-3 py-1 rounded-full text-sm font-medium ${ rec?.profile.careLevel === 'beginner' ? 'bg-accent/15 text-accent bg-accent/15 text-accent' : rec?.profile.careLevel === 'intermediate' ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300' : 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300' }`}>
                             {rec?.profile.careLevel}
                           </span>
                         </td>
@@ -500,10 +477,7 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
                       const bioactive = rec?.profile.bioactiveCompatible;
                       return (
                         <td key={animalId} className="p-3 text-center">
-                          <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                            bioactive ? 'bg-accent/15 text-accent bg-accent/15 text-accent' : 
-                            'bg-card-elevated text-white dark:bg-card-elevated dark:text-secondary'
-                          }`}>
+                          <span className={`px-3 py-1 rounded-full text-sm font-medium ${ bioactive ? 'bg-accent/15 text-accent bg-accent/15 text-accent' : 'bg-card-elevated text-white dark:bg-card-elevated dark:text-secondary' }`}>
                             {bioactive ? 'Compatible' : 'Not ideal'}
                           </span>
                         </td>

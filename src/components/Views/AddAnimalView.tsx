@@ -92,7 +92,7 @@ export function AddAnimalView() {
   if (loading) {
     return (
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="bg-card border border-divider rounded-lg p-4 text-sm text-secondary">
+        <div className="bg-card border border-divider rounded-xl p-4 text-sm text-secondary">
           Loading form...
         </div>
       </div>

@@ -120,7 +120,7 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit, task }: 
           {/* Header */}
           <div className="flex items-center justify-between px-5 py-4 border-b border-divider shrink-0">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-accent/15 rounded-lg">
+              <div className="p-2 bg-accent/15 rounded-xl">
                 <UtensilsCrossed className="w-5 h-5 text-accent" />
               </div>
               <div>
@@ -130,7 +130,7 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit, task }: 
             </div>
             <button
               onClick={onClose}
-              className="text-muted p-1 rounded-lg"
+              className="text-muted p-1 rounded-xl"
             >
               <X className="w-5 h-5" />
             </button>
@@ -191,7 +191,7 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit, task }: 
                   <button
                     type="button"
                     onClick={() => adjustQuantity('offered', -1)}
-                    className="p-2 bg-card border border-divider rounded-lg hover:bg-card-elevated transition-colors"
+                    className="p-2 bg-card border border-divider rounded-xl hover:bg-card-elevated transition-colors"
                   >
                     <Minus className="w-4 h-4 text-muted" />
                   </button>
@@ -199,13 +199,13 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit, task }: 
                     type="number"
                     value={quantityOffered}
                     onChange={(e) => setQuantityOffered(Math.max(0, parseInt(e.target.value) || 0))}
-                    className="flex-1 px-3 py-2 border border-divider rounded-lg bg-card text-white text-center text-sm focus:outline-none focus:border-accent"
+                    className="flex-1 px-3 py-2 border border-divider rounded-xl bg-card text-white text-center text-sm focus:outline-none focus:border-accent"
                     min="0"
                   />
                   <button
                     type="button"
                     onClick={() => adjustQuantity('offered', 1)}
-                    className="p-2 bg-card border border-divider rounded-lg hover:bg-card-elevated transition-colors"
+                    className="p-2 bg-card border border-divider rounded-xl hover:bg-card-elevated transition-colors"
                   >
                     <Plus className="w-4 h-4 text-muted" />
                   </button>
@@ -221,7 +221,7 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit, task }: 
                   <button
                     type="button"
                     onClick={() => adjustQuantity('eaten', -1)}
-                    className="p-2 bg-card border border-divider rounded-lg hover:bg-card-elevated transition-colors"
+                    className="p-2 bg-card border border-divider rounded-xl hover:bg-card-elevated transition-colors"
                   >
                     <Minus className="w-4 h-4 text-muted" />
                   </button>
@@ -229,14 +229,14 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit, task }: 
                     type="number"
                     value={quantityEaten}
                     onChange={(e) => setQuantityEaten(Math.max(0, parseInt(e.target.value) || 0))}
-                    className="flex-1 px-3 py-2 border border-divider rounded-lg bg-card text-white text-center text-sm focus:outline-none focus:border-accent"
+                    className="flex-1 px-3 py-2 border border-divider rounded-xl bg-card text-white text-center text-sm focus:outline-none focus:border-accent"
                     min="0"
                     max={quantityOffered}
                   />
                   <button
                     type="button"
                     onClick={() => adjustQuantity('eaten', 1)}
-                    className="p-2 bg-card border border-divider rounded-lg hover:bg-card-elevated transition-colors"
+                    className="p-2 bg-card border border-divider rounded-xl hover:bg-card-elevated transition-colors"
                   >
                     <Plus className="w-4 h-4 text-muted" />
                   </button>
@@ -254,7 +254,7 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit, task }: 
               <div className="flex items-center justify-between">
                 <h3 className="text-xs font-semibold text-accent uppercase tracking-wide">Supplements</h3>
                 {task?.supplementType && task.type === 'feeding' && (
-                  <span className="text-xs font-medium text-accent bg-accent/20 px-2 py-0.5 rounded">
+                  <span className="text-xs font-medium text-accent bg-accent/20 px-2 py-0.5 rounded-full">
                     Pre-set
                   </span>
                 )}
@@ -280,7 +280,7 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit, task }: 
                   id="refusalNoted"
                   checked={refusalNoted}
                   onChange={(e) => setRefusalNoted(e.target.checked)}
-                  className="w-4 h-4 accent-amber-400 rounded"
+                  className="w-4 h-4 accent-amber-400 rounded-xl"
                 />
                 <span className="text-sm font-medium text-white flex-1">
                   Animal refused food or showed reduced appetite
@@ -310,7 +310,7 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit, task }: 
               type="button"
               onClick={handleQuickComplete}
               disabled={loading}
-              className="px-3 py-1.5 text-xs font-semibold text-muted bg-card-elevated border border-divider rounded-lg hover:bg-card-elevated/80 transition-colors disabled:opacity-50"
+              className="px-3 py-1.5 text-xs font-semibold text-muted bg-card-elevated border border-divider rounded-xl hover:bg-card-elevated/80 transition-colors disabled:opacity-50"
             >
               Quick Log
             </button>
@@ -319,14 +319,14 @@ export function FeedingLogModal({ isOpen, taskTitle, onClose, onSubmit, task }: 
                 type="button"
                 onClick={onClose}
                 disabled={loading}
-                className="px-4 py-1.5 rounded-lg bg-card border border-divider text-white text-sm font-semibold hover:bg-card-elevated transition-colors disabled:opacity-50"
+                className="px-4 py-1.5 rounded-xl bg-card border border-divider text-white text-sm font-semibold hover:bg-card-elevated transition-colors disabled:opacity-50"
               >
                 Cancel
               </button>
               <button
                 onClick={handleSubmit}
                 disabled={loading}
-                className="px-4 py-1.5 rounded-lg bg-accent hover:bg-accent-dim text-white text-sm font-semibold transition-colors disabled:opacity-50"
+                className="px-4 py-1.5 rounded-xl bg-accent hover:bg-accent-dim text-white text-sm font-semibold transition-colors disabled:opacity-50"
               >
                 {loading ? 'Logging...' : 'Log Feeding'}
               </button>

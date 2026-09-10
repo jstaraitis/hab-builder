@@ -60,10 +60,21 @@ import { tempLogService, type TempLog } from '../../services/tempLogService';
 import { humidityLogService, type HumidityLog } from '../../services/humidityLogService';
 import { uvbLogService, type UvbLog } from '../../services/uvbLogService';
 import { feedingLogService, type FeedingLog } from '../../services/feedingLogService';
-import { computeSmartStatus, freshnessDaysFor, DEFAULT_STATUS_SENSITIVITY, type SmartStatusLevel, type StatusSensitivity } from '../../services/smartStatusService';
+import {
+  computeSmartStatus,
+  freshnessDaysFor,
+  DEFAULT_STATUS_SENSITIVITY,
+  type SmartStatusLevel,
+  type StatusSensitivity,
+} from '../../services/smartStatusService';
 import { runThresholdEngine } from '../../engine/thresholdEngine';
 import { PremiumPaywall } from '../Upgrade/PremiumPaywall';
-import type { Enclosure, EnclosureAnimal, CareTaskWithLogs, CareLog } from '../../types/careCalendar';
+import type {
+  Enclosure,
+  EnclosureAnimal,
+  CareTaskWithLogs,
+  CareLog,
+} from '../../types/careCalendar';
 import { FeedingLogModal } from '../CareCalendar/FeedingLogModal';
 import { EnvironmentReadingsModal } from '../CareCalendar/EnvironmentReadingsModal';
 import type { WeightLog } from '../../types/weightTracking';
@@ -77,7 +88,8 @@ import { getCustomWeekdayIntervalDays } from '../../utils/customTaskFrequency';
 function formatAge(birthday?: Date | null): string {
   if (!birthday) return '—';
   const d = new Date(birthday);
-  const months = (new Date().getFullYear() - d.getFullYear()) * 12 + (new Date().getMonth() - d.getMonth());
+  const months =
+    (new Date().getFullYear() - d.getFullYear()) * 12 + (new Date().getMonth() - d.getMonth());
   if (months < 1) return '< 1 mo';
   if (months < 12) return `${months} mo`;
   const y = Math.floor(months / 12);
@@ -90,7 +102,6 @@ function formatWeight(logs: WeightLog[]): string {
   const g = logs[0].weightGrams;
   return g >= 1000 ? `${(g / 1000).toFixed(2)} kg` : `${g} g`;
 }
-
 
 function formatScheduledTime(t?: string | null): string | null {
   if (!t) return null;
@@ -218,16 +229,16 @@ function getLastFed(tasks: CareTaskWithLogs[], feedingLogs: FeedingLog[]): strin
   const allLogs: Array<{ completedAt: Date | string }> = [
     ...tasks
       .filter((t) => t.type === 'feeding' && t.lastCompleted)
-      .map(t => ({ completedAt: t.lastCompleted! })),
-    ...feedingLogs.map(log => ({ completedAt: log.completedAt }))
+      .map((t) => ({ completedAt: t.lastCompleted! })),
+    ...feedingLogs.map((log) => ({ completedAt: log.completedAt })),
   ];
-  
+
   if (!allLogs.length) return '—';
-  
-  const sorted = [...allLogs].sort((a, b) => 
-    new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime()
+
+  const sorted = [...allLogs].sort(
+    (a, b) => new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime()
   );
-  
+
   const diff = getCalendarDayDiff(sorted[0].completedAt);
   if (diff === 0) return 'Today';
   if (diff === 1) return '1d ago';
@@ -237,7 +248,9 @@ function getLastFed(tasks: CareTaskWithLogs[], feedingLogs: FeedingLog[]): strin
 function getLastWaterChange(tasks: CareTaskWithLogs[]): string {
   const wcTasks = tasks.filter((t) => t.type === 'water-change' && t.lastCompleted);
   if (!wcTasks.length) return '—';
-  const sorted = [...wcTasks].sort((a, b) => new Date(b.lastCompleted!).getTime() - new Date(a.lastCompleted!).getTime());
+  const sorted = [...wcTasks].sort(
+    (a, b) => new Date(b.lastCompleted!).getTime() - new Date(a.lastCompleted!).getTime()
+  );
   const diff = Math.floor((Date.now() - new Date(sorted[0].lastCompleted!).getTime()) / 86_400_000);
   if (diff === 0) return 'Today';
   if (diff === 1) return '1d ago';
@@ -284,7 +297,8 @@ function EnclosureOverviewSection({
   latestUvbLog: UvbLog | null;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const selectedEnclosure = enclosures.find((enc) => enc.id === selectedId) ?? enclosures[0] ?? null;
+  const selectedEnclosure =
+    enclosures.find((enc) => enc.id === selectedId) ?? enclosures[0] ?? null;
 
   useEffect(() => {
     if (!scrollRef.current) return;
@@ -313,29 +327,76 @@ function EnclosureOverviewSection({
   const tempBasking = latestTempLog
     ? `${latestTempLog.temperatureValue}\u00b0${latestTempLog.unit.toUpperCase()}`
     : temp?.basking && typeof temp.basking === 'number'
-    ? `${temp.basking}\u00b0${temp.unit}`
-    : temp ? `${temp.min}\u00b0${temp.unit}` : '\u2014';
+      ? `${temp.basking}\u00b0${temp.unit}`
+      : temp
+        ? `${temp.min}\u00b0${temp.unit}`
+        : '\u2014';
   const tempRange = latestTempLog
     ? `Logged ${getDaysAgoLabel(latestTempLog.recordedAt)}`
-    : temp ? `${temp.min}\u2013${temp.max}\u00b0${temp.unit}` : '\u2014';
+    : temp
+      ? `${temp.min}\u2013${temp.max}\u00b0${temp.unit}`
+      : '\u2014';
 
-  const humidityVal = latestHumidityLog ? `${latestHumidityLog.humidityPercent}%` : humidity ? `${humidity.day.min}%` : '\u2014';
+  const humidityVal = latestHumidityLog
+    ? `${latestHumidityLog.humidityPercent}%`
+    : humidity
+      ? `${humidity.day.min}%`
+      : '\u2014';
   const humidityRange = latestHumidityLog
     ? `Logged ${getDaysAgoLabel(latestHumidityLog.recordedAt)}`
-    : humidity ? `${humidity.day.min}\u2013${humidity.day.max}%` : '\u2014';
+    : humidity
+      ? `${humidity.day.min}\u2013${humidity.day.max}%`
+      : '\u2014';
 
-  const uvbVal = latestUvbLog?.uvIndex != null
-    ? latestUvbLog.uvIndex.toFixed(1)
-    : lighting?.uvbStrength ? lighting.uvbStrength : (lighting?.uvbRequired ? 'Yes' : 'None');
+  const uvbVal =
+    latestUvbLog?.uvIndex != null
+      ? latestUvbLog.uvIndex.toFixed(1)
+      : lighting?.uvbStrength
+        ? lighting.uvbStrength
+        : lighting?.uvbRequired
+          ? 'Yes'
+          : 'None';
   const uvbSub = latestUvbLog
     ? `Logged ${getDaysAgoLabel(latestUvbLog.recordedAt)}`
-    : lighting?.uvbRequired ? 'Required' : 'Not needed';
+    : lighting?.uvbRequired
+      ? 'Required'
+      : 'Not needed';
 
-  const tiles: { icon: React.ReactNode; value: string; label: string; sub: string; hasCheck: boolean }[] = [
-    { icon: <Thermometer className="w-5 h-5 text-orange-400" />, value: tempBasking, label: 'Temp', sub: tempRange, hasCheck: latestTempLog != null || temp != null },
-    { icon: <Droplets className="w-5 h-5 text-blue-400" />, value: humidityVal, label: 'Humidity', sub: humidityRange, hasCheck: latestHumidityLog != null || humidity != null },
-    { icon: <Sun className="w-5 h-5 text-yellow-400" />, value: uvbVal, label: 'UVB Index', sub: uvbSub, hasCheck: latestUvbLog != null || lighting != null },
-    { icon: <Droplets className="w-5 h-5 text-cyan-400" />, value: lastWaterChange, label: 'Water Change', sub: lastWaterChange !== '\u2014' ? 'On schedule' : 'No data', hasCheck: lastWaterChange !== '\u2014' },
+  const tiles: {
+    icon: React.ReactNode;
+    value: string;
+    label: string;
+    sub: string;
+    hasCheck: boolean;
+  }[] = [
+    {
+      icon: <Thermometer className="w-5 h-5 text-orange-400" />,
+      value: tempBasking,
+      label: 'Temp',
+      sub: tempRange,
+      hasCheck: latestTempLog != null || temp != null,
+    },
+    {
+      icon: <Droplets className="w-5 h-5 text-blue-400" />,
+      value: humidityVal,
+      label: 'Humidity',
+      sub: humidityRange,
+      hasCheck: latestHumidityLog != null || humidity != null,
+    },
+    {
+      icon: <Sun className="w-5 h-5 text-yellow-400" />,
+      value: uvbVal,
+      label: 'UVB Index',
+      sub: uvbSub,
+      hasCheck: latestUvbLog != null || lighting != null,
+    },
+    {
+      icon: <Droplets className="w-5 h-5 text-cyan-400" />,
+      value: lastWaterChange,
+      label: 'Water Change',
+      sub: lastWaterChange !== '\u2014' ? 'On schedule' : 'No data',
+      hasCheck: lastWaterChange !== '\u2014',
+    },
   ];
 
   return (
@@ -349,15 +410,21 @@ function EnclosureOverviewSection({
         <div className="flex gap-2.5 sm:gap-3 items-stretch">
           <div className="flex-1 min-w-0 flex flex-col justify-between gap-2.5 sm:gap-3">
             <div>
-              <h3 className="text-lg sm:text-2xl font-bold text-white leading-tight">{selectedEnclosure.name}</h3>
+              <h3 className="text-lg sm:text-2xl font-bold text-white leading-tight">
+                {selectedEnclosure.name}
+              </h3>
               <p className="mt-1 text-xs sm:text-sm text-muted">{subtitle}</p>
-              <p className="mt-0.5 sm:mt-1 text-xs sm:text-sm text-emerald-200/85">{selectedEnclosure.animalName}</p>
+              <p className="mt-0.5 sm:mt-1 text-xs sm:text-sm text-emerald-200/85">
+                {selectedEnclosure.animalName}
+              </p>
             </div>
 
             <div className="flex flex-wrap gap-1.5 sm:gap-2">
               <button
                 type="button"
-                onClick={() => navigate(`/care-calendar/enclosures/${selectedEnclosure.id}/environment`)}
+                onClick={() =>
+                  navigate(`/care-calendar/enclosures/${selectedEnclosure.id}/environment`)
+                }
                 className="flex items-center gap-1 text-xs text-accent font-medium active:opacity-70 transition-opacity"
               >
                 View Enclosure <ChevronRight className="w-3.5 h-3.5" />
@@ -367,7 +434,11 @@ function EnclosureOverviewSection({
 
           <div className="w-32 sm:w-56 h-20 sm:h-28 rounded-2xl overflow-hidden border border-divider bg-card-elevated flex-shrink-0 self-center flex items-center justify-center">
             {selectedEnclosure.photoUrl ? (
-              <img src={selectedEnclosure.photoUrl} alt={selectedEnclosure.name} className="w-full h-full object-cover" />
+              <img
+                src={selectedEnclosure.photoUrl}
+                alt={selectedEnclosure.name}
+                className="w-full h-full object-cover"
+              />
             ) : (
               <Home className="w-10 h-10 text-muted" />
             )}
@@ -383,13 +454,24 @@ function EnclosureOverviewSection({
           </div>
           <div className="grid grid-cols-4 divide-x divide-divider border border-divider rounded-xl overflow-hidden bg-card-elevated">
             {tiles.map((tile) => (
-              <div key={tile.label} className="flex flex-col items-center gap-0.5 sm:gap-1 p-2 sm:p-3">
+              <div
+                key={tile.label}
+                className="flex flex-col items-center gap-0.5 sm:gap-1 p-2 sm:p-3"
+              >
                 <div className="mb-0.5">{tile.icon}</div>
-                <span className="text-xs font-bold text-white text-center leading-tight">{tile.value}</span>
-                <span className="text-[10px] text-muted text-center leading-tight">{tile.label}</span>
+                <span className="text-xs font-bold text-white text-center leading-tight">
+                  {tile.value}
+                </span>
+                <span className="text-[10px] text-muted text-center leading-tight">
+                  {tile.label}
+                </span>
                 <div className="flex items-center gap-0.5 mt-0.5">
-                  <span className="text-[9px] text-muted text-center leading-tight">{tile.sub}</span>
-                  {tile.hasCheck && <CheckCircle2 className="w-2.5 h-2.5 text-accent flex-shrink-0" />}
+                  <span className="text-[9px] text-muted text-center leading-tight">
+                    {tile.sub}
+                  </span>
+                  {tile.hasCheck && (
+                    <CheckCircle2 className="w-2.5 h-2.5 text-accent flex-shrink-0" />
+                  )}
                 </div>
               </div>
             ))}
@@ -411,11 +493,7 @@ function EnclosureOverviewSection({
                 key={enc.id}
                 onClick={() => onSelect(enc.id)}
                 data-selected={isSelected ? 'true' : 'false'}
-                className={`flex-shrink-0 w-40 rounded-2xl border overflow-hidden transition-all snap-center ${
-                  isSelected
-                    ? 'border-accent bg-accent/10 shadow-lg shadow-accent/20'
-                    : 'border-divider bg-card hover:border-accent/50'
-                }`}
+                className={`flex-shrink-0 w-40 rounded-2xl border overflow-hidden transition-all snap-center ${isSelected ? 'border-accent bg-accent/10 shadow-accent/20' : 'border-divider bg-card hover:border-accent/50'}`}
               >
                 <div className="p-3 text-left">
                   <div className="flex items-center justify-between gap-2">
@@ -427,7 +505,9 @@ function EnclosureOverviewSection({
                   </div>
                   <div className="mt-3 flex items-center gap-1.5 text-xs text-muted">
                     <Turtle className="w-3.5 h-3.5 text-accent" />
-                    <span>{animalCount} animal{animalCount !== 1 ? 's' : ''}</span>
+                    <span>
+                      {animalCount} animal{animalCount !== 1 ? 's' : ''}
+                    </span>
                   </div>
                 </div>
               </button>
@@ -442,7 +522,7 @@ function EnclosureOverviewSection({
 function LoadingSkeleton() {
   return (
     <div className="animate-pulse space-y-4 px-4 pt-4">
-      <div className="h-8 w-48 bg-card rounded-lg" />
+      <div className="h-8 w-48 bg-card rounded-xl" />
       <div className="h-36 bg-card rounded-2xl" />
       <div className="h-52 bg-card rounded-2xl" />
       <div className="h-24 bg-card rounded-2xl" />
@@ -458,9 +538,14 @@ function EmptyState({ onAdd }: { onAdd: () => void }) {
       </div>
       <div>
         <h2 className="text-xl font-bold text-white mb-2">No animals yet</h2>
-        <p className="text-muted text-sm max-w-xs">Add your first animal to start tracking care tasks, weight, sheds, and more.</p>
+        <p className="text-muted text-sm max-w-xs">
+          Add your first animal to start tracking care tasks, weight, sheds, and more.
+        </p>
       </div>
-      <button onClick={onAdd} className="flex items-center gap-2 bg-accent text-on-accent font-semibold px-6 py-3 rounded-full active:scale-95 transition-transform">
+      <button
+        onClick={onAdd}
+        className="flex items-center gap-2 bg-accent text-on-accent font-semibold px-6 py-3 rounded-full active:scale-95 transition-transform"
+      >
         <Plus className="w-4 h-4" />
         Add Animal
       </button>
@@ -490,16 +575,15 @@ function deriveNextAction(reasons: string[], level: SmartStatusLevel): string | 
   if (r.includes('feeding')) return 'Log a feeding to bring things back on track.';
   if (r.includes('weight')) return 'Log a weight check today.';
   if (r.includes('poop')) return 'Log a poop to keep the record current.';
-  if (r.includes("hasn't been done") || r.includes('important') || r.includes('overdue')) return 'Complete overdue tasks as soon as you can.';
+  if (r.includes("hasn't been done") || r.includes('important') || r.includes('overdue'))
+    return 'Complete overdue tasks as soon as you can.';
   if (r.includes('skipped')) return 'Try to complete the next task instead of skipping it.';
   if (r.includes('missed')) return 'Complete all due tasks today to get back on track.';
   return 'Open the Care Calendar to see what needs attention.';
 }
 
 function deriveConsistencyReasons(consistencyStreak: number): string[] {
-  const reasons = [
-
-  ];
+  const reasons = [];
 
   if (consistencyStreak > 0) {
     reasons.unshift(`You have completed ${consistencyStreak} care checks in a row on schedule.`);
@@ -510,15 +594,39 @@ function deriveConsistencyReasons(consistencyStreak: number): string[] {
   return reasons;
 }
 
-function ActivePetCard({ animal, age, weight, weightTrend, lastFed, consistencyStreak, healthStatus, healthScore, healthReasons, shedLogs, shedStatus, poopLogs, onTap }: ActivePetCardProps) {
+function ActivePetCard({
+  animal,
+  age,
+  weight,
+  weightTrend,
+  lastFed,
+  consistencyStreak,
+  healthStatus,
+  healthScore,
+  healthReasons,
+  shedLogs,
+  shedStatus,
+  poopLogs,
+  onTap,
+}: ActivePetCardProps) {
   const [explanationOpen, setExplanationOpen] = useState(false);
 
   const displayName = animal.name || `Animal #${animal.animalNumber ?? 1}`;
   const gender = animal.gender?.toLowerCase();
   const genderIcon = gender === 'male' ? '♂' : gender === 'female' ? '♀' : null;
-  const genderColor = gender === 'male' ? 'text-blue-400' : gender === 'female' ? 'text-pink-400' : 'text-muted';
+  const genderColor =
+    gender === 'male' ? 'text-blue-400' : gender === 'female' ? 'text-pink-400' : 'text-muted';
 
-  const statusConfig: Record<SmartStatusLevel, { label: string; textClass: string; bgClass: string; borderClass: string; icon: React.ReactNode }> = {
+  const statusConfig: Record<
+    SmartStatusLevel,
+    {
+      label: string;
+      textClass: string;
+      bgClass: string;
+      borderClass: string;
+      icon: React.ReactNode;
+    }
+  > = {
     healthy: {
       label: 'On track',
       textClass: 'text-accent',
@@ -552,26 +660,92 @@ function ActivePetCard({ animal, age, weight, weightTrend, lastFed, consistencyS
   const nextAction = deriveNextAction(healthReasons, healthStatus);
   const consistencyReasons = deriveConsistencyReasons(consistencyStreak);
 
-  const trendColor = weightTrend === 'Gaining' ? 'text-accent' : weightTrend === 'Losing' ? 'text-red-400' : weightTrend === 'Stable' ? 'text-blue-400' : 'text-muted';
-  const weightTrendIcon = weightTrend === 'Gaining'
-    ? <TrendingUp className="w-5 h-5 text-accent" />
-    : weightTrend === 'Losing'
-    ? <TrendingDown className="w-5 h-5 text-red-400" />
-    : weightTrend === 'Stable'
-    ? <Minus className="w-5 h-5 text-blue-400" />
-    : <Circle className="w-5 h-5 text-muted" />;
-  const shedColor = shedStatus === 'On Track' ? 'text-accent' : shedStatus === 'Overdue' ? 'text-red-400' : shedStatus === 'Due Soon' ? 'text-amber-400' : 'text-muted';
-  const shedDaysAgo = shedLogs.length > 0 ? Math.floor((Date.now() - new Date(shedLogs[0].shedDate).getTime()) / 86_400_000) : null;
-  const shedSub = shedDaysAgo !== null ? (shedDaysAgo === 0 ? 'Today' : shedDaysAgo === 1 ? '1 day ago' : `${shedDaysAgo} days ago`) : 'No data';
+  const trendColor =
+    weightTrend === 'Gaining'
+      ? 'text-accent'
+      : weightTrend === 'Losing'
+        ? 'text-red-400'
+        : weightTrend === 'Stable'
+          ? 'text-blue-400'
+          : 'text-muted';
+  const weightTrendIcon =
+    weightTrend === 'Gaining' ? (
+      <TrendingUp className="w-5 h-5 text-accent" />
+    ) : weightTrend === 'Losing' ? (
+      <TrendingDown className="w-5 h-5 text-red-400" />
+    ) : weightTrend === 'Stable' ? (
+      <Minus className="w-5 h-5 text-blue-400" />
+    ) : (
+      <Circle className="w-5 h-5 text-muted" />
+    );
+  const shedColor =
+    shedStatus === 'On Track'
+      ? 'text-accent'
+      : shedStatus === 'Overdue'
+        ? 'text-red-400'
+        : shedStatus === 'Due Soon'
+          ? 'text-amber-400'
+          : 'text-muted';
+  const shedDaysAgo =
+    shedLogs.length > 0
+      ? Math.floor((Date.now() - new Date(shedLogs[0].shedDate).getTime()) / 86_400_000)
+      : null;
+  const shedSub =
+    shedDaysAgo !== null
+      ? shedDaysAgo === 0
+        ? 'Today'
+        : shedDaysAgo === 1
+          ? '1 day ago'
+          : `${shedDaysAgo} days ago`
+      : 'No data';
   const latestPoop = poopLogs.length > 0 ? poopLogs[0] : null;
   const poopValue = latestPoop ? getDaysAgoLabel(latestPoop.loggedAt) : '\u2014';
-  const poopSub = latestPoop?.consistency ? latestPoop.consistency : (latestPoop ? 'Logged' : 'Log it');
+  const poopSub = latestPoop?.consistency
+    ? latestPoop.consistency
+    : latestPoop
+      ? 'Logged'
+      : 'Log it';
 
-  const healthTiles: { icon: React.ReactNode; label: string; value: string; sub: string; valueClass: string; subClass: string }[] = [
-    { icon: weightTrendIcon, label: 'Weight Trend', value: weight, sub: weightTrend !== '\u2014' ? weightTrend : 'No data', valueClass: weight !== '\u2014' ? 'text-white' : 'text-muted', subClass: trendColor },
-    { icon: <Utensils className="w-5 h-5 text-green-400" />, label: 'Appetite', value: lastFed, sub: lastFed !== '\u2014' ? 'Last fed' : 'No data', valueClass: lastFed !== '\u2014' ? 'text-white' : 'text-muted', subClass: 'text-muted' },
-    { icon: <Scissors className="w-5 h-5 text-purple-400" />, label: 'Shed Tracker', value: shedStatus !== '\u2014' ? shedStatus : '\u2014', sub: shedSub, valueClass: shedStatus !== '\u2014' ? shedColor : 'text-muted', subClass: 'text-muted' },
-    { icon: <FileText className="w-5 h-5 text-amber-400" />, label: 'Poop Log', value: poopValue, sub: poopSub, valueClass: latestPoop ? 'text-white' : 'text-muted', subClass: 'text-muted' },
+  const healthTiles: {
+    icon: React.ReactNode;
+    label: string;
+    value: string;
+    sub: string;
+    valueClass: string;
+    subClass: string;
+  }[] = [
+    {
+      icon: weightTrendIcon,
+      label: 'Weight Trend',
+      value: weight,
+      sub: weightTrend !== '\u2014' ? weightTrend : 'No data',
+      valueClass: weight !== '\u2014' ? 'text-white' : 'text-muted',
+      subClass: trendColor,
+    },
+    {
+      icon: <Utensils className="w-5 h-5 text-green-400" />,
+      label: 'Appetite',
+      value: lastFed,
+      sub: lastFed !== '\u2014' ? 'Last fed' : 'No data',
+      valueClass: lastFed !== '\u2014' ? 'text-white' : 'text-muted',
+      subClass: 'text-muted',
+    },
+    {
+      icon: <Scissors className="w-5 h-5 text-purple-400" />,
+      label: 'Shed Tracker',
+      value: shedStatus !== '\u2014' ? shedStatus : '\u2014',
+      sub: shedSub,
+      valueClass: shedStatus !== '\u2014' ? shedColor : 'text-muted',
+      subClass: 'text-muted',
+    },
+    {
+      icon: <FileText className="w-5 h-5 text-amber-400" />,
+      label: 'Poop Log',
+      value: poopValue,
+      sub: poopSub,
+      valueClass: latestPoop ? 'text-white' : 'text-muted',
+      subClass: 'text-muted',
+    },
   ];
 
   return (
@@ -589,7 +763,9 @@ function ActivePetCard({ animal, age, weight, weightTrend, lastFed, consistencyS
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-1.5 mb-1">
             <span className="text-lg font-bold text-white">{displayName}</span>
-            {genderIcon && <span className={`text-lg font-bold flex-shrink-0 ${genderColor}`}>{genderIcon}</span>}
+            {genderIcon && (
+              <span className={`text-lg font-bold flex-shrink-0 ${genderColor}`}>{genderIcon}</span>
+            )}
           </div>
           <p className="text-xs text-muted mb-1">{age}</p>
           <div className="flex items-center gap-2 flex-wrap">
@@ -601,9 +777,13 @@ function ActivePetCard({ animal, age, weight, weightTrend, lastFed, consistencyS
             >
               {status.icon}
               <span className={`text-xs font-semibold ${status.textClass}`}>{status.label}</span>
-              <span className={`text-[10px] font-medium ${status.textClass} opacity-70`}>{healthScore}</span>
+              <span className={`text-[10px] font-medium ${status.textClass} opacity-70`}>
+                {healthScore}
+              </span>
               <Info className={`w-3 h-3 ${status.textClass} opacity-85`} />
-              <ChevronRight className={`w-3 h-3 ${status.textClass} transition-transform ${explanationOpen ? 'rotate-90' : ''}`} />
+              <ChevronRight
+                className={`w-3 h-3 ${status.textClass} transition-transform ${explanationOpen ? 'rotate-90' : ''}`}
+              />
             </button>
             <button
               onClick={() => setExplanationOpen((o) => !o)}
@@ -611,11 +791,15 @@ function ActivePetCard({ animal, age, weight, weightTrend, lastFed, consistencyS
               title="Routine Streak reasons"
               aria-label={`Routine Streak: ${consistencyStreak}. Click to see reasons.`}
             >
-                <Flame className="w-3.5 h-3.5 text-orange-300" />
-                <span className="text-xs font-semibold text-orange-200">Routine Streak</span>
-                <span className="text-[10px] font-medium text-orange-200/80">{consistencyStreak}</span>
-                <Info className="w-3 h-3 text-orange-200/90" />
-                <ChevronRight className={`w-3 h-3 text-orange-200 transition-transform ${explanationOpen ? 'rotate-90' : ''}`} />
+              <Flame className="w-3.5 h-3.5 text-orange-300" />
+              <span className="text-xs font-semibold text-orange-200">Routine Streak</span>
+              <span className="text-[10px] font-medium text-orange-200/80">
+                {consistencyStreak}
+              </span>
+              <Info className="w-3 h-3 text-orange-200/90" />
+              <ChevronRight
+                className={`w-3 h-3 text-orange-200 transition-transform ${explanationOpen ? 'rotate-90' : ''}`}
+              />
             </button>
           </div>
         </div>
@@ -623,7 +807,9 @@ function ActivePetCard({ animal, age, weight, weightTrend, lastFed, consistencyS
 
       {/* Reasons panel */}
       {explanationOpen && (
-        <div className={`mx-4 mb-3 rounded-xl border ${status.borderClass} ${status.bgClass} px-3 py-2.5 space-y-2`}>
+        <div
+          className={`mx-4 mb-3 rounded-xl border ${status.borderClass} ${status.bgClass} px-3 py-2.5 space-y-2`}
+        >
           <div className="space-y-2">
             <div>
               <p className="text-xs font-semibold text-white mb-1.5">Smart Status</p>
@@ -635,9 +821,7 @@ function ActivePetCard({ animal, age, weight, weightTrend, lastFed, consistencyS
                   </li>
                 ))}
               </ul>
-              {nextAction && (
-                <p className="text-xs text-white/70 mt-1.5 italic">{nextAction}</p>
-              )}
+              {nextAction && <p className="text-xs text-white/70 mt-1.5 italic">{nextAction}</p>}
             </div>
 
             <div className="border-t border-white/10 pt-2">
@@ -656,22 +840,30 @@ function ActivePetCard({ animal, age, weight, weightTrend, lastFed, consistencyS
       )}
 
       {/* Health & Wellness tiles */}
-      <div className="px-4 pt-3 pb-1 flex items-center gap-1.5 border-t border-divider">
-      </div>
+      <div className="px-4 pt-3 pb-1 flex items-center gap-1.5 border-t border-divider"></div>
       <div className="grid grid-cols-4 divide-x divide-divider border-t border-divider">
         {healthTiles.map((tile) => (
           <div key={tile.label} className="flex flex-col items-center gap-1 p-3">
             <div className="flex items-center justify-center mb-0.5">{tile.icon}</div>
-            <span className={`text-xs font-bold leading-tight text-center ${tile.valueClass}`}>{tile.value}</span>
-            <span className={`text-[10px] leading-tight text-center ${tile.subClass}`}>{tile.sub}</span>
-            <span className="text-[9px] text-muted text-center leading-tight mt-0.5">{tile.label}</span>
+            <span className={`text-xs font-bold leading-tight text-center ${tile.valueClass}`}>
+              {tile.value}
+            </span>
+            <span className={`text-[10px] leading-tight text-center ${tile.subClass}`}>
+              {tile.sub}
+            </span>
+            <span className="text-[9px] text-muted text-center leading-tight mt-0.5">
+              {tile.label}
+            </span>
           </div>
         ))}
       </div>
 
       {/* Footer */}
       <div className="flex justify-end px-4 py-2.5 border-t border-divider">
-        <button onClick={onTap} className="flex items-center gap-1 text-xs text-accent font-medium active:opacity-70 transition-opacity">
+        <button
+          onClick={onTap}
+          className="flex items-center gap-1 text-xs text-accent font-medium active:opacity-70 transition-opacity"
+        >
           View Profile <ChevronRight className="w-3.5 h-3.5" />
         </button>
       </div>
@@ -689,7 +881,14 @@ interface TodayCarePlanProps {
   onSetUpTasks: () => void;
 }
 
-function TodayCarePlan({ tasks, completedIds, onComplete, onOpenTask, hasAnyTasks, onSetUpTasks }: TodayCarePlanProps) {
+function TodayCarePlan({
+  tasks,
+  completedIds,
+  onComplete,
+  onOpenTask,
+  hasAnyTasks,
+  onSetUpTasks,
+}: TodayCarePlanProps) {
   const dueToday = tasks.filter(isTaskDueToday).slice(0, 6);
   const doneCount = dueToday.filter((t) => completedIds.has(t.id)).length;
   const progressPct = dueToday.length > 0 ? (doneCount / dueToday.length) * 100 : 0;
@@ -707,7 +906,9 @@ function TodayCarePlan({ tasks, completedIds, onComplete, onOpenTask, hasAnyTask
           <h3 className="text-med font-bold text-white">Today</h3>
         </div>
         {dueToday.length > 0 && (
-          <span className="text-xs font-medium text-muted">{doneCount} of {dueToday.length} done</span>
+          <span className="text-xs font-medium text-muted">
+            {doneCount} of {dueToday.length} done
+          </span>
         )}
       </div>
       {dueToday.length === 0 ? (
@@ -722,8 +923,8 @@ function TodayCarePlan({ tasks, completedIds, onComplete, onOpenTask, hasAnyTask
           <div className="px-4 pb-4">
             <p className="text-sm text-white font-semibold">No care tasks yet</p>
             <p className="text-xs text-muted mt-1 leading-relaxed">
-              Reminders are what keep a routine from slipping. Set them up once and
-              they repeat on their own.
+              Reminders are what keep a routine from slipping. Set them up once and they repeat on
+              their own.
             </p>
             <button
               type="button"
@@ -741,17 +942,29 @@ function TodayCarePlan({ tasks, completedIds, onComplete, onOpenTask, hasAnyTask
             const timeStr = formatScheduledTime(task.scheduledTime);
             const TaskTypeIcon = taskTypeIcon(task.type);
             return (
-              <li key={task.id} className={`flex items-center gap-3 px-4 py-3 transition-colors ${done ? 'bg-accent/5' : ''}`}>
-                <button onClick={() => onComplete(task)} className={`flex-shrink-0 transition-colors ${done ? 'text-accent' : 'text-muted'}`}>
+              <li
+                key={task.id}
+                className={`flex items-center gap-3 px-4 py-3 transition-colors ${done ? 'bg-accent/5' : ''}`}
+              >
+                <button
+                  onClick={() => onComplete(task)}
+                  className={`flex-shrink-0 transition-colors ${done ? 'text-accent' : 'text-muted'}`}
+                >
                   {done ? <CheckCircle2 className="w-5 h-5" /> : <Circle className="w-5 h-5" />}
                 </button>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-1.5">
                     <TaskTypeIcon className="w-4 h-4 text-muted flex-shrink-0" />
-                    <span className={`text-sm font-semibold truncate ${done ? 'line-through text-muted' : 'text-white'}`}>{task.title}</span>
+                    <span
+                      className={`text-sm font-semibold truncate ${done ? 'line-through text-muted' : 'text-white'}`}
+                    >
+                      {task.title}
+                    </span>
                   </div>
                   {(task.description || task.notes) && (
-                    <p className="text-xs text-muted mt-0.5 truncate">{task.description || task.notes}</p>
+                    <p className="text-xs text-muted mt-0.5 truncate">
+                      {task.description || task.notes}
+                    </p>
                   )}
                 </div>
                 <div className="flex items-center gap-1.5 flex-shrink-0">
@@ -797,14 +1010,17 @@ export function DashboardView() {
   const [alertsByAnimalId, setAlertsByAnimalId] = useState<Record<string, ThresholdAlert[]>>({});
   const [animalSummaryById, setAnimalSummaryById] = useState<Record<string, string>>({});
   const [animalReasonsById, setAnimalReasonsById] = useState<Record<string, string[]>>({});
-  const [statusSensitivity, setStatusSensitivity] = useState<StatusSensitivity>(DEFAULT_STATUS_SENSITIVITY);
+  const [statusSensitivity, setStatusSensitivity] = useState<StatusSensitivity>(
+    DEFAULT_STATUS_SENSITIVITY
+  );
   const [completedIds, setCompletedIds] = useState<Set<string>>(new Set());
   const [loading, setLoading] = useState(true);
   const [displayName, setDisplayName] = useState<string>('');
 
   useEffect(() => {
     if (!user) return;
-    profileService.getProfile(user.id)
+    profileService
+      .getProfile(user.id)
       .then((p) => {
         setDisplayName(p?.displayName || '');
         setStatusSensitivity(p?.statusSensitivity ?? DEFAULT_STATUS_SENSITIVITY);
@@ -846,7 +1062,8 @@ export function DashboardView() {
 
   useEffect(() => {
     if (!user) return;
-    careTaskService.getTasksWithLogs(user.id)
+    careTaskService
+      .getTasksWithLogs(user.id)
       .then((data) => setTasks(data.filter((t) => t.isActive)))
       .catch(console.error);
   }, [user]);
@@ -854,7 +1071,7 @@ export function DashboardView() {
   useEffect(() => {
     if (!selectedAnimalId) return;
     const selectedAnimal = animals.find((a) => a.id === selectedAnimalId);
-    
+
     Promise.all([
       weightTrackingService.getWeightLogs(selectedAnimalId).catch(() => []),
       shedLogService.getLogsForAnimal(selectedAnimalId).catch(() => []),
@@ -880,7 +1097,9 @@ export function DashboardView() {
         resolvedTemps = await tempLogService.getRecentLogs(selectedAnimalId, 10).catch(() => []);
       }
       if (resolvedHumidity.length === 0) {
-        resolvedHumidity = await humidityLogService.getRecentLogs(selectedAnimalId, 10).catch(() => []);
+        resolvedHumidity = await humidityLogService
+          .getRecentLogs(selectedAnimalId, 10)
+          .catch(() => []);
       }
       if (resolvedUvb.length === 0) {
         resolvedUvb = await uvbLogService.getRecentLogs(selectedAnimalId, 10).catch(() => []);
@@ -903,14 +1122,16 @@ export function DashboardView() {
       return;
     }
 
-    const animalTasksForStreak = tasks.filter((t) =>
-      t.enclosureAnimalId === selectedAnimalId ||
-      (selectedEnclosureId && t.enclosureId === selectedEnclosureId)
+    const animalTasksForStreak = tasks.filter(
+      (t) =>
+        t.enclosureAnimalId === selectedAnimalId ||
+        (selectedEnclosureId && t.enclosureId === selectedEnclosureId)
     );
 
-    const animalConsistencyStreak = animalTasksForStreak.length > 0
-      ? Math.max(...animalTasksForStreak.map((task) => calculateTaskConsistencyStreak(task)), 0)
-      : 0;
+    const animalConsistencyStreak =
+      animalTasksForStreak.length > 0
+        ? Math.max(...animalTasksForStreak.map((task) => calculateTaskConsistencyStreak(task)), 0)
+        : 0;
     setConsistencyStreak(animalConsistencyStreak);
   }, [selectedAnimalId, selectedEnclosureId, tasks]);
 
@@ -925,33 +1146,41 @@ export function DashboardView() {
 
       const statusEntries = await Promise.all(
         animals.map(async (animal) => {
-          const animalTasks = tasks.filter((t) =>
-            t.enclosureAnimalId === animal.id ||
-            (animal.enclosureId && t.enclosureId === animal.enclosureId)
+          const animalTasks = tasks.filter(
+            (t) =>
+              t.enclosureAnimalId === animal.id ||
+              (animal.enclosureId && t.enclosureId === animal.enclosureId)
           );
 
-          const animalStreak = animalTasks.length > 0
-            ? Math.max(...animalTasks.map((task) => calculateTaskConsistencyStreak(task)), 0)
-            : 0;
+          const animalStreak =
+            animalTasks.length > 0
+              ? Math.max(...animalTasks.map((task) => calculateTaskConsistencyStreak(task)), 0)
+              : 0;
 
           const [animalWeightLogs, animalPoopLogs, enclosureFeedingLogs] = await Promise.all([
             weightTrackingService.getWeightLogs(animal.id).catch(() => [] as WeightLog[]),
             poopLogService.getRecentLogs(animal.id, 1).catch(() => [] as PoopLog[]),
             animal.enclosureId
-              ? feedingLogService.getRecentLogs(animal.enclosureId, 10).catch(() => [] as FeedingLog[])
+              ? feedingLogService
+                  .getRecentLogs(animal.enclosureId, 10)
+                  .catch(() => [] as FeedingLog[])
               : Promise.resolve([] as FeedingLog[]),
           ]);
 
-          const latestTaskFeeding = animalTasks
-            .filter((t) => t.type === 'feeding' && t.lastCompleted)
-            .map((t) => new Date(t.lastCompleted as Date | string))
-            .sort((a, b) => b.getTime() - a.getTime())[0] ?? null;
+          const latestTaskFeeding =
+            animalTasks
+              .filter((t) => t.type === 'feeding' && t.lastCompleted)
+              .map((t) => new Date(t.lastCompleted as Date | string))
+              .sort((a, b) => b.getTime() - a.getTime())[0] ?? null;
           const latestDirectFeeding = enclosureFeedingLogs[0]?.completedAt
             ? new Date(enclosureFeedingLogs[0].completedAt)
             : null;
-          const latestFeedingAt = latestTaskFeeding && latestDirectFeeding
-            ? (latestTaskFeeding > latestDirectFeeding ? latestTaskFeeding : latestDirectFeeding)
-            : (latestTaskFeeding ?? latestDirectFeeding);
+          const latestFeedingAt =
+            latestTaskFeeding && latestDirectFeeding
+              ? latestTaskFeeding > latestDirectFeeding
+                ? latestTaskFeeding
+                : latestDirectFeeding
+              : (latestTaskFeeding ?? latestDirectFeeding);
 
           const latestWeightAt = animalWeightLogs[0]?.measurementDate
             ? new Date(animalWeightLogs[0].measurementDate)
@@ -1005,8 +1234,12 @@ export function DashboardView() {
       if (cancelled) return;
       setAnimalStatusById(Object.fromEntries(statusEntries.map(([id, level]) => [id, level])));
       setAlertsByAnimalId(Object.fromEntries(statusEntries.map(([id, , alerts]) => [id, alerts])));
-      setAnimalSummaryById(Object.fromEntries(statusEntries.map(([id, , , summary]) => [id, summary])));
-      setAnimalReasonsById(Object.fromEntries(statusEntries.map(([id, , , , reasons]) => [id, reasons])));
+      setAnimalSummaryById(
+        Object.fromEntries(statusEntries.map(([id, , , summary]) => [id, summary]))
+      );
+      setAnimalReasonsById(
+        Object.fromEntries(statusEntries.map(([id, , , , reasons]) => [id, reasons]))
+      );
     }
 
     loadAnimalStatuses().catch(() => {
@@ -1089,20 +1322,21 @@ export function DashboardView() {
   // was always undefined and animalProfile was always null. The `as any` cast
   // hid it from the compiler. The animal's own mapped speciesId is the real
   // source; the enclosure's species is the fallback.
-  const speciesId = selectedAnimal?.speciesId
-    ?? selectedEnclosureForSpecies?.animalId
-    ?? undefined;
+  const speciesId = selectedAnimal?.speciesId ?? selectedEnclosureForSpecies?.animalId ?? undefined;
   const animalProfile: AnimalProfile | null = speciesId ? (getAnimalById(speciesId) ?? null) : null;
   const age = formatAge(selectedAnimal?.birthday);
   const weight = formatWeight(weightLogs);
 
   const weightTrend = getWeightTrend(weightLogs);
   const shedStatus = getShedStatus(shedLogs);
-  const animalTasks = tasks.filter((t) =>
-    t.enclosureAnimalId === selectedAnimalId ||
-    (selectedEnclosureId && t.enclosureId === selectedEnclosureId)
+  const animalTasks = tasks.filter(
+    (t) =>
+      t.enclosureAnimalId === selectedAnimalId ||
+      (selectedEnclosureId && t.enclosureId === selectedEnclosureId)
   );
-  const enclosureTasks = selectedEnclosureId ? tasks.filter((t) => t.enclosureId === selectedEnclosureId) : animalTasks;
+  const enclosureTasks = selectedEnclosureId
+    ? tasks.filter((t) => t.enclosureId === selectedEnclosureId)
+    : animalTasks;
   const lastFed = getLastFed(animalTasks, feedingLogs);
   const lastWaterChange = getLastWaterChange(enclosureTasks);
   const latestTempLog = tempLogs.length > 0 ? tempLogs[0] : null;
@@ -1113,7 +1347,9 @@ export function DashboardView() {
     .filter((t) => t.type === 'feeding' && t.lastCompleted)
     .map((t) => t.lastCompleted)
     .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())[0];
-  const latestWeightDate = weightLogs[0]?.measurementDate ? new Date(weightLogs[0].measurementDate) : null;
+  const latestWeightDate = weightLogs[0]?.measurementDate
+    ? new Date(weightLogs[0].measurementDate)
+    : null;
   const latestPoopDate = poopLogs[0]?.loggedAt || null;
 
   const smartStatus = computeSmartStatus({
@@ -1148,37 +1384,50 @@ export function DashboardView() {
     setEnclosures((prev) => prev.map((e) => (e.id === updated.id ? updated : e)));
   }, []);
 
-  const handleReplaceUvbBulb = useCallback(async (bulbType: UvbBulbType) => {
-    if (!selectedEnclosure || !user) return;
-    const updated = await enclosureService.replaceUvbBulb(selectedEnclosure.id, user.id, bulbType);
-    applyEnclosureUpdate(updated);
-  }, [selectedEnclosure, user, applyEnclosureUpdate]);
+  const handleReplaceUvbBulb = useCallback(
+    async (bulbType: UvbBulbType) => {
+      if (!selectedEnclosure || !user) return;
+      const updated = await enclosureService.replaceUvbBulb(
+        selectedEnclosure.id,
+        user.id,
+        bulbType
+      );
+      applyEnclosureUpdate(updated);
+    },
+    [selectedEnclosure, user, applyEnclosureUpdate]
+  );
 
   // Identifying an existing bulb corrects its lifespan without restarting the
   // clock — the bulb has been in there the whole time.
-  const handleSetUvbBulbType = useCallback(async (bulbType: UvbBulbType) => {
-    if (!selectedEnclosure) return;
-    const installedOn = selectedEnclosure.uvbBulbInstalledOn;
-    const updated = await enclosureService.updateEnclosure(selectedEnclosure.id, {
-      uvbBulbType: bulbType,
-      ...(installedOn && { uvbReplaceDueOn: calculateReplaceDueOn(installedOn, bulbType) }),
-    });
-    applyEnclosureUpdate(updated);
-  }, [selectedEnclosure, applyEnclosureUpdate]);
+  const handleSetUvbBulbType = useCallback(
+    async (bulbType: UvbBulbType) => {
+      if (!selectedEnclosure) return;
+      const installedOn = selectedEnclosure.uvbBulbInstalledOn;
+      const updated = await enclosureService.updateEnclosure(selectedEnclosure.id, {
+        uvbBulbType: bulbType,
+        ...(installedOn && { uvbReplaceDueOn: calculateReplaceDueOn(installedOn, bulbType) }),
+      });
+      applyEnclosureUpdate(updated);
+    },
+    [selectedEnclosure, applyEnclosureUpdate]
+  );
 
   // Memoize the filtered tasks for this animal to prevent unnecessary alert recalculations
   const tasksForSelectedAnimal = useMemo(() => {
     if (!selectedAnimalId) return [];
-    return tasks.filter((t) =>
-      t.enclosureAnimalId === selectedAnimalId ||
-      (selectedEnclosureId && t.enclosureId === selectedEnclosureId)
+    return tasks.filter(
+      (t) =>
+        t.enclosureAnimalId === selectedAnimalId ||
+        (selectedEnclosureId && t.enclosureId === selectedEnclosureId)
     );
   }, [selectedAnimalId, selectedEnclosureId, tasks]);
-  
+
   const thresholdAlerts = useMemo(() => {
     if (!selectedAnimal) return [];
-    
-    const profile = selectedAnimal.speciesId ? (getAnimalById(selectedAnimal.speciesId) ?? null) : null;
+
+    const profile = selectedAnimal.speciesId
+      ? (getAnimalById(selectedAnimal.speciesId) ?? null)
+      : null;
     const speciesHumidity = profile?.careTargets?.humidity;
     const speciesTemp = profile?.careTargets?.temperature;
 
@@ -1221,7 +1470,15 @@ export function DashboardView() {
       uvbBulbType: enc?.uvbBulbType ?? null,
       careTargets: { humidity: humidityTargets, temperature: tempTargets },
     });
-  }, [selectedAnimal, feedingLogs, weightLogs, humidityLogs, tempLogs, selectedEnclosure, tasksForSelectedAnimal]);
+  }, [
+    selectedAnimal,
+    feedingLogs,
+    weightLogs,
+    humidityLogs,
+    tempLogs,
+    selectedEnclosure,
+    tasksForSelectedAnimal,
+  ]);
 
   // Joins the species targets, the enclosure record and the logged readings —
   // the three things the app already held separately.
@@ -1332,9 +1589,15 @@ export function DashboardView() {
     <div className="min-h-screen bg-surface pb-28">
       <div className="space-y-4 pt-3">
         <div className="px-4 pt-1 pb-0 flex items-baseline justify-between">
-          <h1 className="text-xl font-bold text-white">{greeting}, <span className="text-accent">{greetingName}</span></h1>
+          <h1 className="text-xl font-bold text-white">
+            {greeting}, <span className="text-accent">{greetingName}</span>
+          </h1>
           <span className="text-xs text-muted">
-            {new Date().toLocaleDateString(undefined, { weekday: 'short', day: 'numeric', month: 'short' })}
+            {new Date().toLocaleDateString(undefined, {
+              weekday: 'short',
+              day: 'numeric',
+              month: 'short',
+            })}
           </span>
         </div>
 
@@ -1355,13 +1618,15 @@ export function DashboardView() {
           tasks={tasks}
           completedIds={completedIds}
           onComplete={handleCompleteTask}
-          onOpenTask={(task) => navigate(`/care-calendar/tasks/edit/${task.id}?returnTo=${encodeURIComponent('/')}`)}
+          onOpenTask={(task) =>
+            navigate(`/care-calendar/tasks/edit/${task.id}?returnTo=${encodeURIComponent('/')}`)
+          }
           hasAnyTasks={tasks.length > 0}
           onSetUpTasks={() => navigate('/care-calendar/tasks/add')}
         />
 
         {/* The single-animal keeper doesn't need a grid of one — show the
-            detail card instead, which is what they came for. */}
+ detail card instead, which is what they came for. */}
         {animals.length === 1 && (
           <ActivePetCard
             animal={selectedAnimal}
@@ -1380,9 +1645,8 @@ export function DashboardView() {
           />
         )}
 
-
         {/* Free users: the attention list above is premium, so this is where
-            they learn what it would tell them. */}
+ they learn what it would tell them. */}
         {!isPremium && (
           <div className="mx-4 space-y-2">
             {/* Collapsible header */}
@@ -1397,14 +1661,18 @@ export function DashboardView() {
                   <p className="text-xs text-muted mt-0.5">Premium feature</p>
                 </div>
               </div>
-              <ChevronRight className={`w-4 h-4 text-muted transition-transform ${showExamples ? 'rotate-90' : ''}`} />
+              <ChevronRight
+                className={`w-4 h-4 text-muted transition-transform ${showExamples ? 'rotate-90' : ''}`}
+              />
             </button>
 
             {/* Expandable examples */}
             {showExamples && (
               <div className="space-y-2">
-                <p className="px-1 text-xs font-semibold uppercase tracking-wide text-muted">Example Alerts</p>
-                
+                <p className="px-1 text-xs font-semibold uppercase tracking-wide text-muted">
+                  Example Alerts
+                </p>
+
                 {/* Example urgent alert */}
                 <div className="bg-card border border-red-400/30 rounded-xl p-3 space-y-1.5">
                   <div className="flex items-start justify-between gap-2">
@@ -1412,7 +1680,10 @@ export function DashboardView() {
                       <AlertTriangle className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-red-300">Feeding Refusal Streak</p>
-                        <p className="text-xs text-white/70 mt-0.5">Skipped feeding offered 5 times in a row. This can indicate illness or stress.</p>
+                        <p className="text-xs text-white/70 mt-0.5">
+                          Skipped feeding offered 5 times in a row. This can indicate illness or
+                          stress.
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -1425,7 +1696,10 @@ export function DashboardView() {
                       <AlertCircle className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-amber-300">Humidity High</p>
-                        <p className="text-xs text-white/70 mt-0.5">Last 3 readings exceed target range. Reduce mistings and improve ventilation.</p>
+                        <p className="text-xs text-white/70 mt-0.5">
+                          Last 3 readings exceed target range. Reduce mistings and improve
+                          ventilation.
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -1438,7 +1712,9 @@ export function DashboardView() {
                       <Info className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-blue-300">UVB Bulb Age</p>
-                        <p className="text-xs text-white/70 mt-0.5">Bulb installed 160 days ago. Consider replacing within next 20 days.</p>
+                        <p className="text-xs text-white/70 mt-0.5">
+                          Bulb installed 160 days ago. Consider replacing within next 20 days.
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -1447,7 +1723,7 @@ export function DashboardView() {
                 {/* Upgrade button */}
                 <button
                   onClick={() => setShowPremiumModal(true)}
-                  className="w-full text-sm font-semibold text-accent hover:text-accent/80 transition-colors py-2.5 rounded-lg border border-accent/30 hover:border-accent/50 bg-accent/5 mt-2"
+                  className="w-full text-sm font-semibold text-accent hover:text-accent/80 transition-colors py-2.5 rounded-xl border border-accent/30 hover:border-accent/50 bg-accent/5 mt-2"
                 >
                   Upgrade to Premium
                 </button>
@@ -1457,7 +1733,7 @@ export function DashboardView() {
         )}
 
         {/* Every animal legible at a glance, rather than six thumbnails whose
-            only signal is a 2px border colour. */}
+ only signal is a 2px border colour. */}
         {animals.length > 1 && (
           <div>
             <div className="px-4 mb-2 flex items-center justify-between">
@@ -1483,9 +1759,9 @@ export function DashboardView() {
         )}
 
         {/* ── Habitat ──────────────────────────────────────────────────────
-            Everything about the enclosure, grouped. Previously the score and
-            the bulb sat above the animal grid while the environment readings
-            sat below it, so enclosure content was interrupted by six cards. */}
+ Everything about the enclosure, grouped. Previously the score and
+ the bulb sat above the animal grid while the environment readings
+ sat below it, so enclosure content was interrupted by six cards. */}
         {selectedEnclosure && (
           <div className="px-4 pt-2">
             <p className="text-base font-semibold text-white">Habitat</p>
@@ -1551,7 +1827,10 @@ export function DashboardView() {
             envTask.enclosureAnimalId ||
             animals.find((a) => a.enclosureId === envTask.enclosureId)?.id
           }
-          onClose={() => { setShowEnvModal(false); setEnvTask(null); }}
+          onClose={() => {
+            setShowEnvModal(false);
+            setEnvTask(null);
+          }}
           onSubmit={handleEnvReadingsSubmit}
         />
       )}

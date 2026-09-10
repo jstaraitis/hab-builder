@@ -27,10 +27,10 @@ export function PremiumToolOnboarding({ storageKey, title, subtitle, steps }: Pr
 
   return (
     <div className="max-w-4xl mx-auto mb-4 sm:mb-6">
-      <div className="bg-card border border-accent/30 rounded-xl p-4 sm:p-5 shadow-sm">
+      <div className="bg-card border border-accent/30 rounded-xl p-4 sm:p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-start gap-3 sm:gap-4">
-            <div className="w-9 h-9 rounded-lg bg-accent/15 text-accent flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-accent/15 text-accent flex items-center justify-center shrink-0">
               <Sparkles className="w-5 h-5" />
             </div>
             <div>
@@ -53,7 +53,7 @@ export function PremiumToolOnboarding({ storageKey, title, subtitle, steps }: Pr
           {steps.map((step, index) => (
             <li
               key={step}
-              className="text-sm text-white bg-card dark:bg-gray-700/40 rounded-lg px-3 py-2 border border-divider"
+              className="text-sm text-white bg-card dark:bg-gray-700/40 rounded-xl px-3 py-2 border border-divider"
             >
               <span className="font-semibold text-accent mr-1">{index + 1}.</span>
               {step}

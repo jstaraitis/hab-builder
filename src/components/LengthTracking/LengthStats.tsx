@@ -31,7 +31,7 @@ export function LengthStats({ enclosureAnimalId, refreshKey }: LengthStatsProps)
     return (
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {[...Array(3)].map((_, i) => (
-          <div key={i} className="animate-pulse bg-card-elevated rounded-lg h-24"></div>
+          <div key={i} className="animate-pulse bg-card-elevated rounded-xl h-24"></div>
         ))}
       </div>
     );
@@ -39,7 +39,7 @@ export function LengthStats({ enclosureAnimalId, refreshKey }: LengthStatsProps)
 
   if (!stats || stats.totalMeasurements === 0) {
     return (
-      <div className="text-center py-8 bg-card rounded-lg">
+      <div className="text-center py-8 bg-card rounded-xl">
         <Ruler className="w-12 h-12 text-muted mx-auto mb-2" />
         <p className="text-muted">No length data yet</p>
         <p className="text-sm text-muted">
@@ -52,7 +52,7 @@ export function LengthStats({ enclosureAnimalId, refreshKey }: LengthStatsProps)
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       {/* Total Growth */}
-      <div className="bg-accent/10 border border-accent/30 rounded-lg p-4">
+      <div className="bg-accent/10 border border-accent/30 rounded-xl p-4">
         <div className="flex items-center gap-2 mb-2">
           <TrendingUp className="w-5 h-5 text-accent" />
           <h3 className="font-semibold text-accent">Total Growth</h3>
@@ -71,7 +71,7 @@ export function LengthStats({ enclosureAnimalId, refreshKey }: LengthStatsProps)
       </div>
 
       {/* Growth Rate */}
-      <div className="bg-blue-500/10 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+      <div className="bg-blue-500/10 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
         <div className="flex items-center gap-2 mb-2">
           <Activity className="w-5 h-5 text-blue-400" />
           <h3 className="font-semibold text-blue-900 dark:text-blue-100">Growth Rate</h3>
@@ -88,7 +88,7 @@ export function LengthStats({ enclosureAnimalId, refreshKey }: LengthStatsProps)
       </div>
 
       {/* Measurements */}
-      <div className="bg-purple-500/10 border border-purple-200 dark:border-purple-800 rounded-lg p-4">
+      <div className="bg-purple-500/10 border border-purple-200 dark:border-purple-800 rounded-xl p-4">
         <div className="flex items-center gap-2 mb-2">
           <Ruler className="w-5 h-5 text-purple-400" />
           <h3 className="font-semibold text-purple-900 dark:text-purple-100">Measurements</h3>

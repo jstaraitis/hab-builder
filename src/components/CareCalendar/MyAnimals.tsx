@@ -214,14 +214,14 @@ export function MyAnimals() {
 
         <div className="grid grid-cols-2 gap-2 sm:gap-3">
           <div className="rounded-xl border border-divider bg-card p-3 text-center">
-            <div className="mb-1 inline-flex h-5 w-5 items-center justify-center rounded bg-accent/20 text-accent">
+            <div className="mb-1 inline-flex h-5 w-5 items-center justify-center rounded-xl bg-accent/20 text-accent">
               <Turtle className="h-3.5 w-3.5" />
             </div>
             <p className="text-xs text-muted">Pets</p>
             <p className="mt-1 text-2xl font-bold text-white">{animals.length}</p>
           </div>
           <div className="rounded-xl border border-divider bg-card p-3 text-center">
-            <div className="mb-1 inline-flex h-5 w-5 items-center justify-center rounded bg-indigo-500/20 text-indigo-300">
+            <div className="mb-1 inline-flex h-5 w-5 items-center justify-center rounded-xl bg-indigo-500/20 text-indigo-300">
               <Home className="h-3.5 w-3.5" />
             </div>
             <p className="text-xs text-muted">Enclosures</p>
@@ -271,7 +271,7 @@ export function MyAnimals() {
           </h2>
           <button
             onClick={() => navigate(`/care-calendar/enclosures/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-            className="inline-flex items-center gap-1 rounded-lg border border-emerald-500/40 bg-accent/15 px-3 py-1.5 text-sm font-semibold text-accent transition-colors hover:bg-emerald-500/25"
+            className="inline-flex items-center gap-1 rounded-xl border border-emerald-500/40 bg-accent/15 px-3 py-1.5 text-sm font-semibold text-accent transition-colors hover:bg-emerald-500/25"
             title={!isPremium && enclosures.length >= 1 ? 'Upgrade to add more enclosures' : 'Add enclosure'}
           >
             <Plus className="h-4 w-4" />
@@ -312,7 +312,7 @@ export function MyAnimals() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => navigate('/my-animals/import')}
-              className="inline-flex items-center gap-1 rounded-lg border border-divider bg-card-elevated px-3 py-1.5 text-sm font-semibold text-muted transition-colors hover:text-white"
+              className="inline-flex items-center gap-1 rounded-xl border border-divider bg-card-elevated px-3 py-1.5 text-sm font-semibold text-muted transition-colors hover:text-white"
               title="Import a collection from a spreadsheet or another app"
             >
               <FileSpreadsheet className="h-4 w-4" />
@@ -320,7 +320,7 @@ export function MyAnimals() {
             </button>
             <button
               onClick={() => navigate(`/my-animals/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-              className="inline-flex items-center gap-1 rounded-lg border border-accent/40 bg-accent/15 px-3 py-1.5 text-sm font-semibold text-accent transition-colors hover:bg-accent/25"
+              className="inline-flex items-center gap-1 rounded-xl border border-accent/40 bg-accent/15 px-3 py-1.5 text-sm font-semibold text-accent transition-colors hover:bg-accent/25"
               title={!isPremium && animals.length >= 1 ? 'Upgrade to add more animals' : 'Add pet'}
             >
               <Plus className="h-4 w-4" />

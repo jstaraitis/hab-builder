@@ -15,7 +15,7 @@ const AMAZON_AFFILIATE_TAG = import.meta.env.VITE_AMAZON_ASSOCIATE_TAG || 'habit
 export function SuppliesView({ plan, input }: SuppliesViewProps) {
   if (!plan) {
     return (
-      <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 text-yellow-900 dark:text-yellow-200 rounded-lg p-4 space-y-2">
+      <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 text-yellow-900 dark:text-yellow-200 rounded-xl p-4 space-y-2">
         <SEO title="Shopping List" description="Get your custom reptile enclosure shopping list with equipment, substrate, and decor." />
         <p className="font-semibold">No plan yet.</p>
         <p className="text-sm">Generate a plan in Design first.</p>
@@ -65,7 +65,7 @@ export function SuppliesView({ plan, input }: SuppliesViewProps) {
       )}
 
       {/* Shopping List Section */}
-      <div className="bg-card rounded-lg shadow-sm border border-divider p-6">
+      <div className="bg-card rounded-xl border border-divider p-6">
         <div className="border-l-4 border-purple-500 pl-4 mb-4">
           <h3 className="text-xl font-bold text-white">Equipment & Supplies</h3>
           <p className="text-sm text-muted mt-1">Complete list of items needed for your build</p>
@@ -82,7 +82,7 @@ export function SuppliesView({ plan, input }: SuppliesViewProps) {
       <div className="flex justify-center mt-6">
         <Link
           to="/plan"
-          className="group w-full lg:w-auto px-12 py-5 lg:py-4 bg-gradient-to-r from-accent to-green-600 hover:from-accent-dim hover:to-green-700 text-white font-bold text-lg lg:text-xl rounded-xl shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 hover:-translate-y-1 active:scale-95 active:rotate-1 border-2 border-emerald-400/20 inline-flex items-center justify-center gap-2"
+          className="group w-full lg:w-auto px-12 py-5 lg:py-4 bg-gradient-to-r from-accent to-green-600 hover:from-accent-dim hover:to-green-700 text-white font-bold text-lg lg:text-xl rounded-xl shadow-2xl transition-all duration-300 hover:-translate-y-1 active:scale-95 active:rotate-1 border-2 border-emerald-400/20 inline-flex items-center justify-center gap-2"
         >
           Continue to Plan
           <ArrowRight className="w-5 h-5 transition-transform duration-200 group-active:translate-x-1 group-active:scale-110" />

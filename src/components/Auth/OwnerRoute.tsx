@@ -30,7 +30,7 @@ export function OwnerRoute({ children }: OwnerRouteProps) {
 
   if (!ownerAccessConfigured()) {
     return (
-      <div className="max-w-2xl mx-auto bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 text-yellow-900 dark:text-yellow-200 rounded-lg p-4 space-y-2">
+      <div className="max-w-2xl mx-auto bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 text-yellow-900 dark:text-yellow-200 rounded-xl p-4 space-y-2">
         <p className="font-semibold">Owner access is not configured.</p>
         <p className="text-sm">Set VITE_OWNER_USER_IDS or VITE_OWNER_EMAILS in your .env.local file.</p>
       </div>
@@ -39,7 +39,7 @@ export function OwnerRoute({ children }: OwnerRouteProps) {
 
   if (!isOwner(user)) {
     return (
-      <div className="max-w-2xl mx-auto bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-900 dark:text-red-200 rounded-lg p-4 space-y-2">
+      <div className="max-w-2xl mx-auto bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-900 dark:text-red-200 rounded-xl p-4 space-y-2">
         <p className="font-semibold">Access denied.</p>
         <p className="text-sm">This page is restricted to the site owner account.</p>
       </div>

@@ -29,7 +29,7 @@ export function PremiumExplainerPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               to="/upgrade"
-              className="inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-on-accent shadow-sm transition-colors hover:bg-accent-dim"
+              className="inline-flex items-center justify-center rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-dim"
             >
               Explore premium
             </Link>
@@ -48,7 +48,7 @@ export function PremiumExplainerPage() {
         </div>
 
         <div className="grid gap-4 sm:grid-cols-3">
-          <div className="rounded-2xl border border-accent/30 bg-card p-5 shadow-sm">
+          <div className="rounded-2xl border border-accent/30 bg-card p-5">
             <div className="flex items-center gap-2 text-accent">
               <ShieldCheck className="w-4 h-4" />
               <h3 className="text-sm font-semibold text-white">Is my setup right?</h3>
@@ -57,7 +57,7 @@ export function PremiumExplainerPage() {
               Habitat Score and Setup Check grade your enclosure against your species’ Ferguson zone and care targets, then name the fix worth doing first.
             </p>
           </div>
-          <div className="rounded-2xl border border-accent/30 bg-card p-5 shadow-sm">
+          <div className="rounded-2xl border border-accent/30 bg-card p-5">
             <div className="flex items-center gap-2 text-accent">
               <PawPrint className="w-4 h-4" />
               <h3 className="text-sm font-semibold text-white">What do I tell the vet?</h3>
@@ -66,7 +66,7 @@ export function PremiumExplainerPage() {
               A printable health report with weight, feeding, shedding and stool history — and the patterns worth raising already picked out.
             </p>
           </div>
-          <div className="rounded-2xl border border-accent/30 bg-card p-5 shadow-sm">
+          <div className="rounded-2xl border border-accent/30 bg-card p-5">
             <div className="flex items-center gap-2 text-accent">
               <Package className="w-4 h-4" />
               <h3 className="text-sm font-semibold text-white">Is my animal on track?</h3>
@@ -78,7 +78,7 @@ export function PremiumExplainerPage() {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">
-          <div className="rounded-2xl border border-accent/30 bg-card p-6 shadow-sm">
+          <div className="rounded-2xl border border-accent/30 bg-card p-6">
             <div className="flex items-start gap-3">
               <div className="rounded-xl bg-accent/15 p-2 text-accent">
                 <Bell className="w-5 h-5" />
@@ -118,7 +118,7 @@ export function PremiumExplainerPage() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-accent/30 bg-card p-6 shadow-sm">
+          <div className="rounded-2xl border border-accent/30 bg-card p-6">
             <div className="flex items-start gap-3">
               <div className="rounded-xl bg-accent/15 p-2 text-accent">
                 <PawPrint className="w-5 h-5" />
@@ -155,7 +155,7 @@ export function PremiumExplainerPage() {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-accent/30 bg-card p-6 shadow-sm">
+          <div className="rounded-2xl border border-accent/30 bg-card p-6">
             <div className="flex items-start gap-3">
               <div className="rounded-xl bg-accent/15 p-2 text-accent">
                 <LineChart className="w-5 h-5" />
@@ -190,7 +190,7 @@ export function PremiumExplainerPage() {
         </div>
 
 
-        <div className="rounded-2xl border border-divider bg-card p-6 shadow-sm">
+        <div className="rounded-2xl border border-divider bg-card p-6">
           <h3 className="text-lg font-semibold text-white text-center">Free vs Premium</h3>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             <div className="rounded-xl border border-divider p-4">
@@ -222,7 +222,7 @@ export function PremiumExplainerPage() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
-          <div className="rounded-2xl border border-divider bg-card p-5 shadow-sm">
+          <div className="rounded-2xl border border-divider bg-card p-5">
             <div className="flex items-center gap-2 text-accent">
               <Calendar className="w-4 h-4" />
               <h4 className="text-sm font-semibold text-white">Routine examples</h4>
@@ -233,7 +233,7 @@ export function PremiumExplainerPage() {
               <li>Water changes or misting routines</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-divider bg-card p-5 shadow-sm">
+          <div className="rounded-2xl border border-divider bg-card p-5">
             <div className="flex items-center gap-2 text-accent">
               <PawPrint className="w-4 h-4" />
               <h4 className="text-sm font-semibold text-white">What gets tracked</h4>
@@ -244,7 +244,7 @@ export function PremiumExplainerPage() {
               <li>Simple timeline of changes</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-divider bg-card p-5 shadow-sm">
+          <div className="rounded-2xl border border-divider bg-card p-5">
             <div className="flex items-center gap-2 text-accent">
               <Package className="w-4 h-4" />
               <h4 className="text-sm font-semibold text-white">Inventory focus</h4>
@@ -297,7 +297,7 @@ export function PremiumExplainerPage() {
           <div className="flex flex-col sm:flex-row items-center gap-3">
             <Link
               to="/upgrade"
-              className="inline-flex items-center justify-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-dim"
+              className="inline-flex items-center justify-center rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-dim"
             >
               Upgrade to Premium
             </Link>
@@ -318,7 +318,7 @@ export function PremiumExplainerPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               to="/upgrade"
-              className="inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-on-accent shadow-sm transition-colors hover:bg-accent-dim"
+              className="inline-flex items-center justify-center rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-dim"
             >
               See pricing
             </Link>
@@ -331,7 +331,7 @@ export function PremiumExplainerPage() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-divider bg-card p-6 shadow-sm">
+        <div className="rounded-2xl border border-divider bg-card p-6">
           <h3 className="text-lg font-semibold text-white">Frequently asked questions</h3>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             <div>
@@ -403,7 +403,7 @@ export function PremiumExplainerPage() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
             to="/upgrade"
-            className="inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-on-accent shadow-sm transition-colors hover:bg-accent-dim"
+            className="inline-flex items-center justify-center rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-dim"
           >
             Continue to upgrade
           </Link>

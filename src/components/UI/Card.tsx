@@ -10,7 +10,7 @@ interface CardProps {
 
 /**
  * Base card container using the app's dark design system.
- * Replaces scattered `bg-card rounded-lg` patterns.
+ * Replaces scattered `bg-card rounded-xl` patterns.
  */
 export function Card({ children, className = '', variant = 'default', onClick }: CardProps) {
   const base = variant === 'elevated' ? 'bg-card-elevated' : 'bg-card';

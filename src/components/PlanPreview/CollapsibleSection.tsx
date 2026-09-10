@@ -10,7 +10,7 @@ export function CollapsibleSection({ title, children, defaultOpen = true }: Coll
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="bg-white rounded-lg shadow-md border border-divider">
+    <div className="bg-white rounded-xl border border-divider">
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}

@@ -10,7 +10,7 @@ export function AnimalProfilePreview() {
   if (!profile) {
     return (
       <div className="max-w-7xl mx-auto p-6">
-        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
+        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4">
           <p className="text-red-800 dark:text-red-300">No animal profiles found</p>
         </div>
       </div>
@@ -20,20 +20,20 @@ export function AnimalProfilePreview() {
   return (
     <div className="max-w-7xl mx-auto p-6 space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg p-6 text-white">
+      <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl p-6 text-white">
         <h1 className="text-3xl font-bold mb-2"><Search className="inline-block w-6 h-6 mr-2"/> Animal Profile Inspector</h1>
         <p className="text-purple-100">Development tool for reviewing animal data</p>
       </div>
 
       {/* Animal Selector */}
-      <div className="bg-card rounded-lg shadow-md p-4">
+      <div className="bg-card rounded-xl p-4">
         <label className="block text-sm font-medium text-white mb-2">
           Select Animal to Preview
         </label>
         <select
           value={selectedId}
           onChange={(e) => setSelectedId(e.target.value)}
-          className="w-full px-4 py-2 border border-divider rounded-md bg-card-elevated text-white"
+          className="w-full px-4 py-2 border border-divider rounded-xl bg-card-elevated text-white"
         >
           {Object.entries(animalProfiles).map(([id, p]) => (
             <option key={id} value={id}>
@@ -44,7 +44,7 @@ export function AnimalProfilePreview() {
       </div>
 
       {/* Basic Info */}
-      <div className="bg-card rounded-lg shadow-md p-6">
+      <div className="bg-card rounded-xl p-6">
         <h2 className="text-xl font-bold text-white mb-4">Basic Information</h2>
         <div className="grid md:grid-cols-2 gap-4 text-sm">
           <InfoRow label="ID" value={profile.id} />
@@ -61,7 +61,7 @@ export function AnimalProfilePreview() {
       </div>
 
       {/* Enclosure Requirements */}
-      <div className="bg-card rounded-lg shadow-md p-6">
+      <div className="bg-card rounded-xl p-6">
         <h2 className="text-xl font-bold text-white mb-4">Enclosure Requirements</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <div>
@@ -93,7 +93,7 @@ export function AnimalProfilePreview() {
       </div>
 
       {/* Care Targets */}
-      <div className="bg-card rounded-lg shadow-md p-6">
+      <div className="bg-card rounded-xl p-6">
         <h2 className="text-xl font-bold text-white mb-4">Care Parameters</h2>
         <div className="space-y-4">
           <div>
@@ -138,7 +138,7 @@ export function AnimalProfilePreview() {
       </div>
 
       {/* Warnings */}
-      <div className="bg-card rounded-lg shadow-md p-6">
+      <div className="bg-card rounded-xl p-6">
         <h2 className="text-xl font-bold text-white mb-4">
           <AlertTriangle className="inline-block w-5 h-5 mr-2"/> Warnings ({profile.warnings.length})
         </h2>
@@ -146,19 +146,13 @@ export function AnimalProfilePreview() {
           {profile.warnings.map((warning, idx) => (
             <div 
               key={idx}
-              className={`p-3 rounded border-l-4 ${
-                warning.severity === 'critical' 
-                  ? 'bg-red-50 dark:bg-red-900/20 border-red-500' 
-                  : warning.severity === 'important'
-                  ? 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-500'
-                  : 'bg-blue-50 dark:bg-blue-900/20 border-blue-500'
-              }`}
+              className={`p-3 rounded-xl border-l-4 ${ warning.severity === 'critical' ? 'bg-red-50 dark:bg-red-900/20 border-red-500' : warning.severity === 'important' ? 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-500' : 'bg-blue-50 dark:bg-blue-900/20 border-blue-500' }`}
             >
               <div className="flex items-start gap-2">
                 <span className="text-xs font-bold uppercase text-muted">
                   {warning.severity}
                 </span>
-                <span className="text-xs px-2 py-0.5 rounded bg-card-elevated text-secondary">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-card-elevated text-secondary">
                   {warning.category}
                 </span>
               </div>
@@ -170,7 +164,7 @@ export function AnimalProfilePreview() {
 
       {/* Notes */}
       {profile.notes && profile.notes.length > 0 && (
-        <div className="bg-card rounded-lg shadow-md p-6">
+        <div className="bg-card rounded-xl p-6">
           <h2 className="text-xl font-bold text-white mb-4">
             <FileText className="inline-block w-5 h-5 mr-2"/> Notes ({profile.notes.length})
           </h2>
@@ -184,7 +178,7 @@ export function AnimalProfilePreview() {
 
       {/* Care Guidance */}
       {profile.careGuidance && (
-        <div className="bg-card rounded-lg shadow-md p-6">
+        <div className="bg-card rounded-xl p-6">
           <h2 className="text-xl font-bold text-white mb-4"><Book className="inline-block w-5 h-5 mr-2"/> Care Guidance</h2>
           <div className="space-y-4">
             <div>
@@ -220,7 +214,7 @@ export function AnimalProfilePreview() {
 
       {/* Related Blogs */}
       {profile.relatedBlogs && profile.relatedBlogs.length > 0 && (
-        <div className="bg-card rounded-lg shadow-md p-6">
+        <div className="bg-card rounded-xl p-6">
           <h2 className="text-xl font-bold text-white mb-4">
             <Book className="inline-block w-5 h-5 mr-2"/> Related Blogs ({profile.relatedBlogs.length})
           </h2>
@@ -235,7 +229,7 @@ export function AnimalProfilePreview() {
       )}
 
       {/* Validation Status */}
-      <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
+      <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-4">
         <p className="text-green-800 dark:text-green-300 font-semibold">
           <CheckCircle className="inline-block w-5 h-5 mr-2 text-green-700"/> Profile loaded successfully - all required fields present
         </p>
@@ -255,7 +249,7 @@ function InfoRow({ label, value, badge }: InfoRowProps) {
     <div>
       <span className="text-muted text-xs">{label}</span>
       {badge ? (
-        <span className="ml-2 px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-sm font-medium">
+        <span className="ml-2 px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-xl text-sm font-medium">
           {value}
         </span>
       ) : (

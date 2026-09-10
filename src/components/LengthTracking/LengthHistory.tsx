@@ -62,7 +62,7 @@ export function LengthHistory({ enclosureAnimalId, refreshKey, onUpdate }: Lengt
     return (
       <div className="space-y-2">
         {[...Array(3)].map((_, i) => (
-          <div key={i} className="animate-pulse bg-card-elevated rounded-lg h-16"></div>
+          <div key={i} className="animate-pulse bg-card-elevated rounded-xl h-16"></div>
         ))}
       </div>
     );
@@ -85,7 +85,7 @@ export function LengthHistory({ enclosureAnimalId, refreshKey, onUpdate }: Lengt
       {logs.map((log) => {
         if (editingLog?.id === log.id) {
           return (
-            <div key={log.id} className="bg-surface rounded-lg p-4 border border-divider">
+            <div key={log.id} className="bg-surface rounded-xl p-4 border border-divider">
               <LengthLogForm
                 animal={{ id: enclosureAnimalId } as EnclosureAnimal}
                 onSuccess={handleEditSuccess}
@@ -106,8 +106,7 @@ export function LengthHistory({ enclosureAnimalId, refreshKey, onUpdate }: Lengt
         return (
           <div
             key={log.id}
-            className="bg-card rounded-lg p-3 border border-divider
- hover:shadow-sm transition-shadow flex justify-between items-center"
+            className="bg-card rounded-xl p-3 border border-divider transition- flex justify-between items-center"
           >
             <div className="flex-1">
               <div className="flex items-center gap-3">
@@ -138,16 +137,14 @@ export function LengthHistory({ enclosureAnimalId, refreshKey, onUpdate }: Lengt
             <div className="flex gap-1 ml-4">
               <button
                 onClick={() => setEditingLog(log)}
-                className="p-2 text-muted hover:text-accent dark:hover:text-accent
- hover:bg-card-elevated rounded transition-colors"
+                className="p-2 text-muted hover:text-accent dark:hover:text-accent hover:bg-card-elevated rounded-xl transition-colors"
                 title="Edit"
               >
                 <Edit2 className="w-4 h-4" />
               </button>
               <button
                 onClick={() => handleDelete(log.id)}
-                className="p-2 text-muted hover:text-red-600 dark:hover:text-red-400
- hover:bg-card-elevated rounded transition-colors"
+                className="p-2 text-muted hover:text-red-600 dark:hover:text-red-400 hover:bg-card-elevated rounded-xl transition-colors"
                 title="Delete"
               >
                 <Trash2 className="w-4 h-4" />

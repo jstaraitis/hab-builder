@@ -680,7 +680,7 @@ export function TaskCreationModal({
                         type="checkbox"
                         checked={task.notificationEnabled}
                         onChange={(e) => setTasks(prev => { const u = [...prev]; u[index] = { ...u[index], notificationEnabled: e.target.checked }; return u; })}
-                        className="w-5 h-5 accent-accent rounded"
+                        className="w-5 h-5 accent-accent rounded-xl"
                       />
                     </label>
                     {task.notificationEnabled && (
@@ -772,7 +772,7 @@ export function TaskCreationModal({
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-divider shrink-0">
           <h2 className="text-lg font-bold text-white">Create Care Tasks</h2>
-          <button onClick={onClose} className="text-muted p-1 rounded-lg"><X className="w-5 h-5" /></button>
+          <button onClick={onClose} className="text-muted p-1 rounded-xl"><X className="w-5 h-5" /></button>
         </div>
 
         {/* Scrollable body */}
@@ -943,7 +943,7 @@ export function TaskCreationModal({
                     <span className="text-xs text-white">Push notifications</span>
                     <input type="checkbox" checked={task.notificationEnabled}
                       onChange={(e) => setTasks(prev => { const u = [...prev]; u[index] = { ...u[index], notificationEnabled: e.target.checked }; return u; })}
-                      className="w-4 h-4 accent-accent rounded" />
+                      className="w-4 h-4 accent-accent rounded-xl" />
                   </label>
                 </div>
               ))}

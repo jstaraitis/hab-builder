@@ -129,7 +129,7 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
   };
 
   if (loading) {
-    return <div className="animate-pulse bg-card-elevated rounded-lg h-48"></div>;
+    return <div className="animate-pulse bg-card-elevated rounded-xl h-48"></div>;
   }
 
   return (
@@ -167,7 +167,7 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
 
       {/* Active Brumation Status */}
       {activeBrumation ? (
-        <div className="bg-blue-500/10 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+        <div className="bg-blue-500/10 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
           <div className="flex items-start justify-between mb-3">
             <div className="flex items-center gap-2">
               <Moon className="w-5 h-5 text-blue-400" />
@@ -177,8 +177,7 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
             </div>
             <button
               onClick={() => setShowEndForm(!showEndForm)}
-              className="px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors
- flex items-center gap-1 text-sm"
+              className="px-3 py-1 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors flex items-center gap-1 text-sm"
             >
               <Square className="w-4 h-4" />
               End Brumation
@@ -207,7 +206,7 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
                   onChange={(e) => setEndDate(e.target.value)}
                   max={new Date().toISOString().split('T')[0]}
                   min={activeBrumation.startDate}
-                  className="w-full px-3 py-2.5 border border-divider rounded-lg bg-card-elevated text-white focus:ring-2 focus:ring-accent"
+                  className="w-full px-3 py-2.5 border border-divider rounded-xl bg-card-elevated text-white focus:ring-2 focus:ring-accent"
                   required
                 />
               </div>
@@ -222,7 +221,7 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
                   value={weightLoss}
                   onChange={(e) => setWeightLoss(e.target.value)}
                   placeholder="Optional"
-                  className="w-full px-3 py-2.5 border border-divider rounded-lg bg-card-elevated text-white focus:ring-2 focus:ring-accent"
+                  className="w-full px-3 py-2.5 border border-divider rounded-xl bg-card-elevated text-white focus:ring-2 focus:ring-accent"
                 />
               </div>
               
@@ -235,7 +234,7 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
                   onChange={(e) => setEndNotes(e.target.value)}
                   rows={2}
                   placeholder="Any observations..."
-                  className="w-full px-3 py-2.5 border border-divider rounded-lg bg-card-elevated text-white focus:ring-2 focus:ring-accent resize-none"
+                  className="w-full px-3 py-2.5 border border-divider rounded-xl bg-card-elevated text-white focus:ring-2 focus:ring-accent resize-none"
                 />
               </div>
               
@@ -243,14 +242,13 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
                 <button
                   type="button"
                   onClick={() => setShowEndForm(false)}
-                  className="flex-1 px-4 py-2.5 bg-card-elevated text-white
- rounded-lg hover:bg-gray-300 dark:hover:bg-card-elevated font-medium"
+                  className="flex-1 px-4 py-2.5 bg-card-elevated text-white rounded-xl hover:bg-gray-300 dark:hover:bg-card-elevated font-medium"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 px-4 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium"
+                  className="flex-1 px-4 py-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 font-medium"
                 >
                   End Brumation
                 </button>
@@ -264,8 +262,7 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
           <p className="text-muted mb-3">Not currently brumating</p>
           <button
             onClick={() => setShowStartForm(!showStartForm)}
-            className="px-4 py-2 bg-accent text-on-accent rounded-xl hover:bg-accent-dim
- transition-colors flex items-center gap-2 mx-auto"
+            className="px-4 py-2 bg-accent text-on-accent rounded-xl hover:bg-accent-dim transition-colors flex items-center gap-2 mx-auto"
           >
             <Play className="w-4 h-4" />
             Start Brumation
@@ -275,7 +272,7 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
 
       {/* Start Brumation Form */}
       {showStartForm && !activeBrumation && (
-        <form onSubmit={handleStartBrumation} className="bg-card rounded-lg p-4 border border-divider space-y-5">
+        <form onSubmit={handleStartBrumation} className="bg-card rounded-xl p-4 border border-divider space-y-5">
           <h4 className="font-semibold text-white mb-3">
             Start Brumation Period
           </h4>
@@ -362,11 +359,10 @@ export function BrumationTracker({ animal, refreshKey, onUpdate }: BrumationTrac
             {history.map((log) => (
               <div
                 key={log.id}
-                className="bg-card rounded-lg p-3 border border-divider
- flex justify-between items-start"
+                className="bg-card rounded-xl p-3 border border-divider flex justify-between items-start"
               >
                 <div className="flex-1">
-                  <div className="flex items-center gap-2 text-sm font-medium text-white ">
+                  <div className="flex items-center gap-2 text-sm font-medium text-white">
                     <Calendar className="w-4 h-4" />
                     {new Date(log.startDate).toLocaleDateString()} - {log.endDate && new Date(log.endDate).toLocaleDateString()}
                   </div>

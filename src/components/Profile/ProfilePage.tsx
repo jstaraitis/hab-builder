@@ -420,19 +420,11 @@ export function ProfilePage() {
                 <div>
                   <p className="text-2xl font-semibold text-white sm:text-3xl">{userDisplayName}</p>
                   <div className="mt-2 flex flex-wrap items-center gap-2">
-                    <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold ${
-                      isPremium
-                        ? 'bg-accent/15 text-accent ring-1 ring-accent/30'
-                        : 'bg-card-elevated text-white ring-1 ring-divider'
-                    }`}>
+                    <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold ${ isPremium ? 'bg-accent/15 text-accent ring-1 ring-accent/30' : 'bg-card-elevated text-white ring-1 ring-divider' }`}>
                       {isPremium ? <Crown className="h-3.5 w-3.5" /> : <User className="h-3.5 w-3.5" />}
                       {isPremium ? 'Premium' : 'Free'}
                     </span>
-                    <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium ${
-                      cancelDate
-                        ? 'bg-amber-500/20 text-amber-300 ring-1 ring-amber-400/30'
-                        : 'bg-accent/15 text-accent ring-1 ring-accent/30'
-                    }`}>
+                    <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium ${ cancelDate ? 'bg-amber-500/20 text-amber-300 ring-1 ring-amber-400/30' : 'bg-accent/15 text-accent ring-1 ring-accent/30' }`}>
                       <span className="h-1.5 w-1.5 rounded-full bg-current" />
                       {cancelDate ? 'Cancelling' : 'Active'}
                     </span>
@@ -552,11 +544,7 @@ export function ProfilePage() {
                 <button
                   onClick={handleReconnectNotifications}
                   disabled={reconnectingNotifications}
-                  className={`w-full rounded-xl px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50 ${
-                    notificationStatus === 'subscribed'
-                      ? 'border border-divider bg-card-elevated text-white hover:border-accent/40'
-                      : 'bg-accent text-on-accent hover:bg-accent-dim'
-                  }`}
+                  className={`w-full rounded-xl px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50 ${ notificationStatus === 'subscribed' ? 'border border-divider bg-card-elevated text-white hover:border-accent/40' : 'bg-accent text-on-accent hover:bg-accent-dim' }`}
                 >
                   {reconnectingNotifications
                     ? 'Reconnecting...'
@@ -568,7 +556,7 @@ export function ProfilePage() {
               <p className="mt-2 text-center text-xs text-muted">You can customize these after enabling.</p>
 
               {notificationSuccess && (
-                <div className="mt-2 rounded-lg border border-emerald-500/30 bg-accent/10 p-2 text-xs text-accent">
+                <div className="mt-2 rounded-xl border border-emerald-500/30 bg-accent/10 p-2 text-xs text-accent">
                   {notificationSuccess}
                 </div>
               )}
@@ -614,13 +602,13 @@ export function ProfilePage() {
                     id="profile-display-name"
                     value={form.displayName}
                     onChange={(event) => setForm({ displayName: event.target.value })}
-                    className="w-full rounded-lg border border-divider bg-card px-3 py-2.5 text-sm text-white placeholder:text-muted"
+                    className="w-full rounded-xl border border-divider bg-card px-3 py-2.5 text-sm text-white placeholder:text-muted"
                     placeholder="Your name"
                   />
                   <button
                     onClick={handleSave}
                     disabled={saving}
-                    className="rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-on-accent transition hover:bg-accent-dim disabled:opacity-60"
+                    className="rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-on-accent transition hover:bg-accent-dim disabled:opacity-60"
                   >
                     {saving ? 'Saving...' : 'Save'}
                   </button>
@@ -658,7 +646,7 @@ export function ProfilePage() {
                       placeholder="••••••••"
                       value={passwordForm.newPassword}
                       onChange={(e) => setPasswordForm({ ...passwordForm, newPassword: e.target.value })}
-                      className="w-full rounded-lg border border-divider bg-card px-3 py-2.5 text-sm text-white placeholder:text-muted"
+                      className="w-full rounded-xl border border-divider bg-card px-3 py-2.5 text-sm text-white placeholder:text-muted"
                       minLength={6}
                     />
                   </div>
@@ -673,7 +661,7 @@ export function ProfilePage() {
                       placeholder="••••••••"
                       value={passwordForm.confirmPassword}
                       onChange={(e) => setPasswordForm({ ...passwordForm, confirmPassword: e.target.value })}
-                      className="w-full rounded-lg border border-divider bg-card px-3 py-2.5 text-sm text-white placeholder:text-muted"
+                      className="w-full rounded-xl border border-divider bg-card px-3 py-2.5 text-sm text-white placeholder:text-muted"
                       minLength={6}
                     />
                   </div>
@@ -682,19 +670,19 @@ export function ProfilePage() {
                 <button
                   onClick={handleChangePassword}
                   disabled={changingPassword || !passwordForm.newPassword || !passwordForm.confirmPassword}
-                  className="mt-3 w-full rounded-lg border border-divider bg-card px-4 py-2.5 text-sm font-semibold text-white transition hover:border-accent/40 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="mt-3 w-full rounded-xl border border-divider bg-card px-4 py-2.5 text-sm font-semibold text-white transition hover:border-accent/40 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {changingPassword ? 'Changing...' : 'Update Password'}
                 </button>
 
                 {passwordError && (
-                  <div className="mt-3 rounded-lg border border-red-500/40 bg-red-500/10 p-2 text-xs text-red-200">
+                  <div className="mt-3 rounded-xl border border-red-500/40 bg-red-500/10 p-2 text-xs text-red-200">
                     {passwordError}
                   </div>
                 )}
 
                 {passwordSuccess && (
-                  <div className="mt-3 rounded-lg border border-emerald-500/40 bg-accent/10 p-2 text-xs text-accent">
+                  <div className="mt-3 rounded-xl border border-emerald-500/40 bg-accent/10 p-2 text-xs text-accent">
                     {passwordSuccess}
                   </div>
                 )}
@@ -744,7 +732,7 @@ export function ProfilePage() {
           </div>
 
           {deleteError && (
-            <div className="mt-3 rounded-lg border border-red-500/40 bg-red-500/10 p-2 text-xs text-red-200">
+            <div className="mt-3 rounded-xl border border-red-500/40 bg-red-500/10 p-2 text-xs text-red-200">
               {deleteError}
             </div>
           )}
@@ -770,14 +758,14 @@ export function ProfilePage() {
                   setDeleteError(null);
                 }}
                 disabled={deletingAccount}
-                className="flex-1 rounded-lg border border-divider bg-card px-4 py-2 text-sm text-white transition hover:border-accent/40 disabled:opacity-50"
+                className="flex-1 rounded-xl border border-divider bg-card px-4 py-2 text-sm text-white transition hover:border-accent/40 disabled:opacity-50"
               >
                 Cancel
               </button>
               <button
                 onClick={handleDeleteAccount}
                 disabled={deletingAccount}
-                className="flex-1 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-60"
+                className="flex-1 rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {deletingAccount ? 'Deleting...' : 'Yes, Delete'}
               </button>

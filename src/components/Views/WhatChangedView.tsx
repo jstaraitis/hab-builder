@@ -147,11 +147,7 @@ export function WhatChangedView() {
                 key={incident.value}
                 type="button"
                 onClick={() => setIncidentKind(incident.value)}
-                className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors ${
-                  incidentKind === incident.value
-                    ? 'bg-accent text-on-accent border-accent'
-                    : 'bg-card-elevated text-muted border-divider'
-                }`}
+                className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors ${ incidentKind === incident.value ? 'bg-accent text-on-accent border-accent' : 'bg-card-elevated text-muted border-divider' }`}
               >
                 {incident.label}
               </button>
@@ -181,11 +177,7 @@ export function WhatChangedView() {
                   key={days}
                   type="button"
                   onClick={() => setWindowDays(days)}
-                  className={`text-xs font-semibold px-2.5 py-2 rounded-xl border transition-colors ${
-                    windowDays === days
-                      ? 'bg-accent text-on-accent border-accent'
-                      : 'bg-card-elevated text-muted border-divider'
-                  }`}
+                  className={`text-xs font-semibold px-2.5 py-2 rounded-xl border transition-colors ${ windowDays === days ? 'bg-accent text-on-accent border-accent' : 'bg-card-elevated text-muted border-divider' }`}
                 >
                   {days}d
                 </button>

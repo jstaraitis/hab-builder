@@ -45,7 +45,7 @@ export function CareAnalyticsDashboard({ consistencyScore = null }: Readonly<Car
   if (!user) {
     return (
       <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
-        <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 sm:p-6 text-center">
+        <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-xl p-4 sm:p-6 text-center">
           <BarChart3 className="w-10 h-10 sm:w-12 sm:h-12 text-yellow-600 dark:text-yellow-400 mx-auto mb-3 sm:mb-4" />
           <h3 className="text-base sm:text-lg font-semibold text-white mb-2">
             Sign In to View Analytics
@@ -74,11 +74,11 @@ export function CareAnalyticsDashboard({ consistencyScore = null }: Readonly<Car
   if (error) {
     return (
       <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
-        <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4 sm:p-6 text-center">
+        <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 sm:p-6 text-center">
           <p className="text-red-600 dark:text-red-400">{error}</p>
           <button
             onClick={loadAnalytics}
-            className="mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+            className="mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl transition-colors"
           >
             Try Again
           </button>
@@ -90,7 +90,7 @@ export function CareAnalyticsDashboard({ consistencyScore = null }: Readonly<Car
   if (!analytics || analytics.logsAllTime === 0) {
     return (
       <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
-        <div className="bg-blue-500/10 border border-blue-200 dark:border-blue-800 rounded-lg p-6 sm:p-8 text-center">
+        <div className="bg-blue-500/10 border border-blue-200 dark:border-blue-800 rounded-xl p-6 sm:p-8 text-center">
           <Activity className="w-12 h-12 sm:w-16 sm:h-16 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
           <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">
             No Care History Yet

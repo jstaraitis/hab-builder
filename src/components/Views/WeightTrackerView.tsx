@@ -72,7 +72,7 @@ export function WeightTrackerView() {
           Loading weight tracker...
         </div>
       ) : error ? (
-        <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4 text-sm text-red-700 dark:text-red-200">
+        <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-sm text-red-700 dark:text-red-200">
           {error}
         </div>
       ) : animal ? (

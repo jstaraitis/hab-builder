@@ -16,9 +16,10 @@ const FAQ_ITEMS: FAQItem[] = [
     question: 'What is Habitat Builder?',
     answer: (
       <p>
-        Habitat Builder is a free enclosure planning tool for reptile and amphibian keepers. You pick your animal,
-        enter your enclosure dimensions, and the app generates a complete build plan — including a shopping list,
-        layout diagram, care targets, and step-by-step setup guide.
+        Habitat Builder is a free enclosure planning tool for reptile and amphibian keepers. You
+        pick your animal, enter your enclosure dimensions, and the app generates a complete build
+        plan — including a shopping list, layout diagram, care targets, and step-by-step setup
+        guide.
       </p>
     ),
   },
@@ -27,9 +28,13 @@ const FAQ_ITEMS: FAQItem[] = [
     question: 'Is Habitat Builder free to use?',
     answer: (
       <p>
-        The core planner — animal selection, enclosure design, shopping list, and build plan — is completely free.
-        Premium features like the Care Calendar, My Animals hub, weight and health tracking, and inventory management
-        require a <Link to="/premium" className="text-accent underline">Premium subscription</Link>.
+        The core planner — animal selection, enclosure design, shopping list, and build plan — is
+        completely free. Premium features like the Care Calendar, My Animals hub, weight and health
+        tracking, and inventory management require a{' '}
+        <Link to="/premium" className="text-accent underline">
+          Premium subscription
+        </Link>
+        .
       </p>
     ),
   },
@@ -38,27 +43,35 @@ const FAQ_ITEMS: FAQItem[] = [
     question: 'How accurate are the recommendations?',
     answer: (
       <p>
-        All recommendations are based on current husbandry best practices from the reptile-keeping community. The
-        rule engine is deterministic — it uses fixed formulas for sizing, UVB coverage, substrate depth, and thermal
-        gradients. We always recommend cross-referencing with our{' '}
-        <Link to="/blog" className="text-accent underline">species care guides</Link> and
-        established keeper communities for your specific animal.
+        All recommendations are based on current husbandry best practices from the reptile-keeping
+        community. The rule engine is deterministic — it uses fixed formulas for sizing, UVB
+        coverage, substrate depth, and thermal gradients. We always recommend cross-referencing with
+        our{' '}
+        <Link to="/blog" className="text-accent underline">
+          species care guides
+        </Link>{' '}
+        and established keeper communities for your specific animal.
       </p>
     ),
   },
-  
+
   // Care Tasks
   {
     category: 'Care Tasks',
     question: 'What are care tasks?',
     answer: (
       <p>
-        Care tasks are scheduled reminders for recurring husbandry activities — feeding, misting, spot cleaning,
-        water changes, and more. You create them once, set a frequency, and the{' '}
-        <Link to="/care-calendar" className="text-accent underline">Care Calendar</Link> keeps
-        track of what's due so nothing gets missed. Care tasks are <strong>free for one animal and one enclosure</strong>.
-        A <Link to="/premium" className="text-accent underline">Premium subscription</Link> unlocks
-        unlimited animals and enclosures.
+        Care tasks are scheduled reminders for recurring husbandry activities — feeding, misting,
+        spot cleaning, water changes, and more. You create them once, set a frequency, and the{' '}
+        <Link to="/care-calendar" className="text-accent underline">
+          Care Calendar
+        </Link>{' '}
+        keeps track of what's due so nothing gets missed. Care tasks are{' '}
+        <strong>free for one animal and one enclosure</strong>. A{' '}
+        <Link to="/premium" className="text-accent underline">
+          Premium subscription
+        </Link>{' '}
+        unlocks unlimited animals and enclosures.
       </p>
     ),
   },
@@ -85,9 +98,9 @@ const FAQ_ITEMS: FAQItem[] = [
     question: 'How do I set task frequency?',
     answer: (
       <p>
-        When creating a task you choose how often it repeats — daily, every few days, weekly, bi-weekly, monthly,
-        or a custom interval. The Care Calendar then shows upcoming and overdue tasks sorted by due date so you
-        always know what needs attention today.
+        When creating a task you choose how often it repeats — daily, every few days, weekly,
+        bi-weekly, monthly, or a custom interval. The Care Calendar then shows upcoming and overdue
+        tasks sorted by due date so you always know what needs attention today.
       </p>
     ),
   },
@@ -97,9 +110,11 @@ const FAQ_ITEMS: FAQItem[] = [
     answer: (
       <p>
         Yes. Tasks can be linked to a specific animal in your{' '}
-        <Link to="/my-animals" className="text-accent underline">My Animals</Link> list
-        and/or a specific enclosure. This lets you filter the calendar by pet or habitat and keep care histories
-        separate for each animal.
+        <Link to="/my-animals" className="text-accent underline">
+          My Animals
+        </Link>{' '}
+        list and/or a specific enclosure. This lets you filter the calendar by pet or habitat and
+        keep care histories separate for each animal.
       </p>
     ),
   },
@@ -108,9 +123,10 @@ const FAQ_ITEMS: FAQItem[] = [
     question: 'What happens when I complete a task?',
     answer: (
       <p>
-        Completing a task logs it with a timestamp and any notes you add (e.g., how much was eaten, supplements used,
-        whether the animal refused food). The log is saved to that animal's history so you can look back at patterns
-        over time. The task then resets to its next due date automatically.
+        Completing a task logs it with a timestamp and any notes you add (e.g., how much was eaten,
+        supplements used, whether the animal refused food). The log is saved to that animal's
+        history so you can look back at patterns over time. The task then resets to its next due
+        date automatically.
       </p>
     ),
   },
@@ -119,10 +135,12 @@ const FAQ_ITEMS: FAQItem[] = [
     question: 'Will I get reminders for overdue tasks?',
     answer: (
       <p>
-        Yes — if you enable push notifications, the app will send reminders when tasks are due or overdue. You can
-        manage notification preferences from your{' '}
-        <Link to="/profile" className="text-accent underline">Profile</Link> page.
-        Notifications require a Premium account and a supported browser or the installed PWA.
+        Yes — if you enable push notifications, the app will send reminders when tasks are due or
+        overdue. You can manage notification preferences from your{' '}
+        <Link to="/profile" className="text-accent underline">
+          Profile
+        </Link>{' '}
+        page. Notifications require a Premium account and a supported browser or the installed PWA.
       </p>
     ),
   },
@@ -141,7 +159,9 @@ const FAQ_ITEMS: FAQItem[] = [
           <li>Push notifications for care tasks</li>
         </ul>
         <p>
-          <Link to="/premium" className="text-accent underline">See all Premium features →</Link>
+          <Link to="/premium" className="text-accent underline">
+            See all Premium features →
+          </Link>
         </p>
       </div>
     ),
@@ -152,20 +172,23 @@ const FAQ_ITEMS: FAQItem[] = [
     answer: (
       <p>
         You can manage or cancel your subscription anytime from your{' '}
-        <Link to="/profile" className="text-accent underline">Profile</Link> page. Cancelling
-        stops future billing; you'll retain Premium access until the end of your current billing period.
+        <Link to="/profile" className="text-accent underline">
+          Profile
+        </Link>{' '}
+        page. Cancelling stops future billing; you'll retain Premium access until the end of your
+        current billing period.
       </p>
     ),
   },
 ];
 
-const CATEGORIES = [...new Set(FAQ_ITEMS.map(item => item.category))];
+const CATEGORIES = [...new Set(FAQ_ITEMS.map((item) => item.category))];
 
 function FAQAccordionItem({ item }: { item: FAQItem }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border border-divider rounded-lg overflow-hidden">
+    <div className="border border-divider rounded-xl overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-5 py-4 text-left bg-card hover:bg-card dark:hover:bg-gray-750 transition-colors"
@@ -191,7 +214,7 @@ export function FAQ() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const filtered = activeCategory
-    ? FAQ_ITEMS.filter(item => item.category === activeCategory)
+    ? FAQ_ITEMS.filter((item) => item.category === activeCategory)
     : FAQ_ITEMS;
 
   return (
@@ -199,12 +222,17 @@ export function FAQ() {
       <SEO
         title="FAQ - Habitat Builder"
         description="Frequently asked questions about Habitat Builder — the reptile and amphibian enclosure planner. Learn how to use the tool, choose equipment, and care for your animals."
-        keywords={['reptile enclosure faq', 'habitat builder help', 'reptile care questions', 'enclosure planning faq']}
+        keywords={[
+          'reptile enclosure faq',
+          'habitat builder help',
+          'reptile care questions',
+          'enclosure planning faq',
+        ]}
       />
 
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Hero */}
-        <div className="bg-gradient-to-r from-accent to-teal-600 rounded-lg p-6 text-white">
+        <div className="bg-gradient-to-r from-accent to-teal-600 rounded-xl p-6 text-white">
           <div className="flex items-center gap-3 mb-2">
             <HelpCircle className="w-7 h-7" />
             <h1 className="text-2xl md:text-3xl font-bold">Frequently Asked Questions</h1>
@@ -218,23 +246,15 @@ export function FAQ() {
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => setActiveCategory(null)}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
-              activeCategory === null
-                ? 'bg-accent text-white'
-                : 'bg-card-elevated text-white border border-divider hover:border-accent'
-            }`}
+            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${activeCategory === null ? 'bg-accent text-white' : 'bg-card-elevated text-white border border-divider hover:border-accent'}`}
           >
             All
           </button>
-          {CATEGORIES.map(cat => (
+          {CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                activeCategory === cat
-                  ? 'bg-accent text-white'
-                  : 'bg-card-elevated text-white border border-divider hover:border-accent'
-              }`}
+              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${activeCategory === cat ? 'bg-accent text-white' : 'bg-card-elevated text-white border border-divider hover:border-accent'}`}
             >
               {cat}
             </button>
@@ -242,14 +262,14 @@ export function FAQ() {
         </div>
 
         {/* FAQ Sections */}
-        {CATEGORIES.filter(cat => !activeCategory || cat === activeCategory).map(cat => {
-          const items = filtered.filter(item => item.category === cat);
+        {CATEGORIES.filter((cat) => !activeCategory || cat === activeCategory).map((cat) => {
+          const items = filtered.filter((item) => item.category === cat);
           if (items.length === 0) return null;
           return (
             <div key={cat} className="space-y-3">
               <h2 className="text-lg font-bold text-white">{cat}</h2>
               <div className="space-y-2">
-                {items.map(item => (
+                {items.map((item) => (
                   <FAQAccordionItem key={item.question} item={item} />
                 ))}
               </div>
@@ -258,11 +278,18 @@ export function FAQ() {
         })}
 
         {/* Still have questions */}
-        <div className="bg-card rounded-lg shadow-md p-6 text-center">
+        <div className="bg-card rounded-xl p-6 text-center">
           <h2 className="text-lg font-bold text-white mb-2">Still have questions?</h2>
           <p className="text-muted mb-4">
-            Check out our <Link to="/blog" className="text-accent underline">species care guides</Link> or{' '}
-            <Link to="/about" className="text-accent underline">learn more about us</Link>.
+            Check out our{' '}
+            <Link to="/blog" className="text-accent underline">
+              species care guides
+            </Link>{' '}
+            or{' '}
+            <Link to="/about" className="text-accent underline">
+              learn more about us
+            </Link>
+            .
           </p>
         </div>
       </div>

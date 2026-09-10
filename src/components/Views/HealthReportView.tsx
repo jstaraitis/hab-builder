@@ -28,7 +28,12 @@ import { track } from '../../services/analyticsService';
 import { reportToPlainText } from '../../utils/healthReportText';
 import { NutritionInsights } from '../CareAnalytics/NutritionInsights';
 import { PRINT_STYLES } from './printStyles';
-import { shareDocument, shareOutcomeMessage, shareActionLabel, canPrint } from '../../utils/shareDocument';
+import {
+  shareDocument,
+  shareOutcomeMessage,
+  shareActionLabel,
+  canPrint,
+} from '../../utils/shareDocument';
 import { CohortGrowthCard } from '../premium/CohortGrowthCard';
 
 const SEVERITY_STYLES: Record<ConcernSeverity, { chip: string; label: string; border: string }> = {
@@ -138,10 +143,7 @@ export function HealthReportView() {
 
   const report: HealthReport | null = bundle?.report ?? null;
 
-  const plainText = useMemo(
-    () => (bundle ? reportToPlainText(bundle) : ''),
-    [bundle]
-  );
+  const plainText = useMemo(() => (bundle ? reportToPlainText(bundle) : ''), [bundle]);
 
   const handleCopy = async () => {
     try {
@@ -229,7 +231,9 @@ export function HealthReportView() {
         <div className="flex items-center gap-2">
           <button
             type="button"
-            onClick={() => { void handleCopy(); }}
+            onClick={() => {
+              void handleCopy();
+            }}
             className="inline-flex items-center gap-1.5 text-sm font-semibold px-3 py-2 rounded-xl bg-card-elevated border border-divider text-white"
           >
             {copied ? <Check className="w-4 h-4 text-accent" /> : <Copy className="w-4 h-4" />}
@@ -237,7 +241,9 @@ export function HealthReportView() {
           </button>
           <button
             type="button"
-            onClick={() => { void handleShare(); }}
+            onClick={() => {
+              void handleShare();
+            }}
             className="inline-flex items-center gap-1.5 text-sm font-semibold px-3 py-2 rounded-xl bg-accent text-on-accent"
           >
             {canPrint() ? <Printer className="w-4 h-4" /> : <Share2 className="w-4 h-4" />}
@@ -350,14 +356,8 @@ export function HealthReportView() {
             label="Substrate"
             value={enclosure?.substrateType ? titleCase(enclosure.substrateType) : '—'}
           />
-          <Field
-            label="Day temp target"
-            value={formatTemp(enclosure?.baselineDayTempTarget)}
-          />
-          <Field
-            label="Night temp target"
-            value={formatTemp(enclosure?.baselineNightTempTarget)}
-          />
+          <Field label="Day temp target" value={formatTemp(enclosure?.baselineDayTempTarget)} />
+          <Field label="Night temp target" value={formatTemp(enclosure?.baselineNightTempTarget)} />
           <Field
             label="Humidity target"
             value={
@@ -384,12 +384,16 @@ export function HealthReportView() {
           <Field
             label="UVB installed"
             value={
-              enclosure?.uvbBulbInstalledOn ? formatDate(new Date(enclosure.uvbBulbInstalledOn)) : '—'
+              enclosure?.uvbBulbInstalledOn
+                ? formatDate(new Date(enclosure.uvbBulbInstalledOn))
+                : '—'
             }
           />
           <Field
             label="Photoperiod"
-            value={enclosure?.lightingScheduleHours ? `${enclosure.lightingScheduleHours} h/day` : '—'}
+            value={
+              enclosure?.lightingScheduleHours ? `${enclosure.lightingScheduleHours} h/day` : '—'
+            }
           />
         </dl>
       </Section>
@@ -436,7 +440,11 @@ export function HealthReportView() {
             <Field label="Last accepted" value={formatDate(report.feeding.lastFedDate)} />
             <Field
               label="Days since"
-              value={report.feeding.daysSinceLastFed === null ? '—' : `${report.feeding.daysSinceLastFed}`}
+              value={
+                report.feeding.daysSinceLastFed === null
+                  ? '—'
+                  : `${report.feeding.daysSinceLastFed}`
+              }
             />
             <Field
               label="Usual interval"
@@ -481,7 +489,9 @@ export function HealthReportView() {
               <Field label="Last shed" value={formatDate(report.shed.lastShedDate)} />
               <Field
                 label="Days since"
-                value={report.shed.daysSinceLastShed === null ? '—' : `${report.shed.daysSinceLastShed}`}
+                value={
+                  report.shed.daysSinceLastShed === null ? '—' : `${report.shed.daysSinceLastShed}`
+                }
               />
               <Field
                 label="Usual interval"
@@ -504,12 +514,18 @@ export function HealthReportView() {
               <Field label="Most recent" value={formatDate(report.defecation.lastDate)} />
               <Field
                 label="Days since"
-                value={report.defecation.daysSinceLast === null ? '—' : `${report.defecation.daysSinceLast}`}
+                value={
+                  report.defecation.daysSinceLast === null
+                    ? '—'
+                    : `${report.defecation.daysSinceLast}`
+                }
               />
               <Field label="Abnormal (90d)" value={`${report.defecation.abnormalIn90Days}`} />
               <Field
                 label="Parasites seen"
-                value={report.defecation.parasitesEverSeen ? 'Yes — keeper reported' : 'Not reported'}
+                value={
+                  report.defecation.parasitesEverSeen ? 'Yes — keeper reported' : 'Not reported'
+                }
               />
             </dl>
           ) : (

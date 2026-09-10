@@ -153,7 +153,7 @@ export function AnimalForm({ mode, initialData, enclosures, speciesName, entityL
                 />
                 <label
                   htmlFor={photoUploadId}
-                  className="inline-block px-3 py-1.5 bg-accent hover:bg-accent-dim text-white text-xs font-semibold rounded-lg cursor-pointer transition-colors"
+                  className="inline-block px-3 py-1.5 bg-accent hover:bg-accent-dim text-white text-xs font-semibold rounded-xl cursor-pointer transition-colors"
                 >
                   Upload File
                 </label>
@@ -411,7 +411,7 @@ export function AnimalForm({ mode, initialData, enclosures, speciesName, entityL
 
         {/* Error Message */}
         {error && (
-          <div className="bg-rose-500/10 border border-rose-500/30 text-rose-300 rounded-lg p-4 text-sm flex items-start gap-2">
+          <div className="bg-rose-500/10 border border-rose-500/30 text-rose-300 rounded-xl p-4 text-sm flex items-start gap-2">
             <svg className="w-5 h-5 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
             </svg>
@@ -426,7 +426,7 @@ export function AnimalForm({ mode, initialData, enclosures, speciesName, entityL
               type="button"
               onClick={() => handleDelete().catch(console.error)}
               disabled={saving || deleting}
-              className="px-3 py-1.5 border border-rose-500/30 text-rose-300 hover:bg-rose-500/10 rounded-lg transition-colors disabled:opacity-60 disabled:cursor-not-allowed font-medium text-xs"
+              className="px-3 py-1.5 border border-rose-500/30 text-rose-300 hover:bg-rose-500/10 rounded-xl transition-colors disabled:opacity-60 disabled:cursor-not-allowed font-medium text-xs"
             >
               {deleting ? 'Deleting...' : 'Delete'}
             </button>
@@ -434,7 +434,7 @@ export function AnimalForm({ mode, initialData, enclosures, speciesName, entityL
           <button
             type="button"
             onClick={onCancel}
-            className="flex-1 px-3 py-1.5 border border-divider hover:bg-card-elevated text-muted hover:text-white text-xs font-medium rounded-lg transition-colors"
+            className="flex-1 px-3 py-1.5 border border-divider hover:bg-card-elevated text-muted hover:text-white text-xs font-medium rounded-xl transition-colors"
             disabled={saving || deleting}
           >
             Cancel
@@ -442,7 +442,7 @@ export function AnimalForm({ mode, initialData, enclosures, speciesName, entityL
           <button
             type="submit"
             disabled={saving || deleting}
-            className="flex-1 px-3 py-1.5 bg-accent hover:bg-accent-dim text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-1.5"
+            className="flex-1 px-3 py-1.5 bg-accent hover:bg-accent-dim text-white text-xs font-medium rounded-xl transition-colors disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-1.5"
           >
             {saving ? (
               <>

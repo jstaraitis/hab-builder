@@ -29,7 +29,7 @@ export function PlanView({ plan, input }: PlanViewProps) {
   
   if (!plan) {
     return (
-      <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 text-yellow-900 dark:text-yellow-200 rounded-lg p-4 space-y-2">
+      <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 text-yellow-900 dark:text-yellow-200 rounded-xl p-4 space-y-2">
         <SEO title="Build Plan" description="Generate your custom reptile enclosure build plan with step-by-step instructions." />
         <p className="font-semibold">No plan yet.</p>
         <p className="text-sm">Generate a plan in Design first.</p>
@@ -55,7 +55,7 @@ export function PlanView({ plan, input }: PlanViewProps) {
         <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
           <button
             onClick={handleDownloadPDF}
-            className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-accent hover:bg-accent-dim text-white font-medium rounded-lg transition-colors shadow-sm"
+            className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-accent hover:bg-accent-dim text-white font-medium rounded-xl transition-colors"
           >
             <Download className="w-4 h-4" />
             Download PDF
@@ -67,7 +67,7 @@ export function PlanView({ plan, input }: PlanViewProps) {
         </div>
       </div>
 
-      <div className="bg-card rounded-lg shadow-sm border border-divider p-6">
+      <div className="bg-card rounded-xl border border-divider p-6">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h3 className="text-xl font-bold text-white">Example Enclosure Setups</h3>
@@ -97,7 +97,7 @@ export function PlanView({ plan, input }: PlanViewProps) {
             {generalSetupTips.map((tip) => (
               <div
                 key={tip}
-                className="rounded-lg border border-blue-200/70 dark:border-blue-800/60 bg-white/80 dark:bg-gray-900/30 px-3 py-2 text-sm text-blue-900 dark:text-blue-200"
+                className="rounded-xl border border-blue-200/70 dark:border-blue-800/60 bg-white/80 dark:bg-gray-900/30 px-3 py-2 text-sm text-blue-900 dark:text-blue-200"
               >
                 {tip}
               </div>
@@ -120,7 +120,7 @@ export function PlanView({ plan, input }: PlanViewProps) {
               {animalProfile.setupTips.map((tip) => (
                 <div
                   key={tip}
-                  className="rounded-lg border border-purple-200/70 dark:border-purple-800/60 bg-white/80 dark:bg-gray-900/30 px-3 py-2 text-sm text-purple-900 dark:text-purple-200"
+                  className="rounded-xl border border-purple-200/70 dark:border-purple-800/60 bg-white/80 dark:bg-gray-900/30 px-3 py-2 text-sm text-purple-900 dark:text-purple-200"
                 >
                   {tip}
                 </div>
@@ -131,7 +131,7 @@ export function PlanView({ plan, input }: PlanViewProps) {
       </div>
 
       {/* Build Steps Section */}
-      <div className="bg-card rounded-lg shadow-sm border border-divider p-6">
+      <div className="bg-card rounded-xl border border-divider p-6">
         <div className="border-l-4 border-blue-500 pl-4 mb-4">
           <h3 className="text-xl font-bold text-white">Build Instructions</h3>
           <p className="text-sm text-muted mt-1">Follow these steps to assemble your enclosure</p>
@@ -139,14 +139,14 @@ export function PlanView({ plan, input }: PlanViewProps) {
         <BuildSteps steps={plan.steps} showHeader={false} animalName={animalName} />
       </div>
 
-      <div className="rounded-lg border border-accent/30 bg-accent/10 bg-accent/10 p-4 text-sm text-accent text-accent">
+      <div className="rounded-xl border border-accent/30 bg-accent/10 bg-accent/10 p-4 text-sm text-accent text-accent">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p>
             If you want a little extra reassurance, premium includes care reminders to help you stay on track.
           </p>
           <Link
             to="/premium"
-            className="inline-flex items-center justify-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-dim"
+            className="inline-flex items-center justify-center rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-dim"
           >
             Explore premium
           </Link>

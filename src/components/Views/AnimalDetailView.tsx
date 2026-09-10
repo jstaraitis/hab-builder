@@ -1,6 +1,6 @@
 ﻿/**
  * AnimalDetailView Component
- * 
+ *
  * Comprehensive view of a single animal showing all related data:
  * - Basic info (name, species, age, morph, gender)
  * - Enclosure details
@@ -13,16 +13,24 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams, Link, useSearchParams } from 'react-router-dom';
 import type { LucideIcon } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { 
-  ArrowLeft, 
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts';
+import {
+  ArrowLeft,
   ClipboardList,
-  Calendar, 
-  Scale, 
-  MapPin, 
-  Pencil, 
-  UtensilsCrossed, 
-  CheckCircle, 
+  Calendar,
+  Scale,
+  MapPin,
+  Pencil,
+  UtensilsCrossed,
+  CheckCircle,
   Clock,
   TrendingUp,
   AlertCircle,
@@ -39,7 +47,7 @@ import {
   ChevronRight,
   ChevronDown,
   FileText,
-  History
+  History,
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { enclosureAnimalService } from '../../services/enclosureAnimalService';
@@ -68,15 +76,15 @@ import { formatCareTaskFrequency } from '../../utils/careTaskFrequencyLabel';
 // Helper function to calculate age
 function calculateAge(birthday: Date): string {
   const now = new Date();
-  const months = (now.getFullYear() - birthday.getFullYear()) * 12 
-                 + (now.getMonth() - birthday.getMonth());
-  
+  const months =
+    (now.getFullYear() - birthday.getFullYear()) * 12 + (now.getMonth() - birthday.getMonth());
+
   if (months < 1) return 'Less than 1 month';
   if (months < 12) return `${months} month${months !== 1 ? 's' : ''}`;
-  
+
   const years = Math.floor(months / 12);
   const remainingMonths = months % 12;
-  
+
   if (remainingMonths === 0) return `${years} year${years !== 1 ? 's' : ''}`;
   return `${years}y ${remainingMonths}m`;
 }
@@ -116,11 +124,15 @@ function getCalendarDayDiff(dateValue: Date | string): number {
   const now = new Date();
   const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   const dateStart = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-  return Math.max(0, Math.floor((todayStart.getTime() - dateStart.getTime()) / (1000 * 60 * 60 * 24)));
+  return Math.max(
+    0,
+    Math.floor((todayStart.getTime() - dateStart.getTime()) / (1000 * 60 * 60 * 24))
+  );
 }
 
 // Tab types
-type TabType = 'overview' | 'tasks' | 'care' | 'growth' | 'health' | 'shedding' | 'brumation' | 'info';
+type TabType =
+  'overview' | 'tasks' | 'care' | 'growth' | 'health' | 'shedding' | 'brumation' | 'info';
 
 const TABS: Array<{ id: TabType; label: string; icon: LucideIcon }> = [
   { id: 'overview', label: 'Overview', icon: Activity },
@@ -130,7 +142,7 @@ const TABS: Array<{ id: TabType; label: string; icon: LucideIcon }> = [
   { id: 'health', label: 'Medical', icon: Heart },
   { id: 'shedding', label: 'Shedding', icon: Stethoscope },
   { id: 'brumation', label: 'Brumation', icon: Moon },
-  { id: 'info', label: 'Info', icon: Info }
+  { id: 'info', label: 'Info', icon: Info },
 ];
 
 const RECENT_FEEDINGS_PAGE_SIZE = 50;
@@ -141,7 +153,7 @@ export function AnimalDetailView() {
   const navigate = useNavigate();
   const location = useLocation();
   const [searchParams] = useSearchParams();
-  
+
   // Core data state (fast load)
   const [animal, setAnimal] = useState<EnclosureAnimal | null>(null);
   const [enclosure, setEnclosure] = useState<Enclosure | null>(null);
@@ -158,7 +170,7 @@ export function AnimalDetailView() {
 
   // Tab management
   const [activeTab, setActiveTab] = useState<TabType>('overview');
-  
+
   // Form visibility state
   const [showWeightForm, setShowWeightForm] = useState(false);
   const [showLengthForm, setShowLengthForm] = useState(false);
@@ -167,10 +179,10 @@ export function AnimalDetailView() {
   const [editingNotes, setEditingNotes] = useState(false);
   const [notesValue, setNotesValue] = useState('');
   const [savingNotes, setSavingNotes] = useState(false);
-  
+
   // Refresh trigger
   const [refreshKey, setRefreshKey] = useState(0);
-  
+
   // Feeding logs filter
   const [showAllFeedingLogs, setShowAllFeedingLogs] = useState(true);
   const [deletingWeightId, setDeletingWeightId] = useState<string | null>(null);
@@ -186,13 +198,14 @@ export function AnimalDetailView() {
   const [savingPoop, setSavingPoop] = useState(false);
   const [showFeedingModal, setShowFeedingModal] = useState(false);
   const [showRecentFeedings, setShowRecentFeedings] = useState(false);
-  const [recentFeedingsVisibleCount, setRecentFeedingsVisibleCount] = useState(RECENT_FEEDINGS_PAGE_SIZE);
+  const [recentFeedingsVisibleCount, setRecentFeedingsVisibleCount] =
+    useState(RECENT_FEEDINGS_PAGE_SIZE);
   const [quickOpenApplied, setQuickOpenApplied] = useState(false);
   const [deletingLogId, setDeletingLogId] = useState<string | null>(null);
 
   // Refresh handler for child components
   const handleRefresh = () => {
-    setRefreshKey(prev => prev + 1);
+    setRefreshKey((prev) => prev + 1);
     loadAnimalData();
   };
 
@@ -222,7 +235,16 @@ export function AnimalDetailView() {
     const tabParam = searchParams.get('tab');
     const openParam = searchParams.get('open');
 
-    if (tabParam === 'overview' || tabParam === 'tasks' || tabParam === 'care' || tabParam === 'growth' || tabParam === 'health' || tabParam === 'shedding' || tabParam === 'brumation' || tabParam === 'info') {
+    if (
+      tabParam === 'overview' ||
+      tabParam === 'tasks' ||
+      tabParam === 'care' ||
+      tabParam === 'growth' ||
+      tabParam === 'health' ||
+      tabParam === 'shedding' ||
+      tabParam === 'brumation' ||
+      tabParam === 'info'
+    ) {
       setActiveTab(tabParam);
     }
 
@@ -286,18 +308,21 @@ export function AnimalDetailView() {
 
       // Load related data in parallel
       if (animalData.enclosureId) {
-        const [enclosureData, allTasks, weightData, lengthData, vetData, poopData, feedingData] = await Promise.all([
-          enclosureService.getEnclosureById(animalData.enclosureId),
-          careTaskService.getTasksWithLogs(user.id),
-          weightTrackingService.getWeightLogs(animalId),
-          lengthLogService.getLogsForAnimal(animalId),
-          vetRecordService.getRecordsForAnimal(animalId),
-          poopLogService.getRecentLogs(animalId, 10),
-          feedingLogService.getRecentLogs(animalData.enclosureId),
-        ]);
+        const [enclosureData, allTasks, weightData, lengthData, vetData, poopData, feedingData] =
+          await Promise.all([
+            enclosureService.getEnclosureById(animalData.enclosureId),
+            careTaskService.getTasksWithLogs(user.id),
+            weightTrackingService.getWeightLogs(animalId),
+            lengthLogService.getLogsForAnimal(animalId),
+            vetRecordService.getRecordsForAnimal(animalId),
+            poopLogService.getRecentLogs(animalId, 10),
+            feedingLogService.getRecentLogs(animalData.enclosureId),
+          ]);
 
         setEnclosure(enclosureData);
-        const enclosureTasks = allTasks.filter(task => task.enclosureId === animalData.enclosureId);
+        const enclosureTasks = allTasks.filter(
+          (task) => task.enclosureId === animalData.enclosureId
+        );
         setTasks(enclosureTasks);
         setWeightLogs(weightData);
         setLengthLogs(lengthData);
@@ -306,16 +331,17 @@ export function AnimalDetailView() {
         setDirectFeedingLogs(feedingData);
       } else {
         // Load tasks and weight logs even if no enclosure
-        const [allTasks, weightData, lengthData, vetData, poopData, feedingData] = await Promise.all([
-          careTaskService.getTasksWithLogs(user.id),
-          weightTrackingService.getWeightLogs(animalId),
-          lengthLogService.getLogsForAnimal(animalId),
-          vetRecordService.getRecordsForAnimal(animalId),
-          poopLogService.getRecentLogs(animalId, 10),
-          feedingLogService.getRecentLogs(undefined),
-        ]);
-        
-        const animalTasks = allTasks.filter(task => task.enclosureAnimalId === animalData.id);
+        const [allTasks, weightData, lengthData, vetData, poopData, feedingData] =
+          await Promise.all([
+            careTaskService.getTasksWithLogs(user.id),
+            weightTrackingService.getWeightLogs(animalId),
+            lengthLogService.getLogsForAnimal(animalId),
+            vetRecordService.getRecordsForAnimal(animalId),
+            poopLogService.getRecentLogs(animalId, 10),
+            feedingLogService.getRecentLogs(undefined),
+          ]);
+
+        const animalTasks = allTasks.filter((task) => task.enclosureAnimalId === animalData.id);
         setTasks(animalTasks);
         setWeightLogs(weightData);
         setLengthLogs(lengthData);
@@ -323,7 +349,6 @@ export function AnimalDetailView() {
         setPoopLogs(poopData);
         setDirectFeedingLogs(feedingData);
       }
-
     } catch (err) {
       console.error('Failed to load animal data:', err);
       setError('Failed to load animal data');
@@ -367,15 +392,15 @@ export function AnimalDetailView() {
   // Get recent feeding logs from tasks
   const getFeedingLogs = (animalOnly: boolean = false) => {
     const feedingLogs: any[] = [];
-    
-    tasks.forEach(task => {
+
+    tasks.forEach((task) => {
       // Filter by animal-level only if animalOnly is true
       if (animalOnly && task.enclosureAnimalId !== animal?.id) {
         return;
       }
-      
+
       if (task.type === 'feeding' && task.logs) {
-        task.logs.forEach(log => {
+        task.logs.forEach((log) => {
           feedingLogs.push({
             id: log.id,
             completedAt: log.completedAt,
@@ -386,15 +411,15 @@ export function AnimalDetailView() {
               feederType: log.feederType,
               quantityOffered: log.quantityOffered,
               quantityEaten: log.quantityEaten,
-              supplementUsed: log.supplementUsed
-            }
+              supplementUsed: log.supplementUsed,
+            },
           });
         });
       }
     });
 
-    const sortedLogs = [...feedingLogs].sort((a, b) => 
-      new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime()
+    const sortedLogs = [...feedingLogs].sort(
+      (a, b) => new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime()
     );
     return sortedLogs;
   };
@@ -464,7 +489,7 @@ export function AnimalDetailView() {
     try {
       setDeletingLogId(logId);
       await feedingLogService.deleteLog(logId);
-      
+
       if (enclosure) {
         const updated = await feedingLogService.getRecentLogs(enclosure.id);
         setDirectFeedingLogs(updated);
@@ -483,7 +508,7 @@ export function AnimalDetailView() {
     try {
       setDeletingLogId(logId);
       await poopLogService.deleteLog(logId);
-      
+
       if (animalId) {
         const updated = await poopLogService.getRecentLogs(animalId, 10);
         setPoopLogs(updated);
@@ -512,13 +537,8 @@ export function AnimalDetailView() {
       <div className="min-h-screen bg-surface px-4 pt-4">
         <div className="text-center py-12">
           <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-white mb-2">
-            {error || 'Animal not found'}
-          </h3>
-          <Link
-            to="/my-animals"
-            className="text-accent hover:underline"
-          >
+          <h3 className="text-lg font-medium text-white mb-2">{error || 'Animal not found'}</h3>
+          <Link to="/my-animals" className="text-accent hover:underline">
             ← Back to My Animals
           </Link>
         </div>
@@ -533,35 +553,36 @@ export function AnimalDetailView() {
   const latestLength = lengthLogs.length > 0 ? lengthLogs[0] : null;
   const previousLength = lengthLogs.length > 1 ? lengthLogs[1] : null;
   const displaySpecies = animal.speciesName || enclosure?.animalName || 'Pet Profile';
-  
+
   // Combine feeding logs from care tasks and direct logging for the recent feedings section
   // Only include direct logs if they match the current filter (animal-only or all in enclosure)
   const combinedFeedingLogs = dedupeFeedingLogsById([
     ...feedingLogs,
-    ...(showAllFeedingLogs 
-      ? directFeedingLogs  // Show all direct logs when "All in Enclosure" is selected
-      : directFeedingLogs   // For "This Animal", we already filtered in getFeedingLogs, so show all direct logs
-    ).map(log => ({
-      id: log.id,
-      completedAt: log.completedAt,
-      notes: log.notes,
-      taskTitle: 'Manual Feeding Log',
-      isEnclosureLevel: false,
-      feedingData: {
-        feederType: log.feederType,
-        quantityOffered: log.quantityOffered,
-        quantityEaten: log.quantityEaten,
-        supplementUsed: log.supplementUsed
-      }
-    }))
+    ...(showAllFeedingLogs
+      ? directFeedingLogs // Show all direct logs when "All in Enclosure" is selected
+      : directFeedingLogs
+    ) // For "This Animal", we already filtered in getFeedingLogs, so show all direct logs
+      .map((log) => ({
+        id: log.id,
+        completedAt: log.completedAt,
+        notes: log.notes,
+        taskTitle: 'Manual Feeding Log',
+        isEnclosureLevel: false,
+        feedingData: {
+          feederType: log.feederType,
+          quantityOffered: log.quantityOffered,
+          quantityEaten: log.quantityEaten,
+          supplementUsed: log.supplementUsed,
+        },
+      })),
   ]).sort((a, b) => new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime());
   const visibleRecentFeedingLogs = combinedFeedingLogs.slice(0, recentFeedingsVisibleCount);
   const canLoadMoreRecentFeedings = combinedFeedingLogs.length > recentFeedingsVisibleCount;
-  
+
   // Combine feeding logs from care tasks and direct logging for overview (unfiltered)
   const allFeedingLogs = dedupeFeedingLogsById([
     ...unfilteredFeedingLogs,
-    ...directFeedingLogs.map(log => ({
+    ...directFeedingLogs.map((log) => ({
       id: log.id,
       completedAt: log.completedAt,
       notes: log.notes,
@@ -570,16 +591,17 @@ export function AnimalDetailView() {
         feederType: log.feederType,
         quantityOffered: log.quantityOffered,
         quantityEaten: log.quantityEaten,
-        supplementUsed: log.supplementUsed
-      }
-    }))
+        supplementUsed: log.supplementUsed,
+      },
+    })),
   ]).sort((a, b) => new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime());
-  
+
   const latestFeeding = allFeedingLogs.length > 0 ? allFeedingLogs[0] : null;
-  const latestTaskFeedingCompletion = tasks
-    .filter((task) => task.type === 'feeding' && task.lastCompleted)
-    .map((task) => task.lastCompleted)
-    .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())[0] || null;
+  const latestTaskFeedingCompletion =
+    tasks
+      .filter((task) => task.type === 'feeding' && task.lastCompleted)
+      .map((task) => task.lastCompleted)
+      .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())[0] || null;
   const latestFeedingCandidates: Array<Date | string> = [];
   if (latestTaskFeedingCompletion) {
     latestFeedingCandidates.push(latestTaskFeedingCompletion);
@@ -587,13 +609,12 @@ export function AnimalDetailView() {
   if (latestFeeding?.completedAt) {
     latestFeedingCandidates.push(latestFeeding.completedAt);
   }
-  const latestFeedingAt = latestFeedingCandidates
-    .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())[0] || null;
+  const latestFeedingAt =
+    latestFeedingCandidates.sort((a, b) => new Date(b).getTime() - new Date(a).getTime())[0] ||
+    null;
   const latestMedical = vetRecords.length > 0 ? vetRecords[0] : null;
   const ageLabel = animal.birthday ? calculateAge(new Date(animal.birthday)) : null;
-  const lastFeedingDays = latestFeedingAt
-    ? getCalendarDayDiff(latestFeedingAt)
-    : null;
+  const lastFeedingDays = latestFeedingAt ? getCalendarDayDiff(latestFeedingAt) : null;
   const lastFeedingLabel =
     lastFeedingDays === null
       ? 'No logs'
@@ -605,15 +626,21 @@ export function AnimalDetailView() {
   const lastWeightDays = latestWeight
     ? Math.max(
         0,
-        Math.floor((Date.now() - new Date(latestWeight.measurementDate).getTime()) / (1000 * 60 * 60 * 24))
+        Math.floor(
+          (Date.now() - new Date(latestWeight.measurementDate).getTime()) / (1000 * 60 * 60 * 24)
+        )
       )
     : null;
   const weightRatePercent =
     latestWeight && previousWeight && previousWeight.weightGrams > 0
       ? ((latestWeight.weightGrams - previousWeight.weightGrams) / previousWeight.weightGrams) * 100
       : null;
-  const latestLengthInches = latestLength ? convertLengthToInches(latestLength.length, latestLength.unit) : null;
-  const previousLengthInches = previousLength ? convertLengthToInches(previousLength.length, previousLength.unit) : null;
+  const latestLengthInches = latestLength
+    ? convertLengthToInches(latestLength.length, latestLength.unit)
+    : null;
+  const previousLengthInches = previousLength
+    ? convertLengthToInches(previousLength.length, previousLength.unit)
+    : null;
   const lengthChartUnit: LengthLog['unit'] = latestLength?.unit || 'inches';
   const lengthChartData = [...lengthLogs].reverse().map((log) => {
     const inches = convertLengthToInches(log.length, log.unit);
@@ -626,14 +653,18 @@ export function AnimalDetailView() {
       measurementType: log.measurementType,
     };
   });
-  const highestLength = lengthChartData.length > 0 ? Math.max(...lengthChartData.map((d) => d.lengthValue)) : 0;
+  const highestLength =
+    lengthChartData.length > 0 ? Math.max(...lengthChartData.map((d) => d.lengthValue)) : 0;
   const lengthYAxisMax = Math.max(1, Math.ceil(highestLength * 2));
   const lengthRatePercent =
     latestLengthInches !== null && previousLengthInches !== null && previousLengthInches > 0
       ? ((latestLengthInches - previousLengthInches) / previousLengthInches) * 100
       : null;
 
-  const reminderSummary = animal.notes || latestFeeding?.notes || 'Add care notes and reminders to keep this profile current.';
+  const reminderSummary =
+    animal.notes ||
+    latestFeeding?.notes ||
+    'Add care notes and reminders to keep this profile current.';
 
   return (
     <div className="min-h-screen bg-surface pb-24">
@@ -648,7 +679,7 @@ export function AnimalDetailView() {
         </button>
 
         {/* Hero */}
-        <div className="relative overflow-hidden rounded-3xl border border-divider bg-card p-4 sm:p-5 mb-4">
+        <div className="relative overflow-hidden rounded-2xl border border-divider bg-card p-4 sm:p-5 mb-4">
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-jade-500/10 via-transparent to-cyan-500/10" />
 
           <div className="relative flex flex-col gap-4">
@@ -669,7 +700,8 @@ export function AnimalDetailView() {
               <div className="flex flex-wrap items-center gap-2 mt-3">
                 {animal.gender && (
                   <span className="px-2.5 py-1 bg-purple-500/20 text-purple-300 rounded-full text-[11px] font-semibold capitalize">
-                    {animal.gender === 'male' ? '♂' : animal.gender === 'female' ? '♀' : '?'} {animal.gender}
+                    {animal.gender === 'male' ? '♂' : animal.gender === 'female' ? '♀' : '?'}{' '}
+                    {animal.gender}
                   </span>
                 )}
                 {animal.morph && (
@@ -690,14 +722,14 @@ export function AnimalDetailView() {
           <div className="relative mt-4 flex flex-wrap gap-2">
             <button
               onClick={() => navigate(`/my-animals/edit/${animal.id}`)}
-              className="inline-flex w-auto self-start px-3 py-1.5 bg-card-elevated border border-divider text-white rounded-lg text-sm font-semibold items-center justify-center gap-1.5 hover:border-jade-500/50 transition-colors"
+              className="inline-flex w-auto self-start px-3 py-1.5 bg-card-elevated border border-divider text-white rounded-xl text-sm font-semibold items-center justify-center gap-1.5 hover:border-jade-500/50 transition-colors"
             >
               <Pencil className="w-3.5 h-3.5" />
               Edit Profile
             </button>
             <button
               onClick={() => navigate(`/my-animals/${animal.id}/health-report`)}
-              className="inline-flex w-auto self-start px-3 py-1.5 bg-card-elevated border border-divider text-white rounded-lg text-sm font-semibold items-center justify-center gap-1.5 hover:border-jade-500/50 transition-colors"
+              className="inline-flex w-auto self-start px-3 py-1.5 bg-card-elevated border border-divider text-white rounded-xl text-sm font-semibold items-center justify-center gap-1.5 hover:border-jade-500/50 transition-colors"
               title="A printable summary of this animal's records for a vet visit"
             >
               <FileText className="w-3.5 h-3.5" />
@@ -705,7 +737,7 @@ export function AnimalDetailView() {
             </button>
             <button
               onClick={() => navigate(`/my-animals/${animal.id}/what-changed`)}
-              className="inline-flex w-auto self-start px-3 py-1.5 bg-card-elevated border border-divider text-white rounded-lg text-sm font-semibold items-center justify-center gap-1.5 hover:border-jade-500/50 transition-colors"
+              className="inline-flex w-auto self-start px-3 py-1.5 bg-card-elevated border border-divider text-white rounded-xl text-sm font-semibold items-center justify-center gap-1.5 hover:border-jade-500/50 transition-colors"
               title="Reconstruct what changed before a problem started"
             >
               <History className="w-3.5 h-3.5" />
@@ -717,27 +749,21 @@ export function AnimalDetailView() {
         {/* Tab Navigation */}
         <div className="mb-4 rounded-xl border border-divider bg-card p-1">
           <div className="flex overflow-x-auto gap-1">
-          {TABS.map((tab) => {
-            const Icon = tab.icon;
-            const isActive = activeTab === tab.id;
-            
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`
-                  flex items-center gap-2 px-3 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition-colors
-                  ${isActive 
-                    ? 'bg-accent/20 text-accent' 
-                    : 'text-muted hover:text-white hover:bg-card-elevated'
-                  }
-                `}
-              >
-                <Icon className="w-4 h-4" />
-                {tab.label}
-              </button>
-            );
-          })}
+            {TABS.map((tab) => {
+              const Icon = tab.icon;
+              const isActive = activeTab === tab.id;
+
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center gap-2 px-3 py-2 rounded-xl font-medium text-sm whitespace-nowrap transition-colors ${isActive ? 'bg-accent/20 text-accent' : 'text-muted hover:text-white hover:bg-card-elevated'}`}
+                >
+                  <Icon className="w-4 h-4" />
+                  {tab.label}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -756,13 +782,14 @@ export function AnimalDetailView() {
 
               <div className="bg-card border border-divider rounded-xl p-4">
                 <p className="text-xs text-muted">Last Feeding</p>
-                <p className="text-2xl sm:text-3xl font-bold text-white mt-1">
-                  {lastFeedingLabel}
-                </p>
+                <p className="text-2xl sm:text-3xl font-bold text-white mt-1">{lastFeedingLabel}</p>
                 <p className="text-xs sm:text-sm text-muted mt-1">
                   {latestFeedingAt
                     ? lastFeedingDays === 0
-                      ? new Date(latestFeedingAt).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
+                      ? new Date(latestFeedingAt).toLocaleTimeString([], {
+                          hour: 'numeric',
+                          minute: '2-digit',
+                        })
                       : new Date(latestFeedingAt).toLocaleDateString()
                     : 'Log feedings in Care'}
                 </p>
@@ -770,9 +797,13 @@ export function AnimalDetailView() {
 
               <div className="bg-card border border-divider rounded-xl p-4">
                 <p className="text-xs text-muted">Weight</p>
-                <p className="text-2xl sm:text-3xl font-bold text-white mt-1">{latestWeight ? `${latestWeight.weightGrams} g` : 'No data'}</p>
+                <p className="text-2xl sm:text-3xl font-bold text-white mt-1">
+                  {latestWeight ? `${latestWeight.weightGrams} g` : 'No data'}
+                </p>
                 <p className="text-xs sm:text-sm text-muted mt-1">
-                  {lastWeightDays !== null ? `Updated ${lastWeightDays} day${lastWeightDays === 1 ? '' : 's'} ago` : 'No entries yet'}
+                  {lastWeightDays !== null
+                    ? `Updated ${lastWeightDays} day${lastWeightDays === 1 ? '' : 's'} ago`
+                    : 'No entries yet'}
                 </p>
               </div>
 
@@ -782,17 +813,23 @@ export function AnimalDetailView() {
                   {latestLength ? `${latestLength.length} ${latestLength.unit}` : 'No data'}
                 </p>
                 <p className="text-xs sm:text-sm text-muted mt-1">
-                  {latestLength ? `Updated ${new Date(latestLength.date).toLocaleDateString()}` : 'No entries yet'}
+                  {latestLength
+                    ? `Updated ${new Date(latestLength.date).toLocaleDateString()}`
+                    : 'No entries yet'}
                 </p>
               </div>
 
               <div className="bg-card border border-divider rounded-xl p-4">
                 <p className="text-xs text-muted">Medical</p>
                 <p className="text-2xl sm:text-3xl font-bold text-white mt-1">
-                  {vetRecords.length > 0 ? `${vetRecords.length} record${vetRecords.length === 1 ? '' : 's'}` : 'No records'}
+                  {vetRecords.length > 0
+                    ? `${vetRecords.length} record${vetRecords.length === 1 ? '' : 's'}`
+                    : 'No records'}
                 </p>
                 <p className="text-xs sm:text-sm text-muted mt-1">
-                  {latestMedical ? `Last visit ${new Date(latestMedical.visitDate).toLocaleDateString()}` : 'No vet visits yet'}
+                  {latestMedical
+                    ? `Last visit ${new Date(latestMedical.visitDate).toLocaleDateString()}`
+                    : 'No vet visits yet'}
                 </p>
               </div>
 
@@ -802,7 +839,9 @@ export function AnimalDetailView() {
                 </div>
                 <p className="text-xs sm:text-sm text-muted line-clamp-3">{reminderSummary}</p>
                 <p className="text-[11px] sm:text-xs text-muted mt-1">
-                  {latestFeedingAt ? `Updated ${new Date(latestFeedingAt).toLocaleDateString()}` : 'Add notes to keep this section updated'}
+                  {latestFeedingAt
+                    ? `Updated ${new Date(latestFeedingAt).toLocaleDateString()}`
+                    : 'Add notes to keep this section updated'}
                 </p>
               </div>
             </div>
@@ -835,20 +874,25 @@ export function AnimalDetailView() {
                       setEditingWeightLog(null);
                       setShowWeightForm(!showWeightForm);
                     }}
-                    className="p-1.5 bg-accent text-on-accent rounded-lg hover:bg-accent-dim dark:bg-accent dark:hover:bg-accent-dim transition-colors"
+                    className="p-1.5 bg-accent text-on-accent rounded-xl hover:bg-accent-dim dark:bg-accent dark:hover:bg-accent-dim transition-colors"
                     title={showWeightForm ? 'Cancel' : 'Add Weight'}
                   >
                     {showWeightForm ? <X className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </button>
                 </div>
 
-                <div className="mb-3 rounded-lg border border-divider bg-surface px-2.5 py-2">
+                <div className="mb-3 rounded-xl border border-divider bg-surface px-2.5 py-2">
                   <p className="text-xs text-muted">Weight % Rate</p>
                   {weightRatePercent === null ? (
-                    <p className="text-xs text-muted">Add at least 2 weight entries to calculate rate</p>
+                    <p className="text-xs text-muted">
+                      Add at least 2 weight entries to calculate rate
+                    </p>
                   ) : (
-                    <p className={`text-xs font-semibold ${weightRatePercent >= 0 ? 'text-jade-300' : 'text-amber-300'}`}>
-                      {weightRatePercent >= 0 ? '+' : ''}{weightRatePercent.toFixed(1)}% vs last entry
+                    <p
+                      className={`text-xs font-semibold ${weightRatePercent >= 0 ? 'text-jade-300' : 'text-amber-300'}`}
+                    >
+                      {weightRatePercent >= 0 ? '+' : ''}
+                      {weightRatePercent.toFixed(1)}% vs last entry
                     </p>
                   )}
                 </div>
@@ -866,11 +910,11 @@ export function AnimalDetailView() {
 
                 {!showWeightForm && weightLogs.length > 0 && (
                   <div className="space-y-3">
-                    <div className="rounded-lg border border-divider bg-surface p-2.5">
+                    <div className="rounded-xl border border-divider bg-surface p-2.5">
                       <WeightChart enclosureAnimalId={animal.id} key={refreshKey} />
                     </div>
 
-                    <div className="border border-divider rounded-lg p-2.5">
+                    <div className="border border-divider rounded-xl p-2.5">
                       <button
                         type="button"
                         onClick={() => setWeightEntriesExpanded(!weightEntriesExpanded)}
@@ -886,9 +930,12 @@ export function AnimalDetailView() {
 
                       {weightEntriesExpanded && (
                         <div className="space-y-1.5 mt-2">
-                          {weightLogs.slice(0, 5).map((log) => (
+                          {weightLogs.slice(0, 5).map((log) =>
                             editingWeightLog?.id === log.id ? (
-                              <div key={log.id} className="bg-card border border-divider rounded-lg p-2.5">
+                              <div
+                                key={log.id}
+                                className="bg-card border border-divider rounded-xl p-2.5"
+                              >
                                 <WeightLogForm
                                   animal={animal}
                                   initialData={{
@@ -907,11 +954,15 @@ export function AnimalDetailView() {
                             ) : (
                               <div
                                 key={log.id}
-                                className="flex items-center justify-between gap-2 bg-surface border border-divider rounded-lg px-2.5 py-1.5"
+                                className="flex items-center justify-between gap-2 bg-surface border border-divider rounded-xl px-2.5 py-1.5"
                               >
                                 <div>
-                                  <p className="text-xs font-medium text-white">{log.weightGrams} g</p>
-                                  <p className="text-xs text-muted">{log.measurementDate.toLocaleDateString()}</p>
+                                  <p className="text-xs font-medium text-white">
+                                    {log.weightGrams} g
+                                  </p>
+                                  <p className="text-xs text-muted">
+                                    {log.measurementDate.toLocaleDateString()}
+                                  </p>
                                 </div>
                                 <div className="flex items-center gap-1.5">
                                   <button
@@ -920,7 +971,7 @@ export function AnimalDetailView() {
                                       setWeightEntriesExpanded(true);
                                       setEditingWeightLog(log);
                                     }}
-                                    className="px-2 py-1 rounded-md border border-divider bg-card text-white hover:bg-card-elevated"
+                                    className="px-2 py-1 rounded-xl border border-divider bg-card text-white hover:bg-card-elevated"
                                     title="Edit weight entry"
                                   >
                                     <Pencil className="w-3.5 h-3.5" />
@@ -928,7 +979,7 @@ export function AnimalDetailView() {
                                   <button
                                     onClick={() => handleDeleteWeight(log.id)}
                                     disabled={deletingWeightId === log.id}
-                                    className="px-2 py-1 rounded-md border border-red-400/30 bg-red-500/10 text-red-300 hover:bg-red-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="px-2 py-1 rounded-xl border border-red-400/30 bg-red-500/10 text-red-300 hover:bg-red-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
                                     title="Delete weight entry"
                                   >
                                     <Trash2 className="w-3.5 h-3.5" />
@@ -936,7 +987,7 @@ export function AnimalDetailView() {
                                 </div>
                               </div>
                             )
-                          ))}
+                          )}
                         </div>
                       )}
                     </div>
@@ -960,7 +1011,7 @@ export function AnimalDetailView() {
                   </h2>
                   <button
                     onClick={() => setShowLengthForm(!showLengthForm)}
-                    className="p-1.5 bg-accent text-on-accent rounded-lg hover:bg-accent-dim dark:bg-accent dark:hover:bg-accent-dim transition-colors"
+                    className="p-1.5 bg-accent text-on-accent rounded-xl hover:bg-accent-dim dark:bg-accent dark:hover:bg-accent-dim transition-colors"
                     title={showLengthForm ? 'Cancel' : 'Add Length'}
                   >
                     {showLengthForm ? <X className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
@@ -978,43 +1029,66 @@ export function AnimalDetailView() {
                   />
                 ) : (
                   <div className="space-y-3">
-                    <div className="mb-3 rounded-lg border border-divider bg-surface px-2.5 py-2">
+                    <div className="mb-3 rounded-xl border border-divider bg-surface px-2.5 py-2">
                       <p className="text-xs text-muted">Length % Rate</p>
                       {lengthRatePercent === null ? (
-                        <p className="text-xs text-muted">Add at least 2 length entries to calculate rate</p>
+                        <p className="text-xs text-muted">
+                          Add at least 2 length entries to calculate rate
+                        </p>
                       ) : (
-                        <p className={`text-xs font-semibold ${lengthRatePercent >= 0 ? 'text-jade-300' : 'text-amber-300'}`}>
-                          {lengthRatePercent >= 0 ? '+' : ''}{lengthRatePercent.toFixed(1)}% vs last entry
+                        <p
+                          className={`text-xs font-semibold ${lengthRatePercent >= 0 ? 'text-jade-300' : 'text-amber-300'}`}
+                        >
+                          {lengthRatePercent >= 0 ? '+' : ''}
+                          {lengthRatePercent.toFixed(1)}% vs last entry
                         </p>
                       )}
                     </div>
 
                     {lengthChartData.length > 0 && (
-                      <div className="rounded-lg border border-divider bg-surface p-2.5">
+                      <div className="rounded-xl border border-divider bg-surface p-2.5">
                         <ResponsiveContainer width="100%" height={180}>
-                          <LineChart data={lengthChartData} margin={{ top: 5, right: 20, left: 10, bottom: 24 }}>
+                          <LineChart
+                            data={lengthChartData}
+                            margin={{ top: 5, right: 20, left: 10, bottom: 24 }}
+                          >
                             <CartesianGrid strokeDasharray="3 3" stroke="#2A2D35" />
                             <XAxis
                               dataKey="formattedDate"
                               className="text-xs fill-muted"
                               tick={{ fontSize: 12 }}
                               tickMargin={8}
-                              label={{ value: 'Date', position: 'bottom', offset: 6, style: { fontSize: 11, fill: '#8B909A' } }}
+                              label={{
+                                value: 'Date',
+                                position: 'bottom',
+                                offset: 6,
+                                style: { fontSize: 11, fill: '#8B909A' },
+                              }}
                             />
                             <YAxis
                               className="text-xs fill-muted"
                               tick={{ fontSize: 12 }}
                               domain={[0, lengthYAxisMax]}
-                              label={{ value: `Length (${lengthChartUnit})`, angle: -90, position: 'insideLeft', offset: 0, dy: 36, style: { fontSize: 12, fill: '#8B909A', textAnchor: 'middle' } }}
+                              label={{
+                                value: `Length (${lengthChartUnit})`,
+                                angle: -90,
+                                position: 'insideLeft',
+                                offset: 0,
+                                dy: 36,
+                                style: { fontSize: 12, fill: '#8B909A', textAnchor: 'middle' },
+                              }}
                             />
                             <Tooltip
-                              formatter={(value: number) => [`${value} ${lengthChartUnit}`, 'Length']}
+                              formatter={(value: number) => [
+                                `${value} ${lengthChartUnit}`,
+                                'Length',
+                              ]}
                               contentStyle={{
                                 backgroundColor: '#1A1D24',
                                 border: '1px solid #2A2D35',
                                 borderRadius: '0.5rem',
                                 fontSize: '0.875rem',
-                                color: '#FFFFFF'
+                                color: '#FFFFFF',
                               }}
                               labelStyle={{ color: '#FFFFFF', fontWeight: 600 }}
                             />
@@ -1032,7 +1106,7 @@ export function AnimalDetailView() {
                       </div>
                     )}
 
-                    <div className="border border-divider rounded-lg p-2.5">
+                    <div className="border border-divider rounded-xl p-2.5">
                       <button
                         type="button"
                         onClick={() => setLengthEntriesExpanded(!lengthEntriesExpanded)}
@@ -1048,9 +1122,12 @@ export function AnimalDetailView() {
 
                       {lengthEntriesExpanded && (
                         <div className="space-y-1.5 mt-2">
-                          {lengthLogs.slice(0, 5).map((log) => (
+                          {lengthLogs.slice(0, 5).map((log) =>
                             editingLengthLog?.id === log.id ? (
-                              <div key={log.id} className="bg-card border border-divider rounded-lg p-2.5">
+                              <div
+                                key={log.id}
+                                className="bg-card border border-divider rounded-xl p-2.5"
+                              >
                                 <LengthLogForm
                                   animal={animal}
                                   initialData={{
@@ -1071,11 +1148,15 @@ export function AnimalDetailView() {
                             ) : (
                               <div
                                 key={log.id}
-                                className="flex items-center justify-between gap-2 bg-surface border border-divider rounded-lg px-2.5 py-1.5"
+                                className="flex items-center justify-between gap-2 bg-surface border border-divider rounded-xl px-2.5 py-1.5"
                               >
                                 <div>
-                                  <p className="text-xs font-medium text-white">{log.length} {log.unit}</p>
-                                  <p className="text-xs text-muted">{new Date(log.date).toLocaleDateString()}</p>
+                                  <p className="text-xs font-medium text-white">
+                                    {log.length} {log.unit}
+                                  </p>
+                                  <p className="text-xs text-muted">
+                                    {new Date(log.date).toLocaleDateString()}
+                                  </p>
                                 </div>
                                 <div className="flex items-center gap-1.5">
                                   <button
@@ -1084,7 +1165,7 @@ export function AnimalDetailView() {
                                       setLengthEntriesExpanded(true);
                                       setEditingLengthLog(log);
                                     }}
-                                    className="px-2 py-1 rounded-md border border-divider bg-card text-white hover:bg-card-elevated"
+                                    className="px-2 py-1 rounded-xl border border-divider bg-card text-white hover:bg-card-elevated"
                                     title="Edit length entry"
                                   >
                                     <Pencil className="w-3.5 h-3.5" />
@@ -1092,7 +1173,7 @@ export function AnimalDetailView() {
                                   <button
                                     onClick={() => handleDeleteLength(log.id)}
                                     disabled={deletingLengthId === log.id}
-                                    className="px-2 py-1 rounded-md border border-red-400/30 bg-red-500/10 text-red-300 hover:bg-red-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="px-2 py-1 rounded-xl border border-red-400/30 bg-red-500/10 text-red-300 hover:bg-red-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
                                     title="Delete length entry"
                                   >
                                     <Trash2 className="w-3.5 h-3.5" />
@@ -1100,7 +1181,7 @@ export function AnimalDetailView() {
                                 </div>
                               </div>
                             )
-                          ))}
+                          )}
                         </div>
                       )}
                     </div>
@@ -1122,7 +1203,7 @@ export function AnimalDetailView() {
                 </h2>
                 <button
                   onClick={() => setShowVetForm(!showVetForm)}
-                  className="p-1.5 bg-accent text-on-accent rounded-lg hover:bg-accent-dim dark:bg-accent dark:hover:bg-accent-dim transition-colors"
+                  className="p-1.5 bg-accent text-on-accent rounded-xl hover:bg-accent-dim dark:bg-accent dark:hover:bg-accent-dim transition-colors"
                   title={showVetForm ? 'Cancel' : 'Add Visit'}
                 >
                   {showVetForm ? <X className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
@@ -1158,7 +1239,7 @@ export function AnimalDetailView() {
                 </h2>
                 <button
                   onClick={() => setShowShedForm(!showShedForm)}
-                  className="p-1.5 bg-accent text-on-accent rounded-lg hover:bg-accent-dim dark:bg-accent dark:hover:bg-accent-dim transition-colors"
+                  className="p-1.5 bg-accent text-on-accent rounded-xl hover:bg-accent-dim dark:bg-accent dark:hover:bg-accent-dim transition-colors"
                   title={showShedForm ? 'Cancel' : 'Log Shed'}
                 >
                   {showShedForm ? <X className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
@@ -1213,18 +1294,16 @@ export function AnimalDetailView() {
                       type="button"
                       key={task.id}
                       onClick={() => setEditingTask(task)}
-                      className="w-full text-left flex items-center justify-between p-3 bg-surface rounded-lg hover:bg-card-elevated transition-colors"
+                      className="w-full text-left flex items-center justify-between p-3 bg-surface rounded-xl hover:bg-card-elevated transition-colors"
                     >
                       <div>
-                        <p className="font-sm text-white">
-                          {task.title}
-                        </p>
+                        <p className="font-sm text-white">{task.title}</p>
                         <p className="text-sm text-muted">
                           {task.type} • {formatCareTaskFrequency(task)}
                         </p>
                       </div>
                       {task.notificationEnabled && (
-                        <span className="textlgs px-2 py-1 bg-accent/15 text-accent rounded-lg">
+                        <span className="textlgs px-2 py-1 bg-accent/15 text-accent rounded-xl">
                           <CheckCircle className="w-4 h-4" />
                         </span>
                       )}
@@ -1235,10 +1314,7 @@ export function AnimalDetailView() {
                 <div className="text-center py-8">
                   <Clock className="w-12 h-12 text-muted mx-auto mb-3" />
                   <p className="text-muted mb-4">No care tasks yet</p>
-                  <Link
-                    to="/care-calendar"
-                    className="text-accent hover:underline"
-                  >
+                  <Link to="/care-calendar" className="text-accent hover:underline">
                     Set up a care task
                   </Link>
                 </div>
@@ -1267,7 +1343,7 @@ export function AnimalDetailView() {
                 {!showFeedingModal && (
                   <button
                     onClick={() => setShowFeedingModal(true)}
-                    className="inline-flex items-center gap-2 rounded-lg border border-accent/40 bg-accent/15 px-3 py-1.5 text-sm font-semibold text-accent transition-colors hover:bg-accent/25"
+                    className="inline-flex items-center gap-2 rounded-xl border border-accent/40 bg-accent/15 px-3 py-1.5 text-sm font-semibold text-accent transition-colors hover:bg-accent/25"
                   >
                     <Plus className="h-4 w-4" />
                     Add Entry
@@ -1282,19 +1358,24 @@ export function AnimalDetailView() {
                 onSubmit={handleSaveFeedingLog}
               />
 
-              <p className="text-sm text-muted">Click "Add Entry" above to log a feeding session. Your entries will appear in the Recent Feedings section below.</p>
+              <p className="text-sm text-muted">
+                Click "Add Entry" above to log a feeding session. Your entries will appear in the
+                Recent Feedings section below.
+              </p>
             </div>
 
             {/* Recent Feeding Logs */}
             <div className="bg-card border border-divider rounded-2xl overflow-hidden">
               <button
-                onClick={() => setShowRecentFeedings((prev) => {
-                  const next = !prev;
-                  if (next) {
-                    setRecentFeedingsVisibleCount(RECENT_FEEDINGS_PAGE_SIZE);
-                  }
-                  return next;
-                })}
+                onClick={() =>
+                  setShowRecentFeedings((prev) => {
+                    const next = !prev;
+                    if (next) {
+                      setRecentFeedingsVisibleCount(RECENT_FEEDINGS_PAGE_SIZE);
+                    }
+                    return next;
+                  })
+                }
                 className="w-full flex items-center justify-between p-6 hover:bg-card-elevated transition-colors"
               >
                 <h2 className="text-lg font-semibold text-white flex items-center gap-2">
@@ -1309,17 +1390,13 @@ export function AnimalDetailView() {
               {showRecentFeedings && (
                 <div className="border-t border-divider p-6 pt-4">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="flex items-center gap-2 bg-card-elevated rounded-lg p-1">
+                    <div className="flex items-center gap-2 bg-card-elevated rounded-xl p-1">
                       <button
                         onClick={() => {
                           setShowAllFeedingLogs(false);
                           setRecentFeedingsVisibleCount(RECENT_FEEDINGS_PAGE_SIZE);
                         }}
-                        className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
-                          !showAllFeedingLogs
-                            ? 'bg-card text-accent shadow-sm'
-                            : 'text-muted hover:text-white'
-                        }`}
+                        className={`px-3 py-1 text-xs font-medium rounded-xl transition-colors ${!showAllFeedingLogs ? 'bg-card text-accent ' : 'text-muted hover:text-white'}`}
                       >
                         This Animal
                       </button>
@@ -1328,11 +1405,7 @@ export function AnimalDetailView() {
                           setShowAllFeedingLogs(true);
                           setRecentFeedingsVisibleCount(RECENT_FEEDINGS_PAGE_SIZE);
                         }}
-                        className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
-                          showAllFeedingLogs
-                            ? 'bg-card text-accent shadow-sm'
-                            : 'text-muted hover:text-white'
-                        }`}
+                        className={`px-3 py-1 text-xs font-medium rounded-xl transition-colors ${showAllFeedingLogs ? 'bg-card text-accent ' : 'text-muted hover:text-white'}`}
                       >
                         All in Enclosure
                       </button>
@@ -1341,104 +1414,115 @@ export function AnimalDetailView() {
 
                   {combinedFeedingLogs.length > 0 ? (
                     <div className="space-y-3">
-                  {visibleRecentFeedingLogs.map((log) => (
-                    <div
-                      key={log.id}
-                      className="border border-divider rounded-lg p-4 hover:bg-card-elevated/50 transition-colors"
-                    >
-                      {/* Header: Title and Date */}
-                      <div className="flex items-start justify-between gap-2 mb-3">
-                        <div className="flex items-center gap-2 flex-1">
-                          <UtensilsCrossed className="w-4 h-4 text-accent flex-shrink-0" />
-                          <span className="font-medium text-white">
-                            {log.taskTitle}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2 flex-shrink-0">
-                          <span className="text-xs text-muted">
-                            {new Date(log.completedAt).toLocaleDateString()}
-                          </span>
-                          {log.taskTitle === 'Manual Feeding Log' && (
-                            <button
-                              onClick={() => handleDeleteFeedingLog(log.id)}
-                              disabled={deletingLogId === log.id}
-                              className="p-1 text-muted hover:text-red-500 transition-colors disabled:opacity-50"
-                              title="Delete feeding log"
-                            >
-                              <Trash2 className="w-4 h-4" />
-                            </button>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Feeding Details */}
-                      {log.feedingData && (
-                        <div className="space-y-2">
-                          {/* Food Row */}
-                          <div className="flex items-center gap-3 p-2 bg-card-elevated/30 rounded">
-                            <span className="text-xs font-medium text-muted uppercase w-16">Food:</span>
-                            <span className="text-sm text-white">{log.feedingData.feederType || 'Not specified'}</span>
+                      {visibleRecentFeedingLogs.map((log) => (
+                        <div
+                          key={log.id}
+                          className="border border-divider rounded-xl p-4 hover:bg-card-elevated/50 transition-colors"
+                        >
+                          {/* Header: Title and Date */}
+                          <div className="flex items-start justify-between gap-2 mb-3">
+                            <div className="flex items-center gap-2 flex-1">
+                              <UtensilsCrossed className="w-4 h-4 text-accent flex-shrink-0" />
+                              <span className="font-medium text-white">{log.taskTitle}</span>
+                            </div>
+                            <div className="flex items-center gap-2 flex-shrink-0">
+                              <span className="text-xs text-muted">
+                                {new Date(log.completedAt).toLocaleDateString()}
+                              </span>
+                              {log.taskTitle === 'Manual Feeding Log' && (
+                                <button
+                                  onClick={() => handleDeleteFeedingLog(log.id)}
+                                  disabled={deletingLogId === log.id}
+                                  className="p-1 text-muted hover:text-red-500 transition-colors disabled:opacity-50"
+                                  title="Delete feeding log"
+                                >
+                                  <Trash2 className="w-4 h-4" />
+                                </button>
+                              )}
+                            </div>
                           </div>
 
-                          {/* Amount Row */}
-                          <div className="flex items-center gap-3 p-2 bg-card-elevated/30 rounded">
-                            <span className="text-xs font-medium text-muted uppercase w-16">Amount:</span>
-                            <span className="text-sm text-white">
-                              {log.feedingData.quantityOffered
-                                ? `${log.feedingData.quantityEaten || 0} / ${log.feedingData.quantityOffered} eaten`
-                                : 'Not specified'}
-                            </span>
-                          </div>
+                          {/* Feeding Details */}
+                          {log.feedingData && (
+                            <div className="space-y-2">
+                              {/* Food Row */}
+                              <div className="flex items-center gap-3 p-2 bg-card-elevated/30 rounded-xl">
+                                <span className="text-xs font-medium text-muted uppercase w-16">
+                                  Food:
+                                </span>
+                                <span className="text-sm text-white">
+                                  {log.feedingData.feederType || 'Not specified'}
+                                </span>
+                              </div>
 
-                          {/* Supplement Row */}
-                          {log.feedingData.supplementUsed && log.feedingData.supplementUsed !== 'None' && (
-                            <div className="flex items-center gap-3 p-2 bg-accent/10 rounded border border-accent/20">
-                              <span className="text-xs font-sm text-accent uppercase w-16">Supplement:</span>
-                              <p></p>
-                              <span className="text-sm text-white">{log.feedingData.supplementUsed}</span>
+                              {/* Amount Row */}
+                              <div className="flex items-center gap-3 p-2 bg-card-elevated/30 rounded-xl">
+                                <span className="text-xs font-medium text-muted uppercase w-16">
+                                  Amount:
+                                </span>
+                                <span className="text-sm text-white">
+                                  {log.feedingData.quantityOffered
+                                    ? `${log.feedingData.quantityEaten || 0} / ${log.feedingData.quantityOffered} eaten`
+                                    : 'Not specified'}
+                                </span>
+                              </div>
+
+                              {/* Supplement Row */}
+                              {log.feedingData.supplementUsed &&
+                                log.feedingData.supplementUsed !== 'None' && (
+                                  <div className="flex items-center gap-3 p-2 bg-accent/10 rounded-xl border border-accent/20">
+                                    <span className="text-xs font-sm text-accent uppercase w-16">
+                                      Supplement:
+                                    </span>
+                                    <p></p>
+                                    <span className="text-sm text-white">
+                                      {log.feedingData.supplementUsed}
+                                    </span>
+                                  </div>
+                                )}
+
+                              {/* Notes */}
+                              {log.notes && (
+                                <div className="mt-3 p-3 bg-card rounded-xl border border-divider">
+                                  <p className="text-xs text-muted mb-1">Notes:</p>
+                                  <p className="text-sm text-muted italic">{log.notes}</p>
+                                </div>
+                              )}
                             </div>
                           )}
-
-                          {/* Notes */}
-                          {log.notes && (
-                            <div className="mt-3 p-3 bg-card rounded border border-divider">
-                              <p className="text-xs text-muted mb-1">Notes:</p>
-                              <p className="text-sm text-muted italic">{log.notes}</p>
-                            </div>
-                          )}
+                        </div>
+                      ))}
+                      {canLoadMoreRecentFeedings && (
+                        <div className="pt-2 flex items-center justify-between gap-3">
+                          <p className="text-xs text-muted">
+                            Showing {visibleRecentFeedingLogs.length} of{' '}
+                            {combinedFeedingLogs.length}
+                          </p>
+                          <button
+                            onClick={() =>
+                              setRecentFeedingsVisibleCount(
+                                (prev) => prev + RECENT_FEEDINGS_PAGE_SIZE
+                              )
+                            }
+                            className="px-3 py-1.5 text-xs font-semibold rounded-xl border border-divider bg-card-elevated text-white hover:bg-card transition-colors"
+                          >
+                            Load More
+                          </button>
                         </div>
                       )}
                     </div>
-                  ))}
-                  {canLoadMoreRecentFeedings && (
-                    <div className="pt-2 flex items-center justify-between gap-3">
-                      <p className="text-xs text-muted">
-                        Showing {visibleRecentFeedingLogs.length} of {combinedFeedingLogs.length}
-                      </p>
-                      <button
-                        onClick={() => setRecentFeedingsVisibleCount((prev) => prev + RECENT_FEEDINGS_PAGE_SIZE)}
-                        className="px-3 py-1.5 text-xs font-semibold rounded-lg border border-divider bg-card-elevated text-white hover:bg-card transition-colors"
-                      >
-                        Load More
-                      </button>
+                  ) : (
+                    <div className="text-center py-8">
+                      <UtensilsCrossed className="w-12 h-12 text-muted mx-auto mb-3" />
+                      <p className="text-muted mb-4">No feeding records yet</p>
+                      {enclosure && (
+                        <Link to="/care-calendar" className="text-accent hover:underline">
+                          Go to Care Calendar to log feedings
+                        </Link>
+                      )}
                     </div>
                   )}
                 </div>
-              ) : (
-                <div className="text-center py-8">
-                  <UtensilsCrossed className="w-12 h-12 text-muted mx-auto mb-3" />
-                  <p className="text-muted mb-4">No feeding records yet</p>
-                  {enclosure && (
-                    <Link
-                      to="/care-calendar"
-                      className="text-accent hover:underline"
-                    >
-                      Go to Care Calendar to log feedings
-                    </Link>
-                  )}
-                </div>
-              )}
-            </div>
               )}
             </div>
 
@@ -1451,7 +1535,7 @@ export function AnimalDetailView() {
                 <button
                   type="button"
                   onClick={() => setShowPoopForm((prev) => !prev)}
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-divider bg-card-elevated px-3 py-1.5 text-xs font-semibold text-accent"
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-divider bg-card-elevated px-3 py-1.5 text-xs font-semibold text-accent"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   Log Poop
@@ -1461,12 +1545,19 @@ export function AnimalDetailView() {
               {showPoopForm && (
                 <div className="mb-4 rounded-xl border border-divider bg-card-elevated p-3 space-y-3">
                   <div>
-                    <label htmlFor="animal-poop-consistency" className="block text-xs text-muted mb-1">Consistency</label>
+                    <label
+                      htmlFor="animal-poop-consistency"
+                      className="block text-xs text-muted mb-1"
+                    >
+                      Consistency
+                    </label>
                     <select
                       id="animal-poop-consistency"
                       value={poopConsistency || 'normal'}
-                      onChange={(event) => setPoopConsistency(event.target.value as PoopLog['consistency'])}
-                      className="w-full rounded-lg border border-divider bg-card px-3 py-2 text-sm text-white"
+                      onChange={(event) =>
+                        setPoopConsistency(event.target.value as PoopLog['consistency'])
+                      }
+                      className="w-full rounded-xl border border-divider bg-card px-3 py-2 text-sm text-white"
                     >
                       <option value="normal">Normal</option>
                       <option value="soft">Soft</option>
@@ -1481,14 +1572,16 @@ export function AnimalDetailView() {
                   </div>
 
                   <div>
-                    <label htmlFor="animal-poop-notes" className="block text-xs text-muted mb-1">Notes</label>
+                    <label htmlFor="animal-poop-notes" className="block text-xs text-muted mb-1">
+                      Notes
+                    </label>
                     <textarea
                       id="animal-poop-notes"
                       rows={2}
                       value={poopNotes}
                       onChange={(event) => setPoopNotes(event.target.value)}
                       placeholder="Optional notes"
-                      className="w-full rounded-lg border border-divider bg-card px-3 py-2 text-sm text-white"
+                      className="w-full rounded-xl border border-divider bg-card px-3 py-2 text-sm text-white"
                     />
                   </div>
 
@@ -1508,7 +1601,7 @@ export function AnimalDetailView() {
                       type="button"
                       disabled={savingPoop}
                       onClick={() => handleSavePoopLog().catch(console.error)}
-                      className="px-3 py-1.5 rounded-md text-xs font-semibold bg-accent text-on-accent disabled:opacity-60"
+                      className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-accent text-on-accent disabled:opacity-60"
                     >
                       {savingPoop ? 'Saving...' : 'Save Log'}
                     </button>
@@ -1519,13 +1612,17 @@ export function AnimalDetailView() {
               {poopLogs.length > 0 ? (
                 <div className="space-y-2">
                   {poopLogs.map((log) => (
-                    <div key={log.id} className="rounded-lg border border-divider p-3">
+                    <div key={log.id} className="rounded-xl border border-divider p-3">
                       <div className="flex items-center justify-between gap-2">
                         <div className="flex items-center gap-2 flex-1">
-                          <p className="text-sm font-medium text-white capitalize">{log.consistency || 'Unknown'}</p>
+                          <p className="text-sm font-medium text-white capitalize">
+                            {log.consistency || 'Unknown'}
+                          </p>
                         </div>
                         <div className="flex items-center gap-2">
-                          <p className="text-xs text-muted">{new Date(log.loggedAt).toLocaleDateString()}</p>
+                          <p className="text-xs text-muted">
+                            {new Date(log.loggedAt).toLocaleDateString()}
+                          </p>
                           <button
                             onClick={() => handleDeletePoopLog(log.id)}
                             disabled={deletingLogId === log.id}
@@ -1536,9 +1633,7 @@ export function AnimalDetailView() {
                           </button>
                         </div>
                       </div>
-                      {log.notes && (
-                        <p className="mt-1 text-xs text-muted">{log.notes}</p>
-                      )}
+                      {log.notes && <p className="mt-1 text-xs text-muted">{log.notes}</p>}
                     </div>
                   ))}
                 </div>
@@ -1548,7 +1643,6 @@ export function AnimalDetailView() {
                 </div>
               )}
             </div>
-
           </div>
         )}
 
@@ -1557,7 +1651,7 @@ export function AnimalDetailView() {
           <div className="space-y-6">
             <div className="bg-card border border-divider rounded-2xl p-6">
               <h2 className="text-lg font-semibold text-white mb-4">Basic Information</h2>
-              
+
               <div className="space-y-4">
                 {enclosure && (
                   <div>
@@ -1569,7 +1663,7 @@ export function AnimalDetailView() {
                     <p className="text-sm text-muted ml-6">{displaySpecies}</p>
                   </div>
                 )}
-                
+
                 {animal.birthday && (
                   <div>
                     <div className="flex items-center gap-2 text-sm text-muted mb-1">
@@ -1577,11 +1671,14 @@ export function AnimalDetailView() {
                       <span className="font-medium">Birthday</span>
                     </div>
                     <p className="text-base text-white ml-6">
-                      {new Date(animal.birthday).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                      {new Date(animal.birthday).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
                     </p>
                   </div>
                 )}
-
               </div>
             </div>
 
@@ -1606,7 +1703,11 @@ export function AnimalDetailView() {
                   <div>
                     <p className="text-sm font-medium text-muted mb-1">Acquisition Date</p>
                     <p className="text-base text-white">
-                      {new Date(animal.acquisitionDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                      {new Date(animal.acquisitionDate).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
                     </p>
                   </div>
                 )}
@@ -1625,18 +1726,21 @@ export function AnimalDetailView() {
                   </div>
                 )}
 
-                {!animal.source && !animal.acquisitionDate && !animal.acquisitionPrice && !animal.acquisitionNotes && (
-                  <div className="text-center py-8">
-                    <Info className="w-12 h-12 text-muted mx-auto mb-3" />
-                    <p className="text-muted mb-4">No acquisition information recorded</p>
-                    <button
-                      onClick={() => navigate(`/my-animals/edit/${animal.id}`)}
-                      className="text-accent hover:underline"
-                    >
-                      Edit Animal Details
-                    </button>
-                  </div>
-                )}
+                {!animal.source &&
+                  !animal.acquisitionDate &&
+                  !animal.acquisitionPrice &&
+                  !animal.acquisitionNotes && (
+                    <div className="text-center py-8">
+                      <Info className="w-12 h-12 text-muted mx-auto mb-3" />
+                      <p className="text-muted mb-4">No acquisition information recorded</p>
+                      <button
+                        onClick={() => navigate(`/my-animals/edit/${animal.id}`)}
+                        className="text-accent hover:underline"
+                      >
+                        Edit Animal Details
+                      </button>
+                    </div>
+                  )}
               </div>
             </div>
             {/* Notes */}
@@ -1648,8 +1752,11 @@ export function AnimalDetailView() {
                 </h2>
                 {!editingNotes && (
                   <button
-                    onClick={() => { setNotesValue(animal.notes || ''); setEditingNotes(true); }}
-                    className="px-3 py-1.5 bg-card-elevated border border-divider text-white rounded-lg text-xs font-semibold flex items-center gap-1.5"
+                    onClick={() => {
+                      setNotesValue(animal.notes || '');
+                      setEditingNotes(true);
+                    }}
+                    className="px-3 py-1.5 bg-card-elevated border border-divider text-white rounded-xl text-xs font-semibold flex items-center gap-1.5"
                   >
                     <Pencil className="w-3.5 h-3.5" />
                     {animal.notes ? 'Edit' : 'Add Note'}
@@ -1682,7 +1789,7 @@ export function AnimalDetailView() {
                         setEditingNotes(false);
                         setSavingNotes(false);
                       }}
-                      className="px-4 py-2 bg-accent text-on-accent rounded-lg text-sm font-semibold disabled:opacity-50"
+                      className="px-4 py-2 bg-accent text-on-accent rounded-xl text-sm font-semibold disabled:opacity-50"
                     >
                       {savingNotes ? 'Saving...' : 'Save'}
                     </button>
@@ -1691,7 +1798,10 @@ export function AnimalDetailView() {
               ) : animal.notes ? (
                 <p className="text-sm text-white whitespace-pre-wrap">{animal.notes}</p>
               ) : (
-                <p className="text-sm text-muted">No notes yet. Tap "Add Note" to record observations, reminders, or anything else about this animal.</p>
+                <p className="text-sm text-muted">
+                  No notes yet. Tap "Add Note" to record observations, reminders, or anything else
+                  about this animal.
+                </p>
               )}
             </div>
           </div>
@@ -1700,9 +1810,3 @@ export function AnimalDetailView() {
     </div>
   );
 }
-
-
-
-
-
-

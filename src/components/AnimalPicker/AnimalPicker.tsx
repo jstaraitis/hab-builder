@@ -7,7 +7,8 @@ interface AnimalPickerProps {
   onSelect: (animalId: string) => void;
 }
 
-type Category = 'all' | 'frogs' | 'geckos' | 'snakes' | 'lizards' | 'turtles' | 'salamanders' | 'chameleons';
+type Category =
+  'all' | 'frogs' | 'geckos' | 'snakes' | 'lizards' | 'turtles' | 'salamanders' | 'chameleons';
 
 // Category mapping based on animal ID patterns
 const getAnimalCategory = (animalId: string): Category => {
@@ -15,54 +16,66 @@ const getAnimalCategory = (animalId: string): Category => {
   if (animalId.includes('gecko')) return 'geckos';
   if (animalId.includes('snake') || animalId.includes('python')) return 'snakes';
   if (animalId.includes('slider') || animalId.includes('turtle')) return 'turtles';
-  if (animalId.includes('axolotl') || animalId.includes('newt') || animalId.includes('salamander')) return 'salamanders';
+  if (animalId.includes('axolotl') || animalId.includes('newt') || animalId.includes('salamander'))
+    return 'salamanders';
   if (animalId.includes('chameleon')) return 'chameleons';
-  if (animalId.includes('dragon') || animalId.includes('skink') || animalId.includes('uromastyx')) return 'lizards';
+  if (animalId.includes('dragon') || animalId.includes('skink') || animalId.includes('uromastyx'))
+    return 'lizards';
   return 'all';
 };
 
 export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
   const [searchQuery, setSearchQuery] = useState('');
-  const [careLevelFilter, setCareLevelFilter] = useState<'all' | 'beginner' | 'intermediate' | 'advanced'>('all');
+  const [careLevelFilter, setCareLevelFilter] = useState<
+    'all' | 'beginner' | 'intermediate' | 'advanced'
+  >('all');
   const [categoryFilter, setCategoryFilter] = useState<Category>('all');
 
   // Memoize expensive filtering and sorting - only recalculates when filters change
   const filteredAnimals = useMemo(() => {
-    return animalList
-      .filter(animal => {
-        const q = searchQuery.trim().toLowerCase();
+    return (
+      animalList
+        .filter((animal) => {
+          const q = searchQuery.trim().toLowerCase();
 
-        const searchParts: string[] = [];
-        if (animal.name) searchParts.push(animal.name);
-        if (animal.id) searchParts.push(animal.id);
-        if (animal.searchQuery) {
-          searchParts.push(Array.isArray(animal.searchQuery) ? animal.searchQuery.join(' ') : String(animal.searchQuery));
-        }
-        if (animal.scientificName) {
-          searchParts.push(animal.scientificName);
-        }
+          const searchParts: string[] = [];
+          if (animal.name) searchParts.push(animal.name);
+          if (animal.id) searchParts.push(animal.id);
+          if (animal.searchQuery) {
+            searchParts.push(
+              Array.isArray(animal.searchQuery)
+                ? animal.searchQuery.join(' ')
+                : String(animal.searchQuery)
+            );
+          }
+          if (animal.scientificName) {
+            searchParts.push(animal.scientificName);
+          }
 
-        const searchable = searchParts.join(' ').toLowerCase();
-        const matchesSearch = q === '' || searchable.includes(q);
-        const matchesCareLevel = careLevelFilter === 'all' || animal.careLevel === careLevelFilter;
-        const matchesCategory = categoryFilter === 'all' || getAnimalCategory(animal.id) === categoryFilter;
-        return matchesSearch && matchesCareLevel && matchesCategory;
-      })
-      // Sort by status priority (validated → in-progress → draft), then by name
-      .sort((a, b) => {
-        const statusOrder: Record<string, number> = {
-          'validated': 0,
-          'in-progress': 1,
-          'draft': 2,
-          'complete': 3,
-        };
+          const searchable = searchParts.join(' ').toLowerCase();
+          const matchesSearch = q === '' || searchable.includes(q);
+          const matchesCareLevel =
+            careLevelFilter === 'all' || animal.careLevel === careLevelFilter;
+          const matchesCategory =
+            categoryFilter === 'all' || getAnimalCategory(animal.id) === categoryFilter;
+          return matchesSearch && matchesCareLevel && matchesCategory;
+        })
+        // Sort by status priority (validated → in-progress → draft), then by name
+        .sort((a, b) => {
+          const statusOrder: Record<string, number> = {
+            validated: 0,
+            'in-progress': 1,
+            draft: 2,
+            complete: 3,
+          };
 
-        const pa = statusOrder[a.completionStatus ?? ''] ?? 99;
-        const pb = statusOrder[b.completionStatus ?? ''] ?? 99;
+          const pa = statusOrder[a.completionStatus ?? ''] ?? 99;
+          const pb = statusOrder[b.completionStatus ?? ''] ?? 99;
 
-        if (pa !== pb) return pa - pb;
-        return a.name.localeCompare(b.name);
-      });
+          if (pa !== pb) return pa - pb;
+          return a.name.localeCompare(b.name);
+        })
+    );
   }, [searchQuery, careLevelFilter, categoryFilter]);
 
   const getStatusBadge = (status?: string) => {
@@ -76,7 +89,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
     if (status === 'in-progress') {
       return (
         <div className="absolute top-0 right-0 overflow-hidden w-24 h-24 pointer-events-none">
-          <div className="absolute top-4 -right-8 bg-yellow-400/70 dark:bg-yellow-400/70 backdrop-blur-md text-white text-[10px] md:text-xs font-bold py-1 px-10 rotate-45 shadow-lg flex items-center justify-center gap-1">
+          <div className="absolute top-4 -right-8 bg-yellow-400/70 dark:bg-yellow-400/70 backdrop-blur-md text-white text-[10px] md:text-xs font-bold py-1 px-10 rotate-45 flex items-center justify-center gap-1">
             <Clock className="w-3 h-3 md:w-3.5 md:h-3.5" />
             <span>NEW</span>
           </div>
@@ -86,7 +99,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
     if (status === 'draft') {
       return (
         <div className="absolute top-0 right-0 overflow-hidden w-24 h-24 pointer-events-none">
-          <div className="absolute top-4 -right-8 bg-gray-500/70 dark:bg-gray-500/70 backdrop-blur-md text-white text-[10px] md:text-xs font-bold py-1 px-10 rotate-45 shadow-lg flex items-center justify-center gap-1">
+          <div className="absolute top-4 -right-8 bg-gray-500/70 dark:bg-gray-500/70 backdrop-blur-md text-white text-[10px] md:text-xs font-bold py-1 px-10 rotate-45 flex items-center justify-center gap-1">
             <FileText className="w-3 h-3 md:w-3.5 md:h-3.5" />
             <span>SOON</span>
           </div>
@@ -97,102 +110,114 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
   };
 
   // Memoized animal card component to prevent unnecessary re-renders
-  const AnimalCard = memo(({ animal, selected, onSelect }: {
-    animal: typeof animalList[0];
-    selected: string;
-    onSelect: (id: string) => void;
-  }) => {
-    const getCareLevelColors = () => {
-      if (animal.careLevel === 'beginner') {
-        return {
-          border: 'border-green-400',
-          bg: 'bg-green-50 dark:bg-green-900/20',
-          accent: 'bg-green-400',
-          text: 'text-green-700 dark:text-green-300'
-        };
-      } else if (animal.careLevel === 'intermediate') {
-        return {
-          border: 'border-orange-400',
-          bg: 'bg-orange-50 dark:bg-orange-900/20',
-          accent: 'bg-orange-400',
-          text: 'text-orange-700 dark:text-orange-300'
-        };
-      } else {
-        return {
-          border: 'border-red-400',
-          bg: 'bg-red-50 dark:bg-red-900/20',
-          accent: 'bg-red-400',
-          text: 'text-red-700 dark:text-red-300'
-        };
-      }
-    };
+  const AnimalCard = memo(
+    ({
+      animal,
+      selected,
+      onSelect,
+    }: {
+      animal: (typeof animalList)[0];
+      selected: string;
+      onSelect: (id: string) => void;
+    }) => {
+      const getCareLevelColors = () => {
+        if (animal.careLevel === 'beginner') {
+          return {
+            border: 'border-green-400',
+            bg: 'bg-green-50 dark:bg-green-900/20',
+            accent: 'bg-green-400',
+            text: 'text-green-700 dark:text-green-300',
+          };
+        } else if (animal.careLevel === 'intermediate') {
+          return {
+            border: 'border-orange-400',
+            bg: 'bg-orange-50 dark:bg-orange-900/20',
+            accent: 'bg-orange-400',
+            text: 'text-orange-700 dark:text-orange-300',
+          };
+        } else {
+          return {
+            border: 'border-red-400',
+            bg: 'bg-red-50 dark:bg-red-900/20',
+            accent: 'bg-red-400',
+            text: 'text-red-700 dark:text-red-300',
+          };
+        }
+      };
 
-    const colors = getCareLevelColors();
-    const isDraft = animal.completionStatus === 'draft';
+      const colors = getCareLevelColors();
+      const isDraft = animal.completionStatus === 'draft';
 
-    return (
-      <button
-        onClick={() => !isDraft && onSelect(animal.id)}
-        disabled={isDraft}
-        aria-disabled={isDraft}
-        title={isDraft ? `${animal.name} (Draft - not selectable)` : `Select ${animal.name}`}
-        tabIndex={isDraft ? -1 : 0}
-        className={`group relative overflow-hidden rounded-xl transition-all duration-300 text-left ${
-          selected === animal.id
-            ? `${colors.bg} ring-4 ${colors.border} shadow-xl scale-[1.02]`
-            : 'bg-card hover:shadow-lg hover:scale-[1.01]'
-        } ${isDraft ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'}`}
-      >
-        {/* Image with colored border and text overlay */}
-        <div className="p-2 sm:p-2 md:p-2.5">
-          <div className={`relative w-full aspect-[4/3] rounded-lg overflow-hidden border-2 md:border-4 ${colors.border} transition-all duration-300`}>
-            {animal.imageUrl ? (
-              <img 
-                src={animal.imageUrl} 
-                alt={animal.name}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                loading="lazy"
-                decoding="async"
-              />
-            ) : (
-              <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
-                <div className="text-5xl group-hover:scale-110 transition-transform duration-300">{animal.image}</div>
-              </div>
-            )}
-            
-            {/* Dark gradient overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
-            
-            {/* Status Ribbon - Top Right Corner */}
-            {animal.completionStatus && getStatusBadge(animal.completionStatus)}
-
-            {/* Text overlay at bottom */}
-            <div className="absolute bottom-0 left-0 right-0 p-2.5 md:p-3 space-y-0.5">
-              {/* Common Name - Bold and Prominent */}
-              <h3 className="font-bold text-sm md:text-base text-white leading-tight tracking-tight line-clamp-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                {animal.name}
-              </h3>
-              
-              {/* Scientific Name - Prominent italic */}
-              {animal.scientificName && (
-                <p className="text-[11px] md:text-xs font-medium italic text-white/95 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                  {animal.scientificName}
-                </p>
+      return (
+        <button
+          onClick={() => !isDraft && onSelect(animal.id)}
+          disabled={isDraft}
+          aria-disabled={isDraft}
+          title={isDraft ? `${animal.name} (Draft - not selectable)` : `Select ${animal.name}`}
+          tabIndex={isDraft ? -1 : 0}
+          className={`group relative overflow-hidden rounded-xl transition-all duration-300 text-left ${
+            selected === animal.id
+              ? `${colors.bg} ring-4 ${colors.border} shadow-xl scale-[1.02]`
+              : 'bg-card hover:scale-[1.01]'
+          } ${isDraft ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'}`}
+        >
+          {/* Image with colored border and text overlay */}
+          <div className="p-2 sm:p-2 md:p-2.5">
+            <div
+              className={`relative w-full aspect-[4/3] rounded-xl overflow-hidden border-2 md:border-4 ${colors.border} transition-all duration-300`}
+            >
+              {animal.imageUrl ? (
+                <img
+                  src={animal.imageUrl}
+                  alt={animal.name}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+                  <div className="text-5xl group-hover:scale-110 transition-transform duration-300">
+                    {animal.image}
+                  </div>
+                </div>
               )}
+
+              {/* Dark gradient overlay for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
+
+              {/* Status Ribbon - Top Right Corner */}
+              {animal.completionStatus && getStatusBadge(animal.completionStatus)}
+
+              {/* Text overlay at bottom */}
+              <div className="absolute bottom-0 left-0 right-0 p-2.5 md:p-3 space-y-0.5">
+                {/* Common Name - Bold and Prominent */}
+                <h3 className="font-bold text-sm md:text-base text-white leading-tight tracking-tight line-clamp-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                  {animal.name}
+                </h3>
+
+                {/* Scientific Name - Prominent italic */}
+                {animal.scientificName && (
+                  <p className="text-[11px] md:text-xs font-medium italic text-white/95 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                    {animal.scientificName}
+                  </p>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </button>
-    );
-  });
+        </button>
+      );
+    }
+  );
 
   AnimalCard.displayName = 'AnimalCard';
 
   return (
-    <div className="bg-white dark:bg-card rounded-lg shadow-md p-3 sm:p-6">
+    <div className="bg-white dark:bg-card rounded-xl p-3 sm:p-6">
       <h2 className="text-2xl font-bold text-white mb-2">Select Animal</h2>
-      <p className="text-sm text-secondary mb-4">Choose your animal and we'll build a habitat for it.</p>
-      
+      <p className="text-sm text-secondary mb-4">
+        Choose your animal and we'll build a habitat for it.
+      </p>
+
       {/* Category Selection - Dropdown on Mobile, Tabs on Desktop */}
       <div className="mb-4">
         {/* Mobile Dropdown */}
@@ -200,7 +225,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value as Category)}
-            className="w-full px-4 py-2.5 rounded-lg border-2 border-divider dark:border-divider bg-white dark:bg-card text-white font-medium focus:outline-none focus:ring-2 focus:ring-jade-500 dark:focus:ring-accent"
+            className="w-full px-4 py-2.5 rounded-xl border-2 border-divider dark:border-divider bg-white dark:bg-card text-white font-medium focus:outline-none focus:ring-2 focus:ring-jade-500 dark:focus:ring-accent"
           >
             <option value="all">All Animals</option>
             <option value="frogs">Frogs & Toads</option>
@@ -217,87 +242,55 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
         <div className="hidden md:flex gap-2 border-b border-divider dark:border-divider pb-3">
           <button
             onClick={() => setCategoryFilter('all')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-              categoryFilter === 'all'
-                ? 'bg-jade-600 dark:bg-accent text-white shadow-md'
-                : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'
-            }`}
+            className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${categoryFilter === 'all' ? 'bg-jade-600 dark:bg-accent text-white ' : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'}`}
           >
             All Animals
           </button>
           <button
             onClick={() => setCategoryFilter('frogs')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${
-              categoryFilter === 'frogs'
-                ? 'bg-jade-600 dark:bg-accent text-white shadow-md'
-                : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'
-            }`}
+            className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all whitespace-nowrap ${categoryFilter === 'frogs' ? 'bg-jade-600 dark:bg-accent text-white ' : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'}`}
           >
             Frogs & Toads
           </button>
           <button
             onClick={() => setCategoryFilter('salamanders')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${
-              categoryFilter === 'salamanders'
-                ? 'bg-jade-600 dark:bg-accent text-white shadow-md'
-                : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'
-            }`}
+            className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all whitespace-nowrap ${categoryFilter === 'salamanders' ? 'bg-jade-600 dark:bg-accent text-white ' : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'}`}
           >
             Salamanders & Newts
           </button>
           <button
             onClick={() => setCategoryFilter('geckos')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-              categoryFilter === 'geckos'
-                ? 'bg-jade-600 dark:bg-accent text-white shadow-md'
-                : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'
-            }`}
+            className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${categoryFilter === 'geckos' ? 'bg-jade-600 dark:bg-accent text-white ' : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'}`}
           >
             Geckos
           </button>
           <button
             onClick={() => setCategoryFilter('chameleons')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-              categoryFilter === 'chameleons'
-                ? 'bg-jade-600 dark:bg-accent text-white shadow-md'
-                : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'
-            }`}
+            className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${categoryFilter === 'chameleons' ? 'bg-jade-600 dark:bg-accent text-white ' : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'}`}
           >
             Chameleons
           </button>
           <button
             onClick={() => setCategoryFilter('snakes')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-              categoryFilter === 'snakes'
-                ? 'bg-jade-600 dark:bg-accent text-white shadow-md'
-                : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'
-            }`}
+            className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${categoryFilter === 'snakes' ? 'bg-jade-600 dark:bg-accent text-white ' : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'}`}
           >
             Snakes
           </button>
           <button
             onClick={() => setCategoryFilter('lizards')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-              categoryFilter === 'lizards'
-                ? 'bg-jade-600 dark:bg-accent text-white shadow-md'
-                : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'
-            }`}
+            className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${categoryFilter === 'lizards' ? 'bg-jade-600 dark:bg-accent text-white ' : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'}`}
           >
             Lizards
           </button>
           <button
             onClick={() => setCategoryFilter('turtles')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${
-              categoryFilter === 'turtles'
-                ? 'bg-jade-600 dark:bg-accent text-white shadow-md'
-                : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'
-            }`}
+            className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all whitespace-nowrap ${categoryFilter === 'turtles' ? 'bg-jade-600 dark:bg-accent text-white ' : 'bg-card-elevated dark:bg-card text-secondary hover:bg-card-elevated dark:hover:bg-card-elevated'}`}
           >
             Turtles & Tortoises
           </button>
         </div>
       </div>
-      
+
       {/* Search Bar */}
       <div className="mb-6">
         <div className="relative">
@@ -306,57 +299,46 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
             placeholder="Search animals (e.g., snake, gecko, turtle)..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-3 pl-11 border-2 border-divider rounded-lg bg-card-elevated text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-jade-500 focus:border-transparent transition-all"
+            className="w-full px-4 py-3 pl-11 border-2 border-divider rounded-xl bg-card-elevated text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-jade-500 focus:border-transparent transition-all"
           />
-          <svg 
+          <svg
             className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted"
-            fill="none" 
-            stroke="currentColor" 
+            fill="none"
+            stroke="currentColor"
             viewBox="0 0 24 24"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
           </svg>
         </div>
-        
+
         {/* Care Level Filter Buttons */}
         <div className="flex flex-wrap gap-2 mt-4">
           <button
             onClick={() => setCareLevelFilter('all')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
-              careLevelFilter === 'all'
-                ? 'bg-jade-600 text-white shadow-md'
-                : 'bg-card-elevated text-secondary hover:bg-card-elevated'
-            }`}
+            className={`px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap ${careLevelFilter === 'all' ? 'bg-jade-600 text-white ' : 'bg-card-elevated text-secondary hover:bg-card-elevated'}`}
           >
             All
           </button>
           <button
             onClick={() => setCareLevelFilter('beginner')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
-              careLevelFilter === 'beginner'
-                ? 'bg-green-500 text-white shadow-md'
-                : 'bg-card-elevated text-secondary hover:bg-card-elevated'
-            }`}
+            className={`px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap ${careLevelFilter === 'beginner' ? 'bg-green-500 text-white ' : 'bg-card-elevated text-secondary hover:bg-card-elevated'}`}
           >
             <CheckCircle className="inline-block w-4 h-4 mr-2" /> Beginner
           </button>
           <button
             onClick={() => setCareLevelFilter('intermediate')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
-              careLevelFilter === 'intermediate'
-                ? 'bg-orange-500 text-white shadow-md'
-                : 'bg-card-elevated text-secondary hover:bg-card-elevated'
-            }`}
+            className={`px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap ${careLevelFilter === 'intermediate' ? 'bg-orange-500 text-white ' : 'bg-card-elevated text-secondary hover:bg-card-elevated'}`}
           >
             <Sliders className="inline-block w-4 h-4 mr-2" /> Intermediate
           </button>
           <button
             onClick={() => setCareLevelFilter('advanced')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
-              careLevelFilter === 'advanced'
-                ? 'bg-red-500 text-white shadow-md'
-                : 'bg-card-elevated text-secondary hover:bg-card-elevated'
-            }`}
+            className={`px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap ${careLevelFilter === 'advanced' ? 'bg-red-500 text-white ' : 'bg-card-elevated text-secondary hover:bg-card-elevated'}`}
           >
             <Zap className="inline-block w-4 h-4 mr-2" /> Advanced
           </button>
@@ -364,19 +346,25 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
 
         {/* Care level explanation - only visible when a specific level is selected */}
         {careLevelFilter !== 'all' && (
-          <div className="mt-3 p-3 rounded-md bg-card text-sm text-secondary">
+          <div className="mt-3 p-3 rounded-xl bg-card text-sm text-secondary">
             {careLevelFilter === 'beginner' && (
               <>Beginner — Easygoing species and straightforward setups. Great for first-timers.</>
             )}
             {careLevelFilter === 'intermediate' && (
-              <>Intermediate — Some special equipment or husbandry required; moderate experience helpful.</>
+              <>
+                Intermediate — Some special equipment or husbandry required; moderate experience
+                helpful.
+              </>
             )}
             {careLevelFilter === 'advanced' && (
-              <>Advanced — Demanding species needing precise environment control and experienced care.</>
+              <>
+                Advanced — Demanding species needing precise environment control and experienced
+                care.
+              </>
             )}
           </div>
         )}
-        
+
         {searchQuery && (
           <p className="mt-2 text-sm text-muted">
             Found {filteredAnimals.length} {filteredAnimals.length === 1 ? 'animal' : 'animals'}
@@ -393,21 +381,21 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
                 border: 'border-green-400',
                 bg: 'bg-green-50 dark:bg-green-900/20',
                 accent: 'bg-green-400',
-                text: 'text-green-700 dark:text-green-300'
+                text: 'text-green-700 dark:text-green-300',
               };
             } else if (animal.careLevel === 'intermediate') {
               return {
                 border: 'border-orange-400',
                 bg: 'bg-orange-50 dark:bg-orange-900/20',
                 accent: 'bg-orange-400',
-                text: 'text-orange-700 dark:text-orange-300'
+                text: 'text-orange-700 dark:text-orange-300',
               };
             } else {
               return {
                 border: 'border-red-400',
                 bg: 'bg-red-50 dark:bg-red-900/20',
                 accent: 'bg-red-400',
-                text: 'text-red-700 dark:text-red-300'
+                text: 'text-red-700 dark:text-red-300',
               };
             }
           };
@@ -426,15 +414,17 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
               className={`group relative overflow-hidden rounded-xl transition-all duration-300 text-left ${
                 selected === animal.id
                   ? `${colors.bg} ring-4 ${colors.border} shadow-xl scale-[1.02]`
-                  : 'bg-card hover:shadow-lg hover:scale-[1.01]'
+                  : 'bg-card  hover:scale-[1.01]'
               } ${isDraft ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'}`}
             >
               {/* Image with colored border and text overlay */}
               <div className="p-2 sm:p-2 md:p-2.5">
-                <div className={`relative w-full aspect-[4/3] rounded-lg overflow-hidden border-2 md:border-4 ${colors.border} transition-all duration-300`}>
+                <div
+                  className={`relative w-full aspect-[4/3] rounded-xl overflow-hidden border-2 md:border-4 ${colors.border} transition-all duration-300`}
+                >
                   {animal.imageUrl ? (
-                    <img 
-                      src={animal.imageUrl} 
+                    <img
+                      src={animal.imageUrl}
                       alt={animal.name}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
@@ -442,13 +432,15 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
                     />
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
-                      <div className="text-5xl group-hover:scale-110 transition-transform duration-300">{animal.image}</div>
+                      <div className="text-5xl group-hover:scale-110 transition-transform duration-300">
+                        {animal.image}
+                      </div>
                     </div>
                   )}
-                  
+
                   {/* Dark gradient overlay for text readability */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
-                  
+
                   {/* Status Ribbon - Top Right Corner */}
                   {animal.completionStatus && getStatusBadge(animal.completionStatus)}
 
@@ -458,7 +450,7 @@ export function AnimalPicker({ selected, onSelect }: AnimalPickerProps) {
                     <h3 className="font-bold text-sm md:text-base text-white leading-tight tracking-tight line-clamp-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                       {animal.name}
                     </h3>
-                    
+
                     {/* Scientific Name - Prominent italic */}
                     {animal.scientificName && (
                       <p className="text-[11px] md:text-xs font-medium italic text-white/95 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">

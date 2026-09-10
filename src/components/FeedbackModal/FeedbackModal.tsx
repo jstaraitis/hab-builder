@@ -44,7 +44,7 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
           <h2 className="text-lg font-bold text-white">Send Feedback</h2>
           <button
             onClick={onClose}
-            className="text-muted p-1 rounded-lg"
+            className="text-muted p-1 rounded-xl"
             aria-label="Close"
           >
             <X className="w-5 h-5" />

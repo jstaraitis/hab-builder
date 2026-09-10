@@ -176,11 +176,7 @@ export function ShedLogForm({ animal, onSuccess, onCancel, initialData }: ShedLo
               key={area}
               type="button"
               onClick={() => toggleProblemArea(area)}
-              className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
-                problemAreas.includes(area)
-                  ? 'bg-orange-500 text-white'
-                  : 'bg-card-elevated text-white hover:bg-card-elevated'
-              }`}
+              className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${ problemAreas.includes(area) ? 'bg-orange-500 text-white' : 'bg-card-elevated text-white hover:bg-card-elevated' }`}
             >
               {area}
             </button>

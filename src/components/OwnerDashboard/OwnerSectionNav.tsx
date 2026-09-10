@@ -1,7 +1,7 @@
 ﻿import { NavLink } from 'react-router-dom';
 import { Bell, ClipboardList, LayoutDashboard } from 'lucide-react';
 
-const baseLinkClassName = 'inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition-colors';
+const baseLinkClassName = 'inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-sm font-medium transition-colors';
 
 function linkClassName(isActive: boolean): string {
   if (isActive) {
@@ -13,7 +13,7 @@ function linkClassName(isActive: boolean): string {
 
 export function OwnerSectionNav() {
   return (
-    <nav className="rounded-xl border border-divider bg-white p-3 shadow-sm dark:border-divider dark:bg-card">
+    <nav className="rounded-xl border border-divider bg-white p-3 dark:border-divider dark:bg-card">
       <div className="flex flex-wrap items-center gap-2">
         <NavLink to="/owner-dashboard" end className={({ isActive }) => linkClassName(isActive)}>
           <LayoutDashboard className="h-4 w-4" />

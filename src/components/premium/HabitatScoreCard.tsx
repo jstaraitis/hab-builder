@@ -29,7 +29,9 @@ function FindingBlock({ finding }: { readonly finding: HabitatFinding }) {
   return (
     <div className="bg-card-elevated border border-divider rounded-xl p-3">
       <div className="flex items-center gap-2 flex-wrap">
-        <span className={`text-[10px] font-bold uppercase tracking-wide rounded px-1.5 py-0.5 ${styles.chip}`}>
+        <span
+          className={`text-[10px] font-bold uppercase tracking-wide rounded-full px-1.5 py-0.5 ${styles.chip}`}
+        >
           {styles.label}
         </span>
         <span className="text-[13px] font-semibold text-white">{finding.title}</span>
@@ -67,8 +69,7 @@ export function HabitatScoreCard({
 }: HabitatScoreCardProps) {
   const [showAll, setShowAll] = useState(false);
 
-  const placementUnassessed =
-    result.dimensions.find((d) => d.id === 'placement')?.score === null;
+  const placementUnassessed = result.dimensions.find((d) => d.id === 'placement')?.score === null;
 
   // Does anyone actually open the flagship feature?
   useEffect(() => {
@@ -85,11 +86,11 @@ export function HabitatScoreCard({
           <h3 className="text-med font-bold text-white">Habitat Score</h3>
         </div>
         <p className="text-xs text-muted leading-relaxed mt-2">
-          Not enough recorded yet to score {enclosureName}. Log a temperature reading, or add
-          the enclosure&apos;s dimensions and UVB bulb, and a grade will appear here.
+          Not enough recorded yet to score {enclosureName}. Log a temperature reading, or add the
+          enclosure&apos;s dimensions and UVB bulb, and a grade will appear here.
         </p>
         {/* Offered here too: with nothing else recorded, the Setup Check is the
-            fastest way to give this card something real to work with. */}
+ fastest way to give this card something real to work with. */}
         {setupCheckHref && (
           <Link
             to={setupCheckHref}
@@ -124,7 +125,9 @@ export function HabitatScoreCard({
 
       {/* Grade */}
       <div className="px-4 pb-3 flex items-center gap-4">
-        <div className={`w-16 h-16 rounded-2xl border flex items-center justify-center flex-shrink-0 ${grade.ring} ${grade.bg}`}>
+        <div
+          className={`w-16 h-16 rounded-2xl border flex items-center justify-center flex-shrink-0 ${grade.ring} ${grade.bg}`}
+        >
           <span className={`text-3xl font-extrabold ${grade.text}`}>{result.grade}</span>
         </div>
         <div className="min-w-0">
@@ -146,7 +149,7 @@ export function HabitatScoreCard({
       </div>
 
       {/* The per-check breakdown is a report, not a daily glance — it lives
-          behind the expand so the dashboard stays scannable. */}
+ behind the expand so the dashboard stays scannable. */}
       {isPremium && showAll && (
         <div className="px-4 pb-3 space-y-1.5">
           {result.dimensions.map((dim) => (
@@ -165,7 +168,6 @@ export function HabitatScoreCard({
               </span>
             </div>
           ))}
-
         </div>
       )}
 
@@ -177,17 +179,17 @@ export function HabitatScoreCard({
           ))}
 
           {/* Premium users expand; free users see the paywall in its place.
-              The first fix is given away in full — a locked list with nothing
-              readable reads as extraction rather than help. */}
-          {(hidden > 0 || isPremium) && (
-            isPremium ? (
+ The first fix is given away in full — a locked list with nothing
+ readable reads as extraction rather than help. */}
+          {(hidden > 0 || isPremium) &&
+            (isPremium ? (
               !showAll && (
                 <button
                   type="button"
                   onClick={() => setShowAll(true)}
                   className="w-full min-h-[44px] rounded-xl bg-card-elevated border border-divider text-sm font-semibold text-muted active:opacity-70 transition-opacity flex items-center justify-center gap-1.5"
                 >
-                  View full report                  <ChevronDown className="w-4 h-4" />
+                  View full report <ChevronDown className="w-4 h-4" />
                 </button>
               )
             ) : (
@@ -205,20 +207,21 @@ export function HabitatScoreCard({
                       Premium shows every issue with a fix, plus a per-check breakdown so you can
                       see what&apos;s pulling the grade down.
                     </p>
-                    <p className="text-xs font-semibold text-accent mt-1.5">See what&apos;s included →</p>
+                    <p className="text-xs font-semibold text-accent mt-1.5">
+                      See what&apos;s included →
+                    </p>
                   </div>
                 </div>
               </Link>
-            )
-          )}
+            ))}
         </div>
       )}
 
       {/* Always present, not tucked behind the expand and not hidden once the
-          check has been run. The findings it produces are the actionable half
-          of this score, so the route back to them has to stay visible — a
-          keeper fixing a probe position needs to reopen the list, not remember
-          what it said. */}
+ check has been run. The findings it produces are the actionable half
+ of this score, so the route back to them has to stay visible — a
+ keeper fixing a probe position needs to reopen the list, not remember
+ what it said. */}
       {setupCheckHref && (
         <div className="px-4 pb-3">
           <Link

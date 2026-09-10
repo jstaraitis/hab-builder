@@ -82,7 +82,7 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
         </h3>
         <button
           onClick={() => navigate(`/my-animals/add?enclosureId=${encodeURIComponent(enclosureId)}&speciesName=${encodeURIComponent(speciesName)}&returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-          className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-accent text-white rounded-md hover:bg-accent-dim transition-colors text-xs font-medium"
+          className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-accent text-white rounded-xl hover:bg-accent-dim transition-colors text-xs font-medium"
         >
           <Plus className="w-3.5 h-3.5" />
           Add Animal
@@ -91,7 +91,7 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
 
       {/* Animals List */}
       {animals.length === 0 ? (
-        <div className="text-center py-8 bg-card rounded-lg border-2 border-dashed border-divider">
+        <div className="text-center py-8 bg-card rounded-xl border-2 border-dashed border-divider">
           <p className="text-muted">
             No animals added yet. Click "Add Animal" to track individuals.
           </p>
@@ -101,7 +101,7 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
           {animals.map(animal => (
             <div
               key={animal.id}
-              className="bg-card border border-divider rounded-lg p-2.5"
+              className="bg-card border border-divider rounded-xl p-2.5"
             >
               {/* Header: Name + Action Buttons */}
               <div className="flex items-center justify-between gap-2 mb-1">
@@ -138,7 +138,7 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
               {/* Badges: Age, Gender, Morph */}
               <div className="flex flex-wrap items-center gap-1 mb-1">
                 {animal.birthday && (
-                  <span className="text-xs px-1.5 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded inline-flex items-center gap-0.5">
+                  <span className="text-xs px-1.5 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full inline-flex items-center gap-0.5">
                     {(() => {
                       const ageMonths = calculateAgeInMonths(animal.birthday);
                       if (ageMonths < 12) {
@@ -154,12 +154,12 @@ export function AnimalList({ enclosureId, enclosureName, speciesName, onAnimalsC
                   </span>
                 )}
                 {animal.gender && (
-                  <span className="text-xs px-1.5 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded capitalize">
+                  <span className="text-xs px-1.5 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full capitalize">
                     {animal.gender === 'male' ? '♂' : animal.gender === 'female' ? '♀' : '?'} {animal.gender}
                   </span>
                 )}
                 {animal.morph && (
-                  <span className="text-xs px-1.5 py-0.5 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded">
+                  <span className="text-xs px-1.5 py-0.5 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full">
                     {animal.morph}
                   </span>
                 )}

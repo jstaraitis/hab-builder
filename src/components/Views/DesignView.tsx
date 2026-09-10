@@ -21,13 +21,13 @@ export function DesignView({ selectedProfile, input, setInput, plan, error, onGe
         keywords={['enclosure designer', 'vivarium planner', 'habitat design tool', 'reptile enclosure calculator', `${selectedProfile?.commonName.toLowerCase()} enclosure`]}
       />
       {error && (
-        <div className="bg-red-100 dark:bg-red-900/20 border border-red-400 dark:border-red-800 text-red-700 dark:text-red-300 px-4 py-3 rounded">
+        <div className="bg-red-100 dark:bg-red-900/20 border border-red-400 dark:border-red-800 text-red-700 dark:text-red-300 px-4 py-3 rounded-xl">
           {error}
         </div>
       )}
 
       {selectedProfile && (
-        <div className="bg-card rounded-lg shadow-sm border border-divider p-4 text-base text-secondary flex items-start justify-between gap-4">
+        <div className="bg-card rounded-xl border border-divider p-4 text-base text-secondary flex items-start justify-between gap-4">
           <div>
             <div className="flex flex-wrap items-center gap-2 mb-2">
               <p className="font-semibold text-lg text-white">{selectedProfile.commonName}</p>

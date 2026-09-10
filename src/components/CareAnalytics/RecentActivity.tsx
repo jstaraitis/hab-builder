@@ -14,7 +14,7 @@ export function RecentActivity({ recentLogs }: RecentActivityProps) {
   }
 
   return (
-    <div className="bg-card rounded-lg border border-divider overflow-hidden">
+    <div className="bg-card rounded-xl border border-divider overflow-hidden">
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         className="w-full flex items-center justify-between p-3 sm:p-6 hover:bg-card-elevated transition-colors"
@@ -37,15 +37,10 @@ export function RecentActivity({ recentLogs }: RecentActivityProps) {
           return (
             <div
               key={item.log.id}
-              className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 bg-surface rounded-lg
- hover:bg-card-elevated dark:hover:bg-gray-800 transition-colors"
+              className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 bg-surface rounded-xl hover:bg-card-elevated dark:hover:bg-gray-800 transition-colors"
             >
               {/* Icon */}
-              <div className={`p-1.5 sm:p-2 rounded-lg flex-shrink-0 ${
-                isSkipped 
-                  ? 'bg-red-100 dark:bg-red-900/30' 
-                  : 'bg-jade-100 dark:bg-jade-900/30'
-              }`}>
+              <div className={`p-1.5 sm:p-2 rounded-xl flex-shrink-0 ${ isSkipped ? 'bg-red-100 dark:bg-red-900/30' : 'bg-jade-100 dark:bg-jade-900/30' }`}>
                 {isSkipped ? (
                   <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-600 dark:text-red-400" />
                 ) : (

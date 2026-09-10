@@ -135,7 +135,7 @@ export function AppRoutes({ onOpenFeedback }: AppRoutesProps) {
                 onGenerate={handleGenerate}
               />
             ) : (
-              <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 text-yellow-900 dark:text-yellow-200 rounded-lg p-4 space-y-2">
+              <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 text-yellow-900 dark:text-yellow-200 rounded-xl p-4 space-y-2">
                 <p className="font-semibold">No animal selected.</p>
                 <p className="text-sm">Please select an animal first to access the design page.</p>
                 <Link to="/animal" className="text-blue-700 dark:text-blue-400 font-medium underline">Select Animal</Link>

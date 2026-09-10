@@ -12,36 +12,36 @@ function getStatusBadge(status?: BlogStatus) {
   if (!status || status === 'published') return null;
 
   const configs = {
-    'draft': { 
-      icon: FileText, 
-      bgColor: 'bg-card-elevated', 
+    draft: {
+      icon: FileText,
+      bgColor: 'bg-card-elevated',
       textColor: 'text-secondary',
-      label: 'Draft'
+      label: 'Draft',
     },
-    'in-progress': { 
-      icon: AlertTriangle, 
-      bgColor: 'bg-blue-100 dark:bg-blue-900/50', 
+    'in-progress': {
+      icon: AlertTriangle,
+      bgColor: 'bg-blue-100 dark:bg-blue-900/50',
       textColor: 'text-blue-700 dark:text-blue-300',
-      label: 'In Progress'
+      label: 'In Progress',
     },
-    'review-needed': { 
-      icon: Eye, 
-      bgColor: 'bg-amber-100 dark:bg-amber-900/50', 
+    'review-needed': {
+      icon: Eye,
+      bgColor: 'bg-amber-100 dark:bg-amber-900/50',
       textColor: 'text-amber-700 dark:text-amber-300',
-      label: 'Needs Review'
+      label: 'Needs Review',
     },
-    'community-reviewed': { 
-      icon: Users, 
-      bgColor: 'bg-purple-100 dark:bg-purple-900/50', 
+    'community-reviewed': {
+      icon: Users,
+      bgColor: 'bg-purple-100 dark:bg-purple-900/50',
       textColor: 'text-purple-700 dark:text-purple-300',
-      label: 'Community Reviewed'
+      label: 'Community Reviewed',
     },
-    'expert-verified': { 
-      icon: Award, 
-      bgColor: 'bg-green-100 dark:bg-green-900/50', 
+    'expert-verified': {
+      icon: Award,
+      bgColor: 'bg-green-100 dark:bg-green-900/50',
       textColor: 'text-green-700 dark:text-green-300',
-      label: 'Expert Verified'
-    }
+      label: 'Expert Verified',
+    },
   };
 
   const config = configs[status];
@@ -50,7 +50,9 @@ function getStatusBadge(status?: BlogStatus) {
   const Icon = config.icon;
 
   return (
-    <div className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-xs font-medium ${config.bgColor} ${config.textColor}`}>
+    <div
+      className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-xl text-xs font-medium ${config.bgColor} ${config.textColor}`}
+    >
       <Icon className="w-3 h-3" />
       <span>{config.label}</span>
     </div>
@@ -62,13 +64,11 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
   const animals = Object.values(animalProfiles);
 
   // Get all animal-specific blog IDs
-  const animalSpecificBlogIds = new Set(
-    animals.flatMap(animal => animal.relatedBlogs || [])
-  );
+  const animalSpecificBlogIds = new Set(animals.flatMap((animal) => animal.relatedBlogs || []));
 
   // Filter for general guides (not in any animal's relatedBlogs)
-  const generalGuides = blogPostsList.filter(blog => !animalSpecificBlogIds.has(blog.id));
-  
+  const generalGuides = blogPostsList.filter((blog) => !animalSpecificBlogIds.has(blog.id));
+
   // Separate featured and non-featured guides
   const featuredGuides = generalGuides.filter((blog: any) => blog.featured);
   const regularGuides = generalGuides.filter((blog: any) => !blog.featured);
@@ -77,7 +77,7 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
     <div className="space-y-6">
       {/* General Guides Section */}
       {generalGuides.length > 0 && (
-        <div className="bg-gradient-to-r from-jade-50 to-teal-50 dark:from-card dark:to-card-elevated rounded-lg shadow-md border border-jade-200 dark:border-jade-700 p-3 sm:p-4 lg:p-6">
+        <div className="bg-gradient-to-r from-jade-50 to-teal-50 dark:from-card dark:to-card-elevated rounded-xl border border-jade-200 dark:border-jade-700 p-3 sm:p-4 lg:p-6">
           <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 flex items-center gap-2">
             <Book className="w-5 h-5 sm:w-6 sm:h-6 text-jade-600 dark:text-accent" />
             General Care Guides
@@ -85,7 +85,7 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
           <p className="text-sm sm:text-base text-muted mb-3 sm:mb-4">
             Universal guides applicable to multiple species
           </p>
-          
+
           {/* Featured Guides */}
           {featuredGuides.length > 0 && (
             <div className="mb-4">
@@ -98,7 +98,7 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
                   <Link
                     key={blog.id}
                     to={`/blog/${blog.id}`}
-                    className="group relative bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 hover:from-amber-100 hover:to-yellow-100 dark:hover:from-amber-900/40 dark:hover:to-yellow-900/30 border-2 border-amber-300 dark:border-amber-700 hover:border-amber-400 dark:hover:border-amber-600 rounded-lg p-3 sm:p-4 transition-all shadow-md hover:shadow-lg"
+                    className="group relative bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 hover:from-amber-100 hover:to-yellow-100 dark:hover:from-amber-900/40 dark:hover:to-yellow-900/30 border-2 border-amber-300 dark:border-amber-700 hover:border-amber-400 dark:hover:border-amber-600 rounded-xl p-3 sm:p-4 transition-all"
                   >
                     <div className="absolute -top-2 -right-2">
                       <span className="inline-flex items-center justify-center w-6 h-6 bg-amber-500 text-white rounded-full">
@@ -106,19 +106,18 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
                       </span>
                     </div>
                     {getStatusBadge(blog.status) && (
-                      <div className="mb-2">
-                        {getStatusBadge(blog.status)}
-                      </div>
+                      <div className="mb-2">{getStatusBadge(blog.status)}</div>
                     )}
                     <h4 className="font-semibold text-white group-hover:text-amber-700 dark:group-hover:text-amber-300 mb-1">
                       {blog.title}
                     </h4>
-                    <p className="text-sm text-muted mb-2 line-clamp-2">
-                      {blog.excerpt}
-                    </p>
+                    <p className="text-sm text-muted mb-2 line-clamp-2">{blog.excerpt}</p>
                     <div className="flex items-center gap-2 text-xs text-muted">
                       {blog.tags?.slice(0, 3).map((tag: string) => (
-                        <span key={tag} className="px-2 py-0.5 bg-amber-200 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 rounded">
+                        <span
+                          key={tag}
+                          className="px-2 py-0.5 bg-amber-200 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 rounded-full"
+                        >
                           {tag}
                         </span>
                       ))}
@@ -140,22 +139,21 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
                   <Link
                     key={blog.id}
                     to={`/blog/${blog.id}`}
-                    className="group bg-white dark:bg-card hover:bg-jade-50 dark:hover:bg-card-elevated border border-jade-200 dark:border-jade-700 hover:border-jade-400 dark:hover:border-jade-600 rounded-lg p-3 sm:p-4 transition-all shadow-sm hover:shadow-md"
+                    className="group bg-white dark:bg-card hover:bg-jade-50 dark:hover:bg-card-elevated border border-jade-200 dark:border-jade-700 hover:border-jade-400 dark:hover:border-jade-600 rounded-xl p-3 sm:p-4 transition-all"
                   >
                     {getStatusBadge(blog.status) && (
-                      <div className="mb-2">
-                        {getStatusBadge(blog.status)}
-                      </div>
+                      <div className="mb-2">{getStatusBadge(blog.status)}</div>
                     )}
                     <h4 className="font-semibold text-white group-hover:text-jade-700 dark:group-hover:text-jade-300 mb-1">
                       {blog.title}
                     </h4>
-                    <p className="text-sm text-muted mb-2 line-clamp-2">
-                      {blog.excerpt}
-                    </p>
+                    <p className="text-sm text-muted mb-2 line-clamp-2">{blog.excerpt}</p>
                     <div className="flex items-center gap-2 text-xs text-muted">
                       {blog.tags?.slice(0, 3).map((tag: string) => (
-                        <span key={tag} className="px-2 py-0.5 bg-jade-100 dark:bg-jade-900/50 text-jade-700 dark:text-jade-300 rounded">
+                        <span
+                          key={tag}
+                          className="px-2 py-0.5 bg-jade-100 dark:bg-jade-900/50 text-jade-700 dark:text-jade-300 rounded-full"
+                        >
                           {tag}
                         </span>
                       ))}
@@ -170,13 +168,13 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
 
       <div className="space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold text-white">Browse Care Guides by Animal</h2>
-        
+
         {/* Mobile Dropdown */}
         <div className="relative sm:hidden">
           <select
             value={selectedAnimal || ''}
             onChange={(e) => setSelectedAnimal(e.target.value || null)}
-            className="w-full px-4 py-2.5 bg-card border-2 border-divider rounded-lg focus:border-accent dark:focus:border-accent focus:outline-none text-white appearance-none cursor-pointer"
+            className="w-full px-4 py-2.5 bg-card border-2 border-divider rounded-xl focus:border-accent dark:focus:border-accent focus:outline-none text-white appearance-none cursor-pointer"
           >
             <option value="">Select an animal...</option>
             {animals.map((animal) => (
@@ -194,55 +192,52 @@ export function AnimalGuides({ initialAnimal }: AnimalGuidesProps) {
             <button
               key={animal.id}
               onClick={() => setSelectedAnimal(animal.id)}
-              className={`px-3 sm:px-4 py-2 rounded-lg font-semibold border-2 transition-all ${
-                selectedAnimal === animal.id
-                  ? 'border-jade-500 bg-jade-50 dark:bg-jade-900/30 shadow-lg text-jade-700 dark:text-jade-300 scale-105'
-                  : 'border-divider hover:border-jade-400 dark:hover:border-accent bg-card-elevated text-white hover:scale-105'
-              }`}
+              className={`px-3 sm:px-4 py-2 rounded-xl font-semibold border-2 transition-all ${selectedAnimal === animal.id ? 'border-jade-500 bg-jade-50 dark:bg-jade-900/30 text-jade-700 dark:text-jade-300 scale-105' : 'border-divider hover:border-jade-400 dark:hover:border-accent bg-card-elevated text-white hover:scale-105'}`}
             >
               {animal.commonName}
             </button>
           ))}
         </div>
       </div>
-      
+
       <div className="border-t border-divider my-6"></div>
       {selectedAnimal && (
-        <div className="bg-gradient-to-r from-accent/10 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-lg shadow-md border border-accent/30 p-3 sm:p-4 lg:p-6">
+        <div className="bg-gradient-to-r from-accent/10 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-xl border border-accent/30 p-3 sm:p-4 lg:p-6">
           <h3 className="text-base sm:text-lg font-semibold text-white mb-3">
-            Guides for {animals.find(a => a.id === selectedAnimal)?.commonName}
+            Guides for {animals.find((a) => a.id === selectedAnimal)?.commonName}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3 lg:gap-4">
-            {animals.find(a => a.id === selectedAnimal)?.relatedBlogs?.map((blogId) => {
-              const blog = blogPosts[blogId];
-              if (!blog) return null;
-              return (
-                <Link
-                  key={blogId}
-                  to={`/blog/${blogId}`}
-                  className="group bg-card hover:bg-accent/10 dark:hover:bg-emerald-900/30 border border-accent/30 hover:border-accent dark:hover:border-accent rounded-lg p-3 sm:p-4 transition-all shadow-sm hover:shadow-md"
-                >
-                  {getStatusBadge(blog.status) && (
-                    <div className="mb-2">
-                      {getStatusBadge(blog.status)}
+            {animals
+              .find((a) => a.id === selectedAnimal)
+              ?.relatedBlogs?.map((blogId) => {
+                const blog = blogPosts[blogId];
+                if (!blog) return null;
+                return (
+                  <Link
+                    key={blogId}
+                    to={`/blog/${blogId}`}
+                    className="group bg-card hover:bg-accent/10 dark:hover:bg-emerald-900/30 border border-accent/30 hover:border-accent dark:hover:border-accent rounded-xl p-3 sm:p-4 transition-all"
+                  >
+                    {getStatusBadge(blog.status) && (
+                      <div className="mb-2">{getStatusBadge(blog.status)}</div>
+                    )}
+                    <h4 className="font-semibold text-white group-hover:text-accent dark:group-hover:text-accent mb-1">
+                      {blog.title}
+                    </h4>
+                    <p className="text-sm text-muted mb-2 line-clamp-2">{blog.excerpt}</p>
+                    <div className="flex items-center gap-2 text-xs text-muted">
+                      {blog.tags?.slice(0, 3).map((tag: string) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-0.5 bg-accent/15 text-accent rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                  )}
-                  <h4 className="font-semibold text-white group-hover:text-accent dark:group-hover:text-accent mb-1">
-                    {blog.title}
-                  </h4>
-                  <p className="text-sm text-muted mb-2 line-clamp-2">
-                    {blog.excerpt}
-                  </p>
-                  <div className="flex items-center gap-2 text-xs text-muted">
-                    {blog.tags?.slice(0, 3).map((tag: string) => (
-                      <span key={tag} className="px-2 py-0.5 bg-accent/15 text-accent rounded">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </Link>
-              );
-            })}
+                  </Link>
+                );
+              })}
           </div>
         </div>
       )}

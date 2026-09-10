@@ -59,7 +59,7 @@ export function WeightHistory({ enclosureAnimalId, refreshKey, onUpdate }: Weigh
     return (
       <div className="space-y-2">
         {[...Array(3)].map((_, i) => (
-          <div key={i} className="animate-pulse bg-card-elevated rounded-lg h-16"></div>
+          <div key={i} className="animate-pulse bg-card-elevated rounded-xl h-16"></div>
         ))}
       </div>
     );
@@ -82,7 +82,7 @@ export function WeightHistory({ enclosureAnimalId, refreshKey, onUpdate }: Weigh
       {logs.map((log) => {
         if (editingLog?.id === log.id) {
           return (
-            <div key={log.id} className="bg-surface rounded-lg p-4 border border-divider">
+            <div key={log.id} className="bg-surface rounded-xl p-4 border border-divider">
               <WeightLogForm
                 animal={{ id: enclosureAnimalId } as EnclosureAnimal}
                 onSuccess={handleEditSuccess}
@@ -101,13 +101,11 @@ export function WeightHistory({ enclosureAnimalId, refreshKey, onUpdate }: Weigh
         return (
           <div
             key={log.id}
-            className="flex items-center justify-between p-4 bg-surface 
- rounded-lg border border-divider hover:border-accent/30 
- dark:hover:border-accent/30 transition-colors"
+            className="flex items-center justify-between p-4 bg-surface rounded-xl border border-divider hover:border-accent/30 dark:hover:border-accent/30 transition-colors"
           >
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-1">
-                <span className="text-xl font-bold text-white ">
+                <span className="text-xl font-bold text-white">
                   {log.weightGrams.toFixed(0)}g
                 </span>
                 <span className="text-sm text-muted">
@@ -124,18 +122,14 @@ export function WeightHistory({ enclosureAnimalId, refreshKey, onUpdate }: Weigh
             <div className="flex items-center gap-2 ml-4">
               <button
                 onClick={() => setEditingLog(log)}
-                className="p-2 text-muted hover:text-accent 
- dark:hover:text-accent hover:bg-accent/10 dark:hover:bg-emerald-900/20 
- rounded-lg transition-colors"
+                className="p-2 text-muted hover:text-accent dark:hover:text-accent hover:bg-accent/10 dark:hover:bg-emerald-900/20 rounded-xl transition-colors"
                 title="Edit entry"
               >
                 <Edit2 className="w-4 h-4" />
               </button>
               <button
                 onClick={() => handleDelete(log.id)}
-                className="p-2 text-muted hover:text-red-600 
- dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 
- rounded-lg transition-colors"
+                className="p-2 text-muted hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-colors"
                 title="Delete entry"
               >
                 <Trash2 className="w-4 h-4" />

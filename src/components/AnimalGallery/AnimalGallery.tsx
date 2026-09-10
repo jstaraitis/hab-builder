@@ -93,11 +93,7 @@ export function AnimalGallery({ animal, onUpdate }: AnimalGalleryProps) {
           {images.length > 0 && (
             <button
               onClick={() => setDeleteMode(!deleteMode)}
-              className={`text-sm font-medium transition-colors ${
-                deleteMode
-                  ? 'text-accent'
-                  : 'text-muted hover:text-white dark:hover:text-gray-200'
-              }`}
+              className={`text-sm font-medium transition-colors ${ deleteMode ? 'text-accent' : 'text-muted hover:text-white dark:hover:text-gray-200' }`}
             >
               {deleteMode ? 'Done' : 'Delete'}
             </button>
@@ -110,7 +106,7 @@ export function AnimalGallery({ animal, onUpdate }: AnimalGalleryProps) {
 
       {/* Error message */}
       {uploadError && (
-        <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">
+        <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-sm text-red-700 dark:text-red-400">
           {uploadError}
         </div>
       )}
@@ -121,7 +117,7 @@ export function AnimalGallery({ animal, onUpdate }: AnimalGalleryProps) {
         {images.map((imageUrl, index) => (
           <div
             key={imageUrl}
-            className="relative aspect-square rounded-lg overflow-hidden border border-divider group cursor-pointer"
+            className="relative aspect-square rounded-xl overflow-hidden border border-divider group cursor-pointer"
             onClick={() => !deleteMode && setSelectedImage(imageUrl)}
           >
             <img
@@ -136,7 +132,7 @@ export function AnimalGallery({ animal, onUpdate }: AnimalGalleryProps) {
                   e.stopPropagation();
                   handleRemoveImage(imageUrl);
                 }}
-                className="absolute top-1 right-1 p-1.5 bg-red-500 hover:bg-red-600 text-white rounded-full transition-colors shadow-lg"
+                className="absolute top-1 right-1 p-1.5 bg-red-500 hover:bg-red-600 text-white rounded-full transition-colors"
                 title="Remove image"
               >
                 <X className="w-4 h-4" />
@@ -147,7 +143,7 @@ export function AnimalGallery({ animal, onUpdate }: AnimalGalleryProps) {
 
         {/* Add new image button */}
         {canAddMore && (
-          <label className="relative aspect-square rounded-lg border-2 border-dashed border-divider hover:border-accent dark:hover:border-accent cursor-pointer flex flex-col items-center justify-center gap-2 transition-colors group">
+          <label className="relative aspect-square rounded-xl border-2 border-dashed border-divider hover:border-accent dark:hover:border-accent cursor-pointer flex flex-col items-center justify-center gap-2 transition-colors group">
             <input
               type="file"
               accept={UPLOAD_IMAGE_ACCEPT}
