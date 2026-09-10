@@ -7,6 +7,25 @@ export interface ChangelogEntry {
 
 export const changelogEntries: ChangelogEntry[] = [
   {
+    version: '1.0.9',
+    date: '2026-09-10',
+    title: 'Know your setup is right, not just recorded',
+    highlights: [
+      'New — Setup Check: eight questions about where things sit in your enclosure, checked against your species’ Ferguson zone. It catches the problems that take months to show up: UVB mounted out of range, the wrong bulb type entirely, a thermostat probe on the wrong surface, or no hide on the cool side.',
+      'New — Vet report: a printable summary of weight, feeding, shedding, stool and husbandry for one animal, with the patterns worth raising already picked out. Anything not recorded is stated plainly, so a gap never reads as a clean result.',
+      'New — “What changed?”: pick a symptom and a date, and the app reads your records back from the weeks before it — substrate swaps, bulb changes, a new feeder, temperature drift. Husbandry problems usually surface long after their cause.',
+      'New — Pet-sitter care sheet: a dated checklist for whoever covers while you travel, built from your own schedule, including the things they should NOT do and your vet’s number.',
+      'New — Import your collection from a spreadsheet or another app’s export. You confirm which column is which, so no particular format is needed, and duplicates are skipped.',
+      'New — Nutrition insights: supplementation and feeder variety read against your UVB provision, because dietary D3 and UV exposure are two routes to the same requirement and neither number means much alone.',
+      'Habitat Score now includes a Placement dimension driven by your Setup Check, so the grade reflects where your equipment is, not just what you own.',
+      'UVB guidance now follows Ferguson zones, the standard exotics vets use. Every species profile carries its zone, and a new guide explains what that means for choosing a bulb and setting its height.',
+      'Fixed — feeding logs recorded through a care task were being saved twice, which inflated every feeding count and could double an apparent refusal streak. Feeding history is also now tied to a specific animal rather than the whole enclosure.',
+      'Fixed — the print button did nothing inside the iOS app. Reports now use the share sheet there, and always tell you what happened.',
+      'Fixed — pop-ups opened near the bottom of the page instead of in view.',
+      'A visual overhaul throughout: a properly loaded typeface, a single consistent colour system, and flatter, calmer surfaces.',
+    ],
+  },
+  {
     version: '2026.04.16',
     date: '2026-04-16',
     title: 'Free tier limits & nav cleanup',
