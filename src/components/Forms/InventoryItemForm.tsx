@@ -1,11 +1,20 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+import { Zap } from 'lucide-react';
 import type { InventoryCategory, InventoryFrequency} from '../../types/inventory';
 import {
   CATEGORY_OPTIONS,
   FREQUENCY_OPTIONS,
   EMPTY_INVENTORY_FORM,
+  POWERED_CATEGORIES,
+  parseInventoryCosts,
   type InventoryFormState,
 } from '../../utils/inventoryUtils';
+import { DEFAULT_DUTY_CYCLE, monthlyKwh } from '../../engine/costOfKeeping';
+
+const FIELD_CLASS =
+  'w-full rounded-xl border border-divider bg-card-elevated text-white px-3 py-2.5 text-sm placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent';
+
+const LABEL_CLASS = 'block text-xs font-semibold text-muted uppercase tracking-wide mb-2';
 
 interface InventoryItemFormProps {
   readonly mode: 'add' | 'edit';
@@ -20,12 +29,66 @@ export function InventoryItemForm({ mode, initialData, onSave, onCancel, onDelet
   const [saving, setSaving] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // Opened by hand for the things that draw power but do not look like it —
+  // foggers, pumps and thermostats all end up filed under "other".
+  // Any stored power value opens the panel, not just the wattage — otherwise a
+  // half-filled record would be invisible and unfixable in the form.
+  const [powerOpenedByHand, setPowerOpenedByHand] = useState(() =>
+    Boolean(
+      initialData?.watts?.trim() ||
+        initialData?.hoursPerDay?.trim() ||
+        initialData?.dutyCyclePercent?.trim()
+    )
+  );
+
+  const showPower = powerOpenedByHand || POWERED_CATEGORIES.has(form.category);
+
+  /**
+   * Shown live while typing. It needs no tariff, so it works before the keeper
+   * has entered an electricity rate — and it catches the digit-slip that turns
+   * a 50W bulb into 500W far better than a number sitting in a database does.
+   */
+  const powerPreview = useMemo(() => {
+    const watts = Number(form.watts.trim());
+    const hours = Number(form.hoursPerDay.trim());
+    if (!form.watts.trim() || !Number.isFinite(watts) || watts <= 0) return null;
+    if (!form.hoursPerDay.trim() || !Number.isFinite(hours) || hours <= 0) return null;
+
+    const percent = Number(form.dutyCyclePercent.trim());
+    const hasDuty =
+      Boolean(form.dutyCyclePercent.trim()) &&
+      Number.isFinite(percent) &&
+      percent > 0 &&
+      percent <= 100;
+
+    return {
+      kwh: monthlyKwh({
+        label: form.title,
+        watts,
+        hoursPerDay: hours,
+        dutyCycle: hasDuty ? percent / 100 : undefined,
+      }),
+      assumedDuty: !hasDuty,
+    };
+  }, [form.watts, form.hoursPerDay, form.dutyCyclePercent, form.title]);
+
+  /** A wattage with no runtime cannot be costed, so it is silently ignored. */
+  const wattsWithoutHours =
+    Boolean(form.watts.trim()) && !form.hoursPerDay.trim();
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
     if (!form.title.trim()) {
       setError('Please enter an item name.');
+      return;
+    }
+
+    // Checked here rather than only at the database, which would come back as
+    // a constraint violation no keeper can act on.
+    const costs = parseInventoryCosts(form);
+    if (costs.error) {
+      setError(costs.error);
       return;
     }
 
@@ -166,6 +229,140 @@ export function InventoryItemForm({ mode, initialData, onSave, onCancel, onDelet
                     placeholder="https://www.amazon.com/dp/..."
                   />
                 </div>
+              </div>
+
+              {/* Cost and power.
+                  Optional, and deliberately last. These feed the
+                  cost-of-keeping breakdown, which is not worth making the act
+                  of adding a reminder feel like bookkeeping. */}
+              <div className="rounded-xl border border-divider p-4 space-y-4">
+                <div>
+                  <h2 className="text-sm font-semibold text-white">Cost &amp; power</h2>
+                  <p className="text-xs text-muted mt-0.5">
+                    Optional. Feeds your cost of keeping — anything left blank is reported as
+                    unrecorded rather than counted as nothing.
+                  </p>
+                </div>
+
+                <div>
+                  <label htmlFor="inventory-unit-cost" className={LABEL_CLASS}>Cost per item</label>
+                  <input
+                    id="inventory-unit-cost"
+                    type="number"
+                    inputMode="decimal"
+                    min={0}
+                    step="0.01"
+                    value={form.unitCost}
+                    onChange={(event) => setForm(prev => ({ ...prev, unitCost: event.target.value }))}
+                    className={FIELD_CLASS}
+                    placeholder="24.99"
+                  />
+                  <p className="text-xs text-muted mt-1.5">
+                    Charged once every time this reminder comes round, so the frequency above is
+                    what turns it into a monthly figure.
+                  </p>
+                </div>
+
+                {!showPower && (
+                  <button
+                    type="button"
+                    onClick={() => setPowerOpenedByHand(true)}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent"
+                  >
+                    <Zap className="w-3.5 h-3.5" />
+                    This draws power
+                  </button>
+                )}
+
+                {showPower && (
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <label htmlFor="inventory-watts" className={LABEL_CLASS}>Watts</label>
+                        <input
+                          id="inventory-watts"
+                          type="number"
+                          inputMode="decimal"
+                          min={0}
+                          max={5000}
+                          value={form.watts}
+                          onChange={(event) => setForm(prev => ({ ...prev, watts: event.target.value }))}
+                          className={FIELD_CLASS}
+                          placeholder="100"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="inventory-hours" className={LABEL_CLASS}>Hours / day</label>
+                        <input
+                          id="inventory-hours"
+                          type="number"
+                          inputMode="decimal"
+                          min={0}
+                          max={24}
+                          step="0.5"
+                          value={form.hoursPerDay}
+                          onChange={(event) => setForm(prev => ({ ...prev, hoursPerDay: event.target.value }))}
+                          className={FIELD_CLASS}
+                          placeholder="12"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="inventory-duty-cycle" className={LABEL_CLASS}>
+                        On a thermostat? (%)
+                      </label>
+                      <input
+                        id="inventory-duty-cycle"
+                        type="number"
+                        inputMode="decimal"
+                        min={1}
+                        max={100}
+                        value={form.dutyCyclePercent}
+                        onChange={(event) => setForm(prev => ({ ...prev, dutyCyclePercent: event.target.value }))}
+                        className={FIELD_CLASS}
+                        placeholder={String(Math.round(DEFAULT_DUTY_CYCLE * 100))}
+                      />
+                      <p className="text-xs text-muted mt-1.5">
+                        Roughly what share of those hours it is actually drawing power. A stat cuts
+                        the lamp off once the basking spot is up to temperature, so a device left at
+                        100% reads about twice as expensive as it is. Blank assumes{' '}
+                        {Math.round(DEFAULT_DUTY_CYCLE * 100)}%.
+                      </p>
+                    </div>
+
+                    {wattsWithoutHours && (
+                      <p className="text-xs text-amber-300">
+                        Add the daily hours too — a wattage on its own cannot be costed, so this
+                        item will be left out of your electricity figure.
+                      </p>
+                    )}
+
+                    {powerPreview && (
+                      <p className="text-xs text-muted">
+                        About <span className="font-semibold text-white">{powerPreview.kwh.toFixed(1)} kWh</span> a
+                        month
+                        {powerPreview.assumedDuty
+                          ? `, assuming ${Math.round(DEFAULT_DUTY_CYCLE * 100)}% duty cycle.`
+                          : '.'}{' '}
+                        Multiply by your rate per kWh for the cost.
+                      </p>
+                    )}
+
+                    {powerOpenedByHand && !POWERED_CATEGORIES.has(form.category) && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setPowerOpenedByHand(false);
+                          setForm(prev => ({ ...prev, watts: '', hoursPerDay: '', dutyCyclePercent: '' }));
+                        }}
+                        className="text-xs font-semibold text-muted hover:text-white transition-colors"
+                      >
+                        This does not draw power
+                      </button>
+                    )}
+                  </div>
+                )}
               </div>
 
               <div>

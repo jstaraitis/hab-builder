@@ -21,6 +21,10 @@ import type { InventoryItem } from '../types/inventory';
  *   next_due_at TIMESTAMPTZ NOT NULL,
  *   last_replaced_at TIMESTAMPTZ,
  *   buy_again_url TEXT,
+ *   unit_cost NUMERIC,
+ *   watts NUMERIC,
+ *   hours_per_day NUMERIC,
+ *   duty_cycle NUMERIC,
  *   is_active BOOLEAN DEFAULT true,
  *   created_at TIMESTAMPTZ DEFAULT NOW(),
  *   updated_at TIMESTAMPTZ DEFAULT NOW()
@@ -181,6 +185,10 @@ export class SupabaseInventoryService implements IInventoryService {
       nextDueAt: new Date(row.next_due_at),
       lastReplacedAt: row.last_replaced_at ? new Date(row.last_replaced_at) : undefined,
       buyAgainUrl: row.buy_again_url ?? undefined,
+      unitCost: row.unit_cost ?? undefined,
+      watts: row.watts ?? undefined,
+      hoursPerDay: row.hours_per_day ?? undefined,
+      dutyCycle: row.duty_cycle ?? undefined,
       isActive: row.is_active,
       createdAt: new Date(row.created_at),
       updatedAt: new Date(row.updated_at),
@@ -203,6 +211,15 @@ export class SupabaseInventoryService implements IInventoryService {
       next_due_at: item.nextDueAt instanceof Date ? item.nextDueAt.toISOString() : item.nextDueAt,
       last_replaced_at: item.lastReplacedAt instanceof Date ? item.lastReplacedAt.toISOString() : item.lastReplacedAt,
       buy_again_url: item.buyAgainUrl,
+      // Passed through as-is rather than coalesced to null. Partial updates go
+      // through this same mapper — markReplaced sends only two fields — and an
+      // undefined key is dropped from the request body, leaving the stored
+      // value alone. Coalescing here would blank a bulb's wattage every time
+      // someone marked it replaced.
+      unit_cost: item.unitCost,
+      watts: item.watts,
+      hours_per_day: item.hoursPerDay,
+      duty_cycle: item.dutyCycle,
       is_active: item.isActive,
       created_at: item.createdAt instanceof Date ? item.createdAt.toISOString() : item.createdAt,
       updated_at: item.updatedAt instanceof Date ? item.updatedAt.toISOString() : item.updatedAt,

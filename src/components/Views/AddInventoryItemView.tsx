@@ -3,7 +3,11 @@ import { inventoryService } from '../../services/inventoryService';
 import type { InventoryItem } from '../../types/inventory';
 import { useAuth } from '../../contexts/AuthContext';
 import { appendAmazonAffiliateTag } from '../../utils/amazonLinks';
-import { calculateNextDueDate, type InventoryFormState } from '../../utils/inventoryUtils';
+import {
+  calculateNextDueDate,
+  parseInventoryCosts,
+  type InventoryFormState,
+} from '../../utils/inventoryUtils';
 import { InventoryItemForm } from '../Forms/InventoryItemForm';
 
 export function AddInventoryItemView() {
@@ -32,6 +36,11 @@ export function AddInventoryItemView() {
       baseDate
     );
 
+    // The form blocks bad values before calling us, so this only fires if that
+    // check is ever removed. Better a thrown error than a silently dropped cost.
+    const costs = parseInventoryCosts(form);
+    if (costs.error) throw new Error(costs.error);
+
     const payload: Omit<InventoryItem, 'id' | 'createdAt' | 'updatedAt'> = {
       userId: user.id,
       title: form.title.trim(),
@@ -46,6 +55,10 @@ export function AddInventoryItemView() {
       buyAgainUrl: form.buyAgainUrl.trim()
         ? appendAmazonAffiliateTag(form.buyAgainUrl.trim())
         : undefined,
+      unitCost: costs.values.unitCost,
+      watts: costs.values.watts,
+      hoursPerDay: costs.values.hoursPerDay,
+      dutyCycle: costs.values.dutyCycle,
       isActive: true
     };
 

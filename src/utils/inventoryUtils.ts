@@ -34,6 +34,12 @@ export interface InventoryFormState {
   reminderTime: string;
   buyAgainUrl: string;
   notes: string;
+  /** Cost and power are kept as strings so an empty field stays empty. */
+  unitCost: string;
+  watts: string;
+  hoursPerDay: string;
+  /** Entered as a percentage; stored as a 0-1 fraction. */
+  dutyCyclePercent: string;
 }
 
 export const EMPTY_INVENTORY_FORM: InventoryFormState = {
@@ -45,8 +51,102 @@ export const EMPTY_INVENTORY_FORM: InventoryFormState = {
   customFrequencyDays: '30',
   reminderTime: '09:00',
   buyAgainUrl: '',
-  notes: ''
+  notes: '',
+  unitCost: '',
+  watts: '',
+  hoursPerDay: '',
+  dutyCyclePercent: ''
 };
+
+/**
+ * Categories that plug into the wall. Only these open the power fields by
+ * default — asking for the wattage of a bag of substrate is noise. Anything
+ * else can still be marked as powered by hand, because a fogger, pump or
+ * thermostat lands under "other".
+ */
+export const POWERED_CATEGORIES: ReadonlySet<InventoryCategory> = new Set<InventoryCategory>([
+  'bulb',
+  'uvb',
+  'lighting',
+  'heater'
+]);
+
+/**
+ * Bounds mirroring the inventory_power_sane constraint in the database. They
+ * are repeated here so a typo comes back as a sentence rather than a Postgres
+ * error the keeper cannot read; the constraint remains the real guard.
+ */
+const MAX_WATTS = 5000;
+const MAX_HOURS_PER_DAY = 24;
+
+export interface ParsedInventoryCosts {
+  unitCost: number | null;
+  watts: number | null;
+  hoursPerDay: number | null;
+  dutyCycle: number | null;
+}
+
+export interface ParsedCostResult {
+  /**
+   * Null when everything entered is valid. A discriminated union would read
+   * better, but this project compiles with strict mode off, where narrowing on
+   * a boolean literal is not reliable.
+   */
+  error: string | null;
+  values: ParsedInventoryCosts;
+}
+
+const NOTHING_RECORDED: ParsedInventoryCosts = {
+  unitCost: null,
+  watts: null,
+  hoursPerDay: null,
+  dutyCycle: null
+};
+
+/** Blank means "not recorded", which is different from zero and stays null. */
+function readOptionalNumber(raw: string): number | null | undefined {
+  const trimmed = raw.trim();
+  if (!trimmed) return null;
+  const value = Number(trimmed);
+  return Number.isFinite(value) ? value : undefined;
+}
+
+export function parseInventoryCosts(form: InventoryFormState): ParsedCostResult {
+  const reject = (message: string): ParsedCostResult => ({ error: message, values: NOTHING_RECORDED });
+
+  const unitCost = readOptionalNumber(form.unitCost);
+  if (unitCost === undefined) return reject('Cost must be a number.');
+  if (unitCost !== null && unitCost < 0) return reject('Cost cannot be negative.');
+
+  const watts = readOptionalNumber(form.watts);
+  if (watts === undefined) return reject('Wattage must be a number.');
+  if (watts !== null && (watts < 0 || watts > MAX_WATTS)) {
+    return reject(`Wattage must be between 0 and ${MAX_WATTS}.`);
+  }
+
+  const hoursPerDay = readOptionalNumber(form.hoursPerDay);
+  if (hoursPerDay === undefined) return reject('Hours per day must be a number.');
+  if (hoursPerDay !== null && (hoursPerDay < 0 || hoursPerDay > MAX_HOURS_PER_DAY)) {
+    return reject('Hours per day must be between 0 and 24.');
+  }
+
+  const percent = readOptionalNumber(form.dutyCyclePercent);
+  if (percent === undefined) return reject('Duty cycle must be a number.');
+  if (percent !== null && (percent <= 0 || percent > 100)) {
+    return reject('Duty cycle must be between 1 and 100 percent.');
+  }
+
+  return {
+    error: null,
+    values: {
+      unitCost,
+      watts,
+      hoursPerDay,
+      // The database stores a fraction, and rejects 0 outright.
+      dutyCycle: percent === null ? null : percent / 100
+    }
+  };
+}
 
 export function calculateNextDueDate(
   frequency: InventoryFrequency,

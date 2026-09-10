@@ -70,6 +70,14 @@ export const PAYWALL_COPY: Record<string, PaywallCopy> = {
     headline: 'Track every enclosure',
     body: 'Unlimited enclosures and animals, each with its own setup check, habitat grade and care schedule.',
   },
+  'colonies': {
+    headline: 'Stop your feeder colony collapsing',
+    body: 'Track what you pull out against what your breeding stock can actually replace. Most colonies fail because nymphs take months to reach feeder size, so harvesting early quietly eats the breeders — and it looks fine right up until it does not.',
+  },
+  'costs': {
+    headline: 'Find out what this actually costs you',
+    body: 'Acquisition, vet bills, consumables, feeders and electricity, separated into one-off and ongoing. Heat runs for hours a day and hides inside a household bill — for most keepers it is the largest cost and the one nobody has counted.',
+  },
   'inventory': {
     headline: 'Stop running out mid-week',
     body: 'Track supplies, bulb ages and replacement windows, with reminders before something runs out rather than after.',

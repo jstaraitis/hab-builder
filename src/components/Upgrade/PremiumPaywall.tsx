@@ -71,6 +71,8 @@ export type PaywallSource =
   | 'what-changed'
   | 'setup-check'
   | 'import'
+  | 'colonies'
+  | 'costs'
   | 'dashboard-alerts'
   | 'unknown';
 

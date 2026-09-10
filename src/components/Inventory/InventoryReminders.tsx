@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Package, Plus, Check, Pencil, Link as LinkIcon, CalendarClock, Search, AlertCircle, Clock } from 'lucide-react';
+import { Package, Plus, Check, Pencil, Link as LinkIcon, CalendarClock, Search, AlertCircle, Clock, Bug, Wallet, Zap } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { Auth } from '../Auth';
@@ -167,10 +167,35 @@ export function InventoryReminders() {
             </div>
             <button
               onClick={() => navigate(`/inventory/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}
-              className="p-2.5 bg-accent hover:bg-accent-dim text-white rounded-xl transition-colors flex-shrink-0"
+              className="p-2.5 bg-accent hover:bg-accent-dim text-on-accent rounded-xl transition-colors flex-shrink-0"
               title="Add Item"
             >
               <Plus className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Both of these read from inventory, so this is where a keeper is
+              already thinking about supplies and what they cost. */}
+          <div className="grid grid-cols-2 gap-3 mb-6">
+            <button
+              onClick={() => navigate('/feeder-colonies')}
+              className="flex items-center gap-2 rounded-xl border border-divider bg-card-elevated px-3 py-3 text-left transition-colors hover:border-accent/40"
+            >
+              <Bug className="w-5 h-5 text-accent flex-shrink-0" />
+              <span className="min-w-0">
+                <span className="block text-sm font-semibold text-white">Feeder colonies</span>
+                <span className="block text-xs text-muted">Is it keeping up?</span>
+              </span>
+            </button>
+            <button
+              onClick={() => navigate('/cost-of-keeping')}
+              className="flex items-center gap-2 rounded-xl border border-divider bg-card-elevated px-3 py-3 text-left transition-colors hover:border-accent/40"
+            >
+              <Wallet className="w-5 h-5 text-accent flex-shrink-0" />
+              <span className="min-w-0">
+                <span className="block text-sm font-semibold text-white">Cost of keeping</span>
+                <span className="block text-xs text-muted">Per month, per animal</span>
+              </span>
             </button>
           </div>
 
@@ -272,6 +297,23 @@ export function InventoryReminders() {
                         <Clock className="w-3.5 h-3.5 flex-shrink-0" />
                         <span>Last: {item.lastReplacedAt ? item.lastReplacedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Not set'}</span>
                       </div>
+                      {/* Only shown once recorded. An absent cost is a gap, and
+                          printing "$0.00" would read as a free item. */}
+                      {item.unitCost != null && (
+                        <div className="flex items-center gap-2">
+                          <Wallet className="w-3.5 h-3.5 flex-shrink-0" />
+                          <span>Cost: {item.unitCost.toFixed(2)} each</span>
+                        </div>
+                      )}
+                      {item.watts != null && (
+                        <div className="flex items-center gap-2">
+                          <Zap className="w-3.5 h-3.5 flex-shrink-0" />
+                          <span>
+                            {item.watts}W
+                            {item.hoursPerDay != null ? ` for ${item.hoursPerDay}h a day` : ' — no runtime recorded'}
+                          </span>
+                        </div>
+                      )}
                     </div>
 
                     {/* Progress Bar and Days */}

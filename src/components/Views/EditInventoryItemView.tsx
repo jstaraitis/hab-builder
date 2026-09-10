@@ -4,7 +4,11 @@ import { inventoryService } from '../../services/inventoryService';
 import type { InventoryItem } from '../../types/inventory';
 import { useAuth } from '../../contexts/AuthContext';
 import { appendAmazonAffiliateTag } from '../../utils/amazonLinks';
-import { calculateNextDueDate, type InventoryFormState } from '../../utils/inventoryUtils';
+import {
+  calculateNextDueDate,
+  parseInventoryCosts,
+  type InventoryFormState,
+} from '../../utils/inventoryUtils';
 import { InventoryItemForm } from '../Forms/InventoryItemForm';
 
 export function EditInventoryItemView() {
@@ -46,7 +50,16 @@ export function EditInventoryItemView() {
           customFrequencyDays: data.customFrequencyDays?.toString() || '30',
           reminderTime: data.reminderTime || '09:00',
           buyAgainUrl: data.buyAgainUrl || '',
-          notes: data.notes || ''
+          notes: data.notes || '',
+          unitCost: data.unitCost?.toString() ?? '',
+          watts: data.watts?.toString() ?? '',
+          hoursPerDay: data.hoursPerDay?.toString() ?? '',
+          // Stored as a fraction, shown as a percentage. Rounded because
+          // 0.6 round-trips as 60.00000000000001 otherwise.
+          dutyCyclePercent:
+            data.dutyCycle === null || data.dutyCycle === undefined
+              ? ''
+              : Math.round(data.dutyCycle * 100).toString()
         });
       } catch {
         if (isMounted) {
@@ -83,6 +96,9 @@ export function EditInventoryItemView() {
       baseDate
     );
 
+    const costs = parseInventoryCosts(form);
+    if (costs.error) throw new Error(costs.error);
+
     const payload: Partial<InventoryItem> = {
       title: form.title.trim(),
       category: form.category,
@@ -96,6 +112,12 @@ export function EditInventoryItemView() {
       buyAgainUrl: form.buyAgainUrl.trim()
         ? appendAmazonAffiliateTag(form.buyAgainUrl.trim())
         : undefined,
+      // Explicit nulls, not undefined: clearing a field has to reach the
+      // database, and an undefined key is dropped from the request body.
+      unitCost: costs.values.unitCost,
+      watts: costs.values.watts,
+      hoursPerDay: costs.values.hoursPerDay,
+      dutyCycle: costs.values.dutyCycle,
       isActive: true
     };
 
