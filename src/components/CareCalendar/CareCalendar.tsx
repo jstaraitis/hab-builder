@@ -30,6 +30,7 @@ import {
   AlertTriangle,
   Leaf,
   Bug,
+  ClipboardList,
   type LucideIcon
 } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -836,6 +837,16 @@ export function CareCalendar() {
           <h1 className="text-lg font-bold text-white">Care Tasks</h1>
         </div>
         <div className="flex items-center gap-2">
+          {enclosures.length > 0 && (
+            <button
+              onClick={() => navigate('/sitter-sheet')}
+              title="Build a printable care sheet for a pet sitter"
+              className="w-9 h-9 rounded-full border border-divider bg-card flex items-center justify-center active:scale-95 transition-transform"
+              aria-label="Pet sitter care sheet"
+            >
+              <ClipboardList className="w-4 h-4 text-muted" />
+            </button>
+          )}
           {enclosures.length > 0 && (
             <button
               onClick={() => navigate(`/care-calendar/tasks/add?returnTo=${encodeURIComponent(location.pathname + location.search)}`)}

@@ -127,7 +127,12 @@ function App() {
       <main
         className={`max-w-7xl mx-auto px-4 py-4 lg:py-8 ${isNative ? 'pb-mobile-nav' : ''}`}
         style={{
-          transform: `scale(${zoom / 100})`,
+          // Omitted entirely at default zoom. `scale(1)` is not a no-op in CSS:
+          // any transform other than `none` makes this element the containing
+          // block for `position: fixed` descendants, which silently reparents
+          // every modal in the app away from the viewport. Modals also portal
+          // out via ModalPortal, so they stay correct at other zoom levels too.
+          transform: zoom === 100 ? undefined : `scale(${zoom / 100})`,
           transformOrigin: 'top center',
           paddingTop: isIOS ? 'calc(env(safe-area-inset-top) + 1rem)' : undefined,
         }}

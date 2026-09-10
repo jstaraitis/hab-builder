@@ -13,6 +13,7 @@ export type PaywallSource =
   | 'weight-tracker'
   | 'care-analytics'
   | 'health-report'
+  | 'sitter-sheet'
   | 'dashboard-alerts'
   | 'unknown';
 
