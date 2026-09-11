@@ -19,6 +19,7 @@
 
 import fs from 'node:fs';
 import http from 'node:http';
+import os from 'node:os';
 import path from 'node:path';
 import puppeteer from 'puppeteer';
 import { ROOT, allRoutePaths } from './site-routes.js';
@@ -34,14 +35,29 @@ const DIST = path.join(ROOT, 'dist');
  */
 const SHELL_FILE = 'shell.html';
 
-/** Chromium is the bottleneck, not the app. Four tabs saturates it. */
-const CONCURRENCY = 4;
+/**
+ * Chromium is the bottleneck, not the app. Four tabs saturates a developer
+ * machine, but CI containers are routinely smaller, and over-subscribing cores
+ * is what turns a slow page into a timed-out one.
+ */
+const CONCURRENCY = Math.max(2, Math.min(4, os.cpus().length));
 
 /** Generous: a cold first page pays for chunk loading and the Supabase session check. */
 const NAV_TIMEOUT_MS = 30_000;
 
-/** After #root fills, the SEO effect still has to run and write the head. */
-const SETTLE_MS = 400;
+/**
+ * Grace period after the canonical link appears, so the JSON-LD script and the
+ * rest of the head written by the same effect are captured with it.
+ */
+const SETTLE_MS = 150;
+
+/**
+ * Failed routes are retried once, serially, before the build is failed. The
+ * only failure seen in practice was contention rather than a broken page, and
+ * re-rendering a handful of routes costs seconds where a false build failure
+ * costs a deploy.
+ */
+const RETRY_ENABLED = true;
 
 /** Below this, the captured body is a shell and something went wrong. */
 const MIN_BODY_LENGTH = 1000;
@@ -101,25 +117,32 @@ async function renderRoute(browser, origin, routePath) {
 
     await page.goto(`${origin}${routePath}`, { waitUntil: 'domcontentloaded' });
 
-    // networkidle0 is unreliable here — the Supabase client keeps connections
-    // open — so wait on the thing actually being measured instead.
-    await page.waitForFunction(
-      () => (document.querySelector('#root')?.childElementCount ?? 0) > 0,
-      { timeout: NAV_TIMEOUT_MS }
-    );
+    // Wait for the canonical link, not for #root to have children.
+    //
+    // Every advertised page renders an SEO component, and that always writes a
+    // canonical link, so its presence proves the real component mounted. #root
+    // fills the instant the Suspense fallback renders its spinner — before the
+    // lazy route chunk has even loaded — so waiting on that and then sleeping a
+    // fixed 400ms was a race. It lost on CI against the largest post in the
+    // blog. networkidle0 is no use either: the Supabase client holds
+    // connections open.
+    try {
+      await page.waitForFunction(
+        () => document.querySelector('link[rel="canonical"]') !== null,
+        { timeout: NAV_TIMEOUT_MS }
+      );
+    } catch {
+      throw new Error(
+        'no canonical link after ' +
+          NAV_TIMEOUT_MS +
+          'ms. Does the router define this path, and does it render <SEO>?'
+      );
+    }
     await new Promise((resolve) => setTimeout(resolve, SETTLE_MS));
 
     const html = await page.evaluate(() => `<!doctype html>\n${document.documentElement.outerHTML}`);
     const bodyLength = await page.evaluate(() => document.body.innerHTML.length);
-    // Every page we advertise renders an SEO component, and that always
-    // writes a canonical link. Its absence means the URL rendered a bare app
-    // shell — which is exactly how /roadmap sat in the sitemap for months
-    // pointing at a route the router does not define.
-    const hasCanonical = await page.evaluate(
-      () => document.querySelector('link[rel="canonical"]') !== null
-    );
-
-    return { html, bodyLength, hasCanonical };
+    return { html, bodyLength };
   } finally {
     await page.close();
   }
@@ -150,51 +173,60 @@ async function main() {
   });
 
   const routes = allRoutePaths();
-  const queue = [...routes];
-  const failures = [];
   const thin = [];
-  const uncanonical = [];
-  let done = 0;
 
-  async function worker() {
-    for (;;) {
-      const routePath = queue.shift();
-      if (!routePath) return;
-      try {
-        const { html, bodyLength, hasCanonical } = await renderRoute(browser, origin, routePath);
-        if (bodyLength < MIN_BODY_LENGTH) thin.push({ routePath, bodyLength });
-        if (!hasCanonical) uncanonical.push(routePath);
+  /**
+   * Renders the given routes, returning the ones that failed. Workers pull
+   * from a shared queue so a slow page does not idle the other tabs.
+   */
+  async function renderAll(targets, concurrency) {
+    const queue = [...targets];
+    const failed = [];
+    let done = 0;
 
-        const outFile = outputFileFor(routePath);
-        fs.mkdirSync(path.dirname(outFile), { recursive: true });
-        fs.writeFileSync(outFile, html, 'utf8');
-      } catch (error) {
-        failures.push({ routePath, message: error.message });
-      }
-      done++;
-      if (done % 25 === 0 || done === routes.length) {
-        console.log(`  ${done}/${routes.length}`);
+    async function worker() {
+      for (;;) {
+        const routePath = queue.shift();
+        if (!routePath) return;
+        try {
+          const { html, bodyLength } = await renderRoute(browser, origin, routePath);
+          if (bodyLength < MIN_BODY_LENGTH) thin.push({ routePath, bodyLength });
+
+          const outFile = outputFileFor(routePath);
+          fs.mkdirSync(path.dirname(outFile), { recursive: true });
+          fs.writeFileSync(outFile, html, 'utf8');
+        } catch (error) {
+          failed.push({ routePath, message: error.message });
+        }
+        done++;
+        if (done % 25 === 0 || done === targets.length) {
+          console.log(`  ${done}/${targets.length}`);
+        }
       }
     }
+
+    await Promise.all(Array.from({ length: concurrency }, worker));
+    return failed;
   }
 
   console.log(`Prerendering ${routes.length} routes at concurrency ${CONCURRENCY}…`);
-  await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+  let failures = await renderAll(routes, CONCURRENCY);
+
+  // Retry serially. Contention is the likeliest cause of a lone failure, and
+  // one tab with the machine to itself is the cheapest way to rule it out.
+  if (RETRY_ENABLED && failures.length > 0) {
+    console.log(`Retrying ${failures.length} route(s) one at a time…`);
+    failures = await renderAll(
+      failures.map((failure) => failure.routePath),
+      1
+    );
+  }
 
   await browser.close();
   await new Promise((resolve) => server.close(resolve));
 
   for (const { routePath, bodyLength } of thin) {
     console.warn(`  thin: ${routePath} rendered only ${bodyLength} characters`);
-  }
-
-  for (const routePath of uncanonical) {
-    console.error(`  ${routePath} rendered no canonical link. Does the router define it, and does it render <SEO>?`);
-  }
-  if (uncanonical.length > 0) {
-    console.error(`
-${uncanonical.length} advertised route(s) rendered no page.`);
-    process.exit(1);
   }
 
   if (failures.length > 0) {
