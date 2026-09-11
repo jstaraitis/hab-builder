@@ -1,0 +1,35 @@
+Habitat Builder used to record what you did. This update checks it.
+
+NEW - Setup Check
+Eight questions about where things actually sit in your enclosure, graded against your species' Ferguson zone. It catches the mistakes that take months to show up: UVB mounted out of range, the wrong bulb type entirely, a thermostat probe on the wrong surface, no hide on the cool side.
+
+NEW - Vet report
+A printable summary of weight, feeding, shedding, stool and husbandry for one animal, with the patterns worth raising already picked out. Anything you have not recorded is stated plainly, so a gap never reads as a clean result.
+
+NEW - What changed?
+Pick a symptom and a date. The app reads your own records back from the weeks before it - substrate swaps, bulb changes, a new feeder, temperature drift. Husbandry problems usually surface long after their cause.
+
+NEW - Feeder colony tracker
+Log what you pull out against what your breeding stock can actually replace, and see your real cost per feeder. Most colonies crash because nymphs take months to reach feeder size, so harvesting early quietly eats the breeders - and it looks fine right up until it does not.
+
+NEW - Cost of keeping
+What your collection costs per month and per animal, including the electricity your heat and lighting actually draw. Recorded and unrecorded spend are kept separate, so a blank never counts as zero.
+
+NEW - Pet-sitter care sheet
+A dated checklist for whoever covers while you travel, built from your own schedule - including the things they should NOT do, and your vet's number.
+
+NEW - Import your collection
+Bring records in from a spreadsheet or another app's export. You confirm which column is which, so no particular format is required, and duplicates are skipped.
+
+NEW - Nutrition insights
+Supplementation and feeder variety read against your UVB provision, because dietary D3 and UV exposure are two routes to the same requirement and neither number means much alone.
+
+ALSO IN THIS RELEASE
+- Habitat Score now grades placement, so it reflects where your equipment is, not just what you own.
+- UVB guidance follows Ferguson zones throughout, with every species profile carrying its zone.
+- Fixed: feeding logged through a care task was saved twice, inflating feeding counts and refusal streaks. Feeding history is now tied to a specific animal rather than the whole enclosure.
+- Fixed: the print button did nothing inside the app. Reports now use the share sheet, and always tell you what happened.
+- Fixed: pop-ups opening below the visible page instead of in view.
+- A visual overhaul throughout: a properly loaded typeface, one consistent colour system, and flatter, calmer surfaces.
+
+Setup Check, the vet report, What changed?, colony tracking and cost of keeping are Premium features.
