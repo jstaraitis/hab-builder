@@ -10,6 +10,7 @@
  */
 
 import type { AlertSeverity, ThresholdAlert } from '../types/thresholds';
+import { calendarDaysAgo } from '../utils/calendarDays';
 
 export type VerdictLevel = 'clear' | 'watch' | 'attention' | 'urgent';
 
@@ -152,7 +153,10 @@ export function buildDashboardTriage({
 
 /** "today" / "yesterday" / "3 days ago" / "5 weeks ago" */
 function relativeDays(date: Date, now: Date): string {
-  const days = Math.floor((now.getTime() - date.getTime()) / 86_400_000);
+  // Calendar days, not elapsed 24-hour periods. Dividing the millisecond gap
+  // reported an animal fed at 8pm last night as fed "today" at 10am, while its
+  // own profile — which compared dates — correctly said yesterday.
+  const days = calendarDaysAgo(date, now);
   if (days <= 0) return 'today';
   if (days === 1) return 'yesterday';
   if (days < 21) return `${days} days ago`;

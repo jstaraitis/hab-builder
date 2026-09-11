@@ -83,6 +83,7 @@ import { getAnimalById } from '../../data/animals';
 import type { AnimalProfile, HumidityRange, TemperatureRange } from '../../engine/types';
 import type { ThresholdAlert } from '../../types/thresholds';
 import { getCustomWeekdayIntervalDays } from '../../utils/customTaskFrequency';
+import { calendarDaysAgo } from '../../utils/calendarDays';
 
 // helpers
 function formatAge(birthday?: Date | null): string {
@@ -217,11 +218,7 @@ function getShedStatus(logs: ShedLog[]): string {
 }
 
 function getCalendarDayDiff(dateValue: Date | string): number {
-  const date = new Date(dateValue);
-  const now = new Date();
-  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const dateStart = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-  return Math.max(0, Math.floor((todayStart.getTime() - dateStart.getTime()) / 86_400_000));
+  return calendarDaysAgo(dateValue);
 }
 
 function getLastFed(tasks: CareTaskWithLogs[], feedingLogs: FeedingLog[]): string {
@@ -251,14 +248,14 @@ function getLastWaterChange(tasks: CareTaskWithLogs[]): string {
   const sorted = [...wcTasks].sort(
     (a, b) => new Date(b.lastCompleted!).getTime() - new Date(a.lastCompleted!).getTime()
   );
-  const diff = Math.floor((Date.now() - new Date(sorted[0].lastCompleted!).getTime()) / 86_400_000);
+  const diff = calendarDaysAgo(sorted[0].lastCompleted!);
   if (diff === 0) return 'Today';
   if (diff === 1) return '1d ago';
   return `${diff}d ago`;
 }
 
 function getDaysAgoLabel(dateString: string): string {
-  const diff = Math.floor((Date.now() - new Date(dateString).getTime()) / 86_400_000);
+  const diff = calendarDaysAgo(dateString);
   if (diff <= 0) return 'Today';
   if (diff === 1) return '1d ago';
   return `${diff}d ago`;
@@ -266,8 +263,11 @@ function getDaysAgoLabel(dateString: string): string {
 
 function formatLastUpdated(dateValue?: Date | null): string {
   if (!dateValue) return 'Last updated recently';
-  const diff = Math.floor((Date.now() - new Date(dateValue).getTime()) / 86_400_000);
-  if (diff <= 0) return 'Last updated just now';
+  const diff = calendarDaysAgo(dateValue);
+  // "today" rather than "just now": on calendar days this covers anything
+  // logged since midnight, and calling an 8pm reading "just now" at 7am is
+  // the same overstatement that made the feeding label wrong.
+  if (diff <= 0) return 'Last updated today';
   if (diff === 1) return 'Last updated 1 day ago';
   return `Last updated ${diff} days ago`;
 }
@@ -686,10 +686,7 @@ function ActivePetCard({
         : shedStatus === 'Due Soon'
           ? 'text-amber-400'
           : 'text-muted';
-  const shedDaysAgo =
-    shedLogs.length > 0
-      ? Math.floor((Date.now() - new Date(shedLogs[0].shedDate).getTime()) / 86_400_000)
-      : null;
+  const shedDaysAgo = shedLogs.length > 0 ? calendarDaysAgo(shedLogs[0].shedDate) : null;
   const shedSub =
     shedDaysAgo !== null
       ? shedDaysAgo === 0

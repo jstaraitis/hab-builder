@@ -72,6 +72,7 @@ import { TaskEditModal } from '../CareCalendar/TaskEditModal';
 import { FeedingLogModal } from '../CareCalendar/FeedingLogModal';
 import { AnimalGallery } from '../AnimalGallery/AnimalGallery';
 import { formatCareTaskFrequency } from '../../utils/careTaskFrequencyLabel';
+import { calendarDaysAgo } from '../../utils/calendarDays';
 
 // Helper function to calculate age
 function calculateAge(birthday: Date): string {
@@ -120,14 +121,7 @@ function convertInchesToLength(value: number, unit: LengthLog['unit']): number {
 }
 
 function getCalendarDayDiff(dateValue: Date | string): number {
-  const date = new Date(dateValue);
-  const now = new Date();
-  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const dateStart = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-  return Math.max(
-    0,
-    Math.floor((todayStart.getTime() - dateStart.getTime()) / (1000 * 60 * 60 * 24))
-  );
+  return calendarDaysAgo(dateValue);
 }
 
 // Tab types
@@ -624,12 +618,7 @@ export function AnimalDetailView() {
           ? '1 day ago'
           : `${lastFeedingDays} days ago`;
   const lastWeightDays = latestWeight
-    ? Math.max(
-        0,
-        Math.floor(
-          (Date.now() - new Date(latestWeight.measurementDate).getTime()) / (1000 * 60 * 60 * 24)
-        )
-      )
+    ? calendarDaysAgo(latestWeight.measurementDate)
     : null;
   const weightRatePercent =
     latestWeight && previousWeight && previousWeight.weightGrams > 0

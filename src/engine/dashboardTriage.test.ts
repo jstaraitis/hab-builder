@@ -194,6 +194,29 @@ describe('buildAnimalSummary', () => {
     expect(buildAnimalSummary({ latestFeedingAt: daysAgo(1), now: NOW })).toBe('Fed yesterday');
   });
 
+  it('counts last night as yesterday, not today', () => {
+    // The reported bug. Fed at 8pm, checked at 10am the next morning: 14 hours
+    // apart, so dividing elapsed milliseconds floored to 0 and the dashboard
+    // said "Fed today" while the animal's own profile said yesterday. The
+    // tests above never caught it because every one of them is an exact
+    // multiple of 24 hours, where both readings agree.
+    //
+    // Local-time constructors, so this holds in any timezone.
+    const lastNight = new Date(2026, 8, 10, 20, 0);
+    const thisMorning = new Date(2026, 8, 11, 10, 0);
+
+    expect(buildAnimalSummary({ latestFeedingAt: lastNight, now: thisMorning })).toBe(
+      'Fed yesterday'
+    );
+  });
+
+  it('still says today for this morning', () => {
+    const earlier = new Date(2026, 8, 11, 7, 0);
+    const now = new Date(2026, 8, 11, 22, 0);
+
+    expect(buildAnimalSummary({ latestFeedingAt: earlier, now })).toBe('Fed today');
+  });
+
   it('rolls up to weeks and months rather than large day counts', () => {
     expect(buildAnimalSummary({ latestFeedingAt: daysAgo(28), now: NOW })).toBe('Fed 4 weeks ago');
     expect(buildAnimalSummary({ latestFeedingAt: daysAgo(90), now: NOW })).toBe('Fed 3 months ago');
