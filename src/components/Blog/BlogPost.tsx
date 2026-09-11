@@ -1,7 +1,7 @@
 import { useParams, useLocation, Link, Navigate } from 'react-router-dom';
 import { useState } from 'react';
-import { SEO } from '../SEO/SEO';
-import { blogPosts, ContentBlock } from '../../data/blog';
+import { SEO, SITE_URL } from '../SEO/SEO';
+import { blogPosts, isIndexableStatus, ContentBlock } from '../../data/blog';
 import { generateArticleStructuredData } from '../../utils/structuredData';
 import {
   Clock,
@@ -323,16 +323,18 @@ export function BlogPost() {
       .filter(Boolean)
       .slice(0, 3) || [];
 
-  // Build canonical URL
-  const canonicalUrl = `${window.location.origin}${location.pathname}`;
+  // Built from the production origin, not window.location. A Netlify deploy
+  // preview or the prerenderer's localhost would otherwise bake its own host
+  // into the canonical tag, pointing search engines at a URL nobody can reach.
+  const canonicalUrl = `${SITE_URL}${location.pathname}`;
 
   return (
     <div className="min-h-screen bg-surface">
       <SEO
         title={post.title}
         description={post.description}
-        keywords={post.tags}
         canonical={canonicalUrl}
+        noindex={!isIndexableStatus(post.status)}
         ogType="article"
         article={{
           publishedTime: post.date,

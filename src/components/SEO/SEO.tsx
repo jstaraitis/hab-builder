@@ -4,7 +4,6 @@ import { useLocation } from 'react-router-dom';
 interface SEOProps {
   title?: string;
   description?: string;
-  keywords?: string[];
   canonical?: string;
   ogImage?: string;
   ogType?: 'website' | 'article';
@@ -19,236 +18,41 @@ interface SEOProps {
   structuredData?: object;
 }
 
+/** The production origin. Exported so callers building their own canonical
+ *  URL use the same one rather than whatever host they happen to be served
+ *  from — a deploy preview, or the prerenderer's localhost. */
+export const SITE_URL = 'https://habitat-builder.com';
+
+/**
+ * The share card. This must be an absolute URL: Open Graph requires one, and
+ * for months this pointed at a relative /og-image.jpg that did not exist in
+ * public/ at all — so every share on TikTok, Discord, iMessage and Facebook
+ * rendered a blank box. Regenerate with `npm run generate-og-image`.
+ */
+const OG_IMAGE_PATH = '/og-image.png';
+const OG_IMAGE_WIDTH = '1200';
+const OG_IMAGE_HEIGHT = '630';
+
 const DEFAULT_SEO = {
   title: 'Habitat Builder - Reptile & Amphibian Enclosure Planner',
-  description: 'Plan the perfect reptile or amphibian enclosure in minutes. Get a custom shopping list, step-by-step build guide, and care calendar for 18+ species. Free to use.',
-  keywords: [
-    // Core tool keywords
-    'reptile enclosure planner',
-    'vivarium builder',
-    'habitat designer',
-    'terrarium planner',
-    'free enclosure calculator',
-    'reptile setup cost calculator',
-    'find reptile for enclosure',
-    'animal recommendation tool',
-    'bioactive enclosure calculator',
-    'reptile care guide',
-    'amphibian enclosure planner',
-    
-    // How-to/Problem-solving keywords
-    'how to set up reptile tank',
-    'how to build bioactive terrarium',
-    'first time reptile owner',
-    'beginner reptile setup',
-    'what size tank for bearded dragon',
-    'reptile enclosure mistakes to avoid',
-    'best beginner reptile',
-    'easiest reptile to care for',
-    'low maintenance reptile',
-    'how to choose reptile enclosure size',
-    
-    // Species-specific setup keywords
-    'bearded dragon setup guide',
-    'leopard gecko enclosure guide',
-    'crested gecko habitat setup',
-    'gargoyle gecko tank setup',
-    'ball python enclosure requirements',
-    'corn snake habitat guide',
-    'blue tongue skink setup',
-    'pacman frog terrarium guide',
-    'whites tree frog setup',
-    'red eyed tree frog habitat',
-    'axolotl tank requirements',
-    'axolotl chiller setup',
-    'red-eared slider tank setup',
-    'veiled chameleon enclosure requirements',
-    'uromastyx habitat setup',
-    'african clawed frog tank guide',
-    'tomato frog setup',
-    'amazon milk frog habitat',
-    'mourning gecko care',
-    
-    // Equipment-specific keywords
-    'reptile UVB lighting guide',
-    'best substrate for bioactive',
-    'reptile heating setup',
-    'thermostat for reptile tank',
-    'misting system for terrarium',
-    'drainage layer for bioactive',
-    'cleanup crew for bioactive',
-    'reptile hide recommendations',
-    'water feature for terrarium',
-    'best plants for bioactive vivarium',
-    
-    // Shopping/Budget keywords
-    'reptile enclosure shopping list',
-    'reptile setup cost breakdown',
-    'budget reptile setup',
-    'reptile equipment calculator',
-    'where to buy reptile supplies',
-    'cheap reptile setup',
-    'affordable reptile enclosure',
-    
-    // Setup type keywords
-    'naturalistic bioactive setup',
-    'minimalist reptile enclosure',
-    'display terrarium setup',
-    'bioactive vivarium guide',
-    'bioactive substrate depth',
-    'planted terrarium guide',
-    
-    // Technical/Calculator keywords
-    'UVB coverage calculator',
-    'substrate depth calculator',
-    'enclosure size calculator',
-    'reptile temperature guide',
-    'humidity calculator',
-    'reptile budget planner',
-    'gallons to dimensions converter',
-    
-    // Feature-specific keywords
-    'interactive habitat designer',
-    'drag and drop enclosure designer',
-    'visual enclosure planner',
-    'equipment installation guide',
-    'thermostat setup guide',
-    'misting system installation',
-    'escape proof enclosure',
-    
-    // Category-specific
-    'salamander enclosure setup',
-    'newt tank requirements',
-    'chameleon care guide',
-    'tree frog habitat setup',
-    'gecko terrarium builder',
-    'snake enclosure requirements',
-    'turtle tank setup guide',
-    'amphibian terrarium guide',
-    
-    // Care level keywords
-    'beginner reptile care',
-    'intermediate reptile setup',
-    'advanced reptile care',
-    'easy reptiles for beginners',
-    'hardy reptile species',
-    
-    // Comparison keywords
-    'leopard gecko vs crested gecko',
-    'ball python vs corn snake',
-    'bioactive vs non-bioactive',
-    'glass vs pvc enclosure',
-    'screen vs glass terrarium',
-    
-    // Community & User Content keywords
-    'user submitted reptile setups',
-    'real enclosure builds',
-    'community reptile setups',
-    'real life reptile habitats',
-    'reptile keeper community',
-    'share your reptile setup',
-    'enclosure inspiration',
-    
-    // Care Scheduling & Reminders keywords
-    'reptile care calendar',
-    'feeding schedule tracker',
-    'reptile maintenance checklist',
-    'care reminders for reptiles',
-    'reptile feeding schedule',
-    'humidity monitoring schedule',
-    'UVB replacement schedule',
-    'tank cleaning calendar',
-    'water change schedule',
-    'misting system schedule',
-    'care task notifications',
-    'push notification reminders',
-    'reptile care streak tracker',
-    'care completion rates',
-    'care activity heatmap',
-    'equipment maintenance tracker',
-    'UVB bulb replacement reminders',
-    'substrate level monitoring',
-    'supplement expiration tracker',
-    'reptile care analytics',
-    'care consistency tracking',
-    'care pattern analysis',
-    'reptile weight tracking',
-    'amphibian weight log',
-    'growth tracking for reptiles',
-    'health monitoring dashboard',
-    'care task automation',
-    'reptile inventory management',
-    'consumables tracking',
-    'equipment lifecycle management',
-
-    // Expanded reminder-intent keywords
-    'reptile reminder app',
-    'reptile care reminder app',
-    'amphibian care reminder app',
-    'terrarium reminder app',
-    'vivarium reminder app',
-    'pet husbandry reminders',
-    'daily reptile reminders',
-    'weekly reptile reminders',
-    'monthly reptile reminders',
-    'feeding reminder for reptiles',
-    'feeding reminder for amphibians',
-    'misting reminder tracker',
-    'water change reminder app',
-    'substrate change reminders',
-    'tank maintenance reminders',
-    'enclosure cleaning reminders',
-    'bioactive maintenance reminders',
-    'reptile supplement reminders',
-    'calcium dusting reminder',
-    'vitamin supplement reminder',
-    'uvb bulb reminder app',
-    'heat lamp replacement reminder',
-    'thermostat check reminder',
-    'humidity check reminder',
-    'temperature check reminder',
-    'reptile husbandry scheduler',
-    'care routine planner for reptiles',
-    'care routine planner for amphibians',
-    'recurring care tasks',
-    'push notification care reminders',
-    'task reminders for reptile owners',
-    'exotic pet care reminders',
-    'reptile task checklist app',
-    'amphibian task checklist app',
-    'reptile care task history',
-    'pet care reminder calendar',
-    'enclosure maintenance schedule',
-    'habitat maintenance reminder system',
-    'care compliance tracker',
-    'reptile routine tracking',
-    'amphibian routine tracking',
-    'never miss reptile feeding',
-    'never miss misting schedule',
-    'set reminders for reptile care',
-    'set reminders for amphibian care',
-    'scheduled husbandry tasks',
-    'animal care notifications',
-    'reptile app with reminders',
-    'amphibian app with reminders',
-    'care calendar for exotic pets',
-    'terrarium maintenance calendar',
-    
-    // Roadmap & Development keywords
-    'habitat builder features',
-    'enclosure planner updates',
-    'new reptile species coming',
-    'upcoming features reptile planner',
-    'feature roadmap'
-  ],
-  ogImage: '/og-image.jpg',
-  canonical: 'https://habitat-builder.com'
+  description:
+    'Plan the perfect reptile or amphibian enclosure in minutes. Get a custom shopping list, step-by-step build guide, and care calendar for 18+ species. Free to use.',
+  ogImage: OG_IMAGE_PATH,
+  canonical: SITE_URL,
 };
+
+/**
+ * Scrapers reject relative image paths, and several never retry. Anything
+ * already absolute is left alone so a caller can point at an external asset.
+ */
+function toAbsoluteUrl(value: string): string {
+  if (value.startsWith('http://') || value.startsWith('https://')) return value;
+  return `${SITE_URL}${value.startsWith('/') ? '' : '/'}${value}`;
+}
 
 export function SEO({
   title,
   description,
-  keywords,
   canonical,
   ogImage,
   ogType = 'website',
@@ -258,11 +62,16 @@ export function SEO({
 }: SEOProps) {
   const location = useLocation();
 
-  const fullTitle = title ? `${title} | Habitat Builder` : DEFAULT_SEO.title;
+  // Pages that already name the brand would otherwise read "FAQ - Habitat
+  // Builder | Habitat Builder" in the tab and every search result.
+  const fullTitle = !title
+    ? DEFAULT_SEO.title
+    : title.includes('Habitat Builder')
+      ? title
+      : `${title} | Habitat Builder`;
   const metaDescription = description || DEFAULT_SEO.description;
-  const metaKeywords = keywords || DEFAULT_SEO.keywords;
   const canonicalUrl = canonical || `${DEFAULT_SEO.canonical}${location.pathname}`;
-  const imageUrl = ogImage || DEFAULT_SEO.ogImage;
+  const imageUrl = toAbsoluteUrl(ogImage || DEFAULT_SEO.ogImage);
 
   useEffect(() => {
     // Set document title
@@ -277,9 +86,11 @@ export function SEO({
     existingStructuredData.forEach(script => script.remove());
 
     // Create meta tags
+    // No meta keywords tag. Google has ignored it since 2009, Bing reads
+    // stuffing as a negative signal, and the 200-entry list that used to live
+    // here still advertised an enclosure designer that no longer exists.
     const metaTags = [
       { name: 'description', content: metaDescription },
-      { name: 'keywords', content: metaKeywords.join(', ') },
       
       // Open Graph
       { property: 'og:title', content: fullTitle },
@@ -287,6 +98,10 @@ export function SEO({
       { property: 'og:type', content: ogType },
       { property: 'og:url', content: canonicalUrl },
       { property: 'og:image', content: imageUrl },
+      // Dimensions let a scraper commit to the large card on first fetch
+      // instead of downloading the image before deciding.
+      { property: 'og:image:width', content: OG_IMAGE_WIDTH },
+      { property: 'og:image:height', content: OG_IMAGE_HEIGHT },
       { property: 'og:image:alt', content: 'Habitat Builder - Reptile & Amphibian Enclosure Planner' },
       { property: 'og:locale', content: 'en_US' },
       { property: 'og:site_name', content: 'Habitat Builder' },
@@ -298,8 +113,11 @@ export function SEO({
       { name: 'twitter:image', content: imageUrl },
       
       // Additional SEO
-      { name: 'robots', content: noindex ? 'noindex,nofollow' : 'index,follow' },
-      { name: 'googlebot', content: noindex ? 'noindex,nofollow' : 'index,follow' },
+      // noindex,follow rather than noindex,nofollow: an unfinished post should
+      // stay out of the index, but its links to finished posts are still worth
+      // crawling. nofollow would strand them.
+      { name: 'robots', content: noindex ? 'noindex,follow' : 'index,follow' },
+      { name: 'googlebot', content: noindex ? 'noindex,follow' : 'index,follow' },
       { name: 'author', content: 'Habitat Builder' },
       { name: 'theme-color', content: '#10b981' }
     ];
@@ -325,8 +143,25 @@ export function SEO({
       }
     }
 
-    // Append meta tags to head
+    // Append meta tags to head.
+    //
+    // Each one first removes any existing tag for the same key, including the
+    // static defaults in index.html. Without this every page carried two
+    // description tags and two of each og: tag — one static, one injected —
+    // and a scraper picking the wrong one would describe every page as the
+    // home page. It matters more now that those defaults exist to be read by
+    // scrapers that never run this code at all.
     metaTags.forEach(tag => {
+      const key =
+        'property' in tag && tag.property
+          ? `meta[property="${tag.property}"]`
+          : 'name' in tag && tag.name
+            ? `meta[name="${tag.name}"]`
+            : null;
+      if (key) {
+        document.head.querySelectorAll(key).forEach(existing => existing.remove());
+      }
+
       const meta = document.createElement('meta');
       meta.setAttribute('data-seo', 'true');
       
@@ -344,7 +179,7 @@ export function SEO({
     });
 
     // Set canonical link
-    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
     if (!canonicalLink) {
       canonicalLink = document.createElement('link');
       canonicalLink.setAttribute('rel', 'canonical');
@@ -362,50 +197,55 @@ export function SEO({
 
     // Add default organization structured data if none provided
     if (!structuredData) {
+      /**
+       * Kept honest deliberately. This list previously advertised an
+       * "interactive visual designer" and "drag-and-drop layout designer"
+       * months after the enclosure designer was deleted, while saying nothing
+       * about Setup Check, Ferguson zones or the vet report — the only
+       * features no competitor offers. Structured data that misdescribes the
+       * product is a spam-policy risk as well as a wasted signal.
+       */
       const organizationData = {
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
         name: 'Habitat Builder',
         description: metaDescription,
         url: DEFAULT_SEO.canonical,
-        applicationCategory: 'DesignApplication',
-        operatingSystem: 'Web',
+        applicationCategory: 'LifestyleApplication',
+        operatingSystem: 'Web, iOS',
         offers: [
           {
             '@type': 'Offer',
             price: '0',
             priceCurrency: 'USD',
-            description: 'Free — enclosure planner, shopping list, and care guides'
+            description: 'Free — enclosure planner, shopping list, species profiles and care guides',
           },
           {
             '@type': 'Offer',
             price: '2.99',
             priceCurrency: 'USD',
-            description: 'Premium — care calendar, animal tracking, weight logs, and inventory'
-          }
+            description:
+              'Premium — setup validation, vet reports, growth benchmarks, colony and cost tracking',
+          },
         ],
         featureList: [
-          'Custom enclosure design with interactive visual designer',
-          'Species-specific care parameters and warnings',
-          'Automated shopping lists with Amazon affiliate links',
-          'Step-by-step build instructions',
-          'Bioactive setup planning and calculations',
-          '70+ equipment items across 13 categories',
-          'Drag-and-drop layout designer with rotation and resizing',
-          'Budget-friendly equipment tier options (minimum/recommended/ideal)',
-          'UVB coverage and substrate depth calculators',
-          'Color-coded care difficulty levels',
-          'Care calendar with customizable reminders for feeding, maintenance, and monitoring',
-          'Care analytics dashboard with streaks, completion rates, and activity heatmaps',
-          'Equipment inventory tracking and maintenance reminders',
-          'UVB bulb replacement scheduling and substrate level monitoring',
-          'Push notifications for care tasks and equipment maintenance',
-          'Community setup submissions and gallery of real user builds',
-          'Complete species profiles with detailed care guidance',
+          "Setup Check: eight placement questions graded against your species' Ferguson zone",
+          'Habitat Score grading temperature, humidity, lighting and equipment placement',
+          'Ferguson zone UVB guidance, with bulb type and mounting distance checked together',
+          'Printable vet-ready health report covering weight, feeding, shedding and stool',
+          "What changed? — reconstructs husbandry changes in the weeks before a symptom",
+          "Growth percentiles built from other keepers' animals of the same species and age",
+          'Nutrition analysis reading supplementation against UVB provision',
+          'Feeder colony tracking: harvest rate against what breeding stock can replace',
+          'Cost of keeping, including electricity estimated from wattage and runtime',
+          'Pet-sitter care sheet generated from your own schedule',
+          'Care calendar with customisable push reminders for feeding and maintenance',
+          'Inventory tracking with UVB bulb replacement and consumable reminders',
+          'Collection import from a spreadsheet or another husbandry app export',
+          'Species profiles, build plans and automated shopping lists for 18+ species',
           'Interactive animal finder based on enclosure dimensions and care level',
-          'Dark mode support',
-          'Mobile-responsive design with native iOS app and full PWA installability'
-        ]
+          'Native iOS app plus full PWA installability',
+        ],
       };
 
       const script = document.createElement('script');
@@ -413,7 +253,7 @@ export function SEO({
       script.text = JSON.stringify(organizationData);
       document.head.appendChild(script);
     }
-  }, [fullTitle, metaDescription, metaKeywords, canonicalUrl, imageUrl, ogType, article, noindex, structuredData]);
+  }, [fullTitle, metaDescription, canonicalUrl, imageUrl, ogType, article, noindex, structuredData]);
 
   return null;
 }

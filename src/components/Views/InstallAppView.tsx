@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
 import { Download, Phone, MoreVertical, PlusSquare, Chrome, Smartphone } from 'lucide-react';
+import { SEO } from '../SEO/SEO';
 
 export function InstallAppView() {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
+      <SEO
+        title="Install the App"
+        description="Get Habitat Builder on iOS from the App Store, or install it to your home screen from any browser."
+      />
       {/* iOS App Store banner — most prominent option */}
       <div className="bg-accent rounded-2xl p-6 sm:p-8 text-white">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">

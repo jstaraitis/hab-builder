@@ -5,9 +5,8 @@ export function PrivacyPolicy() {
   return (
     <>
       <SEO
-        title="Privacy Policy - Habitat Builder"
+        title="Privacy Policy"
         description="Privacy Policy for Habitat Builder. Learn how we collect, use, and protect your personal information."
-        keywords={['privacy policy', 'habitat builder', 'data protection']}
       />
 
       <div className="max-w-4xl mx-auto space-y-8 pb-12">

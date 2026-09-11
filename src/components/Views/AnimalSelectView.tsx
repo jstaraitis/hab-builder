@@ -136,6 +136,18 @@ export function AnimalSelectView({
         </div>
       )}
 
+      {/* The page had no heading of its own — it was leaning on the site
+          wordmark in the header, which is no longer an h1. A page in the
+          sitemap with no h1 gives a crawler nothing to read it by. */}
+      <div>
+        <h1 className="text-2xl sm:text-3xl font-bold text-white">
+          Choose your reptile or amphibian
+        </h1>
+        <p className="text-sm text-muted mt-1">
+          Pick a species to generate a custom enclosure plan, shopping list and care schedule.
+        </p>
+      </div>
+
       <AnimalPicker selected={input.animal} onSelect={onSelect} />
 
       {selectedProfile && (

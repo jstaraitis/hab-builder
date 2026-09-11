@@ -135,14 +135,8 @@ export function Roadmap({ onOpenFeedback }: RoadmapProps) {
   return (
     <>
       <SEO
-        title="Roadmap - Habitat Builder"
+        title="Roadmap"
         description="See what's coming next for Habitat Builder. Track new features, animal profiles, and community tools in development."
-        keywords={[
-          'habitat builder roadmap',
-          'upcoming features',
-          'reptile tool updates',
-          'development plans',
-        ]}
       />
 
       <div className="max-w-4xl mx-auto space-y-6">

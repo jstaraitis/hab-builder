@@ -1,4 +1,12 @@
-# Netlify configuration for SPA routing
+# Netlify configuration
+
+# Prerendering drives a headless Chrome, which Puppeteer downloads on install.
+# Pinning the cache inside node_modules keeps it where Netlify's dependency
+# cache can find it between builds instead of re-downloading Chrome every time.
+[build.environment]
+  PUPPETEER_CACHE_DIR = "/opt/build/repo/node_modules/.puppeteer-cache"
+
+# SPA routing
 
 # Force HTTPS and redirect www to non-www
 [[redirects]]
@@ -22,5 +30,5 @@
 # SPA routing - must be last
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/shell.html"
   status = 200

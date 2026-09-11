@@ -29,7 +29,6 @@ export function SuppliesView({ plan, input }: SuppliesViewProps) {
       <SEO
         title="Shopping List & Supplies"
         description="Complete equipment shopping list for your reptile enclosure. Includes heating, lighting, substrate, and decor with build instructions."
-        keywords={['reptile supplies', 'vivarium shopping list', 'enclosure equipment', 'bioactive supplies', 'reptile decor']}
       />
       <div className="space-y-6">
       {/* Header Section */}

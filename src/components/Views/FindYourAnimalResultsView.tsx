@@ -188,7 +188,6 @@ export function FindYourAnimalResultsView({ onAnimalSelected }: FindYourAnimalRe
       <SEO
         title="Your Animal Recommendations"
         description={dynamicDescription}
-        keywords={['animal recommendations', 'reptile compatibility', 'enclosure match']}
       />
       <div className="max-w-5xl mx-auto">
         {/* Header */}

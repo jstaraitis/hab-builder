@@ -220,14 +220,8 @@ export function FAQ() {
   return (
     <>
       <SEO
-        title="FAQ - Habitat Builder"
+        title="Reptile & Amphibian Care FAQ"
         description="Frequently asked questions about Habitat Builder — the reptile and amphibian enclosure planner. Learn how to use the tool, choose equipment, and care for your animals."
-        keywords={[
-          'reptile enclosure faq',
-          'habitat builder help',
-          'reptile care questions',
-          'enclosure planning faq',
-        ]}
       />
 
       <div className="max-w-4xl mx-auto space-y-8">

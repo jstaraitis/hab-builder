@@ -100,9 +100,14 @@ function App() {
           style={isIOS ? { paddingTop: 'env(safe-area-inset-top)' } : undefined}
         >
           {/* Mobile: Simple header (also shown on native iOS/Android regardless of screen size) */}
+          {/* The wordmark is a span, not an h1. It renders on all 145 pages, so
+              as a heading it made "Habitat Builder" the first — and on many
+              pages the only — h1 a crawler saw, burying the heading that
+              actually describes the page. Purely a semantics change: the
+              classes are identical. */}
           <div className={`hidden flex-col items-center text-center ${isNative ? 'block' : 'lg:hidden'}`}>
             <Link to="/" className="block">
-              <h1 className="text-2xl font-bold text-accent hover:text-accent-dim transition-colors cursor-pointer"> Habitat Builder</h1>
+              <span className="block text-2xl font-bold text-accent hover:text-accent-dim transition-colors cursor-pointer"> Habitat Builder</span>
               <p className="text-xs text-muted">Custom enclosure plans for reptiles & amphibians</p>
             </Link>
           </div>
@@ -111,7 +116,7 @@ function App() {
           <div className={isNative ? 'hidden' : 'hidden lg:block'}>
             <div className="text-center mb-4">
               <Link to="/">
-                <h1 className="text-4xl font-bold text-accent hover:text-accent-dim transition-colors cursor-pointer"> Habitat Builder</h1>
+                <span className="block text-4xl font-bold text-accent hover:text-accent-dim transition-colors cursor-pointer"> Habitat Builder</span>
               </Link>
               <p className="text-sm text-muted mt-1">Generate custom enclosure plans for your reptiles & amphibians</p>
               <p className="text-sm text-muted mt-1">Built with love - for better care and fewer setup mistakes</p>

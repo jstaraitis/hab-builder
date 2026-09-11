@@ -22,12 +22,6 @@ export function About({ onOpenFeedback }: AboutProps) {
       <SEO
         title="About Habitat Builder"
         description="Learn about Habitat Builder's mission to help reptile and amphibian keepers design proper enclosures with accurate care parameters and equipment recommendations."
-        keywords={[
-          'about habitat builder',
-          'reptile enclosure tool',
-          'vivarium planning',
-          'reptile care guide',
-        ]}
       />
 
       <div className="max-w-4xl mx-auto space-y-6">

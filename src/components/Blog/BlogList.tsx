@@ -12,7 +12,6 @@ export function BlogList({ selectedAnimal }: BlogListProps) {
       <SEO
         title="Care Guides & Resources"
         description="Expert guides for keeping healthy reptiles and amphibians. Learn about enclosure setup, feeding, temperature, humidity, lighting, and species-specific care."
-        keywords={['reptile care guides', 'amphibian care', 'enclosure setup guide', 'reptile husbandry', 'species care guide']}
       />
       
       <div>

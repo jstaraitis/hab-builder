@@ -83,13 +83,6 @@ export function Home() {
       <SEO
         title="Design the Perfect Reptile Enclosure - Free Planner"
         description="Plan custom enclosures for 18+ reptile species. Get instant shopping lists, care guides, setup steps, and visual layouts. Free tool for beginners to experts."
-        keywords={[
-          'reptile enclosure planner',
-          'vivarium builder',
-          'habitat designer',
-          'free enclosure calculator',
-          'reptile care guide',
-        ]}
         canonical="https://habitat-builder.com"
         ogType="website"
       />

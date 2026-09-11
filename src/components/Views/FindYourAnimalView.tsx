@@ -93,17 +93,6 @@ export function FindYourAnimalView({ onAnimalSelected }: FindYourAnimalViewProps
         <SEO
           title="Find Your Perfect Animal - Enclosure Compatibility Tool"
           description={dynamicDescription}
-          keywords={[
-            'find reptile for enclosure',
-            'animal recommendation tool',
-            'reptile compatibility checker',
-            'enclosure animal matcher',
-            'which reptile for my tank',
-            'terrarium animal finder',
-            'vivarium compatibility tool',
-            'reptile space calculator',
-            'amphibian enclosure match',
-          ]}
         />
         <div className="max-w-4xl mx-auto">
           {/* Header */}

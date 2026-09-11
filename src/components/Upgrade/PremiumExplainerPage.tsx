@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Bell, LineChart, PawPrint, ShieldCheck, CheckCircle, Package, Calendar } from 'lucide-react';
 import { TRIAL_DAYS } from '../../constants/billing';
+import { SEO } from '../SEO/SEO';
 
 export function PremiumExplainerPage() {
   const monthlyPrice = 2.99;
@@ -12,6 +13,10 @@ export function PremiumExplainerPage() {
   // `bg-gray-900` with extra steps.
   return (
     <div className="min-h-screen bg-surface py-12 px-4">
+      <SEO
+        title="Premium"
+        description="Setup validation against your species' Ferguson zone, vet-ready health reports, growth percentiles, feeder colony tracking and cost of keeping. From $2.99 a month."
+      />
       <div className="max-w-5xl mx-auto space-y-10">
         <div className="text-center space-y-3">
           <h1 className="text-4xl md:text-5xl font-bold text-white">

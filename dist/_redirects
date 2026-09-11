@@ -1,4 +1,6 @@
 # Netlify redirects for SPA (Single Page Application)
-# This ensures all routes serve index.html so React Router can handle routing client-side
+# Unmatched URLs fall back to shell.html, not index.html: index.html is now the
+# prerendered home page, and serving it for /dashboard would flash the home page
+# and claim the home page as canonical for every unmatched URL.
 
-/*    /index.html   200
+/*    /shell.html   200

@@ -18,7 +18,6 @@ export function DesignView({ selectedProfile, input, setInput, plan, error, onGe
       <SEO
         title={`Design ${selectedProfile?.commonName || 'Reptile'} Enclosure`}
         description={`Design a custom ${selectedProfile?.commonName || 'reptile'} enclosure. Set dimensions, choose materials, and preview your habitat layout in real-time.`}
-        keywords={['enclosure designer', 'vivarium planner', 'habitat design tool', 'reptile enclosure calculator', `${selectedProfile?.commonName.toLowerCase()} enclosure`]}
       />
       {error && (
         <div className="bg-red-100 dark:bg-red-900/20 border border-red-400 dark:border-red-800 text-red-700 dark:text-red-300 px-4 py-3 rounded-xl">

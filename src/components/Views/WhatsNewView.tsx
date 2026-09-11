@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom';
 import { Sparkles, ArrowLeft } from 'lucide-react';
 import { changelogEntries } from '../../data/changelog';
+import { SEO } from '../SEO/SEO';
 
 export function WhatsNewView() {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
+      <SEO
+        title="What's New"
+        description="Release notes for Habitat Builder — new husbandry checks, care tracking features and fixes, newest first."
+      />
       <div className="bg-accent rounded-2xl p-6 sm:p-8 text-white">
         <div className="flex items-start gap-4">
           <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center text-white">

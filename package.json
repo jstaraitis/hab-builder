@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/generate-sitemap.js",
     "build": "tsc && vite build",
+    "generate-og-image": "node scripts/generate-og-image.js",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest",
@@ -19,7 +21,10 @@
     "cap:sync": "npm run build && npx cap sync ios",
     "cap:add-ios": "npx cap add ios",
     "cap:open": "npx cap open ios",
-    "cap:copy": "npx cap copy ios"
+    "cap:copy": "npx cap copy ios",
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "prerender": "node scripts/prerender.js",
+    "postbuild": "node scripts/prerender.js"
   },
   "dependencies": {
     "@capacitor/android": "^8.3.1",
@@ -54,6 +59,7 @@
     "knip": "^5.82.1",
     "postcss": "^8.4.32",
     "prettier": "^3.9.6",
+    "puppeteer": "^25.10.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.2.2",

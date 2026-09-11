@@ -43,7 +43,6 @@ export function PlanView({ plan, input }: PlanViewProps) {
       <SEO
         title={`${animalName} Build Plan & Instructions`}
         description={`Complete ${animalName} enclosure build plan with step-by-step instructions, equipment list, and care parameters. ${input.width}x${input.depth}x${input.height}" ${input.bioactive ? 'bioactive' : 'standard'} setup.`}
-        keywords={[`${animalName.toLowerCase()} build guide`, 'enclosure instructions', 'vivarium setup', 'habitat build steps', 'reptile shopping list']}
       />
       <div className="space-y-6">
       {/* Header Section */}
